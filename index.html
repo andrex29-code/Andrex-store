@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANDREX Store | Estilo · Aroma · Entretenimiento</title>
+<title>ANDREX Store</title>
 
 <style>
 :root{
@@ -11,7 +11,6 @@
   --gold2:#f4d47a;
   --bg:#080808;
   --card:#121212;
-  --muted:#aaa;
 }
 
 *{box-sizing:border-box}
@@ -20,62 +19,60 @@ body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
-  color:#fff;
+  color:white;
 }
 
 header{
-  min-height:520px;
+  min-height:500px;
   padding:30px 7%;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:radial-gradient(circle at 50% 20%,#30230d 0,#0b0b0b 42%,#050505 100%);
+  background:radial-gradient(circle at 50% 20%,#30230d,#0b0b0b 45%,#050505);
   border-bottom:1px solid #5b4317;
 }
 
+.crown{
+  font-size:60px;
+  color:var(--gold);
+}
+
 .logo{
-  font-size:clamp(52px,10vw,110px);
+  font-size:clamp(55px,10vw,110px);
   font-weight:900;
   letter-spacing:8px;
   color:var(--gold2);
   text-shadow:0 0 25px #8d681d;
 }
 
-.crown{
-  font-size:62px;
-  color:var(--gold);
-  margin-bottom:-10px;
-}
-
 .tag{
-  letter-spacing:4px;
+  letter-spacing:3px;
   color:#ddd;
-  font-size:clamp(13px,2vw,19px);
 }
 
 .btn{
   display:inline-block;
   margin-top:28px;
-  padding:14px 24px;
+  padding:14px 25px;
   border-radius:30px;
   background:linear-gradient(135deg,var(--gold2),var(--gold));
   color:#090909;
   text-decoration:none;
-  font-weight:800;
+  font-weight:bold;
 }
 
 section{
-  padding:55px 7%;
-  max-width:1200px;
+  padding:50px 6%;
+  max-width:1300px;
   margin:auto;
 }
 
 h2{
   text-align:center;
   color:var(--gold2);
-  font-size:32px;
-  margin-bottom:35px;
+  font-size:30px;
+  margin-bottom:30px;
 }
 
 .categories,
@@ -95,30 +92,30 @@ h2{
 }
 
 .cat .icon{
-  font-size:42px;
+  font-size:45px;
 }
 
 .cat h3{
-  margin:12px 0 5px;
+  margin-bottom:5px;
 }
 
 .cat p{
-  color:var(--muted);
+  color:#aaa;
 }
 
 .product{
   overflow:hidden;
 }
 
-.product .pic{
+.photo{
   width:100%;
-  height:260px;
-  border-radius:13px;
+  height:280px;
+  border-radius:14px;
   overflow:hidden;
-  background:linear-gradient(135deg,#242424,#0a0a0a);
+  background:#181818;
 }
 
-.product .pic img{
+.photo img{
   width:100%;
   height:100%;
   object-fit:cover;
@@ -126,43 +123,37 @@ h2{
 }
 
 .product h3{
-  margin:16px 0 8px;
+  margin:15px 0 8px;
 }
 
 .price{
   color:var(--gold2);
-  font-size:18px;
-  font-weight:800;
+  font-weight:bold;
   margin-bottom:15px;
 }
 
 .whatsapp{
   display:block;
-  text-decoration:none;
-  padding:12px;
+  padding:13px;
   border-radius:12px;
   background:#1f9d55;
-  color:#fff;
-  font-weight:700;
-}
-
-.note{
-  text-align:center;
-  color:#999;
-  font-size:14px;
-  margin-top:25px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 .loading{
+  grid-column:1/-1;
   text-align:center;
-  color:#aaa;
   padding:30px;
+  color:#aaa;
 }
 
 .error{
+  grid-column:1/-1;
   text-align:center;
-  color:#ff7777;
   padding:30px;
+  color:#ff7777;
 }
 
 footer{
@@ -174,7 +165,7 @@ footer{
 
 .brand{
   color:var(--gold2);
-  font-weight:800;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -182,18 +173,25 @@ footer{
 <body>
 
 <header>
-  <div>
-    <div class="crown">♛</div>
-    <div class="logo">ANDREX</div>
-    <div class="tag">STORE · ESTILO · AROMA · ENTRETENIMIENTO</div>
+<div>
 
-    <a class="btn"
-       href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20quiero%20hacer%20una%20consulta."
-       target="_blank">
-       Comprar por WhatsApp
-    </a>
-  </div>
+<div class="crown">♛</div>
+
+<div class="logo">ANDREX</div>
+
+<div class="tag">
+STORE · ESTILO · AROMA · ENTRETENIMIENTO
+</div>
+
+<a class="btn"
+href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20quiero%20hacer%20una%20consulta."
+target="_blank">
+Comprar por WhatsApp
+</a>
+
+</div>
 </header>
+
 
 <section>
 
@@ -201,82 +199,74 @@ footer{
 
 <div class="categories">
 
-  <div class="cat">
-    <div class="icon">👕</div>
-    <h3>Ropa</h3>
-    <p>Prendas para todos los estilos.</p>
-  </div>
+<div class="cat">
+<div class="icon">👕</div>
+<h3>Ropa</h3>
+<p>Prendas para todos los estilos.</p>
+</div>
 
-  <div class="cat">
-    <div class="icon">👟</div>
-    <h3>Zapatos</h3>
-    <p>Calzado para cada ocasión.</p>
-  </div>
+<div class="cat">
+<div class="icon">👟</div>
+<h3>Zapatos</h3>
+<p>Calzado para cada ocasión.</p>
+</div>
 
-  <div class="cat">
-    <div class="icon">🧴</div>
-    <h3>Lociones</h3>
-    <p>Fragancias para dejar huella.</p>
-  </div>
+<div class="cat">
+<div class="icon">🧴</div>
+<h3>Lociones</h3>
+<p>Fragancias para dejar huella.</p>
+</div>
 
-  <div class="cat">
-    <div class="icon">🎬</div>
-    <h3>Streaming</h3>
-    <p>Entretenimiento para disfrutar.</p>
-  </div>
+<div class="cat">
+<div class="icon">🎬</div>
+<h3>Streaming</h3>
+<p>Entretenimiento para disfrutar.</p>
+</div>
 
 </div>
 
 </section>
 
-
-<!-- ROPA -->
 
 <section>
 
 <h2>👕 Ropa</h2>
 
 <div class="products" id="ropa">
-  <div class="loading">Cargando productos...</div>
+<div class="loading">Cargando fotos...</div>
 </div>
 
 </section>
 
-
-<!-- ZAPATOS -->
 
 <section>
 
 <h2>👟 Zapatos</h2>
 
 <div class="products" id="zapatos">
-  <div class="loading">Cargando productos...</div>
+<div class="loading">Cargando fotos...</div>
 </div>
 
 </section>
 
-
-<!-- LOCIONES -->
 
 <section>
 
 <h2>🧴 Lociones</h2>
 
 <div class="products" id="lociones">
-  <div class="loading">Cargando productos...</div>
+<div class="loading">Cargando fotos...</div>
 </div>
 
 </section>
 
-
-<!-- STREAMING -->
 
 <section>
 
 <h2>🎬 Streaming</h2>
 
 <div class="products" id="streaming">
-  <div class="loading">Cargando productos...</div>
+<div class="loading">Cargando fotos...</div>
 </div>
 
 </section>
@@ -288,7 +278,7 @@ footer{
 
 <p>Estilo · Aroma · Entretenimiento</p>
 
-<p>Pedidos y consultas por WhatsApp: 318 157 9324</p>
+<p>Pedidos por WhatsApp: 318 157 9324</p>
 
 </footer>
 
@@ -296,28 +286,37 @@ footer{
 <script>
 
 const usuario = "andrex29-code";
-const repositorio = "Andrex-store";
+const repo = "Andrex-store";
+const rama = "main";
+const whatsapp = "573181579324";
 
-const numeroWhatsApp = "573181579324";
 
-
-async function cargarProductos(carpeta){
+async function cargarFotos(carpeta){
 
   const contenedor = document.getElementById(carpeta);
 
   try{
 
-    const respuesta = await fetch(
-      `https://api.github.com/repos/${usuario}/${repositorio}/contents/${carpeta}`
-    );
+    const url =
+      "https://api.github.com/repos/" +
+      usuario +
+      "/" +
+      repo +
+      "/contents/" +
+      carpeta +
+      "?ref=" +
+      rama;
+
+    const respuesta = await fetch(url);
 
     if(!respuesta.ok){
-      throw new Error("No se pudo cargar la carpeta");
+      throw new Error("Error " + respuesta.status);
     }
 
     const archivos = await respuesta.json();
 
     const fotos = archivos.filter(archivo =>
+      archivo.type === "file" &&
       /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
     );
 
@@ -326,35 +325,51 @@ async function cargarProductos(carpeta){
     if(fotos.length === 0){
 
       contenedor.innerHTML =
-        '<div class="loading">Próximamente agregaremos productos.</div>';
+        '<div class="loading">Aún no hay fotos en esta categoría.</div>';
 
       return;
     }
 
-    fotos.forEach((foto,index)=>{
 
-      const numero = index + 1;
+    fotos.forEach((foto, indice)=>{
+
+      const numero = indice + 1;
+
+      const nombre =
+        carpeta.charAt(0).toUpperCase() +
+        carpeta.slice(1);
 
       const mensaje =
-        `Hola ANDREX Store, me interesa el producto de ${carpeta} #${numero}.`;
+        "Hola ANDREX Store, me interesa el producto de " +
+        nombre +
+        " #" +
+        numero +
+        ".";
 
-      const enlaceWhatsApp =
-        `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+      const enlace =
+        "https://wa.me/" +
+        whatsapp +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
 
       const tarjeta = document.createElement("div");
 
       tarjeta.className = "product";
 
+
       tarjeta.innerHTML = `
 
-        <div class="pic">
+        <div class="photo">
+
           <img
             src="${foto.download_url}"
-            alt="${carpeta} ${numero}"
+            alt="${nombre} ${numero}"
             loading="lazy">
+
         </div>
 
-        <h3>${carpeta.charAt(0).toUpperCase() + carpeta.slice(1)} ${numero}</h3>
+        <h3>${nombre} ${numero}</h3>
 
         <div class="price">
           Consultar precio
@@ -362,33 +377,36 @@ async function cargarProductos(carpeta){
 
         <a
           class="whatsapp"
-          href="${enlaceWhatsApp}"
+          href="${enlace}"
           target="_blank">
           Consultar
         </a>
 
       `;
 
+
       contenedor.appendChild(tarjeta);
 
     });
 
-  }catch(error){
+  }
+
+  catch(error){
+
+    console.log(error);
 
     contenedor.innerHTML =
       '<div class="error">No se pudieron cargar las fotos.</div>';
-
-    console.error(error);
 
   }
 
 }
 
 
-cargarProductos("ropa");
-cargarProductos("zapatos");
-cargarProductos("lociones");
-cargarProductos("streaming");
+cargarFotos("ropa");
+cargarFotos("zapatos");
+cargarFotos("lociones");
+cargarFotos("streaming");
 
 </script>
 
