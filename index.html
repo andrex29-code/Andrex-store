@@ -4,7 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANDREX Store</title>
+.mensaje-categoria {
+  display: none;
+  margin: 20px auto;
+  padding: 18px;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 18px;
+  animation: aparecer 0.4s ease;
+}
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 <style>
  .floating-characters {
   position: fixed;
@@ -248,32 +269,55 @@ Comprar por WhatsApp
 <section>
 
 <h2>Todo lo que buscas, en un solo lugar</h2>
-
 <div class="categories">
 
-<div class="cat">
+<div class="cat" onclick="mostrarMensaje('ropa')">
 <div class="icon">👕</div>
 <h3>Ropa</h3>
-<p>Prendas para todos los estilos.</p>
 </div>
 
-<div class="cat">
+<div class="cat" onclick="mostrarMensaje('zapatos')">
 <div class="icon">👟</div>
 <h3>Zapatos</h3>
-<p>Calzado para cada ocasión.</p>
 </div>
 
-<div class="cat">
+<div class="cat" onclick="mostrarMensaje('lociones')">
 <div class="icon">🧴</div>
 <h3>Lociones</h3>
-<p>Fragancias para dejar huella.</p>
 </div>
 
-<div class="cat">
+<div class="cat" onclick="mostrarMensaje('streaming')">
 <div class="icon">🎬</div>
 <h3>Streaming</h3>
-<p>Entretenimiento para disfrutar.</p>
 </div>
+
+</div>
+
+<div id="mensajeCategoria" class="mensaje-categoria"></div>
+<script>
+function mostrarMensaje(categoria) {
+
+  const mensaje = document.getElementById("mensajeCategoria");
+
+  if (categoria === "ropa") {
+    mensaje.innerHTML = "manejamos ropa deportiva 1.1🔥💵 a muy buen precio camisas pantalones conjuntos y muchos mas  👕";
+  }
+
+  if (categoria === "zapatos") {
+    mensaje.innerHTML = "tenemos los mejores zapatos para cualquier momento del dia y ocacion zapatillas zapatos bajo nike adidas ✨🇨🇴 👟";
+  }
+
+  if (categoria === "lociones") {
+    mensaje.innerHTML = "Aqui podras encontrar elegancia feescura manejamos lociones 1.1 y tambien originales hacemos envios a nivel nacional pagos contra entrega🚛❤️ 🧴";
+  }
+
+  if (categoria === "streaming") {
+    mensaje.innerHTML = "Aqui podras encontrar panatallas y cuentas de strimeng para disfrutar en familia con tus padres he hijos💵✨ mejores precios soporte 24 horas📸📲 🎬";
+  }
+
+  mensaje.style.display = "block";
+}
+</script>
 
 </div>
 
