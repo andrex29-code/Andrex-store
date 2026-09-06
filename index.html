@@ -6,6 +6,48 @@
 <title>ANDREX Store</title>
 
 <style>
+  .floating-characters {
+  position: fixed;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.floating-characters span {
+  font-size: 32px;
+  display: inline-block;
+  animation: flotar 2.5s ease-in-out infinite;
+}
+
+.floating-characters span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.floating-characters span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.floating-characters span:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.floating-characters span:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
 :root{
   --gold:#d6a63a;
   --gold2:#f4d47a;
@@ -315,10 +357,11 @@ async function cargarFotos(carpeta){
 
     const archivos = await respuesta.json();
 
-    const fotos = archivos.filter(archivo =>
-      archivo.type === "file" &&
-      /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
-    );
+   const fotos = archivos.filter(archivo =>
+  archivo.type === "file" &&
+  /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
+).slice(0, 10);
+  
 
     contenedor.innerHTML = "";
 
@@ -411,4 +454,11 @@ cargarFotos("streaming");
 </script>
 
 </body>
+  <div class="floating-characters">
+  <span>🛍️</span>
+  <span>👕</span>
+  <span>👟</span>
+  <span>🧴</span>
+  <span>✨</span>
+</div>
 </html>
