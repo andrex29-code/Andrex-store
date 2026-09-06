@@ -297,28 +297,19 @@ Comprar por WhatsApp
 <script>
 function mostrarMensaje(categoria) {
 
+  const mensajes = {
+    ropa: "AQUÍ PONDRÁS TU MENSAJE DE ROPA 👕",
+    zapatos: "AQUÍ PONDRÁS TU MENSAJE DE ZAPATOS 👟",
+    lociones: "AQUÍ PONDRÁS TU MENSAJE DE LOCIONES 🧴",
+    streaming: "AQUÍ PONDRÁS TU MENSAJE DE STREAMING 🎬"
+  };
+
   const mensaje = document.getElementById("mensajeCategoria");
 
-  if (categoria === "ropa") {
-    mensaje.innerHTML = "manejamos ropa deportiva 1.1🔥💵 a muy buen precio camisas pantalones conjuntos y muchos mas  👕";
-  }
-
-  if (categoria === "zapatos") {
-    mensaje.innerHTML = "tenemos los mejores zapatos para cualquier momento del dia y ocacion zapatillas zapatos bajo nike adidas ✨🇨🇴 👟";
-  }
-
-  if (categoria === "lociones") {
-    mensaje.innerHTML = "Aqui podras encontrar elegancia feescura manejamos lociones 1.1 y tambien originales hacemos envios a nivel nacional pagos contra entrega🚛❤️ 🧴";
-  }
-
-  if (categoria === "streaming") {
-    mensaje.innerHTML = "Aqui podras encontrar panatallas y cuentas de strimeng para disfrutar en familia con tus padres he hijos💵✨ mejores precios soporte 24 horas📸📲 🎬";
-  }
-
+  mensaje.textContent = mensajes[categoria];
   mensaje.style.display = "block";
 }
 </script>
-
 </div>
 
 </section>
