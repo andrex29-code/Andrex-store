@@ -6,37 +6,47 @@
 <title>ANDREX Store</title>
 
 <style>
-  .floating-characters {
+ .floating-characters {
   position: fixed;
-  bottom: 15px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+  inset: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 5;
+  overflow: hidden;
 }
 
 .floating-characters span {
-  font-size: 32px;
-  display: inline-block;
-  animation: flotar 2.5s ease-in-out infinite;
+  position: absolute;
+  font-size: 30px;
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.floating-characters span:nth-child(1) {
+  top: 18%;
+  left: 8%;
 }
 
 .floating-characters span:nth-child(2) {
-  animation-delay: 0.3s;
+  top: 38%;
+  right: 8%;
+  animation-delay: 0.8s;
 }
 
 .floating-characters span:nth-child(3) {
-  animation-delay: 0.6s;
+  top: 58%;
+  left: 12%;
+  animation-delay: 1.5s;
 }
 
 .floating-characters span:nth-child(4) {
-  animation-delay: 0.9s;
+  top: 72%;
+  right: 12%;
+  animation-delay: 2.2s;
 }
 
 .floating-characters span:nth-child(5) {
-  animation-delay: 1.2s;
+  top: 28%;
+  right: 35%;
+  animation-delay: 2.8s;
 }
 
 @keyframes flotar {
@@ -45,7 +55,7 @@
   }
 
   50% {
-    transform: translateY(-15px) rotate(5deg);
+    transform: translateY(-18px) rotate(8deg);
   }
 }
 :root{
