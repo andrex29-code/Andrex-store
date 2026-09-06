@@ -4,61 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANDREX Store</title>
- 
-     <style> 
-      
- .floating-characters {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 5;
-  overflow: hidden;
-}
 
-.floating-characters span {
-  position: absolute;
-  font-size: 30px;
-  animation: flotar 4s ease-in-out infinite;
-}
+<style>
 
-.floating-characters span:nth-child(1) {
-  top: 18%;
-  left: 8%;
-}
-
-.floating-characters span:nth-child(2) {
-  top: 38%;
-  right: 8%;
-  animation-delay: 0.8s;
-}
-
-.floating-characters span:nth-child(3) {
-  top: 58%;
-  left: 12%;
-  animation-delay: 1.5s;
-}
-
-.floating-characters span:nth-child(4) {
-  top: 72%;
-  right: 12%;
-  animation-delay: 2.2s;
-}
-
-.floating-characters span:nth-child(5) {
-  top: 28%;
-  right: 35%;
-  animation-delay: 2.8s;
-}
-
-@keyframes flotar {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-18px) rotate(8deg);
-  }
-}
 :root{
   --gold:#d6a63a;
   --gold2:#f4d47a;
@@ -66,7 +14,9 @@
   --card:#121212;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -75,8 +25,10 @@ body{
   color:white;
 }
 
+/* ENCABEZADO */
+
 header{
-  min-height:500px;
+  min-height:600px;
   padding:30px 7%;
   display:flex;
   align-items:center;
@@ -98,6 +50,32 @@ header{
   color:var(--gold2);
   text-shadow:0 0 25px #8d681d;
 }
+
+/* VIDEO DE PRESENTACIÓN */
+
+.video-presentacion{
+  width:min(90vw,700px);
+  margin:25px auto;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #5b4317;
+  box-shadow:0 0 30px rgba(214,166,58,0.25);
+  background:#111;
+}
+
+.video-presentacion video{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.video-fallback{
+  padding:35px 20px;
+  color:#aaa;
+  font-size:15px;
+}
+
+/* TEXTO */
 
 .tag{
   letter-spacing:3px;
@@ -128,6 +106,8 @@ h2{
   margin-bottom:30px;
 }
 
+/* CATEGORÍAS */
+
 .categories,
 .products{
   display:grid;
@@ -144,25 +124,49 @@ h2{
   text-align:center;
 }
 
-.cat .icon{
-  font-size:45px;
+.cat{
+  cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease;
 }
 
-.cat h3{
-  margin-bottom:5px;
-}
-  .cat{
-  cursor:pointer;
-  transition:transform 0.2s ease, box-shadow 0.2s ease;
+.cat:hover{
+  box-shadow:0 0 20px rgba(214,166,58,.18);
 }
 
 .cat:active{
-  transform:scale(0.95);
+  transform:scale(.95);
+}
+
+.cat .icon{
+  font-size:48px;
+}
+
+.cat h3{
+  margin:10px 0 5px;
 }
 
 .cat p{
   color:#aaa;
 }
+
+/* MENSAJES */
+
+.mensaje-categoria{
+  display:none;
+  margin:25px auto 0;
+  max-width:750px;
+  padding:22px;
+  text-align:center;
+  background:linear-gradient(145deg,#1c1c1c,#0d0d0d);
+  border:1px solid var(--gold);
+  border-radius:18px;
+  color:var(--gold2);
+  font-size:18px;
+  line-height:1.6;
+  box-shadow:0 0 25px rgba(214,166,58,.15);
+}
+
+/* PRODUCTOS */
 
 .product{
   overflow:hidden;
@@ -217,6 +221,8 @@ h2{
   color:#ff7777;
 }
 
+/* PIE */
+
 footer{
   text-align:center;
   padding:35px 20px;
@@ -228,232 +234,438 @@ footer{
   color:var(--gold2);
   font-weight:bold;
 }
+
+/* FIGURAS FLOTANTES */
+
+.floating-characters{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+  overflow:hidden;
+}
+
+.floating-characters span{
+  position:absolute;
+  font-size:30px;
+  animation:flotar 4s ease-in-out infinite;
+}
+
+.floating-characters span:nth-child(1){
+  top:18%;
+  left:8%;
+}
+
+.floating-characters span:nth-child(2){
+  top:38%;
+  right:8%;
+  animation-delay:.8s;
+}
+
+.floating-characters span:nth-child(3){
+  top:58%;
+  left:12%;
+  animation-delay:1.5s;
+}
+
+.floating-characters span:nth-child(4){
+  top:72%;
+  right:12%;
+  animation-delay:2.2s;
+}
+
+.floating-characters span:nth-child(5){
+  top:28%;
+  right:35%;
+  animation-delay:2.8s;
+}
+
+@keyframes flotar{
+
+  0%,100%{
+    transform:translateY(0) rotate(0deg);
+  }
+
+  50%{
+    transform:translateY(-18px) rotate(8deg);
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div>
 
 <div class="crown">♛</div>
 
 <div class="logo">ANDREX</div>
 
+<!-- VIDEO -->
+<div class="video-presentacion">
+
+<video
+autoplay
+muted
+loop
+playsinline
+poster="">
+
+<source src="video-andrex.mp4" type="video/mp4">
+
+<div class="video-fallback">
+🎬 Próximamente presentación de ANDREX Store
+</div>
+
+</video>
+
+</div>
+
 <div class="tag">
 STORE · ESTILO · AROMA · ENTRETENIMIENTO
 </div>
 
-<a class="btn"
+<a
+class="btn"
 href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20quiero%20hacer%20una%20consulta."
 target="_blank">
+
 Comprar por WhatsApp
+
 </a>
 
 </div>
+
 </header>
 
+
+<!-- CATEGORÍAS -->
 
 <section>
 
 <h2>Todo lo que buscas, en un solo lugar</h2>
+
 <div class="categories">
-<div class="cat" onclick="document.getElementById('ropa').scrollIntoView({behavior:'smooth'})">
-<div class="cat" onclick="document.getElementById('zapatos').scrollIntoView({behavior:'smooth'})">
-<div class="cat" onclick="document.getElementById('lociones').scrollIntoView({behavior:'smooth'})">
-<div class="cat" onclick="document.getElementById('streaming').scrollIntoView({behavior:'smooth'})">
+
+<div class="cat" onclick="mostrarMensaje('ropa')">
+
+<div class="icon">👕</div>
+
+<h3>Ropa</h3>
+
+<p>Estilo para cada ocasión</p>
+
+</div>
+
+
+<div class="cat" onclick="mostrarMensaje('zapatos')">
+
+<div class="icon">👟</div>
+
+<h3>Zapatos</h3>
+
+<p>Camina con tu propio estilo</p>
+
+</div>
+
+
+<div class="cat" onclick="mostrarMensaje('lociones')">
+
+<div class="icon">🧴</div>
+
+<h3>Lociones</h3>
+
+<p>Una esencia que habla por ti</p>
+
+</div>
+
+
+<div class="cat" onclick="mostrarMensaje('streaming')">
+
+<div class="icon">🎬</div>
+
+<h3>Streaming</h3>
+
+<p>Entretenimiento sin límites</p>
 
 </div>
 
 </div>
+
+
+<div id="mensajeCategoria" class="mensaje-categoria"></div>
+
+
+<script>
+
+function mostrarMensaje(categoria){
+
+const mensajes={
+
+ropa:
+"👕✨ Descubre nuestro mundo de moda. Encuentra prendas para sentirte cómodo, seguro y con mucho estilo. ¡Tu próximo look puede estar aquí! 💫",
+
+zapatos:
+"👟🔥 Dale un nuevo paso a tu estilo. Encuentra ese par que combine contigo y haga destacar cada paso. ✨",
+
+lociones:
+"🧴✨ Deja una huella que nadie olvide. Descubre aromas especiales para complementar tu personalidad y hacer que cada momento tenga su propia esencia. ❤️",
+
+streaming:
+"🎬🍿 Tu entretenimiento comienza aquí. Disfruta tus contenidos favoritos y encuentra opciones para llenar tus momentos de diversión. ¡Escríbenos y conoce más! ❤️"
+
+};
+
+const mensaje=document.getElementById("mensajeCategoria");
+
+mensaje.textContent=mensajes[categoria];
+
+mensaje.style.display="block";
+
+}
+
+</script>
 
 </section>
 
+
+<!-- ROPA -->
 
 <section>
 
 <h2>👕 Ropa</h2>
 
 <div class="products" id="ropa">
-<div class="loading">Cargando fotos...</div>
+
+<div class="loading">
+Cargando fotos...
+</div>
+
 </div>
 
 </section>
 
+
+<!-- ZAPATOS -->
 
 <section>
 
 <h2>👟 Zapatos</h2>
 
 <div class="products" id="zapatos">
-<div class="loading">Cargando fotos...</div>
+
+<div class="loading">
+Cargando fotos...
+</div>
+
 </div>
 
 </section>
 
+
+<!-- LOCIONES -->
 
 <section>
 
 <h2>🧴 Lociones</h2>
 
 <div class="products" id="lociones">
-<div class="loading">Cargando fotos...</div>
+
+<div class="loading">
+Cargando fotos...
+</div>
+
 </div>
 
 </section>
 
+
+<!-- STREAMING -->
 
 <section>
 
 <h2>🎬 Streaming</h2>
 
 <div class="products" id="streaming">
-<div class="loading">Cargando fotos...</div>
+
+<div class="loading">
+Cargando fotos...
+</div>
+
 </div>
 
 </section>
 
 
+<!-- PIE -->
+
 <footer>
 
-<div class="brand">ANDREX Store</div>
+<div class="brand">
+ANDREX Store
+</div>
 
-<p>Estilo · Aroma · Entretenimiento</p>
+<p>
+Estilo · Aroma · Entretenimiento
+</p>
 
-<p>Pedidos por WhatsApp: 318 157 9324</p>
+<p>
+Pedidos por WhatsApp: 318 157 9324
+</p>
 
 </footer>
 
 
+<!-- FIGURAS FLOTANTES -->
+
+<div class="floating-characters">
+
+<span>🛍️</span>
+<span>👕</span>
+<span>👟</span>
+<span>🧴</span>
+<span>✨</span>
+
+</div>
+
+
 <script>
 
-const usuario = "andrex29-code";
-const repo = "Andrex-store";
-const rama = "main";
-const whatsapp = "573181579324";
+const usuario="andrex29-code";
+const repo="Andrex-store";
+const rama="main";
+const whatsapp="573181579324";
 
 
-async function cargarFotos(carpeta, rutaCarpeta = carpeta){
+async function cargarFotos(carpeta,rutaCarpeta=carpeta){
 
-  const contenedor = document.getElementById(carpeta);
+const contenedor=document.getElementById(carpeta);
 
-  try{
+try{
 
-    const url =
-      "https://api.github.com/repos/" +
-      usuario +
-      "/" +
-      repo +
-      "/contents/" +
-      rutaCarpeta +
-      "?ref=" +
-      rama;
+const url=
+"https://api.github.com/repos/"+
+usuario+
+"/"+
+repo+
+"/contents/"+
+rutaCarpeta+
+"?ref="+
+rama;
 
-    const respuesta = await fetch(url);
+const respuesta=await fetch(url);
 
-    if(!respuesta.ok){
-      throw new Error("Error " + respuesta.status);
-    }
+if(!respuesta.ok){
 
-    const archivos = await respuesta.json();
-
-    const fotos = archivos.filter(archivo =>
-      archivo.type === "file" &&
-      /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
-    ).slice(0, 10);
-
-    contenedor.innerHTML = "";
-
-    if(fotos.length === 0){
-
-      contenedor.innerHTML =
-        '<div class="loading">Aún no hay fotos en esta categoría.</div>';
-
-      return;
-    }
-
-    fotos.forEach((foto, indice)=>{
-
-      const numero = indice + 1;
-
-      const nombre =
-        carpeta.charAt(0).toUpperCase() +
-        carpeta.slice(1);
-
-      const mensaje =
-        "Hola ANDREX Store, me interesa el producto de " +
-        nombre +
-        " #" +
-        numero +
-        ".";
-
-      const enlace =
-        "https://wa.me/" +
-        whatsapp +
-        "?text=" +
-        encodeURIComponent(mensaje);
-
-      const tarjeta = document.createElement("div");
-
-      tarjeta.className = "product";
-
-      tarjeta.innerHTML = `
-
-        <div class="photo">
-
-          <img
-            src="${foto.download_url}"
-            alt="${nombre} ${numero}"
-            loading="lazy">
-
-        </div>
-
-        <h3>${nombre} ${numero}</h3>
-
-        <div class="price">
-          Consultar precio
-        </div>
-
-        <a
-          class="whatsapp"
-          href="${enlace}"
-          target="_blank">
-          Consultar
-        </a>
-
-      `;
-
-      contenedor.appendChild(tarjeta);
-
-    });
-
-  }
-
-  catch(error){
-
-    console.log(error);
-
-    contenedor.innerHTML =
-      '<div class="error">No se pudieron cargar las fotos.</div>';
-
-  }
+throw new Error("Error "+respuesta.status);
 
 }
-cargarFotos("ropa", "ropa/nueva");
+
+const archivos=await respuesta.json();
+
+const fotos=archivos.filter(archivo=>
+archivo.type==="file" &&
+/\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
+).slice(0,10);
+
+contenedor.innerHTML="";
+
+
+if(fotos.length===0){
+
+contenedor.innerHTML=
+'<div class="loading">Aún no hay fotos en esta categoría.</div>';
+
+return;
+
+}
+
+
+fotos.forEach((foto,indice)=>{
+
+const numero=indice+1;
+
+const nombre=
+carpeta.charAt(0).toUpperCase()+
+carpeta.slice(1);
+
+const mensaje=
+"Hola ANDREX Store, me interesa el producto de "+
+nombre+
+" #"+
+numero+
+".";
+
+const enlace=
+"https://wa.me/"+
+whatsapp+
+"?text="+
+encodeURIComponent(mensaje);
+
+const tarjeta=document.createElement("div");
+
+tarjeta.className="product";
+
+tarjeta.innerHTML=`
+
+<div class="photo">
+
+<img
+src="${foto.download_url}"
+alt="${nombre} ${numero}"
+loading="lazy">
+
+</div>
+
+<h3>${nombre} ${numero}</h3>
+
+<div class="price">
+Consultar precio
+</div>
+
+<a
+class="whatsapp"
+href="${enlace}"
+target="_blank">
+
+Consultar
+
+</a>
+
+`;
+
+contenedor.appendChild(tarjeta);
+
+});
+
+}
+
+
+catch(error){
+
+console.log(error);
+
+contenedor.innerHTML=
+'<div class="error">No se pudieron cargar las fotos.</div>';
+
+}
+
+}
+
+
+cargarFotos("ropa","ropa/nueva");
+
 cargarFotos("zapatos");
+
 cargarFotos("lociones");
+
 cargarFotos("streaming");
- console.log("PRUEBA ROPA");
 
 </script>
 
-
-  <div class="floating-characters">
-  <span>🛍️</span>
-  <span>👕</span>
-  <span>👟</span>
-  <span>🧴</span>
-  <span>✨</span>
-   </div>
- </body>
+</body>
 </html>
