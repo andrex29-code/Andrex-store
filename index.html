@@ -343,7 +343,7 @@ const rama = "main";
 const whatsapp = "573181579324";
 
 
-async function cargarFotos(carpeta){
+async function cargarFotos(carpeta, rutaCarpeta = carpeta){
 
   const contenedor = document.getElementById(carpeta);
 
@@ -355,7 +355,7 @@ async function cargarFotos(carpeta){
       "/" +
       repo +
       "/contents/" +
-      carpeta +
+      rutaCarpeta +
       "?ref=" +
       rama;
 
@@ -367,11 +367,10 @@ async function cargarFotos(carpeta){
 
     const archivos = await respuesta.json();
 
-   const fotos = archivos.filter(archivo =>
-  archivo.type === "file" &&
-  /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
-).slice(0, 10);
-  
+    const fotos = archivos.filter(archivo =>
+      archivo.type === "file" &&
+      /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
+    ).slice(0, 10);
 
     contenedor.innerHTML = "";
 
@@ -382,7 +381,6 @@ async function cargarFotos(carpeta){
 
       return;
     }
-
 
     fotos.forEach((foto, indice)=>{
 
@@ -405,11 +403,9 @@ async function cargarFotos(carpeta){
         "?text=" +
         encodeURIComponent(mensaje);
 
-
       const tarjeta = document.createElement("div");
 
       tarjeta.className = "product";
-
 
       tarjeta.innerHTML = `
 
@@ -437,7 +433,6 @@ async function cargarFotos(carpeta){
 
       `;
 
-
       contenedor.appendChild(tarjeta);
 
     });
@@ -454,9 +449,7 @@ async function cargarFotos(carpeta){
   }
 
 }
-
-
-cargarFotos("ropa/ropa");
+cargarFotos("ropa", "ropa/ropa");
 cargarFotos("zapatos");
 cargarFotos("lociones");
 cargarFotos("streaming");
