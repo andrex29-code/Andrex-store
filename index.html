@@ -258,46 +258,13 @@ Comprar por WhatsApp
 
 <h2>Todo lo que buscas, en un solo lugar</h2>
 <div class="categories">
-
-<div class="cat" onclick="mostrarMensaje('ropa')">
-<div class="icon">👕</div>
-<h3>Ropa</h3>
-</div>
-
-<div class="cat" onclick="mostrarMensaje('zapatos')">
-<div class="icon">👟</div>
-<h3>Zapatos</h3>
-</div>
-
-<div class="cat" onclick="mostrarMensaje('lociones')">
-<div class="icon">🧴</div>
-<h3>Lociones</h3>
-</div>
-
-<div class="cat" onclick="mostrarMensaje('streaming')">
-<div class="icon">🎬</div>
-<h3>Streaming</h3>
-</div>
+<div class="cat" onclick="document.getElementById('ropa').scrollIntoView({behavior:'smooth'})">
+<div class="cat" onclick="document.getElementById('zapatos').scrollIntoView({behavior:'smooth'})">
+<div class="cat" onclick="document.getElementById('lociones').scrollIntoView({behavior:'smooth'})">
+<div class="cat" onclick="document.getElementById('streaming').scrollIntoView({behavior:'smooth'})">
 
 </div>
 
-
-<script>
-function mostrarMensaje(categoria) {
-
-  const mensajes = {
-    ropa: "AQUÍ PONDRÁS TU MENSAJE DE ROPA 👕",
-    zapatos: "AQUÍ PONDRÁS TU MENSAJE DE ZAPATOS 👟",
-    lociones: "AQUÍ PONDRÁS TU MENSAJE DE LOCIONES 🧴",
-    streaming: "AQUÍ PONDRÁS TU MENSAJE DE STREAMING 🎬"
-  };
-
-  const mensaje = document.getElementById("mensajeCategoria");
-
-  mensaje.textContent = mensajes[categoria];
-  mensaje.style.display = "block";
-}
-</script>
 </div>
 
 </section>
