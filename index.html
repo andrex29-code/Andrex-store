@@ -4,55 +4,393 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANDREX Store | Estilo · Aroma · Entretenimiento</title>
+
 <style>
-:root{--gold:#d6a63a;--gold2:#f4d47a;--bg:#080808;--card:#121212;--muted:#aaa}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff}
-header{min-height:520px;padding:30px 7%;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 20%,#30230d 0,#0b0b0b 42%,#050505 100%);border-bottom:1px solid #5b4317}
-.logo{font-size:clamp(52px,10vw,110px);font-weight:900;letter-spacing:8px;color:var(--gold2);text-shadow:0 0 25px #8d681d}
-.crown{font-size:62px;color:var(--gold);margin-bottom:-10px}.tag{letter-spacing:4px;color:#ddd;font-size:clamp(13px,2vw,19px)}
-.btn{display:inline-block;margin-top:28px;padding:14px 24px;border-radius:30px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#090909;text-decoration:none;font-weight:800}
-section{padding:55px 7%;max-width:1200px;margin:auto}h2{text-align:center;color:var(--gold2);font-size:32px;margin-bottom:35px}
-.categories,.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.cat,.product{background:linear-gradient(145deg,#171717,#0e0e0e);border:1px solid #3d2c10;border-radius:18px;padding:25px;text-align:center}
-.cat .icon{font-size:42px}.cat h3{margin:12px 0 5px}.cat p{color:var(--muted)}
-.product .pic{height:150px;border-radius:13px;background:linear-gradient(135deg,#242424,#0a0a0a);display:flex;align-items:center;justify-content:center;font-size:55px}
-.product h3{margin:16px 0 8px}.price{color:var(--gold2);font-size:20px;font-weight:800;margin-bottom:15px}
-.whatsapp{display:block;text-decoration:none;padding:12px;border-radius:12px;background:#1f9d55;color:#fff;font-weight:700}
-.note{text-align:center;color:#999;font-size:14px;margin-top:25px}
-footer{text-align:center;padding:35px 20px;border-top:1px solid #2e230f;color:#aaa}.brand{color:var(--gold2);font-weight:800}
+:root{
+  --gold:#d6a63a;
+  --gold2:#f4d47a;
+  --bg:#080808;
+  --card:#121212;
+  --muted:#aaa;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#fff;
+}
+
+header{
+  min-height:520px;
+  padding:30px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:radial-gradient(circle at 50% 20%,#30230d 0,#0b0b0b 42%,#050505 100%);
+  border-bottom:1px solid #5b4317;
+}
+
+.logo{
+  font-size:clamp(52px,10vw,110px);
+  font-weight:900;
+  letter-spacing:8px;
+  color:var(--gold2);
+  text-shadow:0 0 25px #8d681d;
+}
+
+.crown{
+  font-size:62px;
+  color:var(--gold);
+  margin-bottom:-10px;
+}
+
+.tag{
+  letter-spacing:4px;
+  color:#ddd;
+  font-size:clamp(13px,2vw,19px);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:14px 24px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#090909;
+  text-decoration:none;
+  font-weight:800;
+}
+
+section{
+  padding:55px 7%;
+  max-width:1200px;
+  margin:auto;
+}
+
+h2{
+  text-align:center;
+  color:var(--gold2);
+  font-size:32px;
+  margin-bottom:35px;
+}
+
+.categories,
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+
+.cat,
+.product{
+  background:linear-gradient(145deg,#171717,#0e0e0e);
+  border:1px solid #3d2c10;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+}
+
+.cat .icon{
+  font-size:42px;
+}
+
+.cat h3{
+  margin:12px 0 5px;
+}
+
+.cat p{
+  color:var(--muted);
+}
+
+.product{
+  overflow:hidden;
+}
+
+.product .pic{
+  width:100%;
+  height:260px;
+  border-radius:13px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#242424,#0a0a0a);
+}
+
+.product .pic img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.product h3{
+  margin:16px 0 8px;
+}
+
+.price{
+  color:var(--gold2);
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.whatsapp{
+  display:block;
+  text-decoration:none;
+  padding:12px;
+  border-radius:12px;
+  background:#1f9d55;
+  color:#fff;
+  font-weight:700;
+}
+
+.note{
+  text-align:center;
+  color:#999;
+  font-size:14px;
+  margin-top:25px;
+}
+
+.loading{
+  text-align:center;
+  color:#aaa;
+  padding:30px;
+}
+
+.error{
+  text-align:center;
+  color:#ff7777;
+  padding:30px;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  border-top:1px solid #2e230f;
+  color:#aaa;
+}
+
+.brand{
+  color:var(--gold2);
+  font-weight:800;
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <div>
     <div class="crown">♛</div>
     <div class="logo">ANDREX</div>
     <div class="tag">STORE · ESTILO · AROMA · ENTRETENIMIENTO</div>
-    <a class="btn" href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20quiero%20hacer%20una%20consulta." target="_blank">Comprar por WhatsApp</a>
+
+    <a class="btn"
+       href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20quiero%20hacer%20una%20consulta."
+       target="_blank">
+       Comprar por WhatsApp
+    </a>
   </div>
 </header>
 
 <section>
+
 <h2>Todo lo que buscas, en un solo lugar</h2>
+
 <div class="categories">
-  <div class="cat"><div class="icon">👕</div><h3>Ropa</h3><p>Prendas para todos los estilos.</p></div>
-  <div class="cat"><div class="icon">👟</div><h3>Zapatos</h3><p>Calzado para cada ocasión.</p></div>
-  <div class="cat"><div class="icon">🧴</div><h3>Lociones</h3><p>Fragancias para dejar huella.</p></div>
-  <div class="cat"><div class="icon">🎬</div><h3>Películas & Streaming</h3><p>Entretenimiento para disfrutar.</p></div>
+
+  <div class="cat">
+    <div class="icon">👕</div>
+    <h3>Ropa</h3>
+    <p>Prendas para todos los estilos.</p>
+  </div>
+
+  <div class="cat">
+    <div class="icon">👟</div>
+    <h3>Zapatos</h3>
+    <p>Calzado para cada ocasión.</p>
+  </div>
+
+  <div class="cat">
+    <div class="icon">🧴</div>
+    <h3>Lociones</h3>
+    <p>Fragancias para dejar huella.</p>
+  </div>
+
+  <div class="cat">
+    <div class="icon">🎬</div>
+    <h3>Streaming</h3>
+    <p>Entretenimiento para disfrutar.</p>
+  </div>
+
 </div>
+
 </section>
+
+
+<!-- ROPA -->
 
 <section>
-<h2>Productos destacados</h2>
-<div class="products">
-  <div class="product"><div class="pic">👕</div><h3>Ropa</h3><div class="price">Consultar precio</div><a class="whatsapp" href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20me%20interesa%20un%20producto%20de%20ropa." target="_blank">Consultar</a></div>
-  <div class="product"><div class="pic">👟</div><h3>Zapatos</h3><div class="price">Consultar precio</div><a class="whatsapp" href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20me%20interesa%20un%20producto%20de%20zapatos." target="_blank">Consultar</a></div>
-  <div class="product"><div class="pic">🧴</div><h3>Lociones</h3><div class="price">Consultar precio</div><a class="whatsapp" href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20me%20interesa%20una%20locion." target="_blank">Consultar</a></div>
-  <div class="product"><div class="pic">🎬</div><h3>Streaming</h3><div class="price">Consultar precio</div><a class="whatsapp" href="https://wa.me/573181579324?text=Hola%20ANDREX%20Store%2C%20me%20interesa%20el%20servicio%20de%20streaming." target="_blank">Consultar</a></div>
+
+<h2>👕 Ropa</h2>
+
+<div class="products" id="ropa">
+  <div class="loading">Cargando productos...</div>
 </div>
-<p class="note">Los productos, fotos y precios se pueden reemplazar por tu catálogo real.</p>
+
 </section>
 
-<footer><span class="brand">ANDREX Store</span><br>Estilo · Aroma · Entretenimiento<br>Pedidos por WhatsApp: 318 157 9324</footer>
+
+<!-- ZAPATOS -->
+
+<section>
+
+<h2>👟 Zapatos</h2>
+
+<div class="products" id="zapatos">
+  <div class="loading">Cargando productos...</div>
+</div>
+
+</section>
+
+
+<!-- LOCIONES -->
+
+<section>
+
+<h2>🧴 Lociones</h2>
+
+<div class="products" id="lociones">
+  <div class="loading">Cargando productos...</div>
+</div>
+
+</section>
+
+
+<!-- STREAMING -->
+
+<section>
+
+<h2>🎬 Streaming</h2>
+
+<div class="products" id="streaming">
+  <div class="loading">Cargando productos...</div>
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="brand">ANDREX Store</div>
+
+<p>Estilo · Aroma · Entretenimiento</p>
+
+<p>Pedidos y consultas por WhatsApp: 318 157 9324</p>
+
+</footer>
+
+
+<script>
+
+const usuario = "andrex29-code";
+const repositorio = "Andrex-store";
+
+const numeroWhatsApp = "573181579324";
+
+
+async function cargarProductos(carpeta){
+
+  const contenedor = document.getElementById(carpeta);
+
+  try{
+
+    const respuesta = await fetch(
+      `https://api.github.com/repos/${usuario}/${repositorio}/contents/${carpeta}`
+    );
+
+    if(!respuesta.ok){
+      throw new Error("No se pudo cargar la carpeta");
+    }
+
+    const archivos = await respuesta.json();
+
+    const fotos = archivos.filter(archivo =>
+      /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
+    );
+
+    contenedor.innerHTML = "";
+
+    if(fotos.length === 0){
+
+      contenedor.innerHTML =
+        '<div class="loading">Próximamente agregaremos productos.</div>';
+
+      return;
+    }
+
+    fotos.forEach((foto,index)=>{
+
+      const numero = index + 1;
+
+      const mensaje =
+        `Hola ANDREX Store, me interesa el producto de ${carpeta} #${numero}.`;
+
+      const enlaceWhatsApp =
+        `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+      const tarjeta = document.createElement("div");
+
+      tarjeta.className = "product";
+
+      tarjeta.innerHTML = `
+
+        <div class="pic">
+          <img
+            src="${foto.download_url}"
+            alt="${carpeta} ${numero}"
+            loading="lazy">
+        </div>
+
+        <h3>${carpeta.charAt(0).toUpperCase() + carpeta.slice(1)} ${numero}</h3>
+
+        <div class="price">
+          Consultar precio
+        </div>
+
+        <a
+          class="whatsapp"
+          href="${enlaceWhatsApp}"
+          target="_blank">
+          Consultar
+        </a>
+
+      `;
+
+      contenedor.appendChild(tarjeta);
+
+    });
+
+  }catch(error){
+
+    contenedor.innerHTML =
+      '<div class="error">No se pudieron cargar las fotos.</div>';
+
+    console.error(error);
+
+  }
+
+}
+
+
+cargarProductos("ropa");
+cargarProductos("zapatos");
+cargarProductos("lociones");
+cargarProductos("streaming");
+
+</script>
+
 </body>
 </html>
