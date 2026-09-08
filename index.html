@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ANDREX Store</title>
 
 <style>
@@ -24,6 +25,11 @@ body{
   color:white;
 }
 
+
+/* =========================
+   ENCABEZADO
+========================= */
+
 header{
   min-height:600px;
   padding:30px 7%;
@@ -31,7 +37,15 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:radial-gradient(circle at 50% 20%,#30230d,#0b0b0b 45%,#050505);
+
+  background:
+  radial-gradient(
+    circle at 50% 20%,
+    #30230d,
+    #0b0b0b 45%,
+    #050505
+  );
+
   border-bottom:1px solid #5b4317;
 }
 
@@ -45,16 +59,28 @@ header{
   font-weight:900;
   letter-spacing:8px;
   color:var(--gold2);
-  text-shadow:0 0 25px #8d681d;
+
+  text-shadow:
+  0 0 25px #8d681d;
 }
+
+
+/* =========================
+   VIDEO
+========================= */
 
 .video-presentacion{
   width:min(90vw,700px);
   margin:25px auto;
+
   border-radius:20px;
   overflow:hidden;
+
   border:1px solid #5b4317;
-  box-shadow:0 0 30px rgba(214,166,58,.25);
+
+  box-shadow:
+  0 0 30px rgba(214,166,58,.25);
+
   background:#111;
 }
 
@@ -64,218 +90,395 @@ header{
   display:block;
 }
 
+
+/* =========================
+   TEXTO
+========================= */
+
 .tag{
   letter-spacing:3px;
   color:#ddd;
 }
 
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
 .btn{
   display:inline-block;
+
   margin-top:28px;
+
   padding:14px 25px;
+
   border-radius:30px;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
+
+  background:
+  linear-gradient(
+    135deg,
+    var(--gold2),
+    var(--gold)
+  );
+
   color:#090909;
+
   text-decoration:none;
+
   font-weight:bold;
 }
 
+
+/* =========================
+   SECCIONES
+========================= */
+
 section{
   padding:50px 6%;
+
   max-width:1300px;
+
   margin:auto;
 }
 
 h2{
   text-align:center;
+
   color:var(--gold2);
+
   font-size:30px;
+
   margin-bottom:30px;
 }
 
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
 .categories,
 .products{
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+
+  grid-template-columns:
+  repeat(
+    auto-fit,
+    minmax(210px,1fr)
+  );
+
   gap:18px;
 }
 
 .cat,
 .product{
-  background:linear-gradient(145deg,#171717,#0e0e0e);
+
+  background:
+  linear-gradient(
+    145deg,
+    #171717,
+    #0e0e0e
+  );
+
   border:1px solid #3d2c10;
+
   border-radius:18px;
+
   padding:20px;
+
   text-align:center;
 }
 
 .cat{
+
   cursor:pointer;
-  transition:transform .2s ease,box-shadow .2s ease;
+
+  transition:
+  transform .2s ease,
+  box-shadow .2s ease;
 }
 
 .cat:hover{
-  box-shadow:0 0 20px rgba(214,166,58,.18);
+
+  box-shadow:
+  0 0 20px
+  rgba(214,166,58,.18);
 }
 
 .cat:active{
+
   transform:scale(.95);
 }
 
 .cat .icon{
+
   font-size:48px;
 }
 
 .cat h3{
-  margin:10px 0 5px;
+
+  margin:
+  10px 0 5px;
 }
 
 .cat p{
+
   color:#aaa;
 }
 
+
+/* =========================
+   MENSAJE
+========================= */
+
 .mensaje-categoria{
+
   display:none;
+
   margin:25px auto 0;
+
   max-width:750px;
+
   padding:22px;
+
   text-align:center;
-  background:linear-gradient(145deg,#1c1c1c,#0d0d0d);
+
+  background:
+  linear-gradient(
+    145deg,
+    #1c1c1c,
+    #0d0d0d
+  );
+
   border:1px solid var(--gold);
+
   border-radius:18px;
+
   color:var(--gold2);
+
   font-size:18px;
+
   line-height:1.6;
-  box-shadow:0 0 25px rgba(214,166,58,.15);
+
+  box-shadow:
+  0 0 25px
+  rgba(214,166,58,.15);
 }
 
+
+/* =========================
+   PRODUCTOS
+========================= */
+
 .product{
+
   overflow:hidden;
 }
 
 .photo{
+
   width:100%;
+
   height:280px;
+
   border-radius:14px;
+
   overflow:hidden;
+
   background:#181818;
 }
 
 .photo img{
+
   width:100%;
+
   height:100%;
+
   object-fit:cover;
+
   display:block;
 }
 
 .product h3{
-  margin:15px 0 8px;
+
+  margin:
+  15px 0 8px;
 }
 
 .price{
+
   color:var(--gold2);
+
   font-weight:bold;
+
   margin-bottom:15px;
 }
 
 .whatsapp{
+
   display:block;
+
   padding:13px;
+
   border-radius:12px;
+
   background:#1f9d55;
+
   color:white;
+
   text-decoration:none;
+
   font-weight:bold;
 }
 
+
+/* =========================
+   CARGANDO
+========================= */
+
 .loading{
+
   grid-column:1/-1;
+
   text-align:center;
+
   padding:30px;
+
   color:#aaa;
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
+
   text-align:center;
+
   padding:35px 20px;
-  border-top:1px solid #2e230f;
+
+  border-top:
+  1px solid #2e230f;
+
   color:#aaa;
 }
 
 .brand{
+
   color:var(--gold2);
+
   font-weight:bold;
 }
 
+
+/* =========================
+   PERSONAJES
+========================= */
+
 .floating-characters{
+
   position:fixed;
+
   inset:0;
+
   pointer-events:none;
+
   z-index:5;
+
   overflow:hidden;
 }
 
 .floating-characters span{
+
   position:absolute;
+
   font-size:30px;
-  animation:flotar 4s ease-in-out infinite;
+
+  animation:
+  flotar 4s ease-in-out infinite;
 }
 
 .floating-characters span:nth-child(1){
+
   top:18%;
   left:8%;
 }
 
 .floating-characters span:nth-child(2){
+
   top:38%;
   right:8%;
+
   animation-delay:.8s;
 }
 
 .floating-characters span:nth-child(3){
+
   top:58%;
   left:12%;
+
   animation-delay:1.5s;
 }
 
 .floating-characters span:nth-child(4){
+
   top:72%;
   right:12%;
+
   animation-delay:2.2s;
 }
 
 .floating-characters span:nth-child(5){
+
   top:28%;
   right:35%;
+
   animation-delay:2.8s;
 }
 
 @keyframes flotar{
 
   0%,100%{
-    transform:translateY(0) rotate(0deg);
+
+    transform:
+    translateY(0)
+    rotate(0deg);
   }
 
   50%{
-    transform:translateY(-18px) rotate(8deg);
+
+    transform:
+    translateY(-18px)
+    rotate(8deg);
   }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     ENCABEZADO
+========================= -->
 
 <header>
 
 <div>
 
-<div class="crown">♛</div>
+<div class="crown">
+♛
+</div>
 
 <div class="logo">
 ANDREX
 </div>
+
 
 <div class="video-presentacion">
 
@@ -284,13 +487,18 @@ src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869c
 controls
 playsinline
 preload="auto">
+
 </video>
 
 </div>
 
+
 <div class="tag">
+
 STORE · ESTILO · AROMA · ENTRETENIMIENTO
+
 </div>
+
 
 <a
 class="btn"
@@ -306,39 +514,102 @@ Comprar por WhatsApp
 </header>
 
 
+
+<!-- =========================
+     CATEGORÍAS
+========================= -->
+
 <section>
 
 <h2>
 Todo lo que buscas, en un solo lugar
 </h2>
 
+
 <div class="categories">
 
-<div class="cat" onclick="mostrarMensaje('ropa')">
-<div class="icon">👕</div>
-<h3>Ropa</h3>
-<p>Estilo para cada ocasión</p>
+
+<div
+class="cat"
+onclick="mostrarMensaje('ropa')">
+
+<div class="icon">
+👕
 </div>
 
-<div class="cat" onclick="mostrarMensaje('zapatos')">
-<div class="icon">👟</div>
-<h3>Zapatos</h3>
-<p>Camina con tu propio estilo</p>
-</div>
+<h3>
+Ropa
+</h3>
 
-<div class="cat" onclick="mostrarMensaje('lociones')">
-<div class="icon">🧴</div>
-<h3>Lociones</h3>
-<p>Una esencia que habla por ti</p>
-</div>
-
-<div class="cat" onclick="mostrarMensaje('streaming')">
-<div class="icon">🎬</div>
-<h3>Streaming</h3>
-<p>Entretenimiento sin límites</p>
-</div>
+<p>
+Estilo para cada ocasión
+</p>
 
 </div>
+
+
+
+<div
+class="cat"
+onclick="mostrarMensaje('zapatos')">
+
+<div class="icon">
+👟
+</div>
+
+<h3>
+Zapatos
+</h3>
+
+<p>
+Camina con tu propio estilo
+</p>
+
+</div>
+
+
+
+<div
+class="cat"
+onclick="mostrarMensaje('lociones')">
+
+<div class="icon">
+🧴
+</div>
+
+<h3>
+Lociones
+</h3>
+
+<p>
+Una esencia que habla por ti
+</p>
+
+</div>
+
+
+
+<div
+class="cat"
+onclick="mostrarMensaje('streaming')">
+
+<div class="icon">
+🎬
+</div>
+
+<h3>
+Streaming
+</h3>
+
+<p>
+Entretenimiento sin límites
+</p>
+
+</div>
+
+
+</div>
+
 
 <div
 id="mensajeCategoria"
@@ -348,11 +619,20 @@ class="mensaje-categoria">
 </section>
 
 
+
+<!-- =========================
+     ROPA
+========================= -->
+
 <section>
 
-<h2>👕 Ropa</h2>
+<h2>
+👕 Ropa
+</h2>
 
-<div class="products" id="ropa">
+<div
+class="products"
+id="ropa">
 
 <div class="loading">
 Cargando fotos...
@@ -363,11 +643,20 @@ Cargando fotos...
 </section>
 
 
+
+<!-- =========================
+     ZAPATOS
+========================= -->
+
 <section>
 
-<h2>👟 Zapatos</h2>
+<h2>
+👟 Zapatos
+</h2>
 
-<div class="products" id="zapatos">
+<div
+class="products"
+id="zapatos">
 
 <div class="loading">
 Cargando fotos...
@@ -378,11 +667,20 @@ Cargando fotos...
 </section>
 
 
+
+<!-- =========================
+     LOCIONES
+========================= -->
+
 <section>
 
-<h2>🧴 Lociones</h2>
+<h2>
+🧴 Lociones
+</h2>
 
-<div class="products" id="lociones">
+<div
+class="products"
+id="lociones">
 
 <div class="loading">
 Cargando fotos...
@@ -393,11 +691,20 @@ Cargando fotos...
 </section>
 
 
+
+<!-- =========================
+     STREAMING
+========================= -->
+
 <section>
 
-<h2>🎬 Streaming</h2>
+<h2>
+🎬 Streaming
+</h2>
 
-<div class="products" id="streaming">
+<div
+class="products"
+id="streaming">
 
 <div class="loading">
 Cargando fotos...
@@ -407,6 +714,11 @@ Cargando fotos...
 
 </section>
 
+
+
+<!-- =========================
+     PIE
+========================= -->
 
 <footer>
 
@@ -425,6 +737,11 @@ Pedidos por WhatsApp: 318 157 9324
 </footer>
 
 
+
+<!-- =========================
+     PERSONAJES
+========================= -->
+
 <div class="floating-characters">
 
 <span>🛍️</span>
@@ -436,7 +753,13 @@ Pedidos por WhatsApp: 318 157 9324
 </div>
 
 
+
 <script>
+
+
+/* =========================
+   MENSAJES
+========================= */
 
 function mostrarMensaje(categoria){
 
@@ -456,89 +779,131 @@ streaming:
 
 };
 
-const mensaje=document.getElementById("mensajeCategoria");
+const mensaje=
+document.getElementById(
+"mensajeCategoria"
+);
 
-mensaje.textContent=mensajes[categoria];
+mensaje.textContent=
+mensajes[categoria];
 
-mensaje.style.display="block";
+mensaje.style.display=
+"block";
 
 }
 
 
-/* ================================
+
+/* =========================
    CONFIGURACIÓN
-================================ */
+========================= */
 
 const usuario="andrex29-code";
+
 const repo="Andrex-store";
+
 const rama="main";
+
 const whatsapp="573181579324";
 
 
-/* ================================
-   CONTADORES
-================================ */
 
-const cantidadMostrada={
-  ropa:0,
-  zapatos:0,
-  lociones:0,
-  streaming:0
+/* =========================
+   CONTADOR POR CATEGORÍA
+========================= */
+
+const contador={
+
+ropa:0,
+
+zapatos:0,
+
+lociones:0,
+
+streaming:0
+
 };
 
 
-/* ================================
+
+/* =========================
    CREAR PRODUCTO
-================================ */
+========================= */
 
 function crearProducto(
-  categoria,
-  imagen,
-  nombre,
-  mensaje,
-  precio
+
+categoria,
+
+imagen,
+
+nombre,
+
+mensaje,
+
+precio
+
 ){
 
-const contenedor=document.getElementById(categoria);
+const contenedor=
+document.getElementById(
+categoria
+);
 
-if(!contenedor) return;
+if(!contenedor){
 
+return;
 
-/*
-   Guardamos el número antes
-   de aumentar el contador.
-*/
-
-const numero=cantidadMostrada[categoria];
-
-cantidadMostrada[categoria]++;
-
-
-/*
-   Quitamos "Cargando..."
-*/
-
-const loading=contenedor.querySelector(".loading");
-
-if(loading){
-  loading.remove();
 }
 
 
 /*
-====================================
-PRIMERA FOTO
-SOLO IMAGEN
-====================================
+   ESTE NÚMERO INDICA
+   QUÉ PRODUCTO ES.
 */
+
+const numero=
+contador[categoria];
+
+
+/*
+   AUMENTAMOS EL CONTADOR
+*/
+
+contador[categoria]++;
+
+
+/*
+   QUITAMOS CARGANDO
+*/
+
+const loading=
+contenedor.querySelector(
+".loading"
+);
+
+if(loading){
+
+loading.remove();
+
+}
+
+
+/* ==================================
+   PRIMER PRODUCTO
+   SOLO FOTO
+================================== */
 
 if(numero===0){
 
-const tarjeta=document.createElement("div");
+const primeraFoto=
+document.createElement(
+"div"
+);
 
-tarjeta.className="product primer-producto";
+primeraFoto.className=
+"product";
 
-tarjeta.innerHTML=`
+primeraFoto.innerHTML=`
 
 <div class="photo">
 
@@ -551,29 +916,46 @@ loading="lazy">
 
 `;
 
-contenedor.appendChild(tarjeta);
+
+/*
+   AQUÍ TERMINA.
+   NO SE CREA:
+   - NOMBRE
+   - PRECIO
+   - BOTÓN
+*/
+
+contenedor.appendChild(
+primeraFoto
+);
 
 return;
 
 }
 
 
-/*
-====================================
-TODAS LAS DEMÁS FOTOS
-NOMBRE + PRECIO + BOTÓN
-====================================
-*/
 
-const tarjeta=document.createElement("div");
+/* ==================================
+   PRODUCTOS SIGUIENTES
+================================== */
 
-tarjeta.className="product";
+const tarjeta=
+document.createElement(
+"div"
+);
+
+tarjeta.className=
+"product";
+
 
 const enlace=
+
 "https://wa.me/"+
 whatsapp+
 "?text="+
-encodeURIComponent(mensaje);
+encodeURIComponent(
+mensaje
+);
 
 
 tarjeta.innerHTML=`
@@ -606,25 +988,38 @@ Consultar
 
 `;
 
-contenedor.appendChild(tarjeta);
+
+contenedor.appendChild(
+tarjeta
+);
 
 }
 
 
-/* ================================
-   GITHUB
-================================ */
+
+/* =========================
+   CARGAR GITHUB
+========================= */
 
 async function cargarFotos(
-  categoria,
-  rutaCarpeta=categoria
+
+categoria,
+
+rutaCarpeta=categoria
+
 ){
 
-const contenedor=document.getElementById(categoria);
+const contenedor=
+document.getElementById(
+categoria
+);
+
 
 try{
 
+
 const url=
+
 "https://api.github.com/repos/"+
 usuario+
 "/"+
@@ -634,30 +1029,51 @@ rutaCarpeta+
 "?ref="+
 rama;
 
-const respuesta=await fetch(url);
+
+const respuesta=
+await fetch(url);
+
 
 if(!respuesta.ok){
-  throw new Error("Error "+respuesta.status);
+
+throw new Error(
+"Error "+respuesta.status
+);
+
 }
 
-const archivos=await respuesta.json();
 
-const fotos=archivos.filter(
+const archivos=
+await respuesta.json();
+
+
+const fotos=
+archivos.filter(
 
 archivo=>
 
 archivo.type==="file" &&
-/\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
+
+/\.(jpg|jpeg|png|webp|gif)$/i
+.test(
+archivo.name
+)
 
 );
 
 
 if(fotos.length===0){
 
-const loading=contenedor.querySelector(".loading");
+const loading=
+contenedor.querySelector(
+".loading"
+);
 
 if(loading){
-  loading.textContent="No hay fotos todavía.";
+
+loading.textContent=
+"No hay fotos todavía.";
+
 }
 
 return;
@@ -665,35 +1081,41 @@ return;
 }
 
 
-const loading=contenedor.querySelector(".loading");
-
-if(loading){
-  loading.remove();
-}
-
-
 /*
-   Cargamos las fotos en orden.
+   CARGAMOS LAS FOTOS
+   EN EL ORDEN DE GITHUB
 */
 
-fotos.forEach((foto,indice)=>{
+fotos.forEach(
 
-const numero=indice+1;
+(foto,index)=>{
 
-const categoriaNombre=
-categoria.charAt(0).toUpperCase()+
+
+const numero=
+index+1;
+
+
+const nombreCategoria=
+
+categoria.charAt(0)
+.toUpperCase()+
 categoria.slice(1);
 
+
 const nombre=
-categoriaNombre+
+
+nombreCategoria+
 " "+
 numero;
 
+
 const mensaje=
+
 "Hola ANDREX Store, me interesa el producto de "+
-categoriaNombre+
+nombreCategoria+
 " #"+
 numero+".";
+
 
 crearProducto(
 
@@ -709,7 +1131,10 @@ mensaje,
 
 );
 
-});
+}
+
+);
+
 
 }
 
@@ -720,7 +1145,11 @@ console.error(
 error
 );
 
-const loading=contenedor.querySelector(".loading");
+
+const loading=
+contenedor.querySelector(
+".loading"
+);
 
 if(loading){
 
@@ -734,11 +1163,13 @@ loading.textContent=
 }
 
 
-/* ================================
+
+/* =========================
    FIREBASE
-================================ */
+========================= */
 
 async function cargarFirebase(){
+
 
 const firebaseConfig={
 
@@ -765,25 +1196,41 @@ appId:
 
 try{
 
+
 const firebaseModule=
+
 await import(
+
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"
+
 );
+
 
 const firestoreModule=
+
 await import(
+
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
+
 );
 
+
 const app=
+
 firebaseModule.initializeApp(
 firebaseConfig
 );
 
+
 const db=
-firestoreModule.getFirestore(app);
+
+firestoreModule.getFirestore(
+app
+);
+
 
 const consulta=
+
 await firestoreModule.getDocs(
 
 firestoreModule.collection(
@@ -794,24 +1241,39 @@ db,
 );
 
 
-consulta.forEach((documento)=>{
+/*
+   PRODUCTOS DE FIREBASE
+*/
 
-const producto=documento.data();
+consulta.forEach(
+
+(documento)=>{
+
+
+const producto=
+documento.data();
+
 
 if(
 !producto.nombre ||
 !producto.imagen
 ){
+
 return;
+
 }
+
 
 const categoria=
 producto.categoria ||
 "ropa";
 
+
 const mensaje=
+
 "Hola ANDREX Store, me interesa el producto: "+
 producto.nombre;
+
 
 crearProducto(
 
@@ -828,7 +1290,10 @@ producto.precio ||
 
 );
 
-});
+}
+
+);
+
 
 }
 
@@ -844,11 +1309,17 @@ error
 }
 
 
-/* ================================
-   INICIAR
-================================ */
+
+/* =========================
+   INICIAR TIENDA
+========================= */
 
 async function iniciarTienda(){
+
+
+/*
+   PRIMERO CARGAMOS GITHUB
+*/
 
 await Promise.all([
 
@@ -871,9 +1342,19 @@ cargarFotos(
 
 ]);
 
+
+/*
+   DESPUÉS FIREBASE
+*/
+
 await cargarFirebase();
 
 }
+
+
+/*
+   INICIAR
+*/
 
 iniciarTienda();
 
