@@ -9,22 +9,30 @@
 <style>
 
 :root{
-  --gold:#d6a63a;
-  --gold2:#f4d47a;
-  --bg:#080808;
-  --card:#111;
-  --text:#fff;
-  --muted:#aaa;
+  --purple:#9d00ff;
+  --purple2:#d86bff;
+  --purple3:#6500a8;
+  --bg:#070707;
+  --card:#111111;
+  --card2:#161616;
+  --text:#ffffff;
+  --muted:#b8b8b8;
+  --border:#292929;
 }
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
+  background:
+    radial-gradient(circle at top,#1b0030 0%,#070707 38%);
   color:var(--text);
 }
 
@@ -32,30 +40,40 @@ button{
   font-family:inherit;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
   position:sticky;
   top:0;
   z-index:900;
-  background:rgba(8,8,8,.96);
-  border-bottom:1px solid #292929;
+  background:rgba(7,7,7,.97);
+  border-bottom:1px solid #3b0060;
   padding:15px 18px;
   text-align:center;
+  box-shadow:0 4px 25px rgba(157,0,255,.12);
 }
 
 .logo{
-  font-size:28px;
+  font-size:29px;
   font-weight:900;
   letter-spacing:2px;
-  color:var(--gold2);
+  color:#ffffff;
+  text-shadow:
+    0 0 8px var(--purple),
+    0 0 20px rgba(157,0,255,.65);
 }
 
 .sublogo{
   font-size:12px;
-  color:#aaa;
-  margin-top:4px;
+  color:var(--purple2);
+  margin-top:5px;
 }
 
-/* VIDEO */
+/* =========================
+   VIDEO
+========================= */
 
 .video-container{
   width:100%;
@@ -71,20 +89,26 @@ header{
   display:block;
   background:#000;
   object-fit:cover;
+  border:1px solid #4c0074;
+  box-shadow:0 0 30px rgba(157,0,255,.15);
 }
 
-/* INICIO */
+/* =========================
+   INICIO
+========================= */
 
 .inicio{
   max-width:1100px;
   margin:auto;
-  padding:20px 15px 100px;
+  padding:20px 15px 60px;
 }
 
 .titulo{
   text-align:center;
   margin:25px 0 8px;
-  font-size:27px;
+  font-size:28px;
+  color:#fff;
+  text-shadow:0 0 12px rgba(157,0,255,.7);
 }
 
 .descripcion{
@@ -93,7 +117,9 @@ header{
   margin:0 auto 30px;
 }
 
-/* CATEGORIAS */
+/* =========================
+   CATEGORIAS
+========================= */
 
 .categorias{
   display:grid;
@@ -103,28 +129,41 @@ header{
 
 .categoria{
   position:relative;
-  min-height:210px;
-  border:1px solid #333;
+  min-height:180px;
+  border:1px solid #420064;
   border-radius:20px;
   overflow:hidden;
-  background:#111;
+  background:
+    linear-gradient(
+      135deg,
+      #160020,
+      #0c0c0c
+    );
   cursor:pointer;
   transition:.25s;
-  box-shadow:0 8px 25px rgba(0,0,0,.35);
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.4),
+    inset 0 0 35px rgba(157,0,255,.08);
 }
 
 .categoria:hover{
   transform:translateY(-4px);
-  border-color:var(--gold);
+  border-color:var(--purple);
+  box-shadow:
+    0 10px 35px rgba(157,0,255,.28);
 }
 
-.categoria img{
-  width:100%;
-  height:100%;
-  min-height:210px;
-  object-fit:cover;
-  display:block;
-  opacity:.62;
+.categoria::before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-40px;
+  top:-40px;
+  border-radius:50%;
+  background:var(--purple);
+  opacity:.12;
+  filter:blur(25px);
 }
 
 .categoria-overlay{
@@ -133,28 +172,96 @@ header{
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-  padding:20px;
-  background:linear-gradient(
-    transparent,
-    rgba(0,0,0,.9)
-  );
+  padding:22px;
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.9)
+    );
 }
 
 .categoria-icono{
-  font-size:35px;
+  font-size:38px;
+  margin-bottom:3px;
+  filter:drop-shadow(0 0 8px rgba(157,0,255,.8));
 }
 
 .categoria h2{
   margin:5px 0;
-  font-size:25px;
+  font-size:26px;
 }
 
 .categoria span{
-  color:var(--gold2);
+  color:var(--purple2);
   font-size:14px;
 }
 
-/* CATALOGO */
+/* =========================
+   INFORMACION TIENDA
+========================= */
+
+.info-tienda{
+  margin-top:35px;
+  padding:25px 20px;
+  border-radius:20px;
+  background:
+    linear-gradient(
+      145deg,
+      #13001d,
+      #0d0d0d
+    );
+  border:1px solid #4b006d;
+  box-shadow:0 10px 35px rgba(0,0,0,.35);
+}
+
+.info-tienda h2{
+  text-align:center;
+  color:var(--purple2);
+  margin-top:0;
+  font-size:25px;
+}
+
+.info-tienda p{
+  color:#d0d0d0;
+  line-height:1.6;
+  text-align:center;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:22px;
+}
+
+.info-box{
+  background:#101010;
+  border:1px solid #2d2d2d;
+  border-radius:15px;
+  padding:18px;
+  text-align:center;
+}
+
+.info-box .icono{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.info-box h3{
+  margin:5px 0 8px;
+  color:#fff;
+  font-size:17px;
+}
+
+.info-box p{
+  margin:0;
+  font-size:13px;
+  color:#aaa;
+}
+
+/* =========================
+   CATALOGO
+========================= */
 
 .catalogo{
   display:none;
@@ -168,25 +275,27 @@ header{
 }
 
 .boton-volver{
-  border:1px solid var(--gold);
+  border:1px solid var(--purple);
   background:#111;
   color:white;
   padding:11px 17px;
   border-radius:10px;
   cursor:pointer;
   margin-bottom:20px;
+  transition:.2s;
 }
 
 .boton-volver:hover{
-  background:var(--gold);
-  color:#000;
+  background:var(--purple);
+  color:#fff;
 }
 
 .titulo-categoria{
   text-align:center;
-  color:var(--gold2);
+  color:var(--purple2);
   margin-bottom:8px;
   font-size:29px;
+  text-shadow:0 0 12px rgba(157,0,255,.6);
 }
 
 .descripcion-categoria{
@@ -195,7 +304,9 @@ header{
   margin-bottom:25px;
 }
 
-/* PRODUCTOS */
+/* =========================
+   PRODUCTOS
+========================= */
 
 .productos{
   display:grid;
@@ -210,6 +321,12 @@ header{
   overflow:hidden;
   padding-bottom:15px;
   box-shadow:0 5px 20px rgba(0,0,0,.3);
+  transition:.2s;
+}
+
+.producto:hover{
+  transform:translateY(-3px);
+  border-color:#62008f;
 }
 
 .producto img{
@@ -231,7 +348,7 @@ header{
 }
 
 .producto-precio{
-  color:var(--gold2);
+  color:var(--purple2);
   font-weight:bold;
   margin-bottom:10px;
 }
@@ -245,33 +362,46 @@ header{
   margin-top:7px;
   cursor:pointer;
   font-weight:bold;
+  transition:.2s;
 }
 
 .boton-consultar{
   background:#222;
   color:white;
+  border:1px solid #333;
+}
+
+.boton-consultar:hover{
+  border-color:var(--purple);
+  background:#190021;
 }
 
 .agregar-carrito{
-  background:var(--gold);
-  color:#000;
+  background:var(--purple);
+  color:#fff;
+  box-shadow:0 4px 15px rgba(157,0,255,.2);
 }
 
 .agregar-carrito:hover{
-  background:var(--gold2);
+  background:var(--purple2);
+  color:#000;
 }
 
-/* MENSAJE SIN PRODUCTOS */
+/* =========================
+   SIN PRODUCTOS
+========================= */
 
 .sin-productos{
   text-align:center;
   padding:50px 20px;
-  border:1px dashed #444;
+  border:1px dashed #4b006d;
   border-radius:15px;
   color:#aaa;
 }
 
-/* CARRITO */
+/* =========================
+   CARRITO
+========================= */
 
 .carrito-boton{
   position:fixed;
@@ -280,13 +410,15 @@ header{
   width:64px;
   height:64px;
   border-radius:50%;
-  border:2px solid var(--gold2);
-  background:#111;
+  border:2px solid var(--purple2);
+  background:#110016;
   color:white;
   font-size:28px;
   cursor:pointer;
   z-index:2000;
-  box-shadow:0 5px 30px rgba(0,0,0,.7);
+  box-shadow:
+    0 5px 30px rgba(0,0,0,.7),
+    0 0 20px rgba(157,0,255,.3);
 }
 
 .carrito-boton:hover{
@@ -309,12 +441,14 @@ header{
   font-weight:bold;
 }
 
-/* FONDO CARRITO */
+/* =========================
+   FONDO CARRITO
+========================= */
 
 .carrito-fondo{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.72);
+  background:rgba(0,0,0,.75);
   z-index:3000;
   display:none;
 }
@@ -323,7 +457,9 @@ header{
   display:block;
 }
 
-/* PANEL */
+/* =========================
+   PANEL
+========================= */
 
 .carrito-panel{
   position:absolute;
@@ -332,7 +468,7 @@ header{
   height:100%;
   width:min(430px,94vw);
   background:#101010;
-  border-left:1px solid #333;
+  border-left:1px solid #4b006d;
   padding:20px;
   overflow-y:auto;
   box-shadow:-10px 0 40px rgba(0,0,0,.5);
@@ -348,7 +484,7 @@ header{
 
 .carrito-cabecera h2{
   margin:0;
-  color:var(--gold2);
+  color:var(--purple2);
 }
 
 .cerrar-carrito{
@@ -359,7 +495,9 @@ header{
   cursor:pointer;
 }
 
-/* ITEMS */
+/* =========================
+   ITEMS CARRITO
+========================= */
 
 .carrito-item{
   display:flex;
@@ -385,7 +523,7 @@ header{
 }
 
 .carrito-item-precio{
-  color:var(--gold2);
+  color:var(--purple2);
   font-size:14px;
 }
 
@@ -406,6 +544,10 @@ header{
   cursor:pointer;
 }
 
+.cantidad button:hover{
+  border-color:var(--purple);
+}
+
 .eliminar{
   color:#ff6666;
   background:none;
@@ -414,7 +556,9 @@ header{
   font-size:18px;
 }
 
-/* TOTAL */
+/* =========================
+   TOTAL
+========================= */
 
 .carrito-total{
   margin-top:20px;
@@ -427,7 +571,7 @@ header{
 }
 
 #totalCarrito{
-  color:var(--gold2);
+  color:var(--purple2);
 }
 
 .whatsapp-carrito{
@@ -443,6 +587,10 @@ header{
   cursor:pointer;
 }
 
+.whatsapp-carrito:hover{
+  filter:brightness(1.1);
+}
+
 .vaciar-carrito{
   width:100%;
   margin-top:9px;
@@ -454,12 +602,34 @@ header{
   cursor:pointer;
 }
 
-/* RESPONSIVE */
+/* =========================
+   PIE
+========================= */
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#777;
+  border-top:1px solid #242424;
+  font-size:13px;
+}
+
+footer strong{
+  color:var(--purple2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:850px){
 
   .productos{
     grid-template-columns:repeat(3,1fr);
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
   }
 
 }
@@ -471,11 +641,7 @@ header{
   }
 
   .categoria{
-    min-height:190px;
-  }
-
-  .categoria img{
-    min-height:190px;
+    min-height:175px;
   }
 
   .productos{
@@ -503,6 +669,10 @@ header{
 
   .titulo{
     font-size:24px;
+  }
+
+  .info-tienda{
+    padding:20px 15px;
   }
 
 }
@@ -534,7 +704,7 @@ header{
 </header>
 
 
-<!-- VIDEO DE PRESENTACION -->
+<!-- VIDEO -->
 
 <div class="video-container">
 
@@ -555,33 +725,28 @@ header{
 </div>
 
 
-<!-- PAGINA PRINCIPAL -->
+<!-- INICIO -->
 
 <section
   id="inicio"
   class="inicio">
 
   <h1 class="titulo">
-    Nuestra tienda
+    Bienvenido a ANDREX Store 🛍️
   </h1>
 
   <p class="descripcion">
-    Elige una categoría para descubrir nuestros productos.
+    Todo lo que buscas, en un solo lugar. Explora nuestras categorías y encuentra lo que necesitas.
   </p>
 
 
+  <!-- CATEGORIAS -->
+
   <div class="categorias">
-
-
-    <!-- ROPA -->
 
     <div
       class="categoria"
       onclick="abrirCategoria('Ropa')">
-
-      <img
-        src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80"
-        alt="Ropa">
 
       <div class="categoria-overlay">
 
@@ -602,15 +767,9 @@ header{
     </div>
 
 
-    <!-- ZAPATOS -->
-
     <div
       class="categoria"
       onclick="abrirCategoria('Zapatos')">
-
-      <img
-        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
-        alt="Zapatos">
 
       <div class="categoria-overlay">
 
@@ -631,15 +790,9 @@ header{
     </div>
 
 
-    <!-- LOCIONES -->
-
     <div
       class="categoria"
       onclick="abrirCategoria('Lociones')">
-
-      <img
-        src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80"
-        alt="Lociones">
 
       <div class="categoria-overlay">
 
@@ -660,15 +813,9 @@ header{
     </div>
 
 
-    <!-- STREAMING -->
-
     <div
       class="categoria"
       onclick="abrirCategoria('Streaming')">
-
-      <img
-        src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=900&q=80"
-        alt="Streaming">
 
       <div class="categoria-overlay">
 
@@ -688,6 +835,87 @@ header{
 
     </div>
 
+  </div>
+
+
+  <!-- INFORMACION -->
+
+  <div class="info-tienda">
+
+    <h2>
+      💜 Sobre ANDREX Store
+    </h2>
+
+    <p>
+      Todo lo que buscas, en un solo lugar. Encuentra nuestros productos y disfruta de una atención personalizada, rápida y confiable.
+    </p>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+
+        <div class="icono">
+          🚚
+        </div>
+
+        <h3>
+          Envíos a nivel nacional
+        </h3>
+
+        <p>
+          Realizamos envíos a diferentes ciudades y municipios de Colombia.
+          El valor del domicilio es asumido por el cliente y depende de su ubicación.
+        </p>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <div class="icono">
+          💳
+        </div>
+
+        <h3>
+          Medios de pago
+        </h3>
+
+        <p>
+          Puedes pagar por Nequi, Bancolombia, DaviPlata o elegir la opción de contra entrega cuando esté disponible.
+        </p>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <div class="icono">
+          📲
+        </div>
+
+        <h3>
+          Atención personalizada
+        </h3>
+
+        <p>
+          Escríbenos por WhatsApp y te ayudaremos con disponibilidad, precios, pedidos y envío.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <p style="margin-top:22px;">
+
+      🛒 <strong style="color:#fff;">
+      ¿Cómo comprar?
+      </strong>
+
+      Selecciona tus productos, agrégalos al carrito y envíanos tu pedido por WhatsApp.
+      Confirmaremos disponibilidad, valor de los productos y costo del domicilio antes de finalizar la compra.
+
+    </p>
 
   </div>
 
@@ -712,26 +940,24 @@ header{
   <h1
     id="tituloCategoria"
     class="titulo-categoria">
-
   </h1>
+
 
   <p
     id="descripcionCategoria"
     class="descripcion-categoria">
-
   </p>
 
 
   <div
     id="productos"
     class="productos">
-
   </div>
 
 </section>
 
 
-<!-- BOTON DEL CARRITO -->
+<!-- CARRITO -->
 
 <button
   class="carrito-boton"
@@ -751,8 +977,6 @@ header{
 </button>
 
 
-<!-- CARRITO -->
-
 <div
   id="carritoFondo"
   class="carrito-fondo"
@@ -761,7 +985,6 @@ header{
   <div
     class="carrito-panel"
     onclick="event.stopPropagation()">
-
 
     <div class="carrito-cabecera">
 
@@ -780,9 +1003,7 @@ header{
     </div>
 
 
-    <div
-      id="listaCarrito">
-
+    <div id="listaCarrito">
     </div>
 
 
@@ -816,10 +1037,22 @@ header{
 
     </button>
 
-
   </div>
 
 </div>
+
+
+<footer>
+
+  <strong>ANDREX Store</strong>
+  <br>
+  Moda · Estilo · Entretenimiento
+  <br><br>
+  Atención personalizada por WhatsApp
+  <br>
+  © 2026 ANDREX Store
+
+</footer>
 
 
 <script type="module">
@@ -901,18 +1134,14 @@ function normalizarCategoria(valor){
     texto === "ropa" ||
     texto === "ropas"
   ){
-
     return "Ropa";
-
   }
 
   if(
     texto === "zapato" ||
     texto === "zapatos"
   ){
-
     return "Zapatos";
-
   }
 
   if(
@@ -921,17 +1150,13 @@ function normalizarCategoria(valor){
     texto === "perfume" ||
     texto === "perfumes"
   ){
-
     return "Lociones";
-
   }
 
   if(
     texto === "streaming"
   ){
-
     return "Streaming";
-
   }
 
   return valor;
@@ -950,15 +1175,11 @@ function convertirPrecio(precio){
     precio === null ||
     precio === ""
   ){
-
     return 0;
-
   }
 
   if(typeof precio === "number"){
-
     return precio;
-
   }
 
   let limpio =
@@ -980,7 +1201,7 @@ function formatoPrecio(numero){
 
 
 /* =========================================
-   OBTENER IMAGEN
+   IMAGEN
 ========================================= */
 
 function obtenerImagen(producto){
@@ -998,7 +1219,7 @@ function obtenerImagen(producto){
 
 
 /* =========================================
-   OBTENER NOMBRE
+   NOMBRE
 ========================================= */
 
 function obtenerNombre(producto){
@@ -1014,13 +1235,10 @@ function obtenerNombre(producto){
 
 
 /* =========================================
-   CARGAR PRODUCTOS
+   CARGAR FIREBASE
 ========================================= */
 
 async function cargarProductos(){
-
-  const contenedor =
-    document.getElementById("productos");
 
   try{
 
@@ -1040,7 +1258,7 @@ async function cargarProductos(){
 
       productosTodos.push({
 
-        id: doc.id,
+        id:doc.id,
 
         ...producto
 
@@ -1061,12 +1279,6 @@ async function cargarProductos(){
       "Error cargando productos:",
       error
     );
-
-    /*
-      Si tu colección de Firebase
-      tiene otro nombre, solamente
-      cambia "productos" arriba.
-    */
 
   }
 
@@ -1160,13 +1372,16 @@ function mostrarProductos(){
         </div>
 
         <h3>
-          Todavía no hay productos
+          Próximamente
         </h3>
 
         <p>
-          Cuando agregues productos de
-          ${categoriaActual},
-          aparecerán aquí.
+          Estamos preparando los productos de
+          ${categoriaActual}.
+        </p>
+
+        <p>
+          Escríbenos por WhatsApp para consultar disponibilidad.
         </p>
 
       </div>
@@ -1207,15 +1422,13 @@ function mostrarProductos(){
         <img
           src="${imagen}"
           alt="${nombre}"
-          onerror="this.style.display='none'">
+          onerror="this.style.display='none'>
 
 
         <div class="producto-info">
 
           <div class="producto-nombre">
-
             ${nombre}
-
           </div>
 
 
@@ -1242,11 +1455,17 @@ function mostrarProductos(){
           <button
             class="agregar-carrito"
             onclick='agregarAlCarrito(${JSON.stringify({
+
               id:producto.id,
+
               nombre:nombre,
+
               precio:precio,
+
               imagen:imagen,
+
               categoria:categoriaActual
+
             })})'>
 
             🛒 Agregar al carrito
@@ -1269,12 +1488,13 @@ function mostrarProductos(){
 
 
 /* =========================================
-   ESCAPAR TEXTO
+   ESCAPAR
 ========================================= */
 
 function escapar(texto){
 
   return String(texto)
+    .replace(/\\/g,"\\\\")
     .replace(/'/g,"\\'")
     .replace(/"/g,'\\"');
 
@@ -1282,7 +1502,7 @@ function escapar(texto){
 
 
 /* =========================================
-   CONSULTAR PRODUCTO
+   CONSULTAR
 ========================================= */
 
 window.consultarProducto =
@@ -1309,7 +1529,7 @@ function(nombre){
 
 
 /* =========================================
-   AGREGAR AL CARRITO
+   AGREGAR
 ========================================= */
 
 window.agregarAlCarrito =
@@ -1343,20 +1563,13 @@ function(producto){
 
   actualizarCarrito();
 
-
-  /*
-    Abrimos el carrito automáticamente
-    para que el cliente vea que el producto
-    fue agregado.
-  */
-
   abrirCarrito();
 
 };
 
 
 /* =========================================
-   GUARDAR CARRITO
+   GUARDAR
 ========================================= */
 
 function guardarCarrito(){
@@ -1370,7 +1583,7 @@ function guardarCarrito(){
 
 
 /* =========================================
-   ACTUALIZAR CARRITO
+   ACTUALIZAR
 ========================================= */
 
 function actualizarCarrito(){
@@ -1410,6 +1623,8 @@ function actualizarCarrito(){
 
   let totalCompra = 0;
 
+  let hayPrecioPendiente = false;
+
 
   if(carrito.length === 0){
 
@@ -1443,9 +1658,17 @@ function actualizarCarrito(){
   carrito.forEach(
     (item,index) => {
 
-      totalCompra +=
-        item.precio *
-        item.cantidad;
+      if(item.precio > 0){
+
+        totalCompra +=
+          item.precio *
+          item.cantidad;
+
+      }else{
+
+        hayPrecioPendiente = true;
+
+      }
 
 
       const elemento =
@@ -1462,24 +1685,19 @@ function actualizarCarrito(){
           alt="${item.nombre}">
 
 
-        <div
-          class="carrito-item-info">
+        <div class="carrito-item-info">
 
-          <div
-            class="carrito-item-nombre">
-
+          <div class="carrito-item-nombre">
             ${item.nombre}
-
           </div>
 
 
-          <div
-            class="carrito-item-precio">
+          <div class="carrito-item-precio">
 
             ${
               item.precio > 0
               ? formatoPrecio(item.precio)
-              : "Consultar precio"
+              : "Precio por confirmar"
             }
 
           </div>
@@ -1489,33 +1707,25 @@ function actualizarCarrito(){
 
             <button
               onclick="cambiarCantidad(${index},-1)">
-
               −
-
             </button>
 
 
             <span>
-
               ${item.cantidad}
-
             </span>
 
 
             <button
               onclick="cambiarCantidad(${index},1)">
-
               +
-
             </button>
 
 
             <button
               class="eliminar"
               onclick="eliminarDelCarrito(${index})">
-
               🗑️
-
             </button>
 
           </div>
@@ -1533,14 +1743,23 @@ function actualizarCarrito(){
   );
 
 
-  total.textContent =
-    formatoPrecio(totalCompra);
+  if(hayPrecioPendiente){
+
+    total.textContent =
+      "Por confirmar";
+
+  }else{
+
+    total.textContent =
+      formatoPrecio(totalCompra);
+
+  }
 
 }
 
 
 /* =========================================
-   CAMBIAR CANTIDAD
+   CANTIDAD
 ========================================= */
 
 window.cambiarCantidad =
@@ -1594,9 +1813,7 @@ window.vaciarCarrito =
 function(){
 
   if(carrito.length === 0){
-
     return;
-
   }
 
 
@@ -1625,7 +1842,7 @@ function(){
 
 
 /* =========================================
-   CERRAR CARRITO
+   CERRAR
 ========================================= */
 
 window.cerrarCarrito =
@@ -1679,19 +1896,12 @@ function(){
     "Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
 
 
-  let total =
-    0;
+  let total = 0;
+
+  let hayPrecioPendiente = false;
 
 
   carrito.forEach(item => {
-
-    const subtotal =
-      item.precio *
-      item.cantidad;
-
-
-    total += subtotal;
-
 
     mensaje +=
       `• ${item.nombre} x${item.cantidad}`;
@@ -1699,8 +1909,21 @@ function(){
 
     if(item.precio > 0){
 
+      const subtotal =
+        item.precio *
+        item.cantidad;
+
+      total += subtotal;
+
       mensaje +=
         ` - ${formatoPrecio(subtotal)}`;
+
+    }else{
+
+      mensaje +=
+        ` - Precio por confirmar`;
+
+      hayPrecioPendiente = true;
 
     }
 
@@ -1712,7 +1935,28 @@ function(){
 
 
   mensaje +=
-    `%0ATotal: ${formatoPrecio(total)}`;
+    "%0A";
+
+
+  if(hayPrecioPendiente){
+
+    mensaje +=
+      "Total de productos: Precio por confirmar%0A";
+
+  }else{
+
+    mensaje +=
+      `Total de productos: ${formatoPrecio(total)}%0A`;
+
+  }
+
+
+  mensaje +=
+    "El valor del domicilio depende de mi ubicación y será confirmado antes de finalizar el pedido.%0A";
+
+
+  mensaje +=
+    "Medio de pago preferido: Nequi, Bancolombia, DaviPlata o contra entrega.";
 
 
   const url =
@@ -1758,16 +2002,7 @@ function(){
 
 actualizarCarrito();
 
-cargarProductos()
-  .then(() => {
-
-    if(categoriaActual){
-
-      mostrarProductos();
-
-    }
-
-  });
+cargarProductos();
 
 </script>
 
