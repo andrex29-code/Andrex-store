@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANDREX Store - Administrador</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#080808;
+  color:white;
+  padding:20px;
+}
+
+.contenedor{
+  max-width:700px;
+  margin:auto;
+}
+
+h1{
+  text-align:center;
+  color:#f4d47a;
+  margin-bottom:10px;
+}
+
+.subtitulo{
+  text-align:center;
+  color:#aaa;
+  margin-bottom:30px;
+}
+
+.panel{
+  background:#121212;
+  border:1px solid #3d2c10;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin-top:15px;
+  margin-bottom:7px;
+  color:#f4d47a;
+  font-weight:bold;
+}
+
+input,
+select{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #444;
+  background:#1b1b1b;
+  color:white;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:20px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#f4d47a,#d6a63a);
+  color:#080808;
+  font-weight:bold;
+  font-size:16px;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+#mensaje{
+  text-align:center;
+  margin-top:20px;
+  padding:15px;
+  border-radius:12px;
+  display:none;
+}
+
+.exito{
+  background:#123d24;
+  color:#7dffad;
+}
+
+.error{
+  background:#421818;
+  color:#ff8b8b;
+}
+
+.oculto{
+  display:none;
+}
+
+.cerrar{
+  background:#292929;
+  color:white;
+}
+
+.info{
+  color:#aaa;
+  font-size:14px;
+  line-height:1.5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>♛ ANDREX Store</h1>
+
+<div class="subtitulo">
+Panel privado de administración
+</div>
+
+
+<!-- LOGIN -->
+
+<div id="loginPanel" class="panel">
+
+<h2>🔐 Iniciar sesión</h2>
+
+<p class="info">
+Ingresa el correo y la contraseña de tu cuenta administradora.
+</p>
+
+<label>Correo electrónico</label>
+
+<input
+id="email"
+type="email"
+placeholder="Tu correo"
+autocomplete="email"
+>
+
+<label>Contraseña</label>
+
+<input
+id="password"
+type="password"
+placeholder="Tu contraseña"
+autocomplete="current-password"
+>
+
+<button onclick="iniciarSesion()">
+Iniciar sesión
+</button>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<div id="adminPanel" class="panel oculto">
+
+<h2>➕ Agregar producto</h2>
+
+<label>Nombre del producto</label>
+
+<input
+id="nombre"
+type="text"
+placeholder="Ejemplo: Camiseta negra"
+>
+
+<label>Categoría</label>
+
+<select id="categoria">
+
+<option value="ropa">
+👕 Ropa
+</option>
+
+<option value="zapatos">
+👟 Zapatos
+</option>
+
+<option value="lociones">
+🧴 Lociones
+</option>
+
+<option value="streaming">
+🎬 Streaming
+</option>
+
+</select>
+
+
+<label>Precio</label>
+
+<input
+id="precio"
+type="text"
+placeholder="Ejemplo: $59.900"
+>
+
+
+<label>URL de la imagen</label>
+
+<input
+id="imagen"
+type="url"
+placeholder="Pega aquí el enlace de la imagen"
+>
+
+<p class="info">
+Por ahora las imágenes se agregarán mediante un enlace. Después podemos mejorar esto para que puedas seleccionarlas desde tu celular.
+</p>
+
+
+<button onclick="agregarProducto()">
+➕ Agregar producto
+</button>
+
+<button class="cerrar" onclick="cerrarSesion()">
+Cerrar sesión
+</button>
+
+<div id="mensaje"></div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyBGb7jgkOKWeNnJed6QPDMw4-933gGk59I",
+
+  authDomain:
+  "andrex-store.firebaseapp.com",
+
+  projectId:
+  "andrex-store",
+
+  storageBucket:
+  "andrex-store.firebasestorage.app",
+
+  messagingSenderId:
+  "607192665861",
+
+  appId:
+  "1:607192665861:web:a4fb90f3a2009d6491716c"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+const ADMIN_UID =
+"9ljNx8jiUUgUv4uiJslpK9qAdIh1";
+
+
+const loginPanel =
+document.getElementById("loginPanel");
+
+const adminPanel =
+document.getElementById("adminPanel");
+
+const mensaje =
+document.getElementById("mensaje");
+
+
+function mostrarMensaje(texto, tipo){
+
+  mensaje.textContent = texto;
+
+  mensaje.className = tipo;
+
+  mensaje.style.display = "block";
+
+}
+
+
+window.iniciarSesion = async function(){
+
+  const email =
+  document.getElementById("email").value.trim();
+
+  const password =
+  document.getElementById("password").value;
+
+  if(!email || !password){
+
+    mostrarMensaje(
+      "Escribe tu correo y contraseña.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  try{
+
+    const resultado =
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+
+    if(resultado.user.uid !== ADMIN_UID){
+
+      await signOut(auth);
+
+      mostrarMensaje(
+        "Esta cuenta no tiene permisos de administrador.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    mostrarMensaje(
+      "Sesión iniciada correctamente.",
+      "exito"
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    mostrarMensaje(
+      "No se pudo iniciar sesión. Revisa el correo y la contraseña.",
+      "error"
+    );
+
+  }
+
+};
+
+
+onAuthStateChanged(auth,(user)=>{
+
+  if(user && user.uid === ADMIN_UID){
+
+    loginPanel.classList.add("oculto");
+
+    adminPanel.classList.remove("oculto");
+
+  }else{
+
+    loginPanel.classList.remove("oculto");
+
+    adminPanel.classList.add("oculto");
+
+  }
+
+});
+
+
+window.agregarProducto = async function(){
+
+  const nombre =
+  document.getElementById("nombre").value.trim();
+
+  const categoria =
+  document.getElementById("categoria").value;
+
+  const precio =
+  document.getElementById("precio").value.trim();
+
+  const imagen =
+  document.getElementById("imagen").value.trim();
+
+
+  if(!nombre || !imagen){
+
+    mostrarMensaje(
+      "Debes colocar el nombre y la URL de la imagen.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"productos"),
+      {
+
+        nombre: nombre,
+
+        categoria: categoria,
+
+        precio: precio || "Consultar precio",
+
+        imagen: imagen,
+
+        creado: serverTimestamp()
+
+      }
+    );
+
+
+    document.getElementById("nombre").value = "";
+
+    document.getElementById("precio").value = "";
+
+    document.getElementById("imagen").value = "";
+
+
+    mostrarMensaje(
+      "✅ Producto agregado correctamente.",
+      "exito"
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    mostrarMensaje(
+      "❌ No se pudo agregar el producto.",
+      "error"
+    );
+
+  }
+
+};
+
+
+window.cerrarSesion = async function(){
+
+  await signOut(auth);
+
+};
+
+</script>
+
+</body>
+</html>
