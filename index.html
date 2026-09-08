@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,11 +14,9 @@
   --morado-neon:#c026ff;
   --azul:#38bdf8;
   --azul-neon:#22d3ee;
-
   --blanco:#ffffff;
   --texto:#241337;
   --gris:#626778;
-
   --whatsapp:#25D366;
 }
 
@@ -48,7 +47,7 @@ body{
 header{
   background:rgba(255,255,255,.96);
 
-  padding:18px 15px;
+  padding:10px 15px;
 
   position:sticky;
   top:0;
@@ -59,31 +58,30 @@ header{
   box-shadow:
     0 3px 18px rgba(155,77,255,.18),
     0 3px 15px rgba(56,189,248,.15);
+
+  text-align:center;
 }
 
+
+/* LOGO PEQUEÑO Y CENTRADO */
+
 .logo{
+  width:100%;
   text-align:center;
+  font-size:0;
+}
 
-  font-size:30px;
-  font-weight:900;
+.logo img{
+  width:90px !important;
+  height:90px !important;
+  max-width:90px !important;
+  max-height:90px !important;
 
-  letter-spacing:2px;
+  object-fit:contain !important;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--morado-neon),
-      var(--morado),
-      var(--azul),
-      var(--azul-neon)
-    );
+  display:block !important;
 
-  -webkit-background-clip:text;
-  color:transparent;
-
-  text-shadow:
-    0 0 12px rgba(192,38,255,.30),
-    0 0 18px rgba(34,211,238,.25);
+  margin:0 auto !important;
 }
 
 
@@ -93,34 +91,8 @@ header{
 
 .container{
   width:92%;
-  max-width:80px;
+  max-width:900px;
   margin:auto;
-}
-
-
-/* =========================
-   VIDEO
-========================= */
-
-.video-box{
-  margin-top:20px;
-
-  border-radius:22px;
-
-  overflow:hidden;
-
-  background:#fff;
-
-  border:2px solid rgba(155,77,255,.35);
-
-  box-shadow:
-    0 0 18px rgba(155,77,255,.22),
-    0 0 25px rgba(56,189,248,.16);
-}
-
-.video-box video{
-  width:80%;
-  display:block;
 }
 
 
@@ -152,22 +124,16 @@ header{
 }
 
 
-/* ==================================================
-   CARPETAS GRANDES UNA DEBAJO DE OTRA
-================================================== */
+/* =========================
+   CARPETAS
+========================= */
 
 .categories{
   display:flex;
-
   flex-direction:column;
-
   gap:18px;
-
   width:100%;
 }
-
-
-/* CADA CARPETA */
 
 .category{
   width:100%;
@@ -193,29 +159,20 @@ header{
     0 0 18px rgba(56,189,248,.12);
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
 
   cursor:pointer;
-
   transition:.25s;
 
   position:relative;
-
   overflow:hidden;
 }
 
-
-/* LUZ NEON */
-
 .category::before{
-
   content:"";
 
   position:absolute;
@@ -239,7 +196,6 @@ header{
 }
 
 .category::after{
-
   content:"";
 
   position:absolute;
@@ -262,9 +218,7 @@ header{
   pointer-events:none;
 }
 
-
 .category:hover{
-
   transform:translateY(-5px);
 
   border-color:var(--morado-neon);
@@ -275,10 +229,11 @@ header{
 }
 
 
-/* ICONO */
+/* =========================
+   ICONOS
+========================= */
 
 .category-icon{
-
   width:95px;
   height:95px;
 
@@ -287,7 +242,6 @@ header{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   margin-bottom:12px;
@@ -309,15 +263,10 @@ header{
     0 0 20px rgba(34,211,238,.20);
 
   position:relative;
-
   z-index:2;
 }
 
-
-/* NOMBRE */
-
 .category-name{
-
   font-size:25px;
 
   font-weight:900;
@@ -328,7 +277,6 @@ header{
     0 0 9px rgba(155,77,255,.18);
 
   position:relative;
-
   z-index:2;
 }
 
@@ -346,7 +294,6 @@ header{
 }
 
 .back-button{
-
   border:none;
 
   padding:13px 22px;
@@ -356,7 +303,6 @@ header{
   color:white;
 
   font-weight:bold;
-
   font-size:15px;
 
   cursor:pointer;
@@ -382,7 +328,6 @@ header{
 ========================= */
 
 .products{
-
   display:grid;
 
   grid-template-columns:
@@ -392,7 +337,6 @@ header{
 }
 
 .product{
-
   background:#ffffff;
 
   border-radius:19px;
@@ -407,7 +351,6 @@ header{
 }
 
 .product img{
-
   width:100%;
 
   height:190px;
@@ -422,16 +365,12 @@ header{
 }
 
 .product-name{
-
   font-size:16px;
-
   font-weight:bold;
-
   margin-bottom:7px;
 }
 
 .product-price{
-
   color:var(--morado);
 
   font-size:18px;
@@ -440,7 +379,6 @@ header{
 }
 
 .add-button{
-
   width:100%;
 
   border:none;
@@ -471,11 +409,10 @@ header{
 
 
 /* =========================
-   CUADROS DE INFORMACION
+   INFORMACION
 ========================= */
 
 .info-section{
-
   margin-top:28px;
 
   display:grid;
@@ -487,7 +424,6 @@ header{
 }
 
 .info-card{
-
   background:
     linear-gradient(
       145deg,
@@ -508,7 +444,6 @@ header{
 }
 
 .info-card h3{
-
   margin-top:0;
 
   font-size:19px;
@@ -526,7 +461,6 @@ header{
 }
 
 .info-card p{
-
   color:#505568;
 
   line-height:1.55;
@@ -540,15 +474,12 @@ header{
 ========================= */
 
 .cart-button{
-
   position:fixed;
 
   right:18px;
-
   bottom:18px;
 
   width:64px;
-
   height:64px;
 
   border:none;
@@ -577,15 +508,12 @@ header{
 }
 
 .cart-count{
-
   position:absolute;
 
   top:-5px;
-
   right:-5px;
 
   width:24px;
-
   height:24px;
 
   border-radius:50%;
@@ -597,7 +525,6 @@ header{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   font-size:12px;
@@ -611,15 +538,12 @@ header{
 ========================= */
 
 .cart-panel{
-
   position:fixed;
 
   top:0;
-
   right:-100%;
 
   width:90%;
-
   max-width:400px;
 
   height:100vh;
@@ -643,18 +567,15 @@ header{
 }
 
 .cart-header{
-
   display:flex;
 
   align-items:center;
-
   justify-content:space-between;
 
   margin-bottom:20px;
 }
 
 .cart-header h2{
-
   margin:0;
 
   background:
@@ -670,9 +591,7 @@ header{
 }
 
 .close-cart{
-
   width:36px;
-
   height:36px;
 
   border:none;
@@ -689,7 +608,6 @@ header{
 }
 
 .cart-item{
-
   display:flex;
 
   gap:10px;
@@ -700,9 +618,7 @@ header{
 }
 
 .cart-item img{
-
   width:65px;
-
   height:65px;
 
   object-fit:cover;
@@ -719,7 +635,6 @@ header{
 }
 
 .cart-controls{
-
   display:flex;
 
   align-items:center;
@@ -730,9 +645,7 @@ header{
 }
 
 .cart-controls button{
-
   width:29px;
-
   height:29px;
 
   border:none;
@@ -752,7 +665,6 @@ header{
 }
 
 .delete-button{
-
   background:#ffe8f8 !important;
 
   color:#e11d8d !important;
@@ -764,7 +676,6 @@ header{
 ========================= */
 
 .cart-total{
-
   margin-top:20px;
 
   padding:16px;
@@ -791,7 +702,6 @@ header{
 ========================= */
 
 .whatsapp-button{
-
   width:100%;
 
   border:none;
@@ -816,9 +726,7 @@ header{
     0 0 15px rgba(37,211,102,.25);
 }
 
-
 .empty{
-
   text-align:center;
 
   padding:30px;
@@ -833,29 +741,33 @@ header{
 
 @media(max-width:600px){
 
+  header{
+    padding:8px 10px;
+  }
+
+  .logo img{
+    width:80px !important;
+    height:80px !important;
+    max-width:80px !important;
+    max-height:80px !important;
+  }
+
   .category{
-
     min-height:175px;
-
     padding:20px;
   }
 
   .category-icon{
-
     width:85px;
-
     height:85px;
-
     font-size:44px;
   }
 
   .category-name{
-
     font-size:23px;
   }
 
   .products{
-
     grid-template-columns:
       repeat(2,1fr);
 
@@ -863,31 +775,13 @@ header{
   }
 
   .product img{
-
     height:155px;
   }
 
   .info-section{
-
     grid-template-columns:1fr;
   }
 
-  .logo{
-
-    .logo{
-  font-size:26px;
-  text-align:center;
-}
-
-.logo img{
-  width:100px !important;
-  height:100px !important;
-  max-width:100px !important;
-  max-height:100px !important;
-  object-fit:contain !important;
-  display:block !important;
-  margin:0 auto !important;
-}
 }
 
 
@@ -898,24 +792,19 @@ header{
 @media(min-width:800px){
 
   .category{
-
     min-height:200px;
   }
 
   .category-icon{
-
     width:105px;
-
     height:105px;
   }
 
   .category-name{
-
     font-size:27px;
   }
 
   .products{
-
     grid-template-columns:
       repeat(4,1fr);
   }
@@ -930,27 +819,19 @@ header{
 
 
 <header>
-<div class="logo">
-  <img src="https://github.com/andrex29-code/Andrex-store/raw/refs/heads/main/61015DF9-C980-4CE4-AF75-6EA36FB447CD.png" alt="ANDREX Store">
-</div>
+
+  <div class="logo">
+
+    <img
+      src="https://github.com/andrex29-code/Andrex-store/raw/refs/heads/main/61015DF9-C980-4CE4-AF75-6EA36FB447CD.png"
+      alt="ANDREX Store">
+
+  </div>
 
 </header>
 
 
 <div class="container">
-
-
-<!-- =========================
-     VIDEO
-========================= -->
-
-<div class="logo-box">
-
-  <img src="61015DF9-C980-4CE4-AF75-6EA36FB447CD.png" alt="ANDREX Store">
-
-  <h2>ANDREX Store</h2>
-
-</div>
 
 
 <!-- =========================
@@ -967,8 +848,6 @@ header{
 <div class="categories">
 
 
-<!-- ROPA -->
-
 <div
 class="category"
 onclick="abrirCategoria('ropa')">
@@ -983,8 +862,6 @@ Ropa
 
 </div>
 
-
-<!-- ZAPATOS -->
 
 <div
 class="category"
@@ -1001,8 +878,6 @@ Zapatos
 </div>
 
 
-<!-- LOCIONES -->
-
 <div
 class="category"
 onclick="abrirCategoria('lociones')">
@@ -1017,8 +892,6 @@ Lociones
 
 </div>
 
-
-<!-- STREAMING -->
 
 <div
 class="category"
@@ -1048,7 +921,6 @@ Cuentas de Streaming
 id="catalog"
 class="catalog">
 
-
 <button
 class="back-button"
 onclick="volverInicio()">
@@ -1069,7 +941,6 @@ id="products"
 class="products">
 </div>
 
-
 </section>
 
 
@@ -1079,8 +950,6 @@ class="products">
 
 <div class="info-section">
 
-
-<!-- CUADRO ANDREX -->
 
 <div class="info-card">
 
@@ -1102,8 +971,6 @@ personalizada, rápida y confiable.
 </div>
 
 
-<!-- CUADRO ENVIOS -->
-
 <div class="info-card">
 
 <h3>
@@ -1117,14 +984,18 @@ a nivel nacional.
 
 El valor del domicilio
 es asumido por el cliente
-y depende de la ubicación solo las lociones originales se pueden pagar contra entrega la ropa zapatos y streming de contado.
+y depende de la ubicación.
+
+Solo las lociones originales
+se pueden pagar contra entrega.
+
+La ropa, zapatos y streaming
+son de contado.
 
 </p>
 
 </div>
 
-
-<!-- CUADRO PAGOS -->
 
 <div class="info-card">
 
@@ -1145,8 +1016,6 @@ o contra entrega.
 
 </div>
 
-
-<!-- CUADRO AYUDA -->
 
 <div class="info-card">
 
@@ -1617,7 +1486,7 @@ error
 
 
 /* =========================
-   AGREGAR CARRITO
+   CARRITO
 ========================= */
 
 window.agregarAlCarrito=
