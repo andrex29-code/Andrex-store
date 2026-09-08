@@ -659,6 +659,7 @@ cargarFotos("lociones");
 cargarFotos("streaming");
 
 </script>
+  
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
@@ -683,6 +684,146 @@ getDocs(collection(db, "productos"))
     console.error("Error conectando con Firebase:", error);
   });
 </script>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+  apiKey:
+  "AIzaSyBGb7jgkOKWeNnJed6QPDMw4-933gGk59I",
+
+  authDomain:
+  "andrex-store.firebaseapp.com",
+
+  projectId:
+  "andrex-store",
+
+  storageBucket:
+  "andrex-store.firebasestorage.app",
+
+  messagingSenderId:
+  "607192665861",
+
+  appId:
+  "1:607192665861:web:a4fb90f3a2009d6491716c"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const whatsapp = "573181579324";
+
+
+async function cargarProductosFirebase(){
+
+  try{
+
+    const resultado =
+    await getDocs(collection(db,"productos"));
+
+
+    resultado.forEach((documento)=>{
+
+      const producto = documento.data();
+
+      if(!producto.nombre || !producto.imagen){
+        return;
+      }
+
+
+      const categoria =
+      producto.categoria || "ropa";
+
+
+      const contenedor =
+      document.getElementById(categoria);
+
+
+      if(!contenedor){
+        return;
+      }
+
+
+      const tarjeta =
+      document.createElement("div");
+
+      tarjeta.className = "product";
+
+
+      const mensaje =
+      "Hola ANDREX Store, me interesa el producto: " +
+      producto.nombre;
+
+
+      const enlace =
+      "https://wa.me/" +
+      whatsapp +
+      "?text=" +
+      encodeURIComponent(mensaje);
+
+
+      tarjeta.innerHTML = `
+
+        <div class="photo">
+
+          <img
+            src="${producto.imagen}"
+            alt="${producto.nombre}"
+            loading="lazy">
+
+        </div>
+
+        <h3>
+          ${producto.nombre}
+        </h3>
+
+        <div class="price">
+          ${producto.precio || "Consultar precio"}
+        </div>
+
+        <a
+          class="whatsapp"
+          href="${enlace}"
+          target="_blank">
+
+          Consultar
+
+        </a>
+
+      `;
+
+
+      contenedor.appendChild(tarjeta);
+
+    });
+
+
+  }catch(error){
+
+    console.error(
+      "Error cargando productos de Firebase:",
+      error
+    );
+
+  }
+
+}
+
+
+cargarProductosFirebase();
+
+</script>
 </body>
 </html>
