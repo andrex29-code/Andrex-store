@@ -262,24 +262,10 @@ footer{
 
 }
 
-
-/* ==================================================
-   REGLA ESPECIAL:
-   LA PRIMERA TARJETA DE CADA CATEGORÍA
-   NUNCA MOSTRARÁ PRECIO NI WHATSAPP
-================================================== */
-
-.products .product:first-child .price,
-.products .product:first-child .whatsapp{
-  display:none !important;
-}
-
 </style>
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -329,66 +315,30 @@ Todo lo que buscas, en un solo lugar
 <div class="categories">
 
 <div class="cat" onclick="mostrarMensaje('ropa')">
-
 <div class="icon">👕</div>
-
-<h3>
-Ropa
-</h3>
-
-<p>
-Estilo para cada ocasión
-</p>
-
+<h3>Ropa</h3>
+<p>Estilo para cada ocasión</p>
 </div>
-
 
 <div class="cat" onclick="mostrarMensaje('zapatos')">
-
 <div class="icon">👟</div>
-
-<h3>
-Zapatos
-</h3>
-
-<p>
-Camina con tu propio estilo
-</p>
-
+<h3>Zapatos</h3>
+<p>Camina con tu propio estilo</p>
 </div>
-
 
 <div class="cat" onclick="mostrarMensaje('lociones')">
-
 <div class="icon">🧴</div>
-
-<h3>
-Lociones
-</h3>
-
-<p>
-Una esencia que habla por ti
-</p>
-
+<h3>Lociones</h3>
+<p>Una esencia que habla por ti</p>
 </div>
-
 
 <div class="cat" onclick="mostrarMensaje('streaming')">
-
 <div class="icon">🎬</div>
-
-<h3>
-Streaming
-</h3>
-
-<p>
-Entretenimiento sin límites
-</p>
-
+<h3>Streaming</h3>
+<p>Entretenimiento sin límites</p>
 </div>
 
 </div>
-
 
 <div
 id="mensajeCategoria"
@@ -400,13 +350,9 @@ class="mensaje-categoria">
 
 <section>
 
-<h2>
-👕 Ropa
-</h2>
+<h2>👕 Ropa</h2>
 
-<div
-class="products"
-id="ropa">
+<div class="products" id="ropa">
 
 <div class="loading">
 Cargando fotos...
@@ -419,13 +365,9 @@ Cargando fotos...
 
 <section>
 
-<h2>
-👟 Zapatos
-</h2>
+<h2>👟 Zapatos</h2>
 
-<div
-class="products"
-id="zapatos">
+<div class="products" id="zapatos">
 
 <div class="loading">
 Cargando fotos...
@@ -438,13 +380,9 @@ Cargando fotos...
 
 <section>
 
-<h2>
-🧴 Lociones
-</h2>
+<h2>🧴 Lociones</h2>
 
-<div
-class="products"
-id="lociones">
+<div class="products" id="lociones">
 
 <div class="loading">
 Cargando fotos...
@@ -457,13 +395,9 @@ Cargando fotos...
 
 <section>
 
-<h2>
-🎬 Streaming
-</h2>
+<h2>🎬 Streaming</h2>
 
-<div
-class="products"
-id="streaming">
+<div class="products" id="streaming">
 
 <div class="loading">
 Cargando fotos...
@@ -504,7 +438,6 @@ Pedidos por WhatsApp: 318 157 9324
 
 <script>
 
-
 function mostrarMensaje(categoria){
 
 const mensajes={
@@ -532,9 +465,9 @@ mensaje.style.display="block";
 }
 
 
-/* ==================================================
+/* ================================
    CONFIGURACIÓN
-================================================== */
+================================ */
 
 const usuario="andrex29-code";
 const repo="Andrex-store";
@@ -542,83 +475,68 @@ const rama="main";
 const whatsapp="573181579324";
 
 
-/* ==================================================
+/* ================================
    CONTADORES
-================================================== */
+================================ */
 
 const cantidadMostrada={
-
-ropa:0,
-zapatos:0,
-lociones:0,
-streaming:0
-
+  ropa:0,
+  zapatos:0,
+  lociones:0,
+  streaming:0
 };
 
 
-/* ==================================================
+/* ================================
    CREAR PRODUCTO
-================================================== */
+================================ */
 
 function crearProducto(
-categoria,
-imagen,
-nombre,
-mensaje,
-precio
+  categoria,
+  imagen,
+  nombre,
+  mensaje,
+  precio
 ){
 
-const contenedor=
-document.getElementById(categoria);
+const contenedor=document.getElementById(categoria);
 
-if(!contenedor){
-return;
-}
+if(!contenedor) return;
 
 
 /*
-   EL NÚMERO SE ASIGNA ANTES
-   DE CREAR LA TARJETA
+   Guardamos el número antes
+   de aumentar el contador.
 */
 
-const numero=
-cantidadMostrada[categoria];
+const numero=cantidadMostrada[categoria];
 
 cantidadMostrada[categoria]++;
 
 
 /*
-   ELIMINAR "CARGANDO"
+   Quitamos "Cargando..."
 */
 
-const loading=
-contenedor.querySelector(".loading");
+const loading=contenedor.querySelector(".loading");
 
 if(loading){
-loading.remove();
+  loading.remove();
 }
 
 
 /*
-   CREAR TARJETA
-*/
-
-const tarjeta=
-document.createElement("div");
-
-tarjeta.className="product";
-
-
-/*
-==================================================
-PRIMER PRODUCTO
-SOLO FOTO + NOMBRE
-==================================================
+====================================
+PRIMERA FOTO
+SOLO IMAGEN
+====================================
 */
 
 if(numero===0){
 
-tarjeta.classList.add("primer-producto");
+const tarjeta=document.createElement("div");
+
+tarjeta.className="product primer-producto";
 
 tarjeta.innerHTML=`
 
@@ -626,28 +544,30 @@ tarjeta.innerHTML=`
 
 <img
 src="${imagen}"
-alt="${nombre}"
+alt=""
 loading="lazy">
 
 </div>
 
-<h3>
-${nombre}
-</h3>
-
 `;
+
+contenedor.appendChild(tarjeta);
+
+return;
 
 }
 
 
 /*
-==================================================
-TODOS LOS DEMÁS PRODUCTOS
-PRECIO + WHATSAPP
-==================================================
+====================================
+TODAS LAS DEMÁS FOTOS
+NOMBRE + PRECIO + BOTÓN
+====================================
 */
 
-else{
+const tarjeta=document.createElement("div");
+
+tarjeta.className="product";
 
 const enlace=
 "https://wa.me/"+
@@ -686,26 +606,21 @@ Consultar
 
 `;
 
-}
-
-
 contenedor.appendChild(tarjeta);
 
 }
 
 
-/* ==================================================
-   CARGAR FOTOS DESDE GITHUB
-================================================== */
+/* ================================
+   GITHUB
+================================ */
 
 async function cargarFotos(
-categoria,
-rutaCarpeta=categoria
+  categoria,
+  rutaCarpeta=categoria
 ){
 
-const contenedor=
-document.getElementById(categoria);
-
+const contenedor=document.getElementById(categoria);
 
 try{
 
@@ -719,44 +634,30 @@ rutaCarpeta+
 "?ref="+
 rama;
 
-
-const respuesta=
-await fetch(url);
-
+const respuesta=await fetch(url);
 
 if(!respuesta.ok){
-
-throw new Error(
-"Error "+respuesta.status
-);
-
+  throw new Error("Error "+respuesta.status);
 }
 
+const archivos=await respuesta.json();
 
-const archivos=
-await respuesta.json();
-
-
-const fotos=
-archivos.filter(
+const fotos=archivos.filter(
 
 archivo=>
 
 archivo.type==="file" &&
-
-/\.(jpg|jpeg|png|webp|gif)$/i
-.test(archivo.name)
+/\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
 
 );
 
 
 if(fotos.length===0){
 
-const loading=
-contenedor.querySelector(".loading");
+const loading=contenedor.querySelector(".loading");
 
 if(loading){
-loading.textContent="No hay fotos todavía.";
+  loading.textContent="No hay fotos todavía.";
 }
 
 return;
@@ -764,49 +665,35 @@ return;
 }
 
 
-/*
-   MUY IMPORTANTE:
-   NO BORRAMOS EL CONTENEDOR.
-   SOLO QUITAMOS "CARGANDO".
-*/
-
-const loading=
-contenedor.querySelector(".loading");
+const loading=contenedor.querySelector(".loading");
 
 if(loading){
-loading.remove();
+  loading.remove();
 }
 
 
 /*
-   CARGAR LAS FOTOS
+   Cargamos las fotos en orden.
 */
 
-fotos.forEach(
+fotos.forEach((foto,indice)=>{
 
-(foto,indice)=>{
+const numero=indice+1;
 
-const numero=
-indice+1;
-
-
-const nombreCategoria=
+const categoriaNombre=
 categoria.charAt(0).toUpperCase()+
 categoria.slice(1);
 
-
 const nombre=
-nombreCategoria+
+categoriaNombre+
 " "+
 numero;
 
-
 const mensaje=
 "Hola ANDREX Store, me interesa el producto de "+
-nombreCategoria+
+categoriaNombre+
 " #"+
 numero+".";
-
 
 crearProducto(
 
@@ -822,12 +709,9 @@ mensaje,
 
 );
 
-}
-
-);
+});
 
 }
-
 
 catch(error){
 
@@ -836,8 +720,7 @@ console.error(
 error
 );
 
-const loading=
-contenedor.querySelector(".loading");
+const loading=contenedor.querySelector(".loading");
 
 if(loading){
 
@@ -851,9 +734,9 @@ loading.textContent=
 }
 
 
-/* ==================================================
+/* ================================
    FIREBASE
-================================================== */
+================================ */
 
 async function cargarFirebase(){
 
@@ -882,30 +765,23 @@ appId:
 
 try{
 
-
 const firebaseModule=
 await import(
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"
 );
-
 
 const firestoreModule=
 await import(
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
 );
 
-
 const app=
 firebaseModule.initializeApp(
 firebaseConfig
 );
 
-
 const db=
-firestoreModule.getFirestore(
-app
-);
-
+firestoreModule.getFirestore(app);
 
 const consulta=
 await firestoreModule.getDocs(
@@ -918,51 +794,24 @@ db,
 );
 
 
-/*
-   FIREBASE SE AGREGA DESPUÉS
-   DE LAS FOTOS DE GITHUB
-*/
+consulta.forEach((documento)=>{
 
-consulta.forEach(
-
-(documento)=>{
-
-const producto=
-documento.data();
-
+const producto=documento.data();
 
 if(
 !producto.nombre ||
 !producto.imagen
 ){
-
 return;
-
 }
-
 
 const categoria=
 producto.categoria ||
 "ropa";
 
-
-const contenedor=
-document.getElementById(
-categoria
-);
-
-
-if(!contenedor){
-
-return;
-
-}
-
-
 const mensaje=
 "Hola ANDREX Store, me interesa el producto: "+
 producto.nombre;
-
 
 crearProducto(
 
@@ -979,12 +828,9 @@ producto.precio ||
 
 );
 
-}
-
-);
+});
 
 }
-
 
 catch(error){
 
@@ -998,15 +844,11 @@ error
 }
 
 
-/* ==================================================
-   INICIAR TIENDA
-================================================== */
+/* ================================
+   INICIAR
+================================ */
 
 async function iniciarTienda(){
-
-/*
-   PRIMERO GITHUB
-*/
 
 await Promise.all([
 
@@ -1029,24 +871,13 @@ cargarFotos(
 
 ]);
 
-
-/*
-   DESPUÉS FIREBASE
-*/
-
 await cargarFirebase();
 
 }
 
-
-/*
-   ARRANCAR
-*/
-
 iniciarTienda();
 
 </script>
-
 
 </body>
 </html>
