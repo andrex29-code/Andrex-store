@@ -262,10 +262,24 @@ footer{
 
 }
 
+
+/* ==================================================
+   REGLA ESPECIAL:
+   LA PRIMERA TARJETA DE CADA CATEGORÍA
+   NUNCA MOSTRARÁ PRECIO NI WHATSAPP
+================================================== */
+
+.products .product:first-child .price,
+.products .product:first-child .whatsapp{
+  display:none !important;
+}
+
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -273,7 +287,9 @@ footer{
 
 <div class="crown">♛</div>
 
-<div class="logo">ANDREX</div>
+<div class="logo">
+ANDREX
+</div>
 
 <div class="video-presentacion">
 
@@ -306,58 +322,77 @@ Comprar por WhatsApp
 
 <section>
 
-<h2>Todo lo que buscas, en un solo lugar</h2>
+<h2>
+Todo lo que buscas, en un solo lugar
+</h2>
 
 <div class="categories">
 
 <div class="cat" onclick="mostrarMensaje('ropa')">
+
 <div class="icon">👕</div>
-<h3>Ropa</h3>
-<p>Estilo para cada ocasión</p>
+
+<h3>
+Ropa
+</h3>
+
+<p>
+Estilo para cada ocasión
+</p>
+
 </div>
+
 
 <div class="cat" onclick="mostrarMensaje('zapatos')">
+
 <div class="icon">👟</div>
-<h3>Zapatos</h3>
-<p>Camina con tu propio estilo</p>
+
+<h3>
+Zapatos
+</h3>
+
+<p>
+Camina con tu propio estilo
+</p>
+
 </div>
+
 
 <div class="cat" onclick="mostrarMensaje('lociones')">
+
 <div class="icon">🧴</div>
-<h3>Lociones</h3>
-<p>Una esencia que habla por ti</p>
+
+<h3>
+Lociones
+</h3>
+
+<p>
+Una esencia que habla por ti
+</p>
+
 </div>
+
 
 <div class="cat" onclick="mostrarMensaje('streaming')">
+
 <div class="icon">🎬</div>
-<h3>Streaming</h3>
-<p>Entretenimiento sin límites</p>
-</div>
+
+<h3>
+Streaming
+</h3>
+
+<p>
+Entretenimiento sin límites
+</p>
 
 </div>
 
-<div id="mensajeCategoria" class="mensaje-categoria"></div>
-
-</section>
-
-
-<section>
-
-<h2>👕 Ropa</h2>
-
-<div class="products" id="ropa">
-<div class="loading">Cargando fotos...</div>
 </div>
 
-</section>
 
-
-<section>
-
-<h2>👟 Zapatos</h2>
-
-<div class="products" id="zapatos">
-<div class="loading">Cargando fotos...</div>
+<div
+id="mensajeCategoria"
+class="mensaje-categoria">
 </div>
 
 </section>
@@ -365,10 +400,18 @@ Comprar por WhatsApp
 
 <section>
 
-<h2>🧴 Lociones</h2>
+<h2>
+👕 Ropa
+</h2>
 
-<div class="products" id="lociones">
-<div class="loading">Cargando fotos...</div>
+<div
+class="products"
+id="ropa">
+
+<div class="loading">
+Cargando fotos...
+</div>
+
 </div>
 
 </section>
@@ -376,10 +419,56 @@ Comprar por WhatsApp
 
 <section>
 
-<h2>🎬 Streaming</h2>
+<h2>
+👟 Zapatos
+</h2>
 
-<div class="products" id="streaming">
-<div class="loading">Cargando fotos...</div>
+<div
+class="products"
+id="zapatos">
+
+<div class="loading">
+Cargando fotos...
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+🧴 Lociones
+</h2>
+
+<div
+class="products"
+id="lociones">
+
+<div class="loading">
+Cargando fotos...
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+🎬 Streaming
+</h2>
+
+<div
+class="products"
+id="streaming">
+
+<div class="loading">
+Cargando fotos...
+</div>
+
 </div>
 
 </section>
@@ -415,6 +504,7 @@ Pedidos por WhatsApp: 318 157 9324
 
 <script>
 
+
 function mostrarMensaje(categoria){
 
 const mensajes={
@@ -442,9 +532,9 @@ mensaje.style.display="block";
 }
 
 
-/* =========================================
+/* ==================================================
    CONFIGURACIÓN
-========================================= */
+================================================== */
 
 const usuario="andrex29-code";
 const repo="Andrex-store";
@@ -452,9 +542,9 @@ const rama="main";
 const whatsapp="573181579324";
 
 
-/* =========================================
+/* ==================================================
    CONTADORES
-========================================= */
+================================================== */
 
 const cantidadMostrada={
 
@@ -466,9 +556,9 @@ streaming:0
 };
 
 
-/* =========================================
+/* ==================================================
    CREAR PRODUCTO
-========================================= */
+================================================== */
 
 function crearProducto(
 categoria,
@@ -481,12 +571,14 @@ precio
 const contenedor=
 document.getElementById(categoria);
 
-if(!contenedor) return;
+if(!contenedor){
+return;
+}
 
 
 /*
-Aumentamos el contador
-ANTES de crear la tarjeta.
+   EL NÚMERO SE ASIGNA ANTES
+   DE CREAR LA TARJETA
 */
 
 const numero=
@@ -496,7 +588,7 @@ cantidadMostrada[categoria]++;
 
 
 /*
-Quitamos "Cargando..."
+   ELIMINAR "CARGANDO"
 */
 
 const loading=
@@ -507,17 +599,26 @@ loading.remove();
 }
 
 
+/*
+   CREAR TARJETA
+*/
+
 const tarjeta=
 document.createElement("div");
 
 tarjeta.className="product";
 
 
-/* =====================================
-   PRIMER PRODUCTO
-===================================== */
+/*
+==================================================
+PRIMER PRODUCTO
+SOLO FOTO + NOMBRE
+==================================================
+*/
 
 if(numero===0){
+
+tarjeta.classList.add("primer-producto");
 
 tarjeta.innerHTML=`
 
@@ -539,9 +640,12 @@ ${nombre}
 }
 
 
-/* =====================================
-   RESTO DE PRODUCTOS
-===================================== */
+/*
+==================================================
+TODOS LOS DEMÁS PRODUCTOS
+PRECIO + WHATSAPP
+==================================================
+*/
 
 else{
 
@@ -590,9 +694,9 @@ contenedor.appendChild(tarjeta);
 }
 
 
-/* =========================================
-   GITHUB
-========================================= */
+/* ==================================================
+   CARGAR FOTOS DESDE GITHUB
+================================================== */
 
 async function cargarFotos(
 categoria,
@@ -635,6 +739,7 @@ await respuesta.json();
 
 const fotos=
 archivos.filter(
+
 archivo=>
 
 archivo.type==="file" &&
@@ -642,28 +747,43 @@ archivo.type==="file" &&
 /\.(jpg|jpeg|png|webp|gif)$/i
 .test(archivo.name)
 
-).slice(0,10);
-
-
-/*
-Limpiamos solamente el mensaje
-de carga.
-
-No usamos innerHTML después,
-porque podría borrar productos.
-*/
-
-contenedor.innerHTML="";
+);
 
 
 if(fotos.length===0){
+
+const loading=
+contenedor.querySelector(".loading");
+
+if(loading){
+loading.textContent="No hay fotos todavía.";
+}
 
 return;
 
 }
 
 
+/*
+   MUY IMPORTANTE:
+   NO BORRAMOS EL CONTENEDOR.
+   SOLO QUITAMOS "CARGANDO".
+*/
+
+const loading=
+contenedor.querySelector(".loading");
+
+if(loading){
+loading.remove();
+}
+
+
+/*
+   CARGAR LAS FOTOS
+*/
+
 fotos.forEach(
+
 (foto,indice)=>{
 
 const numero=
@@ -702,9 +822,12 @@ mensaje,
 
 );
 
-});
+}
+
+);
 
 }
+
 
 catch(error){
 
@@ -713,14 +836,24 @@ console.error(
 error
 );
 
+const loading=
+contenedor.querySelector(".loading");
+
+if(loading){
+
+loading.textContent=
+"No se pudieron cargar las fotos.";
+
+}
+
 }
 
 }
 
 
-/* =========================================
+/* ==================================================
    FIREBASE
-========================================= */
+================================================== */
 
 async function cargarFirebase(){
 
@@ -749,10 +882,12 @@ appId:
 
 try{
 
+
 const firebaseModule=
 await import(
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"
 );
+
 
 const firestoreModule=
 await import(
@@ -783,7 +918,13 @@ db,
 );
 
 
+/*
+   FIREBASE SE AGREGA DESPUÉS
+   DE LAS FOTOS DE GITHUB
+*/
+
 consulta.forEach(
+
 (documento)=>{
 
 const producto=
@@ -838,9 +979,12 @@ producto.precio ||
 
 );
 
-});
+}
+
+);
 
 }
+
 
 catch(error){
 
@@ -854,18 +998,14 @@ error
 }
 
 
-/* =========================================
+/* ==================================================
    INICIAR TIENDA
-========================================= */
+================================================== */
 
 async function iniciarTienda(){
 
 /*
-PRIMERO cargamos GitHub.
-
-Así la primera foto de cada
-categoría queda definida.
-
+   PRIMERO GITHUB
 */
 
 await Promise.all([
@@ -891,10 +1031,7 @@ cargarFotos(
 
 
 /*
-DESPUÉS cargamos Firebase.
-
-Los productos de Firebase
-continúan después de los de GitHub.
+   DESPUÉS FIREBASE
 */
 
 await cargarFirebase();
@@ -902,13 +1039,14 @@ await cargarFirebase();
 }
 
 
-/* =========================================
+/*
    ARRANCAR
-========================================= */
+*/
 
 iniciarTienda();
 
 </script>
+
 
 </body>
 </html>
