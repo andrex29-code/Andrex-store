@@ -11,7 +11,6 @@
   --gold:#d6a63a;
   --gold2:#f4d47a;
   --bg:#080808;
-  --card:#121212;
 }
 
 *{
@@ -24,8 +23,6 @@ body{
   background:var(--bg);
   color:white;
 }
-
-/* ENCABEZADO */
 
 header{
   min-height:600px;
@@ -51,15 +48,13 @@ header{
   text-shadow:0 0 25px #8d681d;
 }
 
-/* VIDEO DE PRESENTACIÓN */
-
 .video-presentacion{
   width:min(90vw,700px);
   margin:25px auto;
   border-radius:20px;
   overflow:hidden;
   border:1px solid #5b4317;
-  box-shadow:0 0 30px rgba(214,166,58,0.25);
+  box-shadow:0 0 30px rgba(214,166,58,.25);
   background:#111;
 }
 
@@ -68,14 +63,6 @@ header{
   height:auto;
   display:block;
 }
-
-.video-fallback{
-  padding:35px 20px;
-  color:#aaa;
-  font-size:15px;
-}
-
-/* TEXTO */
 
 .tag{
   letter-spacing:3px;
@@ -105,8 +92,6 @@ h2{
   font-size:30px;
   margin-bottom:30px;
 }
-
-/* CATEGORÍAS */
 
 .categories,
 .products{
@@ -149,8 +134,6 @@ h2{
   color:#aaa;
 }
 
-/* MENSAJES */
-
 .mensaje-categoria{
   display:none;
   margin:25px auto 0;
@@ -165,8 +148,6 @@ h2{
   line-height:1.6;
   box-shadow:0 0 25px rgba(214,166,58,.15);
 }
-
-/* PRODUCTOS */
 
 .product{
   overflow:hidden;
@@ -214,15 +195,6 @@ h2{
   color:#aaa;
 }
 
-.error{
-  grid-column:1/-1;
-  text-align:center;
-  padding:30px;
-  color:#ff7777;
-}
-
-/* PIE */
-
 footer{
   text-align:center;
   padding:35px 20px;
@@ -234,8 +206,6 @@ footer{
   color:var(--gold2);
   font-weight:bold;
 }
-
-/* FIGURAS FLOTANTES */
 
 .floating-characters{
   position:fixed;
@@ -305,16 +275,14 @@ footer{
 
 <div class="logo">ANDREX</div>
 
-<!-- VIDEO -->
 <div class="video-presentacion">
 
-  <video
-    src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
-    controls
-    playsinline
-    preload="auto"
-    style="width:100%;height:100%;object-fit:cover;">
-  </video>
+<video
+src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
+controls
+playsinline
+preload="auto">
+</video>
 
 </div>
 
@@ -336,8 +304,6 @@ Comprar por WhatsApp
 </header>
 
 
-<!-- CATEGORÍAS -->
-
 <section>
 
 <h2>Todo lo que buscas, en un solo lugar</h2>
@@ -345,52 +311,106 @@ Comprar por WhatsApp
 <div class="categories">
 
 <div class="cat" onclick="mostrarMensaje('ropa')">
-
 <div class="icon">👕</div>
-
 <h3>Ropa</h3>
-
 <p>Estilo para cada ocasión</p>
-
 </div>
-
 
 <div class="cat" onclick="mostrarMensaje('zapatos')">
-
 <div class="icon">👟</div>
-
 <h3>Zapatos</h3>
-
 <p>Camina con tu propio estilo</p>
-
 </div>
-
 
 <div class="cat" onclick="mostrarMensaje('lociones')">
-
 <div class="icon">🧴</div>
-
 <h3>Lociones</h3>
-
 <p>Una esencia que habla por ti</p>
-
 </div>
-
 
 <div class="cat" onclick="mostrarMensaje('streaming')">
-
 <div class="icon">🎬</div>
-
 <h3>Streaming</h3>
-
 <p>Entretenimiento sin límites</p>
-
 </div>
 
 </div>
-
 
 <div id="mensajeCategoria" class="mensaje-categoria"></div>
+
+</section>
+
+
+<section>
+
+<h2>👕 Ropa</h2>
+
+<div class="products" id="ropa">
+<div class="loading">Cargando fotos...</div>
+</div>
+
+</section>
+
+
+<section>
+
+<h2>👟 Zapatos</h2>
+
+<div class="products" id="zapatos">
+<div class="loading">Cargando fotos...</div>
+</div>
+
+</section>
+
+
+<section>
+
+<h2>🧴 Lociones</h2>
+
+<div class="products" id="lociones">
+<div class="loading">Cargando fotos...</div>
+</div>
+
+</section>
+
+
+<section>
+
+<h2>🎬 Streaming</h2>
+
+<div class="products" id="streaming">
+<div class="loading">Cargando fotos...</div>
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="brand">
+ANDREX Store
+</div>
+
+<p>
+Estilo · Aroma · Entretenimiento
+</p>
+
+<p>
+Pedidos por WhatsApp: 318 157 9324
+</p>
+
+</footer>
+
+
+<div class="floating-characters">
+
+<span>🛍️</span>
+<span>👕</span>
+<span>👟</span>
+<span>🧴</span>
+<span>✨</span>
+
+</div>
 
 
 <script>
@@ -421,112 +441,10 @@ mensaje.style.display="block";
 
 }
 
-</script>
 
-</section>
-
-
-<!-- ROPA -->
-
-<section>
-
-<h2>👕 Ropa</h2>
-
-<div class="products" id="ropa">
-
-<div class="loading">
-Cargando fotos...
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ZAPATOS -->
-
-<section>
-
-<h2>👟 Zapatos</h2>
-
-<div class="products" id="zapatos">
-
-<div class="loading">
-Cargando fotos...
-</div>
-
-</div>
-
-</section>
-
-
-<!-- LOCIONES -->
-
-<section>
-
-<h2>🧴 Lociones</h2>
-
-<div class="products" id="lociones">
-
-<div class="loading">
-Cargando fotos...
-</div>
-
-</div>
-
-</section>
-
-
-<!-- STREAMING -->
-
-<section>
-
-<h2>🎬 Streaming</h2>
-
-<div class="products" id="streaming">
-
-<div class="loading">
-Cargando fotos...
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PIE -->
-
-<footer>
-
-<div class="brand">
-ANDREX Store
-</div>
-
-<p>
-Estilo · Aroma · Entretenimiento
-</p>
-
-<p>
-Pedidos por WhatsApp: 318 157 9324
-</p>
-
-</footer>
-
-
-<!-- FIGURAS FLOTANTES -->
-
-<div class="floating-characters">
-
-<span>🛍️</span>
-<span>👕</span>
-<span>👟</span>
-<span>🧴</span>
-<span>✨</span>
-
-</div>
-
-
-<script>
+/* =========================================
+   CONFIGURACIÓN
+========================================= */
 
 const usuario="andrex29-code";
 const repo="Andrex-store";
@@ -534,64 +452,98 @@ const rama="main";
 const whatsapp="573181579324";
 
 
-async function cargarFotos(carpeta,rutaCarpeta=carpeta){
+/* =========================================
+   CONTADORES
+========================================= */
 
-const contenedor=document.getElementById(carpeta);
+const cantidadMostrada={
 
-try{
+ropa:0,
+zapatos:0,
+lociones:0,
+streaming:0
 
-const url=
-"https://api.github.com/repos/"+
-usuario+
-"/"+
-repo+
-"/contents/"+
-rutaCarpeta+
-"?ref="+
-rama;
+};
 
-const respuesta=await fetch(url);
 
-if(!respuesta.ok){
+/* =========================================
+   CREAR PRODUCTO
+========================================= */
 
-throw new Error("Error "+respuesta.status);
+function crearProducto(
+categoria,
+imagen,
+nombre,
+mensaje,
+precio
+){
+
+const contenedor=
+document.getElementById(categoria);
+
+if(!contenedor) return;
+
+
+/*
+Aumentamos el contador
+ANTES de crear la tarjeta.
+*/
+
+const numero=
+cantidadMostrada[categoria];
+
+cantidadMostrada[categoria]++;
+
+
+/*
+Quitamos "Cargando..."
+*/
+
+const loading=
+contenedor.querySelector(".loading");
+
+if(loading){
+loading.remove();
+}
+
+
+const tarjeta=
+document.createElement("div");
+
+tarjeta.className="product";
+
+
+/* =====================================
+   PRIMER PRODUCTO
+===================================== */
+
+if(numero===0){
+
+tarjeta.innerHTML=`
+
+<div class="photo">
+
+<img
+src="${imagen}"
+alt="${nombre}"
+loading="lazy">
+
+</div>
+
+<h3>
+${nombre}
+</h3>
+
+`;
 
 }
 
-const archivos=await respuesta.json();
 
-const fotos=archivos.filter(archivo=>
-archivo.type==="file" &&
-/\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
-).slice(0,10);
+/* =====================================
+   RESTO DE PRODUCTOS
+===================================== */
 
-contenedor.innerHTML="";
-
-
-if(fotos.length===0){
-
-contenedor.innerHTML=
-'<div class="loading">Aún no hay fotos en esta categoría.</div>';
-
-return;
-
-}
-
-
-fotos.forEach((foto,indice)=>{
-
-const numero=indice+1;
-
-const nombre=
-carpeta.charAt(0).toUpperCase()+
-carpeta.slice(1);
-
-const mensaje=
-"Hola ANDREX Store, me interesa el producto de "+
-nombre+
-" #"+
-numero+
-".";
+else{
 
 const enlace=
 "https://wa.me/"+
@@ -599,25 +551,24 @@ whatsapp+
 "?text="+
 encodeURIComponent(mensaje);
 
-const tarjeta=document.createElement("div");
-
-tarjeta.className="product";
 
 tarjeta.innerHTML=`
 
 <div class="photo">
 
 <img
-src="${foto.download_url}"
-alt="${nombre} ${numero}"
+src="${imagen}"
+alt="${nombre}"
 loading="lazy">
 
 </div>
 
-<h3>${nombre} ${numero}</h3>
+<h3>
+${nombre}
+</h3>
 
 <div class="price">
-Consultar precio
+${precio || "Consultar precio"}
 </div>
 
 <a
@@ -631,104 +582,333 @@ Consultar
 
 `;
 
+}
+
+
 contenedor.appendChild(tarjeta);
+
+}
+
+
+/* =========================================
+   GITHUB
+========================================= */
+
+async function cargarFotos(
+categoria,
+rutaCarpeta=categoria
+){
+
+const contenedor=
+document.getElementById(categoria);
+
+
+try{
+
+const url=
+"https://api.github.com/repos/"+
+usuario+
+"/"+
+repo+
+"/contents/"+
+rutaCarpeta+
+"?ref="+
+rama;
+
+
+const respuesta=
+await fetch(url);
+
+
+if(!respuesta.ok){
+
+throw new Error(
+"Error "+respuesta.status
+);
+
+}
+
+
+const archivos=
+await respuesta.json();
+
+
+const fotos=
+archivos.filter(
+archivo=>
+
+archivo.type==="file" &&
+
+/\.(jpg|jpeg|png|webp|gif)$/i
+.test(archivo.name)
+
+).slice(0,10);
+
+
+/*
+Limpiamos solamente el mensaje
+de carga.
+
+No usamos innerHTML después,
+porque podría borrar productos.
+*/
+
+contenedor.innerHTML="";
+
+
+if(fotos.length===0){
+
+return;
+
+}
+
+
+fotos.forEach(
+(foto,indice)=>{
+
+const numero=
+indice+1;
+
+
+const nombreCategoria=
+categoria.charAt(0).toUpperCase()+
+categoria.slice(1);
+
+
+const nombre=
+nombreCategoria+
+" "+
+numero;
+
+
+const mensaje=
+"Hola ANDREX Store, me interesa el producto de "+
+nombreCategoria+
+" #"+
+numero+".";
+
+
+crearProducto(
+
+categoria,
+
+foto.download_url,
+
+nombre,
+
+mensaje,
+
+"Consultar precio"
+
+);
 
 });
 
 }
 
+catch(error){
+
+console.error(
+"Error cargando "+categoria,
+error
+);
+
+}
+
+}
+
+
+/* =========================================
+   FIREBASE
+========================================= */
+
+async function cargarFirebase(){
+
+const firebaseConfig={
+
+apiKey:
+"AIzaSyBGb7jgkOKWeNnJed6QPDMw4-933gGk59I",
+
+authDomain:
+"andrex-store.firebaseapp.com",
+
+projectId:
+"andrex-store",
+
+storageBucket:
+"andrex-store.firebasestorage.app",
+
+messagingSenderId:
+"607192665861",
+
+appId:
+"1:607192665861:web:a4fb90f3a2009d6491716c"
+
+};
+
+
+try{
+
+const firebaseModule=
+await import(
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"
+);
+
+const firestoreModule=
+await import(
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js"
+);
+
+
+const app=
+firebaseModule.initializeApp(
+firebaseConfig
+);
+
+
+const db=
+firestoreModule.getFirestore(
+app
+);
+
+
+const consulta=
+await firestoreModule.getDocs(
+
+firestoreModule.collection(
+db,
+"productos"
+)
+
+);
+
+
+consulta.forEach(
+(documento)=>{
+
+const producto=
+documento.data();
+
+
+if(
+!producto.nombre ||
+!producto.imagen
+){
+
+return;
+
+}
+
+
+const categoria=
+producto.categoria ||
+"ropa";
+
+
+const contenedor=
+document.getElementById(
+categoria
+);
+
+
+if(!contenedor){
+
+return;
+
+}
+
+
+const mensaje=
+"Hola ANDREX Store, me interesa el producto: "+
+producto.nombre;
+
+
+crearProducto(
+
+categoria,
+
+producto.imagen,
+
+producto.nombre,
+
+mensaje,
+
+producto.precio ||
+"Consultar precio"
+
+);
+
+});
+
+}
 
 catch(error){
 
-console.log(error);
-
-contenedor.innerHTML=
-'<div class="error">No se pudieron cargar las fotos.</div>';
-
-}
+console.error(
+"Error leyendo Firebase:",
+error
+);
 
 }
 
-
-cargarFotos("ropa","ropa/nueva");
-
-cargarFotos("zapatos");
-
-cargarFotos("lociones");
-
-cargarFotos("streaming");
-
-</script>
-  
-
-
-</script>
-  <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBGb7jgkOKWeNnJed6QPDMw4-933gGk59I",
-  authDomain: "andrex-store.firebaseapp.com",
-  projectId: "andrex-store",
-  storageBucket: "andrex-store.firebasestorage.app",
-  messagingSenderId: "607192665861",
-  appId: "1:607192665861:web:a4fb90f3a2009d6491716c"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function mostrarProductosFirebase() {
-  try {
-    const consulta = await getDocs(collection(db, "productos"));
-
-    consulta.forEach((documento) => {
-      const producto = documento.data();
-
-      if (!producto.nombre || !producto.imagen) return;
-
-      const categoria = producto.categoria || "ropa";
-      const contenedor = document.getElementById(categoria);
-
-      if (!contenedor) return;
-
-      const tarjeta = document.createElement("div");
-      tarjeta.className = "product";
-
-      const mensaje = "Hola ANDREX Store, me interesa el producto: " + producto.nombre;
-
-      tarjeta.innerHTML = `
-        <div class="photo">
-          <img
-            src="${producto.imagen}"
-            alt="${producto.nombre}"
-            loading="lazy">
-        </div>
-
-        <h3>${producto.nombre}</h3>
-
-        <div class="price">
-          ${producto.precio || "Consultar precio"}
-        </div>
-
-        <a
-          class="whatsapp"
-          href="https://wa.me/573181579324?text=${encodeURIComponent(mensaje)}"
-          target="_blank">
-          Consultar
-        </a>
-      `;
-
-      contenedor.appendChild(tarjeta);
-    });
-
-  } catch (error) {
-    console.error("Error leyendo Firebase:", error);
-  }
 }
 
-mostrarProductosFirebase();
+
+/* =========================================
+   INICIAR TIENDA
+========================================= */
+
+async function iniciarTienda(){
+
+/*
+PRIMERO cargamos GitHub.
+
+Así la primera foto de cada
+categoría queda definida.
+
+*/
+
+await Promise.all([
+
+cargarFotos(
+"ropa",
+"ropa/nueva"
+),
+
+cargarFotos(
+"zapatos"
+),
+
+cargarFotos(
+"lociones"
+),
+
+cargarFotos(
+"streaming"
+)
+
+]);
+
+
+/*
+DESPUÉS cargamos Firebase.
+
+Los productos de Firebase
+continúan después de los de GitHub.
+*/
+
+await cargarFirebase();
+
+}
+
+
+/* =========================================
+   ARRANCAR
+========================================= */
+
+iniciarTienda();
+
 </script>
+
 </body>
 </html>
