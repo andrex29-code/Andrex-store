@@ -659,6 +659,30 @@ cargarFotos("lociones");
 cargarFotos("streaming");
 
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBGb7jgkOKWeNnJed6QPDMw4-933gGk59I",
+  authDomain: "andrex-store.firebaseapp.com",
+  projectId: "andrex-store",
+  storageBucket: "andrex-store.firebasestorage.app",
+  messagingSenderId: "607192665861",
+  appId: "1:607192665861:web:a4fb90f3a2009d6491716c"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+getDocs(collection(db, "productos"))
+  .then(() => {
+    console.log("ANDREX Store conectado a Firebase correctamente");
+  })
+  .catch((error) => {
+    console.error("Error conectando con Firebase:", error);
+  });
+</script>
 
 </body>
 </html>
