@@ -54,6 +54,7 @@ header{
   font-weight:900;
   cursor:pointer;
   user-select:none;
+  white-space:nowrap;
 }
 
 .header-buttons{
@@ -106,33 +107,7 @@ header{
   display:block;
 }
 
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(0,0,0,.60),
-    rgba(0,0,0,.12)
-  );
-  display:flex;
-  align-items:center;
-  padding:30px;
-}
-
-.hero-content{
-  color:white;
-  max-width:620px;
-}
-
-.hero-content h1{
-  font-size:clamp(30px,6vw,58px);
-  margin-bottom:12px;
-}
-
-.hero-content p{
-  font-size:18px;
-  line-height:1.5;
-}
+/* SIN TEXTO ENCIMA DEL VIDEO */
 
 /* =========================
    GENERAL
@@ -326,6 +301,56 @@ header{
 
 .destacados{
   margin-top:30px;
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.info-tienda{
+  margin-top:38px;
+}
+
+.info-tienda-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.info-card{
+  border:0;
+  background:white;
+  border-radius:24px;
+  min-height:150px;
+  padding:25px 18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+  border:1px solid #e5f5f6;
+}
+
+.info-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 13px 30px rgba(0,0,0,.12);
+}
+
+.info-card .icono{
+  display:block;
+  font-size:43px;
+  margin-bottom:12px;
+}
+
+.info-card h3{
+  color:#277f87;
+  font-size:20px;
+  margin-bottom:7px;
+}
+
+.info-card p{
+  color:#71888c;
+  line-height:1.4;
+  font-size:14px;
 }
 
 /* =========================
@@ -661,7 +686,7 @@ header{
 }
 
 /* =========================
-   FLOTANTES
+   BOTONES FLOTANTES
 ========================= */
 
 .flotantes{
@@ -671,29 +696,41 @@ header{
   z-index:9000;
   display:flex;
   flex-direction:column;
-  gap:9px;
+  gap:10px;
 }
 
 .flotante{
   border:0;
   border-radius:50px;
-  padding:13px 17px;
+  padding:13px 18px;
   background:white;
   color:#27747b;
-  box-shadow:0 6px 20px rgba(0,0,0,.18);
+  box-shadow:0 7px 24px rgba(0,0,0,.20);
   cursor:pointer;
   font-weight:800;
+  transition:.25s;
+}
+
+.flotante:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(0,0,0,.24);
 }
 
 .flotante-pedido{
   border:0;
   border-radius:50px;
-  padding:13px 17px;
+  padding:13px 18px;
   background:#42bfc7;
   color:white;
-  box-shadow:0 6px 20px rgba(0,0,0,.18);
+  box-shadow:0 7px 24px rgba(0,0,0,.20);
   cursor:pointer;
   font-weight:800;
+  transition:.25s;
+}
+
+.flotante-pedido:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(0,0,0,.24);
 }
 
 /* =========================
@@ -735,6 +772,7 @@ footer strong{
 ========================= */
 
 @media(max-width:900px){
+
   .productos{
     grid-template-columns:repeat(3,1fr);
   }
@@ -742,19 +780,25 @@ footer strong{
   .categorias{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .info-tienda-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
 }
 
 @media(max-width:650px){
+
   .header-inner{
-    align-items:flex-start;
+    align-items:center;
   }
 
   .logo{
-    font-size:20px;
+    font-size:19px;
   }
 
   .header-buttons{
-    max-width:230px;
+    max-width:180px;
   }
 
   .header-buttons button{
@@ -782,14 +826,15 @@ footer strong{
   .hero-box,
   .hero-video{
     height:260px;
+    min-height:260px;
   }
 
-  .hero-overlay{
-    padding:20px;
+  .info-tienda-grid{
+    grid-template-columns:1fr;
   }
 
-  .hero-content p{
-    font-size:15px;
+  .info-card{
+    min-height:125px;
   }
 
   .admin-item{
@@ -800,9 +845,22 @@ footer strong{
   .admin-item-botones{
     width:100%;
   }
+
+  .flotantes{
+    right:10px;
+    bottom:10px;
+  }
+
+  .flotante,
+  .flotante-pedido{
+    padding:11px 14px;
+    font-size:12px;
+  }
+
 }
 
 @media(max-width:400px){
+
   .productos{
     grid-template-columns:1fr 1fr;
   }
@@ -814,6 +872,20 @@ footer strong{
   .categoria .emoji{
     font-size:40px;
   }
+
+  .logo{
+    font-size:17px;
+  }
+
+  .header-buttons{
+    gap:5px;
+  }
+
+  .header-buttons button{
+    padding:7px 8px;
+    font-size:11px;
+  }
+
 }
 </style>
 </head>
@@ -825,23 +897,32 @@ footer strong{
 ========================= -->
 
 <header>
+
   <div class="header-inner">
 
     <button
       class="logo"
       id="logoAdmin"
       onclick="clicLogo()">
+
       ANDREX 🩵 STORE
+
     </button>
 
     <div class="header-buttons">
-      <button onclick="abrirBusqueda()">🔎 Buscar</button>
-      <button onclick="abrirFavoritos()">❤️ Favoritos</button>
-      <button onclick="abrirCarrito()">🛒 Carrito</button>
-      <button onclick="abrirEstadoPedido()">📦 Mi pedido</button>
+
+      <button onclick="abrirBusqueda()">
+        🔎 Buscar
+      </button>
+
+      <button onclick="abrirCarrito()">
+        🛒 Carrito
+      </button>
+
     </div>
 
   </div>
+
 </header>
 
 
@@ -859,20 +940,12 @@ footer strong{
       muted
       loop
       playsinline>
+
       <source
         src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
         type="video/mp4">
-    </video>
 
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>ANDREX 🩵 STORE</h1>
-        <p>
-          Encuentra ropa, lociones, zapatos y mucho más.
-          Calidad, estilo y productos seleccionados especialmente para ti.
-        </p>
-      </div>
-    </div>
+    </video>
 
   </div>
 
@@ -895,6 +968,11 @@ footer strong{
       Elige una categoría para ver todos sus productos.
     </p>
 
+
+    <!-- =========================
+         CATEGORÍAS
+    ========================= -->
+
     <section
       id="seccionCategorias"
       class="categorias">
@@ -904,34 +982,49 @@ footer strong{
         onclick="abrirCategoria('ropa')">
 
         <span class="emoji">👕</span>
-        <strong>ROPA</strong>
+
+        <strong>
+          ROPA
+        </strong>
 
       </button>
+
 
       <button
         class="categoria"
         onclick="abrirCategoria('lociones')">
 
         <span class="emoji">🧴</span>
-        <strong>LOCIONES</strong>
+
+        <strong>
+          LOCIONES
+        </strong>
 
       </button>
+
 
       <button
         class="categoria"
         onclick="abrirCategoria('zapatos')">
 
         <span class="emoji">👟</span>
-        <strong>ZAPATOS</strong>
+
+        <strong>
+          ZAPATOS
+        </strong>
 
       </button>
+
 
       <button
         class="categoria"
         onclick="abrirCategoria('streaming')">
 
         <span class="emoji">📺</span>
-        <strong>STREAMING</strong>
+
+        <strong>
+          STREAMING
+        </strong>
 
       </button>
 
@@ -939,7 +1032,7 @@ footer strong{
 
 
     <!-- =========================
-         DESTACADOS
+         PRODUCTOS DESTACADOS
     ========================= -->
 
     <section class="destacados">
@@ -966,6 +1059,79 @@ footer strong{
 
 
     <!-- =========================
+         DOMICILIO / PAGOS / AYUDA
+    ========================= -->
+
+    <section class="info-tienda">
+
+      <h2 class="titulo-seccion">
+        💙 Información
+      </h2>
+
+      <div class="info-tienda-grid">
+
+        <button
+          class="info-card"
+          onclick="abrirInfo('domicilio')">
+
+          <span class="icono">
+            🚚
+          </span>
+
+          <h3>
+            Domicilio
+          </h3>
+
+          <p>
+            Consulta información sobre nuestros domicilios.
+          </p>
+
+        </button>
+
+
+        <button
+          class="info-card"
+          onclick="abrirInfo('pagos')">
+
+          <span class="icono">
+            💳
+          </span>
+
+          <h3>
+            Medios de pago
+          </h3>
+
+          <p>
+            Consulta los medios de pago disponibles.
+          </p>
+
+        </button>
+
+
+        <button
+          class="info-card"
+          onclick="abrirInfo('ayuda')">
+
+          <span class="icono">
+            🆘
+          </span>
+
+          <h3>
+            Ayuda
+          </h3>
+
+          <p>
+            ¿Necesitas ayuda? Estamos para atenderte.
+          </p>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
          ADMIN
     ========================= -->
 
@@ -973,7 +1139,9 @@ footer strong{
       id="adminPanel"
       class="admin-panel">
 
-      <h2>🔐 Panel de administrador</h2>
+      <h2>
+        🔐 Panel de administrador
+      </h2>
 
       <div class="formulario">
 
@@ -982,11 +1150,13 @@ footer strong{
           type="text"
           placeholder="Nombre del producto">
 
+
         <input
           id="productoPrecio"
           type="number"
           min="0"
           placeholder="Precio">
+
 
         <select id="productoCategoria">
 
@@ -1008,21 +1178,28 @@ footer strong{
 
         </select>
 
+
         <textarea
           id="productoDescripcion"
           placeholder="Descripción del producto"></textarea>
+
 
         <input
           id="productoImagen"
           type="file"
           accept="image/*">
 
+
         <label>
+
           <input
             id="productoDestacado"
             type="checkbox">
+
           ⭐ Mostrar como producto destacado
+
         </label>
+
 
         <button onclick="guardarProducto()">
           💾 Guardar producto
@@ -1034,6 +1211,7 @@ footer strong{
       <h3 style="margin-top:30px;">
         Productos administrados
       </h3>
+
 
       <div
         id="listaAdmin"
@@ -1048,7 +1226,9 @@ footer strong{
 
       <div class="pedido-admin">
 
-        <h2>📦 Crear / administrar pedido</h2>
+        <h2>
+          📦 Crear / administrar pedido
+        </h2>
 
         <div class="formulario">
 
@@ -1058,10 +1238,12 @@ footer strong{
             placeholder="Código"
             readonly>
 
+
           <input
             id="pedidoCliente"
             type="text"
             placeholder="Nombre del cliente">
+
 
           <select id="pedidoEstado">
 
@@ -1087,13 +1269,16 @@ footer strong{
 
           </select>
 
+
           <textarea
             id="pedidoDetalle"
             placeholder="Detalle del pedido"></textarea>
 
+
           <button onclick="generarYCrearPedido()">
             📦 Generar y crear pedido
           </button>
+
 
           <button
             class="admin-btn secundario"
@@ -1102,6 +1287,7 @@ footer strong{
             🔄 Actualizar pedido
 
           </button>
+
 
           <button
             class="admin-btn secundario"
@@ -1130,6 +1316,7 @@ footer strong{
         <h3 style="margin-top:25px;">
           Pedidos recientes
         </h3>
+
 
         <div
           id="listaPedidosAdmin"
@@ -1160,6 +1347,7 @@ footer strong{
 
     </button>
 
+
     <div class="cabecera-categoria">
 
       <h2 id="tituloCategoria">
@@ -1172,6 +1360,7 @@ footer strong{
 
     </div>
 
+
     <div
       id="productosCategoria"
       class="productos">
@@ -1182,7 +1371,7 @@ footer strong{
 
 
   <!-- =========================
-       BUSQUEDA
+       VISTA BÚSQUEDA
   ========================= -->
 
   <section
@@ -1197,9 +1386,13 @@ footer strong{
 
     </button>
 
+
     <div class="cabecera-categoria">
 
-      <h2>🔎 Buscar productos</h2>
+      <h2>
+        🔎 Buscar productos
+      </h2>
+
 
       <div class="busqueda">
 
@@ -1208,6 +1401,7 @@ footer strong{
           type="search"
           placeholder="Busca ropa, lociones, zapatos...">
 
+
         <button onclick="buscarProductos()">
           Buscar
         </button>
@@ -1215,6 +1409,7 @@ footer strong{
       </div>
 
     </div>
+
 
     <div
       id="resultadosBusqueda"
@@ -1226,7 +1421,7 @@ footer strong{
 
 
   <!-- =========================
-       FAVORITOS
+       VISTA FAVORITOS
   ========================= -->
 
   <section
@@ -1241,15 +1436,19 @@ footer strong{
 
     </button>
 
+
     <div class="cabecera-categoria">
 
-      <h2>❤️ Mis favoritos</h2>
+      <h2>
+        ❤️ Mis favoritos
+      </h2>
 
       <p>
         Tus productos guardados.
       </p>
 
     </div>
+
 
     <div
       id="productosFavoritos"
@@ -1260,6 +1459,52 @@ footer strong{
   </section>
 
 </main>
+
+
+<!-- =========================
+     MODAL INFORMACIÓN
+========================= -->
+
+<div
+  id="modalInfo"
+  class="modal">
+
+  <div class="modal-caja">
+
+    <button
+      class="cerrar"
+      onclick="cerrarInfo()">
+
+      ✕
+
+    </button>
+
+    <h2 id="tituloInfo">
+      Información
+    </h2>
+
+    <p
+      id="textoInfo"
+      style="
+        color:#607d82;
+        line-height:1.6;
+        margin-top:10px;
+      ">
+
+    </p>
+
+    <button
+      id="botonInfoWhatsApp"
+      class="btn-whatsapp"
+      onclick="contactarInfo()">
+
+      💬 Consultar por WhatsApp
+
+    </button>
+
+  </div>
+
+</div>
 
 
 <!-- =========================
@@ -1278,8 +1523,11 @@ footer strong{
     <button
       class="cerrar"
       onclick="cerrarImagen()">
+
       ✕
+
     </button>
+
 
     <img
       id="imagenGrande"
@@ -1313,13 +1561,16 @@ footer strong{
 
     </button>
 
+
     <h2>
       📦 Estado de mi pedido
     </h2>
 
+
     <p>
       Escribe el código que te entregamos al realizar tu pedido.
     </p>
+
 
     <input
       id="buscarPedido"
@@ -1327,6 +1578,7 @@ footer strong{
       placeholder="Ej: AX-5831"
       maxlength="7"
       autocomplete="off">
+
 
     <button
       class="boton-consultar-pedido"
@@ -1336,11 +1588,13 @@ footer strong{
 
     </button>
 
+
     <div
       id="resultadoPedido"
       class="resultado-pedido">
 
     </div>
+
 
     <button
       class="boton-cerrar-modal"
@@ -1373,12 +1627,17 @@ footer strong{
 
     </button>
 
-    <h2>🛒 Mi carrito</h2>
+
+    <h2>
+      🛒 Mi carrito
+    </h2>
+
 
     <div
       id="listaCarrito">
 
     </div>
+
 
     <div
       id="totalCarrito"
@@ -1387,6 +1646,7 @@ footer strong{
       Total: $0
 
     </div>
+
 
     <button
       class="btn-whatsapp"
@@ -1402,24 +1662,25 @@ footer strong{
 
 
 <!-- =========================
-     FLOTANTES
+     BOTONES FLOTANTES
 ========================= -->
 
 <div class="flotantes">
+
+  <button
+    class="flotante"
+    onclick="abrirFavoritos()">
+
+    ❤️ Favoritos
+
+  </button>
+
 
   <button
     class="flotante-pedido"
     onclick="abrirEstadoPedido()">
 
     📦 Estado de mi pedido
-
-  </button>
-
-  <button
-    class="flotante"
-    onclick="abrirCarrito()">
-
-    🛒 Carrito
 
   </button>
 
@@ -1432,7 +1693,9 @@ footer strong{
 
 <footer>
 
-  <strong>ANDREX 🩵 STORE</strong>
+  <strong>
+    ANDREX 🩵 STORE
+  </strong>
 
   <p style="margin-top:8px;">
     Tu estilo, tu esencia, tu tienda.
@@ -1494,9 +1757,11 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db =
+  getFirestore(app);
 
 
 /* =========================
@@ -1521,20 +1786,11 @@ let contadorLogo = 0;
 
 let ultimoClickLogo = 0;
 
-
-/* =========================
-   EXPONER FIREBASE
-========================= */
-
-window.firebaseCollection = collection;
-window.firebaseWhere = where;
-window.firebaseQuery = query;
-window.firebaseLimit = limit;
-window.firebaseGetDocs = getDocs;
+let tipoInfoActual = "";
 
 
 /* =========================
-   NORMALIZAR CATEGORÍA
+   NORMALIZAR
 ========================= */
 
 function normalizarCategoria(categoria){
@@ -1593,14 +1849,6 @@ async function cargarProductos(){
 
   productos = [];
 
-  /*
-    PRIMERO:
-    Intentamos Firestore.
-
-    Si Firebase está bloqueado,
-    NO detenemos la página.
-  */
-
   try{
 
     const snapshot =
@@ -1608,9 +1856,12 @@ async function cargarProductos(){
         collection(db,"productos")
       );
 
+
     snapshot.forEach(item => {
 
-      const data = item.data();
+      const data =
+        item.data();
+
 
       productos.push({
 
@@ -1619,16 +1870,14 @@ async function cargarProductos(){
         ...data,
 
         categoria:
-          normalizarCategoria(data.categoria)
+          normalizarCategoria(
+            data.categoria
+          )
 
       });
 
     });
 
-    console.log(
-      "Productos Firebase:",
-      productos.length
-    );
 
   }catch(error){
 
@@ -1640,12 +1889,6 @@ async function cargarProductos(){
   }
 
 
-  /*
-    SEGUNDO:
-    Cargamos la ropa desde GitHub
-    independientemente de Firebase.
-  */
-
   await cargarRopaGitHub();
 
 
@@ -1654,12 +1897,6 @@ async function cargarProductos(){
   renderizarAdmin();
 
   cargarPedidosAdmin();
-
-
-  console.log(
-    "Productos totales:",
-    productos.length
-  );
 
 }
 
@@ -1708,24 +1945,23 @@ async function cargarRopaGitHub(){
     }
 
 
-    /*
-      Solamente imágenes.
-      Se excluyen los archivos 3285.
-    */
-
     const imagenes =
       archivos.filter(archivo => {
 
         const nombre =
-          String(archivo.name || "")
-            .toLowerCase();
+          String(
+            archivo.name || ""
+          ).toLowerCase();
+
 
         const extension =
           /\.(jpg|jpeg|png|webp|gif|avif)$/i
             .test(nombre);
 
+
         const excluir =
           nombre.includes("3285");
+
 
         return (
           archivo.type === "file" &&
@@ -1738,13 +1974,9 @@ async function cargarRopaGitHub(){
 
     for(const archivo of imagenes){
 
-      /*
-        Evitamos duplicados si ya
-        estuvieran cargados.
-      */
-
       const id =
-        "github-" + archivo.name;
+        "github-" +
+        archivo.name;
 
 
       const existe =
@@ -1761,18 +1993,15 @@ async function cargarRopaGitHub(){
       }
 
 
-      /*
-        download_url es mucho más seguro
-        que asumir que la rama es main.
-      */
-
       const imagen =
         archivo.download_url ||
         (
           "https://raw.githubusercontent.com/" +
           "andrex29-code/Andrex-store/main/" +
           "ropa/nueva/" +
-          encodeURIComponent(archivo.name)
+          encodeURIComponent(
+            archivo.name
+          )
         );
 
 
@@ -1782,8 +2011,14 @@ async function cargarRopaGitHub(){
 
         nombre:
           archivo.name
-            .replace(/\.[^/.]+$/,"")
-            .replace(/[-_]/g," "),
+            .replace(
+              /\.[^/.]+$/,
+              ""
+            )
+            .replace(
+              /[-_]/g,
+              " "
+            ),
 
         precio:0,
 
@@ -1801,12 +2036,6 @@ async function cargarRopaGitHub(){
       });
 
     }
-
-
-    console.log(
-      "Ropa cargada desde GitHub:",
-      imagenes.length
-    );
 
 
   }catch(error){
@@ -1828,70 +2057,105 @@ async function cargarRopaGitHub(){
 function crearTarjeta(producto){
 
   const esFavorito =
-    favoritos.includes(producto.id);
+    favoritos.includes(
+      producto.id
+    );
 
 
   const precio =
-    formatoPrecio(producto.precio);
+    formatoPrecio(
+      producto.precio
+    );
 
 
   const tarjeta =
-    document.createElement("article");
+    document.createElement(
+      "article"
+    );
 
-  tarjeta.className = "producto";
+
+  tarjeta.className =
+    "producto";
 
 
   const imagen =
-    document.createElement("img");
+    document.createElement(
+      "img"
+    );
+
 
   imagen.className =
     "producto-imagen";
+
 
   imagen.src =
     producto.imagen ||
     "https://via.placeholder.com/600x600?text=ANDREX+STORE";
 
+
   imagen.alt =
-    producto.nombre || "Producto";
+    producto.nombre ||
+    "Producto";
+
 
   imagen.loading =
     "lazy";
 
 
   imagen.onclick =
-    () => abrirImagen(imagen.src);
+    () => abrirImagen(
+      imagen.src
+    );
 
 
   const botonFavorito =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
+
 
   botonFavorito.className =
     "favorito";
 
+
   botonFavorito.textContent =
-    esFavorito ? "❤️" : "🤍";
+    esFavorito
+      ? "❤️"
+      : "🤍";
 
 
   botonFavorito.onclick =
-    () => cambiarFavorito(producto.id);
+    () => cambiarFavorito(
+      producto.id
+    );
 
 
   const info =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   info.className =
     "producto-info";
 
 
   const nombre =
-    document.createElement("h3");
+    document.createElement(
+      "h3"
+    );
+
 
   nombre.textContent =
-    producto.nombre || "Producto";
+    producto.nombre ||
+    "Producto";
 
 
   const precioElemento =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   precioElemento.className =
     "precio";
@@ -1911,57 +2175,90 @@ function crearTarjeta(producto){
 
 
   const botones =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   botones.className =
     "producto-botones";
 
 
   const consultar =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
+
 
   consultar.className =
     "btn-consultar";
+
 
   consultar.textContent =
     "💬 Consultar";
 
 
   consultar.onclick =
-    () => consultarWhatsApp(producto);
+    () =>
+      consultarWhatsApp(
+        producto
+      );
 
 
   const agregar =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
+
 
   agregar.className =
     "btn-carrito";
+
 
   agregar.textContent =
     "🛒 Agregar";
 
 
   agregar.onclick =
-    () => agregarCarrito(producto);
+    () =>
+      agregarCarrito(
+        producto
+      );
 
 
-  botones.appendChild(consultar);
+  botones.appendChild(
+    consultar
+  );
 
-  botones.appendChild(agregar);
-
-
-  info.appendChild(nombre);
-
-  info.appendChild(precioElemento);
-
-  info.appendChild(botones);
+  botones.appendChild(
+    agregar
+  );
 
 
-  tarjeta.appendChild(imagen);
+  info.appendChild(
+    nombre
+  );
 
-  tarjeta.appendChild(botonFavorito);
+  info.appendChild(
+    precioElemento
+  );
 
-  tarjeta.appendChild(info);
+  info.appendChild(
+    botones
+  );
+
+
+  tarjeta.appendChild(
+    imagen
+  );
+
+  tarjeta.appendChild(
+    botonFavorito
+  );
+
+  tarjeta.appendChild(
+    info
+  );
 
 
   return tarjeta;
@@ -1985,26 +2282,17 @@ function renderizarCategoria(categoria){
 
 
   const categoriaNormalizada =
-    normalizarCategoria(categoria);
+    normalizarCategoria(
+      categoria
+    );
 
-
-  /*
-    IMPORTANTE:
-
-    Aquí se meten TODOS los productos
-    de esa categoría.
-
-    La ropa de GitHub tiene categoria
-    "ropa", por eso aparece AQUÍ.
-  */
 
   const lista =
-    productos.filter(producto =>
-
-      normalizarCategoria(
-        producto.categoria
-      ) === categoriaNormalizada
-
+    productos.filter(
+      producto =>
+        normalizarCategoria(
+          producto.categoria
+        ) === categoriaNormalizada
     );
 
 
@@ -2012,11 +2300,18 @@ function renderizarCategoria(categoria){
 
     contenedor.innerHTML =
       `
-      <div class="vacio" style="grid-column:1/-1;">
-        <h3>No hay productos todavía.</h3>
+      <div
+        class="vacio"
+        style="grid-column:1/-1;">
+
+        <h3>
+          No hay productos todavía.
+        </h3>
+
         <p style="margin-top:8px;">
           Pronto tendremos novedades.
         </p>
+
       </div>
       `;
 
@@ -2025,13 +2320,17 @@ function renderizarCategoria(categoria){
   }
 
 
-  lista.forEach(producto => {
+  lista.forEach(
+    producto => {
 
-    contenedor.appendChild(
-      crearTarjeta(producto)
-    );
+      contenedor.appendChild(
+        crearTarjeta(
+          producto
+        )
+      );
 
-  });
+    }
+  );
 
 }
 
@@ -2043,22 +2342,29 @@ function renderizarCategoria(categoria){
 function abrirCategoria(categoria){
 
   categoriaActual =
-    normalizarCategoria(categoria);
+    normalizarCategoria(
+      categoria
+    );
 
 
   document.getElementById(
     "contenidoInicio"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "vistaBusqueda"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaFavoritos"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   const vista =
@@ -2067,7 +2373,9 @@ function abrirCategoria(categoria){
     );
 
 
-  vista.classList.add("activa");
+  vista.classList.add(
+    "activa"
+  );
 
 
   const nombres = {
@@ -2139,22 +2447,29 @@ function volverCategorias(){
 
   document.getElementById(
     "vistaCategoria"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaBusqueda"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaFavoritos"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "contenidoInicio"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   const categorias =
@@ -2183,22 +2498,29 @@ function volverInicio(){
 
   document.getElementById(
     "vistaCategoria"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaBusqueda"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaFavoritos"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "contenidoInicio"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 }
 
@@ -2236,11 +2558,18 @@ function renderizarDestacados(){
 
     contenedor.innerHTML =
       `
-      <div class="vacio" style="grid-column:1/-1;">
-        <h3>⭐ Próximamente</h3>
+      <div
+        class="vacio"
+        style="grid-column:1/-1;">
+
+        <h3>
+          ⭐ Próximamente
+        </h3>
+
         <p style="margin-top:8px;">
           Aquí aparecerán nuestros productos destacados.
         </p>
+
       </div>
       `;
 
@@ -2249,24 +2578,17 @@ function renderizarDestacados(){
   }
 
 
-  destacados.forEach(producto => {
+  destacados.forEach(
+    producto => {
 
-    contenedor.appendChild(
-      crearTarjeta(producto)
-    );
+      contenedor.appendChild(
+        crearTarjeta(
+          producto
+        )
+      );
 
-  });
-
-}
-
-
-/* =========================
-   MOSTRAR TODOS DESTACADOS
-========================= */
-
-function mostrarTodosDestacados(){
-
-  renderizarDestacados();
+    }
+  );
 
 }
 
@@ -2281,7 +2603,8 @@ function cambiarFavorito(id){
 
     favoritos =
       favoritos.filter(
-        favorito => favorito !== id
+        favorito =>
+          favorito !== id
       );
 
   }else{
@@ -2312,17 +2635,22 @@ function abrirFavoritos(){
 
   document.getElementById(
     "contenidoInicio"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "vistaCategoria"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaBusqueda"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   const vista =
@@ -2331,7 +2659,9 @@ function abrirFavoritos(){
     );
 
 
-  vista.classList.add("activa");
+  vista.classList.add(
+    "activa"
+  );
 
 
   const contenedor =
@@ -2346,7 +2676,9 @@ function abrirFavoritos(){
   const lista =
     productos.filter(
       producto =>
-        favoritos.includes(producto.id)
+        favoritos.includes(
+          producto.id
+        )
     );
 
 
@@ -2354,8 +2686,12 @@ function abrirFavoritos(){
 
     contenedor.innerHTML =
       `
-      <div class="vacio" style="grid-column:1/-1;">
+      <div
+        class="vacio"
+        style="grid-column:1/-1;">
+
         ❤️ Todavía no tienes favoritos.
+
       </div>
       `;
 
@@ -2364,13 +2700,17 @@ function abrirFavoritos(){
   }
 
 
-  lista.forEach(producto => {
+  lista.forEach(
+    producto => {
 
-    contenedor.appendChild(
-      crearTarjeta(producto)
-    );
+      contenedor.appendChild(
+        crearTarjeta(
+          producto
+        )
+      );
 
-  });
+    }
+  );
 
 
   window.scrollTo({
@@ -2391,6 +2731,7 @@ function agregarCarrito(producto){
 
   guardarLocal();
 
+
   alert(
     "🛒 " +
     producto.nombre +
@@ -2408,9 +2749,13 @@ function abrirCarrito(){
     );
 
 
-  modal.style.display = "flex";
+  modal.style.display =
+    "flex";
 
-  modal.classList.add("activo");
+
+  modal.classList.add(
+    "activo"
+  );
 
 
   renderizarCarrito();
@@ -2426,9 +2771,13 @@ function cerrarCarrito(){
     );
 
 
-  modal.classList.remove("activo");
+  modal.classList.remove(
+    "activo"
+  );
 
-  modal.style.display = "none";
+
+  modal.style.display =
+    "none";
 
 }
 
@@ -2459,8 +2808,10 @@ function renderizarCarrito(){
       </div>
       `;
 
+
     total.textContent =
       "Total: $0";
+
 
     return;
 
@@ -2470,63 +2821,85 @@ function renderizarCarrito(){
   let suma = 0;
 
 
-  carrito.forEach((producto,index) => {
+  carrito.forEach(
+    (producto,index) => {
 
-    suma +=
-      Number(producto.precio || 0);
-
-
-    const item =
-      document.createElement("div");
-
-    item.className =
-      "carrito-item";
+      suma +=
+        Number(
+          producto.precio || 0
+        );
 
 
-    item.innerHTML =
-      `
-      <img
-        src="${producto.imagen || ""}"
-        alt="">
+      const item =
+        document.createElement(
+          "div"
+        );
 
-      <div class="carrito-info">
-        <strong>
-          ${escapeHtml(producto.nombre)}
-        </strong>
 
-        <div>
-          ${
-            producto.precio
-            ? formatoPrecio(producto.precio)
-            : "Precio por consultar"
-          }
+      item.className =
+        "carrito-item";
+
+
+      item.innerHTML =
+        `
+        <img
+          src="${producto.imagen || ""}"
+          alt="">
+
+
+        <div class="carrito-info">
+
+          <strong>
+            ${escapeHtml(
+              producto.nombre
+            )}
+          </strong>
+
+          <div>
+            ${
+              producto.precio
+              ? formatoPrecio(
+                  producto.precio
+                )
+              : "Precio por consultar"
+            }
+          </div>
+
         </div>
-      </div>
-
-      <button
-        class="admin-btn rojo"
-        onclick="eliminarDelCarrito(${index})">
-
-        🗑️
-
-      </button>
-      `;
 
 
-    lista.appendChild(item);
+        <button
+          class="admin-btn rojo"
+          onclick="eliminarDelCarrito(${index})">
 
-  });
+          🗑️
+
+        </button>
+        `;
+
+
+      lista.appendChild(
+        item
+      );
+
+    }
+  );
 
 
   total.textContent =
-    "Total: " + formatoPrecio(suma);
+    "Total: " +
+    formatoPrecio(suma);
 
 }
 
 
 function eliminarDelCarrito(index){
 
-  carrito.splice(index,1);
+  carrito.splice(
+    index,
+    1
+  );
+
 
   guardarLocal();
 
@@ -2552,21 +2925,28 @@ function enviarCarritoWhatsApp(){
     "Hola ANDREX 🩵 STORE, quiero consultar por estos productos:%0A%0A";
 
 
-  carrito.forEach((producto,index) => {
-
-    mensaje +=
-      `${index + 1}. ${producto.nombre}`;
-
-    if(producto.precio){
+  carrito.forEach(
+    (producto,index) => {
 
       mensaje +=
-        ` - ${formatoPrecio(producto.precio)}`;
+        `${index + 1}. ${producto.nombre}`;
+
+
+      if(producto.precio){
+
+        mensaje +=
+          ` - ${formatoPrecio(
+            producto.precio
+          )}`;
+
+      }
+
+
+      mensaje +=
+        "%0A";
 
     }
-
-    mensaje += "%0A";
-
-  });
+  );
 
 
   const url =
@@ -2595,7 +2975,144 @@ function consultarWhatsApp(producto){
 
   window.open(
     "https://wa.me/573181579324?text=" +
-    encodeURIComponent(mensaje),
+    encodeURIComponent(
+      mensaje
+    ),
+    "_blank"
+  );
+
+}
+
+
+/* =========================
+   MODAL INFORMACIÓN
+========================= */
+
+function abrirInfo(tipo){
+
+  tipoInfoActual =
+    tipo;
+
+
+  const modal =
+    document.getElementById(
+      "modalInfo"
+    );
+
+
+  const titulo =
+    document.getElementById(
+      "tituloInfo"
+    );
+
+
+  const texto =
+    document.getElementById(
+      "textoInfo"
+    );
+
+
+  if(tipo === "domicilio"){
+
+    titulo.textContent =
+      "🚚 Domicilio";
+
+
+    texto.textContent =
+      "Consulta con nosotros la disponibilidad, cobertura y costo del domicilio para tu pedido.";
+
+  }
+
+
+  if(tipo === "pagos"){
+
+    titulo.textContent =
+      "💳 Medios de pago";
+
+
+    texto.textContent =
+      "Escríbenos para consultar los medios de pago disponibles al momento de realizar tu compra.";
+
+  }
+
+
+  if(tipo === "ayuda"){
+
+    titulo.textContent =
+      "🆘 Ayuda";
+
+
+    texto.textContent =
+      "Si tienes alguna pregunta sobre productos, pedidos, domicilios o compras, podemos ayudarte por WhatsApp.";
+
+  }
+
+
+  modal.style.display =
+    "flex";
+
+
+  modal.classList.add(
+    "activo"
+  );
+
+}
+
+
+function cerrarInfo(){
+
+  const modal =
+    document.getElementById(
+      "modalInfo"
+    );
+
+
+  modal.classList.remove(
+    "activo"
+  );
+
+
+  modal.style.display =
+    "none";
+
+}
+
+
+function contactarInfo(){
+
+  let mensaje =
+    "";
+
+
+  if(tipoInfoActual === "domicilio"){
+
+    mensaje =
+      "Hola ANDREX 🩵 STORE, quiero consultar sobre los domicilios.";
+
+  }
+
+
+  if(tipoInfoActual === "pagos"){
+
+    mensaje =
+      "Hola ANDREX 🩵 STORE, quiero consultar cuáles son los medios de pago disponibles.";
+
+  }
+
+
+  if(tipoInfoActual === "ayuda"){
+
+    mensaje =
+      "Hola ANDREX 🩵 STORE, necesito ayuda con la tienda.";
+
+  }
+
+
+  window.open(
+    "https://wa.me/573181579324?text=" +
+    encodeURIComponent(
+      mensaje
+    ),
     "_blank"
   );
 
@@ -2620,11 +3137,13 @@ function abrirImagen(url){
     );
 
 
-  imagen.src = url;
+  imagen.src =
+    url;
 
 
   modal.style.display =
     "flex";
+
 
   modal.classList.add(
     "activo"
@@ -2660,22 +3179,29 @@ function abrirBusqueda(){
 
   document.getElementById(
     "contenidoInicio"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "vistaCategoria"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaFavoritos"
-  ).classList.remove("activa");
+  ).classList.remove(
+    "activa"
+  );
 
 
   document.getElementById(
     "vistaBusqueda"
-  ).classList.add("activa");
+  ).classList.add(
+    "activa"
+  );
 
 
   const input =
@@ -2718,8 +3244,12 @@ function buscarProductos(){
 
     contenedor.innerHTML =
       `
-      <div class="vacio" style="grid-column:1/-1;">
+      <div
+        class="vacio"
+        style="grid-column:1/-1;">
+
         Escribe algo para buscar.
+
       </div>
       `;
 
@@ -2729,34 +3259,40 @@ function buscarProductos(){
 
 
   const resultados =
-    productos.filter(producto => {
+    productos.filter(
+      producto => {
 
-      const nombre =
-        String(
-          producto.nombre || ""
-        ).toLowerCase();
-
-
-      const categoria =
-        String(
-          producto.categoria || ""
-        ).toLowerCase();
+        const nombre =
+          String(
+            producto.nombre || ""
+          ).toLowerCase();
 
 
-      return (
-        nombre.includes(texto) ||
-        categoria.includes(texto)
-      );
+        const categoria =
+          String(
+            producto.categoria || ""
+          ).toLowerCase();
 
-    });
+
+        return (
+          nombre.includes(texto) ||
+          categoria.includes(texto)
+        );
+
+      }
+    );
 
 
   if(!resultados.length){
 
     contenedor.innerHTML =
       `
-      <div class="vacio" style="grid-column:1/-1;">
+      <div
+        class="vacio"
+        style="grid-column:1/-1;">
+
         😔 No encontramos productos.
+
       </div>
       `;
 
@@ -2765,19 +3301,23 @@ function buscarProductos(){
   }
 
 
-  resultados.forEach(producto => {
+  resultados.forEach(
+    producto => {
 
-    contenedor.appendChild(
-      crearTarjeta(producto)
-    );
+      contenedor.appendChild(
+        crearTarjeta(
+          producto
+        )
+      );
 
-  });
+    }
+  );
 
 }
 
 
 /* =========================
-   ADMIN: LOGO 5 CLICS
+   ADMIN LOGO
 ========================= */
 
 function clicLogo(){
@@ -2806,6 +3346,7 @@ function clicLogo(){
 
     contadorLogo = 0;
 
+
     const pin =
       prompt(
         "🔐 Introduce el PIN de administrador:"
@@ -2816,7 +3357,9 @@ function clicLogo(){
 
       abrirAdmin();
 
-    }else if(pin !== null){
+    }else if(
+      pin !== null
+    ){
 
       alert(
         "❌ PIN incorrecto."
@@ -2917,11 +3460,6 @@ async function guardarProducto(){
   let imagen = "";
 
 
-  /*
-    La imagen se convierte a base64.
-    NO usamos Firebase Storage.
-  */
-
   if(archivo){
 
     try{
@@ -2948,7 +3486,10 @@ async function guardarProducto(){
 
     const referencia =
       await addDoc(
-        collection(db,"productos"),
+        collection(
+          db,
+          "productos"
+        ),
         {
 
           nombre:nombre,
@@ -3000,11 +3541,6 @@ async function guardarProducto(){
     ).checked = false;
 
 
-    /*
-      Agregamos el producto localmente
-      para no tener que recargar.
-    */
-
     productos.push({
 
       id:referencia.id,
@@ -3032,6 +3568,7 @@ async function guardarProducto(){
   }catch(error){
 
     console.error(error);
+
 
     alert(
       "❌ No se pudo guardar el producto.\n\n" +
@@ -3081,7 +3618,9 @@ function convertirImagenBase64(archivo){
               if(ancho > maximo){
 
                 alto =
-                  alto * maximo / ancho;
+                  alto *
+                  maximo /
+                  ancho;
 
                 ancho =
                   maximo;
@@ -3097,6 +3636,7 @@ function convertirImagenBase64(archivo){
 
               canvas.width =
                 ancho;
+
 
               canvas.height =
                 alto;
@@ -3173,11 +3713,6 @@ function renderizarAdmin(){
   lista.innerHTML = "";
 
 
-  /*
-    La ropa de GitHub NO se administra
-    desde aquí porque son imágenes externas.
-  */
-
   const administrables =
     productos.filter(
       producto =>
@@ -3190,7 +3725,9 @@ function renderizarAdmin(){
     lista.innerHTML =
       `
       <div class="vacio">
+
         No hay productos agregados manualmente.
+
       </div>
       `;
 
@@ -3199,88 +3736,99 @@ function renderizarAdmin(){
   }
 
 
-  administrables.forEach(producto => {
+  administrables.forEach(
+    producto => {
 
-    const item =
-      document.createElement(
-        "div"
+      const item =
+        document.createElement(
+          "div"
+        );
+
+
+      item.className =
+        "admin-item";
+
+
+      item.innerHTML =
+        `
+        <div class="admin-item-info">
+
+          <strong>
+            ${escapeHtml(
+              producto.nombre
+            )}
+          </strong>
+
+          <div>
+            ${escapeHtml(
+              producto.categoria || ""
+            )}
+          </div>
+
+          <div>
+            ${formatoPrecio(
+              producto.precio
+            )}
+          </div>
+
+          <div>
+            ${
+              producto.destacado
+                ? "⭐ Destacado"
+                : ""
+            }
+          </div>
+
+        </div>
+
+
+        <div class="admin-item-botones">
+
+          <button
+            class="admin-btn secundario"
+            onclick="toggleDestacado('${producto.id}')">
+
+            ${
+              producto.destacado
+                ? "Quitar ⭐"
+                : "⭐ Destacar"
+            }
+
+          </button>
+
+
+          <button
+            class="admin-btn rojo"
+            onclick="eliminarProducto('${producto.id}')">
+
+            🗑️ Eliminar
+
+          </button>
+
+        </div>
+        `;
+
+
+      lista.appendChild(
+        item
       );
 
-
-    item.className =
-      "admin-item";
-
-
-    item.innerHTML =
-      `
-      <div class="admin-item-info">
-
-        <strong>
-          ${escapeHtml(producto.nombre)}
-        </strong>
-
-        <div>
-          ${escapeHtml(
-            producto.categoria || ""
-          )}
-        </div>
-
-        <div>
-          ${formatoPrecio(producto.precio)}
-        </div>
-
-        <div>
-          ${
-            producto.destacado
-              ? "⭐ Destacado"
-              : ""
-          }
-        </div>
-
-      </div>
-
-      <div class="admin-item-botones">
-
-        <button
-          class="admin-btn secundario"
-          onclick="toggleDestacado('${producto.id}')">
-
-          ${
-            producto.destacado
-              ? "Quitar ⭐"
-              : "⭐ Destacar"
-          }
-
-        </button>
-
-        <button
-          class="admin-btn rojo"
-          onclick="eliminarProducto('${producto.id}')">
-
-          🗑️ Eliminar
-
-        </button>
-
-      </div>
-      `;
-
-
-    lista.appendChild(item);
-
-  });
+    }
+  );
 
 }
 
 
 /* =========================
-   TOGGLE DESTACADO
+   DESTACADO
 ========================= */
 
 async function toggleDestacado(id){
 
   const producto =
     productos.find(
-      item => item.id === id
+      item =>
+        item.id === id
     );
 
 
@@ -3298,7 +3846,11 @@ async function toggleDestacado(id){
   try{
 
     await updateDoc(
-      doc(db,"productos",id),
+      doc(
+        db,
+        "productos",
+        id
+      ),
       {
         destacado:nuevoValor
       }
@@ -3325,6 +3877,7 @@ async function toggleDestacado(id){
 
     console.error(error);
 
+
     alert(
       "❌ No se pudo actualizar.\n\n" +
       "Revisa Firestore."
@@ -3336,14 +3889,15 @@ async function toggleDestacado(id){
 
 
 /* =========================
-   ELIMINAR PRODUCTO
+   ELIMINAR
 ========================= */
 
 async function eliminarProducto(id){
 
   const producto =
     productos.find(
-      item => item.id === id
+      item =>
+        item.id === id
     );
 
 
@@ -3370,13 +3924,18 @@ async function eliminarProducto(id){
   try{
 
     await deleteDoc(
-      doc(db,"productos",id)
+      doc(
+        db,
+        "productos",
+        id
+      )
     );
 
 
     productos =
       productos.filter(
-        item => item.id !== id
+        item =>
+          item.id !== id
       );
 
 
@@ -3393,6 +3952,7 @@ async function eliminarProducto(id){
   }catch(error){
 
     console.error(error);
+
 
     alert(
       "❌ No se pudo eliminar el producto."
@@ -3422,14 +3982,23 @@ async function codigoExiste(codigo){
 
   const consulta =
     query(
-      collection(db,"pedidos"),
-      where("codigo","==",codigo),
+      collection(
+        db,
+        "pedidos"
+      ),
+      where(
+        "codigo",
+        "==",
+        codigo
+      ),
       limit(1)
     );
 
 
   const snapshot =
-    await getDocs(consulta);
+    await getDocs(
+      consulta
+    );
 
 
   return !snapshot.empty;
@@ -3483,12 +4052,17 @@ async function generarYCrearPedido(){
         generarCodigoPedido();
 
     }while(
-      await codigoExiste(codigo)
+      await codigoExiste(
+        codigo
+      )
     );
 
 
     await addDoc(
-      collection(db,"pedidos"),
+      collection(
+        db,
+        "pedidos"
+      ),
       {
 
         codigo:codigo,
@@ -3537,6 +4111,7 @@ async function generarYCrearPedido(){
 
     console.error(error);
 
+
     alert(
       "❌ No se pudo crear el pedido.\n\n" +
       "Revisa las reglas de Firestore."
@@ -3575,14 +4150,23 @@ async function actualizarPedidoExistente(){
 
     const consulta =
       query(
-        collection(db,"pedidos"),
-        where("codigo","==",codigo),
+        collection(
+          db,
+          "pedidos"
+        ),
+        where(
+          "codigo",
+          "==",
+          codigo
+        ),
         limit(1)
       );
 
 
     const snapshot =
-      await getDocs(consulta);
+      await getDocs(
+        consulta
+      );
 
 
     if(snapshot.empty){
@@ -3635,6 +4219,7 @@ async function actualizarPedidoExistente(){
 
     console.error(error);
 
+
     alert(
       "❌ No se pudo actualizar el pedido."
     );
@@ -3645,7 +4230,7 @@ async function actualizarPedidoExistente(){
 
 
 /* =========================
-   ENVIAR CÓDIGO WHATSAPP
+   WHATSAPP PEDIDO
 ========================= */
 
 function enviarCodigoPedidoWhatsApp(){
@@ -3685,7 +4270,9 @@ Puedes consultar el estado de tu pedido desde nuestra tienda.`;
 
   window.open(
     "https://wa.me/573181579324?text=" +
-    encodeURIComponent(mensaje),
+    encodeURIComponent(
+      mensaje
+    ),
     "_blank"
   );
 
@@ -3723,7 +4310,10 @@ async function cargarPedidosAdmin(){
 
     const snapshot =
       await getDocs(
-        collection(db,"pedidos")
+        collection(
+          db,
+          "pedidos"
+        )
       );
 
 
@@ -3735,7 +4325,9 @@ async function cargarPedidosAdmin(){
       lista.innerHTML =
         `
         <div class="vacio">
+
           No hay pedidos todavía.
+
         </div>
         `;
 
@@ -3744,63 +4336,68 @@ async function cargarPedidosAdmin(){
     }
 
 
-    snapshot.forEach(pedidoDoc => {
+    snapshot.forEach(
+      pedidoDoc => {
 
-      const pedido =
-        pedidoDoc.data();
+        const pedido =
+          pedidoDoc.data();
 
 
-      const item =
-        document.createElement(
-          "div"
+        const item =
+          document.createElement(
+            "div"
+          );
+
+
+        item.className =
+          "admin-item";
+
+
+        item.innerHTML =
+          `
+          <div class="admin-item-info">
+
+            <strong>
+              📦 ${escapeHtml(
+                pedido.codigo || ""
+              )}
+            </strong>
+
+            <div>
+              👤 ${escapeHtml(
+                pedido.cliente || ""
+              )}
+            </div>
+
+            <div>
+              📍 ${escapeHtml(
+                pedido.estado || ""
+              )}
+            </div>
+
+          </div>
+
+
+          <div class="admin-item-botones">
+
+            <button
+              class="admin-btn secundario"
+              onclick="cargarPedidoEnFormulario('${pedidoDoc.id}')">
+
+              ✏️ Editar
+
+            </button>
+
+          </div>
+          `;
+
+
+        lista.appendChild(
+          item
         );
 
-
-      item.className =
-        "admin-item";
-
-
-      item.innerHTML =
-        `
-        <div class="admin-item-info">
-
-          <strong>
-            📦 ${escapeHtml(
-              pedido.codigo || ""
-            )}
-          </strong>
-
-          <div>
-            👤 ${escapeHtml(
-              pedido.cliente || ""
-            )}
-          </div>
-
-          <div>
-            📍 ${escapeHtml(
-              pedido.estado || ""
-            )}
-          </div>
-
-        </div>
-
-        <div class="admin-item-botones">
-
-          <button
-            class="admin-btn secundario"
-            onclick="cargarPedidoEnFormulario('${pedidoDoc.id}')">
-
-            ✏️ Editar
-
-          </button>
-
-        </div>
-        `;
-
-
-      lista.appendChild(item);
-
-    });
+      }
+    );
 
 
   }catch(error){
@@ -3831,7 +4428,7 @@ async function cargarPedidosAdmin(){
 
 
 /* =========================
-   CARGAR PEDIDO EN FORMULARIO
+   CARGAR PEDIDO
 ========================= */
 
 async function cargarPedidoEnFormulario(id){
@@ -3839,11 +4436,17 @@ async function cargarPedidoEnFormulario(id){
   try{
 
     const referencia =
-      doc(db,"pedidos",id);
+      doc(
+        db,
+        "pedidos",
+        id
+      );
 
 
     const snapshot =
-      await getDoc(referencia);
+      await getDoc(
+        referencia
+      );
 
 
     if(!snapshot.exists()){
@@ -3872,7 +4475,8 @@ async function cargarPedidoEnFormulario(id){
     document.getElementById(
       "pedidoEstado"
     ).value =
-      pedido.estado || "Recibido";
+      pedido.estado ||
+      "Recibido";
 
 
     document.getElementById(
@@ -3903,6 +4507,7 @@ async function cargarPedidoEnFormulario(id){
   }catch(error){
 
     console.error(error);
+
 
     alert(
       "No se pudo cargar el pedido."
@@ -3936,13 +4541,6 @@ function abrirEstadoPedido(){
   }
 
 
-  /*
-    FORZAMOS el display.
-
-    Esto evita que alguna regla CSS
-    impida abrir el modal.
-  */
-
   modal.style.display =
     "flex";
 
@@ -3962,8 +4560,10 @@ function abrirEstadoPedido(){
 
     input.value = "";
 
+
     setTimeout(
-      () => input.focus(),
+      () =>
+        input.focus(),
       200
     );
 
@@ -3986,7 +4586,7 @@ function abrirEstadoPedido(){
 
 
 /* =========================
-   CERRAR ESTADO PEDIDO
+   CERRAR PEDIDO
 ========================= */
 
 function cerrarEstadoPedido(){
@@ -4002,6 +4602,7 @@ function cerrarEstadoPedido(){
     modal.classList.remove(
       "activo"
     );
+
 
     modal.style.display =
       "none";
@@ -4025,7 +4626,7 @@ function cerrarEstadoPedido(){
 
 
 /* =========================
-   CONSULTAR ESTADO PEDIDO
+   CONSULTAR PEDIDO
 ========================= */
 
 async function consultarEstadoPedido(){
@@ -4053,7 +4654,9 @@ async function consultarEstadoPedido(){
     resultado.innerHTML =
       `
       <div class="vacio">
+
         Escribe el código de tu pedido.
+
       </div>
       `;
 
@@ -4065,7 +4668,9 @@ async function consultarEstadoPedido(){
   resultado.innerHTML =
     `
     <div class="cargando">
+
       🔎 Buscando tu pedido...
+
     </div>
     `;
 
@@ -4074,14 +4679,23 @@ async function consultarEstadoPedido(){
 
     const consulta =
       query(
-        collection(db,"pedidos"),
-        where("codigo","==",codigo),
+        collection(
+          db,
+          "pedidos"
+        ),
+        where(
+          "codigo",
+          "==",
+          codigo
+        ),
         limit(1)
       );
 
 
     const snapshot =
-      await getDocs(consulta);
+      await getDocs(
+        consulta
+      );
 
 
     if(snapshot.empty){
@@ -4091,7 +4705,9 @@ async function consultarEstadoPedido(){
         <div class="vacio">
 
           ❌ No encontramos el pedido
-          <strong>${escapeHtml(codigo)}</strong>.
+          <strong>
+            ${escapeHtml(codigo)}
+          </strong>.
 
           <br><br>
 
@@ -4116,15 +4732,21 @@ async function consultarEstadoPedido(){
 
         <h3>
           📦 Pedido ${escapeHtml(
-            pedido.codigo || codigo
+            pedido.codigo ||
+            codigo
           )}
         </h3>
 
+
         <div class="estado">
+
           ${escapeHtml(
-            pedido.estado || "Recibido"
+            pedido.estado ||
+            "Recibido"
           )}
+
         </div>
+
 
         <div class="estado-detalle">
 
@@ -4133,7 +4755,8 @@ async function consultarEstadoPedido(){
           </strong>
 
           ${escapeHtml(
-            pedido.cliente || ""
+            pedido.cliente ||
+            ""
           )}
 
           <br>
@@ -4143,7 +4766,8 @@ async function consultarEstadoPedido(){
           </strong>
 
           ${escapeHtml(
-            pedido.detalle || "Sin detalle"
+            pedido.detalle ||
+            "Sin detalle"
           )}
 
         </div>
@@ -4184,26 +4808,45 @@ async function consultarEstadoPedido(){
 function escapeHtml(text){
 
   return String(text ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
 /* =========================
-   TECLA ENTER PEDIDO
+   ENTER PEDIDO
 ========================= */
 
 document
-  .getElementById("buscarPedido")
+  .getElementById(
+    "buscarPedido"
+  )
   .addEventListener(
     "keydown",
     function(event){
 
-      if(event.key === "Enter"){
+      if(
+        event.key === "Enter"
+      ){
 
         consultarEstadoPedido();
 
@@ -4218,12 +4861,16 @@ document
 ========================= */
 
 document
-  .getElementById("inputBusqueda")
+  .getElementById(
+    "inputBusqueda"
+  )
   .addEventListener(
     "keydown",
     function(event){
 
-      if(event.key === "Enter"){
+      if(
+        event.key === "Enter"
+      ){
 
         buscarProductos();
 
@@ -4234,17 +4881,20 @@ document
 
 
 /* =========================
-   CERRAR MODALES AL TOCAR
-   AFUERA
+   CERRAR CARRITO AFUERA
 ========================= */
 
 document
-  .getElementById("modalCarrito")
+  .getElementById(
+    "modalCarrito"
+  )
   .addEventListener(
     "click",
     function(event){
 
-      if(event.target === this){
+      if(
+        event.target === this
+      ){
 
         cerrarCarrito();
 
@@ -4255,7 +4905,31 @@ document
 
 
 /* =========================
-   EXPONER FUNCIONES AL HTML
+   CERRAR INFO AFUERA
+========================= */
+
+document
+  .getElementById(
+    "modalInfo"
+  )
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(
+        event.target === this
+      ){
+
+        cerrarInfo();
+
+      }
+
+    }
+  );
+
+
+/* =========================
+   EXPONER FUNCIONES
 ========================= */
 
 Object.assign(
@@ -4316,7 +4990,11 @@ Object.assign(
 
     enviarCarritoWhatsApp,
 
-    mostrarTodosDestacados
+    abrirInfo,
+
+    cerrarInfo,
+
+    contactarInfo
 
   }
 
@@ -4324,7 +5002,7 @@ Object.assign(
 
 
 /* =========================
-   INICIAR TIENDA
+   INICIAR
 ========================= */
 
 cargarProductos();
