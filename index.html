@@ -73,7 +73,6 @@ button{
 }
 
 .boton-carrito,
-.admin-btn,
 .boton-volver{
   border:1px solid #dfcdb7;
   background:#fffaf3;
@@ -84,12 +83,6 @@ button{
   box-shadow:0 4px 12px rgba(103,75,46,.08);
 }
 
-.admin-btn{
-  font-size:13px;
-  font-weight:bold;
-}
-
-.admin-btn:hover,
 .boton-carrito:hover,
 .boton-volver:hover{
   background:#f3e7d8;
@@ -454,191 +447,8 @@ button{
   font-weight:bold;
 }
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(44,31,20,.58);
-  z-index:5000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-}
-
-.modal.oculto{
-  display:none;
-}
-
-.modal-box{
-  width:min(650px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:#fffaf3;
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-.modal-head h2{
-  color:#654a32;
-}
-
-.cerrar-modal{
-  border:0;
-  background:transparent;
-  font-size:28px;
-  cursor:pointer;
-  color:#745438;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.campo{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.campo.full{
-  grid-column:1/-1;
-}
-
-.campo label{
-  font-size:13px;
-  font-weight:bold;
-  color:#654a32;
-}
-
-.campo input,
-.campo select,
-.campo textarea{
-  border:1px solid #dfcdb7;
-  border-radius:10px;
-  padding:11px;
-  background:#fffdf9;
-  color:#5b4632;
-  outline:none;
-}
-
-.campo textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
-.acciones{
-  display:flex;
-  gap:9px;
-  margin-top:15px;
-  flex-wrap:wrap;
-}
-
-.btn-principal,
-.btn-secundario,
-.btn-peligro{
-  border:0;
-  border-radius:10px;
-  padding:11px 14px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.btn-principal{
-  background:#8f6b48;
-  color:white;
-}
-
-.btn-secundario{
-  background:#eadcc9;
-  color:#60462e;
-}
-
-.btn-peligro{
-  background:#efd3cc;
-  color:#7d3e32;
-}
-
-.mensaje{
-  padding:10px;
-  border-radius:10px;
-  background:#f2e5d5;
-  color:#684b31;
-  margin-bottom:12px;
-  display:none;
-  font-size:13px;
-}
-
-.admin-producto{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  border:1px solid #e5d4bf;
-  border-radius:12px;
-  padding:9px;
-  margin-top:8px;
-  background:#fffdf9;
-}
-
-.admin-producto img{
-  width:55px;
-  height:55px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-.admin-info{
-  flex:1;
-}
-
-.admin-info strong{
-  display:block;
-  color:#5e452f;
-}
-
-.admin-info small{
-  color:#927a61;
-}
-
-.admin-producto .acciones{
-  margin:0;
-}
-
-.separador{
-  border:0;
-  border-top:1px solid #ead9c5;
-  margin:20px 0;
-}
-
-.preview{
-  width:100%;
-  max-height:180px;
-  object-fit:contain;
-  border-radius:10px;
-  background:#f1e5d7;
-  display:none;
-}
-
-.enlace-recuperar{
-  border:0;
-  background:transparent;
-  color:#8f6b48;
-  text-decoration:underline;
-  cursor:pointer;
-  font-size:13px;
-  margin-top:10px;
-}
-
 @media(max-width:900px){
+
   .categorias{
     grid-template-columns:repeat(2,1fr);
   }
@@ -646,20 +456,17 @@ button{
   .productos{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
 
 @media(max-width:650px){
+
   .logo{
     font-size:20px;
   }
 
   .logo span{
     font-size:8px;
-  }
-
-  .admin-btn{
-    font-size:11px;
-    padding:9px 8px;
   }
 
   .boton-carrito{
@@ -712,14 +519,8 @@ button{
     padding:10px 5px;
   }
 
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .campo.full{
-    grid-column:auto;
-  }
 }
+
 </style>
 </head>
 
@@ -736,15 +537,14 @@ ANDREX
 
 <div class="botones-header">
 
-<button class="admin-btn" id="btnAdmin">
-🔐 Administración
-</button>
-
-<button class="boton-carrito" onclick="abrirCarrito()">
+<button
+class="boton-carrito"
+onclick="abrirCarrito()">
 🛒 <span id="cantidadCarrito">0</span>
 </button>
 
 </div>
+
 </div>
 
 <div class="contenedor-buscador">
@@ -805,7 +605,9 @@ class="categoria"
 onclick="entrarCategoria('ropa')">
 
 <span class="emoji">👕</span>
+
 <h2>ROPA</h2>
+
 <p>Ver toda la ropa</p>
 
 </div>
@@ -816,7 +618,9 @@ class="categoria"
 onclick="entrarCategoria('zapatos')">
 
 <span class="emoji">👟</span>
+
 <h2>ZAPATOS</h2>
+
 <p>Ver todos los zapatos</p>
 
 </div>
@@ -827,7 +631,9 @@ class="categoria"
 onclick="entrarCategoria('lociones')">
 
 <span class="emoji">🧴</span>
+
 <h2>LOCIONES</h2>
+
 <p>Ver todas las lociones</p>
 
 </div>
@@ -838,7 +644,9 @@ class="categoria"
 onclick="entrarCategoria('streaming')">
 
 <span class="emoji">📺</span>
+
 <h2>STREAMING</h2>
+
 <p>Ver todos los servicios</p>
 
 </div>
@@ -849,29 +657,43 @@ onclick="entrarCategoria('streaming')">
 <section class="informacion">
 
 <div class="info-card">
+
 <span class="emoji">🚚</span>
+
 <h3>Envíos</h3>
+
 <p>
 Realizamos envíos a nivel nacional 🇨🇴
 tu como cliente te encargas de pagar el envio a tu ciudad ✨.
 </p>
+
 </div>
 
+
 <div class="info-card">
+
 <span class="emoji">💳</span>
+
 <h3>Compra fácil</h3>
+
 <p>
 manejamos pagos por nequi bancolombia daviplata
 pagos de contado y contra entrega solo las lociones originales.
 </p>
+
 </div>
 
+
 <div class="info-card">
+
 <span class="emoji">📲</span>
+
 <h3>Pedidos</h3>
+
 <p>
 Realiza tu pedido directamente por WhatsApp.
 </p>
+
 </div>
 
 </section>
@@ -1028,8 +850,11 @@ onclick="cerrarCarrito()">
 <div class="carrito-total">
 
 <strong>
+
 <span>Total</span>
+
 <span id="totalCarrito">$0</span>
+
 </strong>
 
 <button
@@ -1049,6 +874,7 @@ onclick="alternarMusica()">
 ▶ Música
 </button>
 
+
 <audio
 id="musicaTienda"
 loop
@@ -1061,316 +887,11 @@ type="audio/mpeg">
 </audio>
 
 
-<!-- =========================
-     ADMINISTRACIÓN - LOGIN
-========================= -->
-
-<div
-id="modalLogin"
-class="modal oculto">
-
-<div
-class="modal-box"
-style="max-width:430px">
-
-<div class="modal-head">
-
-<h2>🔐 Administración</h2>
-
-<button
-class="cerrar-modal"
-onclick="cerrarModal('modalLogin')">
-×
-</button>
-
-</div>
-
-
-<div
-id="loginMensaje"
-class="mensaje">
-</div>
-
-
-<div class="campo">
-
-<label>
-Correo
-</label>
-
-<input
-id="loginEmail"
-type="email"
-autocomplete="username"
-placeholder="Correo de Firebase"
->
-
-</div>
-
-
-<div
-class="campo"
-style="margin-top:10px">
-
-<label>
-Contraseña
-</label>
-
-<input
-id="loginPassword"
-type="password"
-autocomplete="current-password"
-placeholder="Contraseña"
->
-
-</div>
-
-
-<div class="acciones">
-
-<button
-class="btn-principal"
-id="btnLogin">
-Entrar
-</button>
-
-</div>
-
-
-<button
-class="enlace-recuperar"
-id="btnRecuperar">
-¿Olvidaste tu contraseña?
-</button>
-
-
-<p
-style="font-size:11px;color:#927a61;margin-top:12px">
-
-La contraseña solamente se utiliza para iniciar sesión
-en Firebase y no se guarda en esta página.
-
-</p>
-
-</div>
-</div>
-
-
-<!-- =========================
-     PANEL ADMINISTRADOR
-========================= -->
-
-<div
-id="modalAdmin"
-class="modal oculto">
-
-<div class="modal-box">
-
-<div class="modal-head">
-
-<h2>
-🛠️ Panel de Administración
-</h2>
-
-<button
-class="cerrar-modal"
-onclick="cerrarModal('modalAdmin')">
-×
-</button>
-
-</div>
-
-
-<div
-id="adminUsuario"
-style="
-font-size:13px;
-color:#927a61;
-margin-bottom:12px;
-">
-</div>
-
-
-<div
-id="adminMensaje"
-class="mensaje">
-</div>
-
-
-<form id="productoForm">
-
-<input
-type="hidden"
-id="productoId"
->
-
-<input
-type="hidden"
-id="productoStoragePath"
->
-
-
-<div class="form-grid">
-
-
-<div class="campo">
-
-<label>
-Nombre del producto
-</label>
-
-<input
-id="nombreProducto"
-required
-placeholder="Ej: Camiseta Nike"
->
-
-</div>
-
-
-<div class="campo">
-
-<label>
-Categoría
-</label>
-
-<select
-id="categoriaProducto"
-required>
-
-<option value="ropa">
-Ropa
-</option>
-
-<option value="zapatos">
-Zapatos
-</option>
-
-<option value="lociones">
-Lociones
-</option>
-
-<option value="streaming">
-Streaming
-</option>
-
-</select>
-
-</div>
-
-
-<div class="campo">
-
-<label>
-Precio (COP)
-</label>
-
-<input
-id="precioProducto"
-type="number"
-min="0"
-required
-placeholder="50000"
->
-
-</div>
-
-
-<div class="campo full">
-
-<label>
-Descripción
-</label>
-
-<textarea
-id="descripcionProducto"
-placeholder="Descripción del producto">
-</textarea>
-
-</div>
-
-
-<div class="campo full">
-
-<label>
-Foto del producto
-</label>
-
-<input
-id="imagenProducto"
-type="file"
-accept="image/*"
->
-
-<img
-id="previewProducto"
-class="preview"
->
-
-</div>
-
-
-</div>
-
-
-<div class="acciones">
-
-<button
-class="btn-principal"
-type="submit"
-id="btnGuardarProducto">
-
-➕ Guardar producto
-
-</button>
-
-
-<button
-class="btn-secundario"
-type="button"
-id="btnCancelarEdicion">
-
-Cancelar
-
-</button>
-
-</div>
-
-</form>
-
-
-<hr class="separador">
-
-
-<h3 style="color:#654a32">
-📦 Productos administrados
-</h3>
-
-
-<div id="listaAdminProductos">
-</div>
-
-
-<div class="acciones">
-
-<button
-class="btn-secundario"
-id="btnCerrarSesion">
-
-🚪 Cerrar sesión
-
-</button>
-
-</div>
-
-</div>
-</div>
-
-
 <script type="module">
 
 /* =========================
    FIREBASE
+   SOLO FIRESTORE
 ========================= */
 
 import {
@@ -1383,43 +904,16 @@ from
 import {
   getFirestore,
   collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  serverTimestamp
+  getDocs
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  sendPasswordResetEmail
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  deleteObject
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-
-
 const firebaseConfig = {
 
   apiKey:
-  "AIzaSyBGb7jgkOKWeNJed6QPDMW-4-933gG59I",
+  "AIzaSyBGb7jgOKWeNJed6QPDMW-4-933gG59I",
 
   authDomain:
   "andrex-store.firebaseapp.com",
@@ -1439,13 +933,11 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
-
-const auth = getAuth(app);
-
-const storage = getStorage(app);
+const db =
+getFirestore(app);
 
 
 /* =========================
@@ -1458,8 +950,6 @@ let carrito =
 JSON.parse(
 localStorage.getItem("andrexCarrito")
 ) || [];
-
-let usuarioAdmin = null;
 
 
 const $ =
@@ -1490,35 +980,10 @@ c =>
 .trim()
 .toLowerCase()
 .normalize("NFD")
-.replace(/[\u0300-\u036f]/g,"");
-
-
-/* =========================
-   MENSAJES
-========================= */
-
-function aviso(
-id,
-texto,
-tiempo=3500
-){
-
-const e = $(id);
-
-e.textContent = texto;
-
-e.style.display = "block";
-
-clearTimeout(e._t);
-
-e._t =
-setTimeout(
-() =>
-e.style.display = "none",
-tiempo
+.replace(
+/[\u0300-\u036f]/g,
+""
 );
-
-}
 
 
 /* =========================
@@ -1537,7 +1002,10 @@ try{
 
 const snap =
 await getDocs(
-collection(db,"productos")
+collection(
+db,
+"productos"
+)
 );
 
 snap.forEach(
@@ -1601,7 +1069,8 @@ return;
 if(
 productos.some(
 p =>
-(p.imagen || "") === a.download_url
+(p.imagen || "") ===
+a.download_url
 )
 )
 return;
@@ -1609,12 +1078,19 @@ return;
 
 productos.push({
 
-id:"github-" + a.name,
+id:
+"github-" + a.name,
 
 nombre:
 a.name
-.replace(/\.[^/.]+$/,"")
-.replace(/[-_]/g," "),
+.replace(
+/\.[^/.]+$/,
+""
+)
+.replace(
+/[-_]/g,
+" "
+),
 
 precio:0,
 
@@ -1715,6 +1191,7 @@ font-size:50px;
 ${esc(nombre)}
 </h3>
 
+
 ${
 desc
 ?
@@ -1726,6 +1203,7 @@ ${esc(desc)}
 :
 ""
 }
+
 
 <div class="precio">
 
@@ -1741,8 +1219,11 @@ precio.toLocaleString("es-CO")
 </div>
 
 
-<button class="boton-agregar">
+<button
+class="boton-agregar">
+
 🛒 Agregar al carrito
+
 </button>
 
 </div>
@@ -1779,7 +1260,9 @@ productos.filter(
 p => {
 
 const x =
-catNorm(p.categoria);
+catNorm(
+p.categoria
+);
 
 if(c === "ropa")
 return x === "ropa";
@@ -1833,7 +1316,7 @@ crearTarjetaProducto(p)
 
 
 /* =========================
-   RENDER
+   RENDERIZAR
 ========================= */
 
 function renderizarTodos(){
@@ -2132,7 +1615,6 @@ total += precio;
 const div =
 document.createElement("div");
 
-
 div.className =
 "item-carrito";
 
@@ -2169,10 +1651,15 @@ justify-content:center;
 <div class="item-info">
 
 <h4>
-${esc(p.nombre || p.name || "Producto")}
+${esc(
+p.nombre ||
+p.name ||
+"Producto"
+)}
 </h4>
 
 <p>
+
 ${
 precio
 ?
@@ -2180,6 +1667,7 @@ precio
 :
 "Consultar precio"
 }
+
 </p>
 
 </div>
@@ -2188,7 +1676,9 @@ precio
 <button
 class="eliminar-item"
 onclick="eliminarDelCarrito(${i})">
+
 ✕
+
 </button>
 
 `;
@@ -2343,1027 +1833,7 @@ $("botonMusica")
 
 
 /* =========================
-   MODALES
-========================= */
-
-function abrirModal(id){
-
-$(id)
-.classList
-.remove("oculto");
-
-}
-
-
-window.cerrarModal =
-id =>
-$(id)
-.classList
-.add("oculto");
-
-
-/* =========================
-   ADMINISTRACIÓN
-   SIN CORREO FIJO
-========================= */
-
-$("btnAdmin").onclick =
-() => {
-
-if(usuarioAdmin){
-
-abrirModal("modalAdmin");
-
-$("adminUsuario")
-.textContent =
-"Sesión: " +
-(usuarioAdmin.email || "");
-
-listarAdmin();
-
-}else{
-
-abrirModal("modalLogin");
-
-}
-
-};
-
-
-/* =========================
-   LOGIN
-========================= */
-
-$("btnLogin").onclick =
-async () => {
-
-const email =
-$("loginEmail")
-.value
-.trim();
-
-const pass =
-$("loginPassword")
-.value;
-
-
-if(!email){
-
-aviso(
-"loginMensaje",
-"Escribe tu correo."
-);
-
-return;
-
-}
-
-
-if(!pass){
-
-aviso(
-"loginMensaje",
-"Escribe tu contraseña."
-);
-
-return;
-
-}
-
-
-const btn =
-$("btnLogin");
-
-btn.disabled = true;
-
-btn.textContent =
-"Entrando...";
-
-
-try{
-
-const cred =
-await signInWithEmailAndPassword(
-auth,
-email,
-pass
-);
-
-
-usuarioAdmin =
-cred.user;
-
-
-$("loginPassword")
-.value = "";
-
-
-cerrarModal(
-"modalLogin"
-);
-
-
-abrirModal(
-"modalAdmin"
-);
-
-
-$("adminUsuario")
-.textContent =
-"Sesión: " +
-(usuarioAdmin.email || "");
-
-
-$("adminMensaje")
-.style.display =
-"none";
-
-
-listarAdmin();
-
-
-$("btnAdmin")
-.textContent =
-"🛠️ Panel Admin";
-
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-
-}catch(e){
-
-console.error(e);
-
-
-let mensaje =
-"❌ No se pudo iniciar sesión.";
-
-
-if(e.code === "auth/invalid-credential"){
-
-mensaje =
-"❌ El correo o la contraseña son incorrectos.";
-
-}
-
-else if(
-e.code === "auth/user-not-found"
-){
-
-mensaje =
-"❌ Ese correo no existe en Firebase.";
-
-}
-
-else if(
-e.code === "auth/wrong-password"
-){
-
-mensaje =
-"❌ La contraseña es incorrecta.";
-
-}
-
-else if(
-e.code === "auth/invalid-email"
-){
-
-mensaje =
-"❌ El correo no es válido.";
-
-}
-
-else if(
-e.code === "auth/too-many-requests"
-){
-
-mensaje =
-"❌ Demasiados intentos. Espera un momento.";
-
-}
-
-else if(
-e.code === "auth/network-request-failed"
-){
-
-mensaje =
-"❌ No hay conexión a Internet.";
-
-}
-
-else if(
-e.code === "auth/operation-not-allowed"
-){
-
-mensaje =
-"❌ El acceso por correo y contraseña no está activado en Firebase.";
-
-}
-
-aviso(
-"loginMensaje",
-mensaje,
-6000
-);
-
-
-}finally{
-
-btn.disabled = false;
-
-btn.textContent =
-"Entrar";
-
-}
-
-};
-
-
-/* =========================
-   RECUPERAR CONTRASEÑA
-========================= */
-
-$("btnRecuperar").onclick =
-async () => {
-
-const email =
-$("loginEmail")
-.value
-.trim();
-
-
-if(!email){
-
-aviso(
-"loginMensaje",
-"Primero escribe tu correo de Firebase."
-);
-
-return;
-
-}
-
-
-try{
-
-await sendPasswordResetEmail(
-auth,
-email
-);
-
-
-aviso(
-"loginMensaje",
-"✅ Te enviamos un correo para restablecer la contraseña.",
-6000
-);
-
-
-}catch(e){
-
-console.error(e);
-
-
-let mensaje =
-"❌ No se pudo enviar el correo.";
-
-
-if(
-e.code === "auth/user-not-found"
-){
-
-mensaje =
-"❌ Ese correo no está registrado.";
-
-}
-
-
-if(
-e.code === "auth/invalid-email"
-){
-
-mensaje =
-"❌ El correo no es válido.";
-
-}
-
-
-aviso(
-"loginMensaje",
-mensaje,
-6000
-);
-
-}
-
-};
-
-
-/* =========================
-   SESIÓN
-========================= */
-
-onAuthStateChanged(
-auth,
-user => {
-
-usuarioAdmin = user || null;
-
-
-if(user){
-
-$("btnAdmin")
-.textContent =
-"🛠️ Panel Admin";
-
-}else{
-
-$("btnAdmin")
-.textContent =
-"🔐 Administración";
-
-}
-
-}
-);
-
-
-/* =========================
-   CERRAR SESIÓN
-========================= */
-
-$("btnCerrarSesion").onclick =
-async () => {
-
-try{
-
-await signOut(auth);
-
-usuarioAdmin = null;
-
-cerrarModal(
-"modalAdmin"
-);
-
-$("btnAdmin")
-.textContent =
-"🔐 Administración";
-
-}catch(e){
-
-console.error(e);
-
-}
-
-};
-
-
-/* =========================
-   FOTO PREVIA
-========================= */
-
-$("imagenProducto").onchange =
-() => {
-
-const f =
-$("imagenProducto")
-.files[0];
-
-const img =
-$("previewProducto");
-
-
-if(f){
-
-img.src =
-URL.createObjectURL(f);
-
-img.style.display =
-"block";
-
-}else{
-
-img.style.display =
-"none";
-
-}
-
-};
-
-
-/* =========================
-   LIMPIAR FORMULARIO
-========================= */
-
-function limpiarFormulario(){
-
-$("productoForm").reset();
-
-$("productoId").value = "";
-
-$("productoStoragePath").value = "";
-
-$("previewProducto")
-.style.display =
-"none";
-
-
-$("btnGuardarProducto")
-.textContent =
-"➕ Guardar producto";
-
-}
-
-
-/* =========================
-   SUBIR FOTO
-========================= */
-
-async function subirImagen(file){
-
-const safe =
-file.name.replace(
-/[^a-zA-Z0-9._-]/g,
-"_"
-);
-
-
-const path =
-"productos/" +
-Date.now() +
-"-" +
-safe;
-
-
-const r =
-ref(
-storage,
-path
-);
-
-
-await uploadBytes(
-r,
-file
-);
-
-
-const url =
-await getDownloadURL(r);
-
-
-return {
-url:url,
-path:path
-};
-
-}
-
-
-/* =========================
-   GUARDAR PRODUCTO
-========================= */
-
-$("productoForm").onsubmit =
-async e => {
-
-e.preventDefault();
-
-
-if(!usuarioAdmin){
-
-aviso(
-"adminMensaje",
-"❌ Debes iniciar sesión."
-);
-
-return;
-
-}
-
-
-const id =
-$("productoId")
-.value;
-
-
-const nombre =
-$("nombreProducto")
-.value
-.trim();
-
-
-const categoria =
-$("categoriaProducto")
-.value;
-
-
-const precio =
-Number(
-$("precioProducto")
-.value || 0
-);
-
-
-const descripcion =
-$("descripcionProducto")
-.value
-.trim();
-
-
-const file =
-$("imagenProducto")
-.files[0];
-
-
-const btn =
-$("btnGuardarProducto");
-
-
-btn.disabled = true;
-
-btn.textContent =
-"Guardando...";
-
-
-try{
-
-let imagen =
-$("previewProducto")
-.src || "";
-
-
-let storagePath =
-$("productoStoragePath")
-.value;
-
-
-if(file){
-
-const subida =
-await subirImagen(file);
-
-
-imagen =
-subida.url;
-
-
-storagePath =
-subida.path;
-
-
-const rutaAnterior =
-$("productoStoragePath")
-.value;
-
-
-if(
-rutaAnterior &&
-id
-){
-
-try{
-
-await deleteObject(
-ref(
-storage,
-rutaAnterior
-)
-);
-
-}catch(_){}
-
-}
-
-}
-
-
-const data = {
-
-nombre:nombre,
-
-categoria:categoria,
-
-precio:precio,
-
-descripcion:descripcion,
-
-imagen:imagen,
-
-storagePath:storagePath,
-
-updatedAt:
-serverTimestamp()
-
-};
-
-
-if(id){
-
-await updateDoc(
-doc(
-db,
-"productos",
-id
-),
-data
-);
-
-}else{
-
-await addDoc(
-collection(
-db,
-"productos"
-),
-{
-
-...data,
-
-createdAt:
-serverTimestamp()
-
-}
-);
-
-}
-
-
-aviso(
-"adminMensaje",
-id
-?
-"✅ Producto actualizado correctamente."
-:
-"✅ Producto agregado correctamente."
-);
-
-
-limpiarFormulario();
-
-await cargarFirebase();
-
-listarAdmin();
-
-
-}catch(err){
-
-console.error(err);
-
-
-aviso(
-"adminMensaje",
-"❌ No se pudo guardar: " +
-err.message,
-7000
-);
-
-
-}finally{
-
-btn.disabled = false;
-
-btn.textContent =
-"➕ Guardar producto";
-
-}
-
-};
-
-
-/* =========================
-   LISTAR ADMIN
-========================= */
-
-async function listarAdmin(){
-
-if(!usuarioAdmin)
-return;
-
-
-const out =
-$("listaAdminProductos");
-
-
-out.innerHTML =
-"Cargando productos...";
-
-
-try{
-
-const snap =
-await getDocs(
-collection(db,"productos")
-);
-
-
-out.innerHTML = "";
-
-
-if(snap.empty){
-
-out.innerHTML = `
-
-<p
-style="
-color:#927a61;
-margin-top:10px;
-">
-
-No hay productos administrados
-todavía.
-
-</p>
-
-`;
-
-return;
-
-}
-
-
-snap.forEach(
-d => {
-
-const p =
-{
-id:d.id,
-...d.data()
-};
-
-
-const div =
-document.createElement("div");
-
-
-div.className =
-"admin-producto";
-
-
-div.innerHTML = `
-
-${
-p.imagen
-?
-`
-<img
-src="${esc(p.imagen)}"
-alt=""
->
-`
-:
-`
-<div
-style="
-width:55px;
-height:55px;
-border-radius:8px;
-background:#f1e5d7;
-display:flex;
-align-items:center;
-justify-content:center;
-">
-
-🛍️
-
-</div>
-`
-}
-
-
-<div class="admin-info">
-
-<strong>
-${esc(p.nombre || "Producto")}
-</strong>
-
-<small>
-
-${esc(p.categoria || "")}
-
-·
-
-$${Number(
-p.precio || 0
-).toLocaleString("es-CO")}
-
-</small>
-
-</div>
-
-
-<div class="acciones">
-
-<button
-class="btn-secundario"
-data-edit="${d.id}">
-✏️
-</button>
-
-<button
-class="btn-peligro"
-data-del="${d.id}">
-🗑️
-</button>
-
-</div>
-
-`;
-
-
-div
-.querySelector("[data-edit]")
-.onclick =
-() =>
-editarProducto(p);
-
-
-div
-.querySelector("[data-del]")
-.onclick =
-() =>
-eliminarProducto(p);
-
-
-out.appendChild(div);
-
-}
-);
-
-
-}catch(e){
-
-console.error(e);
-
-
-out.innerHTML =
-"<p>Error cargando productos.</p>";
-
-}
-
-}
-
-
-/* =========================
-   EDITAR
-========================= */
-
-function editarProducto(p){
-
-$("productoId")
-.value =
-p.id;
-
-
-$("productoStoragePath")
-.value =
-p.storagePath || "";
-
-
-$("nombreProducto")
-.value =
-p.nombre || "";
-
-
-$("categoriaProducto")
-.value =
-catNorm(
-p.categoria
-) || "ropa";
-
-
-$("precioProducto")
-.value =
-Number(
-p.precio || 0
-);
-
-
-$("descripcionProducto")
-.value =
-p.descripcion || "";
-
-
-const img =
-$("previewProducto");
-
-
-if(p.imagen){
-
-img.src =
-p.imagen;
-
-img.style.display =
-"block";
-
-}else{
-
-img.style.display =
-"none";
-
-}
-
-
-$("btnGuardarProducto")
-.textContent =
-"💾 Guardar cambios";
-
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================
-   ELIMINAR
-========================= */
-
-async function eliminarProducto(p){
-
-if(!usuarioAdmin)
-return;
-
-
-if(
-!confirm(
-`¿Eliminar "${p.nombre || "este producto"}"?`
-)
-)
-return;
-
-
-try{
-
-await deleteDoc(
-doc(
-db,
-"productos",
-p.id
-)
-);
-
-
-if(p.storagePath){
-
-try{
-
-await deleteObject(
-ref(
-storage,
-p.storagePath
-)
-);
-
-}catch(_){}
-
-}
-
-
-aviso(
-"adminMensaje",
-"🗑️ Producto eliminado."
-);
-
-
-await cargarFirebase();
-
-listarAdmin();
-
-
-}catch(e){
-
-console.error(e);
-
-
-aviso(
-"adminMensaje",
-"❌ No se pudo eliminar: " +
-e.message,
-6000
-);
-
-}
-
-}
-
-
-/* =========================
-   CANCELAR EDICIÓN
-========================= */
-
-$("btnCancelarEdicion")
-.onclick =
-limpiarFormulario;
-
-
-/* =========================
-   INICIAR
+   INICIAR TIENDA
 ========================= */
 
 cargarFirebase();
