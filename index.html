@@ -19,19 +19,24 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f7f0e6;
-  color:#4b3928;
+  background:#eefaff;
+  color:#23485a;
   min-height:100vh;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,250,243,.96);
+  background:rgba(255,255,255,.96);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid #eadbc8;
+  border-bottom:1px solid #c9edf9;
   padding:12px 15px;
+  box-shadow:0 3px 15px rgba(74,177,211,.08);
 }
 
 .barra-superior{
@@ -47,10 +52,10 @@ header{
   font-size:25px;
   font-weight:900;
   letter-spacing:2px;
-  color:#8c653d;
+  color:#39a9d1;
   text-shadow:
-    0 0 5px #d9b27c,
-    0 0 12px rgba(217,178,124,.65);
+    0 0 5px #a9e9fa,
+    0 0 12px rgba(72,190,225,.55);
   white-space:nowrap;
   cursor:pointer;
   user-select:none;
@@ -63,7 +68,7 @@ header{
   font-size:10px;
   letter-spacing:4px;
   font-weight:500;
-  color:#9d856b;
+  color:#72bdd7;
   text-align:center;
   margin-top:-2px;
   text-shadow:none;
@@ -82,13 +87,13 @@ button{
 .boton-carrito,
 .boton-subir,
 .boton-volver{
-  border:1px solid #dfcdb7;
-  background:#fffaf3;
-  color:#745438;
+  border:1px solid #bfe6f3;
+  background:#ffffff;
+  color:#2688ad;
   border-radius:12px;
   padding:10px 13px;
   cursor:pointer;
-  box-shadow:0 4px 12px rgba(103,75,46,.08);
+  box-shadow:0 4px 12px rgba(46,157,194,.10);
 }
 
 .boton-subir{
@@ -103,8 +108,12 @@ button{
 .boton-carrito:hover,
 .boton-subir:hover,
 .boton-volver:hover{
-  background:#f3e7d8;
+  background:#e8f9ff;
 }
+
+/* =========================
+   BUSCADOR
+========================= */
 
 .contenedor-buscador{
   max-width:700px;
@@ -115,24 +124,33 @@ button{
 
 #buscador{
   width:100%;
-  border:1px solid #dfcdb7;
-  background:#fffdf9;
+  border:1px solid #bfe6f3;
+  background:#ffffff;
   border-radius:12px;
   padding:13px 15px;
   outline:none;
-  color:#5b4632;
+  color:#28586d;
   font-size:15px;
+}
+
+#buscador:focus{
+  border-color:#66c7e7;
+  box-shadow:0 0 0 3px rgba(102,199,231,.12);
 }
 
 .boton-limpiar{
   border:none;
-  background:#8f6b48;
+  background:#54b8d9;
   color:#fff;
   border-radius:12px;
   padding:0 15px;
   cursor:pointer;
   display:none;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   max-width:1200px;
@@ -146,9 +164,13 @@ button{
   border-radius:22px;
   max-height:430px;
   object-fit:cover;
-  background:#eadcca;
-  box-shadow:0 10px 30px rgba(77,54,34,.12);
+  background:#dff6ff;
+  box-shadow:0 10px 30px rgba(57,169,209,.15);
 }
+
+/* =========================
+   PAGINAS
+========================= */
 
 .pagina-principal,
 .vista-categoria,
@@ -158,19 +180,44 @@ button{
   padding:10px 15px 50px;
 }
 
+/* =========================
+   BIENVENIDA DESTACADA
+========================= */
+
 .titulo-principal{
   text-align:center;
-  margin:20px 0 8px;
-  color:#654a32;
-  font-size:23px;
+  margin:28px 0 12px;
+  color:#1595c2;
+  font-size:31px;
+  font-weight:900;
+  letter-spacing:.5px;
+  text-shadow:
+    0 2px 0 #ffffff,
+    0 4px 12px rgba(21,149,194,.25);
 }
 
 .subtitulo{
+  max-width:950px;
+  margin:0 auto 30px;
   text-align:center;
-  color:#9a8269;
-  margin-bottom:25px;
-  font-size:14px;
+  color:#477386;
+  font-size:15px;
+  line-height:1.7;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.96),
+    rgba(222,247,255,.96)
+  );
+  border:1px solid #bce7f5;
+  border-radius:18px;
+  padding:18px 22px;
+  box-shadow:0 7px 20px rgba(56,164,201,.10);
+  font-weight:500;
 }
+
+/* =========================
+   CATEGORIAS
+========================= */
 
 .categorias{
   display:grid;
@@ -181,25 +228,26 @@ button{
 
 .categoria{
   min-height:180px;
-  border:1px solid #e4d2bc;
+  border:1px solid #bfe5f2;
   border-radius:22px;
   background:linear-gradient(
     145deg,
-    #fffdf9,
-    #f1e4d5
+    #ffffff,
+    #def6ff
   );
-  box-shadow:0 8px 22px rgba(91,65,39,.1);
+  box-shadow:0 8px 22px rgba(48,151,190,.12);
   cursor:pointer;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   transition:.25s;
-  color:#634a33;
+  color:#27708b;
 }
 
 .categoria:hover{
   transform:translateY(-4px);
+  box-shadow:0 13px 27px rgba(48,151,190,.18);
 }
 
 .categoria .emoji{
@@ -210,13 +258,18 @@ button{
 .categoria h2{
   font-size:20px;
   letter-spacing:1px;
+  color:#168cb8;
 }
 
 .categoria p{
   font-size:12px;
-  color:#9b8268;
+  color:#6794a5;
   margin-top:5px;
 }
+
+/* =========================
+   INFORMACION
+========================= */
 
 .informacion{
   display:grid;
@@ -226,11 +279,12 @@ button{
 }
 
 .info-card{
-  background:#fffaf3;
-  border:1px solid #e8d8c4;
+  background:#ffffff;
+  border:1px solid #c5e8f3;
   border-radius:18px;
   padding:20px;
   text-align:center;
+  box-shadow:0 6px 17px rgba(62,159,194,.08);
 }
 
 .info-card .emoji{
@@ -241,14 +295,19 @@ button{
 
 .info-card h3{
   font-size:15px;
-  color:#654a32;
+  color:#168bb5;
   margin-bottom:6px;
 }
 
 .info-card p{
   font-size:13px;
-  color:#8f7962;
+  color:#638b9a;
+  line-height:1.5;
 }
+
+/* =========================
+   VISTAS CATEGORIA
+========================= */
 
 .vista-categoria{
   display:none;
@@ -257,14 +316,15 @@ button{
 .encabezado-categoria{
   background:linear-gradient(
     145deg,
-    #fffdf9,
-    #f0e2d1
+    #ffffff,
+    #def6ff
   );
-  border:1px solid #e4d2bc;
+  border:1px solid #bde5f3;
   border-radius:22px;
   padding:22px;
   margin-bottom:22px;
   text-align:center;
+  box-shadow:0 7px 20px rgba(56,164,201,.10);
 }
 
 .encabezado-categoria .emoji{
@@ -274,14 +334,65 @@ button{
 
 .encabezado-categoria h2{
   font-size:27px;
-  color:#654a32;
+  color:#168cb8;
 }
 
 .encabezado-categoria p{
   margin-top:5px;
-  color:#927a61;
+  color:#6a94a3;
   font-size:14px;
 }
+
+/* =========================
+   BOTON VOLVER / INICIO
+========================= */
+
+.boton-volver{
+  background:#ffffff;
+  color:#168cb8;
+  border:1px solid #9edbed;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.boton-volver:hover{
+  background:#dff7ff;
+  transform:translateY(-1px);
+}
+
+/* BOTON FLOTANTE */
+
+#botonInicioFlotante{
+  position:fixed;
+  left:16px;
+  bottom:18px;
+  z-index:2400;
+  border:1px solid #9edbed;
+  background:rgba(255,255,255,.96);
+  color:#168cb8;
+  border-radius:30px;
+  padding:12px 16px;
+  cursor:pointer;
+  box-shadow:
+    0 7px 22px rgba(32,139,177,.18);
+  font-weight:bold;
+  display:none;
+  backdrop-filter:blur(8px);
+  transition:.2s;
+}
+
+#botonInicioFlotante:hover{
+  background:#def7ff;
+  transform:translateY(-2px);
+}
+
+#botonInicioFlotante.visible{
+  display:block;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
 
 .productos{
   display:grid;
@@ -290,11 +401,11 @@ button{
 }
 
 .producto{
-  background:#fffdf9;
-  border:1px solid #e6d6c3;
+  background:#ffffff;
+  border:1px solid #c9e8f1;
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 7px 18px rgba(77,54,34,.09);
+  box-shadow:0 7px 18px rgba(50,139,171,.09);
   display:flex;
   flex-direction:column;
   cursor:pointer;
@@ -303,14 +414,14 @@ button{
 
 .producto:hover{
   transform:translateY(-3px);
-  box-shadow:0 10px 24px rgba(77,54,34,.14);
+  box-shadow:0 10px 24px rgba(50,139,171,.16);
 }
 
 .producto img{
   width:100%;
   height:240px;
   object-fit:cover;
-  background:#f1e5d7;
+  background:#e8f8fd;
 }
 
 .producto-contenido{
@@ -321,7 +432,7 @@ button{
 }
 
 .producto h3{
-  color:#5e452f;
+  color:#285c70;
   font-size:15px;
   margin-bottom:8px;
   line-height:1.3;
@@ -329,22 +440,23 @@ button{
 
 .producto-descripcion{
   font-size:12px;
-  color:#9b836c;
+  color:#7195a2;
   margin-bottom:10px;
+  line-height:1.4;
 }
 
 .precio{
   font-size:18px;
   font-weight:bold;
-  color:#8b623b;
+  color:#1597c2;
   margin-bottom:12px;
 }
 
 .boton-agregar{
   width:100%;
-  border:1px solid #dec8ae;
-  background:#f6eadc;
-  color:#674b31;
+  border:1px solid #a9dfee;
+  background:#e4f8ff;
+  color:#147fa5;
   padding:11px;
   border-radius:11px;
   cursor:pointer;
@@ -352,25 +464,29 @@ button{
   margin-top:auto;
 }
 
+.boton-agregar:hover{
+  background:#cef2ff;
+}
+
 .sin-productos{
   text-align:center;
-  background:#fffaf3;
-  border:1px dashed #d8c2a8;
+  background:#ffffff;
+  border:1px dashed #a9dbe9;
   border-radius:18px;
   padding:35px 20px;
-  color:#927b64;
+  color:#7195a2;
   grid-column:1/-1;
 }
 
 /* =========================
-   PREVISUALIZACIÓN PRODUCTO
+   PREVISUALIZACION
 ========================= */
 
 #modalProductoPreview{
   position:fixed;
   inset:0;
   z-index:4500;
-  background:rgba(44,31,20,.52);
+  background:rgba(28,101,126,.52);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -387,8 +503,8 @@ button{
   min-width:250px;
   max-height:82vh;
   overflow-y:auto;
-  background:#fffaf3;
-  border:1px solid #e4d2bc;
+  background:#ffffff;
+  border:1px solid #bfe4f0;
   border-radius:18px;
   padding:14px;
   box-shadow:0 18px 45px rgba(0,0,0,.25);
@@ -418,8 +534,8 @@ button{
   height:30px;
   border:0;
   border-radius:50%;
-  background:#eadcc9;
-  color:#60462e;
+  background:#dff4fb;
+  color:#28728b;
   font-size:21px;
   line-height:30px;
   cursor:pointer;
@@ -430,7 +546,7 @@ button{
   height:190px;
   object-fit:contain;
   border-radius:12px;
-  background:#f1e5d7;
+  background:#eaf8fc;
   display:block;
 }
 
@@ -439,21 +555,21 @@ button{
 }
 
 .preview-producto-info h2{
-  color:#5e452f;
+  color:#285c70;
   font-size:18px;
   line-height:1.25;
   margin-bottom:7px;
 }
 
 .preview-producto-info .preview-precio{
-  color:#8b623b;
+  color:#1597c2;
   font-size:18px;
   font-weight:bold;
   margin-bottom:8px;
 }
 
 .preview-producto-info .preview-descripcion{
-  color:#927a61;
+  color:#6b94a2;
   font-size:12px;
   line-height:1.45;
   margin-bottom:12px;
@@ -461,14 +577,18 @@ button{
 
 .preview-boton-carrito{
   width:100%;
-  border:1px solid #dec8ae;
-  background:#f6eadc;
-  color:#674b31;
+  border:1px solid #a9dfee;
+  background:#e4f8ff;
+  color:#147fa5;
   padding:10px;
   border-radius:10px;
   cursor:pointer;
   font-weight:bold;
 }
+
+/* =========================
+   CARRITO
+========================= */
 
 .carrito-panel{
   position:fixed;
@@ -476,9 +596,9 @@ button{
   right:-420px;
   width:min(400px,92vw);
   height:100vh;
-  background:#fffaf3;
+  background:#ffffff;
   z-index:3000;
-  box-shadow:-10px 0 30px rgba(56,39,25,.18);
+  box-shadow:-10px 0 30px rgba(35,112,138,.18);
   transition:right .3s;
   padding:20px;
   display:flex;
@@ -493,7 +613,7 @@ button{
   display:flex;
   justify-content:space-between;
   padding-bottom:15px;
-  border-bottom:1px solid #ead9c5;
+  border-bottom:1px solid #cfe9f1;
 }
 
 .cerrar-carrito{
@@ -501,7 +621,7 @@ button{
   background:transparent;
   font-size:25px;
   cursor:pointer;
-  color:#745438;
+  color:#28728b;
 }
 
 #itemsCarrito{
@@ -515,7 +635,7 @@ button{
   gap:10px;
   align-items:center;
   padding:12px 0;
-  border-bottom:1px solid #eadfd2;
+  border-bottom:1px solid #dceef3;
 }
 
 .item-carrito img{
@@ -531,26 +651,26 @@ button{
 
 .item-info h4{
   font-size:13px;
-  color:#5d452f;
+  color:#285c70;
   margin-bottom:5px;
 }
 
 .item-info p{
   font-size:12px;
-  color:#927a60;
+  color:#7195a2;
 }
 
 .eliminar-item{
   border:0;
-  background:#f1dfce;
-  color:#79563a;
+  background:#e4f5fa;
+  color:#28728b;
   border-radius:8px;
   padding:6px 8px;
   cursor:pointer;
 }
 
 .carrito-total{
-  border-top:1px solid #e6d5c0;
+  border-top:1px solid #cfe9f1;
   padding-top:15px;
 }
 
@@ -558,40 +678,48 @@ button{
   display:flex;
   justify-content:space-between;
   font-size:18px;
-  color:#5d452f;
+  color:#285c70;
   margin-bottom:12px;
 }
 
 .boton-whatsapp{
   width:100%;
   border:0;
-  background:#eadcc9;
-  color:#57422e;
+  background:#dff5fc;
+  color:#26728a;
   padding:13px;
   border-radius:12px;
   cursor:pointer;
   font-weight:bold;
 }
 
+/* =========================
+   MUSICA
+========================= */
+
 #botonMusica{
   position:fixed;
   right:17px;
   bottom:17px;
   z-index:2500;
-  border:1px solid #ddc7ad;
-  background:#fff8ef;
-  color:#684b31;
+  border:1px solid #a9dfee;
+  background:#ffffff;
+  color:#28728b;
   border-radius:30px;
   padding:12px 17px;
   cursor:pointer;
-  box-shadow:0 7px 20px rgba(77,54,34,.15);
+  box-shadow:0 7px 20px rgba(47,140,172,.15);
   font-weight:bold;
 }
+
+/* =========================
+   MODAL ADMIN
+========================= */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(44,31,20,.58);
+  background:rgba(28,101,126,.58);
   z-index:5000;
   display:flex;
   align-items:center;
@@ -607,7 +735,7 @@ button{
   width:min(650px,100%);
   max-height:92vh;
   overflow:auto;
-  background:#fffaf3;
+  background:#ffffff;
   border-radius:22px;
   padding:22px;
   box-shadow:0 20px 50px rgba(0,0,0,.25);
@@ -621,7 +749,7 @@ button{
 }
 
 .modal-head h2{
-  color:#654a32;
+  color:#168cb8;
 }
 
 .cerrar-modal{
@@ -629,7 +757,7 @@ button{
   background:transparent;
   font-size:28px;
   cursor:pointer;
-  color:#745438;
+  color:#28728b;
 }
 
 .form-grid{
@@ -651,18 +779,24 @@ button{
 .campo label{
   font-size:13px;
   font-weight:bold;
-  color:#654a32;
+  color:#28728b;
 }
 
 .campo input,
 .campo select,
 .campo textarea{
-  border:1px solid #dfcdb7;
+  border:1px solid #bfe4ef;
   border-radius:10px;
   padding:11px;
-  background:#fffdf9;
-  color:#5b4632;
+  background:#ffffff;
+  color:#28586d;
   outline:none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+  border-color:#65c5e4;
 }
 
 .campo textarea{
@@ -688,25 +822,29 @@ button{
 }
 
 .btn-principal{
-  background:#8f6b48;
+  background:#35a9d0;
   color:white;
 }
 
+.btn-principal:hover{
+  background:#2096bf;
+}
+
 .btn-secundario{
-  background:#eadcc9;
-  color:#60462e;
+  background:#dff3fa;
+  color:#28728b;
 }
 
 .btn-peligro{
-  background:#efd3cc;
-  color:#7d3e32;
+  background:#f1d9d9;
+  color:#8a4a4a;
 }
 
 .mensaje{
   padding:10px;
   border-radius:10px;
-  background:#f2e5d5;
-  color:#684b31;
+  background:#e2f5fb;
+  color:#28728b;
   margin-bottom:12px;
   display:none;
   font-size:13px;
@@ -717,7 +855,7 @@ button{
   max-height:180px;
   object-fit:contain;
   border-radius:10px;
-  background:#f1e5d7;
+  background:#eaf8fc;
   display:none;
 }
 
@@ -725,11 +863,11 @@ button{
   display:flex;
   gap:10px;
   align-items:center;
-  border:1px solid #e5d4bf;
+  border:1px solid #c9e7ef;
   border-radius:12px;
   padding:9px;
   margin-top:8px;
-  background:#fffdf9;
+  background:#ffffff;
 }
 
 .lista-producto img{
@@ -745,16 +883,20 @@ button{
 
 .lista-info strong{
   display:block;
-  color:#5e452f;
+  color:#285c70;
 }
 
 .lista-info small{
-  color:#927a61;
+  color:#7195a2;
 }
 
 .lista-producto .acciones{
   margin:0;
 }
+
+/* =========================
+   MOVIL
+========================= */
 
 @media(max-width:900px){
 
@@ -789,6 +931,17 @@ button{
 
   .hero video{
     max-height:260px;
+  }
+
+  .titulo-principal{
+    font-size:25px;
+    margin-top:24px;
+  }
+
+  .subtitulo{
+    font-size:13px;
+    line-height:1.55;
+    padding:15px;
   }
 
   .categorias{
@@ -833,7 +986,19 @@ button{
     padding:10px 5px;
   }
 
-  /* FOTO DE PREVISUALIZACIÓN MEDIANA */
+  #botonInicioFlotante{
+    left:10px;
+    bottom:16px;
+    padding:10px 13px;
+    font-size:12px;
+  }
+
+  #botonMusica{
+    right:10px;
+    bottom:16px;
+    padding:10px 13px;
+    font-size:12px;
+  }
 
   .preview-producto-box{
     width:70%;
@@ -935,7 +1100,7 @@ button{
 <main id="paginaPrincipal" class="pagina-principal">
 
   <h1 class="titulo-principal">
-    Bienvenido a mi tienda 📸
+    Bienvenido a mi tienda 🩵✨
   </h1>
 
   <p class="subtitulo">
@@ -980,7 +1145,7 @@ button{
 
     <div class="info-card">
       <span class="emoji">💸</span>
-      <h3>pagos</h3>
+      <h3>Pagos</h3>
       <p>manejamos pagos por nequi bancolombia y daviplata.</p>
     </div>
 
@@ -1004,7 +1169,7 @@ button{
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
-      ← Volver
+      ← Volver al inicio
     </button>
 
   </div>
@@ -1023,7 +1188,7 @@ button{
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
-      ← Volver
+      ← Volver al inicio
     </button>
 
   </div>
@@ -1042,7 +1207,7 @@ button{
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
-      ← Volver
+      ← Volver al inicio
     </button>
 
   </div>
@@ -1061,7 +1226,7 @@ button{
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
-      ← Volver
+      ← Volver al inicio
     </button>
 
   </div>
@@ -1078,7 +1243,7 @@ button{
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
-      ← Volver
+      ← Volver al inicio
     </button>
 
   </div>
@@ -1086,6 +1251,17 @@ button{
   <div id="productosBusqueda" class="productos"></div>
 
 </section>
+
+<!-- BOTON FLOTANTE DE INICIO -->
+
+<button
+  id="botonInicioFlotante"
+  onclick="volverInicio()"
+  aria-label="Volver al inicio">
+
+  🏠 Inicio
+
+</button>
 
 <!-- PREVISUALIZACIÓN -->
 
@@ -1098,7 +1274,9 @@ button{
       <button
         class="cerrar-preview"
         onclick="cerrarPreviewProducto()">
+
         ×
+
       </button>
 
     </div>
@@ -1147,7 +1325,9 @@ button{
     <button
       class="cerrar-carrito"
       onclick="cerrarCarrito()">
+
       ×
+
     </button>
 
   </div>
@@ -1328,12 +1508,12 @@ button{
     <hr
       style="
         border:0;
-        border-top:1px solid #ead9c5;
+        border-top:1px solid #cfe9f1;
         margin:20px 0;
       ">
 
     <h3
-      style="color:#654a32;margin-bottom:8px;">
+      style="color:#168cb8;margin-bottom:8px;">
 
       Productos guardados
 
@@ -1841,7 +2021,7 @@ function crearTarjetaProducto(producto){
           display:flex;
           align-items:center;
           justify-content:center;
-          background:#f1e5d7;
+          background:#e8f8fd;
           font-size:60px;
         ">
         🛍️
@@ -1983,6 +2163,22 @@ function renderizarTodos(){
 
 }
 
+function mostrarBotonInicio(){
+
+  $("botonInicioFlotante")
+    .classList
+    .add("visible");
+
+}
+
+function ocultarBotonInicio(){
+
+  $("botonInicioFlotante")
+    .classList
+    .remove("visible");
+
+}
+
 window.entrarCategoria =
 function(categoria){
 
@@ -2017,6 +2213,8 @@ function(categoria){
   $(id).style.display =
     "block";
 
+  mostrarBotonInicio();
+
   window.scrollTo({
     top:0,
     behavior:"smooth"
@@ -2049,6 +2247,8 @@ function(){
   $("paginaPrincipal")
     .style.display =
     "block";
+
+  ocultarBotonInicio();
 
   window.scrollTo({
     top:0,
@@ -2102,6 +2302,8 @@ function(){
   $("resultadosBusqueda")
     .style.display =
     "block";
+
+  mostrarBotonInicio();
 
   const salida =
     $("productosBusqueda");
@@ -2217,7 +2419,7 @@ function actualizarCarrito(){
         style="
           text-align:center;
           padding:40px;
-          color:#947d66;
+          color:#7195a2;
         ">
 
         🛒
@@ -2271,7 +2473,7 @@ function actualizarCarrito(){
             style="
               width:65px;
               height:65px;
-              background:#eee2d3;
+              background:#e8f5f9;
               border-radius:10px;
               display:flex;
               align-items:center;
@@ -2904,7 +3106,7 @@ async function listarProductos(){
 
         <p
           style="
-            color:#927a61;
+            color:#7195a2;
             margin-top:10px;
           ">
 
@@ -2954,7 +3156,7 @@ async function listarProductos(){
                 width:55px;
                 height:55px;
                 border-radius:8px;
-                background:#f1e5d7;
+                background:#e8f5f9;
                 display:flex;
                 align-items:center;
                 justify-content:center;
