@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ANDREX 🩵Store</title>
+<title>ANDREX 🩵 Store</title>
 
 <style>
 *{
@@ -48,9 +47,7 @@ header{
   font-weight:900;
   letter-spacing:2px;
   color:#8c653d;
-  text-shadow:
-    0 0 5px #d9b27c,
-    0 0 12px rgba(217,178,124,.65);
+  text-shadow:0 0 5px #d9b27c,0 0 12px rgba(217,178,124,.65);
   white-space:nowrap;
 }
 
@@ -339,8 +336,6 @@ button{
   grid-column:1/-1;
 }
 
-/* CARRITO */
-
 .carrito-panel{
   position:fixed;
   top:0;
@@ -458,8 +453,6 @@ button{
   box-shadow:0 7px 20px rgba(77,54,34,.15);
   font-weight:bold;
 }
-
-/* MODALES */
 
 .modal{
   position:fixed;
@@ -635,21 +628,17 @@ button{
   display:none;
 }
 
-.link-reset{
-  display:block;
-  width:100%;
-  text-align:center;
-  margin-top:13px;
+.enlace-recuperar{
+  border:0;
+  background:transparent;
   color:#8f6b48;
-  font-size:13px;
   text-decoration:underline;
   cursor:pointer;
+  font-size:13px;
+  margin-top:10px;
 }
 
-/* CELULAR */
-
 @media(max-width:900px){
-
   .categorias{
     grid-template-columns:repeat(2,1fr);
   }
@@ -660,7 +649,6 @@ button{
 }
 
 @media(max-width:650px){
-
   .logo{
     font-size:20px;
   }
@@ -748,21 +736,15 @@ ANDREX
 
 <div class="botones-header">
 
-<button
-class="admin-btn"
-id="btnAdmin">
+<button class="admin-btn" id="btnAdmin">
 🔐 Administración
 </button>
 
-<button
-class="boton-carrito"
-onclick="abrirCarrito()">
-🛒
-<span id="cantidadCarrito">0</span>
+<button class="boton-carrito" onclick="abrirCarrito()">
+🛒 <span id="cantidadCarrito">0</span>
 </button>
 
 </div>
-
 </div>
 
 <div class="contenedor-buscador">
@@ -771,7 +753,8 @@ onclick="abrirCarrito()">
 id="buscador"
 type="text"
 placeholder="Buscar productos..."
-oninput="buscarProductos()">
+oninput="buscarProductos()"
+>
 
 <button
 class="boton-limpiar"
@@ -814,6 +797,7 @@ Bienvenido a mi tienda 📸
 Elige una categoría para ver nuestros productos
 </p>
 
+
 <section class="categorias">
 
 <div
@@ -821,9 +805,7 @@ class="categoria"
 onclick="entrarCategoria('ropa')">
 
 <span class="emoji">👕</span>
-
 <h2>ROPA</h2>
-
 <p>Ver toda la ropa</p>
 
 </div>
@@ -834,9 +816,7 @@ class="categoria"
 onclick="entrarCategoria('zapatos')">
 
 <span class="emoji">👟</span>
-
 <h2>ZAPATOS</h2>
-
 <p>Ver todos los zapatos</p>
 
 </div>
@@ -847,9 +827,7 @@ class="categoria"
 onclick="entrarCategoria('lociones')">
 
 <span class="emoji">🧴</span>
-
 <h2>LOCIONES</h2>
-
 <p>Ver todas las lociones</p>
 
 </div>
@@ -860,9 +838,7 @@ class="categoria"
 onclick="entrarCategoria('streaming')">
 
 <span class="emoji">📺</span>
-
 <h2>STREAMING</h2>
-
 <p>Ver todos los servicios</p>
 
 </div>
@@ -873,46 +849,29 @@ onclick="entrarCategoria('streaming')">
 <section class="informacion">
 
 <div class="info-card">
-
 <span class="emoji">🚚</span>
-
 <h3>Envíos</h3>
-
 <p>
 Realizamos envíos a nivel nacional 🇨🇴
-tu como cliente te encargas de pagar
-el envio a tu ciudad ✨.
+tu como cliente te encargas de pagar el envio a tu ciudad ✨.
 </p>
-
 </div>
 
-
 <div class="info-card">
-
 <span class="emoji">💳</span>
-
 <h3>Compra fácil</h3>
-
 <p>
-Manejamos pagos por Nequi,
-Bancolombia, DaviPlata,
-pagos de contado y contra entrega.
+manejamos pagos por nequi bancolombia daviplata
+pagos de contado y contra entrega solo las lociones originales.
 </p>
-
 </div>
 
-
 <div class="info-card">
-
 <span class="emoji">📲</span>
-
 <h3>Pedidos</h3>
-
 <p>
-Realiza tu pedido directamente
-por WhatsApp.
+Realiza tu pedido directamente por WhatsApp.
 </p>
-
 </div>
 
 </section>
@@ -1069,21 +1028,14 @@ onclick="cerrarCarrito()">
 <div class="carrito-total">
 
 <strong>
-
 <span>Total</span>
-
-<span id="totalCarrito">
-$0
-</span>
-
+<span id="totalCarrito">$0</span>
 </strong>
 
 <button
 class="boton-whatsapp"
 onclick="enviarPedidoWhatsApp()">
-
 📲 Pedir por WhatsApp
-
 </button>
 
 </div>
@@ -1094,11 +1046,8 @@ onclick="enviarPedidoWhatsApp()">
 <button
 id="botonMusica"
 onclick="alternarMusica()">
-
 ▶ Música
-
 </button>
-
 
 <audio
 id="musicaTienda"
@@ -1113,7 +1062,7 @@ type="audio/mpeg">
 
 
 <!-- =========================
-     LOGIN ADMIN
+     ADMINISTRACIÓN - LOGIN
 ========================= -->
 
 <div
@@ -1146,14 +1095,15 @@ class="mensaje">
 <div class="campo">
 
 <label>
-Correo de administrador
+Correo
 </label>
 
 <input
 id="loginEmail"
 type="email"
 autocomplete="username"
-placeholder="Tu correo de Firebase">
+placeholder="Correo de Firebase"
+>
 
 </div>
 
@@ -1170,7 +1120,8 @@ Contraseña
 id="loginPassword"
 type="password"
 autocomplete="current-password"
-placeholder="Tu contraseña">
+placeholder="Contraseña"
+>
 
 </div>
 
@@ -1179,40 +1130,34 @@ placeholder="Tu contraseña">
 
 <button
 class="btn-principal"
-id="btnLogin"
-type="button">
-
-Ingresar
-
+id="btnLogin">
+Entrar
 </button>
 
 </div>
 
 
 <button
-id="btnRestablecer"
-class="link-reset"
-type="button">
-
+class="enlace-recuperar"
+id="btnRecuperar">
 ¿Olvidaste tu contraseña?
-
 </button>
 
 
 <p
-style="font-size:11px;color:#927a61;margin-top:12px;text-align:center">
+style="font-size:11px;color:#927a61;margin-top:12px">
 
-La contraseña no se guarda en esta página.
+La contraseña solamente se utiliza para iniciar sesión
+en Firebase y no se guarda en esta página.
 
 </p>
 
 </div>
-
 </div>
 
 
 <!-- =========================
-     PANEL ADMIN
+     PANEL ADMINISTRADOR
 ========================= -->
 
 <div
@@ -1237,6 +1182,16 @@ onclick="cerrarModal('modalAdmin')">
 
 
 <div
+id="adminUsuario"
+style="
+font-size:13px;
+color:#927a61;
+margin-bottom:12px;
+">
+</div>
+
+
+<div
 id="adminMensaje"
 class="mensaje">
 </div>
@@ -1246,11 +1201,13 @@ class="mensaje">
 
 <input
 type="hidden"
-id="productoId">
+id="productoId"
+>
 
 <input
 type="hidden"
-id="productoStoragePath">
+id="productoStoragePath"
+>
 
 
 <div class="form-grid">
@@ -1265,7 +1222,8 @@ Nombre del producto
 <input
 id="nombreProducto"
 required
-placeholder="Ej: Camiseta Nike">
+placeholder="Ej: Camiseta Nike"
+>
 
 </div>
 
@@ -1312,7 +1270,8 @@ id="precioProducto"
 type="number"
 min="0"
 required
-placeholder="50000">
+placeholder="50000"
+>
 
 </div>
 
@@ -1340,13 +1299,16 @@ Foto del producto
 <input
 id="imagenProducto"
 type="file"
-accept="image/*">
+accept="image/*"
+>
 
 <img
 id="previewProducto"
-class="preview">
+class="preview"
+>
 
 </div>
+
 
 </div>
 
@@ -1385,8 +1347,7 @@ Cancelar
 </h3>
 
 
-<div
-id="listaAdminProductos">
+<div id="listaAdminProductos">
 </div>
 
 
@@ -1394,8 +1355,7 @@ id="listaAdminProductos">
 
 <button
 class="btn-secundario"
-id="btnCerrarSesion"
-type="button">
+id="btnCerrarSesion">
 
 🚪 Cerrar sesión
 
@@ -1404,7 +1364,6 @@ type="button">
 </div>
 
 </div>
-
 </div>
 
 
@@ -1457,61 +1416,64 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
-const firebaseConfig={
+const firebaseConfig = {
 
-apiKey:
-"AIzaSyBGb7jgkOKWeNJed6QPDMW4-933gG59I",
+  apiKey:
+  "AIzaSyBGb7jgkOKWeNJed6QPDMW-4-933gG59I",
 
-authDomain:
-"andrex-store.firebaseapp.com",
+  authDomain:
+  "andrex-store.firebaseapp.com",
 
-projectId:
-"andrex-store",
+  projectId:
+  "andrex-store",
 
-storageBucket:
-"andrex-store.firebasestorage.app",
+  storageBucket:
+  "andrex-store.firebasestorage.app",
 
-messagingSenderId:
-"607192665861",
+  messagingSenderId:
+  "607192665861",
 
-appId:
-"1:607192665861:web:a4fb90f3a2009d6491716c"
+  appId:
+  "1:607192665861:web:a4fb90f3a2009d6491716c"
 
 };
 
 
-const app=
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db=
-getFirestore(app);
+const db = getFirestore(app);
 
-const auth=
-getAuth(app);
+const auth = getAuth(app);
 
-const storage=
-getStorage(app);
+const storage = getStorage(app);
 
 
-let productos=[];
+/* =========================
+   VARIABLES
+========================= */
 
-let carrito=
+let productos = [];
+
+let carrito =
 JSON.parse(
 localStorage.getItem("andrexCarrito")
-)||[];
+) || [];
 
-let usuarioAdmin=null;
-
-
-const $=
-id=>document.getElementById(id);
+let usuarioAdmin = null;
 
 
-const esc=
-s=>String(s??"")
+const $ =
+id =>
+document.getElementById(id);
+
+
+const esc =
+s =>
+String(s ?? "")
 .replace(
 /[&<>"']/g,
-m=>({
+m =>
+({
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
@@ -1521,9 +1483,9 @@ m=>({
 );
 
 
-const catNorm=
-c=>
-(c||"")
+const catNorm =
+c =>
+(c || "")
 .toString()
 .trim()
 .toLowerCase()
@@ -1531,25 +1493,28 @@ c=>
 .replace(/[\u0300-\u036f]/g,"");
 
 
+/* =========================
+   MENSAJES
+========================= */
+
 function aviso(
 id,
 texto,
 tiempo=3500
 ){
 
-const e=$(id);
+const e = $(id);
 
-if(!e)return;
+e.textContent = texto;
 
-e.textContent=texto;
-
-e.style.display="block";
+e.style.display = "block";
 
 clearTimeout(e._t);
 
-e._t=
+e._t =
 setTimeout(
-()=>e.style.display="none",
+() =>
+e.style.display = "none",
 tiempo
 );
 
@@ -1562,20 +1527,21 @@ tiempo
 
 async function cargarFirebase(){
 
-productos=
+productos =
 productos.filter(
-p=>String(p.id).startsWith("github-")
+p =>
+String(p.id).startsWith("github-")
 );
 
 try{
 
-const snap=
+const snap =
 await getDocs(
 collection(db,"productos")
 );
 
 snap.forEach(
-d=>
+d =>
 productos.push({
 id:d.id,
 ...d.data()
@@ -1585,7 +1551,7 @@ id:d.id,
 }catch(e){
 
 console.error(
-"Error Firebase:",
+"Error cargando Firebase:",
 e
 );
 
@@ -1597,14 +1563,14 @@ renderizarTodos();
 
 
 /* =========================
-   ROPA GITHUB
+   FOTOS DE ROPA DE GITHUB
 ========================= */
 
 async function cargarRopaGitHub(){
 
 try{
 
-const r=
+const r =
 await fetch(
 "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main"
 );
@@ -1614,14 +1580,13 @@ throw new Error(
 "GitHub no disponible"
 );
 
-const archivos=
+const archivos =
 await r.json();
 
 
-archivos.forEach(
-a=>{
+archivos.forEach(a => {
 
-const n=
+const n =
 a.name.toLowerCase();
 
 
@@ -1635,9 +1600,8 @@ return;
 
 if(
 productos.some(
-p=>
-(p.imagen||"")===
-a.download_url
+p =>
+(p.imagen || "") === a.download_url
 )
 )
 return;
@@ -1645,8 +1609,7 @@ return;
 
 productos.push({
 
-id:
-"github-"+a.name,
+id:"github-" + a.name,
 
 nombre:
 a.name
@@ -1657,8 +1620,7 @@ precio:0,
 
 categoria:"ropa",
 
-imagen:
-a.download_url,
+imagen:a.download_url,
 
 descripcion:""
 
@@ -1671,10 +1633,7 @@ renderizarTodos();
 
 }catch(e){
 
-console.error(
-"Error cargando ropa:",
-e
-);
+console.error(e);
 
 }
 
@@ -1682,71 +1641,73 @@ e
 
 
 /* =========================
-   TARJETA
+   TARJETA PRODUCTO
 ========================= */
 
 function crearTarjetaProducto(p){
 
-const imagen=
-p.imagen||
-p.image||
-p.foto||
+const imagen =
+p.imagen ||
+p.image ||
+p.foto ||
 "";
 
-const nombre=
-p.nombre||
-p.name||
+
+const nombre =
+p.nombre ||
+p.name ||
 "Producto";
 
-const precio=
+
+const precio =
 Number(
-p.precio||
-p.price||
+p.precio ||
+p.price ||
 0
 );
 
-const desc=
-p.descripcion||
-p.description||
+
+const desc =
+p.descripcion ||
+p.description ||
 "";
 
 
-const card=
+const card =
 document.createElement("article");
 
-card.className=
+card.className =
 "producto";
 
 
-card.innerHTML=
+card.innerHTML = `
 
-`${
-
+${
 imagen
-
 ?
-
-`<img
+`
+<img
 src="${esc(imagen)}"
 alt="${esc(nombre)}"
-loading="lazy">`
-
+loading="lazy"
+>
+`
 :
-
-`<div
+`
+<div
 style="
 height:240px;
 display:flex;
 align-items:center;
 justify-content:center;
 background:#f1e5d7;
-font-size:50px">
-
+font-size:50px;
+">
 🛍️
-
-</div>`
-
+</div>
+`
 }
+
 
 <div class="producto-contenido">
 
@@ -1757,37 +1718,43 @@ ${esc(nombre)}
 ${
 desc
 ?
-`<div class="producto-descripcion">
+`
+<div class="producto-descripcion">
 ${esc(desc)}
-</div>`
-:""
+</div>
+`
+:
+""
 }
 
 <div class="precio">
 
 ${
-precio>0
+precio > 0
 ?
-"$"+precio.toLocaleString("es-CO")
+"$" +
+precio.toLocaleString("es-CO")
 :
 "Consultar precio"
 }
 
 </div>
 
+
 <button class="boton-agregar">
 🛒 Agregar al carrito
 </button>
 
-</div>`;
+</div>
+
+`;
 
 
 card
-.querySelector(
-".boton-agregar"
-)
-.onclick=
-()=>agregarAlCarrito(p);
+.querySelector(".boton-agregar")
+.onclick =
+() =>
+agregarAlCarrito(p);
 
 
 return card;
@@ -1796,7 +1763,7 @@ return card;
 
 
 /* =========================
-   CATEGORIAS
+   MOSTRAR CATEGORÍA
 ========================= */
 
 function mostrarCategoria(
@@ -1804,52 +1771,38 @@ c,
 el
 ){
 
-el.innerHTML="";
+el.innerHTML = "";
 
 
-const arr=
+const arr =
 productos.filter(
-p=>{
+p => {
 
-const x=
+const x =
 catNorm(p.categoria);
 
-return
+if(c === "ropa")
+return x === "ropa";
 
-c==="ropa"
-?
-x==="ropa"
+if(c === "zapatos")
+return x === "zapatos" ||
+x === "zapato";
 
-:
+if(c === "lociones")
+return x === "lociones" ||
+x === "locion";
 
-c==="zapatos"
-?
-(
-x==="zapatos"||
-x==="zapato"
-)
+return x === "streaming";
 
-:
-
-c==="lociones"
-?
-(
-x==="lociones"||
-x==="locion"
-)
-
-:
-
-x==="streaming";
-
-});
+}
+);
 
 
 if(!arr.length){
 
-el.innerHTML=
+el.innerHTML = `
 
-`<div class="sin-productos">
+<div class="sin-productos">
 
 <div style="font-size:45px">
 🛍️
@@ -1860,7 +1813,9 @@ Aún no hay productos disponibles
 en esta categoría.
 </p>
 
-</div>`;
+</div>
+
+`;
 
 return;
 
@@ -1868,7 +1823,7 @@ return;
 
 
 arr.forEach(
-p=>
+p =>
 el.appendChild(
 crearTarjetaProducto(p)
 )
@@ -1878,7 +1833,7 @@ crearTarjetaProducto(p)
 
 
 /* =========================
-   RENDERIZAR
+   RENDER
 ========================= */
 
 function renderizarTodos(){
@@ -1909,17 +1864,17 @@ actualizarCarrito();
 
 
 /* =========================
-   ENTRAR CATEGORIA
+   CATEGORÍAS
 ========================= */
 
-window.entrarCategoria=
-c=>{
+window.entrarCategoria =
+c => {
 
 $("paginaPrincipal")
-.style.display="none";
+.style.display = "none";
 
 $("resultadosBusqueda")
-.style.display="none";
+.style.display = "none";
 
 
 [
@@ -1929,16 +1884,16 @@ $("resultadosBusqueda")
 "Streaming"
 ]
 .forEach(
-x=>
+x =>
 $("vista"+x)
-.style.display="none"
+.style.display = "none"
 );
 
 
-$("vista"+
-c.charAt(0).toUpperCase()+
+$("vista" +
+c.charAt(0).toUpperCase() +
 c.slice(1))
-.style.display="block";
+.style.display = "block";
 
 
 scrollTo(0,0);
@@ -1946,12 +1901,8 @@ scrollTo(0,0);
 };
 
 
-/* =========================
-   VOLVER
-========================= */
-
-window.volverInicio=
-()=>{
+window.volverInicio =
+() => {
 
 [
 "Ropa",
@@ -1960,16 +1911,19 @@ window.volverInicio=
 "Streaming"
 ]
 .forEach(
-x=>
+x =>
 $("vista"+x)
-.style.display="none"
+.style.display = "none"
 );
 
+
 $("resultadosBusqueda")
-.style.display="none";
+.style.display = "none";
+
 
 $("paginaPrincipal")
-.style.display="block";
+.style.display = "block";
+
 
 scrollTo(0,0);
 
@@ -1980,10 +1934,10 @@ scrollTo(0,0);
    BUSCADOR
 ========================= */
 
-window.buscarProductos=
-()=>{
+window.buscarProductos =
+() => {
 
-const t=
+const t =
 $("buscador")
 .value
 .trim()
@@ -1991,12 +1945,8 @@ $("buscador")
 
 
 $("botonLimpiar")
-.style.display=
-t
-?
-"block"
-:
-"none";
+.style.display =
+t ? "block" : "none";
 
 
 if(!t){
@@ -2009,7 +1959,7 @@ return;
 
 
 $("paginaPrincipal")
-.style.display="none";
+.style.display = "none";
 
 
 [
@@ -2019,25 +1969,25 @@ $("paginaPrincipal")
 "Streaming"
 ]
 .forEach(
-x=>
+x =>
 $("vista"+x)
-.style.display="none"
+.style.display = "none"
 );
 
 
 $("resultadosBusqueda")
-.style.display="block";
+.style.display = "block";
 
 
-const out=
+const out =
 $("productosBusqueda");
 
-out.innerHTML="";
+out.innerHTML = "";
 
 
-const arr=
+const arr =
 productos.filter(
-p=>
+p =>
 [
 p.nombre,
 p.name,
@@ -2053,8 +2003,16 @@ p.description
 
 if(!arr.length){
 
-out.innerHTML=
-'<div class="sin-productos">No encontramos productos con esa búsqueda.</div>';
+out.innerHTML = `
+
+<div class="sin-productos">
+
+No encontramos productos
+con esa búsqueda.
+
+</div>
+
+`;
 
 return;
 
@@ -2062,7 +2020,7 @@ return;
 
 
 arr.forEach(
-p=>
+p =>
 out.appendChild(
 crearTarjetaProducto(p)
 )
@@ -2071,13 +2029,13 @@ crearTarjetaProducto(p)
 };
 
 
-window.limpiarBusqueda=
-()=>{
+window.limpiarBusqueda =
+() => {
 
-$("buscador").value="";
+$("buscador").value = "";
 
 $("botonLimpiar")
-.style.display="none";
+.style.display = "none";
 
 volverInicio();
 
@@ -2098,8 +2056,8 @@ JSON.stringify(carrito)
 }
 
 
-window.agregarAlCarrito=
-p=>{
+window.agregarAlCarrito =
+p => {
 
 carrito.push(p);
 
@@ -2115,28 +2073,29 @@ abrirCarrito();
 function actualizarCarrito(){
 
 $("cantidadCarrito")
-.textContent=
+.textContent =
 carrito.length;
 
 
-const out=
+const out =
 $("itemsCarrito");
 
-out.innerHTML="";
+out.innerHTML = "";
 
 
-let total=0;
+let total = 0;
 
 
 if(!carrito.length){
 
-out.innerHTML=
-`<div
-class="carrito-vacio"
+out.innerHTML = `
+
+<div
 style="
 text-align:center;
 padding:40px;
-color:#947d66">
+color:#947d66;
+">
 
 🛒
 
@@ -2144,10 +2103,12 @@ color:#947d66">
 
 Tu carrito está vacío.
 
-</div>`;
+</div>
+
+`;
 
 $("totalCarrito")
-.textContent="$0";
+.textContent = "$0";
 
 return;
 
@@ -2155,41 +2116,41 @@ return;
 
 
 carrito.forEach(
-(p,i)=>{
+(p,i) => {
 
-const precio=
+const precio =
 Number(
-p.precio||
-p.price||
+p.precio ||
+p.price ||
 0
 );
 
 
-total+=precio;
+total += precio;
 
 
-const div=
+const div =
 document.createElement("div");
 
-div.className=
+
+div.className =
 "item-carrito";
 
 
-div.innerHTML=
+div.innerHTML = `
 
-`${
-
+${
 p.imagen
-
 ?
-
-`<img
+`
+<img
 src="${esc(p.imagen)}"
-alt="">`
-
+alt=""
+>
+`
 :
-
-`<div
+`
+<div
 style="
 width:65px;
 height:65px;
@@ -2197,22 +2158,21 @@ background:#eee2d3;
 border-radius:10px;
 display:flex;
 align-items:center;
-justify-content:center">
-
+justify-content:center;
+">
 🛍️
-
-</div>`
-
+</div>
+`
 }
+
 
 <div class="item-info">
 
 <h4>
-${esc(p.nombre||p.name||"Producto")}
+${esc(p.nombre || p.name || "Producto")}
 </h4>
 
 <p>
-
 ${
 precio
 ?
@@ -2220,35 +2180,36 @@ precio
 :
 "Consultar precio"
 }
-
 </p>
 
 </div>
 
+
 <button
 class="eliminar-item"
 onclick="eliminarDelCarrito(${i})">
-
 ✕
+</button>
 
-</button>`;
+`;
 
 
 out.appendChild(div);
 
-});
+}
+);
 
 
 $("totalCarrito")
-.textContent=
-"$"+
+.textContent =
+"$" +
 total.toLocaleString("es-CO");
 
 }
 
 
-window.eliminarDelCarrito=
-i=>{
+window.eliminarDelCarrito =
+i => {
 
 carrito.splice(i,1);
 
@@ -2259,20 +2220,20 @@ actualizarCarrito();
 };
 
 
-window.abrirCarrito=
-()=>
+window.abrirCarrito =
+() =>
 $("carritoPanel")
 .classList.add("abierto");
 
 
-window.cerrarCarrito=
-()=>
+window.cerrarCarrito =
+() =>
 $("carritoPanel")
 .classList.remove("abierto");
 
 
-window.enviarPedidoWhatsApp=
-()=>{
+window.enviarPedidoWhatsApp =
+() => {
 
 if(!carrito.length){
 
@@ -2285,44 +2246,50 @@ return;
 }
 
 
-let m=
+let m =
 "Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
 
-let total=0;
+
+let total = 0;
 
 
 carrito.forEach(
-(p,i)=>{
+(p,i) => {
 
-const n=
-p.nombre||
-p.name||
+const n =
+p.nombre ||
+p.name ||
 "Producto";
 
-const pr=
+
+const pr =
 Number(
-p.precio||
-p.price||
+p.precio ||
+p.price ||
 0
 );
 
 
-total+=pr;
+total += pr;
 
 
-m+=
-`${i+1}. ${n}${
+m +=
+`${i+1}. ${n}` +
+(
 pr
 ?
-" - $"+pr.toLocaleString("es-CO")
+" - $" +
+pr.toLocaleString("es-CO")
 :
 ""
-}%0A`;
+) +
+"%0A";
 
-});
+}
+);
 
 
-m+=
+m +=
 `%0ATotal: $${total.toLocaleString("es-CO")}`;
 
 
@@ -2335,28 +2302,28 @@ window.open(
 
 
 /* =========================
-   MUSICA
+   MÚSICA
 ========================= */
 
-const musica=
+const musica =
 $("musicaTienda");
 
 
-window.alternarMusica=
-()=>{
+window.alternarMusica =
+() => {
 
 if(musica.paused){
 
 musica
 .play()
 .then(
-()=>
+() =>
 $("botonMusica")
-.textContent=
+.textContent =
 "🔊 Música"
 )
 .catch(
-()=>
+() =>
 alert(
 "No se pudo reproducir la música."
 )
@@ -2367,7 +2334,7 @@ alert(
 musica.pause();
 
 $("botonMusica")
-.textContent=
+.textContent =
 "▶ Música";
 
 }
@@ -2388,33 +2355,35 @@ $(id)
 }
 
 
-window.cerrarModal=
-id=>
+window.cerrarModal =
+id =>
 $(id)
 .classList
 .add("oculto");
 
 
 /* =========================
-   LOGIN
+   ADMINISTRACIÓN
+   SIN CORREO FIJO
 ========================= */
 
-$("btnAdmin").onclick=
-()=>{
+$("btnAdmin").onclick =
+() => {
 
 if(usuarioAdmin){
 
-abrirModal(
-"modalAdmin"
-);
+abrirModal("modalAdmin");
+
+$("adminUsuario")
+.textContent =
+"Sesión: " +
+(usuarioAdmin.email || "");
 
 listarAdmin();
 
 }else{
 
-abrirModal(
-"modalLogin"
-);
+abrirModal("modalLogin");
 
 }
 
@@ -2422,18 +2391,18 @@ abrirModal(
 
 
 /* =========================
-   INGRESAR
+   LOGIN
 ========================= */
 
-$("btnLogin").onclick=
-async()=>{
+$("btnLogin").onclick =
+async () => {
 
-const email=
+const email =
 $("loginEmail")
 .value
 .trim();
 
-const pass=
+const pass =
 $("loginPassword")
 .value;
 
@@ -2462,19 +2431,18 @@ return;
 }
 
 
-const btn=
+const btn =
 $("btnLogin");
 
+btn.disabled = true;
 
-btn.disabled=true;
-
-btn.textContent=
-"Ingresando...";
+btn.textContent =
+"Entrando...";
 
 
 try{
 
-const cred=
+const cred =
 await signInWithEmailAndPassword(
 auth,
 email,
@@ -2482,18 +2450,12 @@ pass
 );
 
 
-/*
-   LOGIN CORRECTO
-   AQUÍ SE ABRE AUTOMÁTICAMENTE
-   EL PANEL DE ADMINISTRACIÓN
-*/
-
-usuarioAdmin=
+usuarioAdmin =
 cred.user;
 
 
 $("loginPassword")
-.value="";
+.value = "";
 
 
 cerrarModal(
@@ -2506,23 +2468,22 @@ abrirModal(
 );
 
 
-$("adminMensaje")
-.style.display="block";
-
-$("adminMensaje")
-.textContent=
-"✅ Inicio de sesión correcto.";
+$("adminUsuario")
+.textContent =
+"Sesión: " +
+(usuarioAdmin.email || "");
 
 
 $("adminMensaje")
-.style.display="none";
+.style.display =
+"none";
 
 
 listarAdmin();
 
 
 $("btnAdmin")
-.textContent=
+.textContent =
 "🛠️ Panel Admin";
 
 
@@ -2534,96 +2495,87 @@ behavior:"smooth"
 
 }catch(e){
 
-console.error(
-"Error de inicio de sesión:",
-e
-);
+console.error(e);
 
 
-let mensaje=
+let mensaje =
 "❌ No se pudo iniciar sesión.";
 
 
-switch(e.code){
+if(e.code === "auth/invalid-credential"){
 
-case "auth/invalid-credential":
-
-mensaje=
+mensaje =
 "❌ El correo o la contraseña son incorrectos.";
-
-break;
-
-
-case "auth/wrong-password":
-
-mensaje=
-"❌ La contraseña es incorrecta.";
-
-break;
-
-
-case "auth/user-not-found":
-
-mensaje=
-"❌ No existe una cuenta con ese correo.";
-
-break;
-
-
-case "auth/invalid-email":
-
-mensaje=
-"❌ El correo no tiene un formato válido.";
-
-break;
-
-
-case "auth/too-many-requests":
-
-mensaje=
-"⚠️ Demasiados intentos. Espera un momento y vuelve a intentar.";
-
-break;
-
-
-case "auth/network-request-failed":
-
-mensaje=
-"❌ No hay conexión con Firebase. Revisa tu internet.";
-
-break;
-
-
-case "auth/operation-not-allowed":
-
-mensaje=
-"❌ El acceso con correo y contraseña no está activado en Firebase.";
-
-break;
-
-
-default:
-
-mensaje=
-"❌ Error de Firebase: "+
-(e.code||e.message);
 
 }
 
+else if(
+e.code === "auth/user-not-found"
+){
+
+mensaje =
+"❌ Ese correo no existe en Firebase.";
+
+}
+
+else if(
+e.code === "auth/wrong-password"
+){
+
+mensaje =
+"❌ La contraseña es incorrecta.";
+
+}
+
+else if(
+e.code === "auth/invalid-email"
+){
+
+mensaje =
+"❌ El correo no es válido.";
+
+}
+
+else if(
+e.code === "auth/too-many-requests"
+){
+
+mensaje =
+"❌ Demasiados intentos. Espera un momento.";
+
+}
+
+else if(
+e.code === "auth/network-request-failed"
+){
+
+mensaje =
+"❌ No hay conexión a Internet.";
+
+}
+
+else if(
+e.code === "auth/operation-not-allowed"
+){
+
+mensaje =
+"❌ El acceso por correo y contraseña no está activado en Firebase.";
+
+}
 
 aviso(
 "loginMensaje",
 mensaje,
-7000
+6000
 );
 
 
 }finally{
 
-btn.disabled=false;
+btn.disabled = false;
 
-btn.textContent=
-"Ingresar";
+btn.textContent =
+"Entrar";
 
 }
 
@@ -2631,14 +2583,13 @@ btn.textContent=
 
 
 /* =========================
-   RESTABLECER CONTRASEÑA
+   RECUPERAR CONTRASEÑA
 ========================= */
 
-$("btnRestablecer")
-.onclick=
-async()=>{
+$("btnRecuperar").onclick =
+async () => {
 
-const email=
+const email =
 $("loginEmail")
 .value
 .trim();
@@ -2648,11 +2599,8 @@ if(!email){
 
 aviso(
 "loginMensaje",
-"Primero escribe tu correo de administrador para enviarte el enlace de recuperación.",
-7000
+"Primero escribe tu correo de Firebase."
 );
-
-$("loginEmail").focus();
 
 return;
 
@@ -2669,54 +2617,36 @@ email
 
 aviso(
 "loginMensaje",
-"✅ Te enviamos un enlace para restablecer tu contraseña. Revisa tu correo.",
-7000
+"✅ Te enviamos un correo para restablecer la contraseña.",
+6000
 );
 
 
 }catch(e){
 
-console.error(
-"Error restableciendo contraseña:",
-e
-);
+console.error(e);
 
 
-let mensaje=
-"❌ No se pudo enviar el correo de recuperación.";
+let mensaje =
+"❌ No se pudo enviar el correo.";
 
 
-switch(e.code){
+if(
+e.code === "auth/user-not-found"
+){
 
-case "auth/user-not-found":
+mensaje =
+"❌ Ese correo no está registrado.";
 
-mensaje=
-"❌ No existe una cuenta de Firebase con ese correo.";
-
-break;
+}
 
 
-case "auth/invalid-email":
+if(
+e.code === "auth/invalid-email"
+){
 
-mensaje=
+mensaje =
 "❌ El correo no es válido.";
-
-break;
-
-
-case "auth/too-many-requests":
-
-mensaje=
-"⚠️ Demasiados intentos. Espera un momento.";
-
-break;
-
-
-default:
-
-mensaje=
-"❌ Error de Firebase: "+
-(e.code||e.message);
 
 }
 
@@ -2724,7 +2654,7 @@ mensaje=
 aviso(
 "loginMensaje",
 mensaje,
-7000
+6000
 );
 
 }
@@ -2733,27 +2663,26 @@ mensaje,
 
 
 /* =========================
-   ESTADO LOGIN
+   SESIÓN
 ========================= */
 
 onAuthStateChanged(
 auth,
-user=>{
+user => {
 
-usuarioAdmin=
-user||null;
+usuarioAdmin = user || null;
 
 
 if(user){
 
 $("btnAdmin")
-.textContent=
+.textContent =
 "🛠️ Panel Admin";
 
 }else{
 
 $("btnAdmin")
-.textContent=
+.textContent =
 "🔐 Administración";
 
 }
@@ -2763,55 +2692,61 @@ $("btnAdmin")
 
 
 /* =========================
-   CERRAR SESION
+   CERRAR SESIÓN
 ========================= */
 
-$("btnCerrarSesion")
-.onclick=
-async()=>{
+$("btnCerrarSesion").onclick =
+async () => {
+
+try{
 
 await signOut(auth);
 
-usuarioAdmin=null;
+usuarioAdmin = null;
 
 cerrarModal(
 "modalAdmin"
 );
 
 $("btnAdmin")
-.textContent=
+.textContent =
 "🔐 Administración";
+
+}catch(e){
+
+console.error(e);
+
+}
 
 };
 
 
 /* =========================
-   FOTO PREVIEW
+   FOTO PREVIA
 ========================= */
 
-$("imagenProducto")
-.onchange=
-()=>{
+$("imagenProducto").onchange =
+() => {
 
-const f=
+const f =
 $("imagenProducto")
 .files[0];
 
-const img=
+const img =
 $("previewProducto");
 
 
 if(f){
 
-img.src=
+img.src =
 URL.createObjectURL(f);
 
-img.style.display=
+img.style.display =
 "block";
 
 }else{
 
-img.style.display=
+img.style.display =
 "none";
 
 }
@@ -2825,20 +2760,19 @@ img.style.display=
 
 function limpiarFormulario(){
 
-$("productoForm")
-.reset();
+$("productoForm").reset();
 
-$("productoId")
-.value="";
+$("productoId").value = "";
 
-$("productoStoragePath")
-.value="";
+$("productoStoragePath").value = "";
 
 $("previewProducto")
-.style.display="none";
+.style.display =
+"none";
+
 
 $("btnGuardarProducto")
-.textContent=
+.textContent =
 "➕ Guardar producto";
 
 }
@@ -2850,22 +2784,21 @@ $("btnGuardarProducto")
 
 async function subirImagen(file){
 
-const safe=
-file.name
-.replace(
+const safe =
+file.name.replace(
 /[^a-zA-Z0-9._-]/g,
 "_"
 );
 
 
-const path=
-"productos/"+
-Date.now()+
-"-"+
+const path =
+"productos/" +
+Date.now() +
+"-" +
 safe;
 
 
-const r=
+const r =
 ref(
 storage,
 path
@@ -2878,13 +2811,13 @@ file
 );
 
 
-return{
+const url =
+await getDownloadURL(r);
 
-url:
-await getDownloadURL(r),
 
+return {
+url:url,
 path:path
-
 };
 
 }
@@ -2894,9 +2827,8 @@ path:path
    GUARDAR PRODUCTO
 ========================= */
 
-$("productoForm")
-.onsubmit=
-async e=>{
+$("productoForm").onsubmit =
+async e => {
 
 e.preventDefault();
 
@@ -2905,7 +2837,7 @@ if(!usuarioAdmin){
 
 aviso(
 "adminMensaje",
-"❌ No estás autorizado."
+"❌ Debes iniciar sesión."
 );
 
 return;
@@ -2913,103 +2845,84 @@ return;
 }
 
 
-const id=
+const id =
 $("productoId")
 .value;
 
 
-const nombre=
+const nombre =
 $("nombreProducto")
 .value
 .trim();
 
 
-const categoria=
+const categoria =
 $("categoriaProducto")
 .value;
 
 
-const precio=
+const precio =
 Number(
 $("precioProducto")
-.value||0
+.value || 0
 );
 
 
-const descripcion=
+const descripcion =
 $("descripcionProducto")
 .value
 .trim();
 
 
-const file=
+const file =
 $("imagenProducto")
 .files[0];
 
 
-if(!nombre){
-
-aviso(
-"adminMensaje",
-"Escribe el nombre del producto."
-);
-
-return;
-
-}
-
-
-if(!file && !$("previewProducto").src){
-
-aviso(
-"adminMensaje",
-"Selecciona una foto del producto."
-);
-
-return;
-
-}
-
-
-const btn=
+const btn =
 $("btnGuardarProducto");
 
 
-btn.disabled=true;
+btn.disabled = true;
 
-btn.textContent=
+btn.textContent =
 "Guardando...";
 
 
 try{
 
-let imagen=
+let imagen =
 $("previewProducto")
-.src||"";
+.src || "";
 
 
-let storagePath=
+let storagePath =
 $("productoStoragePath")
 .value;
 
 
 if(file){
 
-const subida=
+const subida =
 await subirImagen(file);
 
 
-imagen=
+imagen =
 subida.url;
 
-storagePath=
+
+storagePath =
 subida.path;
 
 
+const rutaAnterior =
+$("productoStoragePath")
+.value;
+
+
 if(
-storagePath&&
-id&&
-$("productoStoragePath").value
+rutaAnterior &&
+id
 ){
 
 try{
@@ -3017,7 +2930,7 @@ try{
 await deleteObject(
 ref(
 storage,
-$("productoStoragePath").value
+rutaAnterior
 )
 );
 
@@ -3028,7 +2941,7 @@ $("productoStoragePath").value
 }
 
 
-const data={
+const data = {
 
 nombre:nombre,
 
@@ -3083,18 +2996,15 @@ aviso(
 "adminMensaje",
 id
 ?
-"✅ Producto actualizado."
+"✅ Producto actualizado correctamente."
 :
-"✅ Producto agregado.",
-5000
+"✅ Producto agregado correctamente."
 );
 
 
 limpiarFormulario();
 
-
 await cargarFirebase();
-
 
 listarAdmin();
 
@@ -3106,22 +3016,18 @@ console.error(err);
 
 aviso(
 "adminMensaje",
-"❌ No se pudo guardar: "+
+"❌ No se pudo guardar: " +
 err.message,
 7000
 );
 
+
 }finally{
 
-btn.disabled=false;
+btn.disabled = false;
 
-
-if(!id){
-
-btn.textContent=
+btn.textContent =
 "➕ Guardar producto";
-
-}
 
 }
 
@@ -3138,29 +3044,41 @@ if(!usuarioAdmin)
 return;
 
 
-const out=
+const out =
 $("listaAdminProductos");
 
 
-out.innerHTML=
-"Cargando...";
+out.innerHTML =
+"Cargando productos...";
 
 
 try{
 
-const snap=
+const snap =
 await getDocs(
 collection(db,"productos")
 );
 
 
-out.innerHTML="";
+out.innerHTML = "";
 
 
 if(snap.empty){
 
-out.innerHTML=
-'<p style="color:#927a61;margin-top:10px">No hay productos administrados todavía.</p>';
+out.innerHTML = `
+
+<p
+style="
+color:#927a61;
+margin-top:10px;
+">
+
+No hay productos administrados
+todavía.
+
+</p>
+
+`;
 
 return;
 
@@ -3168,37 +3086,37 @@ return;
 
 
 snap.forEach(
-d=>{
+d => {
 
-const p={
+const p =
+{
 id:d.id,
 ...d.data()
 };
 
 
-const div=
+const div =
 document.createElement("div");
 
 
-div.className=
+div.className =
 "admin-producto";
 
 
-div.innerHTML=
+div.innerHTML = `
 
-`${
-
+${
 p.imagen
-
 ?
-
-`<img
+`
+<img
 src="${esc(p.imagen)}"
-alt="">`
-
+alt=""
+>
+`
 :
-
-`<div
+`
+<div
 style="
 width:55px;
 height:55px;
@@ -3206,78 +3124,83 @@ border-radius:8px;
 background:#f1e5d7;
 display:flex;
 align-items:center;
-justify-content:center">
+justify-content:center;
+">
 
 🛍️
 
-</div>`
-
+</div>
+`
 }
+
 
 <div class="admin-info">
 
 <strong>
-${esc(p.nombre||"Producto")}
+${esc(p.nombre || "Producto")}
 </strong>
 
 <small>
 
-${esc(p.categoria||"")}
+${esc(p.categoria || "")}
+
 ·
-$${Number(p.precio||0).toLocaleString("es-CO")}
+
+$${Number(
+p.precio || 0
+).toLocaleString("es-CO")}
 
 </small>
 
 </div>
+
 
 <div class="acciones">
 
 <button
 class="btn-secundario"
 data-edit="${d.id}">
-
 ✏️
-
 </button>
 
 <button
 class="btn-peligro"
 data-del="${d.id}">
-
 🗑️
-
 </button>
 
-</div>`;
+</div>
+
+`;
 
 
 div
-.querySelector(
-"[data-edit]"
-)
-.onclick=
-()=>editarProducto(p);
+.querySelector("[data-edit]")
+.onclick =
+() =>
+editarProducto(p);
 
 
 div
-.querySelector(
-"[data-del]"
-)
-.onclick=
-()=>eliminarProducto(p);
+.querySelector("[data-del]")
+.onclick =
+() =>
+eliminarProducto(p);
 
 
 out.appendChild(div);
 
-});
+}
+);
 
 
 }catch(e){
 
-out.innerHTML=
-"<p>Error cargando productos.</p>";
-
 console.error(e);
+
+
+out.innerHTML =
+"<p>Error cargando productos.</p>";
 
 }
 
@@ -3291,56 +3214,61 @@ console.error(e);
 function editarProducto(p){
 
 $("productoId")
-.value=p.id;
+.value =
+p.id;
 
 
 $("productoStoragePath")
-.value=
-p.storagePath||"";
+.value =
+p.storagePath || "";
 
 
 $("nombreProducto")
-.value=
-p.nombre||"";
+.value =
+p.nombre || "";
 
 
 $("categoriaProducto")
-.value=
-catNorm(p.categoria)||"ropa";
+.value =
+catNorm(
+p.categoria
+) || "ropa";
 
 
 $("precioProducto")
-.value=
-Number(p.precio||0);
+.value =
+Number(
+p.precio || 0
+);
 
 
 $("descripcionProducto")
-.value=
-p.descripcion||"";
+.value =
+p.descripcion || "";
 
 
-const img=
+const img =
 $("previewProducto");
 
 
 if(p.imagen){
 
-img.src=
+img.src =
 p.imagen;
 
-img.style.display=
+img.style.display =
 "block";
 
 }else{
 
-img.style.display=
+img.style.display =
 "none";
 
 }
 
 
 $("btnGuardarProducto")
-.textContent=
+.textContent =
 "💾 Guardar cambios";
 
 
@@ -3364,7 +3292,7 @@ return;
 
 if(
 !confirm(
-`¿Eliminar "${p.nombre||"este producto"}"?`
+`¿Eliminar "${p.nombre || "este producto"}"?`
 )
 )
 return;
@@ -3399,13 +3327,11 @@ p.storagePath
 
 aviso(
 "adminMensaje",
-"🗑️ Producto eliminado.",
-5000
+"🗑️ Producto eliminado."
 );
 
 
 await cargarFirebase();
-
 
 listarAdmin();
 
@@ -3417,14 +3343,23 @@ console.error(e);
 
 aviso(
 "adminMensaje",
-"❌ No se pudo eliminar: "+
+"❌ No se pudo eliminar: " +
 e.message,
-7000
+6000
 );
 
 }
 
 }
+
+
+/* =========================
+   CANCELAR EDICIÓN
+========================= */
+
+$("btnCancelarEdicion")
+.onclick =
+limpiarFormulario;
 
 
 /* =========================
