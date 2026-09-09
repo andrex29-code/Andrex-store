@@ -1073,92 +1073,8 @@ button{
 
 </button>
 
-<!-- LOGIN -->
 
-<div
-  id="modalLogin"
-  class="modal oculto">
-
-  <div class="modal-box">
-
-    <div class="modal-head">
-
-      <h2>Iniciar sesión</h2>
-
-      <button
-        class="cerrar-modal"
-        onclick="cerrarModal('modalLogin')">
-        ×
-      </button>
-
-    </div>
-
-    <div
-      id="loginMensaje"
-      class="mensaje">
-    </div>
-
-    <div class="form-grid">
-
-      <div class="campo full">
-
-        <label>Correo</label>
-
-        <input
-          id="loginEmail"
-          type="email"
-          autocomplete="email"
-          placeholder="Tu correo">
-
-      </div>
-
-      <div class="campo full">
-
-        <label>Contraseña</label>
-
-        <input
-          id="loginPassword"
-          type="password"
-          autocomplete="current-password"
-          placeholder="Tu contraseña">
-
-      </div>
-
-    </div>
-
-    <div class="acciones">
-
-      <button
-        id="btnLogin"
-        class="btn-principal">
-
-        Entrar
-
-      </button>
-
-      <button
-        id="btnRecuperar"
-        class="btn-secundario">
-
-        Olvidé mi contraseña
-
-      </button>
-
-      <button
-        class="btn-secundario"
-        onclick="cerrarModal('modalLogin')">
-
-        Cancelar
-
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- VENTANA DE PRODUCTOS -->
+<!-- VENTANA PARA SUBIR PRODUCTOS -->
 
 <div
   id="modalProductos"
@@ -1173,7 +1089,9 @@ button{
       <button
         class="cerrar-modal"
         onclick="cerrarModal('modalProductos')">
+
         ×
+
       </button>
 
     </div>
@@ -1210,10 +1128,21 @@ button{
             id="categoriaProducto"
             required>
 
-            <option value="ropa">Ropa</option>
-            <option value="zapatos">Zapatos</option>
-            <option value="lociones">Lociones</option>
-            <option value="streaming">Streaming</option>
+            <option value="ropa">
+              Ropa
+            </option>
+
+            <option value="zapatos">
+              Zapatos
+            </option>
+
+            <option value="lociones">
+              Lociones
+            </option>
+
+            <option value="streaming">
+              Streaming
+            </option>
 
           </select>
 
@@ -1284,15 +1213,6 @@ button{
 
         </button>
 
-        <button
-          id="btnCerrarSesion"
-          type="button"
-          class="btn-secundario">
-
-          Cerrar sesión
-
-        </button>
-
       </div>
 
     </form>
@@ -1317,6 +1237,7 @@ button{
 
 </div>
 
+
 <script type="module">
 
 import {
@@ -1333,16 +1254,6 @@ import {
   doc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  sendPasswordResetEmail,
-  setPersistence,
-  browserLocalPersistence
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
 /* =========================
@@ -1372,34 +1283,13 @@ const firebaseConfig = {
 };
 
 
-/* =========================
-   CUENTA AUTORIZADA
-   SOLO SE USA INTERNAMENTE
-========================= */
-
-const CUENTA_AUTORIZADA =
-  "WuRLDy1jAIaSMmBk6JZReqQvcbh2";
-
-
 const app =
-  initializeApp(firebaseConfig);
+  initializeApp(
+    firebaseConfig
+  );
 
 const db =
   getFirestore(app);
-
-const auth =
-  getAuth(app);
-
-
-/* =========================
-   MANTENER SESION
-========================= */
-
-const authPreparado =
-  setPersistence(
-    auth,
-    browserLocalPersistence
-  );
 
 
 /* =========================
@@ -1414,8 +1304,6 @@ let carrito =
       "andrexCarrito"
     ) || "[]"
   );
-
-let usuarioActual = null;
 
 
 /* =========================
@@ -1501,21 +1389,8 @@ function normalizarCategoria(
 }
 
 
-function esCuentaAutorizada(
-  usuario
-){
-
-  return !!(
-    usuario &&
-    usuario.uid ===
-    CUENTA_AUTORIZADA
-  );
-
-}
-
-
 /* =========================
-   CARGAR FIRESTORE
+   FIRESTORE
 ========================= */
 
 async function cargarFirebase(){
@@ -1572,6 +1447,7 @@ async function cargarFirebase(){
 
 /* =========================
    CARGAR ROPA DE GITHUB
+   EXCLUYE 3285
 ========================= */
 
 async function cargarRopaGitHub(){
@@ -1596,12 +1472,42 @@ async function cargarRopaGitHub(){
     archivos
 
       .filter(
-        archivo =>
-          archivo.type === "file" &&
-          /\.(jpg|jpeg|png|webp)$/i
-            .test(
-              archivo.name
-            )
+        archivo => {
+
+          if(
+            archivo.type !== "file"
+          ){
+
+            return false;
+
+          }
+
+          if(
+            !/\.(jpg|jpeg|png|webp)$/i
+              .test(
+                archivo.name
+              )
+          ){
+
+            return false;
+
+          }
+
+          /* QUITAR 3285 */
+
+          if(
+            archivo.name
+              .toLowerCase()
+              .includes("3285")
+          ){
+
+            return false;
+
+          }
+
+          return true;
+
+        }
       )
 
       .forEach(
@@ -1804,7 +1710,7 @@ function crearTarjetaProducto(
 
 
 /* =========================
-   MOSTRAR CATEGORIA
+   CATEGORIAS
 ========================= */
 
 function mostrarCategoria(
@@ -1837,10 +1743,8 @@ function mostrarCategoria(
         </div>
 
         <p>
-
           Aún no hay productos
           disponibles en esta categoría.
-
         </p>
 
       </div>
@@ -1865,10 +1769,6 @@ function mostrarCategoria(
 
 }
 
-
-/* =========================
-   RENDERIZAR TODO
-========================= */
 
 function renderizarTodos(){
 
@@ -2464,7 +2364,7 @@ function(){
 
 
 /* =========================
-   MODALES
+   MODAL
 ========================= */
 
 function abrirModal(id){
@@ -2491,7 +2391,8 @@ function(id){
 
 
 /* =========================
-   BOTON SUBIR
+   SUBIR PRODUCTO
+   DIRECTAMENTE
 ========================= */
 
 $("btnSubirProducto")
@@ -2499,322 +2400,16 @@ $("btnSubirProducto")
   function(){
 
     ocultarMensaje(
-      "loginMensaje"
-    );
-
-    if(
-      esCuentaAutorizada(
-        usuarioActual
-      )
-    ){
-
-      abrirModal(
-        "modalProductos"
-      );
-
-      listarProductos();
-
-    }
-    else{
-
-      abrirModal(
-        "modalLogin"
-      );
-
-    }
-
-  };
-
-
-/* =========================
-   INICIO DE SESION
-========================= */
-
-$("btnLogin")
-  .onclick =
-  async function(){
-
-    const email =
-      $("loginEmail")
-        .value
-        .trim();
-
-    const password =
-      $("loginPassword")
-        .value;
-
-    ocultarMensaje(
-      "loginMensaje"
-    );
-
-    if(
-      !email ||
-      !password
-    ){
-
-      mostrarMensaje(
-        "loginMensaje",
-        "Escribe tu correo y contraseña."
-      );
-
-      return;
-
-    }
-
-    try{
-
-      await authPreparado;
-
-      const cred =
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-      if(
-        !esCuentaAutorizada(
-          cred.user
-        )
-      ){
-
-        await signOut(
-          auth
-        );
-
-        mostrarMensaje(
-          "loginMensaje",
-          "⛔ Esta cuenta no tiene permiso para subir productos."
-        );
-
-        return;
-
-      }
-
-      $("loginEmail")
-        .value =
-        "";
-
-      $("loginPassword")
-        .value =
-        "";
-
-      cerrarModal(
-        "modalLogin"
-      );
-
-      abrirModal(
-        "modalProductos"
-      );
-
-      listarProductos();
-
-    }
-    catch(error){
-
-      console.error(
-        "Error de inicio de sesión:",
-        error
-      );
-
-      let mensaje =
-        "❌ No se pudo iniciar sesión.";
-
-      if(
-        error.code ===
-        "auth/invalid-credential"
-      ){
-
-        mensaje =
-          "❌ El correo o la contraseña de Firebase Authentication no coinciden.";
-
-      }
-
-      else if(
-        error.code ===
-        "auth/wrong-password"
-      ){
-
-        mensaje =
-          "❌ La contraseña de Firebase Authentication no es correcta.";
-
-      }
-
-      else if(
-        error.code ===
-        "auth/user-not-found"
-      ){
-
-        mensaje =
-          "❌ Ese correo no existe en Firebase Authentication.";
-
-      }
-
-      else if(
-        error.code ===
-        "auth/invalid-email"
-      ){
-
-        mensaje =
-          "❌ El correo electrónico no es válido.";
-
-      }
-
-      else if(
-        error.code ===
-        "auth/operation-not-allowed"
-      ){
-
-        mensaje =
-          "❌ Debes activar Correo electrónico/Contraseña en Firebase Authentication.";
-
-      }
-
-      else if(
-        error.code ===
-        "auth/unauthorized-domain"
-      ){
-
-        mensaje =
-          "❌ El dominio de tu tienda no está autorizado en Firebase Authentication.";
-
-      }
-
-      else if(
-        error.code ===
-        "auth/too-many-requests"
-      ){
-
-        mensaje =
-          "❌ Hay demasiados intentos. Espera unos minutos y vuelve a intentarlo.";
-
-      }
-
-      mostrarMensaje(
-        "loginMensaje",
-        mensaje
-      );
-
-    }
-
-  };
-
-
-/* =========================
-   RECUPERAR CONTRASEÑA
-========================= */
-
-$("btnRecuperar")
-  .onclick =
-  async function(){
-
-    const email =
-      $("loginEmail")
-        .value
-        .trim();
-
-    ocultarMensaje(
-      "loginMensaje"
-    );
-
-    if(!email){
-
-      mostrarMensaje(
-        "loginMensaje",
-        "Escribe primero tu correo."
-      );
-
-      return;
-
-    }
-
-    try{
-
-      await sendPasswordResetEmail(
-        auth,
-        email
-      );
-
-      mostrarMensaje(
-        "loginMensaje",
-        "✅ Te enviamos un enlace para cambiar tu contraseña."
-      );
-
-    }
-    catch(error){
-
-      console.error(
-        error
-      );
-
-      mostrarMensaje(
-        "loginMensaje",
-        "❌ No se pudo enviar el correo de recuperación."
-      );
-
-    }
-
-  };
-
-
-/* =========================
-   ESTADO DE SESION
-========================= */
-
-onAuthStateChanged(
-  auth,
-  function(user){
-
-    if(
-      user &&
-      esCuentaAutorizada(
-        user
-      )
-    ){
-
-      usuarioActual =
-        user;
-
-    }
-    else{
-
-      usuarioActual =
-        null;
-
-      if(user){
-
-        signOut(
-          auth
-        );
-
-      }
-
-    }
-
-  }
-);
-
-
-/* =========================
-   CERRAR SESION
-========================= */
-
-$("btnCerrarSesion")
-  .onclick =
-  async function(){
-
-    await signOut(
-      auth
-    );
-
-    usuarioActual =
-      null;
-
-    cerrarModal(
-      "modalProductos"
+      "productoMensaje"
     );
 
     limpiarFormulario();
+
+    abrirModal(
+      "modalProductos"
+    );
+
+    listarProductos();
 
   };
 
@@ -2859,7 +2454,7 @@ $("imagenProducto")
 
 
 /* =========================
-   LIMPIAR
+   LIMPIAR FORMULARIO
 ========================= */
 
 function limpiarFormulario(){
@@ -3054,21 +2649,6 @@ $("productoForm")
 
     event.preventDefault();
 
-    if(
-      !esCuentaAutorizada(
-        usuarioActual
-      )
-    ){
-
-      mostrarMensaje(
-        "productoMensaje",
-        "⛔ Tu sesión no está autorizada."
-      );
-
-      return;
-
-    }
-
     const id =
       $("productoId")
         .value;
@@ -3116,6 +2696,12 @@ $("productoForm")
       let imagen =
         "";
 
+      /*
+        SI ESTAMOS EDITANDO,
+        CONSERVAMOS LA FOTO ANTERIOR
+        SI NO SE SELECCIONÓ OTRA.
+      */
+
       if(id){
 
         const existente =
@@ -3161,6 +2747,7 @@ $("productoForm")
 
       };
 
+
       if(id){
 
         await updateDoc(
@@ -3198,14 +2785,18 @@ $("productoForm")
 
       }
 
+
       mostrarMensaje(
         "productoMensaje",
+
         id
           ?
           "✅ Producto actualizado correctamente."
           :
           "✅ Producto agregado correctamente."
+
       );
+
 
       limpiarFormulario();
 
@@ -3231,7 +2822,7 @@ $("productoForm")
       ){
 
         mensaje =
-          "Firebase rechazó el guardado. Verifica las reglas de Firestore y que tu sesión sea la cuenta autorizada.";
+          "Firebase rechazó el guardado. Revisa las reglas de Firestore.";
 
       }
 
@@ -3247,11 +2838,7 @@ $("productoForm")
         false;
 
       boton.textContent =
-        id
-          ?
-          "💾 Guardar cambios"
-          :
-          "➕ Guardar producto";
+        "➕ Guardar producto";
 
     }
 
@@ -3263,16 +2850,6 @@ $("productoForm")
 ========================= */
 
 async function listarProductos(){
-
-  if(
-    !esCuentaAutorizada(
-      usuarioActual
-    )
-  ){
-
-    return;
-
-  }
 
   const salida =
     $("listaProductos");
@@ -3314,6 +2891,7 @@ async function listarProductos(){
       return;
 
     }
+
 
     snapshot.forEach(
       documento => {
@@ -3422,6 +3000,7 @@ async function listarProductos(){
 
         `;
 
+
         div
           .querySelector(
             "[data-editar]"
@@ -3435,6 +3014,7 @@ async function listarProductos(){
 
           };
 
+
         div
           .querySelector(
             "[data-eliminar]"
@@ -3447,6 +3027,7 @@ async function listarProductos(){
             );
 
           };
+
 
         salida.appendChild(
           div
@@ -3546,16 +3127,6 @@ async function eliminarProducto(
   producto
 ){
 
-  if(
-    !esCuentaAutorizada(
-      usuarioActual
-    )
-  ){
-
-    return;
-
-  }
-
   const confirmar =
     confirm(
       `¿Eliminar "${producto.nombre || "este producto"}"?`
@@ -3607,7 +3178,7 @@ async function eliminarProducto(
 
 
 /* =========================
-   LIMPIAR FORMULARIO
+   BOTON LIMPIAR
 ========================= */
 
 $("btnCancelarEdicion")
@@ -3637,4 +3208,3 @@ actualizarCarrito();
 
 </body>
 </html>
-
