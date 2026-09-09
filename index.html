@@ -9,14 +9,16 @@
 <style>
 
 :root{
-  --morado:#7b2cff;
-  --morado2:#b66cff;
-  --azul:#00d9ff;
-  --azul2:#008cff;
+  --morado:#9b4dff;
+  --morado-neon:#c026ff;
+  --azul:#38bdf8;
+  --azul-neon:#22d3ee;
+
   --blanco:#ffffff;
-  --fondo:#070414;
-  --card:#110a24;
-  --texto:#eeeeff;
+  --texto:#241337;
+  --gris:#626778;
+
+  --whatsapp:#25D366;
 }
 
 *{
@@ -26,391 +28,885 @@
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
+
   background:
-    radial-gradient(circle at top,#1b0840 0%,#070414 45%,#030208 100%);
-  color:var(--blanco);
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #faf4ff 45%,
+      #eefaff 100%
+    );
+
+  color:var(--texto);
 }
 
-/* HEADER */
+
+/* =========================
+   ENCABEZADO
+========================= */
 
 header{
-  padding:20px 15px 35px;
-  text-align:center;
-  border-bottom:1px solid rgba(0,217,255,.25);
-  box-shadow:0 0 30px rgba(123,44,255,.25);
+  background:rgba(255,255,255,.96);
+
+  padding:18px 15px;
+
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  border-bottom:2px solid rgba(155,77,255,.25);
+
+  box-shadow:
+    0 3px 18px rgba(155,77,255,.18),
+    0 3px 15px rgba(56,189,248,.15);
 }
 
 .logo{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  text-align:center;
+
+  font-size:30px;
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--morado-neon),
+      var(--morado),
+      var(--azul),
+      var(--azul-neon)
+    );
+
+  -webkit-background-clip:text;
+  color:transparent;
+
+  text-shadow:
+    0 0 12px rgba(192,38,255,.30),
+    0 0 18px rgba(34,211,238,.25);
 }
 
-.logo img{
-  width:88px;
-  height:auto;
-  display:block;
-  border-radius:12px;
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:auto;
 }
 
-/* VIDEO */
+
+/* =========================
+   VIDEO
+========================= */
 
 .video-box{
-  width:100%;
-  max-width:900px;
-  margin:25px auto 10px;
-  padding:3px;
-  border-radius:20px;
+  margin-top:20px;
 
-  background:linear-gradient(
-    135deg,
-    var(--morado),
-    var(--azul),
-    var(--morado)
-  );
+  border-radius:22px;
+
+  overflow:hidden;
+
+  background:#fff;
+
+  border:2px solid rgba(155,77,255,.35);
 
   box-shadow:
-    0 0 20px rgba(123,44,255,.55),
-    0 0 35px rgba(0,217,255,.25);
+    0 0 18px rgba(155,77,255,.22),
+    0 0 25px rgba(56,189,248,.16);
 }
 
 .video-box video{
   width:100%;
   display:block;
-  border-radius:17px;
-  background:#000;
-  max-height:500px;
 }
 
-/* TITULOS */
 
-h1{
-  margin:18px 0 5px;
-  font-size:32px;
-  letter-spacing:3px;
+/* =========================
+   TITULOS
+========================= */
 
-  background:linear-gradient(
-    90deg,
-    var(--morado2),
-    var(--azul)
-  );
-
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.subtitulo{
-  color:#cfcfff;
-  font-size:14px;
-}
-
-/* CONTENEDOR */
-
-.container{
-  width:92%;
-  max-width:900px;
-  margin:auto;
-}
-
-/* SECCIONES */
-
-section{
-  padding:30px 0;
-}
-
-.titulo-seccion{
-  text-align:center;
-  font-size:25px;
-  margin-bottom:22px;
-
-  color:white;
-
-  text-shadow:
-    0 0 10px rgba(123,44,255,.8);
-}
-
-/* CATEGORIAS */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.category{
-  min-height:190px;
-
-  border-radius:22px;
-
-  padding:25px 15px;
-
+.section-title{
   text-align:center;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(123,44,255,.20),
-      rgba(0,217,255,.08)
-    );
+  margin:30px 0 20px;
 
-  border:1px solid rgba(123,44,255,.55);
-
-  box-shadow:
-    0 0 20px rgba(123,44,255,.20);
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  transition:.25s;
-}
-
-.category:hover{
-  transform:translateY(-5px);
-
-  border-color:var(--azul);
-
-  box-shadow:
-    0 0 25px rgba(0,217,255,.35);
-}
-
-.category-icon{
-  font-size:58px;
-  margin-bottom:12px;
-}
-
-.category h3{
-  margin:5px 0;
-  font-size:22px;
-}
-
-.category p{
-  margin:5px 0;
-  color:#bfc2e8;
-  font-size:13px;
-}
-
-/* PRODUCTOS */
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.product{
-  background:rgba(17,10,36,.92);
-
-  border:1px solid rgba(123,44,255,.45);
-
-  border-radius:18px;
-
-  padding:15px;
-
-  text-align:center;
-
-  box-shadow:
-    0 0 15px rgba(123,44,255,.15);
-}
-
-.product-image{
-  width:100%;
-  height:160px;
-
-  object-fit:cover;
-
-  border-radius:13px;
-
-  background:#080510;
-}
-
-.product h3{
-  margin:12px 0 7px;
-}
-
-.price{
-  color:var(--azul);
-  font-weight:bold;
-  font-size:18px;
-  margin-bottom:12px;
-}
-
-.btn{
-  border:0;
-  cursor:pointer;
-
-  width:100%;
-
-  padding:12px;
-
-  border-radius:12px;
-
-  font-weight:bold;
-
-  color:white;
+  font-size:26px;
+  font-weight:900;
 
   background:
     linear-gradient(
       90deg,
       var(--morado),
-      var(--azul2)
+      var(--morado-neon),
+      var(--azul-neon)
     );
 
-  box-shadow:
-    0 0 12px rgba(123,44,255,.35);
+  -webkit-background-clip:text;
+  color:transparent;
+
+  text-shadow:
+    0 0 10px rgba(155,77,255,.20);
 }
 
-/* CARRITO */
 
-.cart{
-  margin-top:25px;
+/* ==================================================
+   CARPETAS GRANDES UNA DEBAJO DE OTRA
+================================================== */
 
-  padding:20px;
+.categories{
+  display:flex;
 
-  border-radius:20px;
+  flex-direction:column;
+
+  gap:18px;
+
+  width:100%;
+}
+
+
+/* CADA CARPETA */
+
+.category{
+  width:100%;
+
+  min-height:170px;
+
+  padding:25px;
+
+  border-radius:26px;
 
   background:
     linear-gradient(
-      145deg,
-      rgba(123,44,255,.15),
-      rgba(0,217,255,.08)
+      105deg,
+      #ffffff,
+      #fbf5ff 50%,
+      #eefaff
     );
 
-  border:1px solid rgba(0,217,255,.35);
-}
+  border:2px solid rgba(155,77,255,.30);
 
-.cart h2{
-  margin-top:0;
-  color:var(--azul);
-}
+  box-shadow:
+    0 7px 22px rgba(155,77,255,.13),
+    0 0 18px rgba(56,189,248,.12);
 
-.cart-item{
   display:flex;
-  justify-content:space-between;
-  gap:10px;
 
-  padding:10px 0;
+  flex-direction:column;
 
-  border-bottom:1px solid rgba(255,255,255,.1);
-}
+  align-items:center;
 
-.total{
-  margin-top:15px;
-  font-size:20px;
-  font-weight:bold;
-  text-align:right;
-}
-
-.whatsapp{
-  display:block;
-
-  margin-top:18px;
-
-  padding:14px;
+  justify-content:center;
 
   text-align:center;
 
-  text-decoration:none;
+  cursor:pointer;
 
-  border-radius:13px;
+  transition:.25s;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* LUZ NEON */
+
+.category::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(192,38,255,.16),
+      transparent 70%
+    );
+
+  left:-70px;
+  top:-70px;
+
+  pointer-events:none;
+}
+
+.category::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(34,211,238,.15),
+      transparent 70%
+    );
+
+  right:-70px;
+  bottom:-70px;
+
+  pointer-events:none;
+}
+
+
+.category:hover{
+
+  transform:translateY(-5px);
+
+  border-color:var(--morado-neon);
+
+  box-shadow:
+    0 0 20px rgba(192,38,255,.38),
+    0 0 32px rgba(34,211,238,.25);
+}
+
+
+/* ICONO */
+
+.category-icon{
+
+  width:95px;
+  height:95px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-bottom:12px;
+
+  font-size:50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f7edff,
+      #eefdff
+    );
+
+  border:2px solid rgba(155,77,255,.35);
+
+  box-shadow:
+    0 0 15px rgba(155,77,255,.28),
+    0 0 20px rgba(34,211,238,.20);
+
+  position:relative;
+
+  z-index:2;
+}
+
+
+/* NOMBRE */
+
+.category-name{
+
+  font-size:25px;
+
+  font-weight:900;
+
+  color:#29143f;
+
+  text-shadow:
+    0 0 9px rgba(155,77,255,.18);
+
+  position:relative;
+
+  z-index:2;
+}
+
+
+/* =========================
+   CATALOGO
+========================= */
+
+.catalog{
+  display:none;
+}
+
+.catalog.active{
+  display:block;
+}
+
+.back-button{
+
+  border:none;
+
+  padding:13px 22px;
+
+  border-radius:30px;
 
   color:white;
 
   font-weight:bold;
 
-  background:#18b957;
+  font-size:15px;
 
-  box-shadow:0 0 15px rgba(24,185,87,.25);
+  cursor:pointer;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--morado),
+      var(--morado-neon),
+      var(--azul)
+    );
+
+  box-shadow:
+    0 0 13px rgba(155,77,255,.35),
+    0 0 18px rgba(56,189,248,.22);
+
+  margin-bottom:20px;
 }
 
-/* INFORMACION */
 
-.info{
+/* =========================
+   PRODUCTOS
+========================= */
+
+.products{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:16px;
+}
+
+.product{
+
+  background:#ffffff;
+
+  border-radius:19px;
+
+  overflow:hidden;
+
+  border:1px solid rgba(155,77,255,.22);
+
+  box-shadow:
+    0 5px 17px rgba(155,77,255,.10),
+    0 0 12px rgba(56,189,248,.08);
+}
+
+.product img{
+
+  width:100%;
+
+  height:190px;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+.product-info{
+  padding:13px;
+}
+
+.product-name{
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  margin-bottom:7px;
+}
+
+.product-price{
+
+  color:var(--morado);
+
+  font-size:18px;
+
+  font-weight:900;
+}
+
+.add-button{
+
+  width:100%;
+
+  border:none;
+
+  padding:11px;
+
+  margin-top:10px;
+
+  border-radius:12px;
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--morado),
+      var(--morado-neon),
+      var(--azul)
+    );
+
+  box-shadow:
+    0 0 12px rgba(155,77,255,.25);
+}
+
+
+/* =========================
+   CUADROS DE INFORMACION
+========================= */
+
+.info-section{
+
+  margin-top:28px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:16px;
+}
+
+.info-card{
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fbf5ff,
+      #f0fbff
+    );
+
+  border-radius:20px;
+
   padding:20px;
 
-  border-radius:18px;
+  border:2px solid rgba(155,77,255,.22);
 
-  background:#0e0820;
-
-  border:1px solid rgba(123,44,255,.35);
-
-  margin-top:20px;
+  box-shadow:
+    0 5px 18px rgba(155,77,255,.10),
+    0 0 15px rgba(56,189,248,.10);
 }
 
-.info p{
-  color:#c9c9df;
-  line-height:1.5;
+.info-card h3{
+
+  margin-top:0;
+
+  font-size:19px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--morado-neon),
+      var(--azul)
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
 }
 
-/* FOOTER */
+.info-card p{
 
-footer{
-  text-align:center;
+  color:#505568;
 
-  padding:30px 15px;
+  line-height:1.55;
 
-  margin-top:30px;
-
-  border-top:1px solid rgba(0,217,255,.2);
-
-  color:#aaa;
+  margin-bottom:0;
 }
 
-.footer-brand{
-  color:var(--azul);
+
+/* =========================
+   CARRITO
+========================= */
+
+.cart-button{
+
+  position:fixed;
+
+  right:18px;
+
+  bottom:18px;
+
+  width:64px;
+
+  height:64px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--morado-neon),
+      var(--morado),
+      var(--azul)
+    );
+
+  color:white;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  z-index:2000;
+
+  box-shadow:
+    0 0 17px rgba(192,38,255,.45),
+    0 0 25px rgba(34,211,238,.30);
+}
+
+.cart-count{
+
+  position:absolute;
+
+  top:-5px;
+
+  right:-5px;
+
+  width:24px;
+
+  height:24px;
+
+  border-radius:50%;
+
+  background:#ff28ad;
+
+  color:white;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:12px;
+
   font-weight:bold;
 }
 
-/* MOVIL */
+
+/* =========================
+   PANEL CARRITO
+========================= */
+
+.cart-panel{
+
+  position:fixed;
+
+  top:0;
+
+  right:-100%;
+
+  width:90%;
+
+  max-width:400px;
+
+  height:100vh;
+
+  background:#ffffff;
+
+  z-index:3000;
+
+  padding:20px;
+
+  overflow-y:auto;
+
+  box-shadow:
+    -7px 0 28px rgba(155,77,255,.25);
+
+  transition:.3s;
+}
+
+.cart-panel.open{
+  right:0;
+}
+
+.cart-header{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin-bottom:20px;
+}
+
+.cart-header h2{
+
+  margin:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--morado),
+      var(--azul)
+    );
+
+  -webkit-background-clip:text;
+
+  color:transparent;
+}
+
+.close-cart{
+
+  width:36px;
+
+  height:36px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:#f4eaff;
+
+  color:var(--morado);
+
+  font-size:21px;
+
+  cursor:pointer;
+}
+
+.cart-item{
+
+  display:flex;
+
+  gap:10px;
+
+  padding:12px 0;
+
+  border-bottom:1px solid #eeeeee;
+}
+
+.cart-item img{
+
+  width:65px;
+
+  height:65px;
+
+  object-fit:cover;
+
+  border-radius:10px;
+}
+
+.cart-item-info{
+  flex:1;
+}
+
+.cart-item-name{
+  font-weight:bold;
+}
+
+.cart-controls{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-top:7px;
+}
+
+.cart-controls button{
+
+  width:29px;
+
+  height:29px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--morado),
+      var(--azul)
+    );
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.delete-button{
+
+  background:#ffe8f8 !important;
+
+  color:#e11d8d !important;
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.cart-total{
+
+  margin-top:20px;
+
+  padding:16px;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #faf4ff,
+      #eefaff
+    );
+
+  border:1px solid rgba(155,77,255,.20);
+
+  font-size:20px;
+
+  font-weight:900;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-button{
+
+  width:100%;
+
+  border:none;
+
+  margin-top:15px;
+
+  padding:14px;
+
+  border-radius:14px;
+
+  background:var(--whatsapp);
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 15px rgba(37,211,102,.25);
+}
+
+
+.empty{
+
+  text-align:center;
+
+  padding:30px;
+
+  color:var(--gris);
+}
+
+
+/* =========================
+   CELULAR
+========================= */
 
 @media(max-width:600px){
 
-  .logo img{
-    width:85px;
-  }
-
-  h1{
-    font-size:27px;
-  }
-
-  .categories{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
-
   .category{
-    min-height:170px;
-    padding:15px 8px;
+
+    min-height:175px;
+
+    padding:20px;
   }
 
   .category-icon{
-    font-size:48px;
+
+    width:85px;
+
+    height:85px;
+
+    font-size:44px;
   }
 
-  .category h3{
-    font-size:18px;
-  }
+  .category-name{
 
-  .category p{
-    font-size:11px;
+    font-size:23px;
   }
 
   .products{
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:12px;
   }
 
-  .product-image{
-    height:140px;
+  .product img{
+
+    height:155px;
+  }
+
+  .info-section{
+
+    grid-template-columns:1fr;
+  }
+
+  .logo{
+
+    font-size:26px;
   }
 
 }
 
-@media(max-width:380px){
 
-  .categories,
+/* =========================
+   COMPUTADOR
+========================= */
+
+@media(min-width:800px){
+
+  .category{
+
+    min-height:200px;
+  }
+
+  .category-icon{
+
+    width:105px;
+
+    height:105px;
+  }
+
+  .category-name{
+
+    font-size:27px;
+  }
+
   .products{
-    grid-template-columns:1fr;
+
+    grid-template-columns:
+      repeat(4,1fr);
   }
 
 }
@@ -418,592 +914,1034 @@ footer{
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
-  <div class="logo">
-
-    <img
-      src="https://github.com/andrex29-code/Andrex-store/raw/refs/heads/main/61015DF9-C980-4CE4-AF75-6EA36FB447CD.png"
-      alt="ANDREX Store"
-    >
-
-  </div>
-
-  <h1>ANDREX STORE</h1>
-
-  <div class="subtitulo">
-    Ropa · Zapatos · Lociones · Streaming
-  </div>
-
-  <!-- VIDEO DE ANDREX STORE -->
-
-  <div class="video-box">
-
-    <video
-      controls
-      autoplay
-      muted
-      loop
-      playsinline
-    >
-
-      <!--
-      AQUÍ VA EL PRIMER VIDEO.
-
-      Cuando tengamos el nombre exacto del archivo,
-      reemplaza solamente esta línea:
-
-      <source src="AQUI_EL_VIDEO.mp4" type="video/mp4">
-      -->
-
-      <source
-        src="AQUI_EL_VIDEO.mp4"
-        type="video/mp4"
-      >
-
-      Tu navegador no puede reproducir este video.
-
-    </video>
-
-  </div>
+<div class="logo">
+ANDREX Store
+</div>
 
 </header>
 
 
-<main class="container">
+<div class="container">
 
 
-<!-- CATEGORIAS -->
+<!-- =========================
+     VIDEO
+========================= -->
 
-<section>
+<div class="video-box">
 
-  <h2 class="titulo-seccion">
-    🛍️ ELIGE TU CATEGORÍA
-  </h2>
+<video
+controls
+autoplay
+muted
+loop
+playsinline>
 
-  <div class="categories">
+<source
+src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
+type="video/mp4">
 
-    <div class="category">
+</video>
 
-      <div class="category-icon">👕</div>
-
-      <h3>Ropa</h3>
-
-      <p>
-        Encuentra prendas para tu estilo.
-      </p>
-
-    </div>
-
-
-    <div class="category">
-
-      <div class="category-icon">👟</div>
-
-      <h3>Zapatos</h3>
-
-      <p>
-        Calzado para cada ocasión.
-      </p>
-
-    </div>
+</div>
 
 
-    <div class="category">
+<!-- =========================
+     CARPETAS
+========================= -->
 
-      <div class="category-icon">🧴</div>
+<section id="home">
 
-      <h3>Lociones</h3>
-
-      <p>
-        Fragancias que dejan huella.
-      </p>
-
-    </div>
+<h2 class="section-title">
+✨ Explora nuestra tienda ✨
+</h2>
 
 
-    <div class="category">
-
-      <div class="category-icon">📺</div>
-
-      <h3>Cuentas Streaming</h3>
-
-      <p>
-        Entretenimiento para disfrutar.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
+<div class="categories">
 
 
-<!-- PRODUCTOS -->
+<!-- ROPA -->
 
-<section>
+<div
+class="category"
+onclick="abrirCategoria('ropa')">
 
-  <h2 class="titulo-seccion">
-    🔥 PRODUCTOS
-  </h2>
+<div class="category-icon">
+👕
+</div>
 
-  <div
-    id="productos"
-    class="products"
-  >
+<div class="category-name">
+Ropa
+</div>
 
-    <p>
-      Cargando productos...
-    </p>
-
-  </div>
+</div>
 
 
-  <!-- CARRITO -->
+<!-- ZAPATOS -->
 
-  <div class="cart">
+<div
+class="category"
+onclick="abrirCategoria('zapatos')">
 
-    <h2>🛒 Mi carrito</h2>
+<div class="category-icon">
+👟
+</div>
 
-    <div id="carrito">
+<div class="category-name">
+Zapatos
+</div>
 
-      <p>
-        Tu carrito está vacío.
-      </p>
+</div>
 
-    </div>
 
-    <div
-      id="total"
-      class="total"
-    >
-      Total: $0
-    </div>
+<!-- LOCIONES -->
 
-    <a
-      id="whatsapp"
-      class="whatsapp"
-      href="#"
-      target="_blank"
-    >
-      📲 PEDIR POR WHATSAPP
-    </a>
+<div
+class="category"
+onclick="abrirCategoria('lociones')">
 
-  </div>
+<div class="category-icon">
+🧴
+</div>
+
+<div class="category-name">
+Lociones
+</div>
+
+</div>
+
+
+<!-- STREAMING -->
+
+<div
+class="category"
+onclick="abrirCategoria('streaming')">
+
+<div class="category-icon">
+📺
+</div>
+
+<div class="category-name">
+Cuentas de Streaming
+</div>
+
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- INFORMACION -->
+<!-- =========================
+     CATALOGO
+========================= -->
 
-<section>
+<section
+id="catalog"
+class="catalog">
 
-  <div class="info">
 
-    <h2 class="titulo-seccion">
-      💳 FORMAS DE PAGO
-    </h2>
+<button
+class="back-button"
+onclick="volverInicio()">
 
-    <p>
-      👕 <strong>Ropa:</strong>
-      pago anticipado.
-    </p>
+← Volver a categorías
 
-    <p>
-      👟 <strong>Zapatos:</strong>
-      pago anticipado.
-    </p>
+</button>
 
-    <p>
-      📺 <strong>Streaming:</strong>
-      pago anticipado.
-    </p>
 
-    <p>
-      🧴 <strong>Lociones:</strong>
-      algunas pueden manejar pago contra entrega.
-    </p>
+<h2
+id="catalogTitle"
+class="section-title">
+</h2>
 
-  </div>
+
+<div
+id="products"
+class="products">
+</div>
+
 
 </section>
 
-</main>
+
+<!-- =========================
+     INFORMACION
+========================= -->
+
+<div class="info-section">
 
 
-<footer>
+<!-- CUADRO ANDREX -->
 
-  <span class="footer-brand">
-    ANDREX Store
-  </span>
+<div class="info-card">
 
-  <br><br>
+<h3>
+✨ ANDREX Store
+</h3>
 
-  Estilo · Aroma · Entretenimiento
+<p>
 
-  <br><br>
+🛍️ Todo lo que buscas,
+en un solo lugar.
 
-  Pedidos por WhatsApp:
-  318 157 9324
+Encuentra nuestros productos
+y disfruta de una atención
+personalizada, rápida y confiable.
 
-</footer>
+</p>
+
+</div>
 
 
-<!-- FIREBASE -->
+<!-- CUADRO ENVIOS -->
+
+<div class="info-card">
+
+<h3>
+🚚 Envíos
+</h3>
+
+<p>
+
+Realizamos envíos
+a nivel nacional.
+
+El valor del domicilio
+es asumido por el cliente
+y depende de la ubicación.
+
+</p>
+
+</div>
+
+
+<!-- CUADRO PAGOS -->
+
+<div class="info-card">
+
+<h3>
+💳 Medios de pago
+</h3>
+
+<p>
+
+Puedes pagar por:
+
+Nequi,
+Bancolombia,
+DaviPlata
+o contra entrega.
+
+</p>
+
+</div>
+
+
+<!-- CUADRO AYUDA -->
+
+<div class="info-card">
+
+<h3>
+📲 ¿Necesitas ayuda?
+</h3>
+
+<p>
+
+Escríbenos por WhatsApp
+y te ayudaremos con tu pedido,
+disponibilidad, precios y envío.
+
+❤️ Estamos para atenderte.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     CARRITO
+========================= -->
+
+<button
+class="cart-button"
+onclick="abrirCarrito()">
+
+🛒
+
+<span
+id="cartCount"
+class="cart-count">
+0
+</span>
+
+</button>
+
+
+<div
+id="cartPanel"
+class="cart-panel">
+
+
+<div class="cart-header">
+
+<h2>
+🛒 Mi carrito
+</h2>
+
+<button
+class="close-cart"
+onclick="cerrarCarrito()">
+
+×
+
+</button>
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<div
+id="cartTotal"
+class="cart-total">
+
+Total: $0
+
+</div>
+
+
+<button
+class="whatsapp-button"
+onclick="enviarWhatsApp()">
+
+📲 Pedir por WhatsApp
+
+</button>
+
+
+</div>
+
 
 <script type="module">
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+/* =========================
+   FIREBASE
+========================= */
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getFirestore,
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+getFirestore,
+collection,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* CONFIGURACIÓN FIREBASE */
+const firebaseConfig={
 
-const firebaseConfig = {
+apiKey:
+"AIzaSyBGb7jgkOKWeNnJed6QPDMW4-933gG59I",
 
-  apiKey:
-    "AIzaSyBGb7jgkOKWeNnJed6QPWM-D4-933gG59I",
+authDomain:
+"andrex-store.firebaseapp.com",
 
-  authDomain:
-    "andrex-store.firebaseapp.com",
+projectId:
+"andrex-store",
 
-  projectId:
-    "andrex-store",
+storageBucket:
+"andrex-store.firebasestorage.app",
 
-  storageBucket:
-    "andrex-store.firebasestorage.app",
+messagingSenderId:
+"607192665861",
 
-  messagingSenderId:
-    "607192665861",
-
-  appId:
-    "1:607192665861:web:a4fb90f3a2009d6491716c"
+appId:
+"1:607192665861:web:a4fb90f3a2009d6491716c"
 
 };
 
 
-/* INICIAR FIREBASE */
+const app=
+initializeApp(firebaseConfig);
 
-const app =
-  initializeApp(firebaseConfig);
-
-const db =
-  getFirestore(app);
+const db=
+getFirestore(app);
 
 
-/* CARRITO */
-
-let carrito =
-  JSON.parse(
-    localStorage.getItem("andrexCarrito")
-  ) || [];
+let productos=[];
 
 
-/* ELEMENTOS */
-
-const productosDiv =
-  document.getElementById("productos");
-
-const carritoDiv =
-  document.getElementById("carrito");
-
-const totalDiv =
-  document.getElementById("total");
-
-const whatsapp =
-  document.getElementById("whatsapp");
+let carrito=
+JSON.parse(
+localStorage.getItem("andrexCarrito")
+)||[];
 
 
-/* CARGAR PRODUCTOS */
+const nombresCategorias={
 
-async function cargarProductos(){
+ropa:"👕 Ropa",
 
-  try{
+zapatos:"👟 Zapatos",
 
-    const snapshot =
-      await getDocs(
-        collection(db,"productos")
-      );
+lociones:"🧴 Lociones",
 
-    productosDiv.innerHTML = "";
+streaming:"📺 Cuentas de Streaming"
 
-    if(snapshot.empty){
-
-      productosDiv.innerHTML =
-        "<p>No hay productos publicados todavía.</p>";
-
-      return;
-
-    }
+};
 
 
-    snapshot.forEach(doc=>{
+/* =========================
+   ABRIR CATEGORIA
+========================= */
 
-      const producto =
-        doc.data();
+window.abrirCategoria=function(categoria){
 
-      const nombre =
-        producto.nombre ||
-        "Producto";
-
-      const precio =
-        Number(producto.precio) || 0;
-
-      const imagen =
-        producto.imagen ||
-        producto.foto ||
-        "";
+document
+.getElementById("home")
+.style.display="none";
 
 
-      const card =
-        document.createElement("div");
-
-      card.className =
-        "product";
+document
+.getElementById("catalog")
+.classList.add("active");
 
 
-      card.innerHTML = `
-
-        ${
-          imagen
-          ?
-          `<img
-            class="product-image"
-            src="${imagen}"
-            alt="${nombre}"
-          >`
-          :
-          `<div class="product-image"></div>`
-        }
-
-        <h3>${nombre}</h3>
-
-        <div class="price">
-          $${precio.toLocaleString("es-CO")}
-        </div>
-
-        <button class="btn">
-          🛒 Agregar al carrito
-        </button>
-
-      `;
+document
+.getElementById("catalogTitle")
+.textContent=
+nombresCategorias[categoria];
 
 
-      card
-        .querySelector("button")
-        .addEventListener(
-          "click",
-          ()=>{
-
-            carrito.push({
-
-              nombre:nombre,
-
-              precio:precio
-
-            });
-
-            guardarCarrito();
-
-            mostrarCarrito();
-
-          }
-        );
+mostrarProductos(categoria);
 
 
-      productosDiv.appendChild(card);
+window.scrollTo({
 
-    });
+top:0,
 
-  }catch(error){
+behavior:"smooth"
 
-    console.error(error);
+});
 
-    productosDiv.innerHTML =
-      "<p>No se pudieron cargar los productos.</p>";
+};
 
-  }
+
+/* =========================
+   VOLVER
+========================= */
+
+window.volverInicio=function(){
+
+document
+.getElementById("catalog")
+.classList.remove("active");
+
+
+document
+.getElementById("home")
+.style.display="block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+
+/* =========================
+   MOSTRAR PRODUCTOS
+========================= */
+
+function mostrarProductos(categoria){
+
+const contenedor=
+document.getElementById("products");
+
+
+contenedor.innerHTML="";
+
+
+const lista=
+productos.filter(
+
+p=>
+
+(p.categoria||"")
+.toLowerCase()
+===
+categoria
+
+);
+
+
+if(lista.length===0){
+
+contenedor.innerHTML=`
+
+<div class="empty">
+
+<h3>
+Próximamente ✨
+</h3>
+
+<p>
+Estamos preparando productos
+para esta categoría.
+</p>
+
+</div>
+
+`;
+
+return;
 
 }
 
 
-/* GUARDAR */
+lista.forEach(producto=>{
+
+const div=
+document.createElement("div");
+
+
+div.className="product";
+
+
+const imagen=
+producto.imagen ||
+producto.image ||
+producto.foto ||
+"";
+
+
+const nombre=
+producto.nombre ||
+producto.name ||
+"Producto";
+
+
+const precio=
+producto.precio ||
+producto.price ||
+0;
+
+
+div.innerHTML=`
+
+<img
+src="${imagen}"
+alt="${nombre}"
+onerror="this.style.display='none'">
+
+<div class="product-info">
+
+<div class="product-name">
+${nombre}
+</div>
+
+<div class="product-price">
+$${Number(precio)
+.toLocaleString("es-CO")}
+</div>
+
+<button class="add-button">
+🛒 Agregar al carrito
+</button>
+
+</div>
+
+`;
+
+
+div
+.querySelector(".add-button")
+.addEventListener(
+"click",
+()=>agregarAlCarrito(producto)
+);
+
+
+contenedor.appendChild(div);
+
+});
+
+}
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+async function cargarFirebase(){
+
+try{
+
+const snapshot=
+await getDocs(
+collection(db,"productos")
+);
+
+
+snapshot.forEach(doc=>{
+
+productos.push({
+
+id:doc.id,
+
+...doc.data()
+
+});
+
+});
+
+
+console.log(
+"Productos Firebase:",
+productos.length
+);
+
+}
+
+catch(error){
+
+console.error(
+"Error Firebase:",
+error
+);
+
+}
+
+}
+
+
+/* =========================
+   CARGAR ROPA DESDE GITHUB
+========================= */
+
+async function cargarFotosRopa(){
+
+try{
+
+const url=
+"https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main";
+
+
+const respuesta=
+await fetch(url);
+
+
+if(!respuesta.ok){
+
+console.log(
+"No se pudieron cargar las fotos."
+);
+
+return;
+
+}
+
+
+const archivos=
+await respuesta.json();
+
+
+archivos
+.filter(
+
+archivo=>
+
+archivo.type==="file" &&
+
+/\.(jpg|jpeg|png|webp)$/i
+.test(archivo.name)
+
+)
+.forEach(archivo=>{
+
+productos.push({
+
+id:
+"github-"+archivo.name,
+
+nombre:
+archivo.name
+.replace(/\.[^/.]+$/,"")
+.replace(/[-_]/g," "),
+
+precio:0,
+
+categoria:"ropa",
+
+imagen:
+archivo.download_url
+
+});
+
+});
+
+}
+
+catch(error){
+
+console.error(
+"Error cargando ropa:",
+error
+);
+
+}
+
+}
+
+
+/* =========================
+   AGREGAR CARRITO
+========================= */
+
+window.agregarAlCarrito=
+function(producto){
+
+const existente=
+carrito.find(
+item=>item.id===producto.id
+);
+
+
+if(existente){
+
+existente.cantidad++;
+
+}
+
+else{
+
+carrito.push({
+
+...producto,
+
+cantidad:1
+
+});
+
+}
+
+
+guardarCarrito();
+
+actualizarCarrito();
+
+abrirCarrito();
+
+};
+
+
+/* =========================
+   GUARDAR
+========================= */
 
 function guardarCarrito(){
 
-  localStorage.setItem(
-    "andrexCarrito",
-    JSON.stringify(carrito)
-  );
+localStorage.setItem(
+"andrexCarrito",
+JSON.stringify(carrito)
+);
 
 }
 
 
-/* MOSTRAR CARRITO */
+/* =========================
+   ACTUALIZAR CARRITO
+========================= */
 
-function mostrarCarrito(){
+function actualizarCarrito(){
 
-  carritoDiv.innerHTML = "";
-
-  if(carrito.length === 0){
-
-    carritoDiv.innerHTML =
-      "<p>Tu carrito está vacío.</p>";
-
-    totalDiv.textContent =
-      "Total: $0";
-
-    actualizarWhatsApp();
-
-    return;
-
-  }
+const contenedor=
+document.getElementById("cartItems");
 
 
-  let total = 0;
+const count=
+document.getElementById("cartCount");
 
 
-  carrito.forEach(
-    (producto,index)=>{
-
-      total +=
-        Number(producto.precio) || 0;
+const totalElement=
+document.getElementById("cartTotal");
 
 
-      const item =
-        document.createElement("div");
-
-      item.className =
-        "cart-item";
+contenedor.innerHTML="";
 
 
-      item.innerHTML = `
+let total=0;
 
-        <span>
-          ${producto.nombre}
-        </span>
-
-        <span>
-          $${Number(producto.precio)
-            .toLocaleString("es-CO")}
-        </span>
-
-        <button
-          style="
-            border:0;
-            background:none;
-            color:#ff4d6d;
-            cursor:pointer;
-          "
-        >
-          ❌
-        </button>
-
-      `;
+let cantidadTotal=0;
 
 
-      item
-        .querySelector("button")
-        .addEventListener(
-          "click",
-          ()=>{
+if(carrito.length===0){
 
-            carrito.splice(index,1);
+contenedor.innerHTML=`
 
-            guardarCarrito();
+<div class="empty">
 
-            mostrarCarrito();
+Tu carrito está vacío 🛒
 
-          }
-        );
+</div>
 
-
-      carritoDiv.appendChild(item);
-
-    }
-  );
-
-
-  totalDiv.textContent =
-    "Total: $" +
-    total.toLocaleString("es-CO");
-
-
-  actualizarWhatsApp();
+`;
 
 }
 
 
-/* WHATSAPP */
+carrito.forEach(
+(item,index)=>{
 
-function actualizarWhatsApp(){
-
-  let mensaje =
-    "Hola ANDREX Store 👋%0A%0A";
-
-  if(carrito.length === 0){
-
-    mensaje +=
-      "Quiero consultar los productos disponibles.";
-
-  }else{
-
-    mensaje +=
-      "Quiero realizar este pedido:%0A%0A";
+const precio=
+Number(item.precio) ||
+Number(item.price) ||
+0;
 
 
-    carrito.forEach(
-      producto=>{
-
-        mensaje +=
-          "• " +
-          producto.nombre +
-          " - $" +
-          Number(producto.precio)
-            .toLocaleString("es-CO") +
-          "%0A";
-
-      }
-    );
+total+=
+precio*item.cantidad;
 
 
-    const total =
-      carrito.reduce(
-        (sum,producto)=>
-          sum +
-          (Number(producto.precio) || 0),
-        0
-      );
+cantidadTotal+=
+item.cantidad;
 
 
-    mensaje +=
-      "%0ATotal: $" +
-      total.toLocaleString("es-CO");
-
-  }
+const div=
+document.createElement("div");
 
 
-  whatsapp.href =
-    "https://wa.me/573181579324?text=" +
-    mensaje;
+div.className="cart-item";
+
+
+div.innerHTML=`
+
+<img
+src="${item.imagen||""}"
+alt="${item.nombre||"Producto"}">
+
+<div class="cart-item-info">
+
+<div class="cart-item-name">
+${item.nombre||"Producto"}
+</div>
+
+<div>
+$${precio.toLocaleString("es-CO")}
+</div>
+
+<div class="cart-controls">
+
+<button
+onclick="cambiarCantidad(${index},-1)">
+−
+</button>
+
+<strong>
+${item.cantidad}
+</strong>
+
+<button
+onclick="cambiarCantidad(${index},1)">
++
+</button>
+
+<button
+class="delete-button"
+onclick="eliminarProducto(${index})">
+🗑️
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+contenedor.appendChild(div);
+
+}
+);
+
+
+count.textContent=
+cantidadTotal;
+
+
+totalElement.textContent=
+"Total: $" +
+total.toLocaleString("es-CO");
 
 }
 
 
-/* INICIAR */
+/* =========================
+   CAMBIAR CANTIDAD
+========================= */
 
-cargarProductos();
+window.cambiarCantidad=
+function(index,cambio){
 
-mostrarCarrito();
+carrito[index].cantidad+=cambio;
+
+
+if(carrito[index].cantidad<=0){
+
+carrito.splice(index,1);
+
+}
+
+
+guardarCarrito();
+
+actualizarCarrito();
+
+};
+
+
+/* =========================
+   ELIMINAR
+========================= */
+
+window.eliminarProducto=
+function(index){
+
+carrito.splice(index,1);
+
+guardarCarrito();
+
+actualizarCarrito();
+
+};
+
+
+/* =========================
+   ABRIR CARRITO
+========================= */
+
+window.abrirCarrito=
+function(){
+
+document
+.getElementById("cartPanel")
+.classList.add("open");
+
+};
+
+
+/* =========================
+   CERRAR CARRITO
+========================= */
+
+window.cerrarCarrito=
+function(){
+
+document
+.getElementById("cartPanel")
+.classList.remove("open");
+
+};
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+window.enviarWhatsApp=
+function(){
+
+if(carrito.length===0){
+
+alert(
+"Tu carrito está vacío."
+);
+
+return;
+
+}
+
+
+let mensaje=
+"🛍️ *PEDIDO ANDREX STORE*%0A%0A";
+
+
+let total=0;
+
+
+carrito.forEach(item=>{
+
+const precio=
+Number(item.precio) ||
+Number(item.price) ||
+0;
+
+
+total+=
+precio*item.cantidad;
+
+
+mensaje+=
+`• ${item.nombre||"Producto"} x${item.cantidad} - $${(precio*item.cantidad).toLocaleString("es-CO")}%0A`;
+
+});
+
+
+mensaje+=
+`%0A💰 *Total: $${total.toLocaleString("es-CO")}*`;
+
+
+mensaje+=
+"%0A%0A📲 Quiero realizar este pedido.";
+
+
+const url=
+"https://wa.me/573181579324?text="
++mensaje;
+
+
+window.open(
+url,
+"_blank"
+);
+
+};
+
+
+/* =========================
+   INICIO
+========================= */
+
+cargarFotosRopa()
+
+.then(
+cargarFirebase
+)
+
+.then(
+actualizarCarrito
+);
 
 </script>
 
