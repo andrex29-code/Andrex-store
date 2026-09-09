@@ -648,6 +648,24 @@
       font-weight: bold;
     }
 
+    /* NUEVO: BOTÓN PARA RESTABLECER CONTRASEÑA */
+
+    .boton-olvido {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: #8f6b48;
+      padding: 10px 5px 5px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .boton-olvido:hover {
+      color: #654a32;
+    }
+
     .admin-formulario {
       background: #f7eee3;
       border: 1px solid #e8d8c4;
@@ -915,7 +933,6 @@
     </div>
   </header>
 
-
   <section class="hero">
 
     <video autoplay muted loop playsinline>
@@ -930,7 +947,6 @@
     </video>
 
   </section>
-
 
   <main id="paginaPrincipal" class="pagina-principal">
 
@@ -1016,7 +1032,6 @@
 
   </main>
 
-
   <section id="vistaRopa" class="vista-categoria">
 
     <div class="encabezado-categoria">
@@ -1044,7 +1059,6 @@
     ></div>
 
   </section>
-
 
   <section id="vistaZapatos" class="vista-categoria">
 
@@ -1074,7 +1088,6 @@
 
   </section>
 
-
   <section id="vistaLociones" class="vista-categoria">
 
     <div class="encabezado-categoria">
@@ -1102,7 +1115,6 @@
     ></div>
 
   </section>
-
 
   <section id="vistaStreaming" class="vista-categoria">
 
@@ -1132,7 +1144,6 @@
 
   </section>
 
-
   <section id="resultadosBusqueda">
 
     <h2 class="titulo-busqueda">
@@ -1145,7 +1156,6 @@
     ></div>
 
   </section>
-
 
   <aside id="carritoPanel" class="carrito-panel">
 
@@ -1182,11 +1192,6 @@
 
   </aside>
 
-
-  <!-- =========================================
-       MODAL DE ADMINISTRACIÓN
-       ========================================= -->
-
   <div
     id="modalAdmin"
     class="modal-admin"
@@ -1213,7 +1218,6 @@
         </button>
 
       </div>
-
 
       <!-- LOGIN -->
 
@@ -1259,6 +1263,16 @@
 
         </div>
 
+        <!-- NUEVO BOTÓN -->
+
+        <button
+          type="button"
+          class="boton-olvido"
+          onclick="restablecerContrasena()"
+        >
+          ¿Olvidaste tu contraseña?
+        </button>
+
         <button
           class="boton-admin-principal"
           id="botonEntrarAdmin"
@@ -1268,7 +1282,6 @@
         </button>
 
       </div>
-
 
       <!-- PANEL ADMIN -->
 
@@ -1282,15 +1295,11 @@
           class="estado-admin"
         ></div>
 
-
-        <!-- FORMULARIO -->
-
         <div class="admin-formulario">
 
           <h3 id="tituloFormulario">
             ➕ Agregar producto
           </h3>
-
 
           <div class="selector-foto">
 
@@ -1322,7 +1331,6 @@
 
           </div>
 
-
           <div class="campo-admin">
 
             <label>
@@ -1336,7 +1344,6 @@
             >
 
           </div>
-
 
           <div class="campo-admin">
 
@@ -1352,7 +1359,6 @@
             >
 
           </div>
-
 
           <div class="campo-admin">
 
@@ -1382,7 +1388,6 @@
 
           </div>
 
-
           <div class="campo-admin">
 
             <label>
@@ -1395,7 +1400,6 @@
             ></textarea>
 
           </div>
-
 
           <div
             style="
@@ -1425,9 +1429,6 @@
 
         </div>
 
-
-        <!-- LISTA -->
-
         <h3
           style="
             color:#654a32;
@@ -1442,9 +1443,6 @@
           class="admin-productos"
         ></div>
 
-
-        <!-- CAMBIAR CONTRASEÑA -->
-
         <button
           class="boton-admin-secundario"
           onclick="cambiarContrasenaAdmin()"
@@ -1455,9 +1453,6 @@
         >
           🔐 Cambiar contraseña
         </button>
-
-
-        <!-- CERRAR SESIÓN -->
 
         <button
           class="boton-admin-secundario"
@@ -1476,14 +1471,12 @@
 
   </div>
 
-
   <button
     id="botonMusica"
     onclick="alternarMusica()"
   >
     ▶ Música
   </button>
-
 
   <audio
     id="musicaTienda"
@@ -1498,13 +1491,11 @@
 
   </audio>
 
-
   <script type="module">
 
     import {
       initializeApp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 
     import {
       getFirestore,
@@ -1517,7 +1508,6 @@
       serverTimestamp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
     import {
       getStorage,
       ref,
@@ -1525,7 +1515,6 @@
       getDownloadURL,
       deleteObject
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-
 
     import {
       getAuth,
@@ -1570,27 +1559,21 @@
     const app =
       initializeApp(firebaseConfig);
 
-
     const db =
       getFirestore(app);
-
 
     const storage =
       getStorage(app);
 
-
     const auth =
       getAuth(app);
 
-
     let productos = [];
-
 
     let carrito =
       JSON.parse(
         localStorage.getItem("andrexCarrito")
       ) || [];
-
 
     let productoEditandoId = null;
 
@@ -1604,48 +1587,40 @@
         "paginaPrincipal"
       );
 
-
     const vistaRopa =
       document.getElementById(
         "vistaRopa"
       );
-
 
     const vistaZapatos =
       document.getElementById(
         "vistaZapatos"
       );
 
-
     const vistaLociones =
       document.getElementById(
         "vistaLociones"
       );
-
 
     const vistaStreaming =
       document.getElementById(
         "vistaStreaming"
       );
 
-
     const resultadosBusqueda =
       document.getElementById(
         "resultadosBusqueda"
       );
-
 
     const modalAdmin =
       document.getElementById(
         "modalAdmin"
       );
 
-
     const adminLogin =
       document.getElementById(
         "adminLogin"
       );
-
 
     const panelAdmin =
       document.getElementById(
@@ -1690,7 +1665,6 @@
             )
           );
 
-
         productos =
           productos.filter(
             (producto) =>
@@ -1698,12 +1672,10 @@
               producto.id.startsWith("github-")
           );
 
-
         snapshot.forEach((documento) => {
 
           const data =
             documento.data();
-
 
           productos.push({
 
@@ -1715,7 +1687,6 @@
           });
 
         });
-
 
         renderizarTodos();
 
@@ -1744,10 +1715,8 @@
         const url =
           "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main";
 
-
         const respuesta =
           await fetch(url);
-
 
         if (!respuesta.ok) {
 
@@ -1757,16 +1726,13 @@
 
         }
 
-
         const archivos =
           await respuesta.json();
-
 
         archivos.forEach((archivo) => {
 
           const nombreArchivo =
             archivo.name.toLowerCase();
-
 
           if (
             nombreArchivo.includes("3285")
@@ -1776,20 +1742,17 @@
 
           }
 
-
           const esImagen =
             nombreArchivo.endsWith(".jpg") ||
             nombreArchivo.endsWith(".jpeg") ||
             nombreArchivo.endsWith(".png") ||
             nombreArchivo.endsWith(".webp");
 
-
           if (!esImagen) {
 
             return;
 
           }
-
 
           const yaExiste =
             productos.some(
@@ -1802,13 +1765,11 @@
                 ) === archivo.download_url
             );
 
-
           if (yaExiste) {
 
             return;
 
           }
-
 
           productos.push({
 
@@ -1843,7 +1804,6 @@
 
         });
 
-
         renderizarTodos();
 
       } catch (error) {
@@ -1872,37 +1832,30 @@
         producto.foto ||
         "";
 
-
       const nombre =
         producto.nombre ||
         producto.name ||
         "Producto";
-
 
       const precio =
         producto.precio ||
         producto.price ||
         0;
 
-
       const descripcion =
         producto.descripcion ||
         producto.description ||
         "";
-
 
       const tarjeta =
         document.createElement(
           "article"
         );
 
-
       tarjeta.className =
         "producto";
 
-
       let imagenHTML = "";
-
 
       if (imagen) {
 
@@ -1932,7 +1885,6 @@
         `;
 
       }
-
 
       tarjeta.innerHTML = `
 
@@ -1977,12 +1929,10 @@
         </div>
       `;
 
-
       const boton =
         tarjeta.querySelector(
           ".boton-agregar"
         );
-
 
       boton.addEventListener(
         "click",
@@ -1994,7 +1944,6 @@
 
         }
       );
-
 
       return tarjeta;
 
@@ -2012,7 +1961,6 @@
 
       contenedor.innerHTML = "";
 
-
       const productosCategoria =
         productos.filter(
           (producto) => {
@@ -2022,7 +1970,6 @@
                 producto.categoria
               );
 
-
             if (
               categoria === "ropa"
             ) {
@@ -2030,7 +1977,6 @@
               return cat === "ropa";
 
             }
-
 
             if (
               categoria === "zapatos"
@@ -2043,7 +1989,6 @@
 
             }
 
-
             if (
               categoria === "lociones"
             ) {
@@ -2055,7 +2000,6 @@
 
             }
 
-
             if (
               categoria === "streaming"
             ) {
@@ -2064,12 +2008,10 @@
 
             }
 
-
             return false;
 
           }
         );
-
 
       if (
         productosCategoria.length === 0
@@ -2095,7 +2037,6 @@
         return;
 
       }
-
 
       productosCategoria.forEach(
         (producto) => {
@@ -2125,14 +2066,12 @@
         )
       );
 
-
       mostrarProductosCategoria(
         "zapatos",
         document.getElementById(
           "productosZapatos"
         )
       );
-
 
       mostrarProductosCategoria(
         "lociones",
@@ -2141,14 +2080,12 @@
         )
       );
 
-
       mostrarProductosCategoria(
         "streaming",
         document.getElementById(
           "productosStreaming"
         )
       );
-
 
       actualizarCarrito();
 
@@ -2165,29 +2102,22 @@
         paginaPrincipal.style.display =
           "none";
 
-
         vistaRopa.style.display =
           "none";
-
 
         vistaZapatos.style.display =
           "none";
 
-
         vistaLociones.style.display =
           "none";
-
 
         vistaStreaming.style.display =
           "none";
 
-
         resultadosBusqueda.style.display =
           "none";
 
-
         let vista = null;
-
 
         if (
           categoria === "ropa"
@@ -2198,7 +2128,6 @@
 
         }
 
-
         if (
           categoria === "zapatos"
         ) {
@@ -2207,7 +2136,6 @@
             vistaZapatos;
 
         }
-
 
         if (
           categoria === "lociones"
@@ -2218,7 +2146,6 @@
 
         }
 
-
         if (
           categoria === "streaming"
         ) {
@@ -2228,12 +2155,10 @@
 
         }
 
-
         if (vista) {
 
           vista.style.display =
             "block";
-
 
           window.scrollTo({
             top: 0,
@@ -2255,26 +2180,20 @@
         vistaRopa.style.display =
           "none";
 
-
         vistaZapatos.style.display =
           "none";
-
 
         vistaLociones.style.display =
           "none";
 
-
         vistaStreaming.style.display =
           "none";
-
 
         resultadosBusqueda.style.display =
           "none";
 
-
         paginaPrincipal.style.display =
           "block";
-
 
         window.scrollTo({
           top: 0,
@@ -2300,85 +2219,66 @@
             .trim()
             .toLowerCase();
 
-
         const botonLimpiar =
           document.getElementById(
             "botonLimpiar"
           );
-
 
         if (!texto) {
 
           botonLimpiar.style.display =
             "none";
 
-
           resultadosBusqueda.style.display =
             "none";
-
 
           paginaPrincipal.style.display =
             "block";
 
-
           vistaRopa.style.display =
             "none";
-
 
           vistaZapatos.style.display =
             "none";
 
-
           vistaLociones.style.display =
             "none";
 
-
           vistaStreaming.style.display =
             "none";
-
 
           return;
 
         }
 
-
         botonLimpiar.style.display =
           "block";
-
 
         paginaPrincipal.style.display =
           "none";
 
-
         vistaRopa.style.display =
           "none";
-
 
         vistaZapatos.style.display =
           "none";
 
-
         vistaLociones.style.display =
           "none";
-
 
         vistaStreaming.style.display =
           "none";
 
-
         resultadosBusqueda.style.display =
           "block";
-
 
         const contenedor =
           document.getElementById(
             "productosBusqueda"
           );
 
-
         contenedor.innerHTML =
           "";
-
 
         const encontrados =
           productos.filter(
@@ -2393,7 +2293,6 @@
                   .toString()
                   .toLowerCase();
 
-
               const categoria =
                 (
                   producto.categoria ||
@@ -2401,7 +2300,6 @@
                 )
                   .toString()
                   .toLowerCase();
-
 
               const descripcion =
                 (
@@ -2412,7 +2310,6 @@
                   .toString()
                   .toLowerCase();
 
-
               return (
                 nombre.includes(texto) ||
                 categoria.includes(texto) ||
@@ -2421,7 +2318,6 @@
 
             }
           );
-
 
         if (
           encontrados.length === 0
@@ -2441,7 +2337,6 @@
           return;
 
         }
-
 
         encontrados.forEach(
           (producto) => {
@@ -2467,7 +2362,6 @@
           )
           .value = "";
 
-
         document
           .getElementById(
             "botonLimpiar"
@@ -2475,10 +2369,8 @@
           .style.display =
             "none";
 
-
         resultadosBusqueda.style.display =
           "none";
-
 
         volverInicio();
 
@@ -2508,12 +2400,9 @@
           producto
         );
 
-
         guardarCarrito();
 
-
         actualizarCarrito();
-
 
         abrirCarrito();
 
@@ -2527,26 +2416,21 @@
           "itemsCarrito"
         );
 
-
       const cantidad =
         document.getElementById(
           "cantidadCarrito"
         );
-
 
       const total =
         document.getElementById(
           "totalCarrito"
         );
 
-
       cantidad.textContent =
         carrito.length;
 
-
       contenedor.innerHTML =
         "";
-
 
       if (
         carrito.length === 0
@@ -2561,19 +2445,15 @@
 
         `;
 
-
         total.textContent =
           "$0";
-
 
         return;
 
       }
 
-
       let totalNumerico =
         0;
-
 
       carrito.forEach(
         (
@@ -2588,10 +2468,8 @@
               0
             );
 
-
           totalNumerico +=
             precio;
-
 
           const imagen =
             producto.imagen ||
@@ -2599,22 +2477,18 @@
             producto.foto ||
             "";
 
-
           const nombre =
             producto.nombre ||
             producto.name ||
             "Producto";
-
 
           const item =
             document.createElement(
               "div"
             );
 
-
           item.className =
             "item-carrito";
-
 
           item.innerHTML = `
 
@@ -2674,14 +2548,12 @@
 
           `;
 
-
           contenedor.appendChild(
             item
           );
 
         }
       );
-
 
       total.textContent =
         "$" +
@@ -2700,9 +2572,7 @@
           1
         );
 
-
         guardarCarrito();
-
 
         actualizarCarrito();
 
@@ -2756,10 +2626,8 @@
 
         }
 
-
         let mensaje =
           "Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
-
 
         carrito.forEach(
           (
@@ -2772,7 +2640,6 @@
               producto.name ||
               "Producto";
 
-
             const precio =
               Number(
                 producto.precio ||
@@ -2780,10 +2647,8 @@
                 0
               );
 
-
             mensaje +=
               `${indice + 1}. ${nombre}`;
-
 
             if (
               precio > 0
@@ -2794,13 +2659,11 @@
 
             }
 
-
             mensaje +=
               "%0A";
 
           }
         );
-
 
         const total =
           carrito.reduce(
@@ -2817,18 +2680,14 @@
             0
           );
 
-
         mensaje +=
           `%0ATotal: $${total.toLocaleString("es-CO")}`;
-
 
         const telefono =
           "573181579324";
 
-
         const url =
           `https://wa.me/${telefono}?text=${mensaje}`;
-
 
         window.open(
           url,
@@ -2846,7 +2705,6 @@
       document.getElementById(
         "musicaTienda"
       );
-
 
     const botonMusica =
       document.getElementById(
@@ -2879,7 +2737,6 @@
         } else {
 
           musica.pause();
-
 
           botonMusica.textContent =
             "▶ Música";
@@ -2920,7 +2777,6 @@
       const usuario =
         auth.currentUser;
 
-
       if (usuario) {
 
         mostrarPanelAdmin(
@@ -2931,7 +2787,6 @@
 
         adminLogin.style.display =
           "block";
-
 
         panelAdmin.style.display =
           "none";
@@ -2953,42 +2808,34 @@
             "adminEmail"
           );
 
-
         const passwordInput =
           document.getElementById(
             "adminPassword"
           );
-
 
         const mensaje =
           document.getElementById(
             "mensajeLogin"
           );
 
-
         const boton =
           document.getElementById(
             "botonEntrarAdmin"
           );
-
 
         const email =
           emailInput.value
             .trim()
             .toLowerCase();
 
-
         const password =
           passwordInput.value;
-
 
         mensaje.className =
           "estado-admin";
 
-
         mensaje.textContent =
           "";
-
 
         if (
           !email ||
@@ -2998,31 +2845,24 @@
           mensaje.className =
             "estado-admin error";
 
-
           mensaje.textContent =
             "Escribe tu correo y contraseña.";
-
 
           return;
 
         }
 
-
         boton.disabled =
           true;
-
 
         boton.textContent =
           "⏳ Ingresando...";
 
-
         mensaje.className =
           "estado-admin exito";
 
-
         mensaje.textContent =
           "Verificando tus datos...";
-
 
         try {
 
@@ -3033,29 +2873,23 @@
               password
             );
 
-
           console.log(
             "Inicio de sesión correcto:",
             resultado.user.email
           );
 
-
           mensaje.className =
             "estado-admin";
-
 
           mensaje.textContent =
             "";
 
-
           passwordInput.value =
             "";
-
 
           mostrarPanelAdmin(
             resultado.user
           );
-
 
         } catch (error) {
 
@@ -3064,19 +2898,11 @@
             error
           );
 
-
           mensaje.className =
             "estado-admin error";
 
-
           let mensajeError =
             "❌ No se pudo iniciar sesión.";
-
-
-          /*
-            MOSTRAMOS EL ERROR REAL DE FIREBASE
-            PARA PODER SABER EXACTAMENTE QUÉ PASA.
-          */
 
           switch (
             error.code
@@ -3089,14 +2915,12 @@
 
               break;
 
-
             case "auth/invalid-email":
 
               mensajeError =
                 "❌ El correo electrónico no tiene un formato válido.";
 
               break;
-
 
             case "auth/user-not-found":
 
@@ -3105,14 +2929,12 @@
 
               break;
 
-
             case "auth/wrong-password":
 
               mensajeError =
                 "❌ La contraseña no es correcta.";
 
               break;
-
 
             case "auth/user-disabled":
 
@@ -3121,14 +2943,12 @@
 
               break;
 
-
             case "auth/too-many-requests":
 
               mensajeError =
                 "❌ Firebase bloqueó temporalmente los intentos. Espera unos minutos e inténtalo nuevamente.";
 
               break;
-
 
             case "auth/network-request-failed":
 
@@ -3137,14 +2957,12 @@
 
               break;
 
-
             case "auth/operation-not-allowed":
 
               mensajeError =
                 "❌ El inicio de sesión con correo y contraseña no está permitido en Firebase.";
 
               break;
-
 
             default:
 
@@ -3159,7 +2977,6 @@
 
           }
 
-
           mensaje.textContent =
             mensajeError;
 
@@ -3168,9 +2985,179 @@
           boton.disabled =
             false;
 
-
           boton.textContent =
             "🔐 Entrar";
+
+        }
+
+      };
+
+
+    /* =========================================
+       NUEVO: RESTABLECER CONTRASEÑA
+       ========================================= */
+
+    window.restablecerContrasena =
+      async function() {
+
+        const emailInput =
+          document.getElementById(
+            "adminEmail"
+          );
+
+        const mensaje =
+          document.getElementById(
+            "mensajeLogin"
+          );
+
+        let email =
+          emailInput.value
+            .trim()
+            .toLowerCase();
+
+        /*
+          Si el usuario ya escribió el correo,
+          usamos directamente ese correo.
+          Si está vacío, preguntamos.
+        */
+
+        if (!email) {
+
+          email =
+            prompt(
+              "Escribe el correo de tu cuenta de administrador:"
+            );
+
+          if (!email) {
+
+            return;
+
+          }
+
+          email =
+            email
+              .trim()
+              .toLowerCase();
+
+        }
+
+        if (!email) {
+
+          mensaje.className =
+            "estado-admin error";
+
+          mensaje.textContent =
+            "❌ Escribe un correo electrónico.";
+
+          return;
+
+        }
+
+        /*
+          Comprobación sencilla del formato
+        */
+
+        if (
+          !email.includes("@") ||
+          !email.includes(".")
+        ) {
+
+          mensaje.className =
+            "estado-admin error";
+
+          mensaje.textContent =
+            "❌ Escribe un correo electrónico válido.";
+
+          return;
+
+        }
+
+        mensaje.className =
+          "estado-admin exito";
+
+        mensaje.textContent =
+          "⏳ Enviando correo de recuperación...";
+
+        try {
+
+          await sendPasswordResetEmail(
+            auth,
+            email
+          );
+
+          mensaje.className =
+            "estado-admin exito";
+
+          mensaje.textContent =
+            "✅ Correo enviado. Revisa tu bandeja de entrada y también la carpeta de Spam.";
+
+        } catch (error) {
+
+          console.error(
+            "ERROR AL RESTABLECER CONTRASEÑA:",
+            error
+          );
+
+          mensaje.className =
+            "estado-admin error";
+
+          let mensajeError =
+            "❌ No se pudo enviar el correo de recuperación.";
+
+          switch (
+            error.code
+          ) {
+
+            case "auth/invalid-email":
+
+              mensajeError =
+                "❌ El correo electrónico no tiene un formato válido.";
+
+              break;
+
+            case "auth/user-not-found":
+
+              mensajeError =
+                "❌ No existe una cuenta de administrador con ese correo.";
+
+              break;
+
+            case "auth/too-many-requests":
+
+              mensajeError =
+                "❌ Se hicieron demasiadas solicitudes. Espera unos minutos e inténtalo nuevamente.";
+
+              break;
+
+            case "auth/network-request-failed":
+
+              mensajeError =
+                "❌ No hay conexión con Firebase. Revisa tu conexión a internet.";
+
+              break;
+
+            case "auth/operation-not-allowed":
+
+              mensajeError =
+                "❌ El restablecimiento de contraseña por correo no está habilitado en Firebase Authentication.";
+
+              break;
+
+            default:
+
+              mensajeError =
+                "❌ Error de Firebase: " +
+                (
+                  error.code ||
+                  "desconocido"
+                );
+
+              break;
+
+          }
+
+          mensaje.textContent =
+            mensajeError;
 
         }
 
@@ -3187,7 +3174,6 @@
         const usuario =
           auth.currentUser;
 
-
         if (!usuario) {
 
           mostrarMensajeAdmin(
@@ -3195,11 +3181,9 @@
             "error"
           );
 
-
           return;
 
         }
-
 
         if (!usuario.email) {
 
@@ -3208,11 +3192,9 @@
             "error"
           );
 
-
           return;
 
         }
-
 
         const confirmar =
           confirm(
@@ -3221,13 +3203,11 @@
             " para cambiar tu contraseña?"
           );
 
-
         if (!confirmar) {
 
           return;
 
         }
-
 
         try {
 
@@ -3236,14 +3216,12 @@
             usuario.email
           );
 
-
           mostrarMensajeAdmin(
             "✅ Te enviamos un correo a " +
             usuario.email +
             " para cambiar tu contraseña.",
             "exito"
           );
-
 
         } catch (error) {
 
@@ -3252,10 +3230,8 @@
             error
           );
 
-
           let mensajeError =
             "❌ No se pudo enviar el correo.";
-
 
           switch (
             error.code
@@ -3268,14 +3244,12 @@
 
               break;
 
-
             case "auth/user-not-found":
 
               mensajeError =
                 "❌ Ese usuario no existe en Firebase Authentication.";
 
               break;
-
 
             case "auth/network-request-failed":
 
@@ -3284,6 +3258,19 @@
 
               break;
 
+            case "auth/too-many-requests":
+
+              mensajeError =
+                "❌ Demasiadas solicitudes. Espera unos minutos.";
+
+              break;
+
+            case "auth/operation-not-allowed":
+
+              mensajeError =
+                "❌ El restablecimiento por correo no está habilitado en Firebase.";
+
+              break;
 
             default:
 
@@ -3297,7 +3284,6 @@
               break;
 
           }
-
 
           mostrarMensajeAdmin(
             mensajeError,
@@ -3320,10 +3306,8 @@
       adminLogin.style.display =
         "none";
 
-
       panelAdmin.style.display =
         "block";
-
 
       document.getElementById(
         "usuarioAdmin"
@@ -3333,7 +3317,6 @@
           usuario.email ||
           ""
         );
-
 
       cargarProductosAdmin();
 
@@ -3353,39 +3336,31 @@
             auth
           );
 
-
           productoEditandoId =
             null;
 
-
           limpiarFormularioAdmin();
-
 
           adminLogin.style.display =
             "block";
 
-
           panelAdmin.style.display =
             "none";
-
 
           document.getElementById(
             "mensajeLogin"
           ).className =
             "estado-admin";
 
-
           document.getElementById(
             "mensajeLogin"
           ).textContent =
             "";
 
-
           document.getElementById(
             "adminPassword"
           ).value =
             "";
-
 
         } catch (error) {
 
@@ -3413,27 +3388,22 @@
           const archivo =
             this.files[0];
 
-
           const preview =
             document.getElementById(
               "vistaPreviaFoto"
             );
-
 
           if (!archivo) {
 
             preview.style.display =
               "none";
 
-
             preview.src =
               "";
-
 
             return;
 
           }
-
 
           if (
             !archivo.type.startsWith(
@@ -3445,25 +3415,20 @@
               "Selecciona una imagen."
             );
 
-
             this.value =
               "";
-
 
             return;
 
           }
-
 
           const url =
             URL.createObjectURL(
               archivo
             );
 
-
           preview.src =
             url;
-
 
           preview.style.display =
             "block";
@@ -3486,7 +3451,6 @@
 
       }
 
-
       const extension =
         (
           archivo.name.split(
@@ -3496,7 +3460,6 @@
         )
           .toLowerCase();
 
-
       const nombreUnico =
         Date.now() +
         "-" +
@@ -3504,10 +3467,8 @@
           .toString(36)
           .substring(2, 10);
 
-
       const ruta =
         `productos/${nombreUnico}.${extension}`;
-
 
       const referencia =
         ref(
@@ -3515,18 +3476,15 @@
           ruta
         );
 
-
       await uploadBytes(
         referencia,
         archivo
       );
 
-
       const url =
         await getDownloadURL(
           referencia
         );
-
 
       return {
         url,
@@ -3552,11 +3510,9 @@
             "error"
           );
 
-
           return;
 
         }
-
 
         const nombre =
           document
@@ -3565,7 +3521,6 @@
             )
             .value
             .trim();
-
 
         const precio =
           Number(
@@ -3576,14 +3531,12 @@
               .value
           ) || 0;
 
-
         const categoria =
           document
             .getElementById(
               "categoriaProducto"
             )
             .value;
-
 
         const descripcion =
           document
@@ -3593,14 +3546,12 @@
             .value
             .trim();
 
-
         const archivo =
           document
             .getElementById(
               "fotoProducto"
             )
             .files[0];
-
 
         if (!nombre) {
 
@@ -3609,11 +3560,9 @@
             "error"
           );
 
-
           return;
 
         }
-
 
         if (
           productoEditandoId === null &&
@@ -3625,35 +3574,28 @@
             "error"
           );
 
-
           return;
 
         }
-
 
         const boton =
           document.getElementById(
             "botonGuardarProducto"
           );
 
-
         const estabaEditando =
           productoEditandoId !== null;
-
 
         boton.disabled =
           true;
 
-
         boton.textContent =
           "⏳ Guardando...";
-
 
         try {
 
           let fotoNueva =
             null;
-
 
           if (archivo) {
 
@@ -3663,7 +3605,6 @@
               );
 
           }
-
 
           const datos = {
 
@@ -3680,7 +3621,6 @@
 
           };
 
-
           if (
             productoEditandoId === null
           ) {
@@ -3693,22 +3633,17 @@
 
             }
 
-
             datos.imagen =
               fotoNueva.url;
-
 
             datos.storagePath =
               fotoNueva.ruta;
 
-
             datos.creadoPor =
               auth.currentUser.email;
 
-
             datos.creadoEn =
               serverTimestamp();
-
 
             await addDoc(
               collection(
@@ -3718,14 +3653,12 @@
               datos
             );
 
-
             mostrarMensajeAdmin(
               "✅ Producto agregado correctamente.",
               "exito"
             );
 
           }
-
 
           else {
 
@@ -3736,7 +3669,6 @@
                   productoEditandoId
               );
 
-
             if (!producto) {
 
               throw new Error(
@@ -3745,7 +3677,6 @@
 
             }
 
-
             if (
               fotoNueva
             ) {
@@ -3753,10 +3684,8 @@
               datos.imagen =
                 fotoNueva.url;
 
-
               datos.storagePath =
                 fotoNueva.ruta;
-
 
               if (
                 producto.storagePath
@@ -3786,7 +3715,6 @@
 
             }
 
-
             await updateDoc(
               doc(
                 db,
@@ -3796,7 +3724,6 @@
               datos
             );
 
-
             mostrarMensajeAdmin(
               "✅ Producto actualizado correctamente.",
               "exito"
@@ -3804,12 +3731,9 @@
 
           }
 
-
           await cargarProductosNuevamente();
 
-
           limpiarFormularioAdmin();
-
 
           cargarProductosAdmin();
 
@@ -3820,7 +3744,6 @@
             error
           );
 
-
           mostrarMensajeAdmin(
             "❌ No se pudo guardar. Revisa Firebase Storage y Firestore.",
             "error"
@@ -3830,7 +3753,6 @@
 
           boton.disabled =
             false;
-
 
           boton.textContent =
             estabaEditando
@@ -3857,7 +3779,6 @@
             )
         );
 
-
       try {
 
         const snapshot =
@@ -3867,7 +3788,6 @@
               "productos"
             )
           );
-
 
         snapshot.forEach(
           (documento) => {
@@ -3883,7 +3803,6 @@
 
           }
         );
-
 
         renderizarTodos();
 
@@ -3909,7 +3828,6 @@
           "listaAdminProductos"
         );
 
-
       contenedor.innerHTML = `
 
         <div
@@ -3925,7 +3843,6 @@
 
       `;
 
-
       try {
 
         const snapshot =
@@ -3936,10 +3853,8 @@
             )
           );
 
-
         contenedor.innerHTML =
           "";
-
 
         if (
           snapshot.empty
@@ -3962,11 +3877,9 @@
 
           `;
 
-
           return;
 
         }
-
 
         snapshot.forEach(
           (documento) => {
@@ -3980,16 +3893,13 @@
 
               };
 
-
             const tarjeta =
               document.createElement(
                 "div"
               );
 
-
             tarjeta.className =
               "admin-producto";
-
 
             const imagen =
               producto.imagen ||
@@ -3997,18 +3907,15 @@
               producto.foto ||
               "";
 
-
             const nombre =
               producto.nombre ||
               "Producto";
-
 
             const precio =
               Number(
                 producto.precio ||
                 0
               );
-
 
             tarjeta.innerHTML = `
 
@@ -4082,7 +3989,6 @@
 
             `;
 
-
             contenedor.appendChild(
               tarjeta
             );
@@ -4095,7 +4001,6 @@
         console.error(
           error
         );
-
 
         contenedor.innerHTML = `
 
@@ -4132,7 +4037,6 @@
 
         }
 
-
         try {
 
           const snapshot =
@@ -4143,10 +4047,8 @@
               )
             );
 
-
           let producto =
             null;
-
 
           snapshot.forEach(
             (documento) => {
@@ -4169,28 +4071,23 @@
             }
           );
 
-
           if (!producto) {
 
             alert(
               "No se encontró el producto."
             );
 
-
             return;
 
           }
 
-
           productoEditandoId =
             id;
-
 
           document.getElementById(
             "tituloFormulario"
           ).textContent =
             "✏️ Editar producto";
-
 
           document.getElementById(
             "nombreProducto"
@@ -4198,13 +4095,11 @@
             producto.nombre ||
             "";
 
-
           document.getElementById(
             "precioProducto"
           ).value =
             producto.precio ||
             "";
-
 
           document.getElementById(
             "categoriaProducto"
@@ -4213,31 +4108,26 @@
               producto.categoria
             );
 
-
           document.getElementById(
             "descripcionProducto"
           ).value =
             producto.descripcion ||
             "";
 
-
           document.getElementById(
             "botonGuardarProducto"
           ).textContent =
             "💾 Guardar cambios";
-
 
           document.getElementById(
             "botonCancelarEdicion"
           ).style.display =
             "block";
 
-
           const preview =
             document.getElementById(
               "vistaPreviaFoto"
             );
-
 
           if (
             producto.imagen
@@ -4246,12 +4136,10 @@
             preview.src =
               producto.imagen;
 
-
             preview.style.display =
               "block";
 
           }
-
 
           document
             .getElementById(
@@ -4261,7 +4149,6 @@
               behavior:
                 "smooth"
             });
-
 
         } catch (error) {
 
@@ -4289,19 +4176,16 @@
 
         }
 
-
         const confirmar =
           confirm(
             "¿Seguro que quieres eliminar este producto y su foto?"
           );
-
 
         if (!confirmar) {
 
           return;
 
         }
-
 
         try {
 
@@ -4313,10 +4197,8 @@
               )
             );
 
-
           let producto =
             null;
-
 
           snapshot.forEach(
             (documento) => {
@@ -4339,7 +4221,6 @@
             }
           );
 
-
           if (!producto) {
 
             throw new Error(
@@ -4347,7 +4228,6 @@
             );
 
           }
-
 
           if (
             producto.storagePath
@@ -4375,7 +4255,6 @@
 
           }
 
-
           await deleteDoc(
             doc(
               db,
@@ -4384,25 +4263,20 @@
             )
           );
 
-
           mostrarMensajeAdmin(
             "✅ Producto eliminado correctamente.",
             "exito"
           );
 
-
           await cargarProductosNuevamente();
 
-
           cargarProductosAdmin();
-
 
         } catch (error) {
 
           console.error(
             error
           );
-
 
           mostrarMensajeAdmin(
             "❌ No se pudo eliminar el producto.",
@@ -4424,7 +4298,6 @@
         productoEditandoId =
           null;
 
-
         limpiarFormularioAdmin();
 
       };
@@ -4435,62 +4308,51 @@
       productoEditandoId =
         null;
 
-
       document.getElementById(
         "tituloFormulario"
       ).textContent =
         "➕ Agregar producto";
-
 
       document.getElementById(
         "nombreProducto"
       ).value =
         "";
 
-
       document.getElementById(
         "precioProducto"
       ).value =
         "";
-
 
       document.getElementById(
         "categoriaProducto"
       ).value =
         "ropa";
 
-
       document.getElementById(
         "descripcionProducto"
       ).value =
         "";
-
 
       document.getElementById(
         "fotoProducto"
       ).value =
         "";
 
-
       const preview =
         document.getElementById(
           "vistaPreviaFoto"
         );
 
-
       preview.src =
         "";
 
-
       preview.style.display =
         "none";
-
 
       document.getElementById(
         "botonCancelarEdicion"
       ).style.display =
         "none";
-
 
       document.getElementById(
         "botonGuardarProducto"
@@ -4514,22 +4376,18 @@
           "mensajeAdmin"
         );
 
-
       elemento.className =
         "estado-admin " +
         tipo;
 
-
       elemento.textContent =
         texto;
-
 
       setTimeout(
         () => {
 
           elemento.className =
             "estado-admin";
-
 
           elemento.textContent =
             "";
@@ -4554,10 +4412,8 @@
             "botonAdmin"
           );
 
-
         boton.style.display =
           "block";
-
 
         if (
           modalAdmin.classList.contains(
