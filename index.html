@@ -238,30 +238,44 @@ header{
   font-size:25px;
   font-weight:900;
   color:#2786a0;
-  margin-bottom:15px;
 }
 
-/* BOTÓN VOLVER */
+/* =========================
+   BOTÓN VOLVER FLOTANTE
+========================= */
 
-.boton-inicio-categoria{
+.boton-volver-flotante{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:5001;
+  width:58px;
+  height:58px;
   border:none;
-  background:#e9f8fb;
-  color:#27839a;
-  border:1px solid #bfe4ec;
-  border-radius:13px;
-  padding:11px 20px;
-  font-size:15px;
-  font-weight:900;
+  border-radius:50%;
+  background:#219dbb;
+  color:#ffffff;
+  font-size:25px;
   cursor:pointer;
-  transition:.2s;
+  box-shadow:0 8px 22px rgba(30,140,165,.28);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  transition:transform .2s,box-shadow .2s,background .2s;
 }
 
-.boton-inicio-categoria:hover{
-  background:#d9f3f8;
+.boton-volver-flotante.visible{
+  display:flex;
 }
 
-.boton-inicio-categoria:active{
-  transform:scale(.96);
+.boton-volver-flotante:hover{
+  background:#168da9;
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(30,140,165,.35);
+}
+
+.boton-volver-flotante:active{
+  transform:scale(.94);
 }
 
 /* =========================
@@ -770,11 +784,6 @@ footer{
     font-size:21px;
   }
 
-  .boton-inicio-categoria{
-    font-size:14px;
-    padding:10px 16px;
-  }
-
   .productos{
     padding:14px;
     grid-template-columns:repeat(2,1fr);
@@ -805,6 +814,21 @@ footer{
   .cuadros-info{
     grid-template-columns:1fr;
     gap:13px;
+  }
+
+  .boton-volver-flotante{
+    left:14px;
+    bottom:18px;
+    width:54px;
+    height:54px;
+    font-size:23px;
+  }
+
+  .carrito-flotante{
+    right:14px;
+    bottom:18px;
+    width:54px;
+    height:54px;
   }
 
 }
@@ -959,13 +983,6 @@ footer{
         👕 ROPA
       </h2>
 
-      <button
-        class="boton-inicio-categoria"
-        onclick="volverInicio()"
-      >
-        🏠 Volver al inicio
-      </button>
-
     </div>
 
 
@@ -977,6 +994,19 @@ footer{
   </div>
 
 </section>
+
+
+<!-- BOTÓN VOLVER AL INICIO FLOTANTE -->
+
+<button
+  class="boton-volver-flotante"
+  id="botonVolverFlotante"
+  onclick="volverInicio()"
+  aria-label="Volver al inicio"
+  title="Volver al inicio"
+>
+  🏠
+</button>
 
 
 <!-- PANEL ADMIN -->
@@ -1261,7 +1291,7 @@ const firebaseConfig = {
 
 
 const app =
-  initializeApp(firebaseConfig);
+  initializeApp(appConfig = firebaseConfig);
 
 const db =
   getFirestore(app);
@@ -1355,6 +1385,20 @@ function crearTarjetaProducto(producto){
       "img"
     );
 
+
+  /*
+    Si la imagen no existe o no carga,
+    se elimina TODA la tarjeta.
+  */
+
+  img.onerror =
+    function(){
+
+      tarjeta.remove();
+
+    };
+
+
   img.src =
     producto.imagen || "";
 
@@ -1374,9 +1418,15 @@ function crearTarjetaProducto(producto){
   imagen.onclick =
     function(){
 
-      abrirFoto(
+      if(
         producto.imagen
-      );
+      ){
+
+        abrirFoto(
+          producto.imagen
+        );
+
+      }
 
     };
 
@@ -1494,6 +1544,11 @@ function irCategoria(categoria){
       "productosCategoria"
     );
 
+  const botonVolver =
+    document.getElementById(
+      "botonVolverFlotante"
+    );
+
 
   if(
     !carpeta ||
@@ -1535,6 +1590,16 @@ function irCategoria(categoria){
     boton.classList.remove(
       "activa"
     );
+
+
+    if(botonVolver){
+
+      botonVolver.classList.remove(
+        "visible"
+      );
+
+    }
+
 
     return;
 
@@ -1643,6 +1708,15 @@ function irCategoria(categoria){
     "abierta"
   );
 
+
+  if(botonVolver){
+
+    botonVolver.classList.add(
+      "visible"
+    );
+
+  }
+
 }
 
 
@@ -1658,9 +1732,13 @@ function volverInicio(){
     );
 
 
-  carpeta.classList.remove(
-    "abierta"
-  );
+  if(carpeta){
+
+    carpeta.classList.remove(
+      "abierta"
+    );
+
+  }
 
 
   document
@@ -1673,6 +1751,21 @@ function volverInicio(){
           "activa"
         )
     );
+
+
+  const botonVolver =
+    document.getElementById(
+      "botonVolverFlotante"
+    );
+
+
+  if(botonVolver){
+
+    botonVolver.classList.remove(
+      "visible"
+    );
+
+  }
 
 
   window.scrollTo({
@@ -1707,6 +1800,11 @@ function mostrarCategoria(
   const contenedor =
     document.getElementById(
       "productosCategoria"
+    );
+
+  const botonVolver =
+    document.getElementById(
+      "botonVolverFlotante"
     );
 
 
@@ -1753,7 +1851,8 @@ function mostrarCategoria(
 
 
   titulo.textContent =
-    nombres[categoria];
+    nombres[categoria] ||
+    "🛍️ PRODUCTOS";
 
 
   contenedor.innerHTML =
@@ -1807,6 +1906,15 @@ function mostrarCategoria(
   carpeta.classList.add(
     "abierta"
   );
+
+
+  if(botonVolver){
+
+    botonVolver.classList.add(
+      "visible"
+    );
+
+  }
 
 }
 
@@ -2145,6 +2253,21 @@ document
             activa.dataset.categoria
           );
 
+        }else{
+
+          const botonVolver =
+            document.getElementById(
+              "botonVolverFlotante"
+            );
+
+          if(botonVolver){
+
+            botonVolver.classList.remove(
+              "visible"
+            );
+
+          }
+
         }
 
         return;
@@ -2165,6 +2288,11 @@ document
       const contenedor =
         document.getElementById(
           "productosCategoria"
+        );
+
+      const botonVolver =
+        document.getElementById(
+          "botonVolverFlotante"
         );
 
 
@@ -2236,6 +2364,15 @@ document
       carpeta.classList.add(
         "abierta"
       );
+
+
+      if(botonVolver){
+
+        botonVolver.classList.add(
+          "visible"
+        );
+
+      }
 
     }
   );
@@ -3065,4 +3202,4 @@ document.addEventListener(
 </script>
 
 </body>
-</html>
+</html>t
