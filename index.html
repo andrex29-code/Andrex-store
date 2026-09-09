@@ -19,101 +19,68 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f6fcfd;
-  color:#29484d;
+  background:#f5fbfc;
+  color:#16343a;
   min-height:100vh;
 }
 
 /* =========================
-   ENCABEZADO
+   HEADER
 ========================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:1000;
-  min-height:78px;
-  padding:12px 20px;
+  z-index:5000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #dceff2;
+  padding:15px 18px;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
-
-  background:linear-gradient(
-    135deg,
-    #79dce3,
-    #8ee8ed,
-    #65cbd5
-  );
-
-  box-shadow:0 5px 22px rgba(32,120,130,.20);
+  gap:12px;
 }
-
-/* Nombre de la tienda */
 
 .logo{
   cursor:pointer;
   user-select:none;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  line-height:1;
-  animation:logoGlow 3s ease-in-out infinite;
-}
-
-.logo-main{
-  font-size:31px;
+  font-size:25px;
   font-weight:900;
-  letter-spacing:2px;
-  color:white;
-  text-shadow:
-    0 0 7px rgba(255,255,255,.9),
-    0 4px 13px rgba(30,100,110,.30);
+  letter-spacing:1px;
+  color:#159eb0;
+  text-shadow:0 3px 12px rgba(21,158,176,.18);
 }
 
-.logo-heart{
-  font-size:27px;
-  filter:drop-shadow(0 0 8px rgba(255,255,255,.7));
-}
-
-.logo-store{
-  font-size:17px;
-  font-weight:900;
-  letter-spacing:4px;
-  color:#eaffff;
-  text-shadow:0 2px 8px rgba(30,100,110,.25);
-}
-
-@keyframes logoGlow{
-  0%,100%{
-    transform:scale(1);
-  }
-  50%{
-    transform:scale(1.025);
-  }
+.logo span{
+  color:#16343a;
 }
 
 .header-buttons{
   display:flex;
-  align-items:center;
-  gap:9px;
+  gap:8px;
 }
 
-.header-buttons button{
+.header-btn{
   border:none;
+  background:#e9f9fb;
+  color:#147f8d;
+  padding:10px 13px;
   border-radius:14px;
-  padding:11px 15px;
-  background:rgba(255,255,255,.94);
-  color:#28737b;
-  font-weight:800;
+  font-weight:700;
   cursor:pointer;
-  box-shadow:0 4px 12px rgba(30,100,110,.12);
   transition:.2s;
 }
 
-.header-buttons button:hover{
+.header-btn:hover{
   transform:translateY(-2px);
-  background:white;
+  background:#d8f4f7;
 }
 
 /* =========================
@@ -122,44 +89,34 @@ header{
 
 .hero-video{
   width:100%;
-  background:#000;
-  overflow:hidden;
+  max-width:1200px;
+  margin:18px auto 0;
+  padding:0 15px;
 }
 
 .hero-video video{
-  width:100%;
   display:block;
-  max-height:560px;
+  width:100%;
+  max-height:520px;
   object-fit:cover;
+  border-radius:24px;
+  background:#dff5f7;
+  box-shadow:0 12px 35px rgba(0,0,0,.10);
 }
 
 /* =========================
    LEMA
 ========================= */
 
-.lema-tienda{
-  max-width:1050px;
-  margin:25px auto 10px;
-  padding:24px 28px;
-  border-radius:26px;
-
-  background:linear-gradient(
-    135deg,
-    #ffffff,
-    #edfdff,
-    #d9f8fb
-  );
-
-  border:1px solid rgba(76,190,199,.20);
-  box-shadow:0 10px 30px rgba(35,110,120,.10);
+.lema{
+  max-width:1000px;
+  margin:18px auto 5px;
+  padding:0 18px;
   text-align:center;
-}
-
-.lema-tienda p{
-  font-size:18px;
-  line-height:1.65;
+  font-size:17px;
+  line-height:1.6;
   font-weight:600;
-  color:#376f75;
+  color:#41666d;
 }
 
 /* =========================
@@ -167,62 +124,100 @@ header{
 ========================= */
 
 .container{
-  width:min(1200px,94%);
+  max-width:1200px;
   margin:auto;
-}
-
-h2{
-  text-align:center;
-  margin:30px 0 18px;
-  color:#28737b;
+  padding:10px 15px 110px;
 }
 
 /* =========================
    CATEGORÍAS
 ========================= */
 
+#seccionCategorias{
+  margin-top:25px;
+}
+
+.titulo-categorias{
+  text-align:center;
+  font-size:23px;
+  margin-bottom:18px;
+  color:#183f46;
+}
+
 .categorias-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:16px;
-  margin-top:20px;
+  gap:14px;
 }
 
-.categoria-card{
+.categoria{
   border:none;
-  min-height:145px;
-  border-radius:25px;
+  min-height:120px;
+  border-radius:24px;
   cursor:pointer;
-
-  background:linear-gradient(
-    145deg,
-    #ffffff,
-    #e5fafc
-  );
-
-  box-shadow:0 8px 24px rgba(0,0,0,.08);
-
+  background:white;
+  border:1px solid #dceff2;
+  box-shadow:0 8px 25px rgba(0,0,0,.07);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
+  gap:8px;
   transition:.25s;
+  color:#183f46;
 }
 
-.categoria-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 13px 30px rgba(0,0,0,.13);
+.categoria:hover{
+  transform:translateY(-5px);
+  box-shadow:0 13px 30px rgba(0,0,0,.11);
+  border-color:#aee4e9;
 }
 
-.categoria-card .emoji{
-  font-size:48px;
-  margin-bottom:10px;
+.categoria .emoji{
+  font-size:39px;
 }
 
-.categoria-card strong{
-  font-size:19px;
-  color:#286f76;
+.categoria strong{
+  font-size:16px;
+}
+
+/* =========================
+   VISTA DE CATEGORÍA
+   IMPORTANTE:
+   ESTA VISTA REEMPLAZA LAS
+   CATEGORÍAS SIN HACER SCROLL
+========================= */
+
+#vistaCategoria{
+  display:none;
+  width:100%;
+}
+
+.categoria-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.categoria-header h2{
+  font-size:23px;
+  color:#183f46;
+}
+
+.btn-volver{
+  border:none;
+  background:#e5f8fa;
+  color:#147f8d;
+  padding:10px 14px;
+  border-radius:13px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.btn-volver:hover{
+  background:#d4f2f5;
 }
 
 /* =========================
@@ -231,134 +226,96 @@ h2{
 
 .productos-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:18px;
-  margin-top:20px;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
 }
 
 .producto{
   background:white;
-  border-radius:22px;
+  border-radius:21px;
   overflow:hidden;
-  box-shadow:0 7px 22px rgba(0,0,0,.08);
+  border:1px solid #e0eff1;
+  box-shadow:0 7px 22px rgba(0,0,0,.07);
   position:relative;
   transition:.25s;
 }
 
 .producto:hover{
   transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  box-shadow:0 12px 30px rgba(0,0,0,.11);
 }
 
 .producto-img{
   width:100%;
-  height:245px;
+  height:220px;
   object-fit:cover;
-  cursor:pointer;
   display:block;
+  cursor:pointer;
+  background:#eef9fa;
 }
 
 .producto-info{
-  padding:15px;
+  padding:13px;
 }
 
-.producto-info h3{
-  color:#285e64;
+.producto-nombre{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:7px;
+  color:#173b42;
+}
+
+.producto-precio{
   font-size:18px;
-  margin-bottom:8px;
-}
-
-.precio{
-  color:#15909a;
-  font-size:20px;
   font-weight:900;
+  color:#1295a6;
   margin-bottom:10px;
 }
 
-.descripcion{
-  color:#789296;
-  font-size:14px;
-  line-height:1.45;
-  margin-bottom:12px;
+.producto-categoria{
+  font-size:12px;
+  color:#789096;
+  margin-bottom:11px;
 }
 
-.producto-botones{
+.producto-actions{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:8px;
+  gap:7px;
 }
 
-.producto-botones button{
+.btn-producto{
   border:none;
-  border-radius:12px;
-  padding:10px 7px;
-  font-weight:800;
+  padding:9px 7px;
+  border-radius:11px;
+  font-weight:700;
   cursor:pointer;
-  transition:.2s;
-}
-
-.btn-consultar{
-  background:#e7fafd;
-  color:#26737a;
+  font-size:12px;
 }
 
 .btn-carrito{
-  background:#70d5dd;
-  color:white;
+  background:#dff7f9;
+  color:#147f8d;
 }
 
-.producto-botones button:hover{
-  transform:translateY(-2px);
+.btn-whatsapp{
+  background:#e6f7e9;
+  color:#21853a;
 }
 
-.favorito-btn{
+.btn-favorito{
   position:absolute;
   top:10px;
   right:10px;
-  width:42px;
-  height:42px;
+  width:39px;
+  height:39px;
   border:none;
   border-radius:50%;
-  background:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.94);
+  box-shadow:0 4px 13px rgba(0,0,0,.12);
   cursor:pointer;
-  font-size:21px;
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
-}
-
-/* =========================
-   VISTA CATEGORÍA
-========================= */
-
-#vistaCategoria{
-  display:none;
-  margin-top:25px;
-}
-
-.categoria-header{
-  background:white;
-  border-radius:22px;
-  padding:20px;
-  box-shadow:0 7px 22px rgba(0,0,0,.07);
-  text-align:center;
-}
-
-.categoria-header h2{
-  margin:0 0 8px;
-}
-
-.categoria-header p{
-  color:#789296;
-}
-
-.btn-volver{
-  margin-top:15px;
-  border:none;
-  padding:11px 17px;
-  border-radius:13px;
-  background:#e3f9fb;
-  color:#28737b;
-  font-weight:800;
-  cursor:pointer;
+  font-size:20px;
+  z-index:5;
 }
 
 /* =========================
@@ -366,68 +323,68 @@ h2{
 ========================= */
 
 .destacados{
-  margin-top:38px;
+  margin-top:42px;
 }
 
-.destacados h2{
-  font-size:27px;
+.seccion-titulo{
+  font-size:23px;
+  margin-bottom:18px;
+  color:#183f46;
+}
+
+.productos-destacados{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
 }
 
 /* =========================
-   INFO
+   INFORMACIÓN
 ========================= */
 
 .info-tienda{
-  margin:38px 0 50px;
+  margin-top:42px;
 }
 
 .info-tienda-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:15px;
 }
 
 .info-card{
   border:none;
-  min-height:155px;
-  border-radius:24px;
-
-  background:linear-gradient(
-    145deg,
-    #ffffff,
-    #eafcff
-  );
-
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-  cursor:pointer;
-  padding:22px;
+  background:white;
+  border:1px solid #dceff2;
+  border-radius:21px;
+  padding:20px 15px;
   text-align:center;
-  transition:.25s;
+  box-shadow:0 7px 22px rgba(0,0,0,.06);
+  cursor:pointer;
+  color:#183f46;
+  transition:.2s;
 }
 
 .info-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(0,0,0,.13);
+  transform:translateY(-3px);
 }
 
 .info-card .emoji{
-  font-size:42px;
+  font-size:32px;
   display:block;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .info-card strong{
   display:block;
-  color:#246f76;
-  font-size:19px;
+  font-size:17px;
+  margin-bottom:6px;
 }
 
 .info-card p{
-  margin-top:8px;
-  color:#789296;
-  font-size:14px;
-  line-height:1.4;
+  color:#6d858a;
+  font-size:13px;
+  line-height:1.5;
 }
 
 /* =========================
@@ -435,42 +392,43 @@ h2{
 ========================= */
 
 .flotantes{
-  position:fixed;
-  right:16px;
-  bottom:18px;
-  z-index:900;
-
+  position:fixed !important;
+  right:16px !important;
+  bottom:max(18px, env(safe-area-inset-bottom)) !important;
+  z-index:99999 !important;
   display:flex;
   flex-direction:column;
   gap:9px;
+  pointer-events:none;
+}
+
+.flotante,
+.flotante-pedido{
+  pointer-events:auto;
+  border:none;
+  border-radius:18px;
+  padding:12px 15px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,0,0,.18);
+  white-space:nowrap;
+  transition:.2s;
 }
 
 .flotante{
-  border:none;
-  padding:12px 17px;
-  border-radius:30px;
-
   background:white;
-  color:#28737b;
-
-  font-weight:900;
-  cursor:pointer;
-
-  box-shadow:0 7px 22px rgba(0,0,0,.16);
+  color:#d73d68;
+  border:1px solid #f0dce3;
 }
 
 .flotante-pedido{
-  border:none;
-  padding:12px 17px;
-  border-radius:30px;
-
-  background:#69d2da;
+  background:#159eb0;
   color:white;
+}
 
-  font-weight:900;
-  cursor:pointer;
-
-  box-shadow:0 7px 22px rgba(0,0,0,.18);
+.flotante:hover,
+.flotante-pedido:hover{
+  transform:translateY(-3px);
 }
 
 /* =========================
@@ -478,99 +436,61 @@ h2{
 ========================= */
 
 .modal{
-  display:none;
   position:fixed;
   inset:0;
-  z-index:2000;
-  background:rgba(0,0,0,.60);
-
+  background:rgba(0,0,0,.55);
+  z-index:100000;
+  display:none;
   align-items:center;
   justify-content:center;
-
-  padding:20px;
+  padding:18px;
 }
 
 .modal-box{
-  width:min(500px,100%);
+  width:100%;
+  max-width:520px;
   max-height:90vh;
   overflow:auto;
-
   background:white;
   border-radius:25px;
   padding:22px;
-
   box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 .modal-box h2{
-  margin-top:0;
+  margin-bottom:16px;
+  color:#183f46;
 }
 
-.cerrar{
+.close{
   float:right;
   border:none;
-  background:#edfafa;
-  color:#28737b;
-  width:38px;
-  height:38px;
+  background:#edf8f9;
+  width:35px;
+  height:35px;
   border-radius:50%;
   cursor:pointer;
-  font-size:19px;
-  font-weight:bold;
+  font-size:18px;
 }
 
-.modal-imagen-box{
-  width:min(900px,100%);
-  text-align:center;
-  background:transparent;
-}
-
-.modal-imagen-box img{
-  max-width:100%;
-  max-height:80vh;
-  object-fit:contain;
-  border-radius:18px;
-}
-
-/* =========================
-   FORMULARIOS
-========================= */
-
-.form-group{
-  margin-bottom:13px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:6px;
-  font-weight:800;
-  color:#3d656a;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
+.input{
   width:100%;
-  border:1px solid #cce9ec;
-  border-radius:13px;
-  padding:12px;
+  padding:13px;
+  border:1px solid #d6e9ec;
+  border-radius:12px;
   outline:none;
+  margin-bottom:10px;
   font-size:15px;
 }
 
-.form-group textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.btn-principal{
+.btn-general{
   width:100%;
   border:none;
-  padding:13px;
-  border-radius:14px;
-  background:#69d2da;
+  background:#159eb0;
   color:white;
-  font-weight:900;
+  padding:13px;
+  border-radius:13px;
+  font-weight:800;
   cursor:pointer;
   margin-top:6px;
 }
@@ -578,85 +498,91 @@ h2{
 .btn-secundario{
   width:100%;
   border:none;
+  background:#e8f8fa;
+  color:#147f8d;
   padding:12px;
-  border-radius:14px;
-  background:#e9fafd;
-  color:#28737b;
-  font-weight:900;
+  border-radius:13px;
+  font-weight:800;
   cursor:pointer;
-  margin-top:8px;
+  margin-top:7px;
+}
+
+/* =========================
+   IMAGEN GRANDE
+========================= */
+
+#imagenGrande{
+  width:100%;
+  max-height:75vh;
+  object-fit:contain;
+  border-radius:15px;
 }
 
 /* =========================
    CARRITO
 ========================= */
 
-.carrito-item{
+.item-carrito{
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:10px;
-  padding:12px 0;
-  border-bottom:1px solid #e5f0f1;
+  padding:11px 0;
+  border-bottom:1px solid #e7eff0;
 }
 
-.carrito-item-info{
+.item-carrito img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.item-carrito-info{
   flex:1;
 }
 
-.carrito-item-info strong{
-  color:#315e63;
-}
-
-.carrito-item-info small{
+.item-carrito-info strong{
   display:block;
-  color:#789296;
-  margin-top:3px;
 }
 
-.carrito-item button{
+.item-carrito-info small{
+  color:#6d858a;
+}
+
+.btn-eliminar{
   border:none;
-  background:#ffe9e9;
-  color:#d25d5d;
-  border-radius:10px;
-  padding:8px;
+  background:#ffecef;
+  color:#d34265;
+  border-radius:9px;
+  padding:7px 9px;
   cursor:pointer;
 }
 
 .total-carrito{
-  margin-top:18px;
-  font-size:21px;
-  font-weight:900;
   text-align:right;
-  color:#168b95;
+  font-size:20px;
+  font-weight:900;
+  margin-top:17px;
+  color:#159eb0;
 }
 
 /* =========================
-   PEDIDOS
+   FAVORITOS / BÚSQUEDA
 ========================= */
 
-.estado-pedido{
-  margin-top:15px;
+.resultado-item{
+  padding:12px 0;
+  border-bottom:1px solid #e5eeee;
 }
 
-.estado{
-  padding:15px;
-  border-radius:17px;
-  background:#effcfd;
-  margin-top:12px;
+.resultado-item strong{
+  display:block;
+  margin-bottom:4px;
 }
 
-.estado strong{
-  color:#27727a;
-}
-
-.codigo{
-  font-size:25px;
-  font-weight:900;
-  color:#15909a;
-  letter-spacing:2px;
-  text-align:center;
-  margin:10px 0;
+.resultado-item span{
+  color:#159eb0;
+  font-weight:800;
 }
 
 /* =========================
@@ -665,201 +591,161 @@ h2{
 
 #adminPanel{
   display:none;
-  margin:30px auto;
-  width:min(1100px,94%);
-}
-
-.admin-box{
+  margin-top:40px;
   background:white;
-  border-radius:24px;
-  padding:22px;
-  box-shadow:0 8px 25px rgba(0,0,0,.09);
+  border:1px solid #dceff2;
+  border-radius:25px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.07);
 }
 
-.admin-box h2{
-  margin-top:0;
+.admin-title{
+  font-size:22px;
+  margin-bottom:18px;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.admin-card{
+  border:1px solid #e0edef;
+  border-radius:16px;
+  padding:15px;
+}
+
+.admin-card h3{
+  margin-bottom:12px;
+  color:#159eb0;
 }
 
 .admin-producto{
-  border:1px solid #e1f1f2;
-  border-radius:17px;
-  padding:13px;
-  margin-top:10px;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
   gap:10px;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid #edf2f3;
 }
 
-.admin-producto button{
-  border:none;
+.admin-producto img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
   border-radius:10px;
-  padding:8px 11px;
+}
+
+.admin-producto-info{
+  flex:1;
+}
+
+.admin-small-btn{
+  border:none;
+  border-radius:8px;
+  padding:7px;
   cursor:pointer;
-  font-weight:800;
+  margin:2px;
+  font-size:11px;
 }
 
 .btn-destacado{
-  background:#fff5cf;
-  color:#9a7615;
+  background:#fff5c9;
 }
 
-.btn-eliminar{
-  background:#ffe7e7;
-  color:#c14c4c;
+.btn-borrar{
+  background:#ffe6ea;
+  color:#c93658;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  margin-top:40px;
-  padding:28px 20px;
-  background:#dff8fa;
-  text-align:center;
-  color:#528087;
-}
-
-footer strong{
-  color:#28737b;
+.estado{
+  padding:5px 9px;
+  border-radius:9px;
+  background:#e7f7f9;
+  color:#147f8d;
+  font-size:12px;
+  font-weight:800;
+  display:inline-block;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:800px){
-
-  header{
-    padding:11px 13px;
-  }
-
-  .logo-main{
-    font-size:24px;
-  }
-
-  .logo-store{
-    font-size:13px;
-    letter-spacing:2px;
-  }
-
-  .logo-heart{
-    font-size:22px;
-  }
-
-  .header-buttons button{
-    padding:9px 10px;
-    font-size:13px;
+@media(max-width:900px){
+  .productos-grid,
+  .productos-destacados{
+    grid-template-columns:repeat(3,1fr);
   }
 
   .categorias-grid{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .admin-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .logo{
+    font-size:20px;
+  }
+
+  .header-btn{
+    padding:9px 10px;
+    font-size:12px;
+  }
+
+  .lema{
+    font-size:15px;
+  }
+
+  .productos-grid,
+  .productos-destacados{
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+  }
+
+  .producto-img{
+    height:175px;
+  }
+
+  .producto-info{
+    padding:10px;
+  }
+
+  .producto-nombre{
+    font-size:14px;
+  }
+
+  .producto-precio{
+    font-size:16px;
   }
 
   .info-tienda-grid{
     grid-template-columns:1fr;
   }
-}
-
-@media(max-width:520px){
-
-  header{
-    min-height:68px;
-  }
-
-  .logo{
-    gap:3px;
-  }
-
-  .logo-main{
-    font-size:20px;
-    letter-spacing:1px;
-  }
-
-  .logo-heart{
-    font-size:18px;
-  }
-
-  .logo-store{
-    font-size:10px;
-    letter-spacing:1px;
-  }
-
-  .header-buttons{
-    gap:5px;
-  }
-
-  .header-buttons button{
-    padding:8px 8px;
-    font-size:12px;
-  }
-
-  .hero-video video{
-    min-height:220px;
-    object-fit:cover;
-  }
-
-  .lema-tienda{
-    margin:18px 10px;
-    padding:19px 16px;
-  }
-
-  .lema-tienda p{
-    font-size:15px;
-    line-height:1.55;
-  }
-
-  .categorias-grid{
-    gap:10px;
-  }
-
-  .categoria-card{
-    min-height:125px;
-  }
-
-  .categoria-card .emoji{
-    font-size:38px;
-  }
-
-  .categoria-card strong{
-    font-size:16px;
-  }
-
-  .productos-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .producto-img{
-    height:190px;
-  }
-
-  .producto-info{
-    padding:11px;
-  }
-
-  .producto-info h3{
-    font-size:15px;
-  }
-
-  .precio{
-    font-size:17px;
-  }
-
-  .producto-botones{
-    grid-template-columns:1fr;
-  }
 
   .flotantes{
-    right:9px;
-    bottom:10px;
+    right:10px !important;
+    bottom:max(12px, env(safe-area-inset-bottom)) !important;
   }
 
   .flotante,
   .flotante-pedido{
     font-size:12px;
-    padding:10px 13px;
+    padding:10px 12px;
+    border-radius:15px;
+  }
+
+  .categoria-header{
+    align-items:flex-start;
+  }
+
+  .categoria-header h2{
+    font-size:19px;
   }
 }
 </style>
@@ -868,22 +754,22 @@ footer strong{
 <body>
 
 <!-- =========================
-     ENCABEZADO
+     HEADER
 ========================= -->
 
 <header>
+  <div class="header-inner">
 
-  <div class="logo" onclick="activarAdmin()">
-    <span class="logo-main">ANDREX</span>
-    <span class="logo-heart">🩵</span>
-    <span class="logo-store">STORE</span>
+    <div class="logo" id="logoAdmin" onclick="activarAdmin()">
+      ANDREX <span>🩵 STORE</span>
+    </div>
+
+    <div class="header-buttons">
+      <button class="header-btn" onclick="abrirBusqueda()">🔎 Buscar</button>
+      <button class="header-btn" onclick="abrirCarrito()">🛒 Carrito</button>
+    </div>
+
   </div>
-
-  <div class="header-buttons">
-    <button onclick="abrirBusqueda()">🔎 Buscar</button>
-    <button onclick="abrirCarrito()">🛒 Carrito</button>
-  </div>
-
 </header>
 
 
@@ -892,19 +778,12 @@ footer strong{
 ========================= -->
 
 <section class="hero-video">
-
   <video
-    autoplay
-    muted
-    loop
+    controls
     playsinline
-    controls>
-    <source
-      src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
-      type="video/mp4">
-    Tu navegador no puede reproducir este video.
+    preload="metadata"
+    src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4">
   </video>
-
 </section>
 
 
@@ -912,174 +791,313 @@ footer strong{
      LEMA
 ========================= -->
 
-<section class="lema-tienda">
-
-  <p>
-    ✨ Encuentra eso que va contigo, descubre nuevos estilos y disfruta una
-    experiencia de compra pensada para ti. 👕🧴👟📺 Productos seleccionados
-    con cariño, opciones para diferentes gustos y detalles que hacen especial
-    cada elección. 🛍️💙 Desde prendas para renovar tu estilo, lociones para
-    dejar una esencia inolvidable, zapatos para complementar cada look y
-    opciones de entretenimiento para disfrutar tus momentos favoritos. ✨
-    Porque tu estilo habla de ti y queremos ayudarte a encontrar algo que
-    realmente te encante. 💫🩵
-  </p>
-
-</section>
+<div class="lema">
+  ✨ Descubre ropa, lociones, zapatos y mucho más, seleccionados para acompañar tu estilo y hacer especial cada elección. 👕🧴👟📺 Encuentra tus favoritos, compra con confianza y disfruta cada elección. 🛍️💙✨
+</div>
 
 
 <main class="container">
 
-  <!-- =========================
-       INICIO
-  ========================= -->
+<!-- =========================
+     INICIO
+========================= -->
 
-  <section id="contenidoInicio">
+<section id="contenidoInicio">
 
-    <h2>✨ Explora nuestras categorías ✨</h2>
+  <!-- CATEGORÍAS -->
+  <section id="seccionCategorias">
 
-    <div class="categorias-grid" id="seccionCategorias">
-
-      <button
-        class="categoria-card"
-        onclick="abrirCategoria('ropa')">
-
-        <span class="emoji">👕</span>
-        <strong>ROPA</strong>
-
-      </button>
-
-      <button
-        class="categoria-card"
-        onclick="abrirCategoria('lociones')">
-
-        <span class="emoji">🧴</span>
-        <strong>LOCIONES</strong>
-
-      </button>
-
-      <button
-        class="categoria-card"
-        onclick="abrirCategoria('zapatos')">
-
-        <span class="emoji">👟</span>
-        <strong>ZAPATOS</strong>
-
-      </button>
-
-      <button
-        class="categoria-card"
-        onclick="abrirCategoria('streaming')">
-
-        <span class="emoji">📺</span>
-        <strong>STREAMING</strong>
-
-      </button>
-
-    </div>
-
-
-    <!-- =========================
-         DESTACADOS
-    ========================= -->
-
-    <section class="destacados">
-
-      <h2>⭐ Productos destacados</h2>
-
-      <div
-        id="productosDestacados"
-        class="productos-grid">
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         INFORMACIÓN
-    ========================= -->
-
-    <section class="info-tienda">
-
-      <div class="info-tienda-grid">
-
-        <button
-          class="info-card"
-          onclick="contactarWhatsApp('Hola, quiero consultar sobre el servicio de domicilio 🚚')">
-
-          <span class="emoji">🚚</span>
-
-          <strong>Domicilio</strong>
-
-          <p>
-            Consulta disponibilidad y costo de domicilio.
-          </p>
-
-        </button>
-
-
-        <button
-          class="info-card"
-          onclick="contactarWhatsApp('Hola, quiero consultar cuáles son los medios de pago disponibles 💳')">
-
-          <span class="emoji">💳</span>
-
-          <strong>Medios de pago</strong>
-
-          <p>
-            Consulta los medios de pago disponibles.
-          </p>
-
-        </button>
-
-
-        <button
-          class="info-card"
-          onclick="contactarWhatsApp('Hola, necesito ayuda con una compra 🆘')">
-
-          <span class="emoji">🆘</span>
-
-          <strong>Ayuda</strong>
-
-          <p>
-            Estamos aquí para ayudarte con tu compra.
-          </p>
-
-        </button>
-
-      </div>
-
-    </section>
-
-  </section>
-
-
-  <!-- =========================
-       VISTA CATEGORÍA
-  ========================= -->
-
-  <section id="vistaCategoria">
-
-    <div class="categoria-header">
-
-      <h2 id="tituloCategoria"></h2>
-
-      <p id="descripcionCategoria"></p>
-
-      <button
-        class="btn-volver"
-        onclick="volverCategorias()">
-        ← Volver a categorías
-      </button>
-
-    </div>
+    <h2 class="titulo-categorias" id="tituloCategorias">
+      ✨ Explora nuestras categorías ✨
+    </h2>
 
     <div
-      id="productosCategoria"
-      class="productos-grid">
+      class="categorias-grid"
+      id="categoriasGrid"
+    >
+
+      <button
+        class="categoria"
+        onclick="abrirCategoria('ropa', this)"
+      >
+        <span class="emoji">👕</span>
+        <strong>Ropa</strong>
+      </button>
+
+      <button
+        class="categoria"
+        onclick="abrirCategoria('lociones', this)"
+      >
+        <span class="emoji">🧴</span>
+        <strong>Lociones</strong>
+      </button>
+
+      <button
+        class="categoria"
+        onclick="abrirCategoria('zapatos', this)"
+      >
+        <span class="emoji">👟</span>
+        <strong>Zapatos</strong>
+      </button>
+
+      <button
+        class="categoria"
+        onclick="abrirCategoria('streaming', this)"
+      >
+        <span class="emoji">📺</span>
+        <strong>Streaming</strong>
+      </button>
+
+    </div>
+
+
+    <!-- ESTA VISTA APARECE EXACTAMENTE
+         DONDE ESTABA LA CATEGORÍA TOCADA -->
+
+    <section id="vistaCategoria">
+
+      <div class="categoria-header">
+
+        <h2 id="tituloCategoria">
+          Productos
+        </h2>
+
+        <button
+          class="btn-volver"
+          onclick="volverCategorias()"
+        >
+          ← Categorías
+        </button>
+
+      </div>
+
+      <p
+        id="descripcionCategoria"
+        style="color:#6d858a;margin-bottom:16px;"
+      ></p>
+
+      <div
+        id="productosCategoria"
+        class="productos-grid"
+      ></div>
+
+    </section>
+
+  </section>
+
+
+  <!-- =========================
+       DESTACADOS
+  ========================= -->
+
+  <section class="destacados">
+
+    <h2 class="seccion-titulo">
+      ⭐ Productos destacados
+    </h2>
+
+    <div
+      id="productosDestacados"
+      class="productos-destacados"
+    ></div>
+
+  </section>
+
+
+  <!-- =========================
+       INFORMACIÓN
+  ========================= -->
+
+  <section class="info-tienda">
+
+    <div class="info-tienda-grid">
+
+      <button
+        class="info-card"
+        onclick="contactarWhatsApp('Hola 👋 quiero consultar sobre el servicio de domicilio 🚚')"
+      >
+        <span class="emoji">🚚</span>
+        <strong>Domicilio</strong>
+        <p>
+          Consulta disponibilidad y costo de domicilio.
+        </p>
+      </button>
+
+      <button
+        class="info-card"
+        onclick="mostrarMediosPago()"
+      >
+        <span class="emoji">💳</span>
+        <strong>Medios de pago</strong>
+        <p>
+          Consulta los medios de pago disponibles.
+        </p>
+      </button>
+
+      <button
+        class="info-card"
+        onclick="contactarWhatsApp('Hola 👋 necesito ayuda con mi compra 🆘')"
+      >
+        <span class="emoji">🆘</span>
+        <strong>Ayuda</strong>
+        <p>
+          Estamos aquí para ayudarte con tu compra.
+        </p>
+      </button>
+
     </div>
 
   </section>
+
+
+  <!-- =========================
+       ADMIN
+  ========================= -->
+
+  <section id="adminPanel">
+
+    <h2 class="admin-title">
+      ⚙️ Panel de administración
+    </h2>
+
+    <div class="admin-grid">
+
+      <!-- PRODUCTOS -->
+      <div class="admin-card">
+
+        <h3>📦 Productos</h3>
+
+        <input
+          id="productoNombre"
+          class="input"
+          placeholder="Nombre del producto"
+        >
+
+        <input
+          id="productoPrecio"
+          class="input"
+          type="number"
+          placeholder="Precio"
+        >
+
+        <select
+          id="productoCategoria"
+          class="input"
+        >
+          <option value="ropa">Ropa</option>
+          <option value="lociones">Lociones</option>
+          <option value="zapatos">Zapatos</option>
+          <option value="streaming">Streaming</option>
+        </select>
+
+        <input
+          id="productoImagen"
+          class="input"
+          type="file"
+          accept="image/*"
+        >
+
+        <label style="display:block;margin:10px 0;">
+          <input
+            type="checkbox"
+            id="productoDestacado"
+          >
+          ⭐ Producto destacado
+        </label>
+
+        <button
+          class="btn-general"
+          onclick="guardarProducto()"
+        >
+          ➕ Guardar producto
+        </button>
+
+      </div>
+
+
+      <!-- PEDIDOS -->
+      <div class="admin-card">
+
+        <h3>📦 Gestionar pedidos</h3>
+
+        <input
+          id="pedidoCodigo"
+          class="input"
+          placeholder="Código del pedido"
+          readonly
+        >
+
+        <input
+          id="pedidoCliente"
+          class="input"
+          placeholder="Nombre del cliente"
+        >
+
+        <select
+          id="pedidoEstado"
+          class="input"
+        >
+          <option>Recibido</option>
+          <option>Preparando</option>
+          <option>En camino</option>
+          <option>Entregado</option>
+          <option>Cancelado</option>
+        </select>
+
+        <textarea
+          id="pedidoDetalle"
+          class="input"
+          placeholder="Detalle del pedido"
+          rows="4"
+        ></textarea>
+
+        <button
+          class="btn-general"
+          onclick="crearPedido()"
+        >
+          🧾 Crear pedido
+        </button>
+
+        <button
+          class="btn-secundario"
+          onclick="actualizarPedido()"
+        >
+          🔄 Actualizar pedido
+        </button>
+
+        <button
+          class="btn-secundario"
+          onclick="enviarCodigoPedidoWhatsApp()"
+        >
+          📲 Enviar código por WhatsApp
+        </button>
+
+        <div
+          id="codigoGenerado"
+          style="margin-top:12px;font-weight:800;color:#159eb0;"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <h3 style="margin:25px 0 12px;">
+      📋 Productos registrados
+    </h3>
+
+    <div id="listaAdmin"></div>
+
+
+    <h3 style="margin:25px 0 12px;">
+      📦 Pedidos recientes
+    </h3>
+
+    <div id="listaPedidosAdmin"></div>
+
+  </section>
+
+</section>
 
 </main>
 
@@ -1092,13 +1110,15 @@ footer strong{
 
   <button
     class="flotante"
-    onclick="abrirFavoritos()">
+    onclick="abrirFavoritos()"
+  >
     ❤️ Favoritos
   </button>
 
   <button
     class="flotante-pedido"
-    onclick="abrirEstadoPedido()">
+    onclick="abrirEstadoPedido()"
+  >
     📦 Estado de mi pedido
   </button>
 
@@ -1110,24 +1130,29 @@ footer strong{
 ========================= -->
 
 <div
-  id="modalImagen"
   class="modal"
-  onclick="cerrarModal('modalImagen')">
+  id="modalImagen"
+  onclick="cerrarModal(event,'modalImagen')"
+>
 
   <div
-    class="modal-imagen-box"
-    onclick="event.stopPropagation()">
+    class="modal-box"
+    onclick="event.stopPropagation()"
+    style="max-width:850px;"
+  >
 
     <button
-      class="cerrar"
-      onclick="cerrarModal('modalImagen')">
-      ×
+      class="close"
+      onclick="cerrar('modalImagen')"
+    >
+      ✕
     </button>
 
     <img
       id="imagenGrande"
       src=""
-      alt="Producto">
+      alt="Producto"
+    >
 
   </div>
 
@@ -1135,65 +1160,47 @@ footer strong{
 
 
 <!-- =========================
-     MODAL BÚSQUEDA
+     MODAL PEDIDO
 ========================= -->
 
 <div
-  id="modalBusqueda"
-  class="modal">
+  class="modal"
+  id="modalPedido"
+  onclick="cerrarModal(event,'modalPedido')"
+>
 
-  <div class="modal-box">
-
-    <button
-      class="cerrar"
-      onclick="cerrarModal('modalBusqueda')">
-      ×
-    </button>
-
-    <h2>🔎 Buscar productos</h2>
-
-    <div class="form-group">
-
-      <input
-        id="inputBusqueda"
-        type="text"
-        placeholder="Busca ropa, lociones, zapatos..."
-        oninput="buscarProductos()">
-
-    </div>
-
-    <div
-      id="resultadosBusqueda"
-      class="productos-grid">
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
-     MODAL FAVORITOS
-========================= -->
-
-<div
-  id="modalFavoritos"
-  class="modal">
-
-  <div class="modal-box">
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+  >
 
     <button
-      class="cerrar"
-      onclick="cerrarModal('modalFavoritos')">
-      ×
+      class="close"
+      onclick="cerrar('modalPedido')"
+    >
+      ✕
     </button>
 
-    <h2>❤️ Mis favoritos</h2>
+    <h2>📦 Estado de mi pedido</h2>
+
+    <input
+      id="buscarPedido"
+      class="input"
+      placeholder="Ejemplo: AX-1234"
+      maxlength="7"
+    >
+
+    <button
+      class="btn-general"
+      onclick="consultarPedido()"
+    >
+      🔎 Consultar pedido
+    </button>
 
     <div
-      id="listaFavoritos"
-      class="productos-grid">
-    </div>
+      id="resultadoPedido"
+      style="margin-top:15px;"
+    ></div>
 
   </div>
 
@@ -1205,15 +1212,21 @@ footer strong{
 ========================= -->
 
 <div
+  class="modal"
   id="modalCarrito"
-  class="modal">
+  onclick="cerrarModal(event,'modalCarrito')"
+>
 
-  <div class="modal-box">
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+  >
 
     <button
-      class="cerrar"
-      onclick="cerrarModal('modalCarrito')">
-      ×
+      class="close"
+      onclick="cerrar('modalCarrito')"
+    >
+      ✕
     </button>
 
     <h2>🛒 Mi carrito</h2>
@@ -1222,14 +1235,16 @@ footer strong{
 
     <div
       id="totalCarrito"
-      class="total-carrito">
+      class="total-carrito"
+    >
       Total: $0
     </div>
 
     <button
-      class="btn-principal"
-      onclick="enviarCarritoWhatsApp()">
-      💬 Comprar por WhatsApp
+      class="btn-general"
+      onclick="comprarCarritoWhatsApp()"
+    >
+      📲 Comprar por WhatsApp
     </button>
 
   </div>
@@ -1238,44 +1253,37 @@ footer strong{
 
 
 <!-- =========================
-     MODAL ESTADO PEDIDO
+     MODAL BÚSQUEDA
 ========================= -->
 
 <div
-  id="modalPedido"
-  class="modal">
+  class="modal"
+  id="modalBusqueda"
+  onclick="cerrarModal(event,'modalBusqueda')"
+>
 
-  <div class="modal-box">
-
-    <button
-      class="cerrar"
-      onclick="cerrarModal('modalPedido')">
-      ×
-    </button>
-
-    <h2>📦 Estado de mi pedido</h2>
-
-    <div class="form-group">
-
-      <label>Código de pedido</label>
-
-      <input
-        id="buscarPedido"
-        type="text"
-        placeholder="Ejemplo: AX-1234">
-
-    </div>
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+  >
 
     <button
-      class="btn-principal"
-      onclick="consultarPedido()">
-      🔎 Consultar pedido
+      class="close"
+      onclick="cerrar('modalBusqueda')"
+    >
+      ✕
     </button>
 
-    <div
-      id="resultadoPedido"
-      class="estado-pedido">
-    </div>
+    <h2>🔎 Buscar productos</h2>
+
+    <input
+      id="inputBusqueda"
+      class="input"
+      placeholder="Escribe lo que buscas..."
+      oninput="buscarProductos()"
+    >
+
+    <div id="resultadosBusqueda"></div>
 
   </div>
 
@@ -1283,250 +1291,41 @@ footer strong{
 
 
 <!-- =========================
-     ADMIN
+     MODAL FAVORITOS
 ========================= -->
 
-<section id="adminPanel">
+<div
+  class="modal"
+  id="modalFavoritos"
+  onclick="cerrarModal(event,'modalFavoritos')"
+>
 
-  <div class="admin-box">
-
-    <h2>👑 Panel de administrador</h2>
-
-    <p style="color:#789296;margin-bottom:20px;">
-      Administración de productos y pedidos.
-    </p>
-
-
-    <!-- AGREGAR PRODUCTO -->
-
-    <h3 style="color:#28737b;margin-bottom:15px;">
-      ➕ Agregar producto
-    </h3>
-
-    <div class="form-group">
-
-      <label>Nombre</label>
-
-      <input
-        id="productoNombre"
-        type="text"
-        placeholder="Nombre del producto">
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Precio</label>
-
-      <input
-        id="productoPrecio"
-        type="number"
-        placeholder="Precio">
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Categoría</label>
-
-      <select id="productoCategoria">
-
-        <option value="ropa">👕 Ropa</option>
-
-        <option value="lociones">🧴 Lociones</option>
-
-        <option value="zapatos">👟 Zapatos</option>
-
-        <option value="streaming">📺 Streaming</option>
-
-      </select>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Descripción</label>
-
-      <textarea
-        id="productoDescripcion"
-        placeholder="Descripción del producto">
-      </textarea>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Imagen</label>
-
-      <input
-        id="productoImagen"
-        type="file"
-        accept="image/*">
-
-    </div>
-
-
-    <label
-      style="display:flex;align-items:center;gap:8px;margin:12px 0;font-weight:bold;">
-
-      <input
-        id="productoDestacado"
-        type="checkbox">
-
-      ⭐ Marcar como destacado
-
-    </label>
-
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+  >
 
     <button
-      class="btn-principal"
-      onclick="guardarProducto()">
-      💾 Guardar producto
+      class="close"
+      onclick="cerrar('modalFavoritos')"
+    >
+      ✕
     </button>
 
+    <h2>❤️ Mis favoritos</h2>
 
-    <hr
-      style="margin:28px 0;border:none;border-top:1px solid #e3f0f1;">
-
-
-    <!-- LISTA PRODUCTOS -->
-
-    <h3 style="color:#28737b;">
-      📋 Productos
-    </h3>
-
-    <div id="listaAdmin"></div>
-
-
-    <hr
-      style="margin:28px 0;border:none;border-top:1px solid #e3f0f1;">
-
-
-    <!-- PEDIDOS -->
-
-    <h3 style="color:#28737b;margin-bottom:15px;">
-      📦 Crear / administrar pedidos
-    </h3>
-
-
-    <div class="form-group">
-
-      <label>Código</label>
-
-      <input
-        id="pedidoCodigo"
-        type="text"
-        readonly>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Cliente</label>
-
-      <input
-        id="pedidoCliente"
-        type="text"
-        placeholder="Nombre del cliente">
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Estado</label>
-
-      <select id="pedidoEstado">
-
-        <option>Recibido</option>
-        <option>Preparando</option>
-        <option>En camino</option>
-        <option>Entregado</option>
-        <option>Cancelado</option>
-
-      </select>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Detalle</label>
-
-      <textarea
-        id="pedidoDetalle"
-        placeholder="Productos, dirección, observaciones...">
-      </textarea>
-
-    </div>
-
-
-    <button
-      class="btn-principal"
-      onclick="generarCodigoPedido()">
-      🔢 Generar código
-    </button>
-
-    <button
-      class="btn-secundario"
-      onclick="crearPedido()">
-      📦 Crear pedido
-    </button>
-
-    <button
-      class="btn-secundario"
-      onclick="actualizarPedido()">
-      ✏️ Actualizar pedido
-    </button>
-
-    <button
-      class="btn-secundario"
-      onclick="enviarCodigoWhatsApp()">
-      💬 Enviar código por WhatsApp
-    </button>
-
-
-    <div
-      id="codigoGenerado"
-      style="margin-top:15px;text-align:center;">
-    </div>
-
-
-    <h3
-      style="color:#28737b;margin-top:25px;">
-      🧾 Pedidos recientes
-    </h3>
-
-    <div id="listaPedidosAdmin"></div>
+    <div id="listaFavoritos"></div>
 
   </div>
 
-</section>
+</div>
 
-
-<footer>
-
-  <p>
-    🩵 <strong>Tu estilo, tus elecciones, tu momento.</strong> ✨
-  </p>
-
-  <p style="margin-top:7px;font-size:13px;">
-    Gracias por visitar nuestra tienda 🛍️
-  </p>
-
-</footer>
-
-
-<!-- =========================
-     FIREBASE
-========================= -->
 
 <script type="module">
+
+/* =========================
+   FIREBASE
+========================= */
 
 import {
   initializeApp
@@ -1537,45 +1336,26 @@ import {
   collection,
   addDoc,
   getDocs,
-  doc,
-  deleteDoc,
-  updateDoc,
-  query,
-  where,
   getDoc,
-  setDoc
+  doc,
+  updateDoc,
+  deleteDoc,
+  query,
+  orderBy,
+  limit
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =========================
-   CONFIGURACIÓN FIREBASE
-========================= */
-
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyBG7jgOKWeNJed6QPDMW-4-933gG59I",
-
-  authDomain:
-    "andrex-store.firebaseapp.com",
-
-  projectId:
-    "andrex-store",
-
-  storageBucket:
-    "andrex-store.firebasestorage.app",
-
-  messagingSenderId:
-    "607192665861",
-
-  appId:
-    "1:607192665861:web:a4fb90f3a2009d6491716c"
-
+  apiKey:"AIzaSyBG7jgOKWeNJed6QPDMW-4-933gG59I",
+  authDomain:"andrex-store.firebaseapp.com",
+  projectId:"andrex-store",
+  storageBucket:"andrex-store.firebasestorage.app",
+  messagingSenderId:"607192665665",
+  appId:"1:607192665665:web:a4fb90f3a2009d6491716c"
 };
 
-
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
 
@@ -1584,21 +1364,40 @@ const db = getFirestore(app);
 ========================= */
 
 let productos = [];
+let pedidos = [];
 
-let favoritos =
-  JSON.parse(localStorage.getItem("andrexFavoritos") || "[]");
+let categoriaActual = null;
 
-let carrito =
-  JSON.parse(localStorage.getItem("andrexCarrito") || "[]");
-
-
-const WHATSAPP =
-  "573181579324";
+/*
+  Guardamos la posición exacta donde
+  el cliente tocó la categoría.
+*/
+let posicionAntesCategoria = 0;
 
 
 /* =========================
-   CATEGORÍAS
+   UTILIDADES
 ========================= */
+
+function escapeHtml(valor){
+
+  return String(valor ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function dinero(valor){
+
+  return "$" + Number(valor || 0)
+    .toLocaleString("es-CO");
+
+}
+
 
 function obtenerCategoriaProducto(producto){
 
@@ -1617,8 +1416,7 @@ function obtenerCategoriaProducto(producto){
 
 function perteneceCategoria(producto,categoria){
 
-  const cat =
-    obtenerCategoriaProducto(producto);
+  const cat = obtenerCategoriaProducto(producto);
 
   const mapa = {
 
@@ -1654,488 +1452,30 @@ function perteneceCategoria(producto,categoria){
 
   };
 
-  return (
-    mapa[categoria] || [categoria]
-  )
-  .some(
-    x =>
+  return (mapa[categoria] || [categoria])
+    .some(x =>
       cat === x ||
       cat.includes(x)
-  );
+    );
 
 }
 
 
 /* =========================
-   CARGAR PRODUCTOS
+   WHATSAPP
 ========================= */
 
-async function cargarProductos(){
+window.contactarWhatsApp = function(mensaje){
 
-  productos = [];
+  const numero = "573181579324";
 
-  try{
+  const url =
+    "https://wa.me/" +
+    numero +
+    "?text=" +
+    encodeURIComponent(mensaje);
 
-    const snap =
-      await getDocs(
-        collection(db,"productos")
-      );
-
-    snap.forEach(item => {
-
-      productos.push({
-
-        id:item.id,
-
-        ...item.data()
-
-      });
-
-    });
-
-  }catch(error){
-
-    console.error(
-      "Error cargando productos de Firebase:",
-      error
-    );
-
-  }
-
-
-  /* =========================
-     ROPA DESDE GITHUB
-  ========================= */
-
-  try{
-
-    const respuesta =
-      await fetch(
-        "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva"
-      );
-
-    if(respuesta.ok){
-
-      const archivos =
-        await respuesta.json();
-
-
-      archivos
-      .filter(
-        archivo =>
-          archivo.type === "file" &&
-          /\.(jpg|jpeg|png|webp|gif)$/i.test(
-            archivo.name
-          ) &&
-          !archivo.name.includes("3285")
-      )
-      .forEach(
-        archivo => {
-
-          const yaExiste =
-            productos.some(
-              p =>
-                p.nombre ===
-                archivo.name
-            );
-
-          if(!yaExiste){
-
-            productos.push({
-
-              id:
-                "gh_" +
-                btoa(
-                  archivo.name
-                )
-                .replace(
-                  /[^a-zA-Z0-9]/g,
-                  ""
-                ),
-
-              nombre:
-                archivo.name
-                .replace(
-                  /\.(jpg|jpeg|png|webp|gif)$/i,
-                  ""
-                ),
-
-              precio:0,
-
-              categoria:"ropa",
-
-              descripcion:
-                "Producto disponible.",
-
-              imagen:
-                "https://raw.githubusercontent.com/andrex29-code/Andrex-store/main/ropa/nueva/" +
-                encodeURIComponent(
-                  archivo.name
-                ),
-
-              destacado:false,
-
-              github:true
-
-            });
-
-          }
-
-        }
-      );
-
-    }
-
-  }catch(error){
-
-    console.error(
-      "No se pudieron cargar las imágenes de GitHub:",
-      error
-    );
-
-  }
-
-
-  renderizarDestacados();
-
-  renderizarAdmin();
-
-}
-
-
-/* =========================
-   CREAR TARJETA
-========================= */
-
-function crearTarjeta(producto){
-
-  const id =
-    String(producto.id);
-
-  const esFavorito =
-    favoritos.includes(id);
-
-  const precio =
-    Number(producto.precio || 0);
-
-  const precioTexto =
-    precio > 0
-      ? "$" + precio.toLocaleString("es-CO")
-      : "Consultar";
-
-
-  const div =
-    document.createElement("article");
-
-  div.className =
-    "producto";
-
-
-  div.innerHTML = `
-
-    <button
-      class="favorito-btn"
-      onclick="toggleFavorito('${escapeHtml(id)}')">
-      ${esFavorito ? "❤️" : "🤍"}
-    </button>
-
-
-    <img
-      class="producto-img"
-      src="${escapeHtml(producto.imagen || '')}"
-      alt="${escapeHtml(producto.nombre || 'Producto')}"
-      onclick="abrirImagen('${escapeHtml(producto.imagen || '')}')"
-      onerror="this.src='https://via.placeholder.com/500x500?text=Sin+imagen'">
-
-
-    <div class="producto-info">
-
-      <h3>
-        ${escapeHtml(producto.nombre || "Producto")}
-      </h3>
-
-      <div class="precio">
-        ${precioTexto}
-      </div>
-
-      <div class="descripcion">
-        ${escapeHtml(producto.descripcion || "")}
-      </div>
-
-
-      <div class="producto-botones">
-
-        <button
-          class="btn-consultar"
-          onclick="consultarWhatsApp('${escapeHtml(producto.nombre || '')}')">
-          💬 Consultar
-        </button>
-
-        <button
-          class="btn-carrito"
-          onclick="agregarCarrito('${escapeHtml(id)}')">
-          🛒 Agregar
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  return div;
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
-
-function escapeHtml(text){
-
-  return String(text ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================
-   DESTACADOS
-========================= */
-
-function renderizarDestacados(){
-
-  const contenedor =
-    document.getElementById(
-      "productosDestacados"
-    );
-
-  contenedor.innerHTML = "";
-
-
-  const destacados =
-    productos.filter(
-      p =>
-        p.destacado === true
-    );
-
-
-  if(!destacados.length){
-
-    contenedor.innerHTML = `
-
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:25px;
-        color:#789296;
-        background:white;
-        border-radius:20px;
-      ">
-        Próximamente encontrarás aquí
-        nuestros productos destacados. ✨
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  destacados.forEach(
-    producto => {
-
-      contenedor.appendChild(
-        crearTarjeta(producto)
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================
-   ABRIR CATEGORÍA
-========================= */
-
-window.abrirCategoria =
-function(categoria){
-
-  document.getElementById(
-    "contenidoInicio"
-  ).style.display = "none";
-
-
-  const vista =
-    document.getElementById(
-      "vistaCategoria"
-    );
-
-  vista.style.display = "block";
-
-
-  const nombres = {
-
-    ropa:"👕 ROPA",
-
-    lociones:"🧴 LOCIONES",
-
-    zapatos:"👟 ZAPATOS",
-
-    streaming:"📺 STREAMING"
-
-  };
-
-
-  const descripciones = {
-
-    ropa:
-      "Descubre todas las prendas disponibles.",
-
-    lociones:
-      "Encuentra lociones y fragancias disponibles.",
-
-    zapatos:
-      "Explora todos los zapatos disponibles.",
-
-    streaming:
-      "Disfruta nuestras opciones de entretenimiento."
-
-  };
-
-
-  document.getElementById(
-    "tituloCategoria"
-  ).textContent =
-    nombres[categoria] || categoria;
-
-
-  document.getElementById(
-    "descripcionCategoria"
-  ).textContent =
-    descripciones[categoria] || "";
-
-
-  const contenedor =
-    document.getElementById(
-      "productosCategoria"
-    );
-
-  contenedor.innerHTML = "";
-
-
-  const encontrados =
-    productos.filter(
-      p =>
-        perteneceCategoria(
-          p,
-          categoria
-        )
-    );
-
-
-  if(!encontrados.length){
-
-    contenedor.innerHTML = `
-
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:30px;
-        background:white;
-        border-radius:20px;
-        color:#789296;
-      ">
-
-        😔 No encontramos productos
-        en esta categoría.
-
-      </div>
-
-    `;
-
-  }else{
-
-    encontrados.forEach(
-      producto => {
-
-        contenedor.appendChild(
-          crearTarjeta(producto)
-        );
-
-      }
-    );
-
-  }
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-};
-
-
-/* =========================
-   VOLVER CATEGORÍAS
-========================= */
-
-window.volverCategorias =
-function(){
-
-  document.getElementById(
-    "vistaCategoria"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "contenidoInicio"
-  ).style.display = "block";
-
-
-  document.getElementById(
-    "seccionCategorias"
-  ).scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-};
-
-
-/* =========================
-   IMAGEN
-========================= */
-
-window.abrirImagen =
-function(url){
-
-  document.getElementById(
-    "imagenGrande"
-  ).src = url;
-
-  document.getElementById(
-    "modalImagen"
-  ).style.display = "flex";
-
-};
-
-
-window.cerrarModal =
-function(id){
-
-  document.getElementById(
-    id
-  ).style.display = "none";
+  window.open(url,"_blank");
 
 };
 
@@ -2144,19 +1484,41 @@ function(id){
    FAVORITOS
 ========================= */
 
-window.toggleFavorito =
-function(id){
+function obtenerFavoritos(){
 
-  id = String(id);
+  try{
 
-  if(
-    favoritos.includes(id)
-  ){
+    return JSON.parse(
+      localStorage.getItem("andrex_favoritos") || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function guardarFavoritos(lista){
+
+  localStorage.setItem(
+    "andrex_favoritos",
+    JSON.stringify(lista)
+  );
+
+}
+
+
+window.toggleFavorito = function(id){
+
+  let favoritos = obtenerFavoritos();
+
+  if(favoritos.includes(id)){
 
     favoritos =
-      favoritos.filter(
-        x => x !== id
-      );
+      favoritos.filter(x => x !== id);
 
   }else{
 
@@ -2164,735 +1526,894 @@ function(id){
 
   }
 
+  guardarFavoritos(favoritos);
 
-  localStorage.setItem(
-    "andrexFavoritos",
-    JSON.stringify(favoritos)
-  );
+  renderizarTodos();
 
-
-  renderizarDestacados();
-
-
-  const vista =
-    document.getElementById(
-      "vistaCategoria"
-    );
-
-  if(
-    vista.style.display === "block"
-  ){
-
-    const titulo =
-      document.getElementById(
-        "tituloCategoria"
-      ).textContent;
-
-
-    let categoria = "";
-
-
-    if(titulo.includes("ROPA"))
-      categoria="ropa";
-
-    if(titulo.includes("LOCIONES"))
-      categoria="lociones";
-
-    if(titulo.includes("ZAPATOS"))
-      categoria="zapatos";
-
-    if(titulo.includes("STREAMING"))
-      categoria="streaming";
-
-
-    if(categoria)
-      abrirCategoria(categoria);
-
-  }
+  renderFavoritos();
 
 };
 
 
-window.abrirFavoritos =
-function(){
+function esFavorito(id){
 
-  const modal =
-    document.getElementById(
-      "modalFavoritos"
-    );
+  return obtenerFavoritos().includes(id);
 
-  modal.style.display = "flex";
-
-
-  const lista =
-    document.getElementById(
-      "listaFavoritos"
-    );
-
-  lista.innerHTML = "";
-
-
-  const listaProductos =
-    productos.filter(
-      p =>
-        favoritos.includes(
-          String(p.id)
-        )
-    );
-
-
-  if(!listaProductos.length){
-
-    lista.innerHTML = `
-
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:25px;
-        color:#789296;
-      ">
-
-        ❤️ Todavía no tienes favoritos.
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  listaProductos.forEach(
-    p =>
-      lista.appendChild(
-        crearTarjeta(p)
-      )
-  );
-
-};
+}
 
 
 /* =========================
    CARRITO
 ========================= */
 
-window.agregarCarrito =
-function(id){
+function obtenerCarrito(){
 
-  const producto =
-    productos.find(
-      p =>
-        String(p.id) ===
-        String(id)
+  try{
+
+    return JSON.parse(
+      localStorage.getItem("andrex_carrito") || "[]"
     );
 
+  }catch{
 
-  if(!producto)
-    return;
+    return [];
+
+  }
+
+}
 
 
-  carrito.push({
-    id:String(producto.id),
-    nombre:producto.nombre,
-    precio:Number(producto.precio || 0)
-  });
-
+function guardarCarrito(carrito){
 
   localStorage.setItem(
-    "andrexCarrito",
+    "andrex_carrito",
     JSON.stringify(carrito)
   );
 
+}
 
-  alert(
-    "🛒 Producto agregado al carrito."
-  );
+
+window.agregarCarrito = function(id){
+
+  const producto =
+    productos.find(p => p.id === id);
+
+  if(!producto) return;
+
+  const carrito = obtenerCarrito();
+
+  const existente =
+    carrito.find(x => x.id === id);
+
+  if(existente){
+
+    existente.cantidad++;
+
+  }else{
+
+    carrito.push({
+      id:producto.id,
+      nombre:producto.nombre,
+      precio:Number(producto.precio || 0),
+      imagen:producto.imagen || "",
+      cantidad:1
+    });
+
+  }
+
+  guardarCarrito(carrito);
+
+  alert("🛒 Producto agregado al carrito");
 
 };
 
 
-window.abrirCarrito =
-function(){
+window.eliminarCarrito = function(id){
 
-  document.getElementById(
-    "modalCarrito"
-  ).style.display = "flex";
+  let carrito = obtenerCarrito();
 
+  carrito =
+    carrito.filter(x => x.id !== id);
 
-  renderizarCarrito();
+  guardarCarrito(carrito);
+
+  renderCarrito();
 
 };
 
 
-function renderizarCarrito(){
+window.abrirCarrito = function(){
+
+  renderCarrito();
+
+  document
+    .getElementById("modalCarrito")
+    .style.display = "flex";
+
+};
+
+
+function renderCarrito(){
 
   const lista =
-    document.getElementById(
-      "listaCarrito"
-    );
+    document.getElementById("listaCarrito");
 
-  lista.innerHTML = "";
+  const total =
+    document.getElementById("totalCarrito");
 
+  const carrito =
+    obtenerCarrito();
 
   if(!carrito.length){
 
-    lista.innerHTML = `
+    lista.innerHTML =
+      "<p style='color:#71878b;'>Tu carrito está vacío 🛒</p>";
 
-      <p style="
-        text-align:center;
-        padding:20px;
-        color:#789296;
-      ">
-        🛒 Tu carrito está vacío.
-      </p>
-
-    `;
-
-    document.getElementById(
-      "totalCarrito"
-    ).textContent =
+    total.textContent =
       "Total: $0";
 
     return;
 
   }
 
+  let suma = 0;
 
-  let total = 0;
+  lista.innerHTML =
+    carrito.map(item => {
 
+      const subtotal =
+        item.precio * item.cantidad;
 
-  carrito.forEach(
-    (item,index) => {
+      suma += subtotal;
 
-      total +=
-        Number(item.precio || 0);
+      return `
+        <div class="item-carrito">
 
+          <img
+            src="${escapeHtml(item.imagen)}"
+            alt=""
+          >
 
-      const div =
-        document.createElement(
-          "div"
-        );
+          <div class="item-carrito-info">
 
-      div.className =
-        "carrito-item";
+            <strong>
+              ${escapeHtml(item.nombre)}
+            </strong>
 
+            <small>
+              ${item.cantidad} × ${dinero(item.precio)}
+            </small>
 
-      div.innerHTML = `
+          </div>
 
-        <div class="carrito-item-info">
-
-          <strong>
-            ${escapeHtml(item.nombre)}
-          </strong>
-
-          <small>
-            ${
-              Number(item.precio || 0)
-              ? "$" +
-                Number(item.precio)
-                .toLocaleString("es-CO")
-              : "Consultar"
-            }
-          </small>
+          <button
+            class="btn-eliminar"
+            onclick="eliminarCarrito('${item.id}')"
+          >
+            🗑️
+          </button>
 
         </div>
-
-
-        <button
-          onclick="eliminarCarrito(${index})">
-          🗑️
-        </button>
-
       `;
 
+    }).join("");
 
-      lista.appendChild(div);
-
-    }
-  );
-
-
-  document.getElementById(
-    "totalCarrito"
-  ).textContent =
-    "Total: $" +
-    total.toLocaleString("es-CO");
+  total.textContent =
+    "Total: " + dinero(suma);
 
 }
 
 
-window.eliminarCarrito =
-function(index){
+window.comprarCarritoWhatsApp = function(){
 
-  carrito.splice(index,1);
-
-
-  localStorage.setItem(
-    "andrexCarrito",
-    JSON.stringify(carrito)
-  );
-
-
-  renderizarCarrito();
-
-};
-
-
-window.enviarCarritoWhatsApp =
-function(){
+  const carrito =
+    obtenerCarrito();
 
   if(!carrito.length){
 
-    alert(
-      "El carrito está vacío."
-    );
-
+    alert("El carrito está vacío 🛒");
     return;
 
   }
-
 
   let mensaje =
-    "Hola 👋, quiero comprar estos productos:%0A%0A";
+    "Hola 👋 quiero realizar este pedido en ANDREX STORE:\n\n";
 
+  let total = 0;
 
-  carrito.forEach(
-    item => {
+  carrito.forEach(item => {
 
-      mensaje +=
-        "🛍️ " +
-        item.nombre +
-        " - " +
-        (
-          Number(item.precio || 0)
-            ? "$" +
-              Number(item.precio)
-              .toLocaleString("es-CO")
-            : "Consultar"
-        ) +
-        "%0A";
+    const subtotal =
+      item.precio * item.cantidad;
 
-    }
-  );
+    total += subtotal;
 
+    mensaje +=
+      "• " +
+      item.nombre +
+      " × " +
+      item.cantidad +
+      " — " +
+      dinero(subtotal) +
+      "\n";
 
-  window.open(
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    mensaje,
-    "_blank"
-  );
+  });
+
+  mensaje +=
+    "\n💰 Total: " +
+    dinero(total);
+
+  contactarWhatsApp(mensaje);
 
 };
 
 
 /* =========================
-   WHATSAPP
+   TARJETA PRODUCTO
 ========================= */
 
-window.consultarWhatsApp =
-function(nombre){
+function tarjetaProducto(producto){
 
-  const mensaje =
-    "Hola 👋, quiero consultar por el producto: " +
-    nombre;
+  const favorito =
+    esFavorito(producto.id);
 
+  return `
 
-  window.open(
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    encodeURIComponent(
-      mensaje
-    ),
-    "_blank"
-  );
+    <article class="producto">
 
-};
+      <button
+        class="btn-favorito"
+        onclick="toggleFavorito('${producto.id}')"
+        title="Favorito"
+      >
+        ${favorito ? "❤️" : "🤍"}
+      </button>
 
+      <img
+        class="producto-img"
+        src="${escapeHtml(producto.imagen || '')}"
+        alt="${escapeHtml(producto.nombre || 'Producto')}"
+        onclick="verImagen('${escapeHtml(producto.imagen || '')}')"
+        onerror="this.style.display='none'"
+      >
 
-window.contactarWhatsApp =
-function(mensaje){
+      <div class="producto-info">
 
-  window.open(
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    encodeURIComponent(
-      mensaje
-    ),
-    "_blank"
-  );
+        <div class="producto-nombre">
+          ${escapeHtml(producto.nombre || "Producto")}
+        </div>
 
-};
+        <div class="producto-precio">
+          ${dinero(producto.precio)}
+        </div>
 
+        <div class="producto-categoria">
+          ${escapeHtml(obtenerCategoriaProducto(producto))}
+        </div>
 
-/* =========================
-   BÚSQUEDA
-========================= */
+        <div class="producto-actions">
 
-window.abrirBusqueda =
-function(){
+          <button
+            class="btn-producto btn-carrito"
+            onclick="agregarCarrito('${producto.id}')"
+          >
+            🛒 Carrito
+          </button>
 
-  document.getElementById(
-    "modalBusqueda"
-  ).style.display = "flex";
+          <button
+            class="btn-producto btn-whatsapp"
+            onclick="consultarProductoWhatsApp('${producto.id}')"
+          >
+            📲 Consultar
+          </button>
 
-
-  document.getElementById(
-    "inputBusqueda"
-  ).value = "";
-
-
-  document.getElementById(
-    "resultadosBusqueda"
-  ).innerHTML = "";
-
-};
-
-
-window.buscarProductos =
-function(){
-
-  const texto =
-    document.getElementById(
-      "inputBusqueda"
-    ).value
-    .toLowerCase()
-    .trim();
-
-
-  const contenedor =
-    document.getElementById(
-      "resultadosBusqueda"
-    );
-
-  contenedor.innerHTML = "";
-
-
-  if(!texto)
-    return;
-
-
-  const resultados =
-    productos.filter(
-      p =>
-        String(
-          p.nombre || ""
-        )
-        .toLowerCase()
-        .includes(texto)
-        ||
-        String(
-          p.descripcion || ""
-        )
-        .toLowerCase()
-        .includes(texto)
-        ||
-        obtenerCategoriaProducto(p)
-          .includes(texto)
-    );
-
-
-  if(!resultados.length){
-
-    contenedor.innerHTML = `
-
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:25px;
-        color:#789296;
-      ">
-
-        😔 No encontramos ese producto.
+        </div>
 
       </div>
 
-    `;
+    </article>
 
-    return;
-
-  }
-
-
-  resultados.forEach(
-    p =>
-      contenedor.appendChild(
-        crearTarjeta(p)
-      )
-  );
-
-};
-
-
-/* =========================
-   ESTADO PEDIDO
-========================= */
-
-window.abrirEstadoPedido =
-function(){
-
-  document.getElementById(
-    "modalPedido"
-  ).style.display = "flex";
-
-
-  document.getElementById(
-    "buscarPedido"
-  ).value = "";
-
-
-  document.getElementById(
-    "resultadoPedido"
-  ).innerHTML = "";
-
-};
-
-
-window.consultarPedido =
-async function(){
-
-  const codigo =
-    document.getElementById(
-      "buscarPedido"
-    ).value
-    .trim()
-    .toUpperCase();
-
-
-  const resultado =
-    document.getElementById(
-      "resultadoPedido"
-    );
-
-
-  if(!codigo){
-
-    resultado.innerHTML = `
-      <div class="estado">
-        Escribe el código de tu pedido.
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  resultado.innerHTML = `
-    <div class="estado">
-      🔎 Consultando pedido...
-    </div>
   `;
 
+}
 
-  try{
 
-    const q =
-      query(
-        collection(db,"pedidos"),
-        where(
-          "codigo",
-          "==",
-          codigo
+window.verImagen = function(imagen){
+
+  if(!imagen) return;
+
+  document
+    .getElementById("imagenGrande")
+    .src = imagen;
+
+  document
+    .getElementById("modalImagen")
+    .style.display = "flex";
+
+};
+
+
+window.consultarProductoWhatsApp = function(id){
+
+  const producto =
+    productos.find(p => p.id === id);
+
+  if(!producto) return;
+
+  const mensaje =
+    "Hola 👋 estoy interesado en este producto de ANDREX STORE:\n\n" +
+    "🛍️ " + producto.nombre + "\n" +
+    "💰 " + dinero(producto.precio);
+
+  contactarWhatsApp(mensaje);
+
+};
+
+
+/* =========================
+   CATEGORÍAS
+   AQUÍ ESTÁ EL CAMBIO
+========================= */
+
+window.abrirCategoria = function(categoria, boton){
+
+  /*
+    Guardamos la posición exacta antes de
+    cambiar la vista.
+  */
+
+  posicionAntesCategoria =
+    window.scrollY;
+
+  categoriaActual =
+    categoria;
+
+
+  const grid =
+    document.getElementById("categoriasGrid");
+
+  const vista =
+    document.getElementById("vistaCategoria");
+
+  const titulo =
+    document.getElementById("tituloCategoria");
+
+  const descripcion =
+    document.getElementById("descripcionCategoria");
+
+  const productosDiv =
+    document.getElementById("productosCategoria");
+
+
+  /*
+    Medimos el lugar exacto donde está
+    el botón que tocó el cliente.
+  */
+
+  const alturaGrid =
+    grid.offsetHeight;
+
+  const posicionBoton =
+    boton ? boton.offsetTop : 0;
+
+
+  const nombres = {
+
+    ropa:{
+      titulo:"👕 Ropa",
+      descripcion:
+        "Mira todos los productos de ropa disponibles."
+    },
+
+    lociones:{
+      titulo:"🧴 Lociones",
+      descripcion:
+        "Descubre nuestras lociones y fragancias."
+    },
+
+    zapatos:{
+      titulo:"👟 Zapatos",
+      descripcion:
+        "Encuentra zapatos, tenis y calzado disponible."
+    },
+
+    streaming:{
+      titulo:"📺 Streaming",
+      descripcion:
+        "Consulta nuestros servicios de streaming."
+    }
+
+  };
+
+
+  const info =
+    nombres[categoria] || {
+      titulo:"Productos",
+      descripcion:"Productos disponibles."
+    };
+
+
+  titulo.textContent =
+    info.titulo;
+
+  descripcion.textContent =
+    info.descripcion;
+
+
+  const encontrados =
+    productos.filter(p =>
+      perteneceCategoria(p,categoria)
+    );
+
+
+  if(!encontrados.length){
+
+    productosDiv.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        text-align:center;
+        color:#71878b;
+      ">
+        <div style="font-size:45px;margin-bottom:10px;">
+          📦
+        </div>
+
+        <strong>
+          Todavía no hay productos en esta categoría.
+        </strong>
+      </div>
+    `;
+
+  }else{
+
+    productosDiv.innerHTML =
+      encontrados.map(tarjetaProducto).join("");
+
+  }
+
+
+  /*
+    IMPORTANTE:
+
+    NO usamos display:none en el grid.
+
+    Lo dejamos ocupando su espacio, pero
+    invisible. Así la página NO cambia de
+    altura bruscamente.
+
+    Luego colocamos la vista de productos
+    encima del lugar exacto donde estaba
+    el botón tocado.
+  */
+
+  grid.style.visibility =
+    "hidden";
+
+  grid.style.pointerEvents =
+    "none";
+
+
+  vista.style.display =
+    "block";
+
+
+  /*
+    La vista está después del grid.
+    Con este margen negativo la subimos
+    exactamente hasta la posición del
+    botón que el cliente tocó.
+  */
+
+  vista.style.marginTop =
+    (posicionBoton - alturaGrid) + "px";
+
+
+  /*
+    Garantía adicional:
+    restauramos EXACTAMENTE la posición
+    que tenía el cliente.
+
+    No hay smooth.
+    No hay movimiento.
+  */
+
+  requestAnimationFrame(() => {
+
+    window.scrollTo({
+      top:posicionAntesCategoria,
+      behavior:"auto"
+    });
+
+  });
+
+};
+
+
+window.volverCategorias = function(){
+
+  const grid =
+    document.getElementById("categoriasGrid");
+
+  const vista =
+    document.getElementById("vistaCategoria");
+
+
+  vista.style.display =
+    "none";
+
+  vista.style.marginTop =
+    "0px";
+
+  grid.style.visibility =
+    "visible";
+
+  grid.style.pointerEvents =
+    "auto";
+
+
+  requestAnimationFrame(() => {
+
+    window.scrollTo({
+      top:posicionAntesCategoria,
+      behavior:"auto"
+    });
+
+  });
+
+
+  categoriaActual =
+    null;
+
+};
+
+
+/* =========================
+   RENDERIZAR
+========================= */
+
+function renderizarDestacados(){
+
+  const contenedor =
+    document.getElementById("productosDestacados");
+
+  const destacados =
+    productos.filter(p => p.destacado === true);
+
+
+  if(!destacados.length){
+
+    contenedor.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        background:white;
+        padding:25px;
+        border-radius:20px;
+        text-align:center;
+        color:#71878b;
+      ">
+        Todavía no hay productos destacados ⭐
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  contenedor.innerHTML =
+    destacados
+      .map(tarjetaProducto)
+      .join("");
+
+}
+
+
+function renderizarTodos(){
+
+  renderizarDestacados();
+
+  if(categoriaActual){
+
+    const encontrados =
+      productos.filter(p =>
+        perteneceCategoria(
+          p,
+          categoriaActual
         )
       );
 
+    document
+      .getElementById("productosCategoria")
+      .innerHTML =
+        encontrados.map(tarjetaProducto).join("");
 
-    const snap =
-      await getDocs(q);
+  }
 
-
-    if(
-      snap.empty
-    ){
-
-      resultado.innerHTML = `
-        <div class="estado">
-          ❌ No encontramos un pedido
-          con ese código.
-        </div>
-      `;
-
-      return;
-
-    }
+}
 
 
-    const data =
-      snap.docs[0].data();
+/* =========================
+   FIRESTORE PRODUCTOS
+========================= */
 
+async function cargarProductos(){
 
-    resultado.innerHTML = `
+  try{
 
-      <div class="estado">
+    const snapshot =
+      await getDocs(
+        collection(db,"productos")
+      );
 
-        <div class="codigo">
-          ${escapeHtml(data.codigo)}
-        </div>
+    productos =
+      snapshot.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
 
-        <p>
-          <strong>Cliente:</strong>
-          ${escapeHtml(data.cliente || "")}
-        </p>
+    /*
+      También cargamos automáticamente
+      las imágenes de GitHub de ropa/nueva.
+    */
 
-        <p style="margin-top:8px;">
-          <strong>Estado:</strong>
-          ${escapeHtml(data.estado || "")}
-        </p>
+    await cargarRopaGitHub();
 
-        <p style="margin-top:8px;">
-          <strong>Detalle:</strong>
-          ${escapeHtml(data.detalle || "Sin detalles")}
-        </p>
+    renderizarTodos();
 
-      </div>
-
-    `;
+    renderAdmin();
 
   }catch(error){
 
     console.error(error);
 
-    resultado.innerHTML = `
-      <div class="estado">
-        ❌ No se pudo consultar el pedido.
-        Revisa la conexión con Firebase.
-      </div>
-    `;
+    document
+      .getElementById("productosDestacados")
+      .innerHTML = `
+        <div style="
+          grid-column:1/-1;
+          background:#fff0f1;
+          padding:20px;
+          border-radius:18px;
+          color:#b8324e;
+        ">
+          ⚠️ No se pudieron cargar los productos.
+          Revisa las reglas de Firestore.
+        </div>
+      `;
 
   }
 
-};
+}
 
 
 /* =========================
-   ADMIN
+   ROPA DESDE GITHUB
 ========================= */
 
-let clicksAdmin = 0;
-let ultimoClick = 0;
+async function cargarRopaGitHub(){
 
+  try{
 
-window.activarAdmin =
-function(){
+    /*
+      Intentamos leer el contenido de la
+      carpeta pública de GitHub.
+    */
 
-  const ahora =
-    Date.now();
-
-
-  if(
-    ahora - ultimoClick >
-    1500
-  ){
-
-    clicksAdmin = 0;
-
-  }
-
-
-  clicksAdmin++;
-
-  ultimoClick =
-    ahora;
-
-
-  if(
-    clicksAdmin >= 5
-  ){
-
-    clicksAdmin = 0;
-
-
-    const pin =
-      prompt(
-        "🔐 Ingresa el PIN de administrador:"
+    const respuesta =
+      await fetch(
+        "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva"
       );
 
 
-    if(pin === "2580"){
-
-      document.getElementById(
-        "adminPanel"
-      ).style.display = "block";
+    if(!respuesta.ok)
+      return;
 
 
-      document.getElementById(
-        "adminPanel"
-      ).scrollIntoView({
-        behavior:"smooth"
+    const archivos =
+      await respuesta.json();
+
+
+    const imagenes =
+      archivos.filter(archivo => {
+
+        const nombre =
+          String(archivo.name || "")
+            .toLowerCase();
+
+        return (
+          archivo.type === "file" &&
+          /\.(jpg|jpeg|png|webp|gif)$/i.test(nombre) &&
+          !nombre.includes("3285")
+        );
+
       });
 
 
-      cargarPedidosAdmin();
+    imagenes.forEach(archivo => {
 
-    }else{
+      const existe =
+        productos.some(p =>
+          p.imagen === archivo.download_url
+        );
 
-      alert(
-        "❌ PIN incorrecto."
-      );
 
-    }
+      if(!existe){
+
+        productos.push({
+
+          id:"github_" + archivo.sha,
+
+          nombre:
+            archivo.name
+              .replace(/\.[^/.]+$/,"")
+              .replace(/[-_]/g," "),
+
+          precio:0,
+
+          categoria:"ropa",
+
+          imagen:
+            archivo.download_url,
+
+          destacado:false,
+
+          origen:"github"
+
+        });
+
+      }
+
+    });
+
+  }catch(error){
+
+    console.log(
+      "No se pudieron cargar imágenes de GitHub:",
+      error
+    );
 
   }
 
-};
+}
 
 
 /* =========================
    GUARDAR PRODUCTO
 ========================= */
 
-window.guardarProducto =
-async function(){
+async function comprimirImagen(file){
+
+  return new Promise((resolve,reject) => {
+
+    const reader =
+      new FileReader();
+
+    reader.onload = function(){
+
+      const img =
+        new Image();
+
+      img.onload = function(){
+
+        const max =
+          900;
+
+        let width =
+          img.width;
+
+        let height =
+          img.height;
+
+
+        if(width > max){
+
+          height =
+            height * max / width;
+
+          width =
+            max;
+
+        }
+
+
+        if(height > max){
+
+          width =
+            width * max / height;
+
+          height =
+            max;
+
+        }
+
+
+        const canvas =
+          document.createElement("canvas");
+
+        canvas.width =
+          width;
+
+        canvas.height =
+          height;
+
+
+        const ctx =
+          canvas.getContext("2d");
+
+        ctx.drawImage(
+          img,
+          0,
+          0,
+          width,
+          height
+        );
+
+
+        resolve(
+          canvas.toDataURL(
+            "image/jpeg",
+            .72
+          )
+        );
+
+      };
+
+
+      img.onerror =
+        reject;
+
+      img.src =
+        reader.result;
+
+    };
+
+
+    reader.onerror =
+      reject;
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+
+window.guardarProducto = async function(){
 
   const nombre =
-    document.getElementById(
-      "productoNombre"
-    ).value.trim();
-
+    document
+      .getElementById("productoNombre")
+      .value.trim();
 
   const precio =
     Number(
-      document.getElementById(
-        "productoPrecio"
-      ).value
+      document
+        .getElementById("productoPrecio")
+        .value
     );
 
-
   const categoria =
-    document.getElementById(
-      "productoCategoria"
-    ).value;
-
-
-  const descripcion =
-    document.getElementById(
-      "productoDescripcion"
-    ).value.trim();
-
+    document
+      .getElementById("productoCategoria")
+      .value;
 
   const archivo =
-    document.getElementById(
-      "productoImagen"
-    ).files[0];
-
+    document
+      .getElementById("productoImagen")
+      .files[0];
 
   const destacado =
-    document.getElementById(
-      "productoDestacado"
-    ).checked;
+    document
+      .getElementById("productoDestacado")
+      .checked;
 
 
   if(!nombre){
 
-    alert(
-      "Escribe el nombre del producto."
-    );
-
+    alert("Escribe el nombre del producto.");
     return;
 
   }
@@ -2900,10 +2421,7 @@ async function(){
 
   if(!archivo){
 
-    alert(
-      "Selecciona una imagen."
-    );
-
+    alert("Selecciona una imagen.");
     return;
 
   }
@@ -2912,58 +2430,39 @@ async function(){
   try{
 
     const imagen =
-      await comprimirImagen(
-        archivo
-      );
+      await comprimirImagen(archivo);
 
 
     await addDoc(
       collection(db,"productos"),
       {
-
         nombre,
-
         precio,
-
         categoria,
-
-        descripcion,
-
         imagen,
-
         destacado,
-
-        creado:
-          new Date().toISOString()
-
+        creadoEn:Date.now()
       }
     );
 
 
-    alert(
-      "✅ Producto guardado correctamente."
-    );
+    alert("✅ Producto guardado correctamente.");
 
+    document
+      .getElementById("productoNombre")
+      .value = "";
 
-    document.getElementById(
-      "productoNombre"
-    ).value = "";
+    document
+      .getElementById("productoPrecio")
+      .value = "";
 
-    document.getElementById(
-      "productoPrecio"
-    ).value = "";
+    document
+      .getElementById("productoImagen")
+      .value = "";
 
-    document.getElementById(
-      "productoDescripcion"
-    ).value = "";
-
-    document.getElementById(
-      "productoImagen"
-    ).value = "";
-
-    document.getElementById(
-      "productoDestacado"
-    ).checked = false;
+    document
+      .getElementById("productoDestacado")
+      .checked = false;
 
 
     await cargarProductos();
@@ -2983,267 +2482,151 @@ async function(){
 
 
 /* =========================
-   COMPRIMIR IMAGEN
+   ADMIN
 ========================= */
 
-function comprimirImagen(archivo){
-
-  return new Promise(
-    (resolve,reject) => {
-
-      const reader =
-        new FileReader();
+let clicksAdmin = 0;
+let ultimoClickAdmin = 0;
 
 
-      reader.onload =
-      function(e){
+window.activarAdmin = function(){
 
-        const img =
-          new Image();
-
-
-        img.onload =
-        function(){
-
-          const max =
-            900;
+  const ahora =
+    Date.now();
 
 
-          let width =
-            img.width;
+  if(
+    ahora - ultimoClickAdmin >
+    1500
+  ){
 
-          let height =
-            img.height;
+    clicksAdmin = 0;
 
-
-          if(
-            width > max ||
-            height > max
-          ){
-
-            if(width > height){
-
-              height =
-                height *
-                max /
-                width;
-
-              width =
-                max;
-
-            }else{
-
-              width =
-                width *
-                max /
-                height;
-
-              height =
-                max;
-
-            }
-
-          }
+  }
 
 
-          const canvas =
-            document.createElement(
-              "canvas"
-            );
+  ultimoClickAdmin =
+    ahora;
+
+  clicksAdmin++;
 
 
-          canvas.width =
-            width;
+  if(clicksAdmin >= 5){
 
-          canvas.height =
-            height;
+    clicksAdmin = 0;
 
+    const pin =
+      prompt("🔐 Introduce el PIN de administrador:");
 
-          const ctx =
-            canvas.getContext(
-              "2d"
-            );
+    if(pin === "2580"){
 
+      document
+        .getElementById("adminPanel")
+        .style.display = "block";
 
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            width,
-            height
-          );
+      renderAdmin();
 
+      alert("✅ Panel de administrador activado.");
 
-          resolve(
-            canvas.toDataURL(
-              "image/jpeg",
-              .72
-            )
-          );
+    }else{
 
-        };
-
-
-        img.onerror =
-          reject;
-
-
-        img.src =
-          e.target.result;
-
-      };
-
-
-      reader.onerror =
-        reject;
-
-
-      reader.readAsDataURL(
-        archivo
-      );
+      alert("❌ PIN incorrecto.");
 
     }
-  );
 
-}
+  }
+
+};
 
 
-/* =========================
-   ADMIN PRODUCTOS
-========================= */
-
-function renderizarAdmin(){
+function renderAdmin(){
 
   const lista =
-    document.getElementById(
-      "listaAdmin"
-    );
+    document.getElementById("listaAdmin");
+
+  if(!lista) return;
 
 
-  if(!lista)
+  if(!productos.length){
+
+    lista.innerHTML =
+      "<p>No hay productos.</p>";
+
     return;
 
-
-  lista.innerHTML = "";
-
-
-  productos.forEach(
-    producto => {
-
-      if(producto.github)
-        return;
+  }
 
 
-      const div =
-        document.createElement(
-          "div"
-        );
+  lista.innerHTML =
+    productos.map(producto => `
 
+      <div class="admin-producto">
 
-      div.className =
-        "admin-producto";
+        <img
+          src="${escapeHtml(producto.imagen || '')}"
+          alt=""
+        >
 
-
-      div.innerHTML = `
-
-        <div>
+        <div class="admin-producto-info">
 
           <strong>
             ${escapeHtml(producto.nombre)}
           </strong>
 
-          <div style="
-            font-size:13px;
-            color:#789296;
-            margin-top:4px;
-          ">
+          <div style="font-size:12px;color:#71878b;">
+            ${dinero(producto.precio)}
+          </div>
 
-            ${escapeHtml(
-              obtenerCategoriaProducto(
-                producto
-              )
-            )}
-
-            ${
-              producto.destacado
-                ? " ⭐"
-                : ""
-            }
-
+          <div style="font-size:11px;color:#71878b;">
+            ${escapeHtml(obtenerCategoriaProducto(producto))}
           </div>
 
         </div>
 
+        ${
+          producto.origen === "github"
+          ? ""
+          : `
+            <button
+              class="admin-small-btn btn-destacado"
+              onclick="toggleDestacado('${producto.id}')"
+            >
+              ${producto.destacado ? "⭐ Quitar" : "⭐ Destacar"}
+            </button>
 
-        <div style="
-          display:flex;
-          gap:6px;
-          flex-wrap:wrap;
-        ">
+            <button
+              class="admin-small-btn btn-borrar"
+              onclick="borrarProducto('${producto.id}')"
+            >
+              🗑️
+            </button>
+          `
+        }
 
-          <button
-            class="btn-destacado"
-            onclick="toggleDestacado('${escapeHtml(String(producto.id))}')">
+      </div>
 
-            ${
-              producto.destacado
-                ? "⭐ Quitar"
-                : "⭐ Destacar"
-            }
-
-          </button>
-
-
-          <button
-            class="btn-eliminar"
-            onclick="eliminarProducto('${escapeHtml(String(producto.id))}')">
-
-            🗑️ Eliminar
-
-          </button>
-
-        </div>
-
-      `;
-
-
-      lista.appendChild(div);
-
-    }
-  );
+    `).join("");
 
 }
 
 
-window.toggleDestacado =
-async function(id){
+window.toggleDestacado = async function(id){
 
   const producto =
-    productos.find(
-      p =>
-        String(p.id) ===
-        String(id)
-    );
+    productos.find(p => p.id === id);
 
-
-  if(!producto)
-    return;
+  if(!producto) return;
 
 
   try{
 
     await updateDoc(
-      doc(
-        db,
-        "productos",
-        id
-      ),
+      doc(db,"productos",id),
       {
         destacado:
           !producto.destacado
       }
     );
-
 
     await cargarProductos();
 
@@ -3252,7 +2635,7 @@ async function(id){
     console.error(error);
 
     alert(
-      "❌ No se pudo actualizar."
+      "No se pudo actualizar el producto."
     );
 
   }
@@ -3260,8 +2643,7 @@ async function(id){
 };
 
 
-window.eliminarProducto =
-async function(id){
+window.borrarProducto = async function(id){
 
   if(
     !confirm(
@@ -3274,13 +2656,8 @@ async function(id){
   try{
 
     await deleteDoc(
-      doc(
-        db,
-        "productos",
-        id
-      )
+      doc(db,"productos",id)
     );
-
 
     await cargarProductos();
 
@@ -3298,92 +2675,218 @@ async function(id){
 
 
 /* =========================
-   PEDIDOS ADMIN
+   BÚSQUEDA
 ========================= */
 
-function generarCodigo(){
+window.abrirBusqueda = function(){
 
-  return (
-    "AX-" +
-    Math.floor(
-      1000 +
-      Math.random() * 9000
-    )
-  );
+  document
+    .getElementById("modalBusqueda")
+    .style.display = "flex";
 
-}
+  document
+    .getElementById("inputBusqueda")
+    .focus();
 
-
-window.generarCodigoPedido =
-function(){
-
-  const codigo =
-    generarCodigo();
-
-
-  document.getElementById(
-    "pedidoCodigo"
-  ).value =
-    codigo;
-
-
-  document.getElementById(
-    "codigoGenerado"
-  ).innerHTML = `
-
-    <div class="codigo">
-      ${codigo}
-    </div>
-
-    <p style="
-      color:#789296;
-      text-align:center;
-    ">
-      Este es el código que puedes
-      enviar al cliente.
-    </p>
-
-  `;
+  buscarProductos();
 
 };
 
 
-window.crearPedido =
-async function(){
+window.buscarProductos = function(){
 
-  const codigo =
-    document.getElementById(
-      "pedidoCodigo"
-    ).value.trim();
+  const texto =
+    document
+      .getElementById("inputBusqueda")
+      .value
+      .toLowerCase()
+      .trim();
 
-
-  const cliente =
-    document.getElementById(
-      "pedidoCliente"
-    ).value.trim();
-
-
-  const estado =
-    document.getElementById(
-      "pedidoEstado"
-    ).value;
+  const contenedor =
+    document
+      .getElementById("resultadosBusqueda");
 
 
-  const detalle =
-    document.getElementById(
-      "pedidoDetalle"
-    ).value.trim();
+  if(!texto){
 
-
-  if(!codigo){
-
-    alert(
-      "Primero genera un código."
-    );
+    contenedor.innerHTML =
+      "<p style='color:#71878b;'>Escribe el nombre de un producto 🔎</p>";
 
     return;
 
   }
+
+
+  const resultados =
+    productos.filter(p =>
+      String(p.nombre || "")
+        .toLowerCase()
+        .includes(texto)
+    );
+
+
+  if(!resultados.length){
+
+    contenedor.innerHTML =
+      "<p>No encontramos productos 😔</p>";
+
+    return;
+
+  }
+
+
+  contenedor.innerHTML =
+    resultados.map(p => `
+
+      <div
+        class="resultado-item"
+        style="cursor:pointer;"
+        onclick="verImagen('${escapeHtml(p.imagen || '')}')"
+      >
+
+        <strong>
+          ${escapeHtml(p.nombre)}
+        </strong>
+
+        <span>
+          ${dinero(p.precio)}
+        </span>
+
+      </div>
+
+    `).join("");
+
+};
+
+
+/* =========================
+   FAVORITOS
+========================= */
+
+window.abrirFavoritos = function(){
+
+  renderFavoritos();
+
+  document
+    .getElementById("modalFavoritos")
+    .style.display = "flex";
+
+};
+
+
+function renderFavoritos(){
+
+  const contenedor =
+    document
+      .getElementById("listaFavoritos");
+
+  const favoritos =
+    obtenerFavoritos();
+
+
+  const lista =
+    productos.filter(p =>
+      favoritos.includes(p.id)
+    );
+
+
+  if(!lista.length){
+
+    contenedor.innerHTML = `
+      <div style="
+        text-align:center;
+        padding:25px;
+        color:#71878b;
+      ">
+        <div style="font-size:45px;">
+          🤍
+        </div>
+
+        Todavía no tienes favoritos.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  contenedor.innerHTML =
+    lista.map(p => `
+
+      <div class="resultado-item">
+
+        <strong>
+          ${escapeHtml(p.nombre)}
+        </strong>
+
+        <span>
+          ${dinero(p.precio)}
+        </span>
+
+        <div style="margin-top:8px;">
+
+          <button
+            class="btn-secundario"
+            onclick="agregarCarrito('${p.id}')"
+          >
+            🛒 Agregar al carrito
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* =========================
+   PEDIDOS
+========================= */
+
+function generarCodigoPedido(){
+
+  let codigo;
+
+  do{
+
+    codigo =
+      "AX-" +
+      Math.floor(
+        1000 +
+        Math.random() * 9000
+      );
+
+  }while(
+    pedidos.some(p =>
+      p.codigo === codigo
+    )
+  );
+
+
+  return codigo;
+
+}
+
+
+window.crearPedido = async function(){
+
+  const cliente =
+    document
+      .getElementById("pedidoCliente")
+      .value.trim();
+
+  const estado =
+    document
+      .getElementById("pedidoEstado")
+      .value;
+
+  const detalle =
+    document
+      .getElementById("pedidoDetalle")
+      .value.trim();
 
 
   if(!cliente){
@@ -3397,33 +2900,42 @@ async function(){
   }
 
 
+  const codigo =
+    generarCodigoPedido();
+
+
   try{
 
     await addDoc(
       collection(db,"pedidos"),
       {
-
         codigo,
-
         cliente,
-
         estado,
-
         detalle,
-
-        fecha:
-          new Date().toISOString()
-
+        creadoEn:Date.now(),
+        actualizadoEn:Date.now()
       }
     );
 
 
+    document
+      .getElementById("pedidoCodigo")
+      .value = codigo;
+
+    document
+      .getElementById("codigoGenerado")
+      .textContent =
+      "✅ Código generado: " + codigo;
+
+
     alert(
-      "✅ Pedido creado correctamente."
+      "Pedido creado correctamente.\n\nCódigo: " +
+      codigo
     );
 
 
-    cargarPedidosAdmin();
+    await cargarPedidos();
 
   }catch(error){
 
@@ -3438,19 +2950,17 @@ async function(){
 };
 
 
-window.actualizarPedido =
-async function(){
+window.actualizarPedido = async function(){
 
   const codigo =
-    document.getElementById(
-      "pedidoCodigo"
-    ).value.trim();
-
+    document
+      .getElementById("pedidoCodigo")
+      .value.trim();
 
   if(!codigo){
 
     alert(
-      "Escribe o genera un código."
+      "Escribe o genera un código de pedido."
     );
 
     return;
@@ -3458,57 +2968,48 @@ async function(){
   }
 
 
+  const pedido =
+    pedidos.find(p =>
+      p.codigo === codigo
+    );
+
+
+  if(!pedido){
+
+    alert(
+      "No encontramos ese pedido."
+    );
+
+    return;
+
+  }
+
+
+  const estado =
+    document
+      .getElementById("pedidoEstado")
+      .value;
+
+  const cliente =
+    document
+      .getElementById("pedidoCliente")
+      .value.trim();
+
+  const detalle =
+    document
+      .getElementById("pedidoDetalle")
+      .value.trim();
+
+
   try{
 
-    const q =
-      query(
-        collection(db,"pedidos"),
-        where(
-          "codigo",
-          "==",
-          codigo
-        )
-      );
-
-
-    const snap =
-      await getDocs(q);
-
-
-    if(snap.empty){
-
-      alert(
-        "No existe un pedido con ese código."
-      );
-
-      return;
-
-    }
-
-
-    const ref =
-      snap.docs[0].ref;
-
-
     await updateDoc(
-      ref,
+      doc(db,"pedidos",pedido.id),
       {
-
-        cliente:
-          document.getElementById(
-            "pedidoCliente"
-          ).value.trim(),
-
-        estado:
-          document.getElementById(
-            "pedidoEstado"
-          ).value,
-
-        detalle:
-          document.getElementById(
-            "pedidoDetalle"
-          ).value.trim()
-
+        cliente,
+        estado,
+        detalle,
+        actualizadoEn:Date.now()
       }
     );
 
@@ -3518,14 +3019,14 @@ async function(){
     );
 
 
-    cargarPedidosAdmin();
+    await cargarPedidos();
 
   }catch(error){
 
     console.error(error);
 
     alert(
-      "❌ No se pudo actualizar el pedido."
+      "❌ No se pudo actualizar."
     );
 
   }
@@ -3533,208 +3034,23 @@ async function(){
 };
 
 
-async function cargarPedidosAdmin(){
-
-  const lista =
-    document.getElementById(
-      "listaPedidosAdmin"
-    );
-
-
-  if(!lista)
-    return;
-
-
-  lista.innerHTML =
-    "🔄 Cargando pedidos...";
-
-
-  try{
-
-    const snap =
-      await getDocs(
-        collection(db,"pedidos")
-      );
-
-
-    lista.innerHTML = "";
-
-
-    if(snap.empty){
-
-      lista.innerHTML = `
-        <p style="
-          color:#789296;
-          margin-top:10px;
-        ">
-          No hay pedidos todavía.
-        </p>
-      `;
-
-      return;
-
-    }
-
-
-    snap.forEach(
-      pedido => {
-
-        const data =
-          pedido.data();
-
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "admin-producto";
-
-
-        div.innerHTML = `
-
-          <div>
-
-            <strong>
-              📦 ${escapeHtml(data.codigo || "")}
-            </strong>
-
-            <div style="
-              margin-top:4px;
-              color:#789296;
-              font-size:13px;
-            ">
-
-              ${escapeHtml(data.cliente || "")}
-              ·
-              ${escapeHtml(data.estado || "")}
-
-            </div>
-
-          </div>
-
-
-          <button
-            class="btn-destacado"
-            onclick="cargarPedidoEnFormulario('${escapeHtml(pedido.id)}')">
-
-            ✏️ Editar
-
-          </button>
-
-        `;
-
-
-        lista.appendChild(div);
-
-      }
-    );
-
-  }catch(error){
-
-    console.error(error);
-
-    lista.innerHTML = `
-      <p style="color:#c14c4c;">
-        ❌ No se pudieron cargar los pedidos.
-      </p>
-    `;
-
-  }
-
-}
-
-
-window.cargarPedidoEnFormulario =
-async function(id){
-
-  try{
-
-    const ref =
-      doc(
-        db,
-        "pedidos",
-        id
-      );
-
-
-    const snap =
-      await getDoc(ref);
-
-
-    if(!snap.exists())
-      return;
-
-
-    const data =
-      snap.data();
-
-
-    document.getElementById(
-      "pedidoCodigo"
-    ).value =
-      data.codigo || "";
-
-
-    document.getElementById(
-      "pedidoCliente"
-    ).value =
-      data.cliente || "";
-
-
-    document.getElementById(
-      "pedidoEstado"
-    ).value =
-      data.estado || "Recibido";
-
-
-    document.getElementById(
-      "pedidoDetalle"
-    ).value =
-      data.detalle || "";
-
-
-    document.getElementById(
-      "pedidoCodigo"
-    ).scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
-
-  }catch(error){
-
-    console.error(error);
-
-  }
-
-};
-
-
-/* =========================
-   ENVIAR CÓDIGO
-========================= */
-
-window.enviarCodigoWhatsApp =
-function(){
+window.enviarCodigoPedidoWhatsApp = function(){
 
   const codigo =
-    document.getElementById(
-      "pedidoCodigo"
-    ).value.trim();
-
+    document
+      .getElementById("pedidoCodigo")
+      .value.trim();
 
   const cliente =
-    document.getElementById(
-      "pedidoCliente"
-    ).value.trim();
+    document
+      .getElementById("pedidoCliente")
+      .value.trim();
 
 
   if(!codigo){
 
     alert(
-      "Primero genera o selecciona un pedido."
+      "Primero genera un pedido."
     );
 
     return;
@@ -3743,34 +3059,337 @@ function(){
 
 
   const mensaje =
-    "Hola " +
-    (cliente || "") +
-    " 👋%0A%0A" +
-    "Tu pedido ha sido registrado correctamente. 📦%0A%0A" +
-    "Tu código de seguimiento es:%0A" +
-    "🔐 " +
+    "Hola 👋 " +
+    (cliente ? cliente + "\n\n" : "") +
+    "Tu pedido en ANDREX STORE fue registrado correctamente. 🛍️\n\n" +
+    "📦 Código de seguimiento:\n" +
     codigo +
-    "%0A%0A" +
-    "Puedes ingresar este código en la opción " +
-    "\"Estado de mi pedido\" para consultar su estado. 🩵";
+    "\n\n" +
+    "Puedes usar este código para consultar el estado de tu pedido. 💙";
 
 
-  window.open(
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    mensaje,
-    "_blank"
+  contactarWhatsApp(mensaje);
+
+};
+
+
+async function cargarPedidos(){
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(db,"pedidos")
+      );
+
+
+    pedidos =
+      snapshot.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
+
+
+    renderPedidosAdmin();
+
+  }catch(error){
+
+    console.error(
+      "Error cargando pedidos:",
+      error
+    );
+
+  }
+
+}
+
+
+function renderPedidosAdmin(){
+
+  const contenedor =
+    document
+      .getElementById("listaPedidosAdmin");
+
+  if(!contenedor) return;
+
+
+  if(!pedidos.length){
+
+    contenedor.innerHTML =
+      "<p style='color:#71878b;'>No hay pedidos registrados.</p>";
+
+    return;
+
+  }
+
+
+  const ordenados =
+    [...pedidos]
+      .sort(
+        (a,b) =>
+          (b.creadoEn || 0) -
+          (a.creadoEn || 0)
+      );
+
+
+  contenedor.innerHTML =
+    ordenados.map(p => `
+
+      <div
+        class="admin-producto"
+        style="align-items:flex-start;"
+      >
+
+        <div class="admin-producto-info">
+
+          <strong>
+            ${escapeHtml(p.codigo)}
+          </strong>
+
+          <div style="margin-top:5px;">
+            👤 ${escapeHtml(p.cliente)}
+          </div>
+
+          <div style="margin-top:5px;">
+            <span class="estado">
+              ${escapeHtml(p.estado)}
+            </span>
+          </div>
+
+          ${
+            p.detalle
+            ? `
+              <div style="
+                margin-top:6px;
+                font-size:12px;
+                color:#71878b;
+              ">
+                ${escapeHtml(p.detalle)}
+              </div>
+            `
+            : ""
+          }
+
+        </div>
+
+        <button
+          class="admin-small-btn btn-destacado"
+          onclick="cargarPedidoEnFormulario('${p.id}')"
+        >
+          ✏️ Editar
+        </button>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+window.cargarPedidoEnFormulario = function(id){
+
+  const pedido =
+    pedidos.find(p => p.id === id);
+
+  if(!pedido) return;
+
+
+  document
+    .getElementById("pedidoCodigo")
+    .value =
+    pedido.codigo || "";
+
+  document
+    .getElementById("pedidoCliente")
+    .value =
+    pedido.cliente || "";
+
+  document
+    .getElementById("pedidoEstado")
+    .value =
+    pedido.estado || "Recibido";
+
+  document
+    .getElementById("pedidoDetalle")
+    .value =
+    pedido.detalle || "";
+
+
+  document
+    .getElementById("adminPanel")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+};
+
+
+/* =========================
+   CONSULTAR PEDIDO
+========================= */
+
+window.abrirEstadoPedido = function(){
+
+  document
+    .getElementById("modalPedido")
+    .style.display = "flex";
+
+  document
+    .getElementById("buscarPedido")
+    .focus();
+
+};
+
+
+window.consultarPedido = async function(){
+
+  const codigo =
+    document
+      .getElementById("buscarPedido")
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  const resultado =
+    document
+      .getElementById("resultadoPedido");
+
+
+  if(!codigo){
+
+    resultado.innerHTML =
+      "<p>Escribe tu código de pedido.</p>";
+
+    return;
+
+  }
+
+
+  try{
+
+    const encontrado =
+      pedidos.find(p =>
+        String(p.codigo || "")
+          .toUpperCase() === codigo
+      );
+
+
+    if(!encontrado){
+
+      resultado.innerHTML = `
+        <div style="
+          background:#fff2f3;
+          color:#b8324e;
+          padding:15px;
+          border-radius:14px;
+        ">
+          ❌ No encontramos un pedido con el código
+          <strong>${escapeHtml(codigo)}</strong>.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    resultado.innerHTML = `
+
+      <div style="
+        background:#eefbfc;
+        padding:18px;
+        border-radius:17px;
+      ">
+
+        <h3 style="margin-bottom:10px;">
+          📦 Pedido ${escapeHtml(encontrado.codigo)}
+        </h3>
+
+        <p>
+          <strong>Cliente:</strong>
+          ${escapeHtml(encontrado.cliente)}
+        </p>
+
+        <p style="margin-top:8px;">
+          <strong>Estado:</strong>
+          <span class="estado">
+            ${escapeHtml(encontrado.estado)}
+          </span>
+        </p>
+
+        ${
+          encontrado.detalle
+          ? `
+            <p style="margin-top:10px;">
+              <strong>Detalle:</strong><br>
+              ${escapeHtml(encontrado.detalle)}
+            </p>
+          `
+          : ""
+        }
+
+      </div>
+
+    `;
+
+  }catch(error){
+
+    console.error(error);
+
+    resultado.innerHTML =
+      "<p>Ocurrió un error consultando el pedido.</p>";
+
+  }
+
+};
+
+
+/* =========================
+   MEDIOS DE PAGO
+========================= */
+
+window.mostrarMediosPago = function(){
+
+  alert(
+    "💳 MEDIOS DE PAGO\n\n" +
+    "Consulta por WhatsApp los medios de pago disponibles para tu compra."
   );
 
 };
 
 
 /* =========================
-   INICIAR
+   MODALES
+========================= */
+
+window.cerrar = function(id){
+
+  document
+    .getElementById(id)
+    .style.display = "none";
+
+};
+
+
+window.cerrarModal = function(event,id){
+
+  if(event.target.id === id){
+
+    cerrar(id);
+
+  }
+
+};
+
+
+/* =========================
+   INICIO
 ========================= */
 
 cargarProductos();
+cargarPedidos();
 
 </script>
 
