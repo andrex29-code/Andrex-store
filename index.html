@@ -88,7 +88,6 @@
       background: #f3e7d8;
     }
 
-    /* ADMIN SIEMPRE VISIBLE */
     .boton-admin {
       display: block;
     }
@@ -633,6 +632,10 @@
       border-radius: 11px;
       cursor: pointer;
       font-weight: bold;
+    }
+
+    .boton-admin-secundario:hover {
+      background: #f2e5d5;
     }
 
     .boton-admin-peligro {
@@ -1258,6 +1261,7 @@
 
         <button
           class="boton-admin-principal"
+          id="botonEntrarAdmin"
           onclick="iniciarSesionAdmin()"
         >
           🔐 Entrar
@@ -2937,30 +2941,45 @@
     }
 
 
+    /* =========================================
+       INICIAR SESIÓN ADMIN
+       ========================================= */
+
     window.iniciarSesionAdmin =
       async function() {
 
-        const email =
-          document
-            .getElementById(
-              "adminEmail"
-            )
-            .value
-            .trim();
+        const emailInput =
+          document.getElementById(
+            "adminEmail"
+          );
 
 
-        const password =
-          document
-            .getElementById(
-              "adminPassword"
-            )
-            .value;
+        const passwordInput =
+          document.getElementById(
+            "adminPassword"
+          );
 
 
         const mensaje =
           document.getElementById(
             "mensajeLogin"
           );
+
+
+        const boton =
+          document.getElementById(
+            "botonEntrarAdmin"
+          );
+
+
+        const email =
+          emailInput.value
+            .trim()
+            .toLowerCase();
+
+
+        const password =
+          passwordInput.value;
 
 
         mensaje.className =
@@ -2989,20 +3008,35 @@
         }
 
 
+        boton.disabled =
+          true;
+
+
+        boton.textContent =
+          "⏳ Ingresando...";
+
+
+        mensaje.className =
+          "estado-admin exito";
+
+
+        mensaje.textContent =
+          "Verificando tus datos...";
+
+
         try {
 
-          mensaje.className =
-            "estado-admin exito";
+          const resultado =
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
 
 
-          mensaje.textContent =
-            "Iniciando sesión...";
-
-
-          await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
+          console.log(
+            "Inicio de sesión correcto:",
+            resultado.user.email
           );
 
 
@@ -3014,9 +3048,19 @@
             "";
 
 
+          passwordInput.value =
+            "";
+
+
+          mostrarPanelAdmin(
+            resultado.user
+          );
+
+
         } catch (error) {
 
           console.error(
+            "ERROR COMPLETO DE FIREBASE AUTH:",
             error
           );
 
@@ -3025,8 +3069,108 @@
             "estado-admin error";
 
 
+          let mensajeError =
+            "❌ No se pudo iniciar sesión.";
+
+
+          /*
+            MOSTRAMOS EL ERROR REAL DE FIREBASE
+            PARA PODER SABER EXACTAMENTE QUÉ PASA.
+          */
+
+          switch (
+            error.code
+          ) {
+
+            case "auth/invalid-credential":
+
+              mensajeError =
+                "❌ El correo o la contraseña no son correctos.";
+
+              break;
+
+
+            case "auth/invalid-email":
+
+              mensajeError =
+                "❌ El correo electrónico no tiene un formato válido.";
+
+              break;
+
+
+            case "auth/user-not-found":
+
+              mensajeError =
+                "❌ Ese correo no está registrado en Firebase Authentication.";
+
+              break;
+
+
+            case "auth/wrong-password":
+
+              mensajeError =
+                "❌ La contraseña no es correcta.";
+
+              break;
+
+
+            case "auth/user-disabled":
+
+              mensajeError =
+                "❌ Esta cuenta de administrador está deshabilitada.";
+
+              break;
+
+
+            case "auth/too-many-requests":
+
+              mensajeError =
+                "❌ Firebase bloqueó temporalmente los intentos. Espera unos minutos e inténtalo nuevamente.";
+
+              break;
+
+
+            case "auth/network-request-failed":
+
+              mensajeError =
+                "❌ No hay conexión con Firebase. Revisa tu conexión a internet.";
+
+              break;
+
+
+            case "auth/operation-not-allowed":
+
+              mensajeError =
+                "❌ El inicio de sesión con correo y contraseña no está permitido en Firebase.";
+
+              break;
+
+
+            default:
+
+              mensajeError =
+                "❌ Error de Firebase: " +
+                (
+                  error.code ||
+                  "desconocido"
+                );
+
+              break;
+
+          }
+
+
           mensaje.textContent =
-            "No se pudo iniciar sesión. Revisa el correo y la contraseña.";
+            mensajeError;
+
+        } finally {
+
+          boton.disabled =
+            false;
+
+
+          boton.textContent =
+            "🔐 Entrar";
 
         }
 
@@ -3109,8 +3253,54 @@
           );
 
 
+          let mensajeError =
+            "❌ No se pudo enviar el correo.";
+
+
+          switch (
+            error.code
+          ) {
+
+            case "auth/invalid-email":
+
+              mensajeError =
+                "❌ El correo del administrador no es válido.";
+
+              break;
+
+
+            case "auth/user-not-found":
+
+              mensajeError =
+                "❌ Ese usuario no existe en Firebase Authentication.";
+
+              break;
+
+
+            case "auth/network-request-failed":
+
+              mensajeError =
+                "❌ No hay conexión con Firebase.";
+
+              break;
+
+
+            default:
+
+              mensajeError =
+                "❌ Error de Firebase: " +
+                (
+                  error.code ||
+                  "desconocido"
+                );
+
+              break;
+
+          }
+
+
           mostrarMensajeAdmin(
-            "❌ No se pudo enviar el correo. Revisa la configuración de Firebase Authentication.",
+            mensajeError,
             "error"
           );
 
@@ -3177,6 +3367,24 @@
 
           panelAdmin.style.display =
             "none";
+
+
+          document.getElementById(
+            "mensajeLogin"
+          ).className =
+            "estado-admin";
+
+
+          document.getElementById(
+            "mensajeLogin"
+          ).textContent =
+            "";
+
+
+          document.getElementById(
+            "adminPassword"
+          ).value =
+            "";
 
 
         } catch (error) {
@@ -3473,8 +3681,6 @@
           };
 
 
-          /* NUEVO PRODUCTO */
-
           if (
             productoEditandoId === null
           ) {
@@ -3520,8 +3726,6 @@
 
           }
 
-
-          /* EDITAR PRODUCTO */
 
           else {
 
@@ -4350,10 +4554,6 @@
             "botonAdmin"
           );
 
-
-        /*
-          El botón Admin SIEMPRE permanece visible.
-        */
 
         boton.style.display =
           "block";
