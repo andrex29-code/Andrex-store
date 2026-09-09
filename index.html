@@ -24,10 +24,6 @@ body{
   min-height:100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 header{
   position:sticky;
   top:0;
@@ -102,10 +98,6 @@ button{
   background:#f3e7d8;
 }
 
-/* =========================
-   BUSCADOR
-========================= */
-
 .contenedor-buscador{
   max-width:700px;
   margin:12px auto 0;
@@ -134,10 +126,6 @@ button{
   display:none;
 }
 
-/* =========================
-   VIDEO
-========================= */
-
 .hero{
   max-width:1200px;
   margin:18px auto;
@@ -153,10 +141,6 @@ button{
   background:#eadcca;
   box-shadow:0 10px 30px rgba(77,54,34,.12);
 }
-
-/* =========================
-   PRINCIPAL
-========================= */
 
 .pagina-principal,
 .vista-categoria,
@@ -179,10 +163,6 @@ button{
   margin-bottom:25px;
   font-size:14px;
 }
-
-/* =========================
-   CATEGORIAS
-========================= */
 
 .categorias{
   display:grid;
@@ -230,10 +210,6 @@ button{
   margin-top:5px;
 }
 
-/* =========================
-   INFORMACION
-========================= */
-
 .informacion{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -265,10 +241,6 @@ button{
   font-size:13px;
   color:#8f7962;
 }
-
-/* =========================
-   CATEGORIA
-========================= */
 
 .vista-categoria{
   display:none;
@@ -302,10 +274,6 @@ button{
   color:#927a61;
   font-size:14px;
 }
-
-/* =========================
-   PRODUCTOS
-========================= */
 
 .productos{
   display:grid;
@@ -378,10 +346,6 @@ button{
   color:#927b64;
   grid-column:1/-1;
 }
-
-/* =========================
-   CARRITO
-========================= */
 
 .carrito-panel{
   position:fixed;
@@ -486,10 +450,6 @@ button{
   font-weight:bold;
 }
 
-/* =========================
-   MUSICA
-========================= */
-
 #botonMusica{
   position:fixed;
   right:17px;
@@ -504,10 +464,6 @@ button{
   box-shadow:0 7px 20px rgba(77,54,34,.15);
   font-weight:bold;
 }
-
-/* =========================
-   MODALES
-========================= */
 
 .modal{
   position:fixed;
@@ -552,10 +508,6 @@ button{
   cursor:pointer;
   color:#745438;
 }
-
-/* =========================
-   FORMULARIO
-========================= */
 
 .form-grid{
   display:grid;
@@ -646,11 +598,7 @@ button{
   display:none;
 }
 
-/* =========================
-   LISTA ADMIN
-========================= */
-
-.admin-producto{
+.lista-producto{
   display:flex;
   gap:10px;
   align-items:center;
@@ -661,33 +609,29 @@ button{
   background:#fffdf9;
 }
 
-.admin-producto img{
+.lista-producto img{
   width:55px;
   height:55px;
   object-fit:cover;
   border-radius:8px;
 }
 
-.admin-info{
+.lista-info{
   flex:1;
 }
 
-.admin-info strong{
+.lista-info strong{
   display:block;
   color:#5e452f;
 }
 
-.admin-info small{
+.lista-info small{
   color:#927a61;
 }
 
-.admin-producto .acciones{
+.lista-producto .acciones{
   margin:0;
 }
-
-/* =========================
-   CELULAR
-========================= */
 
 @media(max-width:900px){
 
@@ -780,10 +724,6 @@ button{
 
 <body>
 
-<!-- =========================
-     ENCABEZADO
-========================= -->
-
 <header>
 
   <div class="barra-superior">
@@ -830,11 +770,6 @@ button{
 
 </header>
 
-
-<!-- =========================
-     VIDEO
-========================= -->
-
 <section class="hero">
 
   <video
@@ -851,11 +786,6 @@ button{
 
 </section>
 
-
-<!-- =========================
-     PAGINA PRINCIPAL
-========================= -->
-
 <main
   id="paginaPrincipal"
   class="pagina-principal">
@@ -868,7 +798,6 @@ button{
     Elige una categoría para ver nuestros productos
   </p>
 
-
   <section class="categorias">
 
     <div
@@ -879,12 +808,9 @@ button{
 
       <h2>ROPA</h2>
 
-      <p>
-        Ver toda la ropa
-      </p>
+      <p>Ver toda la ropa</p>
 
     </div>
-
 
     <div
       class="categoria"
@@ -894,12 +820,9 @@ button{
 
       <h2>ZAPATOS</h2>
 
-      <p>
-        Ver todos los zapatos
-      </p>
+      <p>Ver todos los zapatos</p>
 
     </div>
-
 
     <div
       class="categoria"
@@ -909,12 +832,9 @@ button{
 
       <h2>LOCIONES</h2>
 
-      <p>
-        Ver todas las lociones
-      </p>
+      <p>Ver todas las lociones</p>
 
     </div>
-
 
     <div
       class="categoria"
@@ -924,75 +844,35 @@ button{
 
       <h2>STREAMING</h2>
 
-      <p>
-        Ver todos los servicios
-      </p>
+      <p>Ver todos los servicios</p>
 
     </div>
 
   </section>
 
-
   <section class="informacion">
 
     <div class="info-card">
-
-      <span class="emoji">
-        🚚
-      </span>
-
-      <h3>
-        Envíos
-      </h3>
-
-      <p>
-        Consulta disponibilidad y entrega.
-      </p>
-
+      <span class="emoji">🚚</span>
+      <h3>Envíos</h3>
+      <p>Consulta disponibilidad y entrega.</p>
     </div>
 
-
     <div class="info-card">
-
-      <span class="emoji">
-        💬
-      </span>
-
-      <h3>
-        Atención
-      </h3>
-
-      <p>
-        Haz tu pedido directamente por WhatsApp.
-      </p>
-
+      <span class="emoji">💬</span>
+      <h3>Atención</h3>
+      <p>Haz tu pedido directamente por WhatsApp.</p>
     </div>
 
-
     <div class="info-card">
-
-      <span class="emoji">
-        🩵
-      </span>
-
-      <h3>
-        ANDREX Store
-      </h3>
-
-      <p>
-        Estilo, productos y entretenimiento.
-      </p>
-
+      <span class="emoji">🩵</span>
+      <h3>ANDREX Store</h3>
+      <p>Estilo, productos y entretenimiento.</p>
     </div>
 
   </section>
 
 </main>
-
-
-<!-- =========================
-     ROPA
-========================= -->
 
 <section
   id="vistaRopa"
@@ -1004,9 +884,7 @@ button{
 
     <h2>ROPA</h2>
 
-    <p>
-      Nuestra colección de ropa
-    </p>
+    <p>Nuestra colección de ropa</p>
 
     <br>
 
@@ -1025,11 +903,6 @@ button{
 
 </section>
 
-
-<!-- =========================
-     ZAPATOS
-========================= -->
-
 <section
   id="vistaZapatos"
   class="vista-categoria">
@@ -1040,9 +913,7 @@ button{
 
     <h2>ZAPATOS</h2>
 
-    <p>
-      Nuestra colección de zapatos
-    </p>
+    <p>Nuestra colección de zapatos</p>
 
     <br>
 
@@ -1061,11 +932,6 @@ button{
 
 </section>
 
-
-<!-- =========================
-     LOCIONES
-========================= -->
-
 <section
   id="vistaLociones"
   class="vista-categoria">
@@ -1076,9 +942,7 @@ button{
 
     <h2>LOCIONES</h2>
 
-    <p>
-      Nuestras fragancias
-    </p>
+    <p>Nuestras fragancias</p>
 
     <br>
 
@@ -1097,11 +961,6 @@ button{
 
 </section>
 
-
-<!-- =========================
-     STREAMING
-========================= -->
-
 <section
   id="vistaStreaming"
   class="vista-categoria">
@@ -1112,9 +971,7 @@ button{
 
     <h2>STREAMING</h2>
 
-    <p>
-      Entretenimiento para disfrutar
-    </p>
+    <p>Entretenimiento para disfrutar</p>
 
     <br>
 
@@ -1133,20 +990,13 @@ button{
 
 </section>
 
-
-<!-- =========================
-     RESULTADOS BUSQUEDA
-========================= -->
-
 <section
   id="resultadosBusqueda"
   style="display:none;">
 
   <div class="encabezado-categoria">
 
-    <h2>
-      Resultados de búsqueda
-    </h2>
+    <h2>Resultados de búsqueda</h2>
 
     <br>
 
@@ -1165,20 +1015,13 @@ button{
 
 </section>
 
-
-<!-- =========================
-     CARRITO
-========================= -->
-
 <aside
   id="carritoPanel"
   class="carrito-panel">
 
   <div class="carrito-cabecera">
 
-    <h2>
-      🛒 Mi carrito
-    </h2>
+    <h2>🛒 Mi carrito</h2>
 
     <button
       class="cerrar-carrito"
@@ -1188,8 +1031,7 @@ button{
 
   </div>
 
-  <div id="itemsCarrito">
-  </div>
+  <div id="itemsCarrito"></div>
 
   <div class="carrito-total">
 
@@ -1197,9 +1039,7 @@ button{
 
       <span>Total</span>
 
-      <span id="totalCarrito">
-        $0
-      </span>
+      <span id="totalCarrito">$0</span>
 
     </strong>
 
@@ -1214,11 +1054,6 @@ button{
   </div>
 
 </aside>
-
-
-<!-- =========================
-     BOTON MUSICA
-========================= -->
 
 <audio
   id="musicaTienda"
@@ -1238,11 +1073,7 @@ button{
 
 </button>
 
-
-<!-- =========================
-     LOGIN
-     SOLO APARECE AL SUBIR
-========================= -->
+<!-- LOGIN -->
 
 <div
   id="modalLogin"
@@ -1252,9 +1083,7 @@ button{
 
     <div class="modal-head">
 
-      <h2>
-        Iniciar sesión
-      </h2>
+      <h2>Iniciar sesión</h2>
 
       <button
         class="cerrar-modal"
@@ -1273,9 +1102,7 @@ button{
 
       <div class="campo full">
 
-        <label>
-          Correo
-        </label>
+        <label>Correo</label>
 
         <input
           id="loginEmail"
@@ -1285,12 +1112,9 @@ button{
 
       </div>
 
-
       <div class="campo full">
 
-        <label>
-          Contraseña
-        </label>
+        <label>Contraseña</label>
 
         <input
           id="loginPassword"
@@ -1313,6 +1137,14 @@ button{
       </button>
 
       <button
+        id="btnRecuperar"
+        class="btn-secundario">
+
+        Olvidé mi contraseña
+
+      </button>
+
+      <button
         class="btn-secundario"
         onclick="cerrarModal('modalLogin')">
 
@@ -1326,37 +1158,30 @@ button{
 
 </div>
 
-
-<!-- =========================
-     PANEL PARA SUBIR
-========================= -->
+<!-- VENTANA DE PRODUCTOS -->
 
 <div
-  id="modalAdmin"
+  id="modalProductos"
   class="modal oculto">
 
   <div class="modal-box">
 
     <div class="modal-head">
 
-      <h2>
-        📸 Subir producto
-      </h2>
+      <h2>📸 Subir producto</h2>
 
       <button
         class="cerrar-modal"
-        onclick="cerrarModal('modalAdmin')">
+        onclick="cerrarModal('modalProductos')">
         ×
       </button>
 
     </div>
 
-
     <div
-      id="adminMensaje"
+      id="productoMensaje"
       class="mensaje">
     </div>
-
 
     <form id="productoForm">
 
@@ -1366,12 +1191,9 @@ button{
 
       <div class="form-grid">
 
-
         <div class="campo full">
 
-          <label>
-            Nombre del producto
-          </label>
+          <label>Nombre del producto</label>
 
           <input
             id="nombreProducto"
@@ -1380,43 +1202,26 @@ button{
 
         </div>
 
-
         <div class="campo">
 
-          <label>
-            Categoría
-          </label>
+          <label>Categoría</label>
 
           <select
             id="categoriaProducto"
             required>
 
-            <option value="ropa">
-              Ropa
-            </option>
-
-            <option value="zapatos">
-              Zapatos
-            </option>
-
-            <option value="lociones">
-              Lociones
-            </option>
-
-            <option value="streaming">
-              Streaming
-            </option>
+            <option value="ropa">Ropa</option>
+            <option value="zapatos">Zapatos</option>
+            <option value="lociones">Lociones</option>
+            <option value="streaming">Streaming</option>
 
           </select>
 
         </div>
 
-
         <div class="campo">
 
-          <label>
-            Precio
-          </label>
+          <label>Precio</label>
 
           <input
             id="precioProducto"
@@ -1426,12 +1231,9 @@ button{
 
         </div>
 
-
         <div class="campo full">
 
-          <label>
-            Descripción
-          </label>
+          <label>Descripción</label>
 
           <textarea
             id="descripcionProducto"
@@ -1440,12 +1242,9 @@ button{
 
         </div>
 
-
         <div class="campo full">
 
-          <label>
-            Foto del producto
-          </label>
+          <label>Foto del producto</label>
 
           <input
             id="imagenProducto"
@@ -1453,7 +1252,6 @@ button{
             accept="image/*">
 
         </div>
-
 
         <div class="campo full">
 
@@ -1466,7 +1264,6 @@ button{
 
       </div>
 
-
       <div class="acciones">
 
         <button
@@ -1478,7 +1275,6 @@ button{
 
         </button>
 
-
         <button
           id="btnCancelarEdicion"
           type="button"
@@ -1487,7 +1283,6 @@ button{
           Limpiar
 
         </button>
-
 
         <button
           id="btnCerrarSesion"
@@ -1502,14 +1297,12 @@ button{
 
     </form>
 
-
     <hr
       style="
         border:0;
         border-top:1px solid #ead9c5;
         margin:20px 0;
       ">
-
 
     <h3
       style="color:#654a32;margin-bottom:8px;">
@@ -1518,25 +1311,17 @@ button{
 
     </h3>
 
-
-    <div id="listaAdminProductos">
-    </div>
+    <div id="listaProductos"></div>
 
   </div>
 
 </div>
-
-
-<!-- =========================
-     FIREBASE
-========================= -->
 
 <script type="module">
 
 import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 
 import {
   getFirestore,
@@ -1549,17 +1334,19 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
 import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  signOut,
+  sendPasswordResetEmail,
+  setPersistence,
+  browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
 /* =========================
-   CONFIGURACION FIREBASE
+   FIREBASE
 ========================= */
 
 const firebaseConfig = {
@@ -1586,23 +1373,33 @@ const firebaseConfig = {
 
 
 /* =========================
-   UID AUTORIZADO
+   CUENTA AUTORIZADA
+   SOLO SE USA INTERNAMENTE
 ========================= */
 
-const ADMIN_UID =
+const CUENTA_AUTORIZADA =
   "WuRLDy1jAIaSMmBk6JZReqQvcbh2";
 
 
 const app =
   initializeApp(firebaseConfig);
 
-
 const db =
   getFirestore(app);
 
-
 const auth =
   getAuth(app);
+
+
+/* =========================
+   MANTENER SESION
+========================= */
+
+const authPreparado =
+  setPersistence(
+    auth,
+    browserLocalPersistence
+  );
 
 
 /* =========================
@@ -1613,14 +1410,16 @@ let productos = [];
 
 let carrito =
   JSON.parse(
-    localStorage.getItem("andrexCarrito")
-  ) || [];
+    localStorage.getItem(
+      "andrexCarrito"
+    ) || "[]"
+  );
 
-let usuarioAdmin = null;
+let usuarioActual = null;
 
 
 /* =========================
-   FUNCIONES AUXILIARES
+   AUXILIARES
 ========================= */
 
 function $(id){
@@ -1630,7 +1429,7 @@ function $(id){
 }
 
 
-function esc(valor){
+function escapar(valor){
 
   return String(valor ?? "")
     .replace(/&/g,"&amp;")
@@ -1642,66 +1441,81 @@ function esc(valor){
 }
 
 
-function aviso(id,texto){
+function mostrarMensaje(
+  id,
+  texto
+){
 
-  const elemento = $(id);
+  const elemento =
+    $(id);
 
-  if(!elemento)return;
+  if(!elemento){
+    return;
+  }
 
-  elemento.textContent = texto;
+  elemento.textContent =
+    texto;
 
-  elemento.style.display = "block";
+  elemento.style.display =
+    "block";
 
 }
 
 
-function ocultarAviso(id){
+function ocultarMensaje(id){
 
-  const elemento = $(id);
+  const elemento =
+    $(id);
 
   if(elemento){
 
-    elemento.style.display = "none";
+    elemento.style.display =
+      "none";
 
   }
 
 }
 
 
-function catNorm(categoria){
+function normalizarCategoria(
+  categoria
+){
 
   const c =
-    String(categoria || "")
-      .toLowerCase()
-      .trim();
+    String(
+      categoria || ""
+    )
+    .toLowerCase()
+    .trim();
 
-  if(c === "ropa")
-    return "ropa";
-
-  if(
-    c === "zapato" ||
-    c === "zapatos"
-  )
+  if(c === "zapato"){
     return "zapatos";
+  }
 
-  if(
-    c === "locion" ||
-    c === "lociones"
-  )
+  if(c === "locion"){
     return "lociones";
-
-  if(
-    c === "streaming"
-  )
-    return "streaming";
+  }
 
   return c;
 
 }
 
 
+function esCuentaAutorizada(
+  usuario
+){
+
+  return !!(
+    usuario &&
+    usuario.uid ===
+    CUENTA_AUTORIZADA
+  );
+
+}
+
+
 /* =========================
-   FIREBASE
+   CARGAR FIRESTORE
 ========================= */
 
 async function cargarFirebase(){
@@ -1710,37 +1524,38 @@ async function cargarFirebase(){
 
     const snapshot =
       await getDocs(
-        collection(db,"productos")
+        collection(
+          db,
+          "productos"
+        )
       );
-
 
     productos =
       productos.filter(
-        p =>
-          String(p.id || "")
-            .startsWith("github-")
+        producto =>
+          String(
+            producto.id || ""
+          ).startsWith(
+            "github-"
+          )
       );
 
+    snapshot.forEach(
+      documento => {
 
-    snapshot.forEach(docSnap => {
+        productos.push({
 
-      productos.push({
+          id:
+            documento.id,
 
-        id:docSnap.id,
+          ...documento.data()
 
-        ...docSnap.data()
+        });
 
-      });
-
-    });
-
+      }
+    );
 
     renderizarTodos();
-
-    console.log(
-      "Productos Firebase:",
-      snapshot.size
-    );
 
   }
   catch(error){
@@ -1756,7 +1571,7 @@ async function cargarFirebase(){
 
 
 /* =========================
-   CARGAR FOTOS DE GITHUB
+   CARGAR ROPA DE GITHUB
 ========================= */
 
 async function cargarRopaGitHub(){
@@ -1766,81 +1581,75 @@ async function cargarRopaGitHub(){
     const url =
       "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main";
 
-
     const respuesta =
       await fetch(url);
 
-
     if(!respuesta.ok){
-
-      console.log(
-        "No se pudieron cargar las fotos."
-      );
 
       return;
 
     }
 
-
     const archivos =
       await respuesta.json();
-
 
     archivos
 
       .filter(
-
         archivo =>
           archivo.type === "file" &&
           /\.(jpg|jpeg|png|webp)$/i
-            .test(archivo.name)
-
+            .test(
+              archivo.name
+            )
       )
 
-      .forEach(archivo => {
+      .forEach(
+        archivo => {
 
-        const id =
-          "github-" +
-          archivo.name;
+          const id =
+            "github-" +
+            archivo.name;
 
+          if(
+            productos.some(
+              p =>
+                p.id === id
+            )
+          ){
 
-        if(
-          productos.some(
-            p => p.id === id
-          )
-        ){
+            return;
 
-          return;
+          }
+
+          productos.push({
+
+            id,
+
+            nombre:
+              archivo.name
+                .replace(
+                  /\.[^/.]+$/,
+                  ""
+                )
+                .replace(
+                  /[-_]/g,
+                  " "
+                ),
+
+            precio:
+              0,
+
+            categoria:
+              "ropa",
+
+            imagen:
+              archivo.download_url
+
+          });
 
         }
-
-
-        productos.push({
-
-          id:id,
-
-          nombre:
-            archivo.name
-              .replace(
-                /\.[^/.]+$/,
-                ""
-              )
-              .replace(
-                /[-_]/g,
-                " "
-              ),
-
-          precio:0,
-
-          categoria:"ropa",
-
-          imagen:
-            archivo.download_url
-
-        });
-
-      });
-
+      );
 
     renderizarTodos();
 
@@ -1848,7 +1657,7 @@ async function cargarRopaGitHub(){
   catch(error){
 
     console.error(
-      "Error cargando ropa:",
+      "Error GitHub:",
       error
     );
 
@@ -1858,17 +1667,20 @@ async function cargarRopaGitHub(){
 
 
 /* =========================
-   TARJETA PRODUCTO
+   TARJETA
 ========================= */
 
-function crearTarjetaProducto(producto){
+function crearTarjetaProducto(
+  producto
+){
 
   const div =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   div.className =
     "producto";
-
 
   const imagen =
     producto.imagen ||
@@ -1876,12 +1688,10 @@ function crearTarjetaProducto(producto){
     producto.foto ||
     "";
 
-
   const nombre =
     producto.nombre ||
     producto.name ||
     "Producto";
-
 
   const precio =
     Number(
@@ -1890,12 +1700,10 @@ function crearTarjetaProducto(producto){
       0
     );
 
-
   const descripcion =
     producto.descripcion ||
     producto.description ||
     "";
-
 
   div.innerHTML = `
 
@@ -1905,8 +1713,8 @@ function crearTarjetaProducto(producto){
       ?
 
       `<img
-        src="${esc(imagen)}"
-        alt="${esc(nombre)}"
+        src="${escapar(imagen)}"
+        alt="${escapar(nombre)}"
         onerror="this.style.display='none'">`
 
       :
@@ -1920,16 +1728,17 @@ function crearTarjetaProducto(producto){
           background:#f1e5d7;
           font-size:60px;
         ">
+
         🛍️
+
       </div>`
 
     }
 
-
     <div class="producto-contenido">
 
       <h3>
-        ${esc(nombre)}
+        ${escapar(nombre)}
       </h3>
 
       ${
@@ -1938,14 +1747,13 @@ function crearTarjetaProducto(producto){
         ?
 
         `<div class="producto-descripcion">
-          ${esc(descripcion)}
+          ${escapar(descripcion)}
         </div>`
 
         :
 
         ""
       }
-
 
       <div class="precio">
 
@@ -1967,7 +1775,6 @@ function crearTarjetaProducto(producto){
 
       </div>
 
-
       <button
         class="boton-agregar">
 
@@ -1979,15 +1786,17 @@ function crearTarjetaProducto(producto){
 
   `;
 
-
   div
-    .querySelector(".boton-agregar")
+    .querySelector(
+      ".boton-agregar"
+    )
     .addEventListener(
       "click",
       () =>
-        agregarAlCarrito(producto)
+        agregarAlCarrito(
+          producto
+        )
     );
-
 
   return div;
 
@@ -2003,17 +1812,16 @@ function mostrarCategoria(
   contenedor
 ){
 
-  contenedor.innerHTML = "";
-
+  contenedor.innerHTML =
+    "";
 
   const lista =
     productos.filter(
       producto =>
-        catNorm(
+        normalizarCategoria(
           producto.categoria
         ) === categoria
     );
-
 
   if(!lista.length){
 
@@ -2023,12 +1831,16 @@ function mostrarCategoria(
 
         <div
           style="font-size:45px;">
+
           🛍️
+
         </div>
 
         <p>
-          Aún no hay productos disponibles
-          en esta categoría.
+
+          Aún no hay productos
+          disponibles en esta categoría.
+
         </p>
 
       </div>
@@ -2039,16 +1851,17 @@ function mostrarCategoria(
 
   }
 
+  lista.forEach(
+    producto => {
 
-  lista.forEach(producto => {
+      contenedor.appendChild(
+        crearTarjetaProducto(
+          producto
+        )
+      );
 
-    contenedor.appendChild(
-      crearTarjetaProducto(
-        producto
-      )
-    );
-
-  });
+    }
+  );
 
 }
 
@@ -2064,24 +1877,20 @@ function renderizarTodos(){
     $("productosRopa")
   );
 
-
   mostrarCategoria(
     "zapatos",
     $("productosZapatos")
   );
-
 
   mostrarCategoria(
     "lociones",
     $("productosLociones")
   );
 
-
   mostrarCategoria(
     "streaming",
     $("productosStreaming")
   );
-
 
   actualizarCarrito();
 
@@ -2096,25 +1905,27 @@ window.entrarCategoria =
 function(categoria){
 
   $("paginaPrincipal")
-    .style.display = "none";
-
+    .style.display =
+    "none";
 
   $("resultadosBusqueda")
-    .style.display = "none";
-
+    .style.display =
+    "none";
 
   [
     "Ropa",
     "Zapatos",
     "Lociones",
     "Streaming"
-  ].forEach(nombre => {
+  ].forEach(
+    nombre => {
 
-    $("vista" + nombre)
-      .style.display = "none";
+      $("vista" + nombre)
+        .style.display =
+        "none";
 
-  });
-
+    }
+  );
 
   const id =
     "vista" +
@@ -2123,10 +1934,8 @@ function(categoria){
       .toUpperCase() +
     categoria.slice(1);
 
-
   $(id).style.display =
     "block";
-
 
   window.scrollTo({
     top:0,
@@ -2144,21 +1953,23 @@ function(){
     "Zapatos",
     "Lociones",
     "Streaming"
-  ].forEach(nombre => {
+  ].forEach(
+    nombre => {
 
-    $("vista" + nombre)
-      .style.display = "none";
+      $("vista" + nombre)
+        .style.display =
+        "none";
 
-  });
-
+    }
+  );
 
   $("resultadosBusqueda")
-    .style.display = "none";
-
+    .style.display =
+    "none";
 
   $("paginaPrincipal")
-    .style.display = "block";
-
+    .style.display =
+    "block";
 
   window.scrollTo({
     top:0,
@@ -2169,7 +1980,7 @@ function(){
 
 
 /* =========================
-   BUSCAR
+   BUSCADOR
 ========================= */
 
 window.buscarProductos =
@@ -2181,11 +1992,11 @@ function(){
       .trim()
       .toLowerCase();
 
-
   $("botonLimpiar")
     .style.display =
-      texto ? "block" : "none";
-
+    texto
+      ? "block"
+      : "none";
 
   if(!texto){
 
@@ -2195,60 +2006,56 @@ function(){
 
   }
 
-
   $("paginaPrincipal")
-    .style.display = "none";
-
+    .style.display =
+    "none";
 
   [
     "Ropa",
     "Zapatos",
     "Lociones",
     "Streaming"
-  ].forEach(nombre => {
+  ].forEach(
+    nombre => {
 
-    $("vista" + nombre)
-      .style.display = "none";
+      $("vista" + nombre)
+        .style.display =
+        "none";
 
-  });
-
+    }
+  );
 
   $("resultadosBusqueda")
-    .style.display = "block";
-
+    .style.display =
+    "block";
 
   const salida =
     $("productosBusqueda");
 
-
-  salida.innerHTML = "";
-
+  salida.innerHTML =
+    "";
 
   const lista =
-    productos.filter(producto => {
+    productos.filter(
+      producto => {
 
-      const textoProducto = [
+        const textoProducto = [
 
-        producto.nombre,
+          producto.nombre,
+          producto.name,
+          producto.categoria,
+          producto.descripcion,
+          producto.description
 
-        producto.name,
+        ]
+        .join(" ")
+        .toLowerCase();
 
-        producto.categoria,
+        return textoProducto
+          .includes(texto);
 
-        producto.descripcion,
-
-        producto.description
-
-      ]
-      .join(" ")
-      .toLowerCase();
-
-
-      return textoProducto
-        .includes(texto);
-
-    });
-
+      }
+    );
 
   if(!lista.length){
 
@@ -2267,16 +2074,17 @@ function(){
 
   }
 
+  lista.forEach(
+    producto => {
 
-  lista.forEach(producto => {
+      salida.appendChild(
+        crearTarjetaProducto(
+          producto
+        )
+      );
 
-    salida.appendChild(
-      crearTarjetaProducto(
-        producto
-      )
-    );
-
-  });
+    }
+  );
 
 };
 
@@ -2284,10 +2092,12 @@ function(){
 window.limpiarBusqueda =
 function(){
 
-  $("buscador").value = "";
+  $("buscador").value =
+    "";
 
   $("botonLimpiar")
-    .style.display = "none";
+    .style.display =
+    "none";
 
   volverInicio();
 
@@ -2302,7 +2112,9 @@ function guardarCarrito(){
 
   localStorage.setItem(
     "andrexCarrito",
-    JSON.stringify(carrito)
+    JSON.stringify(
+      carrito
+    )
   );
 
 }
@@ -2311,7 +2123,9 @@ function guardarCarrito(){
 window.agregarAlCarrito =
 function(producto){
 
-  carrito.push(producto);
+  carrito.push(
+    producto
+  );
 
   guardarCarrito();
 
@@ -2326,18 +2140,15 @@ function actualizarCarrito(){
 
   $("cantidadCarrito")
     .textContent =
-      carrito.length;
-
+    carrito.length;
 
   const salida =
     $("itemsCarrito");
 
-
-  salida.innerHTML = "";
-
+  salida.innerHTML =
+    "";
 
   let total = 0;
-
 
   if(!carrito.length){
 
@@ -2360,15 +2171,13 @@ function actualizarCarrito(){
 
     `;
 
-
     $("totalCarrito")
-      .textContent = "$0";
-
+      .textContent =
+      "$0";
 
     return;
 
   }
-
 
   carrito.forEach(
     (producto,index) => {
@@ -2380,19 +2189,16 @@ function actualizarCarrito(){
           0
         );
 
-
-      total += precio;
-
+      total +=
+        precio;
 
       const div =
         document.createElement(
           "div"
         );
 
-
       div.className =
         "item-carrito";
-
 
       div.innerHTML = `
 
@@ -2402,7 +2208,9 @@ function actualizarCarrito(){
           ?
 
           `<img
-            src="${esc(producto.imagen)}"
+            src="${escapar(
+              producto.imagen
+            )}"
             alt="">`
 
           :
@@ -2417,20 +2225,23 @@ function actualizarCarrito(){
               align-items:center;
               justify-content:center;
             ">
+
             🛍️
+
           </div>`
 
         }
 
-
         <div class="item-info">
 
           <h4>
-            ${esc(
+
+            ${escapar(
               producto.nombre ||
               producto.name ||
               "Producto"
             )}
+
           </h4>
 
           <p>
@@ -2455,12 +2266,8 @@ function actualizarCarrito(){
 
         </div>
 
-
         <button
-          class="eliminar-item"
-          onclick="
-            eliminarDelCarrito(${index})
-          ">
+          class="eliminar-item">
 
           ✕
 
@@ -2468,40 +2275,49 @@ function actualizarCarrito(){
 
       `;
 
+      div
+        .querySelector(
+          ".eliminar-item"
+        )
+        .onclick =
+        function(){
 
-      salida.appendChild(div);
+          carrito.splice(
+            index,
+            1
+          );
+
+          guardarCarrito();
+
+          actualizarCarrito();
+
+        };
+
+      salida.appendChild(
+        div
+      );
 
     }
   );
 
-
   $("totalCarrito")
     .textContent =
-      "$" +
-      total.toLocaleString(
-        "es-CO"
-      );
+    "$" +
+    total.toLocaleString(
+      "es-CO"
+    );
 
 }
-
-
-window.eliminarDelCarrito =
-function(index){
-
-  carrito.splice(index,1);
-
-  guardarCarrito();
-
-  actualizarCarrito();
-
-};
 
 
 window.abrirCarrito =
 function(){
 
   $("carritoPanel")
-    .classList.add("abierto");
+    .classList
+    .add(
+      "abierto"
+    );
 
 };
 
@@ -2510,7 +2326,10 @@ window.cerrarCarrito =
 function(){
 
   $("carritoPanel")
-    .classList.remove("abierto");
+    .classList
+    .remove(
+      "abierto"
+    );
 
 };
 
@@ -2532,13 +2351,10 @@ function(){
 
   }
 
-
   let mensaje =
     "Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
 
-
   let total = 0;
-
 
   carrito.forEach(
     (producto,index) => {
@@ -2548,7 +2364,6 @@ function(){
         producto.name ||
         "Producto";
 
-
       const precio =
         Number(
           producto.precio ||
@@ -2556,9 +2371,8 @@ function(){
           0
         );
 
-
-      total += precio;
-
+      total +=
+        precio;
 
       mensaje +=
 
@@ -2567,11 +2381,14 @@ function(){
         (
           precio
           ?
+
           " - $" +
           precio.toLocaleString(
             "es-CO"
           )
+
           :
+
           ""
         ) +
 
@@ -2580,14 +2397,12 @@ function(){
     }
   );
 
-
   mensaje +=
 
     `%0ATotal: $` +
     total.toLocaleString(
       "es-CO"
     );
-
 
   window.open(
     "https://wa.me/573181579324?text=" +
@@ -2609,24 +2424,30 @@ const musica =
 window.alternarMusica =
 function(){
 
-  if(musica.paused){
+  if(
+    musica.paused
+  ){
 
     musica
       .play()
-      .then(() => {
+      .then(
+        () => {
 
-        $("botonMusica")
-          .textContent =
-          "🔊 Música";
+          $("botonMusica")
+            .textContent =
+            "🔊 Música";
 
-      })
-      .catch(() => {
+        }
+      )
+      .catch(
+        () => {
 
-        alert(
-          "No se pudo reproducir la música."
-        );
+          alert(
+            "No se pudo reproducir la música."
+          );
 
-      });
+        }
+      );
 
   }
   else{
@@ -2650,7 +2471,9 @@ function abrirModal(id){
 
   $(id)
     .classList
-    .remove("oculto");
+    .remove(
+      "oculto"
+    );
 
 }
 
@@ -2660,23 +2483,11 @@ function(id){
 
   $(id)
     .classList
-    .add("oculto");
+    .add(
+      "oculto"
+    );
 
 };
-
-
-/* =========================
-   COMPROBAR ADMIN
-========================= */
-
-function esAdmin(user){
-
-  return !!(
-    user &&
-    user.uid === ADMIN_UID
-  );
-
-}
 
 
 /* =========================
@@ -2684,21 +2495,24 @@ function esAdmin(user){
 ========================= */
 
 $("btnSubirProducto")
-  .onclick = function(){
+  .onclick =
+  function(){
 
-    ocultarAviso(
+    ocultarMensaje(
       "loginMensaje"
     );
 
-
-    if(esAdmin(usuarioAdmin)){
+    if(
+      esCuentaAutorizada(
+        usuarioActual
+      )
+    ){
 
       abrirModal(
-        "modalAdmin"
+        "modalProductos"
       );
 
-
-      listarAdminProductos();
+      listarProductos();
 
     }
     else{
@@ -2713,31 +2527,32 @@ $("btnSubirProducto")
 
 
 /* =========================
-   INICIAR SESION
+   INICIO DE SESION
 ========================= */
 
 $("btnLogin")
-  .onclick = async function(){
+  .onclick =
+  async function(){
 
     const email =
       $("loginEmail")
         .value
         .trim();
 
-
     const password =
       $("loginPassword")
         .value;
 
-
-    ocultarAviso(
+    ocultarMensaje(
       "loginMensaje"
     );
 
+    if(
+      !email ||
+      !password
+    ){
 
-    if(!email || !password){
-
-      aviso(
+      mostrarMensaje(
         "loginMensaje",
         "Escribe tu correo y contraseña."
       );
@@ -2746,8 +2561,9 @@ $("btnLogin")
 
     }
 
-
     try{
+
+      await authPreparado;
 
       const cred =
         await signInWithEmailAndPassword(
@@ -2756,42 +2572,42 @@ $("btnLogin")
           password
         );
 
+      if(
+        !esCuentaAutorizada(
+          cred.user
+        )
+      ){
 
-      if(!esAdmin(cred.user)){
+        await signOut(
+          auth
+        );
 
-        await signOut(auth);
-
-
-        aviso(
+        mostrarMensaje(
           "loginMensaje",
           "⛔ Esta cuenta no tiene permiso para subir productos."
         );
-
 
         return;
 
       }
 
-
       $("loginEmail")
-        .value = "";
-
+        .value =
+        "";
 
       $("loginPassword")
-        .value = "";
-
+        .value =
+        "";
 
       cerrarModal(
         "modalLogin"
       );
 
-
       abrirModal(
-        "modalAdmin"
+        "modalProductos"
       );
 
-
-      listarAdminProductos();
+      listarProductos();
 
     }
     catch(error){
@@ -2801,21 +2617,8 @@ $("btnLogin")
         error
       );
 
-
       let mensaje =
-        "❌ Correo o contraseña incorrectos.";
-
-
-      if(
-        error.code ===
-        "auth/operation-not-allowed"
-      ){
-
-        mensaje =
-          "❌ Firebase Authentication no tiene activado el acceso por correo y contraseña.";
-
-      }
-
+        "❌ No se pudo iniciar sesión.";
 
       if(
         error.code ===
@@ -2823,12 +2626,71 @@ $("btnLogin")
       ){
 
         mensaje =
-          "❌ El correo o la contraseña son incorrectos.";
+          "❌ El correo o la contraseña de Firebase Authentication no coinciden.";
 
       }
 
+      else if(
+        error.code ===
+        "auth/wrong-password"
+      ){
 
-      aviso(
+        mensaje =
+          "❌ La contraseña de Firebase Authentication no es correcta.";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/user-not-found"
+      ){
+
+        mensaje =
+          "❌ Ese correo no existe en Firebase Authentication.";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/invalid-email"
+      ){
+
+        mensaje =
+          "❌ El correo electrónico no es válido.";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/operation-not-allowed"
+      ){
+
+        mensaje =
+          "❌ Debes activar Correo electrónico/Contraseña en Firebase Authentication.";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/unauthorized-domain"
+      ){
+
+        mensaje =
+          "❌ El dominio de tu tienda no está autorizado en Firebase Authentication.";
+
+      }
+
+      else if(
+        error.code ===
+        "auth/too-many-requests"
+      ){
+
+        mensaje =
+          "❌ Hay demasiados intentos. Espera unos minutos y vuelve a intentarlo.";
+
+      }
+
+      mostrarMensaje(
         "loginMensaje",
         mensaje
       );
@@ -2839,31 +2701,91 @@ $("btnLogin")
 
 
 /* =========================
-   ESTADO DE AUTENTICACION
+   RECUPERAR CONTRASEÑA
+========================= */
+
+$("btnRecuperar")
+  .onclick =
+  async function(){
+
+    const email =
+      $("loginEmail")
+        .value
+        .trim();
+
+    ocultarMensaje(
+      "loginMensaje"
+    );
+
+    if(!email){
+
+      mostrarMensaje(
+        "loginMensaje",
+        "Escribe primero tu correo."
+      );
+
+      return;
+
+    }
+
+    try{
+
+      await sendPasswordResetEmail(
+        auth,
+        email
+      );
+
+      mostrarMensaje(
+        "loginMensaje",
+        "✅ Te enviamos un enlace para cambiar tu contraseña."
+      );
+
+    }
+    catch(error){
+
+      console.error(
+        error
+      );
+
+      mostrarMensaje(
+        "loginMensaje",
+        "❌ No se pudo enviar el correo de recuperación."
+      );
+
+    }
+
+  };
+
+
+/* =========================
+   ESTADO DE SESION
 ========================= */
 
 onAuthStateChanged(
   auth,
-  user => {
+  function(user){
 
     if(
       user &&
-      esAdmin(user)
+      esCuentaAutorizada(
+        user
+      )
     ){
 
-      usuarioAdmin =
+      usuarioActual =
         user;
 
     }
     else{
 
-      usuarioAdmin =
+      usuarioActual =
         null;
-
 
       if(user){
 
-        signOut(auth);
+        signOut(
+          auth
+        );
 
       }
 
@@ -2878,12 +2800,18 @@ onAuthStateChanged(
 ========================= */
 
 $("btnCerrarSesion")
-  .onclick = async function(){
+  .onclick =
+  async function(){
 
-    await signOut(auth);
+    await signOut(
+      auth
+    );
+
+    usuarioActual =
+      null;
 
     cerrarModal(
-      "modalAdmin"
+      "modalProductos"
     );
 
     limpiarFormulario();
@@ -2892,20 +2820,19 @@ $("btnCerrarSesion")
 
 
 /* =========================
-   PREVIEW IMAGEN
+   PREVIEW
 ========================= */
 
 $("imagenProducto")
-  .onchange = function(){
+  .onchange =
+  function(){
 
     const archivo =
       $("imagenProducto")
         .files[0];
 
-
     const imagen =
       $("previewProducto");
-
 
     if(!archivo){
 
@@ -2920,12 +2847,10 @@ $("imagenProducto")
 
     }
 
-
     imagen.src =
       URL.createObjectURL(
         archivo
       );
-
 
     imagen.style.display =
       "block";
@@ -2934,7 +2859,7 @@ $("imagenProducto")
 
 
 /* =========================
-   LIMPIAR FORMULARIO
+   LIMPIAR
 ========================= */
 
 function limpiarFormulario(){
@@ -2942,25 +2867,22 @@ function limpiarFormulario(){
   $("productoForm")
     .reset();
 
-
   $("productoId")
-    .value = "";
-
+    .value =
+    "";
 
   $("previewProducto")
     .removeAttribute(
       "src"
     );
 
-
   $("previewProducto")
     .style.display =
-      "none";
-
+    "none";
 
   $("btnGuardarProducto")
     .textContent =
-      "➕ Guardar producto";
+    "➕ Guardar producto";
 
 }
 
@@ -2979,20 +2901,17 @@ async function comprimirImagen(
       const lector =
         new FileReader();
 
-
       lector.onload =
         function(){
 
           const imagen =
             new Image();
 
-
           imagen.onload =
             function(){
 
               const maximo =
                 1000;
-
 
               const escala =
                 Math.min(
@@ -3004,12 +2923,10 @@ async function comprimirImagen(
                   )
                 );
 
-
               const canvas =
                 document.createElement(
                   "canvas"
                 );
-
 
               canvas.width =
                 Math.max(
@@ -3020,7 +2937,6 @@ async function comprimirImagen(
                   )
                 );
 
-
               canvas.height =
                 Math.max(
                   1,
@@ -3030,12 +2946,10 @@ async function comprimirImagen(
                   )
                 );
 
-
               const ctx =
                 canvas.getContext(
                   "2d"
                 );
-
 
               ctx.drawImage(
                 imagen,
@@ -3045,10 +2959,8 @@ async function comprimirImagen(
                 canvas.height
               );
 
-
               let calidad =
                 0.82;
-
 
               let dataUrl =
                 canvas.toDataURL(
@@ -3056,16 +2968,15 @@ async function comprimirImagen(
                   calidad
                 );
 
-
               while(
                 dataUrl.length >
                 900000 &&
-                calidad > 0.45
+                calidad >
+                0.45
               ){
 
                 calidad -=
                   0.07;
-
 
                 dataUrl =
                   canvas.toDataURL(
@@ -3074,7 +2985,6 @@ async function comprimirImagen(
                   );
 
               }
-
 
               if(
                 dataUrl.length >
@@ -3091,13 +3001,11 @@ async function comprimirImagen(
 
               }
 
-
               resolve(
                 dataUrl
               );
 
             };
-
 
           imagen.onerror =
             function(){
@@ -3110,12 +3018,10 @@ async function comprimirImagen(
 
             };
 
-
           imagen.src =
             lector.result;
 
         };
-
 
       lector.onerror =
         function(){
@@ -3127,7 +3033,6 @@ async function comprimirImagen(
           );
 
         };
-
 
       lector.readAsDataURL(
         archivo
@@ -3144,15 +3049,19 @@ async function comprimirImagen(
 ========================= */
 
 $("productoForm")
-  .onsubmit = async function(event){
+  .onsubmit =
+  async function(event){
 
     event.preventDefault();
 
+    if(
+      !esCuentaAutorizada(
+        usuarioActual
+      )
+    ){
 
-    if(!usuarioAdmin){
-
-      aviso(
-        "adminMensaje",
+      mostrarMensaje(
+        "productoMensaje",
         "⛔ Tu sesión no está autorizada."
       );
 
@@ -3160,91 +3069,66 @@ $("productoForm")
 
     }
 
-
     const id =
       $("productoId")
         .value;
-
 
     const nombre =
       $("nombreProducto")
         .value
         .trim();
 
-
     const categoria =
       $("categoriaProducto")
         .value;
 
-
     const precio =
       Number(
         $("precioProducto")
-          .value || 0
+          .value ||
+        0
       );
-
 
     const descripcion =
       $("descripcionProducto")
         .value
         .trim();
 
-
     const archivo =
       $("imagenProducto")
         .files[0];
 
-
     const boton =
       $("btnGuardarProducto");
-
 
     boton.disabled =
       true;
 
-
     boton.textContent =
       "Guardando...";
 
-
-    ocultarAviso(
-      "adminMensaje"
+    ocultarMensaje(
+      "productoMensaje"
     );
-
 
     try{
 
-      let imagen = "";
-
-
-      /*
-       * Si estamos editando y no
-       * seleccionamos nueva imagen,
-       * conservamos la imagen actual.
-       */
+      let imagen =
+        "";
 
       if(id){
 
         const existente =
           productos.find(
-            p => p.id === id
+            p =>
+              p.id === id
           );
-
 
         imagen =
           existente?.imagen ||
           "";
 
       }
-
-
-      /*
-       * La imagen se guarda
-       * directamente en Firestore
-       * como texto Base64 comprimido.
-       *
-       * NO SE USA FIREBASE STORAGE.
-       */
 
       if(archivo){
 
@@ -3254,7 +3138,6 @@ $("productoForm")
           );
 
       }
-
 
       const datos = {
 
@@ -3277,7 +3160,6 @@ $("productoForm")
           serverTimestamp()
 
       };
-
 
       if(id){
 
@@ -3316,9 +3198,8 @@ $("productoForm")
 
       }
 
-
-      aviso(
-        "adminMensaje",
+      mostrarMensaje(
+        "productoMensaje",
         id
           ?
           "✅ Producto actualizado correctamente."
@@ -3326,28 +3207,23 @@ $("productoForm")
           "✅ Producto agregado correctamente."
       );
 
-
       limpiarFormulario();
-
 
       await cargarFirebase();
 
-
-      await listarAdminProductos();
+      await listarProductos();
 
     }
     catch(error){
 
       console.error(
-        "ERROR GUARDANDO PRODUCTO:",
+        "ERROR GUARDANDO:",
         error
       );
-
 
       let mensaje =
         error.message ||
         "No se pudo guardar el producto.";
-
 
       if(
         error.code ===
@@ -3355,13 +3231,12 @@ $("productoForm")
       ){
 
         mensaje =
-          "Firebase rechazó el guardado. Verifica que la sesión sea la cuenta autorizada y que las reglas de Firestore tengan tu UID.";
+          "Firebase rechazó el guardado. Verifica las reglas de Firestore y que tu sesión sea la cuenta autorizada.";
 
       }
 
-
-      aviso(
-        "adminMensaje",
+      mostrarMensaje(
+        "productoMensaje",
         "❌ " + mensaje
       );
 
@@ -3371,19 +3246,12 @@ $("productoForm")
       boton.disabled =
         false;
 
-
-      if(!id){
-
-        boton.textContent =
+      boton.textContent =
+        id
+          ?
+          "💾 Guardar cambios"
+          :
           "➕ Guardar producto";
-
-      }
-      else{
-
-        boton.textContent =
-          "💾 Guardar cambios";
-
-      }
 
     }
 
@@ -3394,22 +3262,23 @@ $("productoForm")
    LISTAR PRODUCTOS
 ========================= */
 
-async function listarAdminProductos(){
+async function listarProductos(){
 
-  if(!usuarioAdmin){
+  if(
+    !esCuentaAutorizada(
+      usuarioActual
+    )
+  ){
 
     return;
 
   }
 
-
   const salida =
-    $("listaAdminProductos");
-
+    $("listaProductos");
 
   salida.innerHTML =
     "Cargando...";
-
 
   try{
 
@@ -3421,12 +3290,12 @@ async function listarAdminProductos(){
         )
       );
 
-
     salida.innerHTML =
       "";
 
-
-    if(snapshot.empty){
+    if(
+      snapshot.empty
+    ){
 
       salida.innerHTML = `
 
@@ -3446,7 +3315,6 @@ async function listarAdminProductos(){
 
     }
 
-
     snapshot.forEach(
       documento => {
 
@@ -3459,16 +3327,13 @@ async function listarAdminProductos(){
 
         };
 
-
         const div =
           document.createElement(
             "div"
           );
 
-
         div.className =
-          "admin-producto";
-
+          "lista-producto";
 
         div.innerHTML = `
 
@@ -3478,7 +3343,9 @@ async function listarAdminProductos(){
             ?
 
             `<img
-              src="${esc(producto.imagen)}"
+              src="${escapar(
+                producto.imagen
+              )}"
               alt="">`
 
             :
@@ -3493,17 +3360,18 @@ async function listarAdminProductos(){
                 align-items:center;
                 justify-content:center;
               ">
+
               🛍️
+
             </div>`
 
           }
 
-
-          <div class="admin-info">
+          <div class="lista-info">
 
             <strong>
 
-              ${esc(
+              ${escapar(
                 producto.nombre ||
                 "Producto"
               )}
@@ -3512,7 +3380,7 @@ async function listarAdminProductos(){
 
             <small>
 
-              ${esc(
+              ${escapar(
                 producto.categoria ||
                 ""
               )}
@@ -3522,7 +3390,8 @@ async function listarAdminProductos(){
               $
 
               ${Number(
-                producto.precio || 0
+                producto.precio ||
+                0
               ).toLocaleString(
                 "es-CO"
               )}
@@ -3531,21 +3400,19 @@ async function listarAdminProductos(){
 
           </div>
 
-
           <div class="acciones">
 
             <button
               class="btn-secundario"
-              data-edit>
+              data-editar>
 
               ✏️
 
             </button>
 
-
             <button
               class="btn-peligro"
-              data-delete>
+              data-eliminar>
 
               🗑️
 
@@ -3555,28 +3422,31 @@ async function listarAdminProductos(){
 
         `;
 
+        div
+          .querySelector(
+            "[data-editar]"
+          )
+          .onclick =
+          function(){
+
+            editarProducto(
+              producto
+            );
+
+          };
 
         div
           .querySelector(
-            "[data-edit]"
+            "[data-eliminar]"
           )
           .onclick =
-            () =>
-              editarProducto(
-                producto
-              );
+          function(){
 
+            eliminarProducto(
+              producto
+            );
 
-        div
-          .querySelector(
-            "[data-delete]"
-          )
-          .onclick =
-            () =>
-              eliminarProducto(
-                producto
-              );
-
+          };
 
         salida.appendChild(
           div
@@ -3591,7 +3461,6 @@ async function listarAdminProductos(){
     console.error(
       error
     );
-
 
     salida.innerHTML =
       "<p>Error cargando productos.</p>";
@@ -3611,45 +3480,41 @@ function editarProducto(
 
   $("productoId")
     .value =
-      producto.id;
-
+    producto.id;
 
   $("nombreProducto")
     .value =
-      producto.nombre ||
-      "";
-
+    producto.nombre ||
+    "";
 
   $("categoriaProducto")
     .value =
-      catNorm(
-        producto.categoria
-      ) ||
-      "ropa";
-
+    normalizarCategoria(
+      producto.categoria
+    ) ||
+    "ropa";
 
   $("precioProducto")
     .value =
-      Number(
-        producto.precio || 0
-      );
-
+    Number(
+      producto.precio ||
+      0
+    );
 
   $("descripcionProducto")
     .value =
-      producto.descripcion ||
-      "";
-
+    producto.descripcion ||
+    "";
 
   const imagen =
     $("previewProducto");
 
-
-  if(producto.imagen){
+  if(
+    producto.imagen
+  ){
 
     imagen.src =
       producto.imagen;
-
 
     imagen.style.display =
       "block";
@@ -3662,21 +3527,13 @@ function editarProducto(
 
   }
 
-
   $("btnGuardarProducto")
     .textContent =
-      "💾 Guardar cambios";
+    "💾 Guardar cambios";
 
-
-  ocultarAviso(
-    "adminMensaje"
+  ocultarMensaje(
+    "productoMensaje"
   );
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
 
 }
 
@@ -3689,25 +3546,26 @@ async function eliminarProducto(
   producto
 ){
 
-  if(!usuarioAdmin){
+  if(
+    !esCuentaAutorizada(
+      usuarioActual
+    )
+  ){
 
     return;
 
   }
-
 
   const confirmar =
     confirm(
       `¿Eliminar "${producto.nombre || "este producto"}"?`
     );
 
-
   if(!confirmar){
 
     return;
 
   }
-
 
   try{
 
@@ -3721,17 +3579,14 @@ async function eliminarProducto(
 
     );
 
-
-    aviso(
-      "adminMensaje",
+    mostrarMensaje(
+      "productoMensaje",
       "🗑️ Producto eliminado correctamente."
     );
 
-
     await cargarFirebase();
 
-
-    await listarAdminProductos();
+    await listarProductos();
 
   }
   catch(error){
@@ -3740,9 +3595,8 @@ async function eliminarProducto(
       error
     );
 
-
-    aviso(
-      "adminMensaje",
+    mostrarMensaje(
+      "productoMensaje",
       "❌ No se pudo eliminar el producto: " +
       error.message
     );
@@ -3753,24 +3607,24 @@ async function eliminarProducto(
 
 
 /* =========================
-   BOTON LIMPIAR FORMULARIO
+   LIMPIAR FORMULARIO
 ========================= */
 
 $("btnCancelarEdicion")
   .onclick =
-    function(){
+  function(){
 
-      limpiarFormulario();
+    limpiarFormulario();
 
-      ocultarAviso(
-        "adminMensaje"
-      );
+    ocultarMensaje(
+      "productoMensaje"
+    );
 
-    };
+  };
 
 
 /* =========================
-   INICIAR TIENDA
+   INICIAR
 ========================= */
 
 cargarRopaGitHub();
@@ -3783,3 +3637,4 @@ actualizarCarrito();
 
 </body>
 </html>
+
