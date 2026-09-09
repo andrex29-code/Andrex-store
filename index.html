@@ -4,9 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ANDREX 🩵Store</title>
+<title>ANDREX 🩵 Store</title>
+
+<!-- TIPOGRAFÍAS ELEGANTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -18,7 +25,7 @@ html{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:'Montserrat',Arial,Helvetica,sans-serif;
   background:#eefaff;
   color:#23485a;
   min-height:100vh;
@@ -48,31 +55,70 @@ header{
   gap:10px;
 }
 
+/* =========================
+   LOGO ANDREX STORE
+========================= */
+
 .logo{
-  font-size:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+
+  font-family:'Montserrat',sans-serif;
+  font-size:30px;
   font-weight:900;
   letter-spacing:2px;
-  color:#39a9d1;
-  text-shadow:
-    0 0 5px #a9e9fa,
-    0 0 12px rgba(72,190,225,.55);
+
   white-space:nowrap;
+
+  color:#159ed0;
+
+  text-shadow:
+    0 0 4px #ffffff,
+    0 0 8px #79dcff,
+    0 0 16px rgba(21,158,208,.75),
+    0 0 30px rgba(21,158,208,.45);
+
   cursor:pointer;
   user-select:none;
   -webkit-user-select:none;
   touch-action:manipulation;
+
+  transition:.25s ease;
 }
 
-.logo span{
-  display:block;
-  font-size:10px;
-  letter-spacing:4px;
-  font-weight:500;
-  color:#72bdd7;
-  text-align:center;
-  margin-top:-2px;
-  text-shadow:none;
+.logo:hover{
+  transform:scale(1.03);
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 12px #79dcff,
+    0 0 22px rgba(21,158,208,.85),
+    0 0 38px rgba(21,158,208,.55);
 }
+
+.logo-andrex{
+  font-family:'Montserrat',sans-serif;
+  font-weight:900;
+  color:#159ed0;
+}
+
+.logo-store{
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  color:#5acde9;
+
+  text-shadow:
+    0 0 4px #ffffff,
+    0 0 9px #6eddf7,
+    0 0 18px rgba(86,210,239,.8);
+}
+
+/* =========================
+   BOTONES HEADER
+========================= */
 
 .botones-header{
   display:flex;
@@ -81,7 +127,7 @@ header{
 }
 
 button{
-  font-family:inherit;
+  font-family:'Montserrat',Arial,Helvetica,sans-serif;
 }
 
 .boton-carrito,
@@ -131,6 +177,7 @@ button{
   outline:none;
   color:#28586d;
   font-size:15px;
+  font-family:'Montserrat',sans-serif;
 }
 
 #buscador:focus{
@@ -181,38 +228,124 @@ button{
 }
 
 /* =========================
-   BIENVENIDA DESTACADA
+   BIENVENIDA NEÓN
 ========================= */
 
 .titulo-principal{
+
+  display:table;
+
+  margin:30px auto 18px;
+
+  padding:11px 25px;
+
+  font-family:'Playfair Display',serif;
+
+  font-size:35px;
+
+  font-weight:800;
+
+  letter-spacing:1.5px;
+
   text-align:center;
-  margin:28px 0 12px;
-  color:#1595c2;
-  font-size:31px;
-  font-weight:900;
-  letter-spacing:.5px;
+
+  color:#ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0d9ac9,
+      #35c9e8,
+      #1297c2
+    );
+
+  border:1px solid rgba(119,225,248,.9);
+
+  border-radius:20px;
+
+  box-shadow:
+    0 0 7px rgba(87,216,246,.95),
+    0 0 16px rgba(87,216,246,.75),
+    0 0 30px rgba(87,216,246,.5),
+    0 0 50px rgba(87,216,246,.25),
+    inset 0 0 15px rgba(255,255,255,.25);
+
   text-shadow:
-    0 2px 0 #ffffff,
-    0 4px 12px rgba(21,149,194,.25);
+    0 0 4px #ffffff,
+    0 0 9px #9cecff,
+    0 0 18px rgba(255,255,255,.8);
+
+  animation:
+    neonTitulo 2.3s ease-in-out infinite alternate;
+
 }
 
+/* ANIMACIÓN NEÓN */
+
+@keyframes neonTitulo{
+
+  from{
+
+    box-shadow:
+      0 0 6px rgba(87,216,246,.8),
+      0 0 14px rgba(87,216,246,.6),
+      0 0 25px rgba(87,216,246,.35),
+      inset 0 0 12px rgba(255,255,255,.2);
+
+  }
+
+  to{
+
+    box-shadow:
+      0 0 10px rgba(87,216,246,1),
+      0 0 22px rgba(87,216,246,.85),
+      0 0 38px rgba(87,216,246,.55),
+      0 0 55px rgba(87,216,246,.3),
+      inset 0 0 18px rgba(255,255,255,.3);
+
+  }
+
+}
+
+/* =========================
+   LEMA
+========================= */
+
 .subtitulo{
+
   max-width:950px;
+
   margin:0 auto 30px;
+
   text-align:center;
+
   color:#477386;
+
+  font-family:'Montserrat',sans-serif;
+
   font-size:15px;
-  line-height:1.7;
-  background:linear-gradient(
-    135deg,
-    rgba(255,255,255,.96),
-    rgba(222,247,255,.96)
-  );
+
+  line-height:1.8;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.98),
+      rgba(222,247,255,.96)
+    );
+
   border:1px solid #bce7f5;
+
   border-radius:18px;
-  padding:18px 22px;
-  box-shadow:0 7px 20px rgba(56,164,201,.10);
-  font-weight:500;
+
+  padding:19px 24px;
+
+  box-shadow:
+    0 7px 20px rgba(56,164,201,.10),
+    0 0 18px rgba(89,205,232,.12);
+
+  font-weight:600;
+
 }
 
 /* =========================
@@ -256,9 +389,11 @@ button{
 }
 
 .categoria h2{
+  font-family:'Montserrat',sans-serif;
   font-size:20px;
   letter-spacing:1px;
   color:#168cb8;
+  font-weight:800;
 }
 
 .categoria p{
@@ -344,7 +479,7 @@ button{
 }
 
 /* =========================
-   BOTON VOLVER / INICIO
+   BOTON VOLVER
 ========================= */
 
 .boton-volver{
@@ -360,7 +495,9 @@ button{
   transform:translateY(-1px);
 }
 
-/* BOTON FLOTANTE */
+/* =========================
+   BOTON FLOTANTE
+========================= */
 
 #botonInicioFlotante{
   position:fixed;
@@ -913,11 +1050,14 @@ button{
 @media(max-width:650px){
 
   .logo{
-    font-size:20px;
+    font-size:23px;
+    gap:6px;
+    letter-spacing:1px;
   }
 
-  .logo span{
-    font-size:8px;
+  .logo-store{
+    font-size:19px;
+    letter-spacing:.8px;
   }
 
   .boton-subir{
@@ -935,12 +1075,14 @@ button{
 
   .titulo-principal{
     font-size:25px;
+    padding:9px 15px;
     margin-top:24px;
+    letter-spacing:.8px;
   }
 
   .subtitulo{
     font-size:13px;
-    line-height:1.55;
+    line-height:1.65;
     padding:15px;
   }
 
@@ -1033,6 +1175,25 @@ button{
   }
 
 }
+
+@media(max-width:420px){
+
+  .logo{
+    font-size:20px;
+    gap:5px;
+  }
+
+  .logo-store{
+    font-size:17px;
+  }
+
+  .boton-carrito{
+    padding:8px;
+    font-size:12px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -1043,8 +1204,15 @@ button{
   <div class="barra-superior">
 
     <div class="logo" id="logoAdmin">
-      ANDREX
-      <span>STORE🩵</span>
+
+      <span class="logo-andrex">
+        ANDREX
+      </span>
+
+      <span class="logo-store">
+        STORE 🩵
+      </span>
+
     </div>
 
     <div class="botones-header">
@@ -1100,11 +1268,15 @@ button{
 <main id="paginaPrincipal" class="pagina-principal">
 
   <h1 class="titulo-principal">
-    Bienvenido a mi tienda 🩵✨
+    ✨ BIENVENIDO A MI TIENDA 🩵
   </h1>
 
   <p class="subtitulo">
-    Más que una tienda, somos el lugar donde encuentras tu estilo. Descubre prendas que combinan contigo, tendencias que te inspiran y ese detalle que transforma cualquier look. Porque vestir bien no es seguir a los demás, es llevar tu propia esencia.
+    ✨🩵 Más que una tienda, somos el lugar donde encuentras tu estilo.
+    🛍️ Descubre prendas que combinan contigo, tendencias que te inspiran
+    y ese detalle que transforma cualquier look.
+    💎 Porque vestir bien no es seguir a los demás, es llevar tu propia esencia.
+    🩵✨
   </p>
 
   <section class="categorias">
@@ -1140,19 +1312,27 @@ button{
     <div class="info-card">
       <span class="emoji">🚚</span>
       <h3>Envíos</h3>
-      <p>hacemos envios a nivel nacional 🇨🇴 y tu como cliente de encargas de pagar el envio a tu ciudad y recuerda solo hay contra entrega para las lociones originales 🔥.</p>
+      <p>
+        hacemos envios a nivel nacional 🇨🇴 y tu como cliente de encargas
+        de pagar el envio a tu ciudad y recuerda solo hay contra entrega
+        para las lociones originales 🔥.
+      </p>
     </div>
 
     <div class="info-card">
       <span class="emoji">💸</span>
       <h3>Pagos</h3>
-      <p>manejamos pagos por nequi bancolombia y daviplata.</p>
+      <p>
+        manejamos pagos por nequi bancolombia y daviplata.
+      </p>
     </div>
 
     <div class="info-card">
       <span class="emoji">🚥</span>
       <h3>Necesitas ayuda</h3>
-      <p>no dudes hablarnos por whatsApp para atenderte.</p>
+      <p>
+        no dudes hablarnos por whatsApp para atenderte.
+      </p>
     </div>
 
   </section>
@@ -1164,8 +1344,11 @@ button{
   <div class="encabezado-categoria">
 
     <span class="emoji">👕</span>
+
     <h2>ROPA</h2>
+
     <p>Nuestra colección de ropa</p>
+
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
@@ -1183,8 +1366,11 @@ button{
   <div class="encabezado-categoria">
 
     <span class="emoji">👟</span>
+
     <h2>ZAPATOS</h2>
+
     <p>Nuestra colección de zapatos</p>
+
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
@@ -1202,8 +1388,11 @@ button{
   <div class="encabezado-categoria">
 
     <span class="emoji">🧴</span>
+
     <h2>LOCIONES</h2>
+
     <p>Nuestras fragancias</p>
+
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
@@ -1221,8 +1410,11 @@ button{
   <div class="encabezado-categoria">
 
     <span class="emoji">📺</span>
+
     <h2>STREAMING</h2>
+
     <p>Entretenimiento para disfrutar</p>
+
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
@@ -1240,6 +1432,7 @@ button{
   <div class="encabezado-categoria">
 
     <h2>Resultados de búsqueda</h2>
+
     <br>
 
     <button class="boton-volver" onclick="volverInicio()">
@@ -1251,8 +1444,6 @@ button{
   <div id="productosBusqueda" class="productos"></div>
 
 </section>
-
-<!-- BOTON FLOTANTE DE INICIO -->
 
 <button
   id="botonInicioFlotante"
@@ -1316,6 +1507,8 @@ button{
 
 </div>
 
+<!-- CARRITO -->
+
 <aside id="carritoPanel" class="carrito-panel">
 
   <div class="carrito-cabecera">
@@ -1337,8 +1530,13 @@ button{
   <div class="carrito-total">
 
     <strong>
+
       <span>Total</span>
-      <span id="totalCarrito">$0</span>
+
+      <span id="totalCarrito">
+        $0
+      </span>
+
     </strong>
 
     <button
@@ -1352,6 +1550,8 @@ button{
   </div>
 
 </aside>
+
+<!-- MUSICA -->
 
 <audio id="musicaTienda" loop>
 
@@ -1369,7 +1569,7 @@ button{
 
 </button>
 
-<!-- VENTANA PARA SUBIR PRODUCTOS -->
+<!-- ADMIN -->
 
 <div id="modalProductos" class="modal oculto">
 
