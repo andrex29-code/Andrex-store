@@ -19,22 +19,29 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f7fbfd;
-  color:#18343d;
-  min-height:100vh;
+  background:#f5fbfc;
+  color:#17252b;
 }
 
-/* =========================
-   HEADER
-========================= */
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
 
 header{
-  width:100%;
-  background:linear-gradient(135deg,#dff8ff,#ffffff);
-  border-bottom:1px solid #ccecf4;
-  padding:22px 15px;
-  position:relative;
-  z-index:100;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #dceff2;
+  padding:14px 18px;
 }
 
 .header-contenido{
@@ -42,392 +49,236 @@ header{
   margin:auto;
   display:flex;
   align-items:center;
-  justify-content:center;
+  gap:15px;
 }
 
 .logo{
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:32px;
-  font-weight:900;
-  color:#219dbb;
+  font-size:22px;
+  font-weight:800;
+  color:#1498aa;
   cursor:pointer;
+  white-space:nowrap;
   user-select:none;
-  text-align:center;
 }
 
-.buscador-contenedor{
-  width:100%;
-  max-width:1200px;
-  margin:18px auto 0;
-  padding:0 15px;
+.logo span{
+  color:#17252b;
 }
 
-#buscador{
-  width:100%;
-  height:52px;
-  border:2px solid #c6e8f0;
-  border-radius:18px;
-  padding:0 20px;
-  font-size:16px;
+.buscador{
+  flex:1;
+  padding:12px 17px;
+  border:1px solid #cfe5e9;
+  border-radius:25px;
   outline:none;
-  background:#ffffff;
-  color:#18343d;
-  box-shadow:0 5px 16px rgba(40,150,180,.08);
+  background:#f7fcfd;
 }
 
-#buscador:focus{
-  border-color:#219dbb;
+.buscador:focus{
+  border-color:#51bdca;
+  box-shadow:0 0 0 3px rgba(81,189,202,.12);
 }
 
-/* =========================
-   CONTENIDO
-========================= */
-
-#contenidoInicio{
-  display:block;
-  width:100%;
+.icono-header{
+  border:none;
+  background:#e8f9fb;
+  color:#118b9c;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:20px;
 }
 
-.contenedor-principal{
-  width:100%;
+main{
   max-width:1200px;
   margin:auto;
-  padding:25px 15px 50px;
+  padding:20px 15px 60px;
 }
 
-/* =========================
-   BIENVENIDA
-========================= */
-
-.bienvenida{
-  text-align:center;
-  margin:10px 0 18px;
-}
-
-.bienvenida h1{
-  color:#219dbb;
-  font-size:30px;
-  font-weight:900;
-}
-
-.slogan{
-  max-width:950px;
-  margin:0 auto 28px;
-  text-align:center;
-  color:#47717c;
-  font-size:16px;
-  line-height:1.7;
-}
-
-/* =========================
-   BANNER
-========================= */
-
-.banner-principal{
-  width:100%;
-  min-height:250px;
-  margin:0 auto 30px;
-  padding:40px 30px;
+.hero{
+  background:linear-gradient(135deg,#dffafd,#ffffff,#e8f9fb);
+  border:1px solid #cceff2;
   border-radius:28px;
-  background:
-    radial-gradient(circle at 90% 20%,rgba(255,255,255,.9),transparent 28%),
-    linear-gradient(135deg,#c9f4ff,#ffffff 55%,#dff8ff);
-  border:2px solid #c8ebf3;
-  box-shadow:0 12px 30px rgba(30,140,165,.12);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  padding:35px 25px;
   text-align:center;
-  overflow:hidden;
+  margin-bottom:25px;
+  box-shadow:0 10px 30px rgba(27,151,170,.08);
 }
 
-.banner-contenido{
-  max-width:800px;
-}
-
-.banner-contenido .mini{
-  font-size:15px;
-  color:#219dbb;
-  font-weight:900;
+.hero h1{
+  font-size:clamp(30px,7vw,55px);
+  color:#1298aa;
   margin-bottom:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
 }
 
-.banner-contenido h2{
-  font-size:38px;
-  line-height:1.1;
-  color:#183f49;
+.hero h2{
+  font-size:clamp(18px,4vw,27px);
   margin-bottom:12px;
-  font-weight:900;
 }
 
-.banner-contenido p{
-  color:#52747d;
-  font-size:17px;
+.hero p{
+  color:#60777d;
+  max-width:700px;
+  margin:auto;
   line-height:1.6;
 }
 
-.banner-boton{
-  display:inline-block;
+.lema{
   margin-top:18px;
-  padding:13px 24px;
-  border-radius:14px;
-  background:#219dbb;
-  color:#ffffff;
-  font-weight:900;
-  text-decoration:none;
-  box-shadow:0 7px 18px rgba(33,157,187,.22);
+  font-weight:bold;
+  color:#118b9c;
+  font-size:17px;
 }
 
-/* =========================
-   VIDEO
-========================= */
-
-.video-contenedor{
-  width:100%;
-  margin:0 auto 35px;
-  border-radius:25px;
-  overflow:hidden;
-  background:#000;
-  box-shadow:0 10px 28px rgba(20,100,120,.12);
-}
-
-.video-tienda{
-  display:block;
-  width:100%;
-  max-height:600px;
-  object-fit:cover;
-}
-
-/* =========================
-   DESTACADOS
-========================= */
-
-.destacados-contenedor{
-  width:100%;
-  margin:0 auto 40px;
+.banner{
+  margin:25px 0;
+  border-radius:24px;
   padding:25px;
-  background:linear-gradient(145deg,#ffffff,#f0fbfe);
-  border:2px solid #ccecf4;
-  border-radius:26px;
-  box-shadow:0 9px 25px rgba(40,140,165,.09);
+  background:linear-gradient(135deg,#159caf,#73d9df);
+  color:white;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(21,156,175,.18);
 }
 
-.titulo-destacados{
-  text-align:center;
-  color:#219dbb;
+.banner h2{
   font-size:27px;
-  font-weight:900;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 
-.subtitulo-destacados{
+.banner p{
+  line-height:1.5;
+}
+
+.video-box{
+  margin:25px 0;
+  background:#fff;
+  border-radius:24px;
+  padding:10px;
+  box-shadow:0 8px 25px rgba(0,0,0,.06);
+  overflow:hidden;
+}
+
+.video-box video{
+  width:100%;
+  max-height:520px;
+  object-fit:cover;
+  border-radius:18px;
+  display:block;
+  background:#111;
+}
+
+.seccion-titulo{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:30px 0 15px;
+}
+
+.seccion-titulo h2{
+  font-size:24px;
+}
+
+.seccion-titulo button{
+  border:none;
+  background:#e7f8fa;
+  color:#108b9c;
+  border-radius:20px;
+  padding:9px 13px;
+  font-weight:bold;
+}
+
+.categorias{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.categoria{
+  background:white;
+  border:1px solid #dceff2;
+  border-radius:22px;
+  min-height:135px;
+  padding:20px 10px;
   text-align:center;
-  color:#6b858d;
-  font-size:14px;
-  margin-bottom:22px;
+  box-shadow:0 7px 20px rgba(0,0,0,.04);
+  transition:.2s;
 }
 
-.productos-destacados{
+.categoria:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.categoria .emoji{
+  display:block;
+  font-size:43px;
+  margin-bottom:10px;
+}
+
+.categoria strong{
+  font-size:16px;
+}
+
+.productos{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:18px;
 }
 
-.destacado-vacio{
-  grid-column:1/-1;
-  text-align:center;
-  padding:25px;
-  color:#718990;
-}
-
-/* =========================
-   CATEGORÍAS
-========================= */
-
-.categorias-contenedor{
-  width:100%;
-  margin:0 auto 40px;
-}
-
-.titulo-categorias{
-  text-align:center;
-  margin-bottom:20px;
-  font-size:25px;
-  font-weight:900;
-  color:#278aa9;
-}
-
-.categorias{
-  width:100%;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
-}
-
-.categoria{
-  min-height:125px;
-  padding:28px 15px;
-  border-radius:24px;
-  border:2px solid #c2e7f1;
-  background:linear-gradient(145deg,#ffffff,#f1fbfe);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-size:21px;
-  font-weight:900;
-  color:#278aa9;
-  cursor:pointer;
-  box-shadow:0 9px 22px rgba(50,160,194,.12);
-  transition:.2s;
-  user-select:none;
-}
-
-.categoria:hover{
-  transform:translateY(-4px);
-  box-shadow:0 13px 28px rgba(50,160,194,.18);
-  border-color:#70c9dd;
-}
-
-.categoria.activa{
-  background:#dff8ff;
-  border-color:#219dbb;
-}
-
-/* =========================
-   VISTA CATEGORÍA
-========================= */
-
-#vistaCategoria{
-  display:none;
-  width:100%;
-}
-
-body.en-categoria #contenidoInicio{
-  display:none;
-}
-
-body.en-categoria #vistaCategoria{
-  display:block;
-}
-
-.vista-categoria{
-  width:100%;
-  max-width:1200px;
-  margin:20px auto 40px;
-  padding:0 15px;
-}
-
-.carpeta-categoria{
-  width:100%;
-  background:#ffffff;
-  border:1px solid #d2edf4;
-  border-radius:25px;
-  overflow:hidden;
-  box-shadow:0 8px 25px rgba(43,153,185,.08);
-}
-
-.carpeta-header{
-  padding:25px 20px;
-  text-align:center;
-  background:linear-gradient(135deg,#e5faff,#ffffff);
-  border-bottom:1px solid #d2edf4;
-}
-
-.carpeta-header h2{
-  color:#219dbb;
-  font-size:28px;
-  font-weight:900;
-}
-
-/* =========================
-   PRODUCTOS
-========================= */
-
-.productos{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-  padding:25px;
-}
-
 .producto{
   position:relative;
-  background:#ffffff;
-  border:1px solid #dceff4;
+  background:white;
+  border:1px solid #e1eef0;
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 7px 18px rgba(20,110,135,.08);
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
   transition:.2s;
 }
 
 .producto:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 25px rgba(20,110,135,.14);
+  transform:translateY(-3px);
 }
 
 .producto-imagen{
+  height:220px;
+  background:#f4f8f9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.producto-imagen img{
   width:100%;
-  aspect-ratio:1/1;
+  height:100%;
   object-fit:cover;
-  display:block;
-  cursor:pointer;
-  background:#f1f7f9;
 }
 
-.etiqueta-destacado{
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:3;
-  padding:7px 10px;
-  border-radius:10px;
-  background:#219dbb;
-  color:#ffffff;
-  font-size:12px;
-  font-weight:900;
-  box-shadow:0 4px 10px rgba(0,0,0,.12);
-}
-
-.boton-favorito{
-  position:absolute;
-  top:10px;
-  right:10px;
-  z-index:3;
-  width:38px;
-  height:38px;
-  border:none;
-  border-radius:50%;
-  background:rgba(255,255,255,.94);
-  font-size:21px;
-  cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
-}
-
-.boton-favorito.activo{
-  background:#ffe8ee;
+.producto-sin-imagen{
+  font-size:45px;
+  color:#9db4b9;
 }
 
 .producto-info{
   padding:15px;
 }
 
-.producto-nombre{
+.producto-info h3{
   font-size:17px;
-  font-weight:800;
-  color:#244b56;
-  margin-bottom:8px;
-  min-height:42px;
-  line-height:1.3;
+  margin-bottom:7px;
 }
 
-.producto-precio{
-  font-size:19px;
-  font-weight:900;
-  color:#219dbb;
+.precio{
+  color:#1195a6;
+  font-weight:bold;
+  font-size:18px;
   margin-bottom:12px;
+}
+
+.precio.no-definido{
+  color:#809398;
+  font-size:14px;
 }
 
 .producto-botones{
@@ -436,495 +287,222 @@ body.en-categoria #vistaCategoria{
   gap:7px;
 }
 
-.boton-whatsapp,
-.boton-carrito-producto{
-  width:100%;
+.producto-botones button{
   border:none;
-  border-radius:11px;
+  border-radius:12px;
   padding:10px 6px;
   font-size:12px;
-  font-weight:900;
-  cursor:pointer;
+  font-weight:bold;
 }
 
-.boton-whatsapp{
-  background:#25d366;
-  color:#ffffff;
+.btn-whatsapp{
+  background:#e7f9ee;
+  color:#159447;
 }
 
-.boton-carrito-producto{
-  background:#e5faff;
-  color:#219dbb;
+.btn-carrito{
+  background:#e5f8fa;
+  color:#108b9c;
 }
 
-.sin-productos{
-  grid-column:1/-1;
-  padding:55px 20px;
-  text-align:center;
-  color:#6d8991;
-  font-size:16px;
-  line-height:1.6;
-}
-
-.sin-productos strong{
-  display:block;
-  color:#219dbb;
-  font-size:21px;
-  margin-bottom:8px;
-}
-
-/* =========================
-   INFORMACIÓN
-========================= */
-
-.informacion{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:30px;
-}
-
-.info-card{
-  background:#ffffff;
-  border:1px solid #d4edf3;
-  border-radius:20px;
-  padding:25px 18px;
-  text-align:center;
-  box-shadow:0 7px 20px rgba(40,140,165,.07);
-}
-
-.info-card h3{
-  color:#219dbb;
-  font-size:18px;
-  margin-bottom:8px;
-}
-
-.info-card p{
-  color:#607c84;
-  font-size:14px;
-  line-height:1.5;
-}
-
-/* =========================
-   BOTONES FLOTANTES
-========================= */
-
-.boton-volver-flotante{
-  position:fixed;
-  left:18px;
-  bottom:18px;
-  z-index:5001;
-  width:58px;
-  height:58px;
-  border:none;
-  border-radius:50%;
-  background:#219dbb;
-  color:#ffffff;
-  font-size:25px;
-  cursor:pointer;
-  box-shadow:0 8px 22px rgba(30,140,165,.28);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-
-.boton-volver-flotante.visible{
-  display:flex;
-}
-
-.boton-carrito{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:5000;
-  width:58px;
-  height:58px;
-  border:none;
-  border-radius:50%;
-  background:#219dbb;
-  color:#ffffff;
-  font-size:25px;
-  cursor:pointer;
-  box-shadow:0 8px 22px rgba(30,140,165,.28);
-}
-
-.contador-carrito{
+.corazon{
   position:absolute;
-  top:-4px;
-  right:-3px;
-  min-width:22px;
-  height:22px;
-  padding:0 5px;
-  border-radius:50px;
-  background:#ff4d67;
-  color:white;
-  font-size:12px;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* =========================
-   PANEL CARRITO
-========================= */
-
-.panel-carrito{
-  position:fixed;
-  top:0;
-  right:-420px;
-  width:min(400px,95vw);
-  height:100vh;
-  background:#ffffff;
-  z-index:6000;
-  box-shadow:-10px 0 30px rgba(0,0,0,.15);
-  transition:right .3s ease;
-  display:flex;
-  flex-direction:column;
-}
-
-.panel-carrito.abierto{
-  right:0;
-}
-
-.carrito-header{
-  padding:20px;
-  background:#e5faff;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid #ccecf4;
-}
-
-.carrito-header h2{
-  color:#219dbb;
-}
-
-.cerrar-carrito{
+  right:10px;
+  top:10px;
+  z-index:5;
+  width:38px;
+  height:38px;
   border:none;
-  background:transparent;
-  font-size:24px;
-  cursor:pointer;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  font-size:20px;
+  box-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
-.carrito-lista{
-  flex:1;
-  overflow:auto;
-  padding:15px;
-}
-
-.carrito-vacio{
-  text-align:center;
-  color:#78919a;
-  padding:50px 20px;
-}
-
-.item-carrito{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid #edf4f6;
-}
-
-.item-carrito img{
-  width:65px;
-  height:65px;
-  border-radius:10px;
-  object-fit:cover;
-}
-
-.item-carrito-info{
-  flex:1;
-}
-
-.item-carrito-info strong{
-  display:block;
-  font-size:14px;
-  margin-bottom:5px;
-}
-
-.item-carrito-info span{
-  color:#219dbb;
-  font-weight:800;
-}
-
-.boton-eliminar-carrito{
-  border:none;
-  background:#ffe8ec;
-  color:#e64962;
-  border-radius:8px;
-  padding:7px;
-  cursor:pointer;
-}
-
-.carrito-footer{
-  padding:18px;
-  border-top:1px solid #dceff4;
-}
-
-.carrito-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:19px;
-  font-weight:900;
-  margin-bottom:12px;
-}
-
-.boton-whatsapp-carrito{
-  width:100%;
-  border:none;
-  border-radius:13px;
-  background:#25d366;
-  color:white;
-  padding:14px;
-  font-size:16px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-/* =========================
-   MODALES
-========================= */
-
-.modal-foto,
-.modal-whatsapp,
-.modal-admin,
-.modal-pedido{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal-foto{
-  background:rgba(0,0,0,.88);
-  z-index:8000;
-}
-
-.modal-whatsapp,
-.modal-pedido{
-  background:rgba(0,0,0,.55);
-  z-index:7000;
-}
-
-.modal-admin{
-  background:rgba(0,0,0,.55);
-  z-index:9000;
-}
-
-.modal-foto.abierto,
-.modal-whatsapp.abierto,
-.modal-admin.abierto,
-.modal-pedido.abierto{
-  display:flex;
-}
-
-.modal-foto img{
-  max-width:95vw;
-  max-height:90vh;
-  object-fit:contain;
+.destacado{
+  position:absolute;
+  left:10px;
+  top:10px;
+  z-index:4;
+  background:#fff4c7;
+  color:#9b7300;
+  padding:6px 9px;
   border-radius:12px;
+  font-size:11px;
+  font-weight:bold;
 }
 
-.cerrar-foto{
-  position:absolute;
-  top:15px;
-  right:20px;
-  width:45px;
-  height:45px;
+.oculto{
+  display:none !important;
+}
+
+.vista-categoria{
+  display:none;
+}
+
+.vista-categoria.activa{
+  display:block;
+}
+
+.boton-volver{
   border:none;
-  border-radius:50%;
-  background:#ffffff;
-  color:#222;
-  font-size:25px;
-  cursor:pointer;
-}
-
-.whatsapp-caja,
-.pedido-caja,
-.admin-login{
-  width:min(420px,95vw);
-  background:#ffffff;
-  border-radius:22px;
-  padding:25px;
-  text-align:center;
-}
-
-.whatsapp-caja h2,
-.pedido-caja h2,
-.admin-login h2{
-  color:#219dbb;
-  margin-bottom:12px;
-}
-
-.whatsapp-caja p,
-.pedido-caja p{
-  color:#607c84;
-  line-height:1.5;
+  background:#e5f8fa;
+  color:#108b9c;
+  padding:11px 17px;
+  border-radius:20px;
+  font-weight:bold;
   margin-bottom:18px;
 }
 
-.whatsapp-caja button,
-.pedido-caja button{
-  width:100%;
-  padding:13px;
-  border:none;
-  border-radius:12px;
-  font-weight:900;
-  cursor:pointer;
-  margin-top:8px;
+.titulo-categoria{
+  background:white;
+  border:1px solid #dceff2;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:18px;
 }
 
-.boton-ir-whatsapp{
-  background:#25d366;
-  color:#fff;
+.titulo-categoria h2{
+  margin-bottom:5px;
 }
 
-.boton-cerrar-modal{
-  background:#edf5f7;
-  color:#36545d;
+.titulo-categoria p{
+  color:#71878c;
 }
 
-.pedido-caja input{
-  width:100%;
-  padding:13px;
-  border:1px solid #c8e5ec;
-  border-radius:11px;
-  outline:none;
+.favoritos-vacio,
+.sin-productos{
+  background:white;
+  border-radius:20px;
+  padding:30px;
   text-align:center;
-  font-size:16px;
-  text-transform:uppercase;
+  color:#71878c;
+  border:1px solid #dceff2;
 }
-
-.boton-consultar-pedido{
-  background:#219dbb;
-  color:#ffffff;
-}
-
-.resultado-pedido{
-  margin-top:18px;
-  padding:18px;
-  border-radius:15px;
-  background:#f2fbfd;
-  border:1px solid #d5edf3;
-  display:none;
-}
-
-.resultado-pedido.visible{
-  display:block;
-}
-
-.resultado-pedido strong{
-  display:block;
-  color:#219dbb;
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.estado-pedido{
-  font-size:18px;
-  font-weight:900;
-  color:#18343d;
-}
-
-/* =========================
-   ADMIN
-========================= */
 
 .admin-panel{
   display:none;
-  max-width:900px;
-  margin:35px auto;
-  padding:25px;
   background:#ffffff;
-  border:1px solid #ccecf4;
-  border-radius:22px;
-  box-shadow:0 8px 25px rgba(40,140,165,.1);
+  border:2px solid #bce8ed;
+  border-radius:25px;
+  padding:22px;
+  margin-top:35px;
+  box-shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
-.admin-panel.visible{
+.admin-panel.activo{
   display:block;
 }
 
 .admin-panel h2{
-  color:#219dbb;
-  margin-bottom:20px;
-  text-align:center;
+  color:#108e9f;
+  margin-bottom:18px;
 }
 
-.admin-seccion{
-  margin-top:30px;
-  padding-top:25px;
-  border-top:1px solid #e0eff3;
-}
-
-.admin-seccion h3{
-  color:#219dbb;
-  margin-bottom:15px;
-}
-
-.admin-grid{
+.formulario{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
 
-.admin-grid input,
-.admin-grid select{
+.campo{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.campo.full{
+  grid-column:1/-1;
+}
+
+.campo label{
+  font-size:13px;
+  font-weight:bold;
+  color:#536d73;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
   width:100%;
-  padding:13px;
-  border:1px solid #c8e5ec;
-  border-radius:10px;
+  border:1px solid #cfe3e6;
+  border-radius:12px;
+  padding:12px;
   outline:none;
+  background:#fbfeff;
 }
 
-.admin-imagen{
-  grid-column:1/-1;
+.campo textarea{
+  min-height:90px;
+  resize:vertical;
 }
 
-.checkbox-destacado{
-  grid-column:1/-1;
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+  border-color:#45b8c4;
+}
+
+.checkbox{
   display:flex;
   align-items:center;
-  gap:10px;
-  padding:13px;
-  border-radius:12px;
-  background:#f0fbfd;
-  color:#219dbb;
-  font-weight:900;
-  cursor:pointer;
+  gap:8px;
+  margin-top:5px;
 }
 
-.checkbox-destacado input{
-  width:20px;
-  height:20px;
+.checkbox input{
+  width:18px;
+  height:18px;
 }
 
-.boton-admin{
-  width:100%;
-  margin-top:12px;
-  padding:13px;
+.boton-principal{
   border:none;
-  border-radius:11px;
-  background:#219dbb;
+  background:#1198aa;
   color:white;
-  font-weight:900;
-  cursor:pointer;
+  padding:13px 17px;
+  border-radius:13px;
+  font-weight:bold;
 }
 
-.lista-admin{
+.boton-secundario{
+  border:none;
+  background:#e9f8fa;
+  color:#108c9d;
+  padding:13px 17px;
+  border-radius:13px;
+  font-weight:bold;
+}
+
+.boton-peligro{
+  border:none;
+  background:#fff0f0;
+  color:#d83c3c;
+  padding:10px 13px;
+  border-radius:11px;
+  font-weight:bold;
+}
+
+.admin-lista{
   margin-top:25px;
 }
 
 .admin-producto{
   display:flex;
   align-items:center;
-  gap:10px;
-  padding:14px 0;
-  border-bottom:1px solid #e7f0f2;
+  gap:12px;
+  background:#f7fcfd;
+  border:1px solid #deeff1;
+  border-radius:15px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.admin-producto img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:12px;
+  background:#eaf3f5;
 }
 
 .admin-producto-info{
@@ -937,226 +515,436 @@ body.en-categoria #vistaCategoria{
 }
 
 .admin-producto-info small{
-  color:#6d858d;
+  color:#71878c;
 }
 
-.admin-producto button{
+.admin-producto-botones{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.admin-producto-botones button{
   border:none;
   padding:8px 10px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:800;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:bold;
 }
 
-.boton-destacar{
-  background:#e5faff;
-  color:#219dbb;
+.btn-destacado{
+  background:#fff4ca;
+  color:#9b7500;
 }
 
-.boton-destacar.activo{
-  background:#219dbb;
-  color:#ffffff;
+.btn-eliminar{
+  background:#ffecec;
+  color:#c43d3d;
 }
 
-.boton-eliminar-admin{
-  background:#ff536b;
-  color:white;
+.separador{
+  height:1px;
+  background:#dcecef;
+  margin:28px 0;
 }
 
-.estado-admin{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+.pedido-admin{
+  background:#f4fbfc;
+  border:1px solid #ccebef;
+  border-radius:20px;
+  padding:18px;
 }
 
-.estado-admin input,
-.estado-admin select{
-  width:100%;
+.pedido-admin h3{
+  margin-bottom:6px;
+  color:#108d9e;
+}
+
+.codigo-generado{
+  display:none;
+  background:#e9fbf2;
+  border:1px solid #bce8ce;
+  color:#187943;
+  border-radius:15px;
+  padding:15px;
+  margin-top:15px;
+}
+
+.codigo-generado.activo{
+  display:block;
+}
+
+.codigo-grande{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin:6px 0;
+}
+
+.botones-pedido{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:12px;
+}
+
+.lista-pedidos{
+  margin-top:18px;
+}
+
+.pedido-item{
+  background:white;
+  border:1px solid #dceff2;
+  border-radius:15px;
   padding:13px;
-  border:1px solid #c8e5ec;
-  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.pedido-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+
+.pedido-codigo{
+  font-size:17px;
+  font-weight:900;
+  color:#118f9f;
+}
+
+.estado{
+  display:inline-block;
+  margin-top:7px;
+  padding:5px 9px;
+  border-radius:9px;
+  background:#eaf7fa;
+  color:#168798;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal.activo{
+  display:flex;
+}
+
+.modal-caja{
+  width:min(600px,100%);
+  background:white;
+  border-radius:25px;
+  padding:20px;
+  max-height:90vh;
+  overflow:auto;
+}
+
+.modal-caja img{
+  width:100%;
+  max-height:70vh;
+  object-fit:contain;
+  border-radius:18px;
+  background:#f5f8f9;
+}
+
+.modal-cerrar{
+  border:none;
+  background:#edf8fa;
+  color:#108b9c;
+  padding:10px 15px;
+  border-radius:15px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.modal-pedido{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  z-index:4000;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal-pedido.activo{
+  display:flex;
+}
+
+.pedido-caja{
+  width:min(480px,100%);
+  background:white;
+  border-radius:25px;
+  padding:25px;
+}
+
+.pedido-caja h2{
+  margin-bottom:8px;
+  color:#108d9f;
+}
+
+.pedido-caja p{
+  color:#71878c;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+.pedido-caja input{
+  width:100%;
+  padding:14px;
+  border:1px solid #cfe3e6;
+  border-radius:13px;
   outline:none;
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing:1px;
 }
 
-.estado-admin .ancho-completo{
-  grid-column:1/-1;
-}
-
-/* =========================
-   LOGIN
-========================= */
-
-.admin-login input{
-  width:100%;
-  padding:13px;
-  border:1px solid #c8e5ec;
-  border-radius:10px;
-  text-align:center;
-  font-size:20px;
-  letter-spacing:5px;
-}
-
-.admin-login button{
+.boton-consultar-pedido{
   width:100%;
   margin-top:10px;
-  padding:12px;
   border:none;
-  border-radius:10px;
-  background:#219dbb;
+  background:#1198aa;
   color:white;
-  font-weight:900;
-  cursor:pointer;
+  padding:13px;
+  border-radius:13px;
+  font-weight:bold;
 }
 
-.admin-login .cerrar-login{
-  background:#edf5f7;
-  color:#36545d;
+.resultado-pedido{
+  margin-top:15px;
 }
 
-/* =========================
-   TOAST
-========================= */
+.resultado-box{
+  background:#f4fbfc;
+  border:1px solid #d6edf0;
+  border-radius:17px;
+  padding:16px;
+}
 
-.toast{
+.resultado-box h3{
+  color:#118e9f;
+  margin-bottom:10px;
+}
+
+.boton-cerrar-modal{
+  width:100%;
+  margin-top:12px;
+  border:none;
+  background:#edf5f6;
+  padding:12px;
+  border-radius:13px;
+  font-weight:bold;
+  color:#526a70;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:30px;
+}
+
+.info-card{
+  background:white;
+  border:1px solid #dceff2;
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
+}
+
+.info-card .emoji{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.info-card p{
+  color:#71878c;
+  line-height:1.45;
+  font-size:14px;
+}
+
+footer{
+  background:#11282e;
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+}
+
+footer p{
+  color:#bdd0d4;
+  margin-top:7px;
+  font-size:13px;
+}
+
+.flotante-pedido{
   position:fixed;
-  left:50%;
-  bottom:90px;
-  transform:translateX(-50%) translateY(20px);
-  background:#18343d;
-  color:#ffffff;
-  padding:12px 18px;
-  border-radius:12px;
-  opacity:0;
-  pointer-events:none;
-  z-index:10000;
-  transition:.25s;
+  right:17px;
+  bottom:17px;
+  z-index:2000;
+  border:none;
+  background:#1198aa;
+  color:white;
+  padding:13px 17px;
+  border-radius:30px;
+  box-shadow:0 8px 25px rgba(17,152,170,.3);
+  font-weight:bold;
 }
 
-.toast.mostrar{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
+.carrito-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  z-index:3500;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+.carrito-modal.activo{
+  display:flex;
+}
+
+.carrito-caja{
+  width:min(520px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  border-radius:25px;
+  padding:22px;
+}
+
+.carrito-item{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  border-bottom:1px solid #e2edef;
+  padding:12px 0;
+}
+
+.carrito-item img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.carrito-info{
+  flex:1;
+}
+
+.carrito-info strong{
+  display:block;
+}
+
+.carrito-eliminar{
+  border:none;
+  background:#fff0f0;
+  color:#d43d3d;
+  border-radius:9px;
+  padding:7px;
+}
+
+.carrito-total{
+  font-size:20px;
+  font-weight:bold;
+  margin-top:15px;
+  color:#1193a4;
+}
 
 @media(max-width:900px){
-
-  .productos,
-  .productos-destacados{
+  .productos{
     grid-template-columns:repeat(3,1fr);
-  }
-
-}
-
-@media(max-width:700px){
-
-  .informacion{
-    grid-template-columns:1fr;
-  }
-
-  .estado-admin{
-    grid-template-columns:1fr;
-  }
-
-  .estado-admin .ancho-completo{
-    grid-column:auto;
-  }
-
-}
-
-@media(max-width:650px){
-
-  .logo{
-    font-size:26px;
-  }
-
-  .banner-principal{
-    min-height:230px;
-    padding:30px 18px;
-  }
-
-  .banner-contenido h2{
-    font-size:28px;
-  }
-
-  .banner-contenido p{
-    font-size:14px;
   }
 
   .categorias{
     grid-template-columns:repeat(2,1fr);
-    gap:14px;
+  }
+}
+
+@media(max-width:650px){
+  .header-contenido{
+    flex-wrap:wrap;
   }
 
-  .categoria{
-    min-height:120px;
-    padding:22px 8px;
-    border-radius:20px;
-    font-size:17px;
+  .logo{
+    width:100%;
+    text-align:center;
   }
 
-  .productos,
-  .productos-destacados{
+  .buscador{
+    order:2;
+  }
+
+  .icono-header{
+    order:3;
+  }
+
+  .productos{
     grid-template-columns:repeat(2,1fr);
-    gap:13px;
-    padding:15px;
+    gap:11px;
   }
 
-  .destacados-contenedor{
-    padding:15px;
+  .producto-imagen{
+    height:190px;
   }
 
-  .producto{
-    border-radius:16px;
+  .formulario{
+    grid-template-columns:1fr;
+  }
+
+  .campo.full{
+    grid-column:auto;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .admin-producto{
+    align-items:flex-start;
+  }
+
+  .admin-producto-botones{
+    flex-direction:column;
+  }
+
+  .admin-producto-botones button{
+    width:100%;
+  }
+
+  .hero{
+    padding:28px 18px;
+  }
+}
+
+@media(max-width:400px){
+  .productos{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .producto-imagen{
+    height:165px;
   }
 
   .producto-info{
     padding:11px;
   }
 
-  .producto-nombre{
-    font-size:14px;
-    min-height:37px;
-  }
-
-  .producto-precio{
-    font-size:16px;
-  }
-
   .producto-botones{
     grid-template-columns:1fr;
   }
-
-  .boton-whatsapp,
-  .boton-carrito-producto{
-    font-size:12px;
-  }
-
-  .admin-grid{
-    grid-template-columns:1fr;
-  }
-
-  .admin-imagen,
-  .checkbox-destacado{
-    grid-column:auto;
-  }
-
-  .admin-producto{
-    align-items:flex-start;
-    flex-wrap:wrap;
-  }
-
-}
-
-@media(max-width:390px){
-
-  .categoria{
-    min-height:110px;
-    font-size:15px;
-  }
-
 }
 </style>
 </head>
@@ -1164,293 +952,285 @@ body.en-categoria #vistaCategoria{
 <body>
 
 <header>
-
   <div class="header-contenido">
-    <div class="logo" id="logoTienda">
-      ANDREX 🩵 STORE
-    </div>
-  </div>
 
-  <div class="buscador-contenedor">
+    <div class="logo" id="logoAdmin">
+      ANDREX <span>🩵 STORE</span>
+    </div>
+
     <input
-      type="search"
       id="buscador"
+      class="buscador"
+      type="search"
       placeholder="🔎 Buscar productos..."
       autocomplete="off"
     >
-  </div>
 
+    <button class="icono-header" onclick="abrirFavoritos()" title="Mis favoritos">
+      ❤️
+    </button>
+
+    <button class="icono-header" onclick="abrirCarrito()" title="Carrito">
+      🛒
+    </button>
+
+  </div>
 </header>
 
-<!-- =========================
-     INICIO
-========================= -->
+<main>
 
-<main id="contenidoInicio">
+  <!-- INICIO -->
+  <section id="contenidoInicio">
 
-  <div class="contenedor-principal">
+    <div class="hero">
+      <h1>ANDREX 🩵 STORE</h1>
 
-    <section class="bienvenida">
-      <h1>Bienvenidos a mi tienda 🩵</h1>
-    </section>
+      <h2>Todo lo que buscas, en un solo lugar</h2>
 
-    <p class="slogan">
-      ✨🩵 Más que una tienda, somos el lugar donde encuentras tu estilo.
-      🛍️ Descubre prendas que combinan contigo, tendencias que te inspiran
-      y ese detalle que transforma cualquier look. 💎 Porque vestir bien no
-      es seguir a los demás, es llevar tu propia esencia. 🩵✨
-    </p>
+      <p>
+        Descubre productos seleccionados para ti, consulta fácilmente,
+        agrega tus favoritos y realiza tus pedidos de manera sencilla.
+      </p>
 
-    <!-- =========================
-         BANNER
-    ========================= -->
-
-    <section class="banner-principal">
-
-      <div class="banner-contenido">
-
-        <div class="mini">
-          ✨ ANDREX 🩵 STORE
-        </div>
-
-        <h2>
-          Tu estilo comienza aquí 🛍️
-        </h2>
-
-        <p>
-          Descubre nuestros productos, encuentra tus favoritos
-          y déjate sorprender por nuestras novedades.
-        </p>
-
-        <a
-          href="#seccionCategorias"
-          class="banner-boton"
-        >
-          🛍️ Ver categorías
-        </a>
-
+      <div class="lema">
+        ✨ Tu estilo, tu esencia, tu tienda ✨
       </div>
+    </div>
 
-    </section>
+    <div class="banner">
+      <h2>🩵 BIENVENIDO A ANDREX STORE</h2>
+      <p>
+        Encuentra ropa, lociones, zapatos, streaming y mucho más.
+        Compra fácil, rápido y con atención personalizada.
+      </p>
+    </div>
 
-    <!-- =========================
-         VIDEO
-    ========================= -->
-
-    <div class="video-contenedor">
-
+    <div class="video-box">
       <video
-        class="video-tienda"
         autoplay
         muted
         loop
         playsinline
-        preload="auto"
+        controls
       >
-
         <source
           src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
           type="video/mp4"
         >
-
-        Tu navegador no puede reproducir este video.
-
       </video>
-
     </div>
 
-    <!-- =========================
-         PRODUCTOS DESTACADOS
-    ========================= -->
+    <!-- DESTACADOS -->
+    <div class="seccion-titulo">
+      <h2>⭐ Productos destacados</h2>
+      <button onclick="mostrarTodosDestacados()">Ver destacados</button>
+    </div>
 
-    <section class="destacados-contenedor">
+    <div id="productosDestacados" class="productos"></div>
 
-      <div class="titulo-destacados">
-        ⭐ PRODUCTOS DESTACADOS
-      </div>
+    <!-- CATEGORÍAS -->
+    <div id="seccionCategorias">
 
-      <div class="subtitulo-destacados">
-        Productos seleccionados especialmente para ti 🩵
-      </div>
+      <div class="seccion-titulo">
+        <h2>🛍️ Categorías</h2>
 
-      <div
-        class="productos-destacados"
-        id="productosDestacados"
-      >
-
-        <div class="destacado-vacio">
-          ✨ Próximamente encontrarás aquí nuestros productos destacados.
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         CATEGORÍAS
-    ========================= -->
-
-    <section
-      class="categorias-contenedor"
-      id="seccionCategorias"
-    >
-
-      <div class="titulo-categorias">
-        🛍️ Explora nuestras categorías
+        <button onclick="abrirEstadoPedido()">
+          📦 Mi pedido
+        </button>
       </div>
 
       <div class="categorias">
 
-        <div
-          class="categoria"
-          data-categoria="ropa"
-          onclick="irCategoria('ropa')"
-        >
-          👕 ROPA
-        </div>
+        <button class="categoria" onclick="abrirCategoria('ropa')">
+          <span class="emoji">👕</span>
+          <strong>ROPA</strong>
+        </button>
 
-        <div
-          class="categoria"
-          data-categoria="lociones"
-          onclick="irCategoria('lociones')"
-        >
-          🧴 LOCIONES
-        </div>
+        <button class="categoria" onclick="abrirCategoria('lociones')">
+          <span class="emoji">🧴</span>
+          <strong>LOCIONES</strong>
+        </button>
 
-        <div
-          class="categoria"
-          data-categoria="zapatos"
-          onclick="irCategoria('zapatos')"
-        >
-          👟 ZAPATOS
-        </div>
+        <button class="categoria" onclick="abrirCategoria('zapatos')">
+          <span class="emoji">👟</span>
+          <strong>ZAPATOS</strong>
+        </button>
 
-        <div
-          class="categoria"
-          data-categoria="streaming"
-          onclick="irCategoria('streaming')"
-        >
-          📺 STREAMING
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         ADMIN
-    ========================= -->
-
-    <section
-      class="admin-panel"
-      id="adminPanel"
-    >
-
-      <h2>
-        ⚙️ Administración de ANDREX STORE
-      </h2>
-
-      <!-- AGREGAR PRODUCTO -->
-
-      <div class="admin-seccion">
-
-        <h3>
-          ➕ Agregar producto
-        </h3>
-
-        <div class="admin-grid">
-
-          <input
-            id="adminNombre"
-            type="text"
-            placeholder="Nombre del producto"
-          >
-
-          <input
-            id="adminPrecio"
-            type="number"
-            placeholder="Precio"
-          >
-
-          <select id="adminCategoria">
-
-            <option value="ropa">
-              👕 ROPA
-            </option>
-
-            <option value="lociones">
-              🧴 LOCIONES
-            </option>
-
-            <option value="zapatos">
-              👟 ZAPATOS
-            </option>
-
-            <option value="streaming">
-              📺 STREAMING
-            </option>
-
-          </select>
-
-          <input
-            id="adminImagen"
-            class="admin-imagen"
-            type="file"
-            accept="image/*"
-          >
-
-          <label class="checkbox-destacado">
-
-            <input
-              id="adminDestacado"
-              type="checkbox"
-            >
-
-            ⭐ Marcar este producto como DESTACADO
-
-          </label>
-
-        </div>
-
-        <button
-          class="boton-admin"
-          onclick="agregarProducto()"
-        >
-          ➕ Agregar producto
+        <button class="categoria" onclick="abrirCategoria('streaming')">
+          <span class="emoji">📺</span>
+          <strong>STREAMING</strong>
         </button>
 
       </div>
 
-      <!-- PRODUCTOS GUARDADOS -->
+    </div>
 
-      <div class="admin-seccion">
+    <div class="info-grid">
 
-        <h3>
-          ⭐ Administrar productos destacados
-        </h3>
+      <div class="info-card">
+        <div class="emoji">❤️</div>
+        <h3>Favoritos</h3>
+        <p>
+          Guarda los productos que más te gusten para encontrarlos fácilmente.
+        </p>
+      </div>
 
-        <div
-          class="lista-admin"
-          id="listaAdmin"
-        ></div>
+      <div class="info-card">
+        <div class="emoji">🛒</div>
+        <h3>Carrito</h3>
+        <p>
+          Agrega varios productos y consulta todo antes de realizar tu pedido.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="emoji">📦</div>
+        <h3>Seguimiento</h3>
+        <p>
+          Consulta el estado de tu pedido utilizando el código que te entregamos.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VISTA DE CATEGORÍA -->
+  <section id="vistaCategoria" class="vista-categoria">
+
+    <button class="boton-volver" onclick="volverCategorias()">
+      ← Volver a categorías
+    </button>
+
+    <div class="titulo-categoria">
+      <h2 id="tituloCategoria"></h2>
+      <p id="descripcionCategoria"></p>
+    </div>
+
+    <div id="productosCategoria" class="productos"></div>
+
+  </section>
+
+
+  <!-- PANEL ADMIN -->
+  <section id="adminPanel" class="admin-panel">
+
+    <h2>⚙️ Panel de administrador</h2>
+
+    <!-- PRODUCTOS -->
+    <h3>➕ Agregar producto</h3>
+
+    <div class="formulario">
+
+      <div class="campo">
+        <label>Nombre del producto</label>
+        <input
+          id="adminNombre"
+          type="text"
+          placeholder="Ej: Camiseta Oversize"
+        >
+      </div>
+
+      <div class="campo">
+        <label>Precio</label>
+        <input
+          id="adminPrecio"
+          type="number"
+          min="0"
+          placeholder="Ej: 59900"
+        >
+      </div>
+
+      <div class="campo">
+        <label>Categoría</label>
+
+        <select id="adminCategoria">
+          <option value="ropa">👕 Ropa</option>
+          <option value="lociones">🧴 Lociones</option>
+          <option value="zapatos">👟 Zapatos</option>
+          <option value="streaming">📺 Streaming</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Imagen</label>
+        <input
+          id="adminImagen"
+          type="file"
+          accept="image/*"
+        >
+      </div>
+
+      <div class="campo full">
+
+        <label class="checkbox">
+          <input id="adminDestacado" type="checkbox">
+          ⭐ Marcar como producto destacado
+        </label>
 
       </div>
 
-      <!-- ESTADO DE PEDIDOS -->
+      <div class="campo full">
 
-      <div class="admin-seccion">
+        <button
+          class="boton-principal"
+          onclick="guardarProducto()"
+        >
+          💾 Guardar producto
+        </button>
 
-        <h3>
-          📦 Administrar estado de pedidos
-        </h3>
+      </div>
 
-        <div class="estado-admin">
+    </div>
+
+
+    <div class="admin-lista">
+
+      <div class="seccion-titulo">
+        <h3>📋 Productos registrados</h3>
+
+        <button onclick="cargarProductos()">
+          🔄 Actualizar
+        </button>
+      </div>
+
+      <div id="listaAdmin"></div>
+
+    </div>
+
+
+    <div class="separador"></div>
+
+
+    <!-- PEDIDOS -->
+    <div class="pedido-admin">
+
+      <h3>📦 Administrar pedidos</h3>
+
+      <p style="color:#71878c;margin-bottom:16px;">
+        Crea un pedido y el sistema generará automáticamente un código único
+        para entregárselo al cliente.
+      </p>
+
+      <div class="formulario">
+
+        <div class="campo">
+
+          <label>Código del pedido</label>
 
           <input
             id="pedidoCodigo"
             type="text"
-            placeholder="Código del pedido"
+            placeholder="Se generará automáticamente"
+            readonly
           >
+
+        </div>
+
+        <div class="campo">
+
+          <label>Cliente</label>
 
           <input
             id="pedidoCliente"
@@ -1458,340 +1238,145 @@ body.en-categoria #vistaCategoria{
             placeholder="Nombre del cliente"
           >
 
+        </div>
+
+        <div class="campo">
+
+          <label>Estado</label>
+
           <select id="pedidoEstado">
 
             <option value="Recibido">
-              📝 Pedido recibido
+              🟡 Recibido
             </option>
 
             <option value="Preparando">
-              📦 Preparando pedido
+              🟠 Preparando
             </option>
 
             <option value="En camino">
-              🚚 En camino
+              🔵 En camino
             </option>
 
             <option value="Entregado">
-              ✅ Entregado
+              🟢 Entregado
             </option>
 
             <option value="Cancelado">
-              ❌ Cancelado
+              🔴 Cancelado
             </option>
 
           </select>
 
-          <input
+        </div>
+
+        <div class="campo full">
+
+          <label>Detalle del pedido</label>
+
+          <textarea
             id="pedidoDetalle"
-            class="ancho-completo"
-            type="text"
-            placeholder="Detalle adicional del pedido"
-          >
+            placeholder="Ej: Camiseta negra talla M + loción..."
+          ></textarea>
 
         </div>
 
+      </div>
+
+      <div class="botones-pedido">
+
         <button
-          class="boton-admin"
-          onclick="guardarPedido()"
+          class="boton-principal"
+          onclick="generarYCrearPedido()"
         >
-          💾 Guardar / actualizar pedido
+          ✨ Generar código y crear pedido
+        </button>
+
+        <button
+          class="boton-secundario"
+          onclick="actualizarPedidoExistente()"
+        >
+          🔄 Actualizar pedido
+        </button>
+
+        <button
+          class="boton-secundario"
+          onclick="enviarCodigoPedidoWhatsApp()"
+        >
+          📲 Enviar código por WhatsApp
         </button>
 
       </div>
 
-    </section>
 
-    <!-- =========================
-         INFORMACIÓN
-    ========================= -->
+      <div id="codigoGenerado" class="codigo-generado">
 
-    <section class="informacion">
+        <div>✅ Pedido creado correctamente</div>
 
-      <div class="info-card">
+        <div class="codigo-grande" id="codigoMostrado">
+          AX-0000
+        </div>
 
-        <h3>
-          🚚 Domicilios
-        </h3>
-
-        <p>
-          Hacemos envíos a nivel nacional 🇨🇴 y recuerda que tú
-          como cliente te encargas de pagar el envío hacia tu ciudad
-          de destino. Recuerda también que solo hay contra entrega
-          para las lociones originales 🔥✨
-        </p>
+        <div>
+          Este es el código que debes darle al cliente.
+        </div>
 
       </div>
 
-      <div class="info-card">
 
-        <h3>
-          💳 Métodos de pago
-        </h3>
+      <div class="seccion-titulo" style="margin-top:25px;">
 
-        <p>
-          Nuestros métodos de pago son Nequi, Bancolombia y Daviplata 💸✨
-        </p>
+        <h3>📋 Pedidos recientes</h3>
 
-      </div>
-
-      <div class="info-card">
-
-        <h3>
-          🆘 ¿Necesitas ayuda?
-        </h3>
-
-        <p>
-          Escríbenos por WhatsApp y con gusto te ayudaremos.
-        </p>
+        <button onclick="cargarPedidosAdmin()">
+          🔄 Actualizar
+        </button>
 
       </div>
 
-    </section>
-
-  </div>
-
-</main>
-
-<!-- =========================
-     VISTA CATEGORÍA
-========================= -->
-
-<main id="vistaCategoria">
-
-  <div class="vista-categoria">
-
-    <section class="carpeta-categoria">
-
-      <div class="carpeta-header">
-
-        <h2 id="tituloCarpeta">
-          🛍️ PRODUCTOS
-        </h2>
-
-      </div>
-
-      <div
-        class="productos"
-        id="productosCategoria"
-      ></div>
-
-    </section>
-
-  </div>
-
-</main>
-
-<!-- =========================
-     BOTÓN VOLVER
-========================= -->
-
-<button
-  id="botonVolverFlotante"
-  class="boton-volver-flotante"
-  onclick="volverInicio()"
->
-  🏠
-</button>
-
-<!-- =========================
-     FAVORITOS
-========================= -->
-
-<button
-  class="boton-favoritos-flotante"
-  onclick="mostrarFavoritos()"
-  style="
-    position:fixed;
-    left:88px;
-    bottom:18px;
-    z-index:5000;
-    width:58px;
-    height:58px;
-    border:none;
-    border-radius:50%;
-    background:#ffffff;
-    color:#ff4d67;
-    font-size:25px;
-    cursor:pointer;
-    box-shadow:0 8px 22px rgba(30,140,165,.18);
-  "
->
-  ❤️
-</button>
-
-<!-- =========================
-     PEDIDOS
-========================= -->
-
-<button
-  onclick="abrirEstadoPedido()"
-  style="
-    position:fixed;
-    left:18px;
-    bottom:88px;
-    z-index:4999;
-    width:58px;
-    height:58px;
-    border:none;
-    border-radius:50%;
-    background:#ffffff;
-    color:#219dbb;
-    font-size:24px;
-    cursor:pointer;
-    box-shadow:0 8px 22px rgba(30,140,165,.18);
-  "
-  aria-label="Estado del pedido"
->
-  📦
-</button>
-
-<!-- =========================
-     CARRITO
-========================= -->
-
-<button
-  class="boton-carrito"
-  onclick="abrirCarrito()"
->
-  🛒
-
-  <span
-    id="contadorCarrito"
-    class="contador-carrito"
-  >
-    0
-  </span>
-
-</button>
-
-<div
-  id="panelCarrito"
-  class="panel-carrito"
->
-
-  <div class="carrito-header">
-
-    <h2>
-      🛒 Mi carrito
-    </h2>
-
-    <button
-      class="cerrar-carrito"
-      onclick="cerrarCarrito()"
-    >
-      ✕
-    </button>
-
-  </div>
-
-  <div
-    id="carritoLista"
-    class="carrito-lista"
-  ></div>
-
-  <div class="carrito-footer">
-
-    <div class="carrito-total">
-
-      <span>
-        Total
-      </span>
-
-      <span id="carritoTotal">
-        $0
-      </span>
+      <div id="listaPedidosAdmin" class="lista-pedidos"></div>
 
     </div>
 
+  </section>
+
+</main>
+
+
+<!-- BOTÓN ESTADO PEDIDO -->
+<button
+  class="flotante-pedido"
+  onclick="abrirEstadoPedido()"
+>
+  📦 Estado de mi pedido
+</button>
+
+
+<!-- MODAL IMAGEN -->
+<div id="modalImagen" class="modal">
+
+  <div class="modal-caja">
+
     <button
-      class="boton-whatsapp-carrito"
-      onclick="consultarCarritoWhatsApp()"
+      class="modal-cerrar"
+      onclick="cerrarImagen()"
     >
-      💬 Consultar por WhatsApp
+      ✕ Cerrar
     </button>
+
+    <img id="imagenGrande" src="" alt="Producto">
 
   </div>
 
 </div>
 
-<!-- =========================
-     MODAL FOTO
-========================= -->
 
-<div
-  id="modalFoto"
-  class="modal-foto"
-  onclick="cerrarFoto()"
->
-
-  <button
-    class="cerrar-foto"
-    onclick="cerrarFoto(event)"
-  >
-    ✕
-  </button>
-
-  <img
-    id="fotoGrande"
-    src=""
-    alt="Producto"
-    onclick="event.stopPropagation()"
-  >
-
-</div>
-
-<!-- =========================
-     MODAL WHATSAPP
-========================= -->
-
-<div
-  id="modalWhatsApp"
-  class="modal-whatsapp"
->
-
-  <div class="whatsapp-caja">
-
-    <h2>
-      💬 Consultar producto
-    </h2>
-
-    <p id="textoWhatsApp">
-      ¿Quieres consultar este producto?
-    </p>
-
-    <button
-      class="boton-ir-whatsapp"
-      onclick="irWhatsApp()"
-    >
-      Abrir WhatsApp
-    </button>
-
-    <button
-      class="boton-cerrar-modal"
-      onclick="cerrarWhatsApp()"
-    >
-      Cancelar
-    </button>
-
-  </div>
-
-</div>
-
-<!-- =========================
-     MODAL ESTADO PEDIDO
-========================= -->
-
-<div
-  id="modalPedido"
-  class="modal-pedido"
->
+<!-- MODAL ESTADO PEDIDO -->
+<div id="modalPedido" class="modal-pedido">
 
   <div class="pedido-caja">
 
-    <h2>
-      📦 Estado de mi pedido
-    </h2>
+    <h2>📦 Estado de mi pedido</h2>
 
     <p>
       Escribe el código que te entregamos al realizar tu pedido.
@@ -1800,7 +1385,8 @@ body.en-categoria #vistaCategoria{
     <input
       id="buscarPedido"
       type="text"
-      placeholder="Ej: AND-001"
+      placeholder="Ej: AX-5831"
+      maxlength="7"
     >
 
     <button
@@ -1826,54 +1412,63 @@ body.en-categoria #vistaCategoria{
 
 </div>
 
-<!-- =========================
-     LOGIN ADMIN
-========================= -->
 
-<div
-  id="modalAdmin"
-  class="modal-admin"
->
+<!-- MODAL CARRITO -->
+<div id="modalCarrito" class="carrito-modal">
 
-  <div class="admin-login">
-
-    <h2>
-      🔐 Administrador
-    </h2>
-
-    <input
-      id="pinAdmin"
-      type="password"
-      inputmode="numeric"
-      maxlength="4"
-      placeholder="••••"
-    >
-
-    <button onclick="verificarPIN()">
-      Entrar
-    </button>
+  <div class="carrito-caja">
 
     <button
-      class="cerrar-login"
-      onclick="cerrarLoginAdmin()"
+      class="modal-cerrar"
+      onclick="cerrarCarrito()"
     >
-      Cancelar
+      ✕ Cerrar
+    </button>
+
+    <h2>🛒 Mi carrito</h2>
+
+    <div id="listaCarrito" style="margin-top:15px;"></div>
+
+    <div
+      id="totalCarrito"
+      class="carrito-total"
+    >
+      Total: $0
+    </div>
+
+    <button
+      class="boton-principal"
+      style="width:100%;margin-top:15px;"
+      onclick="enviarCarritoWhatsApp()"
+    >
+      💬 Pedir por WhatsApp
     </button>
 
   </div>
 
 </div>
 
-<div
-  id="toast"
-  class="toast"
-></div>
 
-<!-- =========================
-     FIREBASE
-========================= -->
+<footer>
+
+  <strong>ANDREX 🩵 STORE</strong>
+
+  <p>
+    Tu estilo, tu esencia, tu tienda.
+  </p>
+
+  <p>
+    © 2026 ANDREX STORE
+  </p>
+
+</footer>
+
 
 <script type="module">
+
+/* =========================================================
+   FIREBASE
+========================================================= */
 
 import {
   initializeApp
@@ -1895,262 +1490,502 @@ import {
 
 const firebaseConfig = {
 
-  apiKey:"AIzaSyBG7jgOKWeNJed6QPDMW-4-933gG59I",
+  apiKey:
+    "AIzaSyBG7jgOKWeNJed6QPDMW-4-933gG59I",
 
-  authDomain:"andrex-store.firebaseapp.com",
+  authDomain:
+    "andrex-store.firebaseapp.com",
 
-  projectId:"andrex-store",
+  projectId:
+    "andrex-store",
 
-  storageBucket:"andrex-store.firebasestorage.app",
+  storageBucket:
+    "andrex-store.firebasestorage.app",
 
-  messagingSenderId:"607192665861",
+  messagingSenderId:
+    "607192665861",
 
-  appId:"1:607192665861:web:a4fb90f3a2009d6491716c"
+  appId:
+    "1:607192665861:web:a4fb90f3a2009d6491716c"
 
 };
 
 
-window.firebaseReady = (async () => {
+const app = initializeApp(firebaseConfig);
 
-  try{
+const db = getFirestore(app);
 
-    const app =
-      initializeApp(
-        firebaseConfig
-      );
 
-    const db =
-      getFirestore(app);
+window.firebaseCollection = collection;
+window.firebaseGetDocs = getDocs;
+window.firebaseAddDoc = addDoc;
+window.firebaseDeleteDoc = deleteDoc;
+window.firebaseDoc = doc;
+window.firebaseUpdateDoc = updateDoc;
+window.firebaseQuery = query;
+window.firebaseWhere = where;
+window.firebaseLimit = limit;
 
-    window.db = db;
 
-    window.firebaseCollection =
-      collection;
-
-    window.firebaseGetDocs =
-      getDocs;
-
-    window.firebaseAddDoc =
-      addDoc;
-
-    window.firebaseDeleteDoc =
-      deleteDoc;
-
-    window.firebaseDoc =
-      doc;
-
-    window.firebaseUpdateDoc =
-      updateDoc;
-
-    window.firebaseQuery =
-      query;
-
-    window.firebaseWhere =
-      where;
-
-    window.firebaseLimit =
-      limit;
-
-    return true;
-
-  }catch(error){
-
-    console.error(
-      "Firebase no pudo iniciar:",
-      error
-    );
-
-    return false;
-
-  }
-
-})();
-
-</script>
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 let productos = [];
 
 let categoriaActual = "";
 
-let modoBusqueda = false;
+let ultimoCodigoPedidoCreado = "";
 
-let mensajeWhatsAppActual = "";
+let clicksLogo = 0;
 
-let carrito =
-  JSON.parse(
-    localStorage.getItem(
-      "andrexCarrito"
-    ) || "[]"
-  );
+let ultimoClickLogo = 0;
 
-let favoritos =
-  JSON.parse(
-    localStorage.getItem(
-      "andrexFavoritos"
-    ) || "[]"
-  );
+const PIN_ADMIN = "2580";
 
+const WHATSAPP = "573181579324";
 
-/* =========================
-   CATEGORÍAS
-========================= */
 
 const nombresCategorias = {
 
-  ropa:"👕 ROPA",
+  ropa:{
+    titulo:"👕 ROPA",
+    descripcion:"Encuentra prendas y estilos para complementar tu look."
+  },
 
-  lociones:"🧴 LOCIONES",
+  lociones:{
+    titulo:"🧴 LOCIONES",
+    descripcion:"Fragancias para diferentes estilos y ocasiones."
+  },
 
-  zapatos:"👟 ZAPATOS",
+  zapatos:{
+    titulo:"👟 ZAPATOS",
+    descripcion:"Calzado para completar tu estilo."
+  },
 
-  streaming:"📺 STREAMING"
+  streaming:{
+    titulo:"📺 STREAMING",
+    descripcion:"Servicios y opciones de entretenimiento."
+  }
 
 };
 
 
-/* =========================
-   NORMALIZAR
-========================= */
+/* =========================================================
+   LOCAL STORAGE
+========================================================= */
 
-function normalizarCategoria(categoria){
+function obtenerFavoritos(){
 
-  const c =
-    String(categoria || "")
-      .trim()
-      .toLowerCase();
+  try{
 
-  if(
-    [
-      "ropa",
-      "lociones",
-      "zapatos",
-      "streaming"
-    ].includes(c)
-  ){
+    return JSON.parse(
+      localStorage.getItem("andrexFavoritos") || "[]"
+    );
 
-    return c;
+  }catch{
+
+    return [];
 
   }
 
-  return "ropa";
-
 }
 
 
-/* =========================
-   PRECIO
-========================= */
-
-function formatearPrecio(precio){
-
-  const numero =
-    Number(precio || 0);
-
-  if(!numero){
-
-    return "Consultar";
-
-  }
-
-  return numero.toLocaleString(
-    "es-CO",
-    {
-      style:"currency",
-      currency:"COP",
-      maximumFractionDigits:0
-    }
-  );
-
-}
-
-
-/* =========================
-   FAVORITO
-========================= */
-
-function productoEsFavorito(id){
-
-  return favoritos.includes(
-    String(id)
-  );
-
-}
-
-
-function guardarFavoritos(){
+function guardarFavoritos(lista){
 
   localStorage.setItem(
     "andrexFavoritos",
-    JSON.stringify(
-      favoritos
-    )
+    JSON.stringify(lista)
   );
 
 }
 
 
-function alternarFavorito(producto){
+function obtenerCarrito(){
 
-  const id =
-    String(
-      producto.id
+  try{
+
+    return JSON.parse(
+      localStorage.getItem("andrexCarrito") || "[]"
     );
 
-  const posicion =
-    favoritos.indexOf(
-      id
-    );
+  }catch{
 
-
-  if(posicion >= 0){
-
-    favoritos.splice(
-      posicion,
-      1
-    );
-
-    mostrarToast(
-      "💔 Producto eliminado de favoritos."
-    );
-
-  }else{
-
-    favoritos.push(
-      id
-    );
-
-    mostrarToast(
-      "❤️ Producto agregado a favoritos."
-    );
+    return [];
 
   }
-
-
-  guardarFavoritos();
-
-  actualizarVistaActual();
-
-  renderizarDestacados();
 
 }
 
 
-/* =========================
-   TARJETA PRODUCTO
-========================= */
+function guardarCarrito(lista){
+
+  localStorage.setItem(
+    "andrexCarrito",
+    JSON.stringify(lista)
+  );
+
+}
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function escaparHTML(texto){
+
+  const div = document.createElement("div");
+
+  div.textContent = texto ?? "";
+
+  return div.innerHTML;
+
+}
+
+
+function formatearPrecio(valor){
+
+  const numero = Number(valor);
+
+  if(!numero || numero <= 0){
+
+    return "Precio por consultar";
+
+  }
+
+  return "$" + numero.toLocaleString("es-CO");
+
+}
+
+
+function obtenerEmojiCategoria(categoria){
+
+  const emojis = {
+
+    ropa:"👕",
+
+    lociones:"🧴",
+
+    zapatos:"👟",
+
+    streaming:"📺"
+
+  };
+
+  return emojis[categoria] || "🛍️";
+
+}
+
+
+/* =========================================================
+   COMPRESIÓN DE IMÁGENES
+========================================================= */
+
+function comprimirImagen(file){
+
+  return new Promise((resolve,reject)=>{
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+      const img = new Image();
+
+      img.onload = function(){
+
+        let maxSize = 900;
+
+        let width = img.width;
+
+        let height = img.height;
+
+
+        if(width > height){
+
+          if(width > maxSize){
+
+            height =
+              height * (maxSize / width);
+
+            width = maxSize;
+
+          }
+
+        }else{
+
+          if(height > maxSize){
+
+            width =
+              width * (maxSize / height);
+
+            height = maxSize;
+
+          }
+
+        }
+
+
+        const canvas =
+          document.createElement("canvas");
+
+        canvas.width = width;
+
+        canvas.height = height;
+
+
+        const ctx =
+          canvas.getContext("2d");
+
+        ctx.drawImage(
+          img,
+          0,
+          0,
+          width,
+          height
+        );
+
+
+        let resultado =
+          canvas.toDataURL(
+            "image/jpeg",
+            .65
+          );
+
+
+        /*
+          Firestore tiene límite de tamaño.
+          Si todavía queda demasiado grande,
+          comprimimos nuevamente.
+        */
+
+        if(resultado.length > 850000){
+
+          const canvas2 =
+            document.createElement("canvas");
+
+          const factor = .75;
+
+          canvas2.width =
+            width * factor;
+
+          canvas2.height =
+            height * factor;
+
+          const ctx2 =
+            canvas2.getContext("2d");
+
+          ctx2.drawImage(
+            img,
+            0,
+            0,
+            canvas2.width,
+            canvas2.height
+          );
+
+          resultado =
+            canvas2.toDataURL(
+              "image/jpeg",
+              .5
+            );
+
+        }
+
+
+        resolve(resultado);
+
+      };
+
+      img.onerror = reject;
+
+      img.src = e.target.result;
+
+    };
+
+
+    reader.onerror = reject;
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+
+/* =========================================================
+   CARGAR PRODUCTOS
+========================================================= */
+
+async function cargarProductos(){
+
+  try{
+
+    const ref =
+      window.firebaseCollection(
+        db,
+        "productos"
+      );
+
+    const snapshot =
+      await window.firebaseGetDocs(ref);
+
+
+    productos = [];
+
+
+    snapshot.forEach((documento)=>{
+
+      productos.push({
+
+        id:documento.id,
+
+        ...documento.data()
+
+      });
+
+    });
+
+
+    await cargarRopaGitHub();
+
+    renderizarDestacados();
+
+    renderizarAdmin();
+
+    if(categoriaActual){
+
+      renderizarCategoria(
+        categoriaActual
+      );
+
+    }
+
+    await cargarPedidosAdmin();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "No se pudieron cargar los productos.\n\n" +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   ROPA DESDE GITHUB
+========================================================= */
+
+async function cargarRopaGitHub(){
+
+  try{
+
+    const url =
+      "https://api.github.com/repos/" +
+      "andrex29-code/Andrex-store/contents/ropa/nueva";
+
+
+    const respuesta =
+      await fetch(url);
+
+
+    if(!respuesta.ok){
+
+      return;
+
+    }
+
+
+    const archivos =
+      await respuesta.json();
+
+
+    archivos
+      .filter(archivo=>
+        archivo.type === "file"
+      )
+      .filter(archivo=>
+        /\.(jpg|jpeg|png|webp|gif)$/i
+          .test(archivo.name)
+      )
+      .filter(archivo=>
+        !archivo.name
+          .toLowerCase()
+          .includes("3285")
+      )
+      .forEach(archivo=>{
+
+        const existe =
+          productos.some(
+            p =>
+              p.id ===
+              "github-" + archivo.name
+          );
+
+
+        if(!existe){
+
+          productos.push({
+
+            id:
+              "github-" +
+              archivo.name,
+
+            nombre:
+              archivo.name
+                .replace(/\.[^/.]+$/,"")
+                .replace(/[-_]/g," "),
+
+            precio:0,
+
+            categoria:"ropa",
+
+            imagen:
+              archivo.download_url,
+
+            destacado:false,
+
+            github:true
+
+          });
+
+        }
+
+      });
+
+
+  }catch(error){
+
+    console.log(
+      "No se pudo cargar ropa de GitHub",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   CREAR TARJETA PRODUCTO
+========================================================= */
 
 function crearTarjetaProducto(producto){
 
+  const favoritos =
+    obtenerFavoritos();
+
+  const favorito =
+    favoritos.includes(producto.id);
+
+
   const tarjeta =
-    document.createElement(
-      "article"
-    );
+    document.createElement("article");
 
   tarjeta.className =
     "producto";
@@ -2159,200 +1994,183 @@ function crearTarjetaProducto(producto){
   if(producto.destacado){
 
     const etiqueta =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
     etiqueta.className =
-      "etiqueta-destacado";
+      "destacado";
 
     etiqueta.textContent =
       "⭐ DESTACADO";
 
-    tarjeta.appendChild(
-      etiqueta
-    );
+    tarjeta.appendChild(etiqueta);
 
   }
 
 
-  const favorito =
-    document.createElement(
-      "button"
-    );
+  const corazon =
+    document.createElement("button");
 
-  favorito.className =
-    "boton-favorito";
+  corazon.className =
+    "corazon";
 
-  favorito.textContent =
-    productoEsFavorito(
-      producto.id
-    )
-    ? "❤️"
-    : "🤍";
+  corazon.textContent =
+    favorito ? "❤️" : "🤍";
 
-  if(
-    productoEsFavorito(
-      producto.id
-    )
-  ){
+  corazon.title =
+    "Agregar a favoritos";
 
-    favorito.classList.add(
-      "activo"
-    );
+  corazon.onclick = function(){
 
-  }
+    alternarFavorito(producto.id);
 
-  favorito.onclick =
-    () =>
-      alternarFavorito(
-        producto
+  };
+
+
+  tarjeta.appendChild(corazon);
+
+
+  const imagenBox =
+    document.createElement("div");
+
+  imagenBox.className =
+    "producto-imagen";
+
+
+  if(producto.imagen){
+
+    const imagen =
+      document.createElement("img");
+
+    imagen.src =
+      producto.imagen;
+
+    imagen.alt =
+      producto.nombre || "Producto";
+
+    imagen.loading =
+      "lazy";
+
+    imagen.onclick =
+      ()=>abrirImagen(producto.imagen);
+
+    imagen.style.cursor =
+      "zoom-in";
+
+    imagenBox.appendChild(imagen);
+
+  }else{
+
+    const sinImagen =
+      document.createElement("div");
+
+    sinImagen.className =
+      "producto-sin-imagen";
+
+    sinImagen.textContent =
+      obtenerEmojiCategoria(
+        producto.categoria
       );
+
+    imagenBox.appendChild(
+      sinImagen
+    );
+
+  }
 
 
   tarjeta.appendChild(
-    favorito
+    imagenBox
   );
 
 
-  const img =
-    document.createElement(
-      "img"
-    );
-
-  img.className =
-    "producto-imagen";
-
-  img.src =
-    producto.imagen || "";
-
-  img.alt =
-    producto.nombre ||
-    "Producto";
-
-  img.loading =
-    "lazy";
-
-  img.onclick =
-    () =>
-      abrirFoto(
-        producto.imagen
-      );
-
-  img.onerror =
-    function(){
-
-      img.style.display =
-        "none";
-
-    };
-
-
   const info =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
   info.className =
     "producto-info";
 
 
   const nombre =
-    document.createElement(
-      "div"
-    );
-
-  nombre.className =
-    "producto-nombre";
+    document.createElement("h3");
 
   nombre.textContent =
     producto.nombre ||
     "Producto";
 
+  info.appendChild(nombre);
+
 
   const precio =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
   precio.className =
-    "producto-precio";
+    "precio";
+
+
+  if(
+    !producto.precio ||
+    Number(producto.precio) <= 0
+  ){
+
+    precio.classList.add(
+      "no-definido"
+    );
+
+  }
+
 
   precio.textContent =
     formatearPrecio(
       producto.precio
     );
 
+  info.appendChild(precio);
+
 
   const botones =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
   botones.className =
     "producto-botones";
 
 
-  const botonWhatsApp =
-    document.createElement(
-      "button"
-    );
+  const whatsapp =
+    document.createElement("button");
 
-  botonWhatsApp.className =
-    "boton-whatsapp";
+  whatsapp.className =
+    "btn-whatsapp";
 
-  botonWhatsApp.textContent =
+  whatsapp.textContent =
     "💬 Consultar";
 
-  botonWhatsApp.onclick =
-    () =>
-      consultarProducto(
-        producto
-      );
+  whatsapp.onclick =
+    ()=>consultarWhatsApp(producto);
 
 
-  const botonCarrito =
-    document.createElement(
-      "button"
-    );
+  const carrito =
+    document.createElement("button");
 
-  botonCarrito.className =
-    "boton-carrito-producto";
+  carrito.className =
+    "btn-carrito";
 
-  botonCarrito.textContent =
+  carrito.textContent =
     "🛒 Agregar";
 
-  botonCarrito.onclick =
-    () =>
-      agregarAlCarrito(
-        producto
-      );
+  carrito.onclick =
+    ()=>agregarCarrito(producto);
 
 
   botones.appendChild(
-    botonWhatsApp
+    whatsapp
   );
 
   botones.appendChild(
-    botonCarrito
+    carrito
   );
 
-
-  info.appendChild(
-    nombre
-  );
-
-  info.appendChild(
-    precio
-  );
 
   info.appendChild(
     botones
-  );
-
-
-  tarjeta.appendChild(
-    img
   );
 
   tarjeta.appendChild(
@@ -2365,62 +2183,47 @@ function crearTarjetaProducto(producto){
 }
 
 
-/* =========================
-   RENDER PRODUCTOS
-========================= */
+/* =========================================================
+   RENDERIZAR PRODUCTOS
+========================================================= */
 
-function renderizarProductos(lista){
-
-  const contenedor =
-    document.getElementById(
-      "productosCategoria"
-    );
-
-  if(!contenedor) return;
+function renderizarLista(contenedor, lista){
 
   contenedor.innerHTML = "";
 
 
   if(!lista.length){
 
-    contenedor.innerHTML = `
+    const vacio =
+      document.createElement("div");
 
-      <div class="sin-productos">
+    vacio.className =
+      "sin-productos";
 
-        <strong>
-          🛍️ No hay productos todavía
-        </strong>
+    vacio.textContent =
+      "No hay productos disponibles en esta categoría.";
 
-        En esta categoría no encontramos
-        productos disponibles.
-
-      </div>
-
-    `;
+    contenedor.appendChild(
+      vacio
+    );
 
     return;
 
   }
 
 
-  lista.forEach(
-    producto => {
+  lista.forEach(producto=>{
 
-      contenedor.appendChild(
-        crearTarjetaProducto(
-          producto
-        )
-      );
+    contenedor.appendChild(
+      crearTarjetaProducto(
+        producto
+      )
+    );
 
-    }
-  );
+  });
 
 }
 
-
-/* =========================
-   DESTACADOS
-========================= */
 
 function renderizarDestacados(){
 
@@ -2428,10 +2231,6 @@ function renderizarDestacados(){
     document.getElementById(
       "productosDestacados"
     );
-
-  if(!contenedor) return;
-
-  contenedor.innerHTML = "";
 
 
   const destacados =
@@ -2443,324 +2242,809 @@ function renderizarDestacados(){
 
   if(!destacados.length){
 
-    contenedor.innerHTML = `
+    contenedor.innerHTML = "";
 
-      <div class="destacado-vacio">
-        ✨ Próximamente encontrarás aquí
-        nuestros productos destacados.
-      </div>
+    const mensaje =
+      document.createElement("div");
 
-    `;
+    mensaje.className =
+      "sin-productos";
+
+    mensaje.textContent =
+      "Todavía no hay productos destacados.";
+
+    contenedor.appendChild(
+      mensaje
+    );
 
     return;
 
   }
 
 
-  destacados.forEach(
-    producto => {
+  renderizarLista(
+    contenedor,
+    destacados
+  );
 
-      contenedor.appendChild(
-        crearTarjetaProducto(
-          producto
+}
+
+
+/* =========================================================
+   CATEGORÍAS
+========================================================= */
+
+function abrirCategoria(categoria){
+
+  categoriaActual =
+    categoria;
+
+
+  document.getElementById(
+    "contenidoInicio"
+  ).style.display =
+    "none";
+
+
+  const vista =
+    document.getElementById(
+      "vistaCategoria"
+    );
+
+  vista.classList.add(
+    "activa"
+  );
+
+
+  document.getElementById(
+    "tituloCategoria"
+  ).textContent =
+    nombresCategorias[categoria]
+      ?.titulo ||
+    "🛍️ Productos";
+
+
+  document.getElementById(
+    "descripcionCategoria"
+  ).textContent =
+    nombresCategorias[categoria]
+      ?.descripcion ||
+    "";
+
+
+  renderizarCategoria(
+    categoria
+  );
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function renderizarCategoria(categoria){
+
+  const contenedor =
+    document.getElementById(
+      "productosCategoria"
+    );
+
+
+  const lista =
+    productos.filter(
+      producto =>
+        producto.categoria === categoria
+    );
+
+
+  renderizarLista(
+    contenedor,
+    lista
+  );
+
+}
+
+
+function volverCategorias(){
+
+  categoriaActual = "";
+
+  document.getElementById(
+    "vistaCategoria"
+  ).classList.remove(
+    "activa"
+  );
+
+
+  document.getElementById(
+    "contenidoInicio"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "seccionCategorias"
+  ).scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+
+
+/* =========================================================
+   DESTACADOS
+========================================================= */
+
+function mostrarTodosDestacados(){
+
+  categoriaActual = "";
+
+  document.getElementById(
+    "contenidoInicio"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "vistaCategoria"
+  ).classList.remove(
+    "activa"
+  );
+
+
+  document.getElementById(
+    "productosDestacados"
+  ).scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+
+
+/* =========================================================
+   FAVORITOS
+========================================================= */
+
+function alternarFavorito(id){
+
+  let favoritos =
+    obtenerFavoritos();
+
+
+  if(favoritos.includes(id)){
+
+    favoritos =
+      favoritos.filter(
+        favorito =>
+          favorito !== id
+      );
+
+  }else{
+
+    favoritos.push(id);
+
+  }
+
+
+  guardarFavoritos(
+    favoritos
+  );
+
+
+  if(categoriaActual){
+
+    renderizarCategoria(
+      categoriaActual
+    );
+
+  }
+
+
+  renderizarDestacados();
+
+}
+
+
+function abrirFavoritos(){
+
+  const favoritos =
+    obtenerFavoritos();
+
+
+  const lista =
+    productos.filter(
+      producto =>
+        favoritos.includes(
+          producto.id
         )
+    );
+
+
+  document.getElementById(
+    "contenidoInicio"
+  ).style.display =
+    "none";
+
+
+  const vista =
+    document.getElementById(
+      "vistaCategoria"
+    );
+
+  vista.classList.add(
+    "activa"
+  );
+
+
+  document.getElementById(
+    "tituloCategoria"
+  ).textContent =
+    "❤️ Mis favoritos";
+
+
+  document.getElementById(
+    "descripcionCategoria"
+  ).textContent =
+    "Aquí aparecen los productos que has guardado.";
+
+
+  const contenedor =
+    document.getElementById(
+      "productosCategoria"
+    );
+
+
+  contenedor.innerHTML = "";
+
+
+  if(!lista.length){
+
+    const vacio =
+      document.createElement("div");
+
+    vacio.className =
+      "favoritos-vacio";
+
+    vacio.textContent =
+      "Todavía no tienes productos favoritos ❤️";
+
+    contenedor.appendChild(
+      vacio
+    );
+
+    return;
+
+  }
+
+
+  renderizarLista(
+    contenedor,
+    lista
+  );
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================================
+   CARRITO
+========================================================= */
+
+function agregarCarrito(producto){
+
+  const carrito =
+    obtenerCarrito();
+
+
+  const existe =
+    carrito.find(
+      item =>
+        item.id === producto.id
+    );
+
+
+  if(existe){
+
+    existe.cantidad++;
+
+  }else{
+
+    carrito.push({
+
+      id:producto.id,
+
+      nombre:
+        producto.nombre,
+
+      precio:
+        Number(producto.precio) || 0,
+
+      imagen:
+        producto.imagen || "",
+
+      cantidad:1
+
+    });
+
+  }
+
+
+  guardarCarrito(
+    carrito
+  );
+
+
+  alert(
+    "🛒 Producto agregado al carrito."
+  );
+
+}
+
+
+function abrirCarrito(){
+
+  renderizarCarrito();
+
+  document.getElementById(
+    "modalCarrito"
+  ).classList.add(
+    "activo"
+  );
+
+}
+
+
+function cerrarCarrito(){
+
+  document.getElementById(
+    "modalCarrito"
+  ).classList.remove(
+    "activo"
+  );
+
+}
+
+
+function renderizarCarrito(){
+
+  const carrito =
+    obtenerCarrito();
+
+
+  const contenedor =
+    document.getElementById(
+      "listaCarrito"
+    );
+
+
+  contenedor.innerHTML = "";
+
+
+  if(!carrito.length){
+
+    contenedor.innerHTML =
+      '<div class="sin-productos">' +
+      'Tu carrito está vacío 🛒' +
+      '</div>';
+
+    document.getElementById(
+      "totalCarrito"
+    ).textContent =
+      "Total: $0";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  carrito.forEach((item,index)=>{
+
+    total +=
+      item.precio *
+      item.cantidad;
+
+
+    const fila =
+      document.createElement("div");
+
+    fila.className =
+      "carrito-item";
+
+
+    if(item.imagen){
+
+      const img =
+        document.createElement("img");
+
+      img.src =
+        item.imagen;
+
+      img.alt =
+        item.nombre;
+
+      fila.appendChild(
+        img
       );
 
     }
+
+
+    const info =
+      document.createElement("div");
+
+    info.className =
+      "carrito-info";
+
+    info.innerHTML =
+      `<strong>${escaparHTML(item.nombre)}</strong>
+       <span>${item.cantidad} × ${formatearPrecio(item.precio)}</span>`;
+
+    fila.appendChild(
+      info
+    );
+
+
+    const eliminar =
+      document.createElement("button");
+
+    eliminar.className =
+      "carrito-eliminar";
+
+    eliminar.textContent =
+      "🗑️";
+
+    eliminar.onclick =
+      ()=>eliminarDelCarrito(index);
+
+
+    fila.appendChild(
+      eliminar
+    );
+
+
+    contenedor.appendChild(
+      fila
+    );
+
+  });
+
+
+  document.getElementById(
+    "totalCarrito"
+  ).textContent =
+    "Total: " +
+    formatearPrecio(total);
+
+}
+
+
+function eliminarDelCarrito(index){
+
+  const carrito =
+    obtenerCarrito();
+
+
+  carrito.splice(
+    index,
+    1
+  );
+
+
+  guardarCarrito(
+    carrito
+  );
+
+
+  renderizarCarrito();
+
+}
+
+
+function enviarCarritoWhatsApp(){
+
+  const carrito =
+    obtenerCarrito();
+
+
+  if(!carrito.length){
+
+    alert(
+      "El carrito está vacío."
+    );
+
+    return;
+
+  }
+
+
+  let mensaje =
+    "Hola 👋, quiero realizar este pedido en ANDREX 🩵 STORE:%0A%0A";
+
+
+  let total = 0;
+
+
+  carrito.forEach(item=>{
+
+    const subtotal =
+      item.precio *
+      item.cantidad;
+
+    total +=
+      subtotal;
+
+
+    mensaje +=
+      "• " +
+      encodeURIComponent(
+        item.nombre
+      ) +
+      " × " +
+      item.cantidad +
+      " — " +
+      encodeURIComponent(
+        formatearPrecio(subtotal)
+      ) +
+      "%0A";
+
+  });
+
+
+  mensaje +=
+    "%0ATotal aproximado: " +
+    encodeURIComponent(
+      formatearPrecio(total)
+    );
+
+
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    mensaje,
+    "_blank"
   );
 
 }
 
 
-/* =========================
-   IR CATEGORÍA
-========================= */
+/* =========================================================
+   WHATSAPP PRODUCTO
+========================================================= */
 
-function irCategoria(categoria){
+function consultarWhatsApp(producto){
 
-  categoriaActual =
-    normalizarCategoria(
-      categoria
+  const mensaje =
+    "Hola 👋, estoy interesado en este producto de ANDREX 🩵 STORE:%0A%0A" +
+    "🛍️ Producto: " +
+    encodeURIComponent(
+      producto.nombre
+    ) +
+    "%0A" +
+    "💰 Precio: " +
+    encodeURIComponent(
+      formatearPrecio(
+        producto.precio
+      )
     );
 
-  modoBusqueda = false;
+
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    mensaje,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   MODAL IMAGEN
+========================================================= */
+
+function abrirImagen(url){
+
+  if(!url){
+
+    return;
+
+  }
 
 
   document.getElementById(
-    "tituloCarpeta"
-  ).textContent =
-    nombresCategorias[
-      categoriaActual
-    ] ||
-    "🛍️ PRODUCTOS";
+    "imagenGrande"
+  ).src =
+    url;
 
 
-  document
-    .querySelectorAll(
-      ".categoria"
-    )
-    .forEach(
-      elemento => {
+  document.getElementById(
+    "modalImagen"
+  ).classList.add(
+    "activo"
+  );
 
-        elemento.classList.remove(
-          "activa"
+}
+
+
+function cerrarImagen(){
+
+  document.getElementById(
+    "modalImagen"
+  ).classList.remove(
+    "activo"
+  );
+
+}
+
+
+/* =========================================================
+   BUSCADOR
+========================================================= */
+
+document.getElementById(
+  "buscador"
+).addEventListener(
+  "input",
+  function(){
+
+    const texto =
+      this.value
+        .trim()
+        .toLowerCase();
+
+
+    if(!texto){
+
+      if(categoriaActual){
+
+        renderizarCategoria(
+          categoriaActual
         );
 
+      }else{
+
+        renderizarDestacados();
+
       }
-    );
+
+      return;
+
+    }
 
 
-  const boton =
-    document.querySelector(
-      `.categoria[data-categoria="${categoriaActual}"]`
-    );
+    const resultados =
+      productos.filter(
+        producto =>
+          (
+            producto.nombre ||
+            ""
+          )
+          .toLowerCase()
+          .includes(texto)
+      );
 
 
-  if(boton){
+    document.getElementById(
+      "contenidoInicio"
+    ).style.display =
+      "none";
 
-    boton.classList.add(
+
+    document.getElementById(
+      "vistaCategoria"
+    ).classList.add(
       "activa"
     );
 
-  }
 
-
-  document.body.classList.add(
-    "en-categoria"
-  );
-
-
-  document
-    .getElementById(
-      "botonVolverFlotante"
-    )
-    .classList.add(
-      "visible"
-    );
-
-
-  const productosCategoria =
-    productos.filter(
-      producto =>
-        normalizarCategoria(
-          producto.categoria
-        ) === categoriaActual
-    );
-
-
-  renderizarProductos(
-    productosCategoria
-  );
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================
-   VOLVER A CATEGORÍAS
-========================= */
-
-function volverInicio(){
-
-  categoriaActual = "";
-
-  modoBusqueda = false;
-
-
-  document.body.classList.remove(
-    "en-categoria"
-  );
-
-
-  document
-    .getElementById(
-      "botonVolverFlotante"
-    )
-    .classList.remove(
-      "visible"
-    );
-
-
-  document
-    .querySelectorAll(
-      ".categoria"
-    )
-    .forEach(
-      elemento => {
-
-        elemento.classList.remove(
-          "activa"
-        );
-
-      }
-    );
-
-
-  const buscador =
     document.getElementById(
-      "buscador"
+      "tituloCategoria"
+    ).textContent =
+      "🔎 Resultados de búsqueda";
+
+
+    document.getElementById(
+      "descripcionCategoria"
+    ).textContent =
+      "Productos encontrados para: " +
+      this.value;
+
+
+    renderizarLista(
+
+      document.getElementById(
+        "productosCategoria"
+      ),
+
+      resultados
+
     );
 
-
-  if(buscador){
-
-    buscador.value = "";
-
   }
+);
 
 
-  setTimeout(
-    () => {
+/* =========================================================
+   ADMIN - LOGO
+========================================================= */
 
-      const categorias =
-        document.getElementById(
-          "seccionCategorias"
+document.getElementById(
+  "logoAdmin"
+).addEventListener(
+  "click",
+  function(){
+
+    const ahora =
+      Date.now();
+
+
+    if(
+      ahora -
+      ultimoClickLogo >
+      1500
+    ){
+
+      clicksLogo = 0;
+
+    }
+
+
+    ultimoClickLogo =
+      ahora;
+
+    clicksLogo++;
+
+
+    if(clicksLogo >= 5){
+
+      clicksLogo = 0;
+
+      const pin =
+        prompt(
+          "🔐 Ingresa el PIN de administrador:"
         );
 
 
-      if(categorias){
+      if(pin === PIN_ADMIN){
 
-        categorias.scrollIntoView({
-          behavior:"smooth",
-          block:"start"
+        document.getElementById(
+          "adminPanel"
+        ).classList.add(
+          "activo"
+        );
+
+
+        cargarPedidosAdmin();
+
+
+        document.getElementById(
+          "adminPanel"
+        ).scrollIntoView({
+          behavior:"smooth"
         });
 
-      }
+      }else if(pin !== null){
 
-    },
-    100
-  );
-
-}
-
-
-/* =========================
-   BÚSQUEDA
-========================= */
-
-function mostrarResultadosBusqueda(
-  texto
-){
-
-  modoBusqueda = true;
-
-  categoriaActual = "";
-
-
-  document.getElementById(
-    "tituloCarpeta"
-  ).textContent =
-    "🔎 RESULTADOS DE BÚSQUEDA";
-
-
-  document
-    .querySelectorAll(
-      ".categoria"
-    )
-    .forEach(
-      elemento => {
-
-        elemento.classList.remove(
-          "activa"
+        alert(
+          "❌ PIN incorrecto."
         );
 
       }
-    );
-
-
-  document.body.classList.add(
-    "en-categoria"
-  );
-
-
-  document
-    .getElementById(
-      "botonVolverFlotante"
-    )
-    .classList.add(
-      "visible"
-    );
-
-
-  const resultados =
-    productos.filter(
-      producto => {
-
-        const nombre =
-          String(
-            producto.nombre || ""
-          ).toLowerCase();
-
-        const categoria =
-          String(
-            producto.categoria || ""
-          ).toLowerCase();
-
-        return (
-          nombre.includes(texto)
-          ||
-          categoria.includes(texto)
-        );
-
-      }
-    );
-
-
-  renderizarProductos(
-    resultados
-  );
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    const buscador =
-      document.getElementById(
-        "buscador"
-      );
-
-
-    if(buscador){
-
-      buscador.addEventListener(
-        "input",
-        function(){
-
-          const texto =
-            this.value
-              .trim()
-              .toLowerCase();
-
-
-          if(!texto){
-
-            volverInicio();
-
-            return;
-
-          }
-
-
-          mostrarResultadosBusqueda(
-            texto
-          );
-
-        }
-      );
 
     }
 
@@ -2768,348 +3052,48 @@ document.addEventListener(
 );
 
 
-/* =========================
-   MOSTRAR FAVORITOS
-========================= */
+/* =========================================================
+   GUARDAR PRODUCTO
+========================================================= */
 
-function mostrarFavoritos(){
+async function guardarProducto(){
 
-  modoBusqueda = true;
+  const nombre =
+    document.getElementById(
+      "adminNombre"
+    ).value.trim();
 
-  categoriaActual = "";
 
-
-  document.getElementById(
-    "tituloCarpeta"
-  ).textContent =
-    "❤️ MIS FAVORITOS";
-
-
-  document.body.classList.add(
-    "en-categoria"
-  );
-
-
-  document
-    .getElementById(
-      "botonVolverFlotante"
-    )
-    .classList.add(
-      "visible"
-    );
-
-
-  const favoritosActuales =
-    productos.filter(
-      producto =>
-        favoritos.includes(
-          String(
-            producto.id
-          )
-        )
-    );
-
-
-  renderizarProductos(
-    favoritosActuales
-  );
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================
-   GITHUB ROPA
-========================= */
-
-async function cargarRopaGitHub(){
-
-  try{
-
-    const url =
-      "https://api.github.com/repos/" +
-      "andrex29-code/Andrex-store/" +
-      "contents/ropa/nueva?ref=main";
-
-
-    const respuesta =
-      await fetch(
-        url
-      );
-
-
-    if(!respuesta.ok){
-
-      console.error(
-        "GitHub respondió:",
-        respuesta.status
-      );
-
-      return;
-
-    }
-
-
-    const archivos =
-      await respuesta.json();
-
-
-    if(!Array.isArray(archivos)){
-
-      return;
-
-    }
-
-
-    productos =
-      productos.filter(
-        producto =>
-          !String(
-            producto.id
-          ).startsWith(
-            "github-"
-          )
-      );
-
-
-    archivos
-      .filter(
-        archivo =>
-          archivo.type === "file"
-      )
-      .filter(
-        archivo =>
-          !String(
-            archivo.name
-          )
-          .toLowerCase()
-          .includes(
-            "3285"
-          )
-      )
-      .forEach(
-        archivo => {
-
-          const imagen =
-            archivo.download_url
-            ||
-            (
-              "https://raw.githubusercontent.com/" +
-              "andrex29-code/Andrex-store/" +
-              "main/ropa/nueva/" +
-              encodeURIComponent(
-                archivo.name
-              )
-            );
-
-
-          productos.push({
-
-            id:
-              "github-" +
-              archivo.name,
-
-            nombre:
-              archivo.name
-                .replace(
-                  /\.[^/.]+$/,
-                  ""
-                ),
-
-            precio:0,
-
-            categoria:"ropa",
-
-            imagen:imagen,
-
-            destacado:false
-
-          });
-
-        }
-      );
-
-
-    actualizarVistaActual();
-
-    renderizarDestacados();
-
-  }catch(error){
-
-    console.error(
-      "Error GitHub:",
-      error
-    );
-
-  }
-
-}
-
-
-/* =========================
-   FIREBASE
-========================= */
-
-async function cargarFirebase(){
-
-  try{
-
-    const listo =
-      await window.firebaseReady;
-
-
-    if(!listo){
-
-      return;
-
-    }
-
-
-    const snapshot =
-      await window.firebaseGetDocs(
-        window.firebaseCollection(
-          window.db,
-          "productos"
-        )
-      );
-
-
-    const productosGitHub =
-      productos.filter(
-        producto =>
-          String(
-            producto.id
-          ).startsWith(
-            "github-"
-          )
-      );
-
-
-    productos =
-      [
-        ...productosGitHub
-      ];
-
-
-    snapshot.forEach(
-      documento => {
-
-        const data =
-          documento.data();
-
-
-        productos.push({
-
-          id:
-            documento.id,
-
-          nombre:
-            data.nombre
-            ||
-            data.name
-            ||
-            "Producto",
-
-          precio:
-            Number(
-              data.precio
-              ??
-              data.price
-              ??
-              0
-            ),
-
-          categoria:
-            data.categoria
-            ||
-            data.category
-            ||
-            "ropa",
-
-          imagen:
-            data.imagen
-            ||
-            data.image
-            ||
-            data.foto
-            ||
-            "",
-
-          destacado:
-            data.destacado === true
-
-        });
-
-      }
-    );
-
-
-    actualizarVistaActual();
-
-    renderizarDestacados();
-
-  }catch(error){
-
-    console.error(
-      "Error cargando Firestore:",
-      error
-    );
-
-  }
-
-}
-
-
-/* =========================
-   ACTUALIZAR VISTA
-========================= */
-
-function actualizarVistaActual(){
-
-  if(modoBusqueda){
-
-    const buscador =
+  const precio =
+    Number(
       document.getElementById(
-        "buscador"
-      );
+        "adminPrecio"
+      ).value
+    );
 
 
-    const texto =
-      buscador
-        ? buscador.value
-            .trim()
-            .toLowerCase()
-        : "";
+  const categoria =
+    document.getElementById(
+      "adminCategoria"
+    ).value;
 
 
-    if(texto){
-
-      mostrarResultadosBusqueda(
-        texto
-      );
-
-      return;
-
-    }
-
-    const favoritosActuales =
-      productos.filter(
-        producto =>
-          favoritos.includes(
-            String(
-              producto.id
-            )
-          )
-      );
+  const archivo =
+    document.getElementById(
+      "adminImagen"
+    ).files[0];
 
 
-    renderizarProductos(
-      favoritosActuales
+  const destacado =
+    document.getElementById(
+      "adminDestacado"
+    ).checked;
+
+
+  if(!nombre){
+
+    alert(
+      "Escribe el nombre del producto."
     );
 
     return;
@@ -3117,265 +3101,50 @@ function actualizarVistaActual(){
   }
 
 
-  if(categoriaActual){
-
-    irCategoria(
-      categoriaActual
-    );
-
-  }
-
-}
-
-
-/* =========================
-   COMPRIMIR IMAGEN
-========================= */
-
-function comprimirImagen(
-  archivo,
-  maxSize = 1200,
-  calidad = 0.75
-){
-
-  return new Promise(
-    (resolve,reject) => {
-
-      const lector =
-        new FileReader();
-
-
-      lector.onload =
-        function(e){
-
-          const imagen =
-            new Image();
-
-
-          imagen.onload =
-            function(){
-
-              let ancho =
-                imagen.width;
-
-              let alto =
-                imagen.height;
-
-
-              if(ancho > maxSize){
-
-                alto =
-                  alto *
-                  (
-                    maxSize /
-                    ancho
-                  );
-
-                ancho =
-                  maxSize;
-
-              }
-
-
-              if(alto > maxSize){
-
-                ancho =
-                  ancho *
-                  (
-                    maxSize /
-                    alto
-                  );
-
-                alto =
-                  maxSize;
-
-              }
-
-
-              const canvas =
-                document.createElement(
-                  "canvas"
-                );
-
-
-              canvas.width =
-                ancho;
-
-              canvas.height =
-                alto;
-
-
-              const contexto =
-                canvas.getContext(
-                  "2d"
-                );
-
-
-              contexto.drawImage(
-                imagen,
-                0,
-                0,
-                ancho,
-                alto
-              );
-
-
-              resolve(
-                canvas.toDataURL(
-                  "image/jpeg",
-                  calidad
-                )
-              );
-
-            };
-
-
-          imagen.onerror =
-            reject;
-
-
-          imagen.src =
-            e.target.result;
-
-        };
-
-
-      lector.onerror =
-        reject;
-
-
-      lector.readAsDataURL(
-        archivo
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================
-   AGREGAR PRODUCTO
-========================= */
-
-async function agregarProducto(){
-
   try{
 
-    const listo =
-      await window.firebaseReady;
+    let imagen = "";
 
 
-    if(!listo){
+    if(archivo){
 
-      mostrarToast(
-        "Firebase no está disponible."
-      );
-
-      return;
+      imagen =
+        await comprimirImagen(
+          archivo
+        );
 
     }
-
-
-    const nombre =
-      document
-        .getElementById(
-          "adminNombre"
-        )
-        .value
-        .trim();
-
-
-    const precio =
-      Number(
-        document
-          .getElementById(
-            "adminPrecio"
-          )
-          .value
-      );
-
-
-    const categoria =
-      normalizarCategoria(
-        document
-          .getElementById(
-            "adminCategoria"
-          )
-          .value
-      );
-
-
-    const archivo =
-      document
-        .getElementById(
-          "adminImagen"
-        )
-        .files[0];
-
-
-    const destacado =
-      document
-        .getElementById(
-          "adminDestacado"
-        )
-        .checked;
-
-
-    if(!nombre){
-
-      mostrarToast(
-        "Escribe el nombre del producto."
-      );
-
-      return;
-
-    }
-
-
-    if(!archivo){
-
-      mostrarToast(
-        "Selecciona una imagen."
-      );
-
-      return;
-
-    }
-
-
-    mostrarToast(
-      "Subiendo producto..."
-    );
-
-
-    const imagen =
-      await comprimirImagen(
-        archivo
-      );
 
 
     await window.firebaseAddDoc(
+
       window.firebaseCollection(
-        window.db,
+        db,
         "productos"
       ),
+
       {
 
-        nombre:nombre,
+        nombre,
 
-        precio:precio,
+        precio,
 
-        categoria:categoria,
+        categoria,
 
-        imagen:imagen,
+        imagen,
 
-        destacado:destacado,
+        destacado,
 
         creado:
           Date.now()
 
       }
+
+    );
+
+
+    alert(
+      "✅ Producto guardado correctamente."
     );
 
 
@@ -3399,554 +3168,16 @@ async function agregarProducto(){
     ).checked = false;
 
 
-    mostrarToast(
-      destacado
-      ? "⭐ Producto destacado agregado."
-      : "✅ Producto agregado."
-    );
-
-
-    await cargarFirebase();
-
-    actualizarListaAdmin();
-
-  }catch(error){
-
-    console.error(
-      "Error agregando producto:",
-      error
-    );
-
-
-    mostrarToast(
-      "❌ No se pudo guardar. Revisa Firestore."
-    );
-
-  }
-
-}
-
-
-/* =========================
-   LISTA ADMIN
-========================= */
-
-async function actualizarListaAdmin(){
-
-  try{
-
-    const listo =
-      await window.firebaseReady;
-
-
-    if(!listo) return;
-
-
-    const snapshot =
-      await window.firebaseGetDocs(
-        window.firebaseCollection(
-          window.db,
-          "productos"
-        )
-      );
-
-
-    const contenedor =
-      document.getElementById(
-        "listaAdmin"
-      );
-
-
-    contenedor.innerHTML = "";
-
-
-    if(snapshot.empty){
-
-      contenedor.innerHTML =
-        "<p>No hay productos guardados.</p>";
-
-      return;
-
-    }
-
-
-    snapshot.forEach(
-      documento => {
-
-        const data =
-          documento.data();
-
-
-        const fila =
-          document.createElement(
-            "div"
-          );
-
-
-        fila.className =
-          "admin-producto";
-
-
-        const info =
-          document.createElement(
-            "div"
-          );
-
-
-        info.className =
-          "admin-producto-info";
-
-
-        const nombre =
-          document.createElement(
-            "strong"
-          );
-
-
-        nombre.textContent =
-          data.nombre
-          ||
-          data.name
-          ||
-          "Producto";
-
-
-        const detalle =
-          document.createElement(
-            "small"
-          );
-
-
-        detalle.textContent =
-          (
-            nombresCategorias[
-              normalizarCategoria(
-                data.categoria
-                ||
-                data.category
-              )
-            ]
-            ||
-            "Producto"
-          )
-          +
-          " · "
-          +
-          formatearPrecio(
-            data.precio
-            ??
-            data.price
-            ??
-            0
-          );
-
-
-        info.appendChild(
-          nombre
-        );
-
-        info.appendChild(
-          detalle
-        );
-
-
-        const botonDestacar =
-          document.createElement(
-            "button"
-          );
-
-
-        botonDestacar.className =
-          "boton-destacar";
-
-
-        if(data.destacado === true){
-
-          botonDestacar.classList.add(
-            "activo"
-          );
-
-          botonDestacar.textContent =
-            "⭐ Destacado";
-
-        }else{
-
-          botonDestacar.textContent =
-            "☆ Destacar";
-
-        }
-
-
-        botonDestacar.onclick =
-          () =>
-            alternarDestacadoAdmin(
-              documento.id,
-              data.destacado === true
-            );
-
-
-        const botonEliminar =
-          document.createElement(
-            "button"
-          );
-
-
-        botonEliminar.className =
-          "boton-eliminar-admin";
-
-        botonEliminar.textContent =
-          "🗑️ Eliminar";
-
-
-        botonEliminar.onclick =
-          () =>
-            eliminarProducto(
-              documento.id
-            );
-
-
-        fila.appendChild(
-          info
-        );
-
-        fila.appendChild(
-          botonDestacar
-        );
-
-        fila.appendChild(
-          botonEliminar
-        );
-
-
-        contenedor.appendChild(
-          fila
-        );
-
-      }
-    );
-
-  }catch(error){
-
-    console.error(
-      "Error lista admin:",
-      error
-    );
-
-  }
-
-}
-
-
-/* =========================
-   DESTACAR / QUITAR
-========================= */
-
-async function alternarDestacadoAdmin(
-  id,
-  actualmenteDestacado
-){
-
-  try{
-
-    const listo =
-      await window.firebaseReady;
-
-
-    if(!listo){
-
-      mostrarToast(
-        "Firebase no está disponible."
-      );
-
-      return;
-
-    }
-
-
-    await window.firebaseUpdateDoc(
-      window.firebaseDoc(
-        window.db,
-        "productos",
-        id
-      ),
-      {
-        destacado:
-          !actualmenteDestacado
-      }
-    );
-
-
-    mostrarToast(
-      actualmenteDestacado
-      ? "⭐ Producto quitado de destacados."
-      : "⭐ Producto marcado como destacado."
-    );
-
-
-    await cargarFirebase();
-
-    actualizarListaAdmin();
-
-  }catch(error){
-
-    console.error(
-      "Error actualizando destacado:",
-      error
-    );
-
-
-    mostrarToast(
-      "❌ No se pudo actualizar."
-    );
-
-  }
-
-}
-
-
-/* =========================
-   ELIMINAR PRODUCTO
-========================= */
-
-async function eliminarProducto(id){
-
-  const confirmar =
-    confirm(
-      "¿Quieres eliminar este producto?"
-    );
-
-
-  if(!confirmar) return;
-
-
-  try{
-
-    const listo =
-      await window.firebaseReady;
-
-
-    if(!listo) return;
-
-
-    await window.firebaseDeleteDoc(
-      window.firebaseDoc(
-        window.db,
-        "productos",
-        id
-      )
-    );
-
-
-    mostrarToast(
-      "🗑️ Producto eliminado."
-    );
-
-
-    await cargarFirebase();
-
-    actualizarListaAdmin();
-
-  }catch(error){
-
-    console.error(
-      "Error eliminando:",
-      error
-    );
-
-
-    mostrarToast(
-      "❌ No se pudo eliminar."
-    );
-
-  }
-
-}
-
-
-/* =========================
-   PEDIDOS - ADMIN
-========================= */
-
-async function guardarPedido(){
-
-  try{
-
-    const listo =
-      await window.firebaseReady;
-
-
-    if(!listo){
-
-      mostrarToast(
-        "Firebase no está disponible."
-      );
-
-      return;
-
-    }
-
-
-    const codigo =
-      document
-        .getElementById(
-          "pedidoCodigo"
-        )
-        .value
-        .trim()
-        .toUpperCase();
-
-
-    const cliente =
-      document
-        .getElementById(
-          "pedidoCliente"
-        )
-        .value
-        .trim();
-
-
-    const estado =
-      document
-        .getElementById(
-          "pedidoEstado"
-        )
-        .value;
-
-
-    const detalle =
-      document
-        .getElementById(
-          "pedidoDetalle"
-        )
-        .value
-        .trim();
-
-
-    if(!codigo){
-
-      mostrarToast(
-        "Escribe el código del pedido."
-      );
-
-      return;
-
-    }
-
-
-    const pedidosRef =
-      window.firebaseCollection(
-        window.db,
-        "pedidos"
-      );
-
-
-    const consulta =
-      window.firebaseQuery(
-        pedidosRef,
-        window.firebaseWhere(
-          "codigo",
-          "==",
-          codigo
-        ),
-        window.firebaseLimit(1)
-      );
-
-
-    const resultado =
-      await window.firebaseGetDocs(
-        consulta
-      );
-
-
-    if(!resultado.empty){
-
-      const documento =
-        resultado.docs[0];
-
-
-      await window.firebaseUpdateDoc(
-        window.firebaseDoc(
-          window.db,
-          "pedidos",
-          documento.id
-        ),
-        {
-
-          codigo:codigo,
-
-          cliente:cliente,
-
-          estado:estado,
-
-          detalle:detalle,
-
-          actualizado:
-            Date.now()
-
-        }
-      );
-
-
-      mostrarToast(
-        "📦 Pedido actualizado."
-      );
-
-    }else{
-
-      await window.firebaseAddDoc(
-        pedidosRef,
-        {
-
-          codigo:codigo,
-
-          cliente:cliente,
-
-          estado:estado,
-
-          detalle:detalle,
-
-          creado:
-            Date.now(),
-
-          actualizado:
-            Date.now()
-
-        }
-      );
-
-
-      mostrarToast(
-        "📦 Pedido creado."
-      );
-
-    }
-
-
-    document.getElementById(
-      "pedidoCodigo"
-    ).value = "";
-
-
-    document.getElementById(
-      "pedidoCliente"
-    ).value = "";
-
-
-    document.getElementById(
-      "pedidoDetalle"
-    ).value = "";
+    await cargarProductos();
 
 
   }catch(error){
 
-    console.error(
-      "Error guardando pedido:",
-      error
-    );
+    console.error(error);
 
-
-    mostrarToast(
-      "❌ No se pudo guardar el pedido."
+    alert(
+      "❌ No se pudo guardar el producto.\n\n" +
+      error.message
     );
 
   }
@@ -3954,549 +3185,646 @@ async function guardarPedido(){
 }
 
 
-/* =========================
-   PEDIDOS - CLIENTE
-========================= */
+/* =========================================================
+   ADMIN PRODUCTOS
+========================================================= */
 
-function abrirEstadoPedido(){
+function renderizarAdmin(){
 
-  document
-    .getElementById(
-      "modalPedido"
-    )
-    .classList.add(
-      "abierto"
-    );
-
-
-  document.getElementById(
-    "buscarPedido"
-  ).value = "";
-
-
-  document.getElementById(
-    "resultadoPedido"
-  ).classList.remove(
-    "visible"
-  );
-
-}
-
-
-function cerrarEstadoPedido(){
-
-  document
-    .getElementById(
-      "modalPedido"
-    )
-    .classList.remove(
-      "abierto"
-    );
-
-}
-
-
-async function consultarEstadoPedido(){
-
-  try{
-
-    const codigo =
-      document
-        .getElementById(
-          "buscarPedido"
-        )
-        .value
-        .trim()
-        .toUpperCase();
-
-
-    if(!codigo){
-
-      mostrarToast(
-        "Escribe el código del pedido."
-      );
-
-      return;
-
-    }
-
-
-    const listo =
-      await window.firebaseReady;
-
-
-    if(!listo){
-
-      mostrarToast(
-        "Firebase no está disponible."
-      );
-
-      return;
-
-    }
-
-
-    const pedidosRef =
-      window.firebaseCollection(
-        window.db,
-        "pedidos"
-      );
-
-
-    const consulta =
-      window.firebaseQuery(
-        pedidosRef,
-        window.firebaseWhere(
-          "codigo",
-          "==",
-          codigo
-        ),
-        window.firebaseLimit(1)
-      );
-
-
-    const resultado =
-      await window.firebaseGetDocs(
-        consulta
-      );
-
-
-    const contenedor =
-      document.getElementById(
-        "resultadoPedido"
-      );
-
-
-    contenedor.classList.add(
-      "visible"
-    );
-
-
-    if(resultado.empty){
-
-      contenedor.innerHTML = `
-
-        <strong>
-          🔎 Pedido no encontrado
-        </strong>
-
-        <p>
-          Verifica que el código esté escrito correctamente.
-        </p>
-
-      `;
-
-      return;
-
-    }
-
-
-    const data =
-      resultado.docs[0].data();
-
-
-    contenedor.innerHTML = `
-
-      <strong>
-        📦 Pedido ${data.codigo || codigo}
-      </strong>
-
-      <p>
-        Cliente:
-        ${data.cliente || "Cliente"}
-      </p>
-
-      <div class="estado-pedido">
-        ${data.estado || "Sin estado"}
-      </div>
-
-      ${
-        data.detalle
-        ?
-        `<p style="margin-top:10px;">
-          ${data.detalle}
-        </p>`
-        :
-        ""
-      }
-
-    `;
-
-  }catch(error){
-
-    console.error(
-      "Error consultando pedido:",
-      error
-    );
-
-
-    mostrarToast(
-      "❌ No se pudo consultar el pedido."
-    );
-
-  }
-
-}
-
-
-/* =========================
-   FOTO
-========================= */
-
-function abrirFoto(imagen){
-
-  if(!imagen) return;
-
-
-  document.getElementById(
-    "fotoGrande"
-  ).src =
-    imagen;
-
-
-  document
-    .getElementById(
-      "modalFoto"
-    )
-    .classList.add(
-      "abierto"
-    );
-
-}
-
-
-function cerrarFoto(event){
-
-  if(event){
-
-    event.stopPropagation();
-
-  }
-
-
-  document
-    .getElementById(
-      "modalFoto"
-    )
-    .classList.remove(
-      "abierto"
-    );
-
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-function consultarProducto(
-  producto
-){
-
-  const precio =
-    formatearPrecio(
-      producto.precio
-    );
-
-
-  mensajeWhatsAppActual =
-    "Hola 👋, quiero consultar por este producto de ANDREX STORE:\n\n"
-    +
-    "🛍️ Producto: "
-    +
-    (
-      producto.nombre ||
-      "Producto"
-    )
-    +
-    "\n"
-    +
-    "📂 Categoría: "
-    +
-    (
-      nombresCategorias[
-        normalizarCategoria(
-          producto.categoria
-        )
-      ]
-      ||
-      "Producto"
-    )
-    +
-    "\n"
-    +
-    "💰 Precio: "
-    +
-    precio;
-
-
-  document.getElementById(
-    "textoWhatsApp"
-  ).textContent =
-    "¿Quieres consultar por "
-    +
-    (
-      producto.nombre ||
-      "este producto"
-    )
-    +
-    "?";
-
-
-  document
-    .getElementById(
-      "modalWhatsApp"
-    )
-    .classList.add(
-      "abierto"
-    );
-
-}
-
-
-function cerrarWhatsApp(){
-
-  document
-    .getElementById(
-      "modalWhatsApp"
-    )
-    .classList.remove(
-      "abierto"
-    );
-
-}
-
-
-function irWhatsApp(){
-
-  const numero =
-    "573181579324";
-
-
-  const url =
-    "https://wa.me/"
-    +
-    numero
-    +
-    "?text="
-    +
-    encodeURIComponent(
-      mensajeWhatsAppActual
-    );
-
-
-  window.open(
-    url,
-    "_blank"
-  );
-
-
-  cerrarWhatsApp();
-
-}
-
-
-/* =========================
-   CARRITO
-========================= */
-
-function guardarCarrito(){
-
-  localStorage.setItem(
-    "andrexCarrito",
-    JSON.stringify(
-      carrito
-    )
-  );
-
-
-  actualizarCarrito();
-
-}
-
-
-function agregarAlCarrito(
-  producto
-){
-
-  carrito.push(
-    producto
-  );
-
-
-  guardarCarrito();
-
-
-  mostrarToast(
-    "🛒 Producto agregado al carrito."
-  );
-
-}
-
-
-function eliminarDelCarrito(
-  indice
-){
-
-  carrito.splice(
-    indice,
-    1
-  );
-
-
-  guardarCarrito();
-
-}
-
-
-function actualizarCarrito(){
-
-  const lista =
+  const contenedor =
     document.getElementById(
-      "carritoLista"
+      "listaAdmin"
     );
 
 
-  const contador =
-    document.getElementById(
-      "contadorCarrito"
-    );
+  contenedor.innerHTML = "";
 
 
-  const total =
-    document.getElementById(
-      "carritoTotal"
-    );
+  if(!productos.length){
 
-
-  if(!lista) return;
-
-
-  contador.textContent =
-    carrito.length;
-
-
-  lista.innerHTML = "";
-
-
-  if(!carrito.length){
-
-    lista.innerHTML =
-      `
-      <div class="carrito-vacio">
-        🛒 Tu carrito está vacío.
-      </div>
-      `;
-
-
-    total.textContent =
-      "$0";
-
+    contenedor.innerHTML =
+      '<div class="sin-productos">' +
+      'No hay productos registrados.' +
+      '</div>';
 
     return;
 
   }
 
 
-  let suma = 0;
+  productos
+    .filter(
+      producto =>
+        !producto.github
+    )
+    .forEach(producto=>{
+
+      const fila =
+        document.createElement("div");
+
+      fila.className =
+        "admin-producto";
 
 
-  carrito.forEach(
-    (producto,indice) => {
+      if(producto.imagen){
 
-      suma +=
-        Number(
-          producto.precio || 0
+        const img =
+          document.createElement("img");
+
+        img.src =
+          producto.imagen;
+
+        img.alt =
+          producto.nombre;
+
+        fila.appendChild(
+          img
         );
 
-
-      const item =
-        document.createElement(
-          "div"
-        );
+      }
 
 
-      item.className =
-        "item-carrito";
+      const info =
+        document.createElement("div");
+
+      info.className =
+        "admin-producto-info";
 
 
-      item.innerHTML = `
+      const nombre =
+        document.createElement("strong");
 
-        <img
-          src="${producto.imagen || ""}"
-          alt=""
-        >
+      nombre.textContent =
+        producto.nombre;
 
-        <div class="item-carrito-info">
-
-          <strong>
-            ${producto.nombre || "Producto"}
-          </strong>
-
-          <span>
-            ${formatearPrecio(producto.precio)}
-          </span>
-
-        </div>
-
-        <button
-          class="boton-eliminar-carrito"
-          onclick="eliminarDelCarrito(${indice})"
-        >
-          ✕
-        </button>
-
-      `;
-
-
-      lista.appendChild(
-        item
+      info.appendChild(
+        nombre
       );
 
+
+      const detalles =
+        document.createElement("small");
+
+      detalles.textContent =
+        obtenerEmojiCategoria(
+          producto.categoria
+        ) +
+        " " +
+        producto.categoria +
+        " · " +
+        formatearPrecio(
+          producto.precio
+        );
+
+
+      info.appendChild(
+        detalles
+      );
+
+
+      fila.appendChild(
+        info
+      );
+
+
+      const botones =
+        document.createElement("div");
+
+      botones.className =
+        "admin-producto-botones";
+
+
+      const destacado =
+        document.createElement("button");
+
+      destacado.className =
+        "btn-destacado";
+
+      destacado.textContent =
+        producto.destacado
+          ? "⭐ Quitar destacado"
+          : "⭐ Destacar";
+
+
+      destacado.onclick =
+        ()=>cambiarDestacado(
+          producto.id,
+          !producto.destacado
+        );
+
+
+      const eliminar =
+        document.createElement("button");
+
+      eliminar.className =
+        "btn-eliminar";
+
+      eliminar.textContent =
+        "🗑️ Eliminar";
+
+
+      eliminar.onclick =
+        ()=>eliminarProducto(
+          producto.id,
+          producto.nombre
+        );
+
+
+      botones.appendChild(
+        destacado
+      );
+
+      botones.appendChild(
+        eliminar
+      );
+
+
+      fila.appendChild(
+        botones
+      );
+
+
+      contenedor.appendChild(
+        fila
+      );
+
+    });
+
+}
+
+
+async function cambiarDestacado(
+  id,
+  valor
+){
+
+  try{
+
+    await window.firebaseUpdateDoc(
+
+      window.firebaseDoc(
+        db,
+        "productos",
+        id
+      ),
+
+      {
+        destacado:valor
+      }
+
+    );
+
+
+    await cargarProductos();
+
+
+  }catch(error){
+
+    alert(
+      "No se pudo actualizar el producto.\n\n" +
+      error.message
+    );
+
+  }
+
+}
+
+
+async function eliminarProducto(
+  id,
+  nombre
+){
+
+  const confirmar =
+    confirm(
+      "¿Eliminar el producto \"" +
+      nombre +
+      "\"?"
+    );
+
+
+  if(!confirmar){
+
+    return;
+
+  }
+
+
+  try{
+
+    await window.firebaseDeleteDoc(
+
+      window.firebaseDoc(
+        db,
+        "productos",
+        id
+      )
+
+    );
+
+
+    alert(
+      "🗑️ Producto eliminado."
+    );
+
+
+    await cargarProductos();
+
+
+  }catch(error){
+
+    alert(
+      "No se pudo eliminar.\n\n" +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   PEDIDOS - GENERAR CÓDIGO
+========================================================= */
+
+function generarCodigoPedido(){
+
+  const numero =
+    Math.floor(
+      1000 +
+      Math.random() *
+      9000
+    );
+
+
+  return "AX-" + numero;
+
+}
+
+
+async function codigoPedidoDisponible(
+  codigo
+){
+
+  const ref =
+    window.firebaseCollection(
+      db,
+      "pedidos"
+    );
+
+
+  const consulta =
+    window.firebaseQuery(
+
+      ref,
+
+      window.firebaseWhere(
+        "codigo",
+        "==",
+        codigo
+      ),
+
+      window.firebaseLimit(1)
+
+    );
+
+
+  const resultado =
+    await window.firebaseGetDocs(
+      consulta
+    );
+
+
+  return resultado.empty;
+
+}
+
+
+async function generarCodigoUnico(){
+
+  for(let i=0;i<15;i++){
+
+    const codigo =
+      generarCodigoPedido();
+
+
+    if(
+      await codigoPedidoDisponible(
+        codigo
+      )
+    ){
+
+      return codigo;
+
     }
+
+  }
+
+
+  throw new Error(
+    "No fue posible generar un código único. Intenta nuevamente."
   );
 
+}
 
-  total.textContent =
-    formatearPrecio(
-      suma
+
+/* =========================================================
+   CREAR PEDIDO AUTOMÁTICAMENTE
+========================================================= */
+
+async function generarYCrearPedido(){
+
+  const cliente =
+    document.getElementById(
+      "pedidoCliente"
+    ).value.trim();
+
+
+  const estado =
+    document.getElementById(
+      "pedidoEstado"
+    ).value;
+
+
+  const detalle =
+    document.getElementById(
+      "pedidoDetalle"
+    ).value.trim();
+
+
+  if(!cliente){
+
+    alert(
+      "Escribe el nombre del cliente."
     );
+
+    return;
+
+  }
+
+
+  if(!detalle){
+
+    alert(
+      "Escribe el detalle del pedido."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const codigo =
+      await generarCodigoUnico();
+
+
+    const ahora =
+      Date.now();
+
+
+    await window.firebaseAddDoc(
+
+      window.firebaseCollection(
+        db,
+        "pedidos"
+      ),
+
+      {
+
+        codigo,
+
+        cliente,
+
+        estado,
+
+        detalle,
+
+        creado:ahora,
+
+        actualizado:ahora
+
+      }
+
+    );
+
+
+    ultimoCodigoPedidoCreado =
+      codigo;
+
+
+    document.getElementById(
+      "pedidoCodigo"
+    ).value =
+      codigo;
+
+
+    document.getElementById(
+      "codigoMostrado"
+    ).textContent =
+      codigo;
+
+
+    document.getElementById(
+      "codigoGenerado"
+    ).classList.add(
+      "activo"
+    );
+
+
+    alert(
+      "✅ Pedido creado.\n\n" +
+      "Código: " +
+      codigo
+    );
+
+
+    await cargarPedidosAdmin();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ No se pudo crear el pedido.\n\n" +
+      error.message
+    );
+
+  }
 
 }
 
 
-function abrirCarrito(){
+/* =========================================================
+   ACTUALIZAR PEDIDO
+========================================================= */
 
-  document
-    .getElementById(
-      "panelCarrito"
-    )
-    .classList.add(
-      "abierto"
+async function actualizarPedidoExistente(){
+
+  const codigo =
+    document.getElementById(
+      "pedidoCodigo"
+    ).value.trim().toUpperCase();
+
+
+  const cliente =
+    document.getElementById(
+      "pedidoCliente"
+    ).value.trim();
+
+
+  const estado =
+    document.getElementById(
+      "pedidoEstado"
+    ).value;
+
+
+  const detalle =
+    document.getElementById(
+      "pedidoDetalle"
+    ).value.trim();
+
+
+  if(!codigo){
+
+    alert(
+      "Escribe o selecciona un código de pedido."
     );
+
+    return;
+
+  }
+
+
+  try{
+
+    const consulta =
+      window.firebaseQuery(
+
+        window.firebaseCollection(
+          db,
+          "pedidos"
+        ),
+
+        window.firebaseWhere(
+          "codigo",
+          "==",
+          codigo
+        ),
+
+        window.firebaseLimit(1)
+
+      );
+
+
+    const resultado =
+      await window.firebaseGetDocs(
+        consulta
+      );
+
+
+    if(resultado.empty){
+
+      alert(
+        "❌ No existe un pedido con ese código."
+      );
+
+      return;
+
+    }
+
+
+    const documento =
+      resultado.docs[0];
+
+
+    await window.firebaseUpdateDoc(
+
+      window.firebaseDoc(
+        db,
+        "pedidos",
+        documento.id
+      ),
+
+      {
+
+        cliente,
+
+        estado,
+
+        detalle,
+
+        actualizado:
+          Date.now()
+
+      }
+
+    );
+
+
+    ultimoCodigoPedidoCreado =
+      codigo;
+
+
+    document.getElementById(
+      "codigoMostrado"
+    ).textContent =
+      codigo;
+
+
+    document.getElementById(
+      "codigoGenerado"
+    ).classList.add(
+      "activo"
+    );
+
+
+    alert(
+      "✅ Pedido actualizado correctamente."
+    );
+
+
+    await cargarPedidosAdmin();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ No se pudo actualizar el pedido.\n\n" +
+      error.message
+    );
+
+  }
 
 }
 
 
-function cerrarCarrito(){
+/* =========================================================
+   ENVIAR CÓDIGO POR WHATSAPP
+========================================================= */
 
-  document
-    .getElementById(
-      "panelCarrito"
-    )
-    .classList.remove(
-      "abierto"
-    );
+function enviarCodigoPedidoWhatsApp(){
 
-}
+  const codigo =
+    document.getElementById(
+      "pedidoCodigo"
+    ).value.trim();
 
 
-function consultarCarritoWhatsApp(){
+  const cliente =
+    document.getElementById(
+      "pedidoCliente"
+    ).value.trim();
 
-  if(!carrito.length){
 
-    mostrarToast(
-      "🛒 El carrito está vacío."
+  if(!codigo){
+
+    alert(
+      "Primero crea o selecciona un pedido."
     );
 
     return;
@@ -4505,309 +3833,559 @@ function consultarCarritoWhatsApp(){
 
 
   let mensaje =
-    "Hola 👋, quiero consultar estos productos de ANDREX STORE:\n\n";
+    "Hola";
 
 
-  let total = 0;
+  if(cliente){
 
+    mensaje +=
+      " " +
+      cliente;
 
-  carrito.forEach(
-    (producto,indice) => {
-
-      const precio =
-        Number(
-          producto.precio || 0
-        );
-
-
-      total +=
-        precio;
-
-
-      mensaje +=
-        (
-          indice + 1
-        )
-        +
-        ". "
-        +
-        (
-          producto.nombre ||
-          "Producto"
-        )
-        +
-        " — "
-        +
-        formatearPrecio(
-          precio
-        )
-        +
-        "\n";
-
-    }
-  );
+  }
 
 
   mensaje +=
-    "\n💰 Total: "
-    +
-    formatearPrecio(
-      total
-    );
-
-
-  const url =
-    "https://wa.me/573181579324?text="
-    +
-    encodeURIComponent(
-      mensaje
-    );
+    " 👋%0A%0A" +
+    "Tu pedido en ANDREX 🩵 STORE fue registrado correctamente.%0A%0A" +
+    "📦 Código de pedido: *" +
+    codigo +
+    "*%0A%0A" +
+    "Puedes consultar el estado de tu pedido en la tienda ingresando este código en:%0A" +
+    "📦 Estado de mi pedido";
 
 
   window.open(
-    url,
+
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    mensaje,
+
     "_blank"
+
   );
 
 }
 
 
-/* =========================
-   ADMIN OCULTO
-========================= */
+/* =========================================================
+   CARGAR PEDIDOS ADMIN
+========================================================= */
 
-let clicksLogo = 0;
+async function cargarPedidosAdmin(){
 
-let ultimoClickLogo = 0;
+  const contenedor =
+    document.getElementById(
+      "listaPedidosAdmin"
+    );
 
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+  if(!contenedor){
 
-    const logo =
-      document.getElementById(
-        "logoTienda"
+    return;
+
+  }
+
+
+  try{
+
+    const ref =
+      window.firebaseCollection(
+        db,
+        "pedidos"
       );
 
 
-    if(logo){
-
-      logo.addEventListener(
-        "click",
-        () => {
-
-          const ahora =
-            Date.now();
-
-
-          if(
-            ahora -
-            ultimoClickLogo
-            >
-            1500
-          ){
-
-            clicksLogo = 0;
-
-          }
-
-
-          clicksLogo++;
-
-          ultimoClickLogo =
-            ahora;
-
-
-          if(
-            clicksLogo >= 5
-          ){
-
-            clicksLogo = 0;
-
-            abrirLoginAdmin();
-
-          }
-
-        }
+    const snapshot =
+      await window.firebaseGetDocs(
+        ref
       );
+
+
+    const pedidos = [];
+
+
+    snapshot.forEach(
+      documento=>{
+
+        pedidos.push({
+
+          id:documento.id,
+
+          ...documento.data()
+
+        });
+
+      }
+    );
+
+
+    pedidos.sort(
+      (a,b)=>
+        (b.actualizado || b.creado || 0) -
+        (a.actualizado || a.creado || 0)
+    );
+
+
+    contenedor.innerHTML = "";
+
+
+    if(!pedidos.length){
+
+      contenedor.innerHTML =
+        '<div class="sin-productos">' +
+        'Todavía no hay pedidos registrados.' +
+        '</div>';
+
+      return;
 
     }
 
-  }
-);
+
+    pedidos
+      .slice(0,30)
+      .forEach(pedido=>{
+
+        const item =
+          document.createElement("div");
+
+        item.className =
+          "pedido-item";
 
 
-/* =========================
-   LOGIN
-========================= */
+        const top =
+          document.createElement("div");
 
-function abrirLoginAdmin(){
+        top.className =
+          "pedido-item-top";
 
-  document
-    .getElementById(
-      "modalAdmin"
-    )
-    .classList.add(
-      "abierto"
+
+        const codigo =
+          document.createElement("span");
+
+        codigo.className =
+          "pedido-codigo";
+
+        codigo.textContent =
+          pedido.codigo ||
+          "Sin código";
+
+
+        const editar =
+          document.createElement("button");
+
+        editar.className =
+          "boton-secundario";
+
+        editar.style.padding =
+          "8px 10px";
+
+        editar.textContent =
+          "✏️ Editar";
+
+
+        editar.onclick =
+          ()=>cargarPedidoEnFormulario(
+            pedido
+          );
+
+
+        top.appendChild(
+          codigo
+        );
+
+        top.appendChild(
+          editar
+        );
+
+
+        item.appendChild(
+          top
+        );
+
+
+        const cliente =
+          document.createElement("div");
+
+        cliente.style.marginTop =
+          "8px";
+
+        cliente.innerHTML =
+          "👤 <strong>" +
+          escaparHTML(
+            pedido.cliente ||
+            "Sin nombre"
+          ) +
+          "</strong>";
+
+
+        item.appendChild(
+          cliente
+        );
+
+
+        const estado =
+          document.createElement("span");
+
+        estado.className =
+          "estado";
+
+        estado.textContent =
+          pedido.estado ||
+          "Sin estado";
+
+
+        item.appendChild(
+          estado
+        );
+
+
+        if(pedido.detalle){
+
+          const detalle =
+            document.createElement("div");
+
+          detalle.style.marginTop =
+            "8px";
+
+          detalle.style.color =
+            "#71878c";
+
+          detalle.style.fontSize =
+            "13px";
+
+          detalle.textContent =
+            "📝 " +
+            pedido.detalle;
+
+
+          item.appendChild(
+            detalle
+          );
+
+        }
+
+
+        contenedor.appendChild(
+          item
+        );
+
+      });
+
+
+  }catch(error){
+
+    console.error(
+      "Error cargando pedidos:",
+      error
     );
+
+
+    contenedor.innerHTML =
+      '<div class="sin-productos">' +
+      'No se pudieron cargar los pedidos.' +
+      '</div>';
+
+  }
+
+}
+
+
+/* =========================================================
+   CARGAR PEDIDO AL FORMULARIO
+========================================================= */
+
+function cargarPedidoEnFormulario(
+  pedido
+){
+
+  document.getElementById(
+    "pedidoCodigo"
+  ).value =
+    pedido.codigo || "";
 
 
   document.getElementById(
-    "pinAdmin"
-  ).value = "";
+    "pedidoCliente"
+  ).value =
+    pedido.cliente || "";
 
 
-  setTimeout(
-    () => {
+  document.getElementById(
+    "pedidoEstado"
+  ).value =
+    pedido.estado || "Recibido";
 
-      document
-        .getElementById(
-          "pinAdmin"
-        )
-        .focus();
 
-    },
-    100
+  document.getElementById(
+    "pedidoDetalle"
+  ).value =
+    pedido.detalle || "";
+
+
+  ultimoCodigoPedidoCreado =
+    pedido.codigo || "";
+
+
+  document.getElementById(
+    "codigoMostrado"
+  ).textContent =
+    pedido.codigo || "";
+
+
+  document.getElementById(
+    "codigoGenerado"
+  ).classList.add(
+    "activo"
   );
 
-}
 
-
-function cerrarLoginAdmin(){
-
-  document
-    .getElementById(
-      "modalAdmin"
-    )
-    .classList.remove(
-      "abierto"
-    );
+  document.getElementById(
+    "adminPanel"
+  ).scrollIntoView({
+    behavior:"smooth"
+  });
 
 }
 
 
-function verificarPIN(){
+/* =========================================================
+   CLIENTE - ESTADO DEL PEDIDO
+========================================================= */
 
-  const pin =
-    document
-      .getElementById(
-        "pinAdmin"
-      )
-      .value;
+function abrirEstadoPedido(){
 
-
-  if(pin === "2580"){
-
-    cerrarLoginAdmin();
+  document.getElementById(
+    "modalPedido"
+  ).classList.add(
+    "activo"
+  );
 
 
-    document
-      .getElementById(
-        "adminPanel"
-      )
-      .classList.add(
-        "visible"
-      );
+  setTimeout(()=>{
+
+    document.getElementById(
+      "buscarPedido"
+    ).focus();
+
+  },100);
+
+}
 
 
-    actualizarListaAdmin();
+function cerrarEstadoPedido(){
+
+  document.getElementById(
+    "modalPedido"
+  ).classList.remove(
+    "activo"
+  );
 
 
-    mostrarToast(
-      "🔓 Panel administrador abierto."
+  document.getElementById(
+    "resultadoPedido"
+  ).innerHTML =
+    "";
+
+}
+
+
+/* =========================================================
+   CONSULTAR PEDIDO
+========================================================= */
+
+async function consultarEstadoPedido(){
+
+  const codigo =
+    document.getElementById(
+      "buscarPedido"
+    ).value
+      .trim()
+      .toUpperCase();
+
+
+  const resultado =
+    document.getElementById(
+      "resultadoPedido"
     );
 
 
-    setTimeout(
-      () => {
+  if(!codigo){
 
-        document
-          .getElementById(
-            "adminPanel"
-          )
-          .scrollIntoView({
-            behavior:"smooth"
-          });
+    resultado.innerHTML =
+      '<div class="resultado-box">' +
+      '⚠️ Escribe el código de tu pedido.' +
+      '</div>';
 
-      },
-      200
-    );
-
-
-  }else{
-
-    mostrarToast(
-      "❌ PIN incorrecto."
-    );
+    return;
 
   }
 
-}
+
+  resultado.innerHTML =
+    '<div class="resultado-box">' +
+    '🔎 Buscando pedido...' +
+    '</div>';
 
 
-/* =========================
-   TOAST
-========================= */
+  try{
 
-function mostrarToast(
-  mensaje
-){
+    const consulta =
+      window.firebaseQuery(
 
-  const toast =
-    document.getElementById(
-      "toast"
+        window.firebaseCollection(
+          db,
+          "pedidos"
+        ),
+
+        window.firebaseWhere(
+          "codigo",
+          "==",
+          codigo
+        ),
+
+        window.firebaseLimit(1)
+
+      );
+
+
+    const snapshot =
+      await window.firebaseGetDocs(
+        consulta
+      );
+
+
+    if(snapshot.empty){
+
+      resultado.innerHTML =
+        '<div class="resultado-box">' +
+        '<h3>❌ Pedido no encontrado</h3>' +
+        '<p>Verifica que el código esté escrito correctamente.</p>' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    const pedido =
+      snapshot.docs[0].data();
+
+
+    const box =
+      document.createElement("div");
+
+    box.className =
+      "resultado-box";
+
+
+    const titulo =
+      document.createElement("h3");
+
+    titulo.textContent =
+      "📦 Pedido " +
+      (pedido.codigo || codigo);
+
+    box.appendChild(
+      titulo
     );
 
 
-  toast.textContent =
-    mensaje;
+    const cliente =
+      document.createElement("p");
+
+    cliente.innerHTML =
+      "👤 Cliente: <strong>" +
+      escaparHTML(
+        pedido.cliente ||
+        "No especificado"
+      ) +
+      "</strong>";
+
+    box.appendChild(
+      cliente
+    );
 
 
-  toast.classList.add(
-    "mostrar"
-  );
+    const estado =
+      document.createElement("p");
+
+    estado.style.marginTop =
+      "10px";
+
+    estado.innerHTML =
+      "📍 Estado actual: <strong>" +
+      escaparHTML(
+        pedido.estado ||
+        "Sin estado"
+      ) +
+      "</strong>";
+
+    box.appendChild(
+      estado
+    );
 
 
-  clearTimeout(
-    window.toastTimer
-  );
+    if(pedido.detalle){
 
+      const detalle =
+        document.createElement("p");
 
-  window.toastTimer =
-    setTimeout(
-      () => {
+      detalle.style.marginTop =
+        "10px";
 
-        toast.classList.remove(
-          "mostrar"
+      detalle.innerHTML =
+        "📝 Detalle: " +
+        escaparHTML(
+          pedido.detalle
         );
 
-      },
-      2500
+      box.appendChild(
+        detalle
+      );
+
+    }
+
+
+    resultado.innerHTML =
+      "";
+
+    resultado.appendChild(
+      box
     );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    resultado.innerHTML =
+      '<div class="resultado-box">' +
+      '<h3>⚠️ Error</h3>' +
+      '<p>No fue posible consultar el pedido.</p>' +
+      '</div>';
+
+  }
 
 }
 
 
-/* =========================
-   ESC
-========================= */
+/* =========================================================
+   ENTER PARA CONSULTAR PEDIDO
+========================================================= */
 
-document.addEventListener(
+document.getElementById(
+  "buscarPedido"
+).addEventListener(
   "keydown",
-  event => {
+  function(event){
 
-    if(event.key === "Escape"){
+    if(
+      event.key === "Enter"
+    ){
 
-      cerrarFoto();
-
-      cerrarWhatsApp();
-
-      cerrarCarrito();
-
-      cerrarLoginAdmin();
-
-      cerrarEstadoPedido();
+      consultarEstadoPedido();
 
     }
 
@@ -4815,68 +4393,11 @@ document.addEventListener(
 );
 
 
-/* =========================
-   VIDEO
-========================= */
+/* =========================================================
+   INICIAR
+========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    const video =
-      document.querySelector(
-        ".video-tienda"
-      );
-
-
-    if(video){
-
-      video.muted = true;
-
-      video.play().catch(
-        () => {}
-      );
-
-
-      document.addEventListener(
-        "visibilitychange",
-        () => {
-
-          if(!document.hidden){
-
-            video.play().catch(
-              () => {}
-            );
-
-          }
-
-        }
-      );
-
-    }
-
-  }
-);
-
-
-/* =========================
-   CARGA INICIAL
-========================= */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  async () => {
-
-    actualizarCarrito();
-
-    renderizarDestacados();
-
-    await cargarRopaGitHub();
-
-    await cargarFirebase();
-
-  }
-);
+cargarProductos();
 
 </script>
 
