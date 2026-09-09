@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ANDREX 🩵 Store</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -74,7 +76,8 @@ button{
 
 .boton-subir,
 .boton-carrito,
-.boton-volver{
+.boton-volver,
+.boton-login{
   border:1px solid #dfcdb7;
   background:#fffaf3;
   color:#745438;
@@ -86,7 +89,8 @@ button{
 
 .boton-subir:hover,
 .boton-carrito:hover,
-.boton-volver:hover{
+.boton-volver:hover,
+.boton-login:hover{
   background:#f3e7d8;
 }
 
@@ -331,9 +335,100 @@ button{
   grid-column:1/-1;
 }
 
-/* =========================
-   SUBIR PRODUCTO
-========================= */
+/* LOGIN */
+
+#panelLogin{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(50,35,22,.45);
+  z-index:5000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.caja-login{
+  width:min(420px,100%);
+  background:#fffaf3;
+  border:1px solid #e2cfb7;
+  border-radius:22px;
+  padding:25px;
+  box-shadow:0 20px 50px rgba(50,35,22,.25);
+}
+
+.caja-login h2{
+  text-align:center;
+  color:#654a32;
+  margin-bottom:8px;
+}
+
+.caja-login p{
+  text-align:center;
+  color:#927a61;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.login-grupo{
+  margin-bottom:14px;
+}
+
+.login-grupo label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  color:#674b31;
+  margin-bottom:6px;
+}
+
+.login-grupo input{
+  width:100%;
+  border:1px solid #dfcdb7;
+  background:#fffdf9;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
+  color:#5b4632;
+  font-size:14px;
+}
+
+.botones-login{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+
+.btn-entrar{
+  flex:1;
+  border:0;
+  background:#8f6b48;
+  color:#fff;
+  padding:13px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-cerrar-login{
+  border:1px solid #dfcdb7;
+  background:#f5e9dc;
+  color:#674b31;
+  padding:13px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+#mensajeLogin{
+  text-align:center;
+  margin-top:14px;
+  color:#a44b3f;
+  font-size:13px;
+  font-weight:bold;
+}
+
+/* SUBIR */
 
 #panelSubir{
   display:none;
@@ -442,9 +537,7 @@ button{
   font-weight:bold;
 }
 
-/* =========================
-   CARRITO
-========================= */
+/* CARRITO */
 
 .carrito-panel{
   position:fixed;
@@ -689,7 +782,7 @@ onclick="abrirCarrito()">
 id="buscador"
 type="text"
 placeholder="Buscar productos..."
-oninput="buscarProductos()"
+oninput="buscarProductos"
 >
 
 <button
@@ -703,6 +796,73 @@ onclick="limpiarBusqueda()">
 
 </header>
 
+
+<!-- LOGIN ADMINISTRADOR -->
+
+<div id="panelLogin">
+
+<div class="caja-login">
+
+<h2>🔐 Administrador</h2>
+
+<p>
+Inicia sesión para poder subir productos.
+</p>
+
+<div class="login-grupo">
+
+<label>
+Correo electrónico
+</label>
+
+<input
+id="loginCorreo"
+type="email"
+placeholder="Tu correo"
+autocomplete="email"
+>
+
+</div>
+
+<div class="login-grupo">
+
+<label>
+Contraseña
+</label>
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Tu contraseña"
+autocomplete="current-password"
+>
+
+</div>
+
+<div class="botones-login">
+
+<button
+class="btn-cerrar-login"
+onclick="cerrarLogin()">
+Cancelar
+</button>
+
+<button
+class="btn-entrar"
+id="btnEntrar">
+🔐 Entrar
+</button>
+
+</div>
+
+<div id="mensajeLogin"></div>
+
+</div>
+
+</div>
+
+
+<!-- SUBIR PRODUCTO -->
 
 <section id="panelSubir">
 
@@ -736,7 +896,6 @@ alt="Vista previa"
 
 </div>
 
-
 <div class="form-grupo">
 
 <label>
@@ -751,7 +910,6 @@ required
 >
 
 </div>
-
 
 <div class="form-grupo">
 
@@ -787,7 +945,6 @@ Selecciona una categoría
 
 </div>
 
-
 <div class="form-grupo">
 
 <label>
@@ -804,7 +961,6 @@ required
 
 </div>
 
-
 <div class="form-grupo">
 
 <label>
@@ -817,7 +973,6 @@ placeholder="Escribe una descripción del producto...">
 </textarea>
 
 </div>
-
 
 <div class="botones-subir">
 
@@ -875,7 +1030,6 @@ Bienvenido a mi tienda 📸
 Elige una categoría para ver nuestros productos
 </p>
 
-
 <section class="categorias">
 
 <div
@@ -890,7 +1044,6 @@ onclick="entrarCategoria('ropa')">
 
 </div>
 
-
 <div
 class="categoria"
 onclick="entrarCategoria('zapatos')">
@@ -903,7 +1056,6 @@ onclick="entrarCategoria('zapatos')">
 
 </div>
 
-
 <div
 class="categoria"
 onclick="entrarCategoria('lociones')">
@@ -915,7 +1067,6 @@ onclick="entrarCategoria('lociones')">
 <p>Ver todas las lociones</p>
 
 </div>
-
 
 <div
 class="categoria"
@@ -930,7 +1081,6 @@ onclick="entrarCategoria('streaming')">
 </div>
 
 </section>
-
 
 <section class="informacion">
 
@@ -947,7 +1097,6 @@ tu como cliente te encargas de pagar el envio a tu ciudad ✨.
 
 </div>
 
-
 <div class="info-card">
 
 <span class="emoji">💳</span>
@@ -955,12 +1104,12 @@ tu como cliente te encargas de pagar el envio a tu ciudad ✨.
 <h3>Compra fácil</h3>
 
 <p>
-manejamos pagos por nequi bancolombia daviplata
-pagos de contado y contra entrega solo las lociones originales.
+Manejamos pagos por Nequi, Bancolombia,
+Daviplata, pagos de contado y contra entrega
+solo las lociones originales.
 </p>
 
 </div>
-
 
 <div class="info-card">
 
@@ -1095,7 +1244,7 @@ class="productos">
 id="resultadosBusqueda"
 style="display:none">
 
-<h2 class="titulo-busqueda">
+<h2 class="titulo-principal">
 Resultados de búsqueda
 </h2>
 
@@ -1106,6 +1255,8 @@ class="productos">
 
 </section>
 
+
+<!-- CARRITO -->
 
 <aside
 id="carritoPanel"
@@ -1167,11 +1318,9 @@ type="audio/mpeg">
 
 <script type="module">
 
-/* =========================
-   FIREBASE
-   SOLO FIRESTORE
-   SIN FIREBASE STORAGE
-========================= */
+/* =========================================
+   FIREBASE APP
+========================================= */
 
 import {
   initializeApp
@@ -1179,6 +1328,24 @@ import {
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
+
+/* =========================================
+   FIREBASE AUTHENTICATION
+========================================= */
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+/* =========================================
+   FIRESTORE
+========================================= */
 
 import {
   getFirestore,
@@ -1190,6 +1357,10 @@ import {
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
+/* =========================================
+   CONFIGURACIÓN
+========================================= */
 
 const firebaseConfig = {
 
@@ -1214,16 +1385,31 @@ const firebaseConfig = {
 };
 
 
+/* =========================================
+   INICIAR FIREBASE
+========================================= */
+
 const app =
 initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
 
 const db =
 getFirestore(app);
 
 
-/* =========================
+/* =========================================
+   UID DEL ADMINISTRADOR
+========================================= */
+
+const ADMIN_UID =
+"WuRLDy1jAIaSMmBk6JZReqQvcbh2";
+
+
+/* =========================================
    VARIABLES
-========================= */
+========================================= */
 
 let productos = [];
 
@@ -1232,6 +1418,10 @@ JSON.parse(
 localStorage.getItem("andrexCarrito")
 ) || [];
 
+
+/* =========================================
+   UTILIDADES
+========================================= */
 
 const $ =
 id =>
@@ -1267,482 +1457,690 @@ c =>
 );
 
 
-/* =========================
-   ABRIR / CERRAR SUBIDA
-========================= */
+/* =========================================
+   AUTENTICACIÓN
+========================================= */
+
+let usuarioActual = null;
+
+
+onAuthStateChanged(
+auth,
+usuario => {
+
+  usuarioActual = usuario;
+
+  if(usuario){
+
+    console.log(
+      "Usuario autenticado:",
+      usuario.email
+    );
+
+    console.log(
+      "UID:",
+      usuario.uid
+    );
+
+  }else{
+
+    console.log(
+      "No hay usuario autenticado."
+    );
+
+  }
+
+});
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function abrirLogin(){
+
+  $("panelLogin")
+  .style.display = "flex";
+
+  $("loginCorreo")
+  .focus();
+
+}
+
+
+window.cerrarLogin =
+() => {
+
+  $("panelLogin")
+  .style.display = "none";
+
+  $("loginCorreo")
+  .value = "";
+
+  $("loginPassword")
+  .value = "";
+
+  $("mensajeLogin")
+  .textContent = "";
+
+};
+
+
+$("btnEntrar")
+.addEventListener(
+"click",
+async () => {
+
+  const correo =
+  $("loginCorreo")
+  .value
+  .trim();
+
+  const password =
+  $("loginPassword")
+  .value;
+
+  const mensaje =
+  $("mensajeLogin");
+
+  if(!correo){
+
+    mensaje.textContent =
+    "Escribe tu correo.";
+
+    return;
+
+  }
+
+  if(!password){
+
+    mensaje.textContent =
+    "Escribe tu contraseña.";
+
+    return;
+
+  }
+
+  const boton =
+  $("btnEntrar");
+
+  boton.disabled = true;
+
+  boton.textContent =
+  "⏳ Entrando...";
+
+  mensaje.textContent = "";
+
+  try{
+
+    const credencial =
+    await signInWithEmailAndPassword(
+      auth,
+      correo,
+      password
+    );
+
+    const usuario =
+    credencial.user;
+
+
+    if(
+      usuario.uid !==
+      ADMIN_UID
+    ){
+
+      await signOut(auth);
+
+      throw new Error(
+        "Esta cuenta no es la cuenta administradora."
+      );
+
+    }
+
+
+    cerrarLogin();
+
+    abrirFormularioSubir();
+
+
+  }catch(error){
+
+    console.error(
+      "Error de login:",
+      error
+    );
+
+    mensaje.textContent =
+    "❌ " +
+    (
+      error.message ||
+      "No se pudo iniciar sesión."
+    );
+
+  }finally{
+
+    boton.disabled = false;
+
+    boton.textContent =
+    "🔐 Entrar";
+
+  }
+
+});
+
+
+/* =========================================
+   BOTÓN SUBIR PRODUCTO
+========================================= */
 
 window.abrirSubirProducto =
 () => {
 
-$("panelSubir")
-.style.display = "block";
+  if(
+    usuarioActual &&
+    usuarioActual.uid === ADMIN_UID
+  ){
 
-$("panelSubir")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+    abrirFormularioSubir();
+
+    return;
+
+  }
+
+  abrirLogin();
 
 };
 
+
+function abrirFormularioSubir(){
+
+  $("panelSubir")
+  .style.display = "block";
+
+  $("panelSubir")
+  .scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+
+
+/* =========================================
+   CERRAR FORMULARIO
+========================================= */
 
 window.cerrarSubirProducto =
 () => {
 
-$("panelSubir")
-.style.display = "none";
+  $("panelSubir")
+  .style.display = "none";
 
-$("productoForm")
-.reset();
+  $("productoForm")
+  .reset();
 
-$("previewProducto")
-.style.display = "none";
+  $("previewProducto")
+  .style.display = "none";
 
-$("previewProducto")
-.src = "";
+  $("previewProducto")
+  .src = "";
 
-$("mensajeSubir")
-.textContent = "";
+  $("mensajeSubir")
+  .textContent = "";
 
 };
 
 
-/* =========================
+/* =========================================
    PREVISUALIZAR FOTO
-========================= */
+========================================= */
 
 $("imagenProducto")
 .addEventListener(
 "change",
 function(){
 
-const archivo =
-this.files[0];
+  const archivo =
+  this.files[0];
 
-if(!archivo){
+  if(!archivo){
 
-$("previewProducto")
-.style.display = "none";
+    $("previewProducto")
+    .style.display = "none";
 
-return;
+    return;
 
-}
+  }
 
-const lector =
-new FileReader();
+  const lector =
+  new FileReader();
 
-lector.onload =
-e => {
+  lector.onload =
+  e => {
 
-$("previewProducto")
-.src =
-e.target.result;
+    $("previewProducto")
+    .src =
+    e.target.result;
 
-$("previewProducto")
-.style.display =
-"block";
+    $("previewProducto")
+    .style.display =
+    "block";
 
-};
+  };
 
-lector.readAsDataURL(archivo);
+  lector.readAsDataURL(
+    archivo
+  );
 
 });
 
 
-/* =========================
-   PRODUCTOS FIREBASE
-========================= */
+/* =========================================
+   CARGAR FIRESTORE
+========================================= */
 
 async function cargarFirebase(){
 
-productos =
-productos.filter(
-p =>
-String(p.id).startsWith("github-")
-);
+  productos =
+  productos.filter(
+    p =>
+    String(p.id)
+    .startsWith("github-")
+  );
 
-try{
+  try{
 
-const snap =
-await getDocs(
-collection(
-db,
-"productos"
-)
-);
+    const snap =
+    await getDocs(
+      collection(
+        db,
+        "productos"
+      )
+    );
 
-snap.forEach(
-d =>
-productos.push({
-id:d.id,
-...d.data()
-})
-);
+    snap.forEach(
+      d =>
+      productos.push({
+        id:d.id,
+        ...d.data()
+      })
+    );
 
-}catch(e){
+  }catch(e){
 
-console.error(
-"Error cargando Firebase:",
-e
-);
+    console.error(
+      "Error cargando Firebase:",
+      e
+    );
+
+  }
+
+  renderizarTodos();
 
 }
 
-renderizarTodos();
 
-}
-
-
-/* =========================
-   FOTOS DE ROPA DE GITHUB
-========================= */
+/* =========================================
+   PRODUCTOS DE GITHUB
+========================================= */
 
 async function cargarRopaGitHub(){
 
-try{
+  try{
 
-const r =
-await fetch(
-"https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main"
-);
+    const r =
+    await fetch(
+      "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main"
+    );
 
-if(!r.ok)
-throw new Error(
-"GitHub no disponible"
-);
+    if(!r.ok)
+      throw new Error(
+        "GitHub no disponible"
+      );
 
-const archivos =
-await r.json();
-
-
-archivos.forEach(a => {
-
-const n =
-a.name.toLowerCase();
+    const archivos =
+    await r.json();
 
 
-if(n.includes("3285"))
-return;
+    archivos.forEach(
+      a => {
+
+        const n =
+        a.name.toLowerCase();
 
 
-if(!/\.(jpg|jpeg|png|webp)$/i.test(n))
-return;
+        if(n.includes("3285"))
+          return;
 
 
-if(
-productos.some(
-p =>
-(p.imagen || "") ===
-a.download_url
-)
-)
-return;
+        if(
+          !/\.(jpg|jpeg|png|webp)$/i
+          .test(n)
+        )
+          return;
 
 
-productos.push({
-
-id:
-"github-" + a.name,
-
-nombre:
-a.name
-.replace(
-/\.[^/.]+$/,
-""
-)
-.replace(
-/[-_]/g,
-" "
-),
-
-precio:0,
-
-categoria:"ropa",
-
-imagen:a.download_url,
-
-descripcion:""
-
-});
-
-});
+        if(
+          productos.some(
+            p =>
+            (p.imagen || "") ===
+            a.download_url
+          )
+        )
+          return;
 
 
-renderizarTodos();
+        productos.push({
 
-}catch(e){
+          id:
+          "github-" +
+          a.name,
 
-console.error(e);
+          nombre:
+          a.name
+          .replace(
+            /\.[^/.]+$/,
+            ""
+          )
+          .replace(
+            /[-_]/g,
+            " "
+          ),
+
+          precio:0,
+
+          categoria:"ropa",
+
+          imagen:
+          a.download_url,
+
+          descripcion:""
+
+        });
+
+      }
+    );
+
+
+    renderizarTodos();
+
+  }catch(e){
+
+    console.error(e);
+
+  }
 
 }
 
-}
 
-
-/* =========================
+/* =========================================
    TARJETA PRODUCTO
-========================= */
+========================================= */
 
 function crearTarjetaProducto(p){
 
-const imagen =
-p.imagen ||
-p.image ||
-p.foto ||
-"";
+  const imagen =
+  p.imagen ||
+  p.image ||
+  p.foto ||
+  "";
+
+  const nombre =
+  p.nombre ||
+  p.name ||
+  "Producto";
+
+  const precio =
+  Number(
+    p.precio ||
+    p.price ||
+    0
+  );
+
+  const desc =
+  p.descripcion ||
+  p.description ||
+  "";
 
 
-const nombre =
-p.nombre ||
-p.name ||
-"Producto";
+  const card =
+  document.createElement(
+    "article"
+  );
+
+  card.className =
+  "producto";
 
 
-const precio =
-Number(
-p.precio ||
-p.price ||
-0
-);
+  card.innerHTML = `
+
+  ${
+    imagen
+    ?
+    `
+    <img
+      src="${esc(imagen)}"
+      alt="${esc(nombre)}"
+      loading="lazy"
+    >
+    `
+    :
+    `
+    <div
+      style="
+      height:240px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f1e5d7;
+      font-size:50px;
+      ">
+      🛍️
+    </div>
+    `
+  }
+
+  <div class="producto-contenido">
+
+    <h3>
+      ${esc(nombre)}
+    </h3>
+
+    ${
+      desc
+      ?
+      `
+      <div class="producto-descripcion">
+        ${esc(desc)}
+      </div>
+      `
+      :
+      ""
+    }
+
+    <div class="precio">
+
+      ${
+        precio > 0
+        ?
+        "$" +
+        precio.toLocaleString(
+          "es-CO"
+        )
+        :
+        "Consultar precio"
+      }
+
+    </div>
+
+    <button
+      class="boton-agregar">
+
+      🛒 Agregar al carrito
+
+    </button>
+
+  </div>
+
+  `;
 
 
-const desc =
-p.descripcion ||
-p.description ||
-"";
+  card
+  .querySelector(
+    ".boton-agregar"
+  )
+  .onclick =
+  () =>
+  agregarAlCarrito(p);
 
 
-const card =
-document.createElement("article");
+  return card;
 
-card.className =
-"producto";
-
-
-card.innerHTML = `
-
-${
-imagen
-?
-`
-<img
-src="${esc(imagen)}"
-alt="${esc(nombre)}"
-loading="lazy"
->
-`
-:
-`
-<div
-style="
-height:240px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#f1e5d7;
-font-size:50px;
-">
-🛍️
-</div>
-`
 }
 
 
-<div class="producto-contenido">
-
-<h3>
-${esc(nombre)}
-</h3>
-
-
-${
-desc
-?
-`
-<div class="producto-descripcion">
-${esc(desc)}
-</div>
-`
-:
-""
-}
-
-
-<div class="precio">
-
-${
-precio > 0
-?
-"$" +
-precio.toLocaleString("es-CO")
-:
-"Consultar precio"
-}
-
-</div>
-
-
-<button
-class="boton-agregar">
-
-🛒 Agregar al carrito
-
-</button>
-
-</div>
-
-`;
-
-
-card
-.querySelector(".boton-agregar")
-.onclick =
-() =>
-agregarAlCarrito(p);
-
-
-return card;
-
-}
-
-
-/* =========================
+/* =========================================
    MOSTRAR CATEGORÍA
-========================= */
+========================================= */
 
 function mostrarCategoria(
-c,
-el
+  c,
+  el
 ){
 
-el.innerHTML = "";
+  el.innerHTML = "";
 
 
-const arr =
-productos.filter(
-p => {
+  const arr =
+  productos.filter(
+    p => {
 
-const x =
-catNorm(
-p.categoria
-);
+      const x =
+      catNorm(
+        p.categoria
+      );
 
-if(c === "ropa")
-return x === "ropa";
+      if(c === "ropa")
+        return x === "ropa";
 
-if(c === "zapatos")
-return x === "zapatos" ||
-x === "zapato";
+      if(c === "zapatos")
+        return (
+          x === "zapatos" ||
+          x === "zapato"
+        );
 
-if(c === "lociones")
-return x === "lociones" ||
-x === "locion";
+      if(c === "lociones")
+        return (
+          x === "lociones" ||
+          x === "locion"
+        );
 
-return x === "streaming";
+      return x === "streaming";
+
+    }
+  );
+
+
+  if(!arr.length){
+
+    el.innerHTML = `
+
+    <div class="sin-productos">
+
+      <div style="font-size:45px">
+        🛍️
+      </div>
+
+      <p>
+        Aún no hay productos disponibles
+        en esta categoría.
+      </p>
+
+    </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  arr.forEach(
+    p =>
+    el.appendChild(
+      crearTarjetaProducto(p)
+    )
+  );
 
 }
-);
 
 
-if(!arr.length){
-
-el.innerHTML = `
-
-<div class="sin-productos">
-
-<div style="font-size:45px">
-🛍️
-</div>
-
-<p>
-Aún no hay productos disponibles
-en esta categoría.
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-arr.forEach(
-p =>
-el.appendChild(
-crearTarjetaProducto(p)
-)
-);
-
-}
-
-
-/* =========================
+/* =========================================
    RENDERIZAR
-========================= */
+========================================= */
 
 function renderizarTodos(){
 
-mostrarCategoria(
-"ropa",
-$("productosRopa")
-);
+  mostrarCategoria(
+    "ropa",
+    $("productosRopa")
+  );
 
-mostrarCategoria(
-"zapatos",
-$("productosZapatos")
-);
+  mostrarCategoria(
+    "zapatos",
+    $("productosZapatos")
+  );
 
-mostrarCategoria(
-"lociones",
-$("productosLociones")
-);
+  mostrarCategoria(
+    "lociones",
+    $("productosLociones")
+  );
 
-mostrarCategoria(
-"streaming",
-$("productosStreaming")
-);
+  mostrarCategoria(
+    "streaming",
+    $("productosStreaming")
+  );
 
-actualizarCarrito();
+  actualizarCarrito();
 
 }
 
 
-/* =========================
+/* =========================================
    CATEGORÍAS
-========================= */
+========================================= */
 
 window.entrarCategoria =
 c => {
 
-$("paginaPrincipal")
-.style.display = "none";
+  $("paginaPrincipal")
+  .style.display = "none";
 
-$("resultadosBusqueda")
-.style.display = "none";
-
-
-[
-"Ropa",
-"Zapatos",
-"Lociones",
-"Streaming"
-]
-.forEach(
-x =>
-$("vista"+x)
-.style.display = "none"
-);
+  $("resultadosBusqueda")
+  .style.display = "none";
 
 
-$("vista" +
-c.charAt(0).toUpperCase() +
-c.slice(1))
-.style.display = "block";
+  [
+    "Ropa",
+    "Zapatos",
+    "Lociones",
+    "Streaming"
+  ]
+  .forEach(
+    x =>
+    $("vista" + x)
+    .style.display = "none"
+  );
 
 
-scrollTo(0,0);
+  $("vista" +
+    c.charAt(0).toUpperCase() +
+    c.slice(1))
+    .style.display =
+    "block";
+
+
+  scrollTo(0,0);
 
 };
 
@@ -1750,127 +2148,127 @@ scrollTo(0,0);
 window.volverInicio =
 () => {
 
-[
-"Ropa",
-"Zapatos",
-"Lociones",
-"Streaming"
-]
-.forEach(
-x =>
-$("vista"+x)
-.style.display = "none"
-);
+  [
+    "Ropa",
+    "Zapatos",
+    "Lociones",
+    "Streaming"
+  ]
+  .forEach(
+    x =>
+    $("vista" + x)
+    .style.display = "none"
+  );
 
 
-$("resultadosBusqueda")
-.style.display = "none";
+  $("resultadosBusqueda")
+  .style.display = "none";
 
 
-$("paginaPrincipal")
-.style.display = "block";
+  $("paginaPrincipal")
+  .style.display = "block";
 
 
-scrollTo(0,0);
+  scrollTo(0,0);
 
 };
 
 
-/* =========================
+/* =========================================
    BUSCADOR
-========================= */
+========================================= */
 
 window.buscarProductos =
 () => {
 
-const t =
-$("buscador")
-.value
-.trim()
-.toLowerCase();
+  const t =
+  $("buscador")
+  .value
+  .trim()
+  .toLowerCase();
 
 
-$("botonLimpiar")
-.style.display =
-t ? "block" : "none";
+  $("botonLimpiar")
+  .style.display =
+  t ? "block" : "none";
 
 
-if(!t){
+  if(!t){
 
-volverInicio();
+    volverInicio();
 
-return;
+    return;
 
-}
-
-
-$("paginaPrincipal")
-.style.display = "none";
+  }
 
 
-[
-"Ropa",
-"Zapatos",
-"Lociones",
-"Streaming"
-]
-.forEach(
-x =>
-$("vista"+x)
-.style.display = "none"
-);
+  $("paginaPrincipal")
+  .style.display = "none";
 
 
-$("resultadosBusqueda")
-.style.display = "block";
+  [
+    "Ropa",
+    "Zapatos",
+    "Lociones",
+    "Streaming"
+  ]
+  .forEach(
+    x =>
+    $("vista" + x)
+    .style.display = "none"
+  );
 
 
-const out =
-$("productosBusqueda");
-
-out.innerHTML = "";
+  $("resultadosBusqueda")
+  .style.display = "block";
 
 
-const arr =
-productos.filter(
-p =>
-[
-p.nombre,
-p.name,
-p.categoria,
-p.descripcion,
-p.description
-]
-.join(" ")
-.toLowerCase()
-.includes(t)
-);
+  const out =
+  $("productosBusqueda");
+
+  out.innerHTML = "";
 
 
-if(!arr.length){
-
-out.innerHTML = `
-
-<div class="sin-productos">
-
-No encontramos productos
-con esa búsqueda.
-
-</div>
-
-`;
-
-return;
-
-}
+  const arr =
+  productos.filter(
+    p =>
+    [
+      p.nombre,
+      p.name,
+      p.categoria,
+      p.descripcion,
+      p.description
+    ]
+    .join(" ")
+    .toLowerCase()
+    .includes(t)
+  );
 
 
-arr.forEach(
-p =>
-out.appendChild(
-crearTarjetaProducto(p)
-)
-);
+  if(!arr.length){
+
+    out.innerHTML = `
+
+    <div class="sin-productos">
+
+      No encontramos productos
+      con esa búsqueda.
+
+    </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  arr.forEach(
+    p =>
+    out.appendChild(
+      crearTarjetaProducto(p)
+    )
+  );
 
 };
 
@@ -1878,26 +2276,26 @@ crearTarjetaProducto(p)
 window.limpiarBusqueda =
 () => {
 
-$("buscador").value = "";
+  $("buscador").value = "";
 
-$("botonLimpiar")
-.style.display = "none";
+  $("botonLimpiar")
+  .style.display = "none";
 
-volverInicio();
+  volverInicio();
 
 };
 
 
-/* =========================
+/* =========================================
    CARRITO
-========================= */
+========================================= */
 
 function guardarCarrito(){
 
-localStorage.setItem(
-"andrexCarrito",
-JSON.stringify(carrito)
-);
+  localStorage.setItem(
+    "andrexCarrito",
+    JSON.stringify(carrito)
+  );
 
 }
 
@@ -1905,158 +2303,166 @@ JSON.stringify(carrito)
 window.agregarAlCarrito =
 p => {
 
-carrito.push(p);
+  carrito.push(p);
 
-guardarCarrito();
+  guardarCarrito();
 
-actualizarCarrito();
+  actualizarCarrito();
 
-abrirCarrito();
+  abrirCarrito();
 
 };
 
 
 function actualizarCarrito(){
 
-$("cantidadCarrito")
-.textContent =
-carrito.length;
+  $("cantidadCarrito")
+  .textContent =
+  carrito.length;
 
 
-const out =
-$("itemsCarrito");
+  const out =
+  $("itemsCarrito");
 
-out.innerHTML = "";
-
-
-let total = 0;
+  out.innerHTML = "";
 
 
-if(!carrito.length){
-
-out.innerHTML = `
-
-<div
-style="
-text-align:center;
-padding:40px;
-color:#947d66;
-">
-
-🛒
-
-<br><br>
-
-Tu carrito está vacío.
-
-</div>
-
-`;
-
-$("totalCarrito")
-.textContent = "$0";
-
-return;
-
-}
+  let total = 0;
 
 
-carrito.forEach(
-(p,i) => {
+  if(!carrito.length){
 
-const precio =
-Number(
-p.precio ||
-p.price ||
-0
-);
+    out.innerHTML = `
 
+    <div
+      style="
+      text-align:center;
+      padding:40px;
+      color:#947d66;
+      ">
 
-total += precio;
+      🛒
 
+      <br><br>
 
-const div =
-document.createElement("div");
+      Tu carrito está vacío.
 
-div.className =
-"item-carrito";
+    </div>
 
+    `;
 
-div.innerHTML = `
+    $("totalCarrito")
+    .textContent =
+    "$0";
 
-${
-p.imagen
-?
-`
-<img
-src="${esc(p.imagen)}"
-alt=""
->
-`
-:
-`
-<div
-style="
-width:65px;
-height:65px;
-background:#eee2d3;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
-">
-🛍️
-</div>
-`
-}
+    return;
+
+  }
 
 
-<div class="item-info">
+  carrito.forEach(
+    (p,i) => {
 
-<h4>
-${esc(
-p.nombre ||
-p.name ||
-"Producto"
-)}
-</h4>
-
-<p>
-
-${
-precio
-?
-"$"+precio.toLocaleString("es-CO")
-:
-"Consultar precio"
-}
-
-</p>
-
-</div>
+      const precio =
+      Number(
+        p.precio ||
+        p.price ||
+        0
+      );
 
 
-<button
-class="eliminar-item"
-onclick="eliminarDelCarrito(${i})">
-
-✕
-
-</button>
-
-`;
+      total += precio;
 
 
-out.appendChild(div);
+      const div =
+      document.createElement(
+        "div"
+      );
 
-}
-);
+      div.className =
+      "item-carrito";
 
 
-$("totalCarrito")
-.textContent =
-"$" +
-total.toLocaleString("es-CO");
+      div.innerHTML = `
+
+      ${
+        p.imagen
+        ?
+        `
+        <img
+          src="${esc(p.imagen)}"
+          alt=""
+        >
+        `
+        :
+        `
+        <div
+          style="
+          width:65px;
+          height:65px;
+          background:#eee2d3;
+          border-radius:10px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          ">
+          🛍️
+        </div>
+        `
+      }
+
+
+      <div class="item-info">
+
+        <h4>
+          ${esc(
+            p.nombre ||
+            p.name ||
+            "Producto"
+          )}
+        </h4>
+
+        <p>
+
+          ${
+            precio
+            ?
+            "$" +
+            precio.toLocaleString(
+              "es-CO"
+            )
+            :
+            "Consultar precio"
+          }
+
+        </p>
+
+      </div>
+
+
+      <button
+        class="eliminar-item"
+        onclick="eliminarDelCarrito(${i})">
+
+        ✕
+
+      </button>
+
+      `;
+
+
+      out.appendChild(div);
+
+    }
+  );
+
+
+  $("totalCarrito")
+  .textContent =
+  "$" +
+  total.toLocaleString(
+    "es-CO"
+  );
 
 }
 
@@ -2064,11 +2470,11 @@ total.toLocaleString("es-CO");
 window.eliminarDelCarrito =
 i => {
 
-carrito.splice(i,1);
+  carrito.splice(i,1);
 
-guardarCarrito();
+  guardarCarrito();
 
-actualizarCarrito();
+  actualizarCarrito();
 
 };
 
@@ -2076,480 +2482,503 @@ actualizarCarrito();
 window.abrirCarrito =
 () =>
 $("carritoPanel")
-.classList.add("abierto");
+.classList.add(
+  "abierto"
+);
 
 
 window.cerrarCarrito =
 () =>
 $("carritoPanel")
-.classList.remove("abierto");
+.classList.remove(
+  "abierto"
+);
 
+
+/* =========================================
+   WHATSAPP
+========================================= */
 
 window.enviarPedidoWhatsApp =
 () => {
 
-if(!carrito.length){
+  if(!carrito.length){
 
-alert(
-"Tu carrito está vacío."
-);
+    alert(
+      "Tu carrito está vacío."
+    );
 
-return;
+    return;
 
-}
-
-
-let m =
-"Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
+  }
 
 
-let total = 0;
+  let m =
+  "Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
 
 
-carrito.forEach(
-(p,i) => {
-
-const n =
-p.nombre ||
-p.name ||
-"Producto";
+  let total = 0;
 
 
-const pr =
-Number(
-p.precio ||
-p.price ||
-0
-);
+  carrito.forEach(
+    (p,i) => {
+
+      const n =
+      p.nombre ||
+      p.name ||
+      "Producto";
 
 
-total += pr;
+      const pr =
+      Number(
+        p.precio ||
+        p.price ||
+        0
+      );
 
 
-m +=
-`${i+1}. ${n}` +
-(
-pr
-?
-" - $" +
-pr.toLocaleString("es-CO")
-:
-""
-) +
-"%0A";
-
-}
-);
+      total += pr;
 
 
-m +=
-`%0ATotal: $${total.toLocaleString("es-CO")}`;
+      m +=
+      `${i+1}. ${n}` +
+      (
+        pr
+        ?
+        " - $" +
+        pr.toLocaleString(
+          "es-CO"
+        )
+        :
+        ""
+      ) +
+      "%0A";
+
+    }
+  );
 
 
-window.open(
-"https://wa.me/573181579324?text="+m,
-"_blank"
-);
+  m +=
+  `%0ATotal: $${total.toLocaleString(
+    "es-CO"
+  )}`;
+
+
+  window.open(
+    "https://wa.me/573181579324?text=" +
+    m,
+    "_blank"
+  );
 
 };
 
 
-/* =========================
+/* =========================================
    COMPRIMIR IMAGEN
-========================= */
+========================================= */
 
-function comprimirImagen(archivo){
+function comprimirImagen(
+  archivo
+){
 
-return new Promise(
-(resolve,reject)=>{
+  return new Promise(
+    (resolve,reject) => {
 
-const lector =
-new FileReader();
-
-
-lector.onload =
-function(e){
-
-const imagen =
-new Image();
+      const lector =
+      new FileReader();
 
 
-imagen.onload =
-function(){
+      lector.onload =
+      function(e){
 
-const MAX_ANCHO = 800;
-const MAX_ALTO = 800;
-
-let ancho =
-imagen.width;
-
-let alto =
-imagen.height;
+        const imagen =
+        new Image();
 
 
-if(ancho > MAX_ANCHO){
+        imagen.onload =
+        function(){
 
-alto =
-alto *
-MAX_ANCHO /
-ancho;
+          const MAX_ANCHO = 800;
+          const MAX_ALTO = 800;
 
-ancho =
-MAX_ANCHO;
+
+          let ancho =
+          imagen.width;
+
+          let alto =
+          imagen.height;
+
+
+          if(ancho > MAX_ANCHO){
+
+            alto =
+            alto *
+            MAX_ANCHO /
+            ancho;
+
+            ancho =
+            MAX_ANCHO;
+
+          }
+
+
+          if(alto > MAX_ALTO){
+
+            ancho =
+            ancho *
+            MAX_ALTO /
+            alto;
+
+            alto =
+            MAX_ALTO;
+
+          }
+
+
+          const canvas =
+          document.createElement(
+            "canvas"
+          );
+
+
+          canvas.width =
+          Math.round(ancho);
+
+          canvas.height =
+          Math.round(alto);
+
+
+          const ctx =
+          canvas.getContext(
+            "2d"
+          );
+
+
+          ctx.drawImage(
+            imagen,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
+
+
+          const resultado =
+          canvas.toDataURL(
+            "image/jpeg",
+            0.65
+          );
+
+
+          resolve(resultado);
+
+        };
+
+
+        imagen.onerror =
+        function(){
+
+          reject(
+            new Error(
+              "No se pudo procesar la imagen."
+            )
+          );
+
+        };
+
+
+        imagen.src =
+        e.target.result;
+
+      };
+
+
+      lector.onerror =
+      function(){
+
+        reject(
+          new Error(
+            "No se pudo leer la imagen."
+          )
+        );
+
+      };
+
+
+      lector.readAsDataURL(
+        archivo
+      );
+
+    }
+  );
 
 }
 
 
-if(alto > MAX_ALTO){
-
-ancho =
-ancho *
-MAX_ALTO /
-alto;
-
-alto =
-MAX_ALTO;
-
-}
-
-
-const canvas =
-document.createElement(
-"canvas"
-);
-
-
-canvas.width =
-Math.round(ancho);
-
-canvas.height =
-Math.round(alto);
-
-
-const ctx =
-canvas.getContext("2d");
-
-
-ctx.drawImage(
-imagen,
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-/*
-  JPEG comprimido.
-*/
-
-const resultado =
-canvas.toDataURL(
-"image/jpeg",
-0.65
-);
-
-
-resolve(resultado);
-
-};
-
-
-imagen.onerror =
-function(){
-
-reject(
-new Error(
-"No se pudo procesar la imagen."
-)
-);
-
-};
-
-
-imagen.src =
-e.target.result;
-
-};
-
-
-lector.onerror =
-function(){
-
-reject(
-new Error(
-"No se pudo leer la imagen."
-)
-);
-
-};
-
-
-lector.readAsDataURL(
-archivo
-);
-
-});
-
-}
-
-
-/* =========================
-   SUBIR PRODUCTO
-   SIN STORAGE
-========================= */
+/* =========================================
+   GUARDAR PRODUCTO
+========================================= */
 
 $("productoForm")
 .addEventListener(
 "submit",
 async function(e){
 
-e.preventDefault();
+  e.preventDefault();
 
 
-const archivo =
-$("imagenProducto")
-.files[0];
+  /* Comprobamos autenticación */
 
-const nombre =
-$("nombreProducto")
-.value
-.trim();
+  const usuario =
+  auth.currentUser;
 
-const categoria =
-$("categoriaProducto")
-.value;
 
-const precio =
-Number(
-$("precioProducto").value
-);
+  if(
+    !usuario ||
+    usuario.uid !== ADMIN_UID
+  ){
 
-const descripcion =
-$("descripcionProducto")
-.value
-.trim();
+    $("mensajeSubir")
+    .style.color =
+    "#a44b3f";
 
+    $("mensajeSubir")
+    .textContent =
+    "❌ Tu sesión de administrador no está activa.";
 
-if(!archivo){
+    return;
 
-alert(
-"Primero selecciona una foto."
-);
+  }
 
-return;
 
-}
+  const archivo =
+  $("imagenProducto")
+  .files[0];
 
 
-if(!nombre){
+  const nombre =
+  $("nombreProducto")
+  .value
+  .trim();
 
-alert(
-"Escribe el nombre del producto."
-);
 
-return;
+  const categoria =
+  $("categoriaProducto")
+  .value;
 
-}
 
+  const precio =
+  Number(
+    $("precioProducto")
+    .value
+  );
 
-if(!categoria){
 
-alert(
-"Selecciona una categoría."
-);
+  const descripcion =
+  $("descripcionProducto")
+  .value
+  .trim();
 
-return;
 
-}
+  if(!archivo){
 
+    alert(
+      "Primero selecciona una foto."
+    );
 
-const boton =
-$("btnGuardarProducto");
+    return;
 
-const mensaje =
-$("mensajeSubir");
+  }
 
 
-boton.disabled = true;
+  if(!nombre){
 
-mensaje.textContent = "";
+    alert(
+      "Escribe el nombre del producto."
+    );
 
-boton.textContent =
-"⏳ Preparando foto...";
+    return;
 
+  }
 
-try{
 
-/*
-  Comprimimos la imagen
-  directamente en el celular.
-*/
+  if(!categoria){
 
-const imagenComprimida =
-await comprimirImagen(
-archivo
-);
+    alert(
+      "Selecciona una categoría."
+    );
 
+    return;
 
-/*
-  Comprobamos el tamaño.
-*/
+  }
 
-const tamañoBytes =
-Math.round(
-imagenComprimida.length *
-0.75
-);
 
+  const boton =
+  $("btnGuardarProducto");
 
-if(tamañoBytes > 700000){
+  const mensaje =
+  $("mensajeSubir");
 
-throw new Error(
-"La foto sigue siendo demasiado grande. Escoge otra foto."
-);
 
-}
+  boton.disabled = true;
 
+  mensaje.textContent = "";
 
-boton.textContent =
-"⏳ Guardando producto...";
+  boton.textContent =
+  "⏳ Preparando foto...";
 
 
-/*
-  Guardamos la imagen directamente
-  dentro del documento de Firestore.
-*/
+  try{
 
-await addDoc(
-collection(
-db,
-"productos"
-),
-{
+    const imagenComprimida =
+    await comprimirImagen(
+      archivo
+    );
 
-nombre:
-nombre,
 
-categoria:
-categoria,
+    const tamañoBytes =
+    Math.round(
+      imagenComprimida.length *
+      0.75
+    );
 
-precio:
-precio,
 
-descripcion:
-descripcion,
+    if(
+      tamañoBytes >
+      700000
+    ){
 
-imagen:
-imagenComprimida,
+      throw new Error(
+        "La foto sigue siendo demasiado grande. Escoge otra foto."
+      );
 
-creadoEn:
-serverTimestamp()
+    }
 
-}
-);
 
+    boton.textContent =
+    "⏳ Guardando producto...";
 
-mensaje.style.color =
-"#4f7b50";
 
-mensaje.textContent =
-"✅ Producto guardado correctamente.";
+    await addDoc(
+      collection(
+        db,
+        "productos"
+      ),
+      {
 
+        nombre:
+        nombre,
 
-/*
-  Limpiamos formulario.
-*/
+        categoria:
+        categoria,
 
-$("productoForm")
-.reset();
+        precio:
+        precio,
 
-$("previewProducto")
-.style.display =
-"none";
+        descripcion:
+        descripcion,
 
-$("previewProducto")
-.src = "";
+        imagen:
+        imagenComprimida,
 
+        creadoEn:
+        serverTimestamp()
 
-/*
-  Recargamos productos.
-*/
+      }
+    );
 
-await recargarProductos();
 
+    mensaje.style.color =
+    "#4f7b50";
 
-setTimeout(
-() => {
+    mensaje.textContent =
+    "✅ Producto guardado correctamente.";
 
-cerrarSubirProducto();
 
-},
-1200
-);
+    $("productoForm")
+    .reset();
 
 
-}catch(error){
+    $("previewProducto")
+    .style.display =
+    "none";
 
-console.error(
-"Error guardando producto:",
-error
-);
+    $("previewProducto")
+    .src = "";
 
 
-mensaje.style.color =
-"#a44b3f";
+    await recargarProductos();
 
 
-if(
-error.code ===
-"permission-denied"
-){
+    setTimeout(
+      () => {
+        cerrarSubirProducto();
+      },
+      1200
+    );
 
-mensaje.textContent =
-"❌ Firebase está bloqueando el guardado. Revisa las reglas de Firestore.";
 
-}else{
+  }catch(error){
 
-mensaje.textContent =
-"❌ " +
-(
-error.message ||
-"No se pudo guardar el producto."
-);
+    console.error(
+      "Error guardando producto:",
+      error
+    );
 
-}
 
-}finally{
+    mensaje.style.color =
+    "#a44b3f";
 
-boton.disabled = false;
 
-boton.textContent =
-"📤 Guardar producto";
+    if(
+      error.code ===
+      "permission-denied"
+    ){
 
-}
+      mensaje.textContent =
+      "❌ Firestore rechazó el guardado. Comprueba que estás usando la cuenta administradora.";
+
+    }else{
+
+      mensaje.textContent =
+      "❌ " +
+      (
+        error.message ||
+        "No se pudo guardar el producto."
+      );
+
+    }
+
+  }finally{
+
+    boton.disabled = false;
+
+    boton.textContent =
+    "📤 Guardar producto";
+
+  }
 
 });
 
 
-/* =========================
+/* =========================================
    RECARGAR PRODUCTOS
-========================= */
+========================================= */
 
 async function recargarProductos(){
 
-productos = [];
+  productos = [];
 
-await cargarRopaGitHub();
+  await cargarRopaGitHub();
 
-await cargarFirebase();
+  await cargarFirebase();
 
 }
 
 
-/* =========================
+/* =========================================
    MÚSICA
-========================= */
+========================================= */
 
 const musica =
 $("musicaTienda");
@@ -2558,39 +2987,39 @@ $("musicaTienda");
 window.alternarMusica =
 () => {
 
-if(musica.paused){
+  if(musica.paused){
 
-musica
-.play()
-.then(
-() =>
-$("botonMusica")
-.textContent =
-"🔊 Música"
-)
-.catch(
-() =>
-alert(
-"No se pudo reproducir la música."
-)
-);
+    musica
+    .play()
+    .then(
+      () =>
+      $("botonMusica")
+      .textContent =
+      "🔊 Música"
+    )
+    .catch(
+      () =>
+      alert(
+        "No se pudo reproducir la música."
+      )
+    );
 
-}else{
+  }else{
 
-musica.pause();
+    musica.pause();
 
-$("botonMusica")
-.textContent =
-"▶ Música";
+    $("botonMusica")
+    .textContent =
+    "▶ Música";
 
-}
+  }
 
 };
 
 
-/* =========================
+/* =========================================
    INICIAR TIENDA
-========================= */
+========================================= */
 
 cargarRopaGitHub();
 
