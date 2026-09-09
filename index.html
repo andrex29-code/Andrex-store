@@ -1,3554 +1,3443 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ANDREX 🩵Store</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f0e6;
-      color: #4b3928;
-      min-height: 100vh;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 250, 243, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #eadbc8;
-      padding: 12px 15px;
-    }
-
-    .barra-superior {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: #8c653d;
-      text-shadow:
-        0 0 5px #d9b27c,
-        0 0 12px rgba(217, 178, 124, 0.65);
-      white-space: nowrap;
-    }
-
-    .logo span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 4px;
-      font-weight: 500;
-      color: #9d856b;
-      text-align: center;
-      margin-top: -2px;
-      text-shadow: none;
-    }
-
-    .botones-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .boton-carrito,
-    .boton-admin {
-      border: 1px solid #dfcdb7;
-      background: #fffaf3;
-      color: #745438;
-      border-radius: 12px;
-      padding: 10px 13px;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(103, 75, 46, 0.08);
-      font-weight: bold;
-    }
-
-    .boton-carrito:hover,
-    .boton-admin:hover {
-      background: #f3e7d8;
-    }
-
-    .contenedor-buscador {
-      max-width: 700px;
-      margin: 12px auto 0;
-      display: flex;
-      gap: 8px;
-    }
-
-    #buscador {
-      width: 100%;
-      border: 1px solid #dfcdb7;
-      background: #fffdf9;
-      border-radius: 12px;
-      padding: 13px 15px;
-      outline: none;
-      color: #5b4632;
-      font-size: 15px;
-    }
-
-    #buscador:focus {
-      border-color: #c79b68;
-      box-shadow: 0 0 0 3px rgba(199, 155, 104, 0.15);
-    }
-
-    .boton-limpiar {
-      border: none;
-      background: #8f6b48;
-      color: white;
-      border-radius: 12px;
-      padding: 0 15px;
-      cursor: pointer;
-      display: none;
-    }
-
-    .hero {
-      max-width: 1200px;
-      margin: 18px auto;
-      padding: 0 15px;
-    }
-
-    .hero video {
-      width: 100%;
-      display: block;
-      border-radius: 22px;
-      max-height: 430px;
-      object-fit: cover;
-      background: #eadcca;
-      box-shadow: 0 10px 30px rgba(77, 54, 34, 0.12);
-    }
-
-    .pagina-principal {
-      max-width: 1200px;
-      margin: auto;
-      padding: 10px 15px 50px;
-    }
-
-    .titulo-principal {
-      text-align: center;
-      margin: 20px 0 8px;
-      color: #654a32;
-      font-size: 23px;
-    }
-
-    .subtitulo {
-      text-align: center;
-      color: #9a8269;
-      margin-bottom: 25px;
-      font-size: 14px;
-    }
-
-    .categorias {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 35px;
-    }
-
-    .categoria {
-      min-height: 180px;
-      border: 1px solid #e4d2bc;
-      border-radius: 22px;
-      background: linear-gradient(145deg, #fffdf9, #f1e4d5);
-      box-shadow: 0 8px 22px rgba(91, 65, 39, 0.10);
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: 0.25s ease;
-      color: #634a33;
-    }
-
-    .categoria:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(91, 65, 39, 0.16);
-    }
-
-    .categoria .emoji {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
-
-    .categoria h2 {
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
-
-    .categoria p {
-      font-size: 12px;
-      color: #9b8268;
-      margin-top: 5px;
-    }
-
-    .informacion {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .info-card {
-      background: #fffaf3;
-      border: 1px solid #e8d8c4;
-      border-radius: 18px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .info-card .emoji {
-      font-size: 30px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .info-card h3 {
-      font-size: 15px;
-      color: #654a32;
-      margin-bottom: 6px;
-    }
-
-    .info-card p {
-      font-size: 13px;
-      color: #8f7962;
-    }
-
-    .vista-categoria {
-      display: none;
-      max-width: 1200px;
-      margin: auto;
-      padding: 15px 15px 60px;
-    }
-
-    .encabezado-categoria {
-      background: linear-gradient(145deg, #fffdf9, #f0e2d1);
-      border: 1px solid #e4d2bc;
-      border-radius: 22px;
-      padding: 22px;
-      margin-bottom: 22px;
-      text-align: center;
-    }
-
-    .boton-volver {
-      border: 1px solid #dfcdb7;
-      background: #fffaf3;
-      color: #745438;
-      border-radius: 12px;
-      padding: 10px 16px;
-      cursor: pointer;
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-
-    .encabezado-categoria .emoji {
-      font-size: 45px;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .encabezado-categoria h2 {
-      font-size: 27px;
-      color: #654a32;
-    }
-
-    .encabezado-categoria p {
-      margin-top: 5px;
-      color: #927a61;
-      font-size: 14px;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .producto {
-      background: #fffdf9;
-      border: 1px solid #e6d6c3;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 7px 18px rgba(77, 54, 34, 0.09);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .producto img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      background: #f1e5d7;
-    }
-
-    .producto-contenido {
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .producto h3 {
-      color: #5e452f;
-      font-size: 15px;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .producto-descripcion {
-      font-size: 12px;
-      color: #9b836c;
-      margin-bottom: 10px;
-    }
-
-    .precio {
-      font-size: 18px;
-      font-weight: bold;
-      color: #8b623b;
-      margin-bottom: 12px;
-    }
-
-    .boton-agregar {
-      width: 100%;
-      border: 1px solid #dec8ae;
-      background: #f6eadc;
-      color: #674b31;
-      padding: 11px;
-      border-radius: 11px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: auto;
-    }
-
-    .sin-productos {
-      text-align: center;
-      background: #fffaf3;
-      border: 1px dashed #d8c2a8;
-      border-radius: 18px;
-      padding: 35px 20px;
-      color: #927b64;
-      grid-column: 1 / -1;
-    }
-
-    #resultadosBusqueda {
-      display: none;
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px 15px 60px;
-    }
-
-    .titulo-busqueda {
-      text-align: center;
-      color: #654a32;
-      margin-bottom: 20px;
-    }
-
-    .carrito-panel {
-      position: fixed;
-      top: 0;
-      right: -420px;
-      width: min(400px, 92vw);
-      height: 100vh;
-      background: #fffaf3;
-      z-index: 3000;
-      box-shadow: -10px 0 30px rgba(56, 39, 25, 0.18);
-      transition: right 0.3s ease;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .carrito-panel.abierto {
-      right: 0;
-    }
-
-    .carrito-cabecera {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #ead9c5;
-    }
-
-    .carrito-cabecera h2 {
-      color: #654a32;
-      font-size: 20px;
-    }
-
-    .cerrar-carrito {
-      border: none;
-      background: transparent;
-      font-size: 25px;
-      cursor: pointer;
-      color: #745438;
-    }
-
-    #itemsCarrito {
-      flex: 1;
-      overflow-y: auto;
-      padding: 15px 0;
-    }
-
-    .item-carrito {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #eadfd2;
-    }
-
-    .item-carrito img {
-      width: 65px;
-      height: 65px;
-      border-radius: 10px;
-      object-fit: cover;
-      background: #eee2d3;
-    }
-
-    .item-info {
-      flex: 1;
-    }
-
-    .item-info h4 {
-      font-size: 13px;
-      color: #5d452f;
-      margin-bottom: 5px;
-    }
-
-    .item-info p {
-      font-size: 12px;
-      color: #927a60;
-    }
-
-    .eliminar-item {
-      border: none;
-      background: #f1dfce;
-      color: #79563a;
-      border-radius: 8px;
-      padding: 6px 8px;
-      cursor: pointer;
-    }
-
-    .carrito-total {
-      border-top: 1px solid #e6d5c0;
-      padding-top: 15px;
-    }
-
-    .carrito-total strong {
-      display: flex;
-      justify-content: space-between;
-      font-size: 18px;
-      color: #5d452f;
-      margin-bottom: 12px;
-    }
-
-    .boton-whatsapp {
-      width: 100%;
-      border: none;
-      background: #eadcc9;
-      color: #57422e;
-      padding: 13px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .carrito-vacio {
-      text-align: center;
-      padding: 40px 10px;
-      color: #947d66;
-    }
-
-    #botonMusica {
-      position: fixed;
-      right: 17px;
-      bottom: 17px;
-      z-index: 2500;
-      border: 1px solid #ddc7ad;
-      background: #fff8ef;
-      color: #684b31;
-      border-radius: 30px;
-      padding: 12px 17px;
-      cursor: pointer;
-      box-shadow: 0 7px 20px rgba(77, 54, 34, 0.15);
-      font-weight: bold;
-    }
-
-    /* =========================
-       ADMINISTRADOR
-    ========================= */
-
-    #adminPanel {
-      display: none;
-      max-width: 700px;
-      margin: 30px auto 60px;
-      padding: 15px;
-    }
-
-    .admin-caja {
-      background: #fffaf3;
-      border: 1px solid #e3d0b9;
-      border-radius: 22px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(77, 54, 34, 0.12);
-    }
-
-    .admin-titulo {
-      text-align: center;
-      color: #654a32;
-      font-size: 25px;
-      margin-bottom: 6px;
-    }
-
-    .admin-subtitulo {
-      text-align: center;
-      color: #9a8269;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .admin-formulario {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .admin-formulario label {
-      font-size: 13px;
-      font-weight: bold;
-      color: #654a32;
-      margin-bottom: -7px;
-    }
-
-    .admin-formulario input,
-    .admin-formulario select {
-      width: 100%;
-      border: 1px solid #dfcdb7;
-      background: #fffdf9;
-      color: #5b4632;
-      border-radius: 12px;
-      padding: 13px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .admin-formulario input:focus,
-    .admin-formulario select:focus {
-      border-color: #c79b68;
-      box-shadow: 0 0 0 3px rgba(199, 155, 104, 0.15);
-    }
-
-    .boton-guardar-producto {
-      width: 100%;
-      border: none;
-      background: #8f6b48;
-      color: white;
-      padding: 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    .boton-guardar-producto:hover {
-      background: #765538;
-    }
-
-    .boton-guardar-producto:disabled {
-      opacity: 0.6;
-      cursor: wait;
-    }
-
-    .boton-cerrar-admin {
-      width: 100%;
-      border: 1px solid #dfcdb7;
-      background: #f5e8da;
-      color: #745438;
-      padding: 12px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .mensaje-admin {
-      text-align: center;
-      padding: 10px;
-      border-radius: 10px;
-      margin-top: 10px;
-      font-size: 13px;
-      display: none;
-    }
-
-    .mensaje-admin.exito {
-      display: block;
-      background: #e8f5e9;
-      color: #28743a;
-    }
-
-    .mensaje-admin.error {
-      display: block;
-      background: #fdeaea;
-      color: #a52c2c;
-    }
-
-    #adminLogin {
-      display: none;
-      max-width: 430px;
-      margin: 30px auto 60px;
-      padding: 15px;
-    }
-
-    .login-caja {
-      background: #fffaf3;
-      border: 1px solid #e3d0b9;
-      border-radius: 22px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(77, 54, 34, 0.12);
-    }
-
-    .login-titulo {
-      text-align: center;
-      color: #654a32;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    .login-caja input {
-      width: 100%;
-      border: 1px solid #dfcdb7;
-      background: #fffdf9;
-      border-radius: 12px;
-      padding: 13px;
-      margin-bottom: 12px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .boton-ingresar {
-      width: 100%;
-      border: none;
-      background: #8f6b48;
-      color: white;
-      border-radius: 12px;
-      padding: 14px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .boton-olvido {
-      width: 100%;
-      border: none;
-      background: transparent;
-      color: #8f6b48;
-      padding: 12px 5px 5px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    .boton-olvido:hover {
-      color: #654a32;
-    }
-
-    .estado-admin {
-      text-align: center;
-      font-size: 13px;
-      margin-top: 12px;
-      min-height: 18px;
-    }
-
-    .estado-admin.error {
-      color: #b52e2e;
-    }
-
-    .estado-admin.exito {
-      color: #28743a;
-    }
-
-    .admin-barra {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .admin-usuario {
-      font-size: 12px;
-      color: #927a61;
-      word-break: break-all;
-    }
-
-    .boton-salir {
-      border: none;
-      background: #f1dfce;
-      color: #79563a;
-      border-radius: 10px;
-      padding: 9px 12px;
-      cursor: pointer;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 900px) {
-      .categorias {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .productos {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 650px) {
-      .logo {
-        font-size: 21px;
-      }
-
-      .logo span {
-        font-size: 8px;
-      }
-
-      .boton-admin {
-        font-size: 12px;
-        padding: 9px 10px;
-      }
-
-      .hero video {
-        max-height: 260px;
-      }
-
-      .categorias {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      .categoria {
-        min-height: 155px;
-      }
-
-      .categoria .emoji {
-        font-size: 45px;
-      }
-
-      .categoria h2 {
-        font-size: 17px;
-      }
-
-      .informacion {
-        grid-template-columns: 1fr;
-      }
-
-      .productos {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      .producto img {
-        height: 190px;
-      }
-
-      .producto-contenido {
-        padding: 11px;
-      }
-
-      .precio {
-        font-size: 16px;
-      }
-
-      .boton-agregar {
-        font-size: 12px;
-        padding: 10px 5px;
-      }
-
-      #adminPanel,
-      #adminLogin {
-        padding: 12px;
-        margin-top: 20px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .categorias {
-        gap: 9px;
-      }
-
-      .categoria {
-        min-height: 140px;
-      }
-
-      .productos {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .producto img {
-        height: 170px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANDREX 🩵Store</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f0e6;
+  color:#4b3928;
+  min-height:100vh;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,250,243,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eadbc8;
+  padding:12px 15px;
+}
+
+.barra-superior{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#8c653d;
+  text-shadow:
+    0 0 5px #d9b27c,
+    0 0 12px rgba(217,178,124,.65);
+  white-space:nowrap;
+}
+
+.logo span{
+  display:block;
+  font-size:10px;
+  letter-spacing:4px;
+  font-weight:500;
+  color:#9d856b;
+  text-align:center;
+  margin-top:-2px;
+  text-shadow:none;
+}
+
+.botones-header{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+button{
+  font-family:inherit;
+}
+
+.boton-carrito,
+.admin-btn,
+.boton-volver{
+  border:1px solid #dfcdb7;
+  background:#fffaf3;
+  color:#745438;
+  border-radius:12px;
+  padding:10px 13px;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(103,75,46,.08);
+}
+
+.admin-btn{
+  font-size:13px;
+  font-weight:bold;
+}
+
+.admin-btn:hover,
+.boton-carrito:hover,
+.boton-volver:hover{
+  background:#f3e7d8;
+}
+
+.contenedor-buscador{
+  max-width:700px;
+  margin:12px auto 0;
+  display:flex;
+  gap:8px;
+}
+
+#buscador{
+  width:100%;
+  border:1px solid #dfcdb7;
+  background:#fffdf9;
+  border-radius:12px;
+  padding:13px 15px;
+  outline:none;
+  color:#5b4632;
+  font-size:15px;
+}
+
+.boton-limpiar{
+  border:none;
+  background:#8f6b48;
+  color:#fff;
+  border-radius:12px;
+  padding:0 15px;
+  cursor:pointer;
+  display:none;
+}
+
+.hero{
+  max-width:1200px;
+  margin:18px auto;
+  padding:0 15px;
+}
+
+.hero video{
+  width:100%;
+  display:block;
+  border-radius:22px;
+  max-height:430px;
+  object-fit:cover;
+  background:#eadcca;
+  box-shadow:0 10px 30px rgba(77,54,34,.12);
+}
+
+.pagina-principal,
+.vista-categoria,
+#resultadosBusqueda{
+  max-width:1200px;
+  margin:auto;
+  padding:10px 15px 50px;
+}
+
+.titulo-principal{
+  text-align:center;
+  margin:20px 0 8px;
+  color:#654a32;
+  font-size:23px;
+}
+
+.subtitulo{
+  text-align:center;
+  color:#9a8269;
+  margin-bottom:25px;
+  font-size:14px;
+}
+
+.categorias{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:35px;
+}
+
+.categoria{
+  min-height:180px;
+  border:1px solid #e4d2bc;
+  border-radius:22px;
+  background:linear-gradient(145deg,#fffdf9,#f1e4d5);
+  box-shadow:0 8px 22px rgba(91,65,39,.1);
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:.25s;
+  color:#634a33;
+}
+
+.categoria:hover{
+  transform:translateY(-4px);
+}
+
+.categoria .emoji{
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+.categoria h2{
+  font-size:20px;
+  letter-spacing:1px;
+}
+
+.categoria p{
+  font-size:12px;
+  color:#9b8268;
+  margin-top:5px;
+}
+
+.informacion{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.info-card{
+  background:#fffaf3;
+  border:1px solid #e8d8c4;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+}
+
+.info-card .emoji{
+  font-size:30px;
+  display:block;
+  margin-bottom:8px;
+}
+
+.info-card h3{
+  font-size:15px;
+  color:#654a32;
+  margin-bottom:6px;
+}
+
+.info-card p{
+  font-size:13px;
+  color:#8f7962;
+}
+
+.vista-categoria{
+  display:none;
+}
+
+.encabezado-categoria{
+  background:linear-gradient(145deg,#fffdf9,#f0e2d1);
+  border:1px solid #e4d2bc;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:22px;
+  text-align:center;
+}
+
+.encabezado-categoria .emoji{
+  font-size:45px;
+  display:block;
+}
+
+.encabezado-categoria h2{
+  font-size:27px;
+  color:#654a32;
+}
+
+.encabezado-categoria p{
+  margin-top:5px;
+  color:#927a61;
+  font-size:14px;
+}
+
+.productos{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.producto{
+  background:#fffdf9;
+  border:1px solid #e6d6c3;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 7px 18px rgba(77,54,34,.09);
+  display:flex;
+  flex-direction:column;
+}
+
+.producto img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  background:#f1e5d7;
+}
+
+.producto-contenido{
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.producto h3{
+  color:#5e452f;
+  font-size:15px;
+  margin-bottom:8px;
+  line-height:1.3;
+}
+
+.producto-descripcion{
+  font-size:12px;
+  color:#9b836c;
+  margin-bottom:10px;
+}
+
+.precio{
+  font-size:18px;
+  font-weight:bold;
+  color:#8b623b;
+  margin-bottom:12px;
+}
+
+.boton-agregar{
+  width:100%;
+  border:1px solid #dec8ae;
+  background:#f6eadc;
+  color:#674b31;
+  padding:11px;
+  border-radius:11px;
+  cursor:pointer;
+  font-weight:bold;
+  margin-top:auto;
+}
+
+.sin-productos{
+  text-align:center;
+  background:#fffaf3;
+  border:1px dashed #d8c2a8;
+  border-radius:18px;
+  padding:35px 20px;
+  color:#927b64;
+  grid-column:1/-1;
+}
+
+/* CARRITO */
+
+.carrito-panel{
+  position:fixed;
+  top:0;
+  right:-420px;
+  width:min(400px,92vw);
+  height:100vh;
+  background:#fffaf3;
+  z-index:3000;
+  box-shadow:-10px 0 30px rgba(56,39,25,.18);
+  transition:right .3s;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.carrito-panel.abierto{
+  right:0;
+}
+
+.carrito-cabecera{
+  display:flex;
+  justify-content:space-between;
+  padding-bottom:15px;
+  border-bottom:1px solid #ead9c5;
+}
+
+.cerrar-carrito{
+  border:0;
+  background:transparent;
+  font-size:25px;
+  cursor:pointer;
+  color:#745438;
+}
+
+#itemsCarrito{
+  flex:1;
+  overflow-y:auto;
+  padding:15px 0;
+}
+
+.item-carrito{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #eadfd2;
+}
+
+.item-carrito img{
+  width:65px;
+  height:65px;
+  border-radius:10px;
+  object-fit:cover;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-info h4{
+  font-size:13px;
+  color:#5d452f;
+  margin-bottom:5px;
+}
+
+.item-info p{
+  font-size:12px;
+  color:#927a60;
+}
+
+.eliminar-item{
+  border:0;
+  background:#f1dfce;
+  color:#79563a;
+  border-radius:8px;
+  padding:6px 8px;
+  cursor:pointer;
+}
+
+.carrito-total{
+  border-top:1px solid #e6d5c0;
+  padding-top:15px;
+}
+
+.carrito-total strong{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  color:#5d452f;
+  margin-bottom:12px;
+}
+
+.boton-whatsapp{
+  width:100%;
+  border:0;
+  background:#eadcc9;
+  color:#57422e;
+  padding:13px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+#botonMusica{
+  position:fixed;
+  right:17px;
+  bottom:17px;
+  z-index:2500;
+  border:1px solid #ddc7ad;
+  background:#fff8ef;
+  color:#684b31;
+  border-radius:30px;
+  padding:12px 17px;
+  cursor:pointer;
+  box-shadow:0 7px 20px rgba(77,54,34,.15);
+  font-weight:bold;
+}
+
+/* MODALES */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(44,31,20,.58);
+  z-index:5000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.oculto{
+  display:none;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#fffaf3;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.modal-head h2{
+  color:#654a32;
+}
+
+.cerrar-modal{
+  border:0;
+  background:transparent;
+  font-size:28px;
+  cursor:pointer;
+  color:#745438;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.campo{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.campo.full{
+  grid-column:1/-1;
+}
+
+.campo label{
+  font-size:13px;
+  font-weight:bold;
+  color:#654a32;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+  border:1px solid #dfcdb7;
+  border-radius:10px;
+  padding:11px;
+  background:#fffdf9;
+  color:#5b4632;
+  outline:none;
+}
+
+.campo textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.acciones{
+  display:flex;
+  gap:9px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.btn-principal,
+.btn-secundario,
+.btn-peligro{
+  border:0;
+  border-radius:10px;
+  padding:11px 14px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-principal{
+  background:#8f6b48;
+  color:white;
+}
+
+.btn-secundario{
+  background:#eadcc9;
+  color:#60462e;
+}
+
+.btn-peligro{
+  background:#efd3cc;
+  color:#7d3e32;
+}
+
+.mensaje{
+  padding:10px;
+  border-radius:10px;
+  background:#f2e5d5;
+  color:#684b31;
+  margin-bottom:12px;
+  display:none;
+  font-size:13px;
+}
+
+.admin-producto{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  border:1px solid #e5d4bf;
+  border-radius:12px;
+  padding:9px;
+  margin-top:8px;
+  background:#fffdf9;
+}
+
+.admin-producto img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.admin-info{
+  flex:1;
+}
+
+.admin-info strong{
+  display:block;
+  color:#5e452f;
+}
+
+.admin-info small{
+  color:#927a61;
+}
+
+.admin-producto .acciones{
+  margin:0;
+}
+
+.separador{
+  border:0;
+  border-top:1px solid #ead9c5;
+  margin:20px 0;
+}
+
+.preview{
+  width:100%;
+  max-height:180px;
+  object-fit:contain;
+  border-radius:10px;
+  background:#f1e5d7;
+  display:none;
+}
+
+.link-reset{
+  display:block;
+  width:100%;
+  text-align:center;
+  margin-top:13px;
+  color:#8f6b48;
+  font-size:13px;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+/* CELULAR */
+
+@media(max-width:900px){
+
+  .categorias{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .productos{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .logo{
+    font-size:20px;
+  }
+
+  .logo span{
+    font-size:8px;
+  }
+
+  .admin-btn{
+    font-size:11px;
+    padding:9px 8px;
+  }
+
+  .boton-carrito{
+    padding:9px;
+  }
+
+  .hero video{
+    max-height:260px;
+  }
+
+  .categorias{
+    gap:12px;
+  }
+
+  .categoria{
+    min-height:155px;
+  }
+
+  .categoria .emoji{
+    font-size:45px;
+  }
+
+  .categoria h2{
+    font-size:17px;
+  }
+
+  .informacion{
+    grid-template-columns:1fr;
+  }
+
+  .productos{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .producto img{
+    height:190px;
+  }
+
+  .producto-contenido{
+    padding:11px;
+  }
+
+  .precio{
+    font-size:16px;
+  }
+
+  .boton-agregar{
+    font-size:12px;
+    padding:10px 5px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .campo.full{
+    grid-column:auto;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
+<header>
 
-    <div class="barra-superior">
+<div class="barra-superior">
 
-      <div class="logo">
-        ANDREX
-        <span>STORE🩵</span>
-      </div>
+<div class="logo">
+ANDREX
+<span>STORE🩵</span>
+</div>
 
-      <div class="botones-header">
+<div class="botones-header">
 
-        <button
-          class="boton-admin"
-          onclick="abrirAdministrador()"
-        >
-          🔐 Admin
-        </button>
-
-        <button
-          class="boton-carrito"
-          onclick="abrirCarrito()"
-        >
-          🛒 <span id="cantidadCarrito">0</span>
-        </button>
+<button
+class="admin-btn"
+id="btnAdmin">
+🔐 Administración
+</button>
 
-      </div>
+<button
+class="boton-carrito"
+onclick="abrirCarrito()">
+🛒
+<span id="cantidadCarrito">0</span>
+</button>
 
-    </div>
+</div>
 
-    <div class="contenedor-buscador">
-
-      <input
-        type="text"
-        id="buscador"
-        placeholder="Buscar productos..."
-        oninput="buscarProductos()"
-      >
-
-      <button
-        class="boton-limpiar"
-        id="botonLimpiar"
-        onclick="limpiarBusqueda()"
-      >
-        ✕
-      </button>
-
-    </div>
-
-  </header>
-
-
-  <section class="hero">
-
-    <video autoplay muted loop playsinline>
-
-      <source
-        src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
-        type="video/mp4"
-      >
-
-      Tu navegador no puede reproducir este video.
-
-    </video>
-
-  </section>
-
-
-  <main
-    id="paginaPrincipal"
-    class="pagina-principal"
-  >
-
-    <h1 class="titulo-principal">
-      Bienvenido a mi tienda 📸
-    </h1>
-
-    <p class="subtitulo">
-      Elige una categoría para ver nuestros productos
-    </p>
-
-    <section class="categorias">
-
-      <div
-        class="categoria"
-        onclick="entrarCategoria('ropa')"
-      >
-        <span class="emoji">👕</span>
-        <h2>ROPA</h2>
-        <p>Ver toda la ropa</p>
-      </div>
-
-      <div
-        class="categoria"
-        onclick="entrarCategoria('zapatos')"
-      >
-        <span class="emoji">👟</span>
-        <h2>ZAPATOS</h2>
-        <p>Ver todos los zapatos</p>
-      </div>
-
-      <div
-        class="categoria"
-        onclick="entrarCategoria('lociones')"
-      >
-        <span class="emoji">🧴</span>
-        <h2>LOCIONES</h2>
-        <p>Ver todas las lociones</p>
-      </div>
-
-      <div
-        class="categoria"
-        onclick="entrarCategoria('streaming')"
-      >
-        <span class="emoji">📺</span>
-        <h2>STREAMING</h2>
-        <p>Ver todos los servicios</p>
-      </div>
-
-    </section>
-
-
-    <section class="informacion">
-
-      <div class="info-card">
-        <span class="emoji">🚚</span>
-        <h3>Envíos</h3>
-        <p>
-          Realizamos envíos a nivel nacional 🇨🇴
-          tu como cliente te encargas de pagar
-          el envio a tu ciudad ✨.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <span class="emoji">💳</span>
-        <h3>Compra fácil</h3>
-        <p>
-          manejamos pagos por nequi bancolombia
-          daviplata pagos de contado y contra
-          entrega solo las lociones originales.
-        </p>
-      </div>
-
-      <div class="info-card">
-        <span class="emoji">📲</span>
-        <h3>Pedidos</h3>
-        <p>
-          Realiza tu pedido directamente por WhatsApp.
-        </p>
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       LOGIN ADMINISTRADOR
-  ========================== -->
-
-  <section id="adminLogin">
-
-    <div class="login-caja">
-
-      <h2 class="login-titulo">
-        🔐 Administrador
-      </h2>
-
-      <input
-        type="email"
-        id="adminEmail"
-        placeholder="Correo electrónico"
-        autocomplete="email"
-      >
-
-      <input
-        type="password"
-        id="adminPassword"
-        placeholder="Contraseña"
-        autocomplete="current-password"
-      >
-
-      <button
-        class="boton-ingresar"
-        id="botonEntrarAdmin"
-        onclick="iniciarSesionAdmin()"
-      >
-        Ingresar
-      </button>
-
-      <button
-        type="button"
-        class="boton-olvido"
-        onclick="restablecerContrasena()"
-      >
-        ¿Olvidaste tu contraseña?
-      </button>
-
-      <div
-        id="mensajeLogin"
-        class="estado-admin"
-      ></div>
-
-    </div>
+</div>
 
-  </section>
-
-
-  <!-- =========================
-       PANEL ADMINISTRADOR
-  ========================== -->
+<div class="contenedor-buscador">
 
-  <section id="adminPanel">
-
-    <div class="admin-caja">
-
-      <div class="admin-barra">
-
-        <div>
-          <h2 class="admin-titulo">
-            🛍️ Panel de productos
-          </h2>
-
-          <div
-            id="adminUsuario"
-            class="admin-usuario"
-          ></div>
-        </div>
+<input
+id="buscador"
+type="text"
+placeholder="Buscar productos..."
+oninput="buscarProductos()">
 
-        <button
-          class="boton-salir"
-          onclick="cerrarSesionAdmin()"
-        >
-          Salir
-        </button>
+<button
+class="boton-limpiar"
+id="botonLimpiar"
+onclick="limpiarBusqueda()">
+✕
+</button>
 
-      </div>
+</div>
 
+</header>
 
-      <div class="admin-formulario">
 
-        <label for="productoNombre">
-          Nombre del producto
-        </label>
+<section class="hero">
 
-        <input
-          type="text"
-          id="productoNombre"
-          placeholder="Ej: Camiseta Nike"
-        >
+<video
+autoplay
+muted
+loop
+playsinline>
 
+<source
+src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
+type="video/mp4">
 
-        <label for="productoPrecio">
-          Precio
-        </label>
+</video>
 
-        <input
-          type="number"
-          id="productoPrecio"
-          placeholder="Ej: 85000"
-          min="0"
-        >
+</section>
 
 
-        <label for="productoImagen">
-          Link de la foto
-        </label>
+<main
+id="paginaPrincipal"
+class="pagina-principal">
 
-        <input
-          type="url"
-          id="productoImagen"
-          placeholder="https://..."
-        >
+<h1 class="titulo-principal">
+Bienvenido a mi tienda 📸
+</h1>
 
+<p class="subtitulo">
+Elige una categoría para ver nuestros productos
+</p>
 
-        <label for="productoCategoria">
-          Categoría
-        </label>
+<section class="categorias">
 
-        <select id="productoCategoria">
+<div
+class="categoria"
+onclick="entrarCategoria('ropa')">
 
-          <option value="ropa">
-            👕 Ropa
-          </option>
+<span class="emoji">👕</span>
 
-          <option value="zapatos">
-            👟 Zapatos
-          </option>
+<h2>ROPA</h2>
 
-          <option value="lociones">
-            🧴 Lociones
-          </option>
+<p>Ver toda la ropa</p>
 
-          <option value="streaming">
-            📺 Streaming
-          </option>
+</div>
 
-        </select>
 
+<div
+class="categoria"
+onclick="entrarCategoria('zapatos')">
 
-        <label for="productoDescripcion">
-          Descripción (opcional)
-        </label>
+<span class="emoji">👟</span>
 
-        <input
-          type="text"
-          id="productoDescripcion"
-          placeholder="Información del producto"
-        >
+<h2>ZAPATOS</h2>
 
+<p>Ver todos los zapatos</p>
 
-        <button
-          class="boton-guardar-producto"
-          id="botonGuardarProducto"
-          onclick="agregarProducto()"
-        >
-          ➕ Agregar producto
-        </button>
+</div>
 
-        <div
-          id="mensajeProducto"
-          class="mensaje-admin"
-        ></div>
 
-      </div>
+<div
+class="categoria"
+onclick="entrarCategoria('lociones')">
 
-    </div>
+<span class="emoji">🧴</span>
 
-  </section>
+<h2>LOCIONES</h2>
 
+<p>Ver todas las lociones</p>
 
-  <!-- =========================
-       CATEGORÍAS
-  ========================== -->
+</div>
 
-  <section
-    id="vistaRopa"
-    class="vista-categoria"
-  >
 
-    <div class="encabezado-categoria">
+<div
+class="categoria"
+onclick="entrarCategoria('streaming')">
 
-      <button
-        class="boton-volver"
-        onclick="volverInicio()"
-      >
-        ← Volver a categorías
-      </button>
+<span class="emoji">📺</span>
 
-      <span class="emoji">👕</span>
+<h2>STREAMING</h2>
 
-      <h2>ROPA</h2>
+<p>Ver todos los servicios</p>
 
-      <p>
-        Toda nuestra ropa disponible
-      </p>
+</div>
 
-    </div>
+</section>
 
-    <div
-      id="productosRopa"
-      class="productos"
-    ></div>
 
-  </section>
+<section class="informacion">
 
+<div class="info-card">
 
-  <section
-    id="vistaZapatos"
-    class="vista-categoria"
-  >
+<span class="emoji">🚚</span>
 
-    <div class="encabezado-categoria">
+<h3>Envíos</h3>
 
-      <button
-        class="boton-volver"
-        onclick="volverInicio()"
-      >
-        ← Volver a categorías
-      </button>
+<p>
+Realizamos envíos a nivel nacional 🇨🇴
+tu como cliente te encargas de pagar
+el envio a tu ciudad ✨.
+</p>
 
-      <span class="emoji">👟</span>
+</div>
 
-      <h2>ZAPATOS</h2>
 
-      <p>
-        Todos nuestros zapatos disponibles
-      </p>
+<div class="info-card">
 
-    </div>
+<span class="emoji">💳</span>
 
-    <div
-      id="productosZapatos"
-      class="productos"
-    ></div>
+<h3>Compra fácil</h3>
 
-  </section>
+<p>
+Manejamos pagos por Nequi,
+Bancolombia, DaviPlata,
+pagos de contado y contra entrega.
+</p>
 
+</div>
 
-  <section
-    id="vistaLociones"
-    class="vista-categoria"
-  >
 
-    <div class="encabezado-categoria">
+<div class="info-card">
 
-      <button
-        class="boton-volver"
-        onclick="volverInicio()"
-      >
-        ← Volver a categorías
-      </button>
+<span class="emoji">📲</span>
 
-      <span class="emoji">🧴</span>
+<h3>Pedidos</h3>
 
-      <h2>LOCIONES</h2>
+<p>
+Realiza tu pedido directamente
+por WhatsApp.
+</p>
 
-      <p>
-        Todas nuestras lociones disponibles
-      </p>
+</div>
 
-    </div>
+</section>
 
-    <div
-      id="productosLociones"
-      class="productos"
-    ></div>
+</main>
 
-  </section>
 
+<section
+id="vistaRopa"
+class="vista-categoria">
 
-  <section
-    id="vistaStreaming"
-    class="vista-categoria"
-  >
+<div class="encabezado-categoria">
 
-    <div class="encabezado-categoria">
+<button
+class="boton-volver"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
 
-      <button
-        class="boton-volver"
-        onclick="volverInicio()"
-      >
-        ← Volver a categorías
-      </button>
+<span class="emoji">👕</span>
 
-      <span class="emoji">📺</span>
+<h2>ROPA</h2>
 
-      <h2>STREAMING</h2>
+<p>Toda nuestra ropa disponible</p>
 
-      <p>
-        Todos nuestros servicios disponibles
-      </p>
+</div>
 
-    </div>
+<div
+id="productosRopa"
+class="productos">
+</div>
 
-    <div
-      id="productosStreaming"
-      class="productos"
-    ></div>
+</section>
 
-  </section>
 
+<section
+id="vistaZapatos"
+class="vista-categoria">
 
-  <section id="resultadosBusqueda">
+<div class="encabezado-categoria">
 
-    <h2 class="titulo-busqueda">
-      Resultados de búsqueda
-    </h2>
+<button
+class="boton-volver"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
 
-    <div
-      id="productosBusqueda"
-      class="productos"
-    ></div>
+<span class="emoji">👟</span>
 
-  </section>
+<h2>ZAPATOS</h2>
 
+<p>Todos nuestros zapatos disponibles</p>
 
-  <!-- =========================
-       CARRITO
-  ========================== -->
+</div>
 
-  <aside
-    id="carritoPanel"
-    class="carrito-panel"
-  >
+<div
+id="productosZapatos"
+class="productos">
+</div>
 
-    <div class="carrito-cabecera">
+</section>
 
-      <h2>
-        🛒 Mi carrito
-      </h2>
 
-      <button
-        class="cerrar-carrito"
-        onclick="cerrarCarrito()"
-      >
-        ×
-      </button>
+<section
+id="vistaLociones"
+class="vista-categoria">
 
-    </div>
+<div class="encabezado-categoria">
 
-    <div id="itemsCarrito"></div>
+<button
+class="boton-volver"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
 
-    <div class="carrito-total">
+<span class="emoji">🧴</span>
 
-      <strong>
+<h2>LOCIONES</h2>
 
-        <span>
-          Total
-        </span>
+<p>Todas nuestras lociones disponibles</p>
 
-        <span id="totalCarrito">
-          $0
-        </span>
+</div>
 
-      </strong>
+<div
+id="productosLociones"
+class="productos">
+</div>
 
-      <button
-        class="boton-whatsapp"
-        onclick="enviarPedidoWhatsApp()"
-      >
-        📲 Pedir por WhatsApp
-      </button>
+</section>
 
-    </div>
 
-  </aside>
+<section
+id="vistaStreaming"
+class="vista-categoria">
 
+<div class="encabezado-categoria">
 
-  <button
-    id="botonMusica"
-    onclick="alternarMusica()"
-  >
-    ▶ Música
-  </button>
+<button
+class="boton-volver"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
 
+<span class="emoji">📺</span>
 
-  <audio
-    id="musicaTienda"
-    loop
-    preload="auto"
-  >
+<h2>STREAMING</h2>
 
-    <source
-      src="https://andrex29-code.github.io/Andrex-store/musica.mp3"
-      type="audio/mpeg"
-    >
+<p>Todos nuestros servicios disponibles</p>
 
-  </audio>
+</div>
 
+<div
+id="productosStreaming"
+class="productos">
+</div>
 
-  <script type="module">
+</section>
 
-    /* =========================================
-       FIREBASE
-    ========================================= */
 
-    import {
-      initializeApp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<section
+id="resultadosBusqueda"
+style="display:none">
 
-    import {
-      getFirestore,
-      collection,
-      getDocs,
-      addDoc,
-      serverTimestamp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+<h2 class="titulo-busqueda">
+Resultados de búsqueda
+</h2>
 
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      onAuthStateChanged,
-      signOut,
-      sendPasswordResetEmail
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+<div
+id="productosBusqueda"
+class="productos">
+</div>
 
+</section>
 
-    const firebaseConfig = {
 
-      apiKey:
-        "AIzaSyBGb7jgkOKWeNnJed6QPDMW-4-933gG59I",
+<aside
+id="carritoPanel"
+class="carrito-panel">
 
-      authDomain:
-        "andrex-store.firebaseapp.com",
+<div class="carrito-cabecera">
 
-      projectId:
-        "andrex-store",
+<h2>🛒 Mi carrito</h2>
 
-      storageBucket:
-        "andrex-store.firebasestorage.app",
+<button
+class="cerrar-carrito"
+onclick="cerrarCarrito()">
+×
+</button>
 
-      messagingSenderId:
-        "607192665861",
+</div>
 
-      appId:
-        "1:607192665861:web:a4fb90f3a2009d6491716c"
+<div id="itemsCarrito"></div>
 
-    };
+<div class="carrito-total">
 
+<strong>
 
-    const app =
-      initializeApp(
-        firebaseConfig
-      );
+<span>Total</span>
 
+<span id="totalCarrito">
+$0
+</span>
 
-    const db =
-      getFirestore(app);
+</strong>
 
+<button
+class="boton-whatsapp"
+onclick="enviarPedidoWhatsApp()">
 
-    const auth =
-      getAuth(app);
+📲 Pedir por WhatsApp
 
+</button>
 
-    let productos = [];
+</div>
 
+</aside>
 
-    let carrito =
-      JSON.parse(
-        localStorage.getItem(
-          "andrexCarrito"
-        )
-      ) || [];
 
+<button
+id="botonMusica"
+onclick="alternarMusica()">
 
-    const paginaPrincipal =
-      document.getElementById(
-        "paginaPrincipal"
-      );
+▶ Música
 
+</button>
 
-    const vistaRopa =
-      document.getElementById(
-        "vistaRopa"
-      );
 
+<audio
+id="musicaTienda"
+loop
+preload="auto">
 
-    const vistaZapatos =
-      document.getElementById(
-        "vistaZapatos"
-      );
+<source
+src="https://andrex29-code.github.io/Andrex-store/musica.mp3"
+type="audio/mpeg">
 
+</audio>
 
-    const vistaLociones =
-      document.getElementById(
-        "vistaLociones"
-      );
 
+<!-- =========================
+     LOGIN ADMIN
+========================= -->
 
-    const vistaStreaming =
-      document.getElementById(
-        "vistaStreaming"
-      );
+<div
+id="modalLogin"
+class="modal oculto">
 
+<div
+class="modal-box"
+style="max-width:430px">
 
-    const resultadosBusqueda =
-      document.getElementById(
-        "resultadosBusqueda"
-      );
+<div class="modal-head">
 
+<h2>🔐 Administración</h2>
 
-    const adminLogin =
-      document.getElementById(
-        "adminLogin"
-      );
+<button
+class="cerrar-modal"
+onclick="cerrarModal('modalLogin')">
+×
+</button>
 
+</div>
 
-    const adminPanel =
-      document.getElementById(
-        "adminPanel"
-      );
 
+<div
+id="loginMensaje"
+class="mensaje">
+</div>
 
-    /* =========================================
-       CATEGORÍAS
-    ========================================= */
 
-    function normalizarCategoria(categoria) {
+<div class="campo">
 
-      return (
-        (categoria || "")
-          .toString()
-          .trim()
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(
-            /[\u0300-\u036f]/g,
-            ""
-          )
-      );
+<label>
+Correo de administrador
+</label>
 
-    }
+<input
+id="loginEmail"
+type="email"
+autocomplete="username"
+placeholder="Tu correo de Firebase">
 
+</div>
 
-    /* =========================================
-       CARGAR PRODUCTOS FIREBASE
-    ========================================= */
 
-    async function cargarFirebase() {
+<div
+class="campo"
+style="margin-top:10px">
 
-      try {
+<label>
+Contraseña
+</label>
 
-        const snapshot =
-          await getDocs(
-            collection(
-              db,
-              "productos"
-            )
-          );
+<input
+id="loginPassword"
+type="password"
+autocomplete="current-password"
+placeholder="Tu contraseña">
 
+</div>
 
-        productos = [];
 
+<div class="acciones">
 
-        snapshot.forEach(
-          (documento) => {
+<button
+class="btn-principal"
+id="btnLogin"
+type="button">
 
-            const data =
-              documento.data();
+Ingresar
 
+</button>
 
-            productos.push({
+</div>
 
-              id:
-                documento.id,
 
-              ...data
+<button
+id="btnRestablecer"
+class="link-reset"
+type="button">
 
-            });
+¿Olvidaste tu contraseña?
 
-          }
-        );
+</button>
 
 
-        renderizarTodos();
+<p
+style="font-size:11px;color:#927a61;margin-top:12px;text-align:center">
 
+La contraseña no se guarda en esta página.
 
-      } catch (error) {
+</p>
 
-        console.error(
-          "Error cargando Firebase:",
-          error
-        );
+</div>
 
+</div>
 
-        renderizarTodos();
 
-      }
+<!-- =========================
+     PANEL ADMIN
+========================= -->
 
-    }
+<div
+id="modalAdmin"
+class="modal oculto">
 
+<div class="modal-box">
 
-    /* =========================================
-       CARGAR ROPA DESDE GITHUB
-    ========================================= */
+<div class="modal-head">
 
-    async function cargarRopaGitHub() {
+<h2>
+🛠️ Panel de Administración
+</h2>
 
-      try {
+<button
+class="cerrar-modal"
+onclick="cerrarModal('modalAdmin')">
+×
+</button>
 
-        const url =
-          "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main";
+</div>
 
 
-        const respuesta =
-          await fetch(url);
+<div
+id="adminMensaje"
+class="mensaje">
+</div>
 
 
-        if (!respuesta.ok) {
+<form id="productoForm">
 
-          throw new Error(
-            "No se pudo cargar GitHub"
-          );
+<input
+type="hidden"
+id="productoId">
 
-        }
+<input
+type="hidden"
+id="productoStoragePath">
 
 
-        const archivos =
-          await respuesta.json();
+<div class="form-grid">
 
 
-        archivos.forEach(
-          (archivo) => {
+<div class="campo">
 
-            const nombreArchivo =
-              archivo.name.toLowerCase();
+<label>
+Nombre del producto
+</label>
 
+<input
+id="nombreProducto"
+required
+placeholder="Ej: Camiseta Nike">
 
-            if (
-              nombreArchivo.includes(
-                "3285"
-              )
-            ) {
+</div>
 
-              return;
 
-            }
+<div class="campo">
 
+<label>
+Categoría
+</label>
 
-            const esImagen =
-              nombreArchivo.endsWith(
-                ".jpg"
-              ) ||
-              nombreArchivo.endsWith(
-                ".jpeg"
-              ) ||
-              nombreArchivo.endsWith(
-                ".png"
-              ) ||
-              nombreArchivo.endsWith(
-                ".webp"
-              );
+<select
+id="categoriaProducto"
+required>
 
+<option value="ropa">
+Ropa
+</option>
 
-            if (!esImagen) {
+<option value="zapatos">
+Zapatos
+</option>
 
-              return;
+<option value="lociones">
+Lociones
+</option>
 
-            }
+<option value="streaming">
+Streaming
+</option>
 
+</select>
 
-            const yaExiste =
-              productos.some(
-                (producto) =>
-                  (
-                    producto.imagen ||
-                    producto.image ||
-                    producto.foto ||
-                    ""
-                  ) ===
-                  archivo.download_url
-              );
+</div>
 
 
-            if (yaExiste) {
+<div class="campo">
 
-              return;
+<label>
+Precio (COP)
+</label>
 
-            }
+<input
+id="precioProducto"
+type="number"
+min="0"
+required
+placeholder="50000">
 
+</div>
 
-            productos.push({
 
-              id:
-                "github-" +
-                archivo.name,
+<div class="campo full">
 
-              nombre:
-                archivo.name
-                  .replace(
-                    /\.[^/.]+$/,
-                    ""
-                  )
-                  .replace(
-                    /[-_]/g,
-                    " "
-                  ),
+<label>
+Descripción
+</label>
 
-              precio:
-                0,
+<textarea
+id="descripcionProducto"
+placeholder="Descripción del producto">
+</textarea>
 
-              categoria:
-                "ropa",
+</div>
 
-              imagen:
-                archivo.download_url,
 
-              descripcion:
-                "",
+<div class="campo full">
 
-              origen:
-                "github"
+<label>
+Foto del producto
+</label>
 
-            });
+<input
+id="imagenProducto"
+type="file"
+accept="image/*">
 
-          }
-        );
+<img
+id="previewProducto"
+class="preview">
 
+</div>
 
-        renderizarTodos();
+</div>
 
 
-      } catch (error) {
+<div class="acciones">
 
-        console.error(
-          "Error cargando imágenes de GitHub:",
-          error
-        );
+<button
+class="btn-principal"
+type="submit"
+id="btnGuardarProducto">
 
-      }
+➕ Guardar producto
 
-    }
+</button>
 
 
-    /* =========================================
-       TARJETA PRODUCTO
-    ========================================= */
+<button
+class="btn-secundario"
+type="button"
+id="btnCancelarEdicion">
 
-    function crearTarjetaProducto(producto) {
+Cancelar
 
-      const imagen =
-        producto.imagen ||
-        producto.image ||
-        producto.foto ||
-        "";
+</button>
 
+</div>
 
-      const nombre =
-        producto.nombre ||
-        producto.name ||
-        "Producto";
+</form>
 
 
-      const precio =
-        producto.precio ||
-        producto.price ||
-        0;
+<hr class="separador">
 
 
-      const descripcion =
-        producto.descripcion ||
-        producto.description ||
-        "";
+<h3 style="color:#654a32">
+📦 Productos administrados
+</h3>
 
 
-      const tarjeta =
-        document.createElement(
-          "article"
-        );
+<div
+id="listaAdminProductos">
+</div>
 
 
-      tarjeta.className =
-        "producto";
+<div class="acciones">
 
+<button
+class="btn-secundario"
+id="btnCerrarSesion"
+type="button">
 
-      let imagenHTML =
-        "";
+🚪 Cerrar sesión
 
+</button>
 
-      if (imagen) {
+</div>
 
-        imagenHTML = `
+</div>
 
-          <img
-            src="${imagen}"
-            alt="${nombre}"
-            loading="lazy"
-          >
+</div>
 
-        `;
 
-      } else {
+<script type="module">
 
-        imagenHTML = `
+/* =========================
+   FIREBASE
+========================= */
 
-          <div
-            style="
-              height:240px;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              background:#f1e5d7;
-              font-size:50px;
-            "
-          >
-            🛍️
-          </div>
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-        `;
 
-      }
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-      tarjeta.innerHTML = `
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-        ${imagenHTML}
 
-        <div class="producto-contenido">
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-          <h3>
-            ${nombre}
-          </h3>
 
-          ${
-            descripcion
-              ? `
-                <div class="producto-descripcion">
-                  ${descripcion}
-                </div>
-              `
-              : ""
-          }
+const firebaseConfig={
 
-          <div class="precio">
+apiKey:
+"AIzaSyBGb7jgkOKWeNJed6QPDMW4-933gG59I",
 
-            ${
-              Number(precio) > 0
-                ? "$" +
-                  Number(precio)
-                    .toLocaleString(
-                      "es-CO"
-                    )
-                : "Consultar precio"
-            }
+authDomain:
+"andrex-store.firebaseapp.com",
 
-          </div>
+projectId:
+"andrex-store",
 
-          <button
-            class="boton-agregar"
-          >
-            🛒 Agregar al carrito
-          </button>
+storageBucket:
+"andrex-store.firebasestorage.app",
 
-        </div>
+messagingSenderId:
+"607192665861",
 
-      `;
+appId:
+"1:607192665861:web:a4fb90f3a2009d6491716c"
 
+};
 
-      const boton =
-        tarjeta.querySelector(
-          ".boton-agregar"
-        );
 
+const app=
+initializeApp(firebaseConfig);
 
-      boton.addEventListener(
-        "click",
-        () => {
+const db=
+getFirestore(app);
 
-          agregarAlCarrito(
-            producto
-          );
+const auth=
+getAuth(app);
 
-        }
-      );
+const storage=
+getStorage(app);
 
 
-      return tarjeta;
+let productos=[];
 
-    }
+let carrito=
+JSON.parse(
+localStorage.getItem("andrexCarrito")
+)||[];
 
+let usuarioAdmin=null;
 
-    /* =========================================
-       MOSTRAR PRODUCTOS
-    ========================================= */
 
-    function mostrarProductosCategoria(
-      categoria,
-      contenedor
-    ) {
+const $=
+id=>document.getElementById(id);
 
-      contenedor.innerHTML =
-        "";
 
+const esc=
+s=>String(s??"")
+.replace(
+/[&<>"']/g,
+m=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m])
+);
 
-      const productosCategoria =
-        productos.filter(
-          (producto) => {
 
-            const cat =
-              normalizarCategoria(
-                producto.categoria
-              );
+const catNorm=
+c=>
+(c||"")
+.toString()
+.trim()
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"");
 
 
-            if (
-              categoria === "ropa"
-            ) {
+function aviso(
+id,
+texto,
+tiempo=3500
+){
 
-              return cat === "ropa";
+const e=$(id);
 
-            }
+if(!e)return;
 
+e.textContent=texto;
 
-            if (
-              categoria === "zapatos"
-            ) {
+e.style.display="block";
 
-              return (
-                cat === "zapatos" ||
-                cat === "zapato"
-              );
+clearTimeout(e._t);
 
-            }
+e._t=
+setTimeout(
+()=>e.style.display="none",
+tiempo
+);
 
+}
 
-            if (
-              categoria === "lociones"
-            ) {
 
-              return (
-                cat === "lociones" ||
-                cat === "locion"
-              );
+/* =========================
+   PRODUCTOS FIREBASE
+========================= */
 
-            }
+async function cargarFirebase(){
 
+productos=
+productos.filter(
+p=>String(p.id).startsWith("github-")
+);
 
-            if (
-              categoria === "streaming"
-            ) {
+try{
 
-              return cat === "streaming";
+const snap=
+await getDocs(
+collection(db,"productos")
+);
 
-            }
+snap.forEach(
+d=>
+productos.push({
+id:d.id,
+...d.data()
+})
+);
 
+}catch(e){
 
-            return false;
+console.error(
+"Error Firebase:",
+e
+);
 
-          }
-        );
+}
 
+renderizarTodos();
 
-      if (
-        productosCategoria.length === 0
-      ) {
+}
 
-        contenedor.innerHTML = `
 
-          <div class="sin-productos">
+/* =========================
+   ROPA GITHUB
+========================= */
 
-            <div
-              style="font-size:45px;"
-            >
-              🛍️
-            </div>
+async function cargarRopaGitHub(){
 
-            <p>
-              Aún no hay productos disponibles
-              en esta categoría.
-            </p>
+try{
 
-          </div>
+const r=
+await fetch(
+"https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main"
+);
 
-        `;
+if(!r.ok)
+throw new Error(
+"GitHub no disponible"
+);
 
-        return;
+const archivos=
+await r.json();
 
-      }
 
+archivos.forEach(
+a=>{
 
-      productosCategoria.forEach(
-        (producto) => {
+const n=
+a.name.toLowerCase();
 
-          contenedor.appendChild(
-            crearTarjetaProducto(
-              producto
-            )
-          );
 
-        }
-      );
+if(n.includes("3285"))
+return;
 
-    }
 
+if(!/\.(jpg|jpeg|png|webp)$/i.test(n))
+return;
 
-    function renderizarTodos() {
 
-      mostrarProductosCategoria(
-        "ropa",
-        document.getElementById(
-          "productosRopa"
-        )
-      );
+if(
+productos.some(
+p=>
+(p.imagen||"")===
+a.download_url
+)
+)
+return;
 
 
-      mostrarProductosCategoria(
-        "zapatos",
-        document.getElementById(
-          "productosZapatos"
-        )
-      );
+productos.push({
 
+id:
+"github-"+a.name,
 
-      mostrarProductosCategoria(
-        "lociones",
-        document.getElementById(
-          "productosLociones"
-        )
-      );
+nombre:
+a.name
+.replace(/\.[^/.]+$/,"")
+.replace(/[-_]/g," "),
 
+precio:0,
 
-      mostrarProductosCategoria(
-        "streaming",
-        document.getElementById(
-          "productosStreaming"
-        )
-      );
+categoria:"ropa",
 
+imagen:
+a.download_url,
 
-      actualizarCarrito();
+descripcion:""
 
-    }
+});
 
+});
 
-    /* =========================================
-       NAVEGACIÓN CATEGORÍAS
-    ========================================= */
 
-    window.entrarCategoria =
-      function(categoria) {
+renderizarTodos();
 
-        paginaPrincipal.style.display =
-          "none";
+}catch(e){
 
-        adminLogin.style.display =
-          "none";
+console.error(
+"Error cargando ropa:",
+e
+);
 
-        adminPanel.style.display =
-          "none";
+}
 
-        vistaRopa.style.display =
-          "none";
+}
 
-        vistaZapatos.style.display =
-          "none";
 
-        vistaLociones.style.display =
-          "none";
+/* =========================
+   TARJETA
+========================= */
 
-        vistaStreaming.style.display =
-          "none";
+function crearTarjetaProducto(p){
 
-        resultadosBusqueda.style.display =
-          "none";
+const imagen=
+p.imagen||
+p.image||
+p.foto||
+"";
 
+const nombre=
+p.nombre||
+p.name||
+"Producto";
 
-        let vista =
-          null;
+const precio=
+Number(
+p.precio||
+p.price||
+0
+);
 
+const desc=
+p.descripcion||
+p.description||
+"";
 
-        if (
-          categoria === "ropa"
-        ) {
-          vista = vistaRopa;
-        }
 
+const card=
+document.createElement("article");
 
-        if (
-          categoria === "zapatos"
-        ) {
-          vista = vistaZapatos;
-        }
+card.className=
+"producto";
 
 
-        if (
-          categoria === "lociones"
-        ) {
-          vista = vistaLociones;
-        }
+card.innerHTML=
 
+`${
 
-        if (
-          categoria === "streaming"
-        ) {
-          vista = vistaStreaming;
-        }
+imagen
 
+?
 
-        if (vista) {
+`<img
+src="${esc(imagen)}"
+alt="${esc(nombre)}"
+loading="lazy">`
 
-          vista.style.display =
-            "block";
+:
 
+`<div
+style="
+height:240px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f1e5d7;
+font-size:50px">
 
-          window.scrollTo({
+🛍️
 
-            top: 0,
+</div>`
 
-            behavior: "smooth"
+}
 
-          });
+<div class="producto-contenido">
 
-        }
+<h3>
+${esc(nombre)}
+</h3>
 
-      };
+${
+desc
+?
+`<div class="producto-descripcion">
+${esc(desc)}
+</div>`
+:""
+}
 
+<div class="precio">
 
-    window.volverInicio =
-      function() {
+${
+precio>0
+?
+"$"+precio.toLocaleString("es-CO")
+:
+"Consultar precio"
+}
 
-        vistaRopa.style.display =
-          "none";
+</div>
 
-        vistaZapatos.style.display =
-          "none";
+<button class="boton-agregar">
+🛒 Agregar al carrito
+</button>
 
-        vistaLociones.style.display =
-          "none";
+</div>`;
 
-        vistaStreaming.style.display =
-          "none";
 
-        resultadosBusqueda.style.display =
-          "none";
+card
+.querySelector(
+".boton-agregar"
+)
+.onclick=
+()=>agregarAlCarrito(p);
 
-        adminLogin.style.display =
-          "none";
 
-        adminPanel.style.display =
-          "none";
+return card;
 
-        paginaPrincipal.style.display =
-          "block";
+}
 
 
-        window.scrollTo({
+/* =========================
+   CATEGORIAS
+========================= */
 
-          top: 0,
+function mostrarCategoria(
+c,
+el
+){
 
-          behavior: "smooth"
+el.innerHTML="";
 
-        });
 
-      };
+const arr=
+productos.filter(
+p=>{
 
+const x=
+catNorm(p.categoria);
 
-    /* =========================================
-       BUSCADOR
-    ========================================= */
+return
 
-    window.buscarProductos =
-      function() {
+c==="ropa"
+?
+x==="ropa"
 
-        const texto =
-          document
-            .getElementById(
-              "buscador"
-            )
-            .value
-            .trim()
-            .toLowerCase();
+:
 
+c==="zapatos"
+?
+(
+x==="zapatos"||
+x==="zapato"
+)
 
-        const botonLimpiar =
-          document.getElementById(
-            "botonLimpiar"
-          );
+:
 
+c==="lociones"
+?
+(
+x==="lociones"||
+x==="locion"
+)
 
-        if (!texto) {
+:
 
-          botonLimpiar.style.display =
-            "none";
+x==="streaming";
 
+});
 
-          resultadosBusqueda.style.display =
-            "none";
 
+if(!arr.length){
 
-          paginaPrincipal.style.display =
-            "block";
+el.innerHTML=
 
+`<div class="sin-productos">
 
-          vistaRopa.style.display =
-            "none";
+<div style="font-size:45px">
+🛍️
+</div>
 
+<p>
+Aún no hay productos disponibles
+en esta categoría.
+</p>
 
-          vistaZapatos.style.display =
-            "none";
+</div>`;
 
+return;
 
-          vistaLociones.style.display =
-            "none";
+}
 
 
-          vistaStreaming.style.display =
-            "none";
+arr.forEach(
+p=>
+el.appendChild(
+crearTarjetaProducto(p)
+)
+);
 
+}
 
-          return;
 
-        }
+/* =========================
+   RENDERIZAR
+========================= */
 
+function renderizarTodos(){
 
-        botonLimpiar.style.display =
-          "block";
+mostrarCategoria(
+"ropa",
+$("productosRopa")
+);
 
+mostrarCategoria(
+"zapatos",
+$("productosZapatos")
+);
 
-        paginaPrincipal.style.display =
-          "none";
+mostrarCategoria(
+"lociones",
+$("productosLociones")
+);
 
+mostrarCategoria(
+"streaming",
+$("productosStreaming")
+);
 
-        vistaRopa.style.display =
-          "none";
+actualizarCarrito();
 
+}
 
-        vistaZapatos.style.display =
-          "none";
 
+/* =========================
+   ENTRAR CATEGORIA
+========================= */
 
-        vistaLociones.style.display =
-          "none";
+window.entrarCategoria=
+c=>{
 
+$("paginaPrincipal")
+.style.display="none";
 
-        vistaStreaming.style.display =
-          "none";
+$("resultadosBusqueda")
+.style.display="none";
 
 
-        resultadosBusqueda.style.display =
-          "block";
+[
+"Ropa",
+"Zapatos",
+"Lociones",
+"Streaming"
+]
+.forEach(
+x=>
+$("vista"+x)
+.style.display="none"
+);
 
 
-        const contenedor =
-          document.getElementById(
-            "productosBusqueda"
-          );
+$("vista"+
+c.charAt(0).toUpperCase()+
+c.slice(1))
+.style.display="block";
 
 
-        contenedor.innerHTML =
-          "";
+scrollTo(0,0);
 
+};
 
-        const encontrados =
-          productos.filter(
-            (producto) => {
 
-              const nombre =
-                (
-                  producto.nombre ||
-                  producto.name ||
-                  ""
-                )
-                  .toString()
-                  .toLowerCase();
+/* =========================
+   VOLVER
+========================= */
 
+window.volverInicio=
+()=>{
 
-              const categoria =
-                (
-                  producto.categoria ||
-                  ""
-                )
-                  .toString()
-                  .toLowerCase();
+[
+"Ropa",
+"Zapatos",
+"Lociones",
+"Streaming"
+]
+.forEach(
+x=>
+$("vista"+x)
+.style.display="none"
+);
 
+$("resultadosBusqueda")
+.style.display="none";
 
-              const descripcion =
-                (
-                  producto.descripcion ||
-                  producto.description ||
-                  ""
-                )
-                  .toString()
-                  .toLowerCase();
+$("paginaPrincipal")
+.style.display="block";
 
+scrollTo(0,0);
 
-              return (
-                nombre.includes(texto) ||
-                categoria.includes(texto) ||
-                descripcion.includes(texto)
-              );
+};
 
-            }
-          );
 
+/* =========================
+   BUSCADOR
+========================= */
 
-        if (
-          encontrados.length === 0
-        ) {
+window.buscarProductos=
+()=>{
 
-          contenedor.innerHTML = `
+const t=
+$("buscador")
+.value
+.trim()
+.toLowerCase();
 
-            <div class="sin-productos">
 
-              No encontramos productos
-              con esa búsqueda.
+$("botonLimpiar")
+.style.display=
+t
+?
+"block"
+:
+"none";
 
-            </div>
 
-          `;
+if(!t){
 
-          return;
+volverInicio();
 
-        }
+return;
 
+}
 
-        encontrados.forEach(
-          (producto) => {
 
-            contenedor.appendChild(
-              crearTarjetaProducto(
-                producto
-              )
-            );
+$("paginaPrincipal")
+.style.display="none";
 
-          }
-        );
 
-      };
+[
+"Ropa",
+"Zapatos",
+"Lociones",
+"Streaming"
+]
+.forEach(
+x=>
+$("vista"+x)
+.style.display="none"
+);
 
 
-    window.limpiarBusqueda =
-      function() {
+$("resultadosBusqueda")
+.style.display="block";
 
-        document
-          .getElementById(
-            "buscador"
-          )
-          .value =
-          "";
 
+const out=
+$("productosBusqueda");
 
-        document
-          .getElementById(
-            "botonLimpiar"
-          )
-          .style.display =
-          "none";
+out.innerHTML="";
 
 
-        resultadosBusqueda.style.display =
-          "none";
+const arr=
+productos.filter(
+p=>
+[
+p.nombre,
+p.name,
+p.categoria,
+p.descripcion,
+p.description
+]
+.join(" ")
+.toLowerCase()
+.includes(t)
+);
 
 
-        volverInicio();
+if(!arr.length){
 
-      };
+out.innerHTML=
+'<div class="sin-productos">No encontramos productos con esa búsqueda.</div>';
 
+return;
 
-    /* =========================================
-       CARRITO
-    ========================================= */
+}
 
-    function guardarCarrito() {
 
-      localStorage.setItem(
-        "andrexCarrito",
-        JSON.stringify(
-          carrito
-        )
-      );
+arr.forEach(
+p=>
+out.appendChild(
+crearTarjetaProducto(p)
+)
+);
 
-    }
+};
 
 
-    window.agregarAlCarrito =
-      function(producto) {
+window.limpiarBusqueda=
+()=>{
 
-        carrito.push(
-          producto
-        );
+$("buscador").value="";
 
+$("botonLimpiar")
+.style.display="none";
 
-        guardarCarrito();
+volverInicio();
 
+};
 
-        actualizarCarrito();
 
+/* =========================
+   CARRITO
+========================= */
 
-        abrirCarrito();
+function guardarCarrito(){
 
-      };
+localStorage.setItem(
+"andrexCarrito",
+JSON.stringify(carrito)
+);
 
+}
 
-    function actualizarCarrito() {
 
-      const contenedor =
-        document.getElementById(
-          "itemsCarrito"
-        );
+window.agregarAlCarrito=
+p=>{
 
+carrito.push(p);
 
-      const cantidad =
-        document.getElementById(
-          "cantidadCarrito"
-        );
+guardarCarrito();
 
+actualizarCarrito();
 
-      const total =
-        document.getElementById(
-          "totalCarrito"
-        );
+abrirCarrito();
 
+};
 
-      cantidad.textContent =
-        carrito.length;
 
+function actualizarCarrito(){
 
-      contenedor.innerHTML =
-        "";
+$("cantidadCarrito")
+.textContent=
+carrito.length;
 
 
-      if (
-        carrito.length === 0
-      ) {
+const out=
+$("itemsCarrito");
 
-        contenedor.innerHTML = `
+out.innerHTML="";
 
-          <div class="carrito-vacio">
 
-            🛒<br><br>
+let total=0;
 
-            Tu carrito está vacío.
 
-          </div>
+if(!carrito.length){
 
-        `;
+out.innerHTML=
+`<div
+class="carrito-vacio"
+style="
+text-align:center;
+padding:40px;
+color:#947d66">
 
+🛒
 
-        total.textContent =
-          "$0";
+<br><br>
 
+Tu carrito está vacío.
 
-        return;
+</div>`;
 
-      }
+$("totalCarrito")
+.textContent="$0";
 
+return;
 
-      let totalNumerico =
-        0;
+}
 
 
-      carrito.forEach(
-        (
-          producto,
-          indice
-        ) => {
+carrito.forEach(
+(p,i)=>{
 
-          const precio =
-            Number(
-              producto.precio ||
-              producto.price ||
-              0
-            );
+const precio=
+Number(
+p.precio||
+p.price||
+0
+);
 
 
-          totalNumerico +=
-            precio;
+total+=precio;
 
 
-          const imagen =
-            producto.imagen ||
-            producto.image ||
-            producto.foto ||
-            "";
+const div=
+document.createElement("div");
 
+div.className=
+"item-carrito";
 
-          const nombre =
-            producto.nombre ||
-            producto.name ||
-            "Producto";
 
+div.innerHTML=
 
-          const item =
-            document.createElement(
-              "div"
-            );
+`${
 
+p.imagen
 
-          item.className =
-            "item-carrito";
+?
 
+`<img
+src="${esc(p.imagen)}"
+alt="">`
 
-          item.innerHTML = `
+:
 
-            ${
-              imagen
-                ? `
-                  <img
-                    src="${imagen}"
-                    alt="${nombre}"
-                  >
-                `
-                : `
-                  <div
-                    style="
-                      width:65px;
-                      height:65px;
-                      background:#eee2d3;
-                      border-radius:10px;
-                      display:flex;
-                      align-items:center;
-                      justify-content:center;
-                      font-size:25px;
-                    "
-                  >
-                    🛍️
-                  </div>
-                `
-            }
+`<div
+style="
+width:65px;
+height:65px;
+background:#eee2d3;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center">
 
-            <div class="item-info">
+🛍️
 
-              <h4>
-                ${nombre}
-              </h4>
+</div>`
 
-              <p>
+}
 
-                ${
-                  precio > 0
-                    ? "$" +
-                      precio.toLocaleString(
-                        "es-CO"
-                      )
-                    : "Consultar precio"
-                }
+<div class="item-info">
 
-              </p>
+<h4>
+${esc(p.nombre||p.name||"Producto")}
+</h4>
 
-            </div>
+<p>
 
+${
+precio
+?
+"$"+precio.toLocaleString("es-CO")
+:
+"Consultar precio"
+}
 
-            <button
-              class="eliminar-item"
-              onclick="eliminarDelCarrito(${indice})"
-            >
-              ✕
-            </button>
+</p>
 
-          `;
+</div>
 
+<button
+class="eliminar-item"
+onclick="eliminarDelCarrito(${i})">
 
-          contenedor.appendChild(
-            item
-          );
+✕
 
-        }
-      );
+</button>`;
 
 
-      total.textContent =
-        "$" +
-        totalNumerico.toLocaleString(
-          "es-CO"
-        );
+out.appendChild(div);
 
-    }
+});
 
 
-    window.eliminarDelCarrito =
-      function(indice) {
+$("totalCarrito")
+.textContent=
+"$"+
+total.toLocaleString("es-CO");
 
-        carrito.splice(
-          indice,
-          1
-        );
+}
 
 
-        guardarCarrito();
+window.eliminarDelCarrito=
+i=>{
 
+carrito.splice(i,1);
 
-        actualizarCarrito();
+guardarCarrito();
 
-      };
+actualizarCarrito();
 
+};
 
-    window.abrirCarrito =
-      function() {
 
-        document
-          .getElementById(
-            "carritoPanel"
-          )
-          .classList.add(
-            "abierto"
-          );
+window.abrirCarrito=
+()=>
+$("carritoPanel")
+.classList.add("abierto");
 
-      };
 
+window.cerrarCarrito=
+()=>
+$("carritoPanel")
+.classList.remove("abierto");
 
-    window.cerrarCarrito =
-      function() {
 
-        document
-          .getElementById(
-            "carritoPanel"
-          )
-          .classList.remove(
-            "abierto"
-          );
+window.enviarPedidoWhatsApp=
+()=>{
 
-      };
+if(!carrito.length){
 
+alert(
+"Tu carrito está vacío."
+);
 
-    window.enviarPedidoWhatsApp =
-      function() {
+return;
 
-        if (
-          carrito.length === 0
-        ) {
+}
 
-          alert(
-            "Tu carrito está vacío."
-          );
 
+let m=
+"Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
 
-          return;
+let total=0;
 
-        }
 
+carrito.forEach(
+(p,i)=>{
 
-        let mensaje =
-          "Hola, quiero realizar este pedido en ANDREX Store:%0A%0A";
+const n=
+p.nombre||
+p.name||
+"Producto";
 
+const pr=
+Number(
+p.precio||
+p.price||
+0
+);
 
-        carrito.forEach(
-          (
-            producto,
-            indice
-          ) => {
 
-            const nombre =
-              producto.nombre ||
-              producto.name ||
-              "Producto";
+total+=pr;
 
 
-            const precio =
-              Number(
-                producto.precio ||
-                producto.price ||
-                0
-              );
+m+=
+`${i+1}. ${n}${
+pr
+?
+" - $"+pr.toLocaleString("es-CO")
+:
+""
+}%0A`;
 
+});
 
-            mensaje +=
-              `${indice + 1}. ${nombre}`;
 
+m+=
+`%0ATotal: $${total.toLocaleString("es-CO")}`;
 
-            if (
-              precio > 0
-            ) {
 
-              mensaje +=
-                ` - $${precio.toLocaleString(
-                  "es-CO"
-                )}`;
+window.open(
+"https://wa.me/573181579324?text="+m,
+"_blank"
+);
 
-            }
+};
 
 
-            mensaje +=
-              "%0A";
+/* =========================
+   MUSICA
+========================= */
 
-          }
-        );
+const musica=
+$("musicaTienda");
 
 
-        const total =
-          carrito.reduce(
-            (
-              suma,
-              producto
-            ) =>
-              suma +
-              Number(
-                producto.precio ||
-                producto.price ||
-                0
-              ),
-            0
-          );
+window.alternarMusica=
+()=>{
 
+if(musica.paused){
 
-        mensaje +=
-          `%0ATotal: $${total.toLocaleString(
-            "es-CO"
-          )}`;
+musica
+.play()
+.then(
+()=>
+$("botonMusica")
+.textContent=
+"🔊 Música"
+)
+.catch(
+()=>
+alert(
+"No se pudo reproducir la música."
+)
+);
 
+}else{
 
-        const telefono =
-          "573181579324";
+musica.pause();
 
+$("botonMusica")
+.textContent=
+"▶ Música";
 
-        const url =
-          `https://wa.me/${telefono}?text=${mensaje}`;
+}
 
+};
 
-        window.open(
-          url,
-          "_blank"
-        );
 
-      };
+/* =========================
+   MODALES
+========================= */
 
+function abrirModal(id){
 
-    /* =========================================
-       MÚSICA
-    ========================================= */
+$(id)
+.classList
+.remove("oculto");
 
-    const musica =
-      document.getElementById(
-        "musicaTienda"
-      );
+}
 
 
-    const botonMusica =
-      document.getElementById(
-        "botonMusica"
-      );
+window.cerrarModal=
+id=>
+$(id)
+.classList
+.add("oculto");
 
 
-    window.alternarMusica =
-      function() {
+/* =========================
+   LOGIN
+========================= */
 
-        if (
-          musica.paused
-        ) {
+$("btnAdmin").onclick=
+()=>{
 
-          musica.play()
-            .then(
-              () => {
+if(usuarioAdmin){
 
-                botonMusica.textContent =
-                  "🔊 Música";
+abrirModal(
+"modalAdmin"
+);
 
-              }
-            )
-            .catch(
-              () => {
+listarAdmin();
 
-                alert(
-                  "No se pudo reproducir la música. Revisa que el archivo musica.mp3 esté subido correctamente."
-                );
+}else{
 
-              }
-            );
+abrirModal(
+"modalLogin"
+);
 
-        } else {
+}
 
-          musica.pause();
+};
 
 
-          botonMusica.textContent =
-            "▶ Música";
+/* =========================
+   INGRESAR
+========================= */
 
-        }
+$("btnLogin").onclick=
+async()=>{
 
-      };
+const email=
+$("loginEmail")
+.value
+.trim();
 
+const pass=
+$("loginPassword")
+.value;
 
-    /* =========================================
-       ABRIR ADMINISTRADOR
-    ========================================= */
 
-    window.abrirAdministrador =
-      function() {
+if(!email){
 
-        paginaPrincipal.style.display =
-          "none";
+aviso(
+"loginMensaje",
+"Escribe tu correo."
+);
 
-        vistaRopa.style.display =
-          "none";
+return;
 
-        vistaZapatos.style.display =
-          "none";
+}
 
-        vistaLociones.style.display =
-          "none";
 
-        vistaStreaming.style.display =
-          "none";
+if(!pass){
 
-        resultadosBusqueda.style.display =
-          "none";
+aviso(
+"loginMensaje",
+"Escribe tu contraseña."
+);
 
+return;
 
-        if (
-          auth.currentUser
-        ) {
+}
 
-          adminLogin.style.display =
-            "none";
 
-          adminPanel.style.display =
-            "block";
+const btn=
+$("btnLogin");
 
-        } else {
 
-          adminPanel.style.display =
-            "none";
+btn.disabled=true;
 
-          adminLogin.style.display =
-            "block";
+btn.textContent=
+"Ingresando...";
 
-        }
 
+try{
 
-        window.scrollTo({
+const cred=
+await signInWithEmailAndPassword(
+auth,
+email,
+pass
+);
 
-          top: 0,
 
-          behavior: "smooth"
+/*
+   LOGIN CORRECTO
+   AQUÍ SE ABRE AUTOMÁTICAMENTE
+   EL PANEL DE ADMINISTRACIÓN
+*/
 
-        });
+usuarioAdmin=
+cred.user;
 
-      };
 
+$("loginPassword")
+.value="";
 
-    /* =========================================
-       INICIAR SESIÓN ADMIN
-    ========================================= */
 
-    window.iniciarSesionAdmin =
-      async function() {
+cerrarModal(
+"modalLogin"
+);
 
-        const email =
-          document
-            .getElementById(
-              "adminEmail"
-            )
-            .value
-            .trim();
 
+abrirModal(
+"modalAdmin"
+);
 
-        const password =
-          document
-            .getElementById(
-              "adminPassword"
-            )
-            .value;
 
+$("adminMensaje")
+.style.display="block";
 
-        const mensaje =
-          document.getElementById(
-            "mensajeLogin"
-          );
+$("adminMensaje")
+.textContent=
+"✅ Inicio de sesión correcto.";
 
 
-        const boton =
-          document.getElementById(
-            "botonEntrarAdmin"
-          );
+$("adminMensaje")
+.style.display="none";
 
 
-        if (!email) {
+listarAdmin();
 
-          mensaje.className =
-            "estado-admin error";
 
-          mensaje.textContent =
-            "❌ Escribe tu correo.";
+$("btnAdmin")
+.textContent=
+"🛠️ Panel Admin";
 
-          return;
 
-        }
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 
-        if (!password) {
+}catch(e){
 
-          mensaje.className =
-            "estado-admin error";
+console.error(
+"Error de inicio de sesión:",
+e
+);
 
-          mensaje.textContent =
-            "❌ Escribe tu contraseña.";
 
-          return;
+let mensaje=
+"❌ No se pudo iniciar sesión.";
 
-        }
 
+switch(e.code){
 
-        boton.disabled =
-          true;
+case "auth/invalid-credential":
 
-        boton.textContent =
-          "⏳ Entrando...";
+mensaje=
+"❌ El correo o la contraseña son incorrectos.";
 
+break;
 
-        mensaje.className =
-          "estado-admin";
 
-        mensaje.textContent =
-          "Verificando acceso...";
+case "auth/wrong-password":
 
+mensaje=
+"❌ La contraseña es incorrecta.";
 
-        try {
+break;
 
-          await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
 
+case "auth/user-not-found":
 
-          mensaje.className =
-            "estado-admin exito";
+mensaje=
+"❌ No existe una cuenta con ese correo.";
 
-          mensaje.textContent =
-            "✅ Inicio de sesión correcto.";
+break;
 
 
-        } catch (error) {
+case "auth/invalid-email":
 
-          console.error(
-            "ERROR DE LOGIN:",
-            error
-          );
+mensaje=
+"❌ El correo no tiene un formato válido.";
 
+break;
 
-          mensaje.className =
-            "estado-admin error";
 
+case "auth/too-many-requests":
 
-          switch (
-            error.code
-          ) {
+mensaje=
+"⚠️ Demasiados intentos. Espera un momento y vuelve a intentar.";
 
-            case "auth/invalid-credential":
+break;
 
-              mensaje.textContent =
-                "❌ Correo o contraseña incorrectos.";
 
-              break;
+case "auth/network-request-failed":
 
+mensaje=
+"❌ No hay conexión con Firebase. Revisa tu internet.";
 
-            case "auth/wrong-password":
+break;
 
-              mensaje.textContent =
-                "❌ Contraseña incorrecta.";
 
-              break;
+case "auth/operation-not-allowed":
 
+mensaje=
+"❌ El acceso con correo y contraseña no está activado en Firebase.";
 
-            case "auth/user-not-found":
+break;
 
-              mensaje.textContent =
-                "❌ No existe una cuenta con ese correo.";
 
-              break;
+default:
 
+mensaje=
+"❌ Error de Firebase: "+
+(e.code||e.message);
 
-            case "auth/invalid-email":
+}
 
-              mensaje.textContent =
-                "❌ El correo no es válido.";
 
-              break;
+aviso(
+"loginMensaje",
+mensaje,
+7000
+);
 
 
-            case "auth/too-many-requests":
+}finally{
 
-              mensaje.textContent =
-                "❌ Demasiados intentos. Espera un momento e inténtalo nuevamente.";
+btn.disabled=false;
 
-              break;
+btn.textContent=
+"Ingresar";
 
+}
 
-            case "auth/network-request-failed":
+};
 
-              mensaje.textContent =
-                "❌ No hay conexión con Firebase.";
 
-              break;
+/* =========================
+   RESTABLECER CONTRASEÑA
+========================= */
 
+$("btnRestablecer")
+.onclick=
+async()=>{
 
-            case "auth/operation-not-allowed":
+const email=
+$("loginEmail")
+.value
+.trim();
 
-              mensaje.textContent =
-                "❌ El acceso por correo y contraseña está desactivado en Firebase.";
 
-              break;
+if(!email){
 
+aviso(
+"loginMensaje",
+"Primero escribe tu correo de administrador para enviarte el enlace de recuperación.",
+7000
+);
 
-            default:
+$("loginEmail").focus();
 
-              mensaje.textContent =
-                "❌ Error de Firebase: " +
-                (
-                  error.code ||
-                  "desconocido"
-                );
+return;
 
-          }
+}
 
-        } finally {
 
-          boton.disabled =
-            false;
+try{
 
-          boton.textContent =
-            "Ingresar";
+await sendPasswordResetEmail(
+auth,
+email
+);
 
-        }
 
-      };
+aviso(
+"loginMensaje",
+"✅ Te enviamos un enlace para restablecer tu contraseña. Revisa tu correo.",
+7000
+);
 
 
-    /* =========================================
-       RESTABLECER CONTRASEÑA
-    ========================================= */
+}catch(e){
 
-    window.restablecerContrasena =
-      async function() {
+console.error(
+"Error restableciendo contraseña:",
+e
+);
 
-        const emailInput =
-          document.getElementById(
-            "adminEmail"
-          );
 
+let mensaje=
+"❌ No se pudo enviar el correo de recuperación.";
 
-        const mensaje =
-          document.getElementById(
-            "mensajeLogin"
-          );
 
+switch(e.code){
 
-        let email =
-          emailInput.value
-            .trim()
-            .toLowerCase();
+case "auth/user-not-found":
 
+mensaje=
+"❌ No existe una cuenta de Firebase con ese correo.";
 
-        if (!email) {
+break;
 
-          email =
-            prompt(
-              "Escribe el correo de tu cuenta de administrador:"
-            );
 
+case "auth/invalid-email":
 
-          if (!email) {
+mensaje=
+"❌ El correo no es válido.";
 
-            return;
+break;
 
-          }
 
+case "auth/too-many-requests":
 
-          email =
-            email
-              .trim()
-              .toLowerCase();
+mensaje=
+"⚠️ Demasiados intentos. Espera un momento.";
 
-        }
+break;
 
 
-        if (!email) {
+default:
 
-          mensaje.className =
-            "estado-admin error";
+mensaje=
+"❌ Error de Firebase: "+
+(e.code||e.message);
 
-          mensaje.textContent =
-            "❌ Escribe un correo electrónico.";
+}
 
-          return;
 
-        }
+aviso(
+"loginMensaje",
+mensaje,
+7000
+);
 
+}
 
-        mensaje.className =
-          "estado-admin exito";
+};
 
-        mensaje.textContent =
-          "⏳ Enviando correo de recuperación...";
 
+/* =========================
+   ESTADO LOGIN
+========================= */
 
-        try {
+onAuthStateChanged(
+auth,
+user=>{
 
-          await sendPasswordResetEmail(
-            auth,
-            email
-          );
+usuarioAdmin=
+user||null;
 
 
-          mensaje.className =
-            "estado-admin exito";
+if(user){
 
-          mensaje.textContent =
-            "✅ Correo enviado. Revisa tu bandeja de entrada y Spam.";
+$("btnAdmin")
+.textContent=
+"🛠️ Panel Admin";
 
+}else{
 
-        } catch (error) {
+$("btnAdmin")
+.textContent=
+"🔐 Administración";
 
-          console.error(
-            "ERROR AL RESTABLECER:",
-            error
-          );
+}
 
+}
+);
 
-          mensaje.className =
-            "estado-admin error";
 
+/* =========================
+   CERRAR SESION
+========================= */
 
-          switch (
-            error.code
-          ) {
+$("btnCerrarSesion")
+.onclick=
+async()=>{
 
-            case "auth/invalid-email":
+await signOut(auth);
 
-              mensaje.textContent =
-                "❌ El correo no es válido.";
+usuarioAdmin=null;
 
-              break;
+cerrarModal(
+"modalAdmin"
+);
 
+$("btnAdmin")
+.textContent=
+"🔐 Administración";
 
-            case "auth/user-not-found":
+};
 
-              mensaje.textContent =
-                "❌ No existe una cuenta con ese correo.";
 
-              break;
+/* =========================
+   FOTO PREVIEW
+========================= */
 
+$("imagenProducto")
+.onchange=
+()=>{
 
-            case "auth/too-many-requests":
+const f=
+$("imagenProducto")
+.files[0];
 
-              mensaje.textContent =
-                "❌ Demasiadas solicitudes. Espera unos minutos.";
+const img=
+$("previewProducto");
 
-              break;
 
+if(f){
 
-            case "auth/network-request-failed":
+img.src=
+URL.createObjectURL(f);
 
-              mensaje.textContent =
-                "❌ No hay conexión con Firebase.";
+img.style.display=
+"block";
 
-              break;
+}else{
 
+img.style.display=
+"none";
 
-            case "auth/operation-not-allowed":
+}
 
-              mensaje.textContent =
-                "❌ El restablecimiento por correo no está habilitado en Firebase.";
+};
 
-              break;
 
+/* =========================
+   LIMPIAR FORMULARIO
+========================= */
 
-            default:
+function limpiarFormulario(){
 
-              mensaje.textContent =
-                "❌ Error de Firebase: " +
-                (
-                  error.code ||
-                  "desconocido"
-                );
+$("productoForm")
+.reset();
 
-          }
+$("productoId")
+.value="";
 
-        }
+$("productoStoragePath")
+.value="";
 
-      };
+$("previewProducto")
+.style.display="none";
 
+$("btnGuardarProducto")
+.textContent=
+"➕ Guardar producto";
 
-    /* =========================================
-       AGREGAR PRODUCTO A FIRESTORE
-    ========================================= */
+}
 
-    window.agregarProducto =
-      async function() {
 
-        if (!auth.currentUser) {
+/* =========================
+   SUBIR FOTO
+========================= */
 
-          alert(
-            "Debes iniciar sesión como administrador."
-          );
+async function subirImagen(file){
 
-          abrirAdministrador();
+const safe=
+file.name
+.replace(
+/[^a-zA-Z0-9._-]/g,
+"_"
+);
 
-          return;
 
-        }
+const path=
+"productos/"+
+Date.now()+
+"-"+
+safe;
 
 
-        const nombre =
-          document
-            .getElementById(
-              "productoNombre"
-            )
-            .value
-            .trim();
+const r=
+ref(
+storage,
+path
+);
 
 
-        const precioTexto =
-          document
-            .getElementById(
-              "productoPrecio"
-            )
-            .value
-            .trim();
+await uploadBytes(
+r,
+file
+);
 
 
-        const imagen =
-          document
-            .getElementById(
-              "productoImagen"
-            )
-            .value
-            .trim();
+return{
 
+url:
+await getDownloadURL(r),
 
-        const categoria =
-          document
-            .getElementById(
-              "productoCategoria"
-            )
-            .value;
+path:path
 
+};
 
-        const descripcion =
-          document
-            .getElementById(
-              "productoDescripcion"
-            )
-            .value
-            .trim();
+}
 
 
-        const mensaje =
-          document.getElementById(
-            "mensajeProducto"
-          );
+/* =========================
+   GUARDAR PRODUCTO
+========================= */
 
+$("productoForm")
+.onsubmit=
+async e=>{
 
-        const boton =
-          document.getElementById(
-            "botonGuardarProducto"
-          );
+e.preventDefault();
 
 
-        if (!nombre) {
+if(!usuarioAdmin){
 
-          mostrarMensajeProducto(
-            "❌ Escribe el nombre del producto.",
-            "error"
-          );
+aviso(
+"adminMensaje",
+"❌ No estás autorizado."
+);
 
-          return;
+return;
 
-        }
+}
 
 
-        if (!precioTexto) {
+const id=
+$("productoId")
+.value;
 
-          mostrarMensajeProducto(
-            "❌ Escribe el precio.",
-            "error"
-          );
 
-          return;
+const nombre=
+$("nombreProducto")
+.value
+.trim();
 
-        }
 
+const categoria=
+$("categoriaProducto")
+.value;
 
-        if (!imagen) {
 
-          mostrarMensajeProducto(
-            "❌ Coloca el link de la foto.",
-            "error"
-          );
+const precio=
+Number(
+$("precioProducto")
+.value||0
+);
 
-          return;
 
-        }
+const descripcion=
+$("descripcionProducto")
+.value
+.trim();
 
 
-        let precio =
-          Number(
-            precioTexto
-          );
+const file=
+$("imagenProducto")
+.files[0];
 
 
-        if (
-          isNaN(precio) ||
-          precio < 0
-        ) {
+if(!nombre){
 
-          mostrarMensajeProducto(
-            "❌ El precio no es válido.",
-            "error"
-          );
+aviso(
+"adminMensaje",
+"Escribe el nombre del producto."
+);
 
-          return;
+return;
 
-        }
+}
 
 
-        boton.disabled =
-          true;
+if(!file && !$("previewProducto").src){
 
-        boton.textContent =
-          "⏳ Guardando...";
+aviso(
+"adminMensaje",
+"Selecciona una foto del producto."
+);
 
+return;
 
-        mensaje.className =
-          "mensaje-admin";
+}
 
-        mensaje.textContent =
-          "Guardando producto...";
 
+const btn=
+$("btnGuardarProducto");
 
-        try {
 
-          await addDoc(
-            collection(
-              db,
-              "productos"
-            ),
-            {
+btn.disabled=true;
 
-              nombre:
-                nombre,
+btn.textContent=
+"Guardando...";
 
-              precio:
-                precio,
 
-              imagen:
-                imagen,
+try{
 
-              categoria:
-                categoria,
+let imagen=
+$("previewProducto")
+.src||"";
 
-              descripcion:
-                descripcion,
 
-              creadoPor:
-                auth.currentUser.email,
+let storagePath=
+$("productoStoragePath")
+.value;
 
-              creadoEn:
-                serverTimestamp()
 
-            }
-          );
+if(file){
 
+const subida=
+await subirImagen(file);
 
-          mostrarMensajeProducto(
-            "✅ Producto agregado correctamente.",
-            "exito"
-          );
 
+imagen=
+subida.url;
 
-          document
-            .getElementById(
-              "productoNombre"
-            )
-            .value =
-            "";
+storagePath=
+subida.path;
 
 
-          document
-            .getElementById(
-              "productoPrecio"
-            )
-            .value =
-            "";
+if(
+storagePath&&
+id&&
+$("productoStoragePath").value
+){
 
+try{
 
-          document
-            .getElementById(
-              "productoImagen"
-            )
-            .value =
-            "";
+await deleteObject(
+ref(
+storage,
+$("productoStoragePath").value
+)
+);
 
+}catch(_){}
 
-          document
-            .getElementById(
-              "productoDescripcion"
-            )
-            .value =
-            "";
+}
 
+}
 
-          await cargarFirebase();
 
+const data={
 
-        } catch (error) {
+nombre:nombre,
 
-          console.error(
-            "ERROR AGREGANDO PRODUCTO:",
-            error
-          );
+categoria:categoria,
 
+precio:precio,
 
-          let texto =
-            "❌ No se pudo guardar el producto.";
+descripcion:descripcion,
 
+imagen:imagen,
 
-          if (
-            error.code ===
-            "permission-denied"
-          ) {
+storagePath:storagePath,
 
-            texto =
-              "❌ Firebase no permite guardar productos. Hay que revisar las reglas de Firestore.";
+updatedAt:
+serverTimestamp()
 
-          }
+};
 
 
-          mostrarMensajeProducto(
-            texto,
-            "error"
-          );
+if(id){
 
-        } finally {
+await updateDoc(
+doc(
+db,
+"productos",
+id
+),
+data
+);
 
-          boton.disabled =
-            false;
+}else{
 
-          boton.textContent =
-            "➕ Agregar producto";
+await addDoc(
+collection(
+db,
+"productos"
+),
+{
 
-        }
+...data,
 
-      };
+createdAt:
+serverTimestamp()
 
+}
+);
 
-    function mostrarMensajeProducto(
-      texto,
-      tipo
-    ) {
+}
 
-      const mensaje =
-        document.getElementById(
-          "mensajeProducto"
-        );
 
+aviso(
+"adminMensaje",
+id
+?
+"✅ Producto actualizado."
+:
+"✅ Producto agregado.",
+5000
+);
 
-      mensaje.className =
-        "mensaje-admin " +
-        tipo;
 
+limpiarFormulario();
 
-      mensaje.textContent =
-        texto;
 
-    }
+await cargarFirebase();
 
 
-    /* =========================================
-       CERRAR SESIÓN
-    ========================================= */
+listarAdmin();
 
-    window.cerrarSesionAdmin =
-      async function() {
 
-        try {
+}catch(err){
 
-          await signOut(
-            auth
-          );
+console.error(err);
 
 
-          adminPanel.style.display =
-            "none";
+aviso(
+"adminMensaje",
+"❌ No se pudo guardar: "+
+err.message,
+7000
+);
 
-          adminLogin.style.display =
-            "none";
+}finally{
 
-          paginaPrincipal.style.display =
-            "block";
+btn.disabled=false;
 
 
-          window.scrollTo({
+if(!id){
 
-            top: 0,
+btn.textContent=
+"➕ Guardar producto";
 
-            behavior: "smooth"
+}
 
-          });
+}
 
+};
 
-        } catch (error) {
 
-          console.error(
-            "Error cerrando sesión:",
-            error
-          );
+/* =========================
+   LISTAR ADMIN
+========================= */
 
-        }
+async function listarAdmin(){
 
-      };
+if(!usuarioAdmin)
+return;
 
 
-    /* =========================================
-       ESTADO DE AUTENTICACIÓN
-    ========================================= */
+const out=
+$("listaAdminProductos");
 
-    onAuthStateChanged(
-      auth,
-      (usuario) => {
 
-        if (usuario) {
+out.innerHTML=
+"Cargando...";
 
-          document
-            .getElementById(
-              "adminUsuario"
-            )
-            .textContent =
-            "Sesión: " +
-            usuario.email;
 
+try{
 
-          console.log(
-            "Administrador conectado:",
-            usuario.email
-          );
+const snap=
+await getDocs(
+collection(db,"productos")
+);
 
 
-        } else {
+out.innerHTML="";
 
-          console.log(
-            "No hay administrador conectado."
-          );
 
-        }
+if(snap.empty){
 
-      }
-    );
+out.innerHTML=
+'<p style="color:#927a61;margin-top:10px">No hay productos administrados todavía.</p>';
 
+return;
 
-    /* =========================================
-       ENTER PARA INICIAR SESIÓN
-    ========================================= */
+}
 
-    document
-      .getElementById(
-        "adminPassword"
-      )
-      .addEventListener(
-        "keydown",
-        (evento) => {
 
-          if (
-            evento.key ===
-            "Enter"
-          ) {
+snap.forEach(
+d=>{
 
-            iniciarSesionAdmin();
+const p={
+id:d.id,
+...d.data()
+};
 
-          }
 
-        }
-      );
+const div=
+document.createElement("div");
 
 
-    /* =========================================
-       INICIO
-    ========================================= */
+div.className=
+"admin-producto";
 
-    cargarFirebase();
 
-    cargarRopaGitHub();
+div.innerHTML=
 
-    actualizarCarrito();
+`${
 
-  </script>
+p.imagen
+
+?
+
+`<img
+src="${esc(p.imagen)}"
+alt="">`
+
+:
+
+`<div
+style="
+width:55px;
+height:55px;
+border-radius:8px;
+background:#f1e5d7;
+display:flex;
+align-items:center;
+justify-content:center">
+
+🛍️
+
+</div>`
+
+}
+
+<div class="admin-info">
+
+<strong>
+${esc(p.nombre||"Producto")}
+</strong>
+
+<small>
+
+${esc(p.categoria||"")}
+·
+$${Number(p.precio||0).toLocaleString("es-CO")}
+
+</small>
+
+</div>
+
+<div class="acciones">
+
+<button
+class="btn-secundario"
+data-edit="${d.id}">
+
+✏️
+
+</button>
+
+<button
+class="btn-peligro"
+data-del="${d.id}">
+
+🗑️
+
+</button>
+
+</div>`;
+
+
+div
+.querySelector(
+"[data-edit]"
+)
+.onclick=
+()=>editarProducto(p);
+
+
+div
+.querySelector(
+"[data-del]"
+)
+.onclick=
+()=>eliminarProducto(p);
+
+
+out.appendChild(div);
+
+});
+
+
+}catch(e){
+
+out.innerHTML=
+"<p>Error cargando productos.</p>";
+
+console.error(e);
+
+}
+
+}
+
+
+/* =========================
+   EDITAR
+========================= */
+
+function editarProducto(p){
+
+$("productoId")
+.value=p.id;
+
+
+$("productoStoragePath")
+.value=
+p.storagePath||"";
+
+
+$("nombreProducto")
+.value=
+p.nombre||"";
+
+
+$("categoriaProducto")
+.value=
+catNorm(p.categoria)||"ropa";
+
+
+$("precioProducto")
+.value=
+Number(p.precio||0);
+
+
+$("descripcionProducto")
+.value=
+p.descripcion||"";
+
+
+const img=
+$("previewProducto");
+
+
+if(p.imagen){
+
+img.src=
+p.imagen;
+
+img.style.display=
+"block";
+
+}else{
+
+img.style.display=
+"none";
+
+}
+
+
+$("btnGuardarProducto")
+.textContent=
+"💾 Guardar cambios";
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   ELIMINAR
+========================= */
+
+async function eliminarProducto(p){
+
+if(!usuarioAdmin)
+return;
+
+
+if(
+!confirm(
+`¿Eliminar "${p.nombre||"este producto"}"?`
+)
+)
+return;
+
+
+try{
+
+await deleteDoc(
+doc(
+db,
+"productos",
+p.id
+)
+);
+
+
+if(p.storagePath){
+
+try{
+
+await deleteObject(
+ref(
+storage,
+p.storagePath
+)
+);
+
+}catch(_){}
+
+}
+
+
+aviso(
+"adminMensaje",
+"🗑️ Producto eliminado.",
+5000
+);
+
+
+await cargarFirebase();
+
+
+listarAdmin();
+
+
+}catch(e){
+
+console.error(e);
+
+
+aviso(
+"adminMensaje",
+"❌ No se pudo eliminar: "+
+e.message,
+7000
+);
+
+}
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+cargarFirebase();
+
+cargarRopaGitHub();
+
+actualizarCarrito();
+
+</script>
 
 </body>
 </html>
