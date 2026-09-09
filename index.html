@@ -52,8 +52,6 @@ header{
     0 0 5px #d9b27c,
     0 0 12px rgba(217,178,124,.65);
   white-space:nowrap;
-
-  /* ACCESO OCULTO */
   cursor:pointer;
   user-select:none;
   -webkit-user-select:none;
@@ -98,7 +96,6 @@ button{
   font-weight:bold;
 }
 
-/* BOTON OCULTO PARA CLIENTES */
 .boton-subir.oculto-cliente{
   display:none !important;
 }
@@ -300,6 +297,13 @@ button{
   box-shadow:0 7px 18px rgba(77,54,34,.09);
   display:flex;
   flex-direction:column;
+  cursor:pointer;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.producto:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(77,54,34,.14);
 }
 
 .producto img{
@@ -356,6 +360,114 @@ button{
   padding:35px 20px;
   color:#927b64;
   grid-column:1/-1;
+}
+
+/* =========================
+   PREVISUALIZACIÓN PRODUCTO
+========================= */
+
+#modalProductoPreview{
+  position:fixed;
+  inset:0;
+  z-index:4500;
+  background:rgba(44,31,20,.52);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+#modalProductoPreview.oculto{
+  display:none;
+}
+
+.preview-producto-box{
+  width:55%;
+  max-width:330px;
+  min-width:250px;
+  max-height:82vh;
+  overflow-y:auto;
+  background:#fffaf3;
+  border:1px solid #e4d2bc;
+  border-radius:18px;
+  padding:14px;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  animation:aparecerPreview .2s ease-out;
+}
+
+@keyframes aparecerPreview{
+  from{
+    opacity:0;
+    transform:scale(.92);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.preview-producto-cabecera{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  margin-bottom:5px;
+}
+
+.cerrar-preview{
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:50%;
+  background:#eadcc9;
+  color:#60462e;
+  font-size:21px;
+  line-height:30px;
+  cursor:pointer;
+}
+
+.preview-producto-imagen{
+  width:100%;
+  height:190px;
+  object-fit:contain;
+  border-radius:12px;
+  background:#f1e5d7;
+  display:block;
+}
+
+.preview-producto-info{
+  padding:10px 3px 2px;
+}
+
+.preview-producto-info h2{
+  color:#5e452f;
+  font-size:18px;
+  line-height:1.25;
+  margin-bottom:7px;
+}
+
+.preview-producto-info .preview-precio{
+  color:#8b623b;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.preview-producto-info .preview-descripcion{
+  color:#927a61;
+  font-size:12px;
+  line-height:1.45;
+  margin-bottom:12px;
+}
+
+.preview-boton-carrito{
+  width:100%;
+  border:1px solid #dec8ae;
+  background:#f6eadc;
+  color:#674b31;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 .carrito-panel{
@@ -721,6 +833,32 @@ button{
     padding:10px 5px;
   }
 
+  /* PREVISUALIZACIÓN PEQUEÑA EN CELULAR */
+
+  .preview-producto-box{
+    width:55%;
+    min-width:0;
+    max-width:290px;
+    padding:11px;
+    border-radius:16px;
+  }
+
+  .preview-producto-imagen{
+    height:150px;
+  }
+
+  .preview-producto-info h2{
+    font-size:16px;
+  }
+
+  .preview-producto-info .preview-precio{
+    font-size:16px;
+  }
+
+  .preview-producto-info .preview-descripcion{
+    font-size:11px;
+  }
+
   .form-grid{
     grid-template-columns:1fr;
   }
@@ -784,11 +922,7 @@ button{
 
 <section class="hero">
 
-  <video
-    autoplay
-    muted
-    loop
-    playsinline>
+  <video autoplay muted loop playsinline>
 
     <source
       src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
@@ -807,7 +941,7 @@ button{
   </h1>
 
   <p class="subtitulo">
-    Más que una tienda, somos el lugar donde encuentras tu estilo. Descubre prendas que combinan contigo, tendencias que te inspiran y ese detalle que transforma cualquier look. Porque vestir bien no es seguir a los demás, es llevar tu propia esencia.”
+    Más que una tienda, somos el lugar donde encuentras tu estilo. Descubre prendas que combinan contigo, tendencias que te inspiran y ese detalle que transforma cualquier look. Porque vestir bien no es seguir a los demás, es llevar tu propia esencia.
   </p>
 
   <section class="categorias">
@@ -873,7 +1007,7 @@ button{
     <div class="info-card">
       <span class="emoji">💸</span>
       <h3>pagos</h3>
-      <p>manejamos pagos por nequi bancolombia y daviplata .</p>
+      <p>manejamos pagos por nequi bancolombia y daviplata.</p>
     </div>
 
     <div class="info-card">
@@ -886,9 +1020,7 @@ button{
 
 </main>
 
-<section
-  id="vistaRopa"
-  class="vista-categoria">
+<section id="vistaRopa" class="vista-categoria">
 
   <div class="encabezado-categoria">
 
@@ -915,9 +1047,7 @@ button{
 
 </section>
 
-<section
-  id="vistaZapatos"
-  class="vista-categoria">
+<section id="vistaZapatos" class="vista-categoria">
 
   <div class="encabezado-categoria">
 
@@ -944,9 +1074,7 @@ button{
 
 </section>
 
-<section
-  id="vistaLociones"
-  class="vista-categoria">
+<section id="vistaLociones" class="vista-categoria">
 
   <div class="encabezado-categoria">
 
@@ -973,9 +1101,7 @@ button{
 
 </section>
 
-<section
-  id="vistaStreaming"
-  class="vista-categoria">
+<section id="vistaStreaming" class="vista-categoria">
 
   <div class="encabezado-categoria">
 
@@ -1026,6 +1152,65 @@ button{
   </div>
 
 </section>
+
+<!-- =========================
+     PREVISUALIZACIÓN
+========================= -->
+
+<div
+  id="modalProductoPreview"
+  class="oculto">
+
+  <div
+    class="preview-producto-box"
+    id="previewProductoBox">
+
+    <div class="preview-producto-cabecera">
+
+      <button
+        class="cerrar-preview"
+        onclick="cerrarPreviewProducto()">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <img
+      id="previewProductoImagen"
+      class="preview-producto-imagen"
+      alt="Producto">
+
+    <div class="preview-producto-info">
+
+      <h2 id="previewProductoNombre">
+        Producto
+      </h2>
+
+      <div
+        id="previewProductoPrecio"
+        class="preview-precio">
+      </div>
+
+      <div
+        id="previewProductoDescripcion"
+        class="preview-descripcion">
+      </div>
+
+      <button
+        id="previewBotonCarrito"
+        class="preview-boton-carrito">
+
+        🛒 Agregar al carrito
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
 <aside
   id="carritoPanel"
@@ -1316,13 +1501,6 @@ let carrito =
    ACCESO ADMIN OCULTO
 ========================= */
 
-/*
-  PIN DEL ADMINISTRADOR
-
-  PUEDES CAMBIAR "2580"
-  POR EL PIN QUE QUIERAS.
-*/
-
 const PIN_ADMIN =
   "2580";
 
@@ -1341,10 +1519,6 @@ const botonSubir =
   document.getElementById(
     "btnSubirProducto"
   );
-
-/*
-  5 TOQUES RÁPIDOS SOBRE ANDREX
-*/
 
 logoAdmin.addEventListener(
   "click",
@@ -1550,7 +1724,6 @@ async function cargarFirebase(){
 
 /* =========================
    CARGAR ROPA DE GITHUB
-   EXCLUYE 3285
 ========================= */
 
 async function cargarRopaGitHub(){
@@ -1573,7 +1746,6 @@ async function cargarRopaGitHub(){
       await respuesta.json();
 
     archivos
-
       .filter(
         archivo => {
 
@@ -1610,7 +1782,6 @@ async function cargarRopaGitHub(){
 
         }
       )
-
       .forEach(
         archivo => {
 
@@ -1671,6 +1842,125 @@ async function cargarRopaGitHub(){
   }
 
 }
+
+/* =========================
+   PREVISUALIZAR PRODUCTO
+========================= */
+
+function abrirPreviewProducto(
+  producto
+){
+
+  const imagen =
+    producto.imagen ||
+    producto.image ||
+    producto.foto ||
+    "";
+
+  const nombre =
+    producto.nombre ||
+    producto.name ||
+    "Producto";
+
+  const precio =
+    Number(
+      producto.precio ||
+      producto.price ||
+      0
+    );
+
+  const descripcion =
+    producto.descripcion ||
+    producto.description ||
+    "";
+
+  const imagenPreview =
+    $("previewProductoImagen");
+
+  if(imagen){
+
+    imagenPreview.src =
+      imagen;
+
+    imagenPreview.style.display =
+      "block";
+
+  }
+  else{
+
+    imagenPreview.removeAttribute(
+      "src"
+    );
+
+    imagenPreview.style.display =
+      "none";
+
+  }
+
+  $("previewProductoNombre")
+    .textContent =
+    nombre;
+
+  $("previewProductoPrecio")
+    .textContent =
+    precio
+      ? "$" +
+        precio.toLocaleString(
+          "es-CO"
+        )
+      : "Consultar precio";
+
+  $("previewProductoDescripcion")
+    .textContent =
+    descripcion;
+
+  $("previewBotonCarrito")
+    .onclick =
+    function(){
+
+      agregarAlCarrito(
+        producto
+      );
+
+      cerrarPreviewProducto();
+
+    };
+
+  $("modalProductoPreview")
+    .classList
+    .remove(
+      "oculto"
+    );
+
+}
+
+window.cerrarPreviewProducto =
+function(){
+
+  $("modalProductoPreview")
+    .classList
+    .add(
+      "oculto"
+    );
+
+};
+
+$("modalProductoPreview")
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(
+        event.target ===
+        $("modalProductoPreview")
+      ){
+
+        cerrarPreviewProducto();
+
+      }
+
+    }
+  );
 
 /* =========================
    TARJETA
@@ -1792,16 +2082,36 @@ function crearTarjetaProducto(
 
   `;
 
+  /* TOCAR LA TARJETA = PREVISUALIZAR */
+
+  div.addEventListener(
+    "click",
+    function(){
+
+      abrirPreviewProducto(
+        producto
+      );
+
+    }
+  );
+
+  /* BOTÓN DEL CARRITO = SOLO CARRITO */
+
   div
     .querySelector(
       ".boton-agregar"
     )
     .addEventListener(
       "click",
-      () =>
+      function(event){
+
+        event.stopPropagation();
+
         agregarAlCarrito(
           producto
-        )
+        );
+
+      }
     );
 
   return div;
@@ -2449,7 +2759,7 @@ function(){
 };
 
 /* =========================
-   MODAL
+   MODAL ADMIN
 ========================= */
 
 function abrirModal(id){
@@ -2470,11 +2780,6 @@ function(id){
     .add(
       "oculto"
     );
-
-  /*
-    CUANDO SE CIERRA EL PANEL
-    SE OCULTA OTRA VEZ EL BOTON
-  */
 
   if(
     id === "modalProductos"
@@ -2499,11 +2804,6 @@ function(id){
 
 };
 
-/* =========================
-   SUBIR PRODUCTO
-   DIRECTAMENTE
-========================= */
-
 $("btnSubirProducto")
   .onclick =
   function(){
@@ -2523,7 +2823,7 @@ $("btnSubirProducto")
   };
 
 /* =========================
-   PREVIEW
+   PREVIEW DE FOTO ADMIN
 ========================= */
 
 $("imagenProducto")
