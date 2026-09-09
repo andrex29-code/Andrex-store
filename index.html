@@ -930,7 +930,11 @@
     };
 
 
-    const app = initializeApp(appConfig = firebaseConfig);
+    /* =========================================
+       FIREBASE CORREGIDO
+       ========================================= */
+
+    const app = initializeApp(firebaseConfig);
 
     const db = getFirestore(app);
 
@@ -1044,7 +1048,7 @@
 
 
           /* =====================================
-             EXCLUIR COMPLETAMENTE LA FOTO 3285
+             NO MOSTRAR COMPLETAMENTE LA FOTO 3285
              ===================================== */
 
           if (nombreArchivo.includes("3285")) {
