@@ -71,18 +71,21 @@
       gap: 8px;
     }
 
-    .boton-carrito {
+    .boton-carrito,
+    .boton-admin {
       border: 1px solid #dfcdb7;
       background: #fffaf3;
       color: #745438;
       border-radius: 12px;
       padding: 10px 13px;
-      font-size: 16px;
+      font-size: 14px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(103, 75, 46, 0.08);
+      font-weight: bold;
     }
 
-    .boton-carrito:hover {
+    .boton-carrito:hover,
+    .boton-admin:hover {
       background: #f3e7d8;
     }
 
@@ -257,10 +260,6 @@
       font-size: 14px;
     }
 
-    .boton-volver:hover {
-      background: #f2e5d5;
-    }
-
     .encabezado-categoria .emoji {
       font-size: 45px;
       display: block;
@@ -337,12 +336,7 @@
       border-radius: 11px;
       cursor: pointer;
       font-weight: bold;
-      transition: 0.2s;
       margin-top: auto;
-    }
-
-    .boton-agregar:hover {
-      background: #ead7c1;
     }
 
     .sin-productos {
@@ -499,6 +493,226 @@
       font-weight: bold;
     }
 
+    /* =========================
+       ADMINISTRADOR
+    ========================= */
+
+    #adminPanel {
+      display: none;
+      max-width: 700px;
+      margin: 30px auto 60px;
+      padding: 15px;
+    }
+
+    .admin-caja {
+      background: #fffaf3;
+      border: 1px solid #e3d0b9;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(77, 54, 34, 0.12);
+    }
+
+    .admin-titulo {
+      text-align: center;
+      color: #654a32;
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+
+    .admin-subtitulo {
+      text-align: center;
+      color: #9a8269;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .admin-formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .admin-formulario label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #654a32;
+      margin-bottom: -7px;
+    }
+
+    .admin-formulario input,
+    .admin-formulario select {
+      width: 100%;
+      border: 1px solid #dfcdb7;
+      background: #fffdf9;
+      color: #5b4632;
+      border-radius: 12px;
+      padding: 13px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .admin-formulario input:focus,
+    .admin-formulario select:focus {
+      border-color: #c79b68;
+      box-shadow: 0 0 0 3px rgba(199, 155, 104, 0.15);
+    }
+
+    .boton-guardar-producto {
+      width: 100%;
+      border: none;
+      background: #8f6b48;
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .boton-guardar-producto:hover {
+      background: #765538;
+    }
+
+    .boton-guardar-producto:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .boton-cerrar-admin {
+      width: 100%;
+      border: 1px solid #dfcdb7;
+      background: #f5e8da;
+      color: #745438;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .mensaje-admin {
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      font-size: 13px;
+      display: none;
+    }
+
+    .mensaje-admin.exito {
+      display: block;
+      background: #e8f5e9;
+      color: #28743a;
+    }
+
+    .mensaje-admin.error {
+      display: block;
+      background: #fdeaea;
+      color: #a52c2c;
+    }
+
+    #adminLogin {
+      display: none;
+      max-width: 430px;
+      margin: 30px auto 60px;
+      padding: 15px;
+    }
+
+    .login-caja {
+      background: #fffaf3;
+      border: 1px solid #e3d0b9;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(77, 54, 34, 0.12);
+    }
+
+    .login-titulo {
+      text-align: center;
+      color: #654a32;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .login-caja input {
+      width: 100%;
+      border: 1px solid #dfcdb7;
+      background: #fffdf9;
+      border-radius: 12px;
+      padding: 13px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .boton-ingresar {
+      width: 100%;
+      border: none;
+      background: #8f6b48;
+      color: white;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .boton-olvido {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: #8f6b48;
+      padding: 12px 5px 5px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .boton-olvido:hover {
+      color: #654a32;
+    }
+
+    .estado-admin {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 12px;
+      min-height: 18px;
+    }
+
+    .estado-admin.error {
+      color: #b52e2e;
+    }
+
+    .estado-admin.exito {
+      color: #28743a;
+    }
+
+    .admin-barra {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .admin-usuario {
+      font-size: 12px;
+      color: #927a61;
+      word-break: break-all;
+    }
+
+    .boton-salir {
+      border: none;
+      background: #f1dfce;
+      color: #79563a;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
     @media (max-width: 900px) {
       .categorias {
         grid-template-columns: repeat(2, 1fr);
@@ -516,6 +730,11 @@
 
       .logo span {
         font-size: 8px;
+      }
+
+      .boton-admin {
+        font-size: 12px;
+        padding: 9px 10px;
       }
 
       .hero video {
@@ -564,6 +783,12 @@
         font-size: 12px;
         padding: 10px 5px;
       }
+
+      #adminPanel,
+      #adminLogin {
+        padding: 12px;
+        margin-top: 20px;
+      }
     }
 
     @media (max-width: 400px) {
@@ -598,6 +823,13 @@
       </div>
 
       <div class="botones-header">
+
+        <button
+          class="boton-admin"
+          onclick="abrirAdministrador()"
+        >
+          🔐 Admin
+        </button>
 
         <button
           class="boton-carrito"
@@ -667,63 +899,36 @@
         class="categoria"
         onclick="entrarCategoria('ropa')"
       >
-
         <span class="emoji">👕</span>
-
         <h2>ROPA</h2>
-
-        <p>
-          Ver toda la ropa
-        </p>
-
+        <p>Ver toda la ropa</p>
       </div>
-
 
       <div
         class="categoria"
         onclick="entrarCategoria('zapatos')"
       >
-
         <span class="emoji">👟</span>
-
         <h2>ZAPATOS</h2>
-
-        <p>
-          Ver todos los zapatos
-        </p>
-
+        <p>Ver todos los zapatos</p>
       </div>
-
 
       <div
         class="categoria"
         onclick="entrarCategoria('lociones')"
       >
-
         <span class="emoji">🧴</span>
-
         <h2>LOCIONES</h2>
-
-        <p>
-          Ver todas las lociones
-        </p>
-
+        <p>Ver todas las lociones</p>
       </div>
-
 
       <div
         class="categoria"
         onclick="entrarCategoria('streaming')"
       >
-
         <span class="emoji">📺</span>
-
         <h2>STREAMING</h2>
-
-        <p>
-          Ver todos los servicios
-        </p>
-
+        <p>Ver todos los servicios</p>
       </div>
 
     </section>
@@ -732,51 +937,216 @@
     <section class="informacion">
 
       <div class="info-card">
-
         <span class="emoji">🚚</span>
-
         <h3>Envíos</h3>
-
         <p>
           Realizamos envíos a nivel nacional 🇨🇴
           tu como cliente te encargas de pagar
           el envio a tu ciudad ✨.
         </p>
-
       </div>
 
-
       <div class="info-card">
-
         <span class="emoji">💳</span>
-
         <h3>Compra fácil</h3>
-
         <p>
           manejamos pagos por nequi bancolombia
           daviplata pagos de contado y contra
           entrega solo las lociones originales.
         </p>
-
       </div>
 
-
       <div class="info-card">
-
         <span class="emoji">📲</span>
-
         <h3>Pedidos</h3>
-
         <p>
           Realiza tu pedido directamente por WhatsApp.
         </p>
-
       </div>
 
     </section>
 
   </main>
 
+
+  <!-- =========================
+       LOGIN ADMINISTRADOR
+  ========================== -->
+
+  <section id="adminLogin">
+
+    <div class="login-caja">
+
+      <h2 class="login-titulo">
+        🔐 Administrador
+      </h2>
+
+      <input
+        type="email"
+        id="adminEmail"
+        placeholder="Correo electrónico"
+        autocomplete="email"
+      >
+
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Contraseña"
+        autocomplete="current-password"
+      >
+
+      <button
+        class="boton-ingresar"
+        id="botonEntrarAdmin"
+        onclick="iniciarSesionAdmin()"
+      >
+        Ingresar
+      </button>
+
+      <button
+        type="button"
+        class="boton-olvido"
+        onclick="restablecerContrasena()"
+      >
+        ¿Olvidaste tu contraseña?
+      </button>
+
+      <div
+        id="mensajeLogin"
+        class="estado-admin"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PANEL ADMINISTRADOR
+  ========================== -->
+
+  <section id="adminPanel">
+
+    <div class="admin-caja">
+
+      <div class="admin-barra">
+
+        <div>
+          <h2 class="admin-titulo">
+            🛍️ Panel de productos
+          </h2>
+
+          <div
+            id="adminUsuario"
+            class="admin-usuario"
+          ></div>
+        </div>
+
+        <button
+          class="boton-salir"
+          onclick="cerrarSesionAdmin()"
+        >
+          Salir
+        </button>
+
+      </div>
+
+
+      <div class="admin-formulario">
+
+        <label for="productoNombre">
+          Nombre del producto
+        </label>
+
+        <input
+          type="text"
+          id="productoNombre"
+          placeholder="Ej: Camiseta Nike"
+        >
+
+
+        <label for="productoPrecio">
+          Precio
+        </label>
+
+        <input
+          type="number"
+          id="productoPrecio"
+          placeholder="Ej: 85000"
+          min="0"
+        >
+
+
+        <label for="productoImagen">
+          Link de la foto
+        </label>
+
+        <input
+          type="url"
+          id="productoImagen"
+          placeholder="https://..."
+        >
+
+
+        <label for="productoCategoria">
+          Categoría
+        </label>
+
+        <select id="productoCategoria">
+
+          <option value="ropa">
+            👕 Ropa
+          </option>
+
+          <option value="zapatos">
+            👟 Zapatos
+          </option>
+
+          <option value="lociones">
+            🧴 Lociones
+          </option>
+
+          <option value="streaming">
+            📺 Streaming
+          </option>
+
+        </select>
+
+
+        <label for="productoDescripcion">
+          Descripción (opcional)
+        </label>
+
+        <input
+          type="text"
+          id="productoDescripcion"
+          placeholder="Información del producto"
+        >
+
+
+        <button
+          class="boton-guardar-producto"
+          id="botonGuardarProducto"
+          onclick="agregarProducto()"
+        >
+          ➕ Agregar producto
+        </button>
+
+        <div
+          id="mensajeProducto"
+          class="mensaje-admin"
+        ></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CATEGORÍAS
+  ========================== -->
 
   <section
     id="vistaRopa"
@@ -920,6 +1290,10 @@
   </section>
 
 
+  <!-- =========================
+       CARRITO
+  ========================== -->
+
   <aside
     id="carritoPanel"
     class="carrito-panel"
@@ -992,16 +1366,29 @@
 
   <script type="module">
 
+    /* =========================================
+       FIREBASE
+    ========================================= */
+
     import {
       initializeApp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-
     import {
       getFirestore,
       collection,
-      getDocs
+      getDocs,
+      addDoc,
+      serverTimestamp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut,
+      sendPasswordResetEmail
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
     const firebaseConfig = {
@@ -1035,6 +1422,10 @@
 
     const db =
       getFirestore(app);
+
+
+    const auth =
+      getAuth(app);
 
 
     let productos = [];
@@ -1084,9 +1475,23 @@
       );
 
 
-    function normalizarCategoria(
-      categoria
-    ) {
+    const adminLogin =
+      document.getElementById(
+        "adminLogin"
+      );
+
+
+    const adminPanel =
+      document.getElementById(
+        "adminPanel"
+      );
+
+
+    /* =========================================
+       CATEGORÍAS
+    ========================================= */
+
+    function normalizarCategoria(categoria) {
 
       return (
         (categoria || "")
@@ -1102,6 +1507,10 @@
 
     }
 
+
+    /* =========================================
+       CARGAR PRODUCTOS FIREBASE
+    ========================================= */
 
     async function cargarFirebase() {
 
@@ -1156,6 +1565,10 @@
 
     }
 
+
+    /* =========================================
+       CARGAR ROPA DESDE GITHUB
+    ========================================= */
 
     async function cargarRopaGitHub() {
 
@@ -1295,9 +1708,11 @@
     }
 
 
-    function crearTarjetaProducto(
-      producto
-    ) {
+    /* =========================================
+       TARJETA PRODUCTO
+    ========================================= */
+
+    function crearTarjetaProducto(producto) {
 
       const imagen =
         producto.imagen ||
@@ -1439,6 +1854,10 @@
 
     }
 
+
+    /* =========================================
+       MOSTRAR PRODUCTOS
+    ========================================= */
 
     function mostrarProductosCategoria(
       categoria,
@@ -1589,28 +2008,33 @@
     }
 
 
+    /* =========================================
+       NAVEGACIÓN CATEGORÍAS
+    ========================================= */
+
     window.entrarCategoria =
       function(categoria) {
 
         paginaPrincipal.style.display =
           "none";
 
+        adminLogin.style.display =
+          "none";
+
+        adminPanel.style.display =
+          "none";
 
         vistaRopa.style.display =
           "none";
 
-
         vistaZapatos.style.display =
           "none";
-
 
         vistaLociones.style.display =
           "none";
 
-
         vistaStreaming.style.display =
           "none";
-
 
         resultadosBusqueda.style.display =
           "none";
@@ -1623,40 +2047,28 @@
         if (
           categoria === "ropa"
         ) {
-
-          vista =
-            vistaRopa;
-
+          vista = vistaRopa;
         }
 
 
         if (
           categoria === "zapatos"
         ) {
-
-          vista =
-            vistaZapatos;
-
+          vista = vistaZapatos;
         }
 
 
         if (
           categoria === "lociones"
         ) {
-
-          vista =
-            vistaLociones;
-
+          vista = vistaLociones;
         }
 
 
         if (
           categoria === "streaming"
         ) {
-
-          vista =
-            vistaStreaming;
-
+          vista = vistaStreaming;
         }
 
 
@@ -1685,22 +2097,23 @@
         vistaRopa.style.display =
           "none";
 
-
         vistaZapatos.style.display =
           "none";
-
 
         vistaLociones.style.display =
           "none";
 
-
         vistaStreaming.style.display =
           "none";
-
 
         resultadosBusqueda.style.display =
           "none";
 
+        adminLogin.style.display =
+          "none";
+
+        adminPanel.style.display =
+          "none";
 
         paginaPrincipal.style.display =
           "block";
@@ -1716,6 +2129,10 @@
 
       };
 
+
+    /* =========================================
+       BUSCADOR
+    ========================================= */
 
     window.buscarProductos =
       function() {
@@ -1843,15 +2260,9 @@
 
 
               return (
-                nombre.includes(
-                  texto
-                ) ||
-                categoria.includes(
-                  texto
-                ) ||
-                descripcion.includes(
-                  texto
-                )
+                nombre.includes(texto) ||
+                categoria.includes(texto) ||
+                descripcion.includes(texto)
               );
 
             }
@@ -1920,6 +2331,10 @@
 
       };
 
+
+    /* =========================================
+       CARRITO
+    ========================================= */
 
     function guardarCarrito() {
 
@@ -2275,6 +2690,10 @@
       };
 
 
+    /* =========================================
+       MÚSICA
+    ========================================= */
+
     const musica =
       document.getElementById(
         "musicaTienda"
@@ -2326,11 +2745,806 @@
       };
 
 
+    /* =========================================
+       ABRIR ADMINISTRADOR
+    ========================================= */
+
+    window.abrirAdministrador =
+      function() {
+
+        paginaPrincipal.style.display =
+          "none";
+
+        vistaRopa.style.display =
+          "none";
+
+        vistaZapatos.style.display =
+          "none";
+
+        vistaLociones.style.display =
+          "none";
+
+        vistaStreaming.style.display =
+          "none";
+
+        resultadosBusqueda.style.display =
+          "none";
+
+
+        if (
+          auth.currentUser
+        ) {
+
+          adminLogin.style.display =
+            "none";
+
+          adminPanel.style.display =
+            "block";
+
+        } else {
+
+          adminPanel.style.display =
+            "none";
+
+          adminLogin.style.display =
+            "block";
+
+        }
+
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      };
+
+
+    /* =========================================
+       INICIAR SESIÓN ADMIN
+    ========================================= */
+
+    window.iniciarSesionAdmin =
+      async function() {
+
+        const email =
+          document
+            .getElementById(
+              "adminEmail"
+            )
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById(
+              "adminPassword"
+            )
+            .value;
+
+
+        const mensaje =
+          document.getElementById(
+            "mensajeLogin"
+          );
+
+
+        const boton =
+          document.getElementById(
+            "botonEntrarAdmin"
+          );
+
+
+        if (!email) {
+
+          mensaje.className =
+            "estado-admin error";
+
+          mensaje.textContent =
+            "❌ Escribe tu correo.";
+
+          return;
+
+        }
+
+
+        if (!password) {
+
+          mensaje.className =
+            "estado-admin error";
+
+          mensaje.textContent =
+            "❌ Escribe tu contraseña.";
+
+          return;
+
+        }
+
+
+        boton.disabled =
+          true;
+
+        boton.textContent =
+          "⏳ Entrando...";
+
+
+        mensaje.className =
+          "estado-admin";
+
+        mensaje.textContent =
+          "Verificando acceso...";
+
+
+        try {
+
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+
+          mensaje.className =
+            "estado-admin exito";
+
+          mensaje.textContent =
+            "✅ Inicio de sesión correcto.";
+
+
+        } catch (error) {
+
+          console.error(
+            "ERROR DE LOGIN:",
+            error
+          );
+
+
+          mensaje.className =
+            "estado-admin error";
+
+
+          switch (
+            error.code
+          ) {
+
+            case "auth/invalid-credential":
+
+              mensaje.textContent =
+                "❌ Correo o contraseña incorrectos.";
+
+              break;
+
+
+            case "auth/wrong-password":
+
+              mensaje.textContent =
+                "❌ Contraseña incorrecta.";
+
+              break;
+
+
+            case "auth/user-not-found":
+
+              mensaje.textContent =
+                "❌ No existe una cuenta con ese correo.";
+
+              break;
+
+
+            case "auth/invalid-email":
+
+              mensaje.textContent =
+                "❌ El correo no es válido.";
+
+              break;
+
+
+            case "auth/too-many-requests":
+
+              mensaje.textContent =
+                "❌ Demasiados intentos. Espera un momento e inténtalo nuevamente.";
+
+              break;
+
+
+            case "auth/network-request-failed":
+
+              mensaje.textContent =
+                "❌ No hay conexión con Firebase.";
+
+              break;
+
+
+            case "auth/operation-not-allowed":
+
+              mensaje.textContent =
+                "❌ El acceso por correo y contraseña está desactivado en Firebase.";
+
+              break;
+
+
+            default:
+
+              mensaje.textContent =
+                "❌ Error de Firebase: " +
+                (
+                  error.code ||
+                  "desconocido"
+                );
+
+          }
+
+        } finally {
+
+          boton.disabled =
+            false;
+
+          boton.textContent =
+            "Ingresar";
+
+        }
+
+      };
+
+
+    /* =========================================
+       RESTABLECER CONTRASEÑA
+    ========================================= */
+
+    window.restablecerContrasena =
+      async function() {
+
+        const emailInput =
+          document.getElementById(
+            "adminEmail"
+          );
+
+
+        const mensaje =
+          document.getElementById(
+            "mensajeLogin"
+          );
+
+
+        let email =
+          emailInput.value
+            .trim()
+            .toLowerCase();
+
+
+        if (!email) {
+
+          email =
+            prompt(
+              "Escribe el correo de tu cuenta de administrador:"
+            );
+
+
+          if (!email) {
+
+            return;
+
+          }
+
+
+          email =
+            email
+              .trim()
+              .toLowerCase();
+
+        }
+
+
+        if (!email) {
+
+          mensaje.className =
+            "estado-admin error";
+
+          mensaje.textContent =
+            "❌ Escribe un correo electrónico.";
+
+          return;
+
+        }
+
+
+        mensaje.className =
+          "estado-admin exito";
+
+        mensaje.textContent =
+          "⏳ Enviando correo de recuperación...";
+
+
+        try {
+
+          await sendPasswordResetEmail(
+            auth,
+            email
+          );
+
+
+          mensaje.className =
+            "estado-admin exito";
+
+          mensaje.textContent =
+            "✅ Correo enviado. Revisa tu bandeja de entrada y Spam.";
+
+
+        } catch (error) {
+
+          console.error(
+            "ERROR AL RESTABLECER:",
+            error
+          );
+
+
+          mensaje.className =
+            "estado-admin error";
+
+
+          switch (
+            error.code
+          ) {
+
+            case "auth/invalid-email":
+
+              mensaje.textContent =
+                "❌ El correo no es válido.";
+
+              break;
+
+
+            case "auth/user-not-found":
+
+              mensaje.textContent =
+                "❌ No existe una cuenta con ese correo.";
+
+              break;
+
+
+            case "auth/too-many-requests":
+
+              mensaje.textContent =
+                "❌ Demasiadas solicitudes. Espera unos minutos.";
+
+              break;
+
+
+            case "auth/network-request-failed":
+
+              mensaje.textContent =
+                "❌ No hay conexión con Firebase.";
+
+              break;
+
+
+            case "auth/operation-not-allowed":
+
+              mensaje.textContent =
+                "❌ El restablecimiento por correo no está habilitado en Firebase.";
+
+              break;
+
+
+            default:
+
+              mensaje.textContent =
+                "❌ Error de Firebase: " +
+                (
+                  error.code ||
+                  "desconocido"
+                );
+
+          }
+
+        }
+
+      };
+
+
+    /* =========================================
+       AGREGAR PRODUCTO A FIRESTORE
+    ========================================= */
+
+    window.agregarProducto =
+      async function() {
+
+        if (!auth.currentUser) {
+
+          alert(
+            "Debes iniciar sesión como administrador."
+          );
+
+          abrirAdministrador();
+
+          return;
+
+        }
+
+
+        const nombre =
+          document
+            .getElementById(
+              "productoNombre"
+            )
+            .value
+            .trim();
+
+
+        const precioTexto =
+          document
+            .getElementById(
+              "productoPrecio"
+            )
+            .value
+            .trim();
+
+
+        const imagen =
+          document
+            .getElementById(
+              "productoImagen"
+            )
+            .value
+            .trim();
+
+
+        const categoria =
+          document
+            .getElementById(
+              "productoCategoria"
+            )
+            .value;
+
+
+        const descripcion =
+          document
+            .getElementById(
+              "productoDescripcion"
+            )
+            .value
+            .trim();
+
+
+        const mensaje =
+          document.getElementById(
+            "mensajeProducto"
+          );
+
+
+        const boton =
+          document.getElementById(
+            "botonGuardarProducto"
+          );
+
+
+        if (!nombre) {
+
+          mostrarMensajeProducto(
+            "❌ Escribe el nombre del producto.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (!precioTexto) {
+
+          mostrarMensajeProducto(
+            "❌ Escribe el precio.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (!imagen) {
+
+          mostrarMensajeProducto(
+            "❌ Coloca el link de la foto.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        let precio =
+          Number(
+            precioTexto
+          );
+
+
+        if (
+          isNaN(precio) ||
+          precio < 0
+        ) {
+
+          mostrarMensajeProducto(
+            "❌ El precio no es válido.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        boton.disabled =
+          true;
+
+        boton.textContent =
+          "⏳ Guardando...";
+
+
+        mensaje.className =
+          "mensaje-admin";
+
+        mensaje.textContent =
+          "Guardando producto...";
+
+
+        try {
+
+          await addDoc(
+            collection(
+              db,
+              "productos"
+            ),
+            {
+
+              nombre:
+                nombre,
+
+              precio:
+                precio,
+
+              imagen:
+                imagen,
+
+              categoria:
+                categoria,
+
+              descripcion:
+                descripcion,
+
+              creadoPor:
+                auth.currentUser.email,
+
+              creadoEn:
+                serverTimestamp()
+
+            }
+          );
+
+
+          mostrarMensajeProducto(
+            "✅ Producto agregado correctamente.",
+            "exito"
+          );
+
+
+          document
+            .getElementById(
+              "productoNombre"
+            )
+            .value =
+            "";
+
+
+          document
+            .getElementById(
+              "productoPrecio"
+            )
+            .value =
+            "";
+
+
+          document
+            .getElementById(
+              "productoImagen"
+            )
+            .value =
+            "";
+
+
+          document
+            .getElementById(
+              "productoDescripcion"
+            )
+            .value =
+            "";
+
+
+          await cargarFirebase();
+
+
+        } catch (error) {
+
+          console.error(
+            "ERROR AGREGANDO PRODUCTO:",
+            error
+          );
+
+
+          let texto =
+            "❌ No se pudo guardar el producto.";
+
+
+          if (
+            error.code ===
+            "permission-denied"
+          ) {
+
+            texto =
+              "❌ Firebase no permite guardar productos. Hay que revisar las reglas de Firestore.";
+
+          }
+
+
+          mostrarMensajeProducto(
+            texto,
+            "error"
+          );
+
+        } finally {
+
+          boton.disabled =
+            false;
+
+          boton.textContent =
+            "➕ Agregar producto";
+
+        }
+
+      };
+
+
+    function mostrarMensajeProducto(
+      texto,
+      tipo
+    ) {
+
+      const mensaje =
+        document.getElementById(
+          "mensajeProducto"
+        );
+
+
+      mensaje.className =
+        "mensaje-admin " +
+        tipo;
+
+
+      mensaje.textContent =
+        texto;
+
+    }
+
+
+    /* =========================================
+       CERRAR SESIÓN
+    ========================================= */
+
+    window.cerrarSesionAdmin =
+      async function() {
+
+        try {
+
+          await signOut(
+            auth
+          );
+
+
+          adminPanel.style.display =
+            "none";
+
+          adminLogin.style.display =
+            "none";
+
+          paginaPrincipal.style.display =
+            "block";
+
+
+          window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+          });
+
+
+        } catch (error) {
+
+          console.error(
+            "Error cerrando sesión:",
+            error
+          );
+
+        }
+
+      };
+
+
+    /* =========================================
+       ESTADO DE AUTENTICACIÓN
+    ========================================= */
+
+    onAuthStateChanged(
+      auth,
+      (usuario) => {
+
+        if (usuario) {
+
+          document
+            .getElementById(
+              "adminUsuario"
+            )
+            .textContent =
+            "Sesión: " +
+            usuario.email;
+
+
+          console.log(
+            "Administrador conectado:",
+            usuario.email
+          );
+
+
+        } else {
+
+          console.log(
+            "No hay administrador conectado."
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       ENTER PARA INICIAR SESIÓN
+    ========================================= */
+
+    document
+      .getElementById(
+        "adminPassword"
+      )
+      .addEventListener(
+        "keydown",
+        (evento) => {
+
+          if (
+            evento.key ===
+            "Enter"
+          ) {
+
+            iniciarSesionAdmin();
+
+          }
+
+        }
+      );
+
+
+    /* =========================================
+       INICIO
+    ========================================= */
+
     cargarFirebase();
 
-
     cargarRopaGitHub();
-
 
     actualizarCarrito();
 
