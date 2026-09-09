@@ -704,10 +704,6 @@ onclick="limpiarBusqueda()">
 </header>
 
 
-<!-- =========================
-     PANEL PARA SUBIR PRODUCTO
-========================= -->
-
 <section id="panelSubir">
 
 <div class="caja-subir">
@@ -1173,8 +1169,8 @@ type="audio/mpeg">
 
 /* =========================
    FIREBASE
-   FIRESTORE + STORAGE
-   SIN CORREO NI CONTRASEÑA
+   SOLO FIRESTORE
+   SIN FIREBASE STORAGE
 ========================= */
 
 import {
@@ -1189,22 +1185,10 @@ import {
   collection,
   getDocs,
   addDoc,
-  deleteDoc,
-  doc,
   serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
 const firebaseConfig = {
@@ -1235,9 +1219,6 @@ initializeApp(firebaseConfig);
 
 const db =
 getFirestore(app);
-
-const storage =
-getStorage(app);
 
 
 /* =========================
@@ -2174,7 +2155,148 @@ window.open(
 
 
 /* =========================
-   SUBIR PRODUCTO A FIREBASE
+   COMPRIMIR IMAGEN
+========================= */
+
+function comprimirImagen(archivo){
+
+return new Promise(
+(resolve,reject)=>{
+
+const lector =
+new FileReader();
+
+
+lector.onload =
+function(e){
+
+const imagen =
+new Image();
+
+
+imagen.onload =
+function(){
+
+const MAX_ANCHO = 800;
+const MAX_ALTO = 800;
+
+let ancho =
+imagen.width;
+
+let alto =
+imagen.height;
+
+
+if(ancho > MAX_ANCHO){
+
+alto =
+alto *
+MAX_ANCHO /
+ancho;
+
+ancho =
+MAX_ANCHO;
+
+}
+
+
+if(alto > MAX_ALTO){
+
+ancho =
+ancho *
+MAX_ALTO /
+alto;
+
+alto =
+MAX_ALTO;
+
+}
+
+
+const canvas =
+document.createElement(
+"canvas"
+);
+
+
+canvas.width =
+Math.round(ancho);
+
+canvas.height =
+Math.round(alto);
+
+
+const ctx =
+canvas.getContext("2d");
+
+
+ctx.drawImage(
+imagen,
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+/*
+  JPEG comprimido.
+*/
+
+const resultado =
+canvas.toDataURL(
+"image/jpeg",
+0.65
+);
+
+
+resolve(resultado);
+
+};
+
+
+imagen.onerror =
+function(){
+
+reject(
+new Error(
+"No se pudo procesar la imagen."
+)
+);
+
+};
+
+
+imagen.src =
+e.target.result;
+
+};
+
+
+lector.onerror =
+function(){
+
+reject(
+new Error(
+"No se pudo leer la imagen."
+)
+);
+
+};
+
+
+lector.readAsDataURL(
+archivo
+);
+
+});
+
+}
+
+
+/* =========================
+   SUBIR PRODUCTO
+   SIN STORAGE
 ========================= */
 
 $("productoForm")
@@ -2186,7 +2308,8 @@ e.preventDefault();
 
 
 const archivo =
-$("imagenProducto").files[0];
+$("imagenProducto")
+.files[0];
 
 const nombre =
 $("nombreProducto")
@@ -2250,82 +2373,53 @@ $("mensajeSubir");
 
 boton.disabled = true;
 
-boton.textContent =
-"⏳ Subiendo foto...";
+mensaje.textContent = "";
 
-mensaje.textContent =
-"";
+boton.textContent =
+"⏳ Preparando foto...";
 
 
 try{
 
 /*
-  Creamos un nombre único para
-  que no se reemplacen las fotos.
+  Comprimimos la imagen
+  directamente en el celular.
 */
 
-const extension =
-archivo.name
-.split(".")
-.pop()
-.toLowerCase();
-
-const nombreSeguro =
-nombre
-.toLowerCase()
-.replace(
-/[^a-z0-9áéíóúñ]+/gi,
-"-"
-)
-.replace(
-/^-+|-+$/g,
-""
-);
-
-const nombreArchivo =
-Date.now() +
-"-" +
-nombreSeguro +
-"." +
-extension;
-
-
-/*
-  Guardamos la imagen en:
-  productos/
-*/
-
-const ruta =
-"productos/" +
-nombreArchivo;
-
-
-const referencia =
-ref(
-storage,
-ruta
-);
-
-
-boton.textContent =
-"⏳ Guardando imagen...";
-
-
-await uploadBytes(
-referencia,
+const imagenComprimida =
+await comprimirImagen(
 archivo
 );
 
 
-const urlImagen =
-await getDownloadURL(
-referencia
+/*
+  Comprobamos el tamaño.
+*/
+
+const tamañoBytes =
+Math.round(
+imagenComprimida.length *
+0.75
 );
+
+
+if(tamañoBytes > 700000){
+
+throw new Error(
+"La foto sigue siendo demasiado grande. Escoge otra foto."
+);
+
+}
 
 
 boton.textContent =
 "⏳ Guardando producto...";
 
+
+/*
+  Guardamos la imagen directamente
+  dentro del documento de Firestore.
+*/
 
 await addDoc(
 collection(
@@ -2347,10 +2441,7 @@ descripcion:
 descripcion,
 
 imagen:
-urlImagen,
-
-storagePath:
-ruta,
+imagenComprimida,
 
 creadoEn:
 serverTimestamp()
@@ -2367,10 +2458,11 @@ mensaje.textContent =
 
 
 /*
-  Limpiamos formulario
+  Limpiamos formulario.
 */
 
-$("productoForm").reset();
+$("productoForm")
+.reset();
 
 $("previewProducto")
 .style.display =
@@ -2381,7 +2473,7 @@ $("previewProducto")
 
 
 /*
-  Recargamos los productos
+  Recargamos productos.
 */
 
 await recargarProductos();
@@ -2400,9 +2492,10 @@ cerrarSubirProducto();
 }catch(error){
 
 console.error(
-"Error subiendo producto:",
+"Error guardando producto:",
 error
 );
+
 
 mensaje.style.color =
 "#a44b3f";
@@ -2410,24 +2503,20 @@ mensaje.style.color =
 
 if(
 error.code ===
-"storage/unauthorized"
-){
-
-mensaje.textContent =
-"❌ Firebase está bloqueando la subida. Hay que cambiar las reglas de Storage.";
-
-}else if(
-error.code ===
 "permission-denied"
 ){
 
 mensaje.textContent =
-"❌ Firebase está bloqueando el guardado. Hay que cambiar las reglas de Firestore.";
+"❌ Firebase está bloqueando el guardado. Revisa las reglas de Firestore.";
 
 }else{
 
 mensaje.textContent =
-"❌ No se pudo guardar el producto. Revisa la consola de Firebase.";
+"❌ " +
+(
+error.message ||
+"No se pudo guardar el producto."
+);
 
 }
 
@@ -2450,7 +2539,6 @@ boton.textContent =
 async function recargarProductos(){
 
 productos = [];
-
 
 await cargarRopaGitHub();
 
