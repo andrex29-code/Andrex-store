@@ -88,8 +88,9 @@
       background: #f3e7d8;
     }
 
+    /* CAMBIO: ADMIN SIEMPRE VISIBLE */
     .boton-admin {
-      display: none;
+      display: block;
     }
 
     .contenedor-buscador {
@@ -1746,11 +1747,6 @@
             archivo.name.toLowerCase();
 
 
-          /*
-             Se mantiene la exclusión
-             que ya tenías para 3285.
-          */
-
           if (
             nombreArchivo.includes("3285")
           ) {
@@ -2876,7 +2872,6 @@
        ADMINISTRACIÓN
        ========================================= */
 
-
     window.abrirAdministracion =
       function() {
 
@@ -3323,6 +3318,11 @@
           );
 
 
+        /* Guardamos este valor antes de limpiar */
+        const estabaEditando =
+          productoEditandoId !== null;
+
+
         boton.disabled =
           true;
 
@@ -3448,11 +3448,6 @@
                 fotoNueva.ruta;
 
 
-              /*
-                Borrar foto anterior
-                de Storage si existe.
-              */
-
               if (
                 producto.storagePath
               ) {
@@ -3528,7 +3523,7 @@
 
 
           boton.textContent =
-            productoEditandoId !== null
+            estabaEditando
               ? "💾 Guardar cambios"
               : "💾 Guardar producto";
 
@@ -4044,11 +4039,6 @@
           }
 
 
-          /*
-            Primero intentamos borrar
-            la foto de Firebase Storage.
-          */
-
           if (
             producto.storagePath
           ) {
@@ -4075,11 +4065,6 @@
 
           }
 
-
-          /*
-            Después borramos el producto
-            de Firestore.
-          */
 
           await deleteDoc(
             doc(
@@ -4260,17 +4245,14 @@
           );
 
 
-        if (usuario) {
+        /*
+          IMPORTANTE:
+          El botón Admin SIEMPRE permanece visible.
+          Ya no se oculta cuando cerramos sesión.
+        */
 
-          boton.style.display =
-            "block";
-
-        } else {
-
-          boton.style.display =
-            "none";
-
-        }
+        boton.style.display =
+          "block";
 
 
         if (
