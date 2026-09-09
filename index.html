@@ -88,7 +88,7 @@
       background: #f3e7d8;
     }
 
-    /* CAMBIO: ADMIN SIEMPRE VISIBLE */
+    /* ADMIN SIEMPRE VISIBLE */
     .boton-admin {
       display: block;
     }
@@ -1439,12 +1439,28 @@
         ></div>
 
 
+        <!-- CAMBIAR CONTRASEÑA -->
+
+        <button
+          class="boton-admin-secundario"
+          onclick="cambiarContrasenaAdmin()"
+          style="
+            width:100%;
+            margin-top:22px;
+          "
+        >
+          🔐 Cambiar contraseña
+        </button>
+
+
+        <!-- CERRAR SESIÓN -->
+
         <button
           class="boton-admin-secundario"
           onclick="cerrarSesionAdmin()"
           style="
             width:100%;
-            margin-top:22px;
+            margin-top:10px;
           "
         >
           🚪 Cerrar sesión
@@ -1511,7 +1527,8 @@
       getAuth,
       signInWithEmailAndPassword,
       onAuthStateChanged,
-      signOut
+      signOut,
+      sendPasswordResetEmail
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
@@ -3016,6 +3033,96 @@
       };
 
 
+    /* =========================================
+       CAMBIAR CONTRASEÑA
+       ========================================= */
+
+    window.cambiarContrasenaAdmin =
+      async function() {
+
+        const usuario =
+          auth.currentUser;
+
+
+        if (!usuario) {
+
+          mostrarMensajeAdmin(
+            "⚠️ Primero debes iniciar sesión.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        if (!usuario.email) {
+
+          mostrarMensajeAdmin(
+            "⚠️ No se encontró el correo del administrador.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        const confirmar =
+          confirm(
+            "¿Quieres recibir un correo en " +
+            usuario.email +
+            " para cambiar tu contraseña?"
+          );
+
+
+        if (!confirmar) {
+
+          return;
+
+        }
+
+
+        try {
+
+          await sendPasswordResetEmail(
+            auth,
+            usuario.email
+          );
+
+
+          mostrarMensajeAdmin(
+            "✅ Te enviamos un correo a " +
+            usuario.email +
+            " para cambiar tu contraseña.",
+            "exito"
+          );
+
+
+        } catch (error) {
+
+          console.error(
+            "Error cambiando contraseña:",
+            error
+          );
+
+
+          mostrarMensajeAdmin(
+            "❌ No se pudo enviar el correo. Revisa la configuración de Firebase Authentication.",
+            "error"
+          );
+
+        }
+
+      };
+
+
+    /* =========================================
+       MOSTRAR PANEL ADMIN
+       ========================================= */
+
     function mostrarPanelAdmin(
       usuario
     ) {
@@ -3042,6 +3149,10 @@
 
     }
 
+
+    /* =========================================
+       CERRAR SESIÓN
+       ========================================= */
 
     window.cerrarSesionAdmin =
       async function() {
@@ -3318,7 +3429,6 @@
           );
 
 
-        /* Guardamos este valor antes de limpiar */
         const estabaEditando =
           productoEditandoId !== null;
 
@@ -3363,9 +3473,7 @@
           };
 
 
-          /* =====================================
-             NUEVO PRODUCTO
-             ===================================== */
+          /* NUEVO PRODUCTO */
 
           if (
             productoEditandoId === null
@@ -3413,9 +3521,7 @@
           }
 
 
-          /* =====================================
-             EDITAR PRODUCTO
-             ===================================== */
+          /* EDITAR PRODUCTO */
 
           else {
 
@@ -4246,9 +4352,7 @@
 
 
         /*
-          IMPORTANTE:
           El botón Admin SIEMPRE permanece visible.
-          Ya no se oculta cuando cerramos sesión.
         */
 
         boton.style.display =
