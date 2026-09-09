@@ -71,19 +71,25 @@
       gap: 8px;
     }
 
-    .boton-carrito {
+    .boton-carrito,
+    .boton-admin {
       border: 1px solid #dfcdb7;
       background: #fffaf3;
       color: #745438;
       border-radius: 12px;
       padding: 10px 13px;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(103, 75, 46, 0.08);
     }
 
-    .boton-carrito:hover {
+    .boton-carrito:hover,
+    .boton-admin:hover {
       background: #f3e7d8;
+    }
+
+    .boton-admin {
+      display: none;
     }
 
     .contenedor-buscador {
@@ -499,6 +505,253 @@
       font-weight: bold;
     }
 
+    /* =========================================
+       ADMINISTRACIÓN
+       ========================================= */
+
+    .modal-admin {
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 31, 20, 0.60);
+      backdrop-filter: blur(7px);
+      z-index: 6000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .modal-admin.abierto {
+      display: flex;
+    }
+
+    .admin-contenedor {
+      width: min(900px, 100%);
+      max-height: 92vh;
+      overflow-y: auto;
+      background: #fffaf3;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+    }
+
+    .admin-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ead9c5;
+    }
+
+    .admin-cabecera h2 {
+      color: #654a32;
+      font-size: 22px;
+    }
+
+    .cerrar-admin {
+      border: none;
+      background: transparent;
+      color: #745438;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .admin-login {
+      max-width: 430px;
+      margin: 20px auto;
+    }
+
+    .admin-login h3 {
+      text-align: center;
+      color: #654a32;
+      margin-bottom: 18px;
+    }
+
+    .campo-admin {
+      margin-bottom: 13px;
+    }
+
+    .campo-admin label {
+      display: block;
+      font-size: 13px;
+      color: #745438;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .campo-admin input,
+    .campo-admin textarea,
+    .campo-admin select {
+      width: 100%;
+      border: 1px solid #dfcdb7;
+      background: #fffdf9;
+      border-radius: 11px;
+      padding: 12px;
+      outline: none;
+      color: #5b4632;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .campo-admin textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .campo-admin input:focus,
+    .campo-admin textarea:focus,
+    .campo-admin select:focus {
+      border-color: #c79b68;
+      box-shadow: 0 0 0 3px rgba(199,155,104,0.13);
+    }
+
+    .boton-admin-principal {
+      width: 100%;
+      border: none;
+      background: #8f6b48;
+      color: white;
+      padding: 13px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .boton-admin-principal:hover {
+      background: #765638;
+    }
+
+    .boton-admin-secundario {
+      border: 1px solid #dfcdb7;
+      background: #fffaf3;
+      color: #745438;
+      padding: 10px 14px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .boton-admin-peligro {
+      border: none;
+      background: #ead1c5;
+      color: #743d2d;
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .admin-formulario {
+      background: #f7eee3;
+      border: 1px solid #e8d8c4;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 25px;
+    }
+
+    .admin-formulario h3 {
+      color: #654a32;
+      margin-bottom: 15px;
+    }
+
+    .selector-foto {
+      border: 2px dashed #d3b895;
+      background: #fffaf3;
+      border-radius: 15px;
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .selector-foto input[type="file"] {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    #vistaPreviaFoto {
+      display: none;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 12px auto 0;
+      border: 1px solid #dec8ae;
+    }
+
+    .admin-productos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .admin-producto {
+      background: #fffdf9;
+      border: 1px solid #e5d4c0;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .admin-producto img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #f1e5d7;
+    }
+
+    .admin-producto-info {
+      padding: 12px;
+    }
+
+    .admin-producto-info h4 {
+      color: #5e452f;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .admin-producto-info p {
+      color: #8f7962;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .admin-acciones {
+      display: flex;
+      gap: 7px;
+    }
+
+    .admin-acciones button {
+      flex: 1;
+    }
+
+    .estado-admin {
+      padding: 11px;
+      border-radius: 10px;
+      margin-bottom: 13px;
+      font-size: 13px;
+      display: none;
+    }
+
+    .estado-admin.exito {
+      display: block;
+      background: #dfeede;
+      color: #315e35;
+    }
+
+    .estado-admin.error {
+      display: block;
+      background: #f1d8d2;
+      color: #743d2d;
+    }
+
+    .usuario-admin {
+      font-size: 12px;
+      color: #927a61;
+      margin-top: 4px;
+    }
+
     @media (max-width: 900px) {
       .categorias {
         grid-template-columns: repeat(2, 1fr);
@@ -506,6 +759,10 @@
 
       .productos {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .admin-productos {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -564,6 +821,19 @@
         font-size: 12px;
         padding: 10px 5px;
       }
+
+      .boton-admin {
+        padding: 9px 10px;
+        font-size: 14px;
+      }
+
+      .admin-contenedor {
+        padding: 16px;
+      }
+
+      .admin-productos {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 400px) {
@@ -582,6 +852,10 @@
       .producto img {
         height: 170px;
       }
+
+      .admin-productos {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -597,14 +871,28 @@
       </div>
 
       <div class="botones-header">
-        <button class="boton-carrito" onclick="abrirCarrito()">
+
+        <button
+          class="boton-admin"
+          id="botonAdmin"
+          onclick="abrirAdministracion()"
+        >
+          ⚙️ Admin
+        </button>
+
+        <button
+          class="boton-carrito"
+          onclick="abrirCarrito()"
+        >
           🛒 <span id="cantidadCarrito">0</span>
         </button>
+
       </div>
 
     </div>
 
     <div class="contenedor-buscador">
+
       <input
         type="text"
         id="buscador"
@@ -619,18 +907,24 @@
       >
         ✕
       </button>
+
     </div>
   </header>
 
 
   <section class="hero">
+
     <video autoplay muted loop playsinline>
+
       <source
         src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
         type="video/mp4"
       >
+
       Tu navegador no puede reproducir este video.
+
     </video>
+
   </section>
 
 
@@ -689,19 +983,29 @@
       <div class="info-card">
         <span class="emoji">🚚</span>
         <h3>Envíos</h3>
-        <p>Realizamos envíos a nivel nacional 🇨🇴 tu como cliente te encargas de pagar el envio a tu ciudad ✨.</p>
+        <p>
+          Realizamos envíos a nivel nacional 🇨🇴
+          tu como cliente te encargas de pagar
+          el envio a tu ciudad ✨.
+        </p>
       </div>
 
       <div class="info-card">
         <span class="emoji">💳</span>
         <h3>Compra fácil</h3>
-        <p>manejamos pagos por nequi bancolombia daviplata pagos de contado y contra entrega solo las lociones originales .</p>
+        <p>
+          manejamos pagos por nequi bancolombia
+          daviplata pagos de contado y contra
+          entrega solo las lociones originales .
+        </p>
       </div>
 
       <div class="info-card">
         <span class="emoji">📲</span>
         <h3>Pedidos</h3>
-        <p>Realiza tu pedido directamente por WhatsApp.</p>
+        <p>
+          Realiza tu pedido directamente por WhatsApp.
+        </p>
       </div>
 
     </section>
@@ -875,6 +1179,283 @@
   </aside>
 
 
+  <!-- =========================================
+       MODAL DE ADMINISTRACIÓN
+       ========================================= -->
+
+  <div
+    id="modalAdmin"
+    class="modal-admin"
+  >
+
+    <div class="admin-contenedor">
+
+      <div class="admin-cabecera">
+
+        <div>
+          <h2>⚙️ Administración ANDREX Store</h2>
+
+          <div
+            id="usuarioAdmin"
+            class="usuario-admin"
+          ></div>
+        </div>
+
+        <button
+          class="cerrar-admin"
+          onclick="cerrarAdministracion()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- LOGIN -->
+
+      <div
+        id="adminLogin"
+        class="admin-login"
+      >
+
+        <h3>🔐 Acceso de administrador</h3>
+
+        <div
+          id="mensajeLogin"
+          class="estado-admin"
+        ></div>
+
+        <div class="campo-admin">
+
+          <label>
+            Correo
+          </label>
+
+          <input
+            type="email"
+            id="adminEmail"
+            placeholder="Tu correo de Firebase"
+            autocomplete="username"
+          >
+
+        </div>
+
+        <div class="campo-admin">
+
+          <label>
+            Contraseña
+          </label>
+
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Tu contraseña"
+            autocomplete="current-password"
+          >
+
+        </div>
+
+        <button
+          class="boton-admin-principal"
+          onclick="iniciarSesionAdmin()"
+        >
+          🔐 Entrar
+        </button>
+
+      </div>
+
+
+      <!-- PANEL ADMIN -->
+
+      <div
+        id="panelAdmin"
+        style="display:none;"
+      >
+
+        <div
+          id="mensajeAdmin"
+          class="estado-admin"
+        ></div>
+
+
+        <!-- FORMULARIO -->
+
+        <div class="admin-formulario">
+
+          <h3 id="tituloFormulario">
+            ➕ Agregar producto
+          </h3>
+
+
+          <div class="selector-foto">
+
+            <strong>
+              📷 Foto del producto
+            </strong>
+
+            <p
+              style="
+                margin-top:6px;
+                font-size:12px;
+                color:#927a61;
+              "
+            >
+              Selecciona directamente una foto
+              de la galería de tu celular.
+            </p>
+
+            <input
+              type="file"
+              id="fotoProducto"
+              accept="image/*"
+            >
+
+            <img
+              id="vistaPreviaFoto"
+              alt="Vista previa"
+            >
+
+          </div>
+
+
+          <div class="campo-admin">
+
+            <label>
+              Nombre del producto
+            </label>
+
+            <input
+              type="text"
+              id="nombreProducto"
+              placeholder="Ej: Camiseta Nike"
+            >
+
+          </div>
+
+
+          <div class="campo-admin">
+
+            <label>
+              Precio
+            </label>
+
+            <input
+              type="number"
+              id="precioProducto"
+              placeholder="Ej: 85000"
+              min="0"
+            >
+
+          </div>
+
+
+          <div class="campo-admin">
+
+            <label>
+              Categoría
+            </label>
+
+            <select id="categoriaProducto">
+
+              <option value="ropa">
+                👕 Ropa
+              </option>
+
+              <option value="zapatos">
+                👟 Zapatos
+              </option>
+
+              <option value="lociones">
+                🧴 Lociones
+              </option>
+
+              <option value="streaming">
+                📺 Streaming
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo-admin">
+
+            <label>
+              Descripción
+            </label>
+
+            <textarea
+              id="descripcionProducto"
+              placeholder="Descripción del producto..."
+            ></textarea>
+
+          </div>
+
+
+          <div
+            style="
+              display:flex;
+              gap:8px;
+            "
+          >
+
+            <button
+              id="botonGuardarProducto"
+              class="boton-admin-principal"
+              onclick="guardarProducto()"
+            >
+              💾 Guardar producto
+            </button>
+
+            <button
+              id="botonCancelarEdicion"
+              class="boton-admin-secundario"
+              onclick="cancelarEdicion()"
+              style="display:none;"
+            >
+              Cancelar
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- LISTA -->
+
+        <h3
+          style="
+            color:#654a32;
+            margin-bottom:14px;
+          "
+        >
+          🛍️ Productos administrados
+        </h3>
+
+        <div
+          id="listaAdminProductos"
+          class="admin-productos"
+        ></div>
+
+
+        <button
+          class="boton-admin-secundario"
+          onclick="cerrarSesionAdmin()"
+          style="
+            width:100%;
+            margin-top:22px;
+          "
+        >
+          🚪 Cerrar sesión
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
   <button
     id="botonMusica"
     onclick="alternarMusica()"
@@ -882,15 +1463,18 @@
     ▶ Música
   </button>
 
+
   <audio
     id="musicaTienda"
     loop
     preload="auto"
   >
+
     <source
       src="https://andrex29-code.github.io/Andrex-store/musica.mp3"
       type="audio/mpeg"
     >
+
   </audio>
 
 
@@ -900,12 +1484,39 @@
       initializeApp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
+
     import {
       getFirestore,
       collection,
-      getDocs
+      getDocs,
+      addDoc,
+      updateDoc,
+      deleteDoc,
+      doc,
+      serverTimestamp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
+    import {
+      getStorage,
+      ref,
+      uploadBytes,
+      getDownloadURL,
+      deleteObject
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+    /* =========================================
+       CONFIGURACIÓN FIREBASE
+       ========================================= */
 
     const firebaseConfig = {
 
@@ -931,15 +1542,27 @@
 
 
     /* =========================================
-       FIREBASE CORREGIDO
+       INICIAR FIREBASE
        ========================================= */
 
-    const app = initializeApp(firebaseConfig);
+    const app =
+      initializeApp(firebaseConfig);
 
-    const db = getFirestore(app);
+
+    const db =
+      getFirestore(app);
+
+
+    const storage =
+      getStorage(app);
+
+
+    const auth =
+      getAuth(app);
 
 
     let productos = [];
+
 
     let carrito =
       JSON.parse(
@@ -947,24 +1570,70 @@
       ) || [];
 
 
+    let productoEditandoId = null;
+
+
+    /* =========================================
+       ELEMENTOS
+       ========================================= */
+
     const paginaPrincipal =
-      document.getElementById("paginaPrincipal");
+      document.getElementById(
+        "paginaPrincipal"
+      );
+
 
     const vistaRopa =
-      document.getElementById("vistaRopa");
+      document.getElementById(
+        "vistaRopa"
+      );
+
 
     const vistaZapatos =
-      document.getElementById("vistaZapatos");
+      document.getElementById(
+        "vistaZapatos"
+      );
+
 
     const vistaLociones =
-      document.getElementById("vistaLociones");
+      document.getElementById(
+        "vistaLociones"
+      );
+
 
     const vistaStreaming =
-      document.getElementById("vistaStreaming");
+      document.getElementById(
+        "vistaStreaming"
+      );
+
 
     const resultadosBusqueda =
-      document.getElementById("resultadosBusqueda");
+      document.getElementById(
+        "resultadosBusqueda"
+      );
 
+
+    const modalAdmin =
+      document.getElementById(
+        "modalAdmin"
+      );
+
+
+    const adminLogin =
+      document.getElementById(
+        "adminLogin"
+      );
+
+
+    const panelAdmin =
+      document.getElementById(
+        "panelAdmin"
+      );
+
+
+    /* =========================================
+       CATEGORÍAS
+       ========================================= */
 
     function normalizarCategoria(categoria) {
 
@@ -974,11 +1643,18 @@
           .trim()
           .toLowerCase()
           .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
+          .replace(
+            /[\u0300-\u036f]/g,
+            ""
+          )
       );
 
     }
 
+
+    /* =========================================
+       CARGAR FIRESTORE
+       ========================================= */
 
     async function cargarFirebase() {
 
@@ -986,22 +1662,38 @@
 
         const snapshot =
           await getDocs(
-            collection(db, "productos")
+            collection(
+              db,
+              "productos"
+            )
           );
 
-        snapshot.forEach((doc) => {
 
-          const data = doc.data();
+        productos =
+          productos.filter(
+            (producto) =>
+              producto.id &&
+              producto.id.startsWith("github-")
+          );
+
+
+        snapshot.forEach((documento) => {
+
+          const data =
+            documento.data();
+
 
           productos.push({
 
-            id: doc.id,
+            id:
+              documento.id,
 
             ...data
 
           });
 
         });
+
 
         renderizarTodos();
 
@@ -1019,6 +1711,10 @@
     }
 
 
+    /* =========================================
+       CARGAR FOTOS ANTIGUAS DE GITHUB
+       ========================================= */
+
     async function cargarRopaGitHub() {
 
       try {
@@ -1026,8 +1722,10 @@
         const url =
           "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva?ref=main";
 
+
         const respuesta =
           await fetch(url);
+
 
         if (!respuesta.ok) {
 
@@ -1036,6 +1734,7 @@
           );
 
         }
+
 
         const archivos =
           await respuesta.json();
@@ -1047,12 +1746,17 @@
             archivo.name.toLowerCase();
 
 
-          /* =====================================
-             NO MOSTRAR COMPLETAMENTE LA FOTO 3285
-             ===================================== */
+          /*
+             Se mantiene la exclusión
+             que ya tenías para 3285.
+          */
 
-          if (nombreArchivo.includes("3285")) {
+          if (
+            nombreArchivo.includes("3285")
+          ) {
+
             return;
+
           }
 
 
@@ -1064,7 +1768,9 @@
 
 
           if (!esImagen) {
+
             return;
+
           }
 
 
@@ -1081,7 +1787,9 @@
 
 
           if (yaExiste) {
+
             return;
+
           }
 
 
@@ -1093,8 +1801,14 @@
 
             nombre:
               archivo.name
-                .replace(/\.[^/.]+$/, "")
-                .replace(/[-_]/g, " "),
+                .replace(
+                  /\.[^/.]+$/,
+                  ""
+                )
+                .replace(
+                  /[-_]/g,
+                  " "
+                ),
 
             precio: 0,
 
@@ -1103,8 +1817,10 @@
             imagen:
               archivo.download_url,
 
-            descripcion:
-              ""
+            descripcion: "",
+
+            origen:
+              "github"
 
           });
 
@@ -1125,7 +1841,13 @@
     }
 
 
-    function crearTarjetaProducto(producto) {
+    /* =========================================
+       TARJETA DE PRODUCTO
+       ========================================= */
+
+    function crearTarjetaProducto(
+      producto
+    ) {
 
       const imagen =
         producto.imagen ||
@@ -1153,13 +1875,17 @@
 
 
       const tarjeta =
-        document.createElement("article");
+        document.createElement(
+          "article"
+        );
+
 
       tarjeta.className =
         "producto";
 
 
       let imagenHTML = "";
+
 
       if (imagen) {
 
@@ -1212,18 +1938,21 @@
           }
 
           <div class="precio">
+
             ${
               Number(precio) > 0
                 ? "$" +
                   Number(precio)
-                    .toLocaleString("es-CO")
+                    .toLocaleString(
+                      "es-CO"
+                    )
                 : "Consultar precio"
             }
+
           </div>
 
           <button
             class="boton-agregar"
-            data-id="${producto.id}"
           >
             🛒 Agregar al carrito
           </button>
@@ -1255,6 +1984,10 @@
     }
 
 
+    /* =========================================
+       MOSTRAR CATEGORÍA
+       ========================================= */
+
     function mostrarProductosCategoria(
       categoria,
       contenedor
@@ -1273,13 +2006,18 @@
               );
 
 
-            if (categoria === "ropa") {
+            if (
+              categoria === "ropa"
+            ) {
 
               return cat === "ropa";
 
             }
 
-            if (categoria === "zapatos") {
+
+            if (
+              categoria === "zapatos"
+            ) {
 
               return (
                 cat === "zapatos" ||
@@ -1288,7 +2026,10 @@
 
             }
 
-            if (categoria === "lociones") {
+
+            if (
+              categoria === "lociones"
+            ) {
 
               return (
                 cat === "lociones" ||
@@ -1297,11 +2038,15 @@
 
             }
 
-            if (categoria === "streaming") {
+
+            if (
+              categoria === "streaming"
+            ) {
 
               return cat === "streaming";
 
             }
+
 
             return false;
 
@@ -1350,6 +2095,10 @@
     }
 
 
+    /* =========================================
+       RENDERIZAR TODO
+       ========================================= */
+
     function renderizarTodos() {
 
       mostrarProductosCategoria(
@@ -1389,23 +2138,32 @@
     }
 
 
+    /* =========================================
+       ENTRAR CATEGORÍA
+       ========================================= */
+
     window.entrarCategoria =
       function(categoria) {
 
         paginaPrincipal.style.display =
           "none";
 
+
         vistaRopa.style.display =
           "none";
+
 
         vistaZapatos.style.display =
           "none";
 
+
         vistaLociones.style.display =
           "none";
 
+
         vistaStreaming.style.display =
           "none";
+
 
         resultadosBusqueda.style.display =
           "none";
@@ -1414,27 +2172,42 @@
         let vista = null;
 
 
-        if (categoria === "ropa") {
+        if (
+          categoria === "ropa"
+        ) {
 
-          vista = vistaRopa;
-
-        }
-
-        if (categoria === "zapatos") {
-
-          vista = vistaZapatos;
+          vista =
+            vistaRopa;
 
         }
 
-        if (categoria === "lociones") {
 
-          vista = vistaLociones;
+        if (
+          categoria === "zapatos"
+        ) {
+
+          vista =
+            vistaZapatos;
 
         }
 
-        if (categoria === "streaming") {
 
-          vista = vistaStreaming;
+        if (
+          categoria === "lociones"
+        ) {
+
+          vista =
+            vistaLociones;
+
+        }
+
+
+        if (
+          categoria === "streaming"
+        ) {
+
+          vista =
+            vistaStreaming;
 
         }
 
@@ -1455,23 +2228,32 @@
       };
 
 
+    /* =========================================
+       VOLVER
+       ========================================= */
+
     window.volverInicio =
       function() {
 
         vistaRopa.style.display =
           "none";
 
+
         vistaZapatos.style.display =
           "none";
+
 
         vistaLociones.style.display =
           "none";
 
+
         vistaStreaming.style.display =
           "none";
 
+
         resultadosBusqueda.style.display =
           "none";
+
 
         paginaPrincipal.style.display =
           "block";
@@ -1485,12 +2267,18 @@
       };
 
 
+    /* =========================================
+       BUSCADOR
+       ========================================= */
+
     window.buscarProductos =
       function() {
 
         const texto =
           document
-            .getElementById("buscador")
+            .getElementById(
+              "buscador"
+            )
             .value
             .trim()
             .toLowerCase();
@@ -1507,23 +2295,30 @@
           botonLimpiar.style.display =
             "none";
 
+
           resultadosBusqueda.style.display =
             "none";
+
 
           paginaPrincipal.style.display =
             "block";
 
+
           vistaRopa.style.display =
             "none";
+
 
           vistaZapatos.style.display =
             "none";
 
+
           vistaLociones.style.display =
             "none";
 
+
           vistaStreaming.style.display =
             "none";
+
 
           return;
 
@@ -1537,17 +2332,22 @@
         paginaPrincipal.style.display =
           "none";
 
+
         vistaRopa.style.display =
           "none";
+
 
         vistaZapatos.style.display =
           "none";
 
+
         vistaLociones.style.display =
           "none";
 
+
         vistaStreaming.style.display =
           "none";
+
 
         resultadosBusqueda.style.display =
           "block";
@@ -1559,7 +2359,8 @@
           );
 
 
-        contenedor.innerHTML = "";
+        contenedor.innerHTML =
+          "";
 
 
         const encontrados =
@@ -1644,7 +2445,9 @@
       function() {
 
         document
-          .getElementById("buscador")
+          .getElementById(
+            "buscador"
+          )
           .value = "";
 
 
@@ -1652,7 +2455,8 @@
           .getElementById(
             "botonLimpiar"
           )
-          .style.display = "none";
+          .style.display =
+            "none";
 
 
         resultadosBusqueda.style.display =
@@ -1664,11 +2468,17 @@
       };
 
 
+    /* =========================================
+       CARRITO
+       ========================================= */
+
     function guardarCarrito() {
 
       localStorage.setItem(
         "andrexCarrito",
-        JSON.stringify(carrito)
+        JSON.stringify(
+          carrito
+        )
       );
 
     }
@@ -1677,11 +2487,16 @@
     window.agregarAlCarrito =
       function(producto) {
 
-        carrito.push(producto);
+        carrito.push(
+          producto
+        );
+
 
         guardarCarrito();
 
+
         actualizarCarrito();
+
 
         abrirCarrito();
 
@@ -1712,10 +2527,13 @@
         carrito.length;
 
 
-      contenedor.innerHTML = "";
+      contenedor.innerHTML =
+        "";
 
 
-      if (carrito.length === 0) {
+      if (
+        carrito.length === 0
+      ) {
 
         contenedor.innerHTML = `
 
@@ -1726,19 +2544,25 @@
 
         `;
 
+
         total.textContent =
           "$0";
+
 
         return;
 
       }
 
 
-      let totalNumerico = 0;
+      let totalNumerico =
+        0;
 
 
       carrito.forEach(
-        (producto, indice) => {
+        (
+          producto,
+          indice
+        ) => {
 
           const precio =
             Number(
@@ -1748,7 +2572,8 @@
             );
 
 
-          totalNumerico += precio;
+          totalNumerico +=
+            precio;
 
 
           const imagen =
@@ -1809,6 +2634,7 @@
               </h4>
 
               <p>
+
                 ${
                   precio > 0
                     ? "$" +
@@ -1817,6 +2643,7 @@
                       )
                     : "Consultar precio"
                 }
+
               </p>
 
             </div>
@@ -1856,7 +2683,9 @@
           1
         );
 
+
         guardarCarrito();
+
 
         actualizarCarrito();
 
@@ -1891,6 +2720,10 @@
       };
 
 
+    /* =========================================
+       WHATSAPP
+       ========================================= */
+
     window.enviarPedidoWhatsApp =
       function() {
 
@@ -1912,7 +2745,10 @@
 
 
         carrito.forEach(
-          (producto, indice) => {
+          (
+            producto,
+            indice
+          ) => {
 
             const nombre =
               producto.nombre ||
@@ -1932,7 +2768,9 @@
               `${indice + 1}. ${nombre}`;
 
 
-            if (precio > 0) {
+            if (
+              precio > 0
+            ) {
 
               mensaje +=
                 ` - $${precio.toLocaleString("es-CO")}`;
@@ -1940,7 +2778,8 @@
             }
 
 
-            mensaje += "%0A";
+            mensaje +=
+              "%0A";
 
           }
         );
@@ -1982,6 +2821,10 @@
       };
 
 
+    /* =========================================
+       MÚSICA
+       ========================================= */
+
     const musica =
       document.getElementById(
         "musicaTienda"
@@ -2020,6 +2863,7 @@
 
           musica.pause();
 
+
           botonMusica.textContent =
             "▶ Música";
 
@@ -2027,6 +2871,1425 @@
 
       };
 
+
+    /* =========================================
+       ADMINISTRACIÓN
+       ========================================= */
+
+
+    window.abrirAdministracion =
+      function() {
+
+        modalAdmin.classList.add(
+          "abierto"
+        );
+
+        revisarSesionAdmin();
+
+      };
+
+
+    window.cerrarAdministracion =
+      function() {
+
+        modalAdmin.classList.remove(
+          "abierto"
+        );
+
+      };
+
+
+    function revisarSesionAdmin() {
+
+      const usuario =
+        auth.currentUser;
+
+
+      if (usuario) {
+
+        mostrarPanelAdmin(
+          usuario
+        );
+
+      } else {
+
+        adminLogin.style.display =
+          "block";
+
+
+        panelAdmin.style.display =
+          "none";
+
+      }
+
+    }
+
+
+    window.iniciarSesionAdmin =
+      async function() {
+
+        const email =
+          document
+            .getElementById(
+              "adminEmail"
+            )
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById(
+              "adminPassword"
+            )
+            .value;
+
+
+        const mensaje =
+          document.getElementById(
+            "mensajeLogin"
+          );
+
+
+        mensaje.className =
+          "estado-admin";
+
+
+        mensaje.textContent =
+          "";
+
+
+        if (
+          !email ||
+          !password
+        ) {
+
+          mensaje.className =
+            "estado-admin error";
+
+
+          mensaje.textContent =
+            "Escribe tu correo y contraseña.";
+
+
+          return;
+
+        }
+
+
+        try {
+
+          mensaje.className =
+            "estado-admin exito";
+
+
+          mensaje.textContent =
+            "Iniciando sesión...";
+
+
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+
+          mensaje.className =
+            "estado-admin";
+
+
+          mensaje.textContent =
+            "";
+
+
+        } catch (error) {
+
+          console.error(
+            error
+          );
+
+
+          mensaje.className =
+            "estado-admin error";
+
+
+          mensaje.textContent =
+            "No se pudo iniciar sesión. Revisa el correo y la contraseña.";
+
+        }
+
+      };
+
+
+    function mostrarPanelAdmin(
+      usuario
+    ) {
+
+      adminLogin.style.display =
+        "none";
+
+
+      panelAdmin.style.display =
+        "block";
+
+
+      document.getElementById(
+        "usuarioAdmin"
+      ).textContent =
+        "Sesión iniciada: " +
+        (
+          usuario.email ||
+          ""
+        );
+
+
+      cargarProductosAdmin();
+
+    }
+
+
+    window.cerrarSesionAdmin =
+      async function() {
+
+        try {
+
+          await signOut(
+            auth
+          );
+
+
+          productoEditandoId =
+            null;
+
+
+          limpiarFormularioAdmin();
+
+
+          adminLogin.style.display =
+            "block";
+
+
+          panelAdmin.style.display =
+            "none";
+
+
+        } catch (error) {
+
+          console.error(
+            error
+          );
+
+        }
+
+      };
+
+
+    /* =========================================
+       PREVISUALIZACIÓN FOTO
+       ========================================= */
+
+    document
+      .getElementById(
+        "fotoProducto"
+      )
+      .addEventListener(
+        "change",
+        function() {
+
+          const archivo =
+            this.files[0];
+
+
+          const preview =
+            document.getElementById(
+              "vistaPreviaFoto"
+            );
+
+
+          if (!archivo) {
+
+            preview.style.display =
+              "none";
+
+
+            preview.src =
+              "";
+
+
+            return;
+
+          }
+
+
+          if (
+            !archivo.type.startsWith(
+              "image/"
+            )
+          ) {
+
+            alert(
+              "Selecciona una imagen."
+            );
+
+
+            this.value =
+              "";
+
+
+            return;
+
+          }
+
+
+          const url =
+            URL.createObjectURL(
+              archivo
+            );
+
+
+          preview.src =
+            url;
+
+
+          preview.style.display =
+            "block";
+
+        }
+      );
+
+
+    /* =========================================
+       SUBIR FOTO A FIREBASE STORAGE
+       ========================================= */
+
+    async function subirFoto(
+      archivo
+    ) {
+
+      if (!archivo) {
+
+        return null;
+
+      }
+
+
+      const extension =
+        (
+          archivo.name.split(
+            "."
+          ).pop() ||
+          "jpg"
+        )
+          .toLowerCase();
+
+
+      const nombreUnico =
+        Date.now() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2, 10);
+
+
+      const ruta =
+        `productos/${nombreUnico}.${extension}`;
+
+
+      const referencia =
+        ref(
+          storage,
+          ruta
+        );
+
+
+      await uploadBytes(
+        referencia,
+        archivo
+      );
+
+
+      const url =
+        await getDownloadURL(
+          referencia
+        );
+
+
+      return {
+        url,
+        ruta
+      };
+
+    }
+
+
+    /* =========================================
+       GUARDAR PRODUCTO
+       ========================================= */
+
+    window.guardarProducto =
+      async function() {
+
+        if (
+          !auth.currentUser
+        ) {
+
+          mostrarMensajeAdmin(
+            "Debes iniciar sesión como administrador.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        const nombre =
+          document
+            .getElementById(
+              "nombreProducto"
+            )
+            .value
+            .trim();
+
+
+        const precio =
+          Number(
+            document
+              .getElementById(
+                "precioProducto"
+              )
+              .value
+          ) || 0;
+
+
+        const categoria =
+          document
+            .getElementById(
+              "categoriaProducto"
+            )
+            .value;
+
+
+        const descripcion =
+          document
+            .getElementById(
+              "descripcionProducto"
+            )
+            .value
+            .trim();
+
+
+        const archivo =
+          document
+            .getElementById(
+              "fotoProducto"
+            )
+            .files[0];
+
+
+        if (!nombre) {
+
+          mostrarMensajeAdmin(
+            "Escribe el nombre del producto.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        if (
+          productoEditandoId === null &&
+          !archivo
+        ) {
+
+          mostrarMensajeAdmin(
+            "Selecciona una foto del producto.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        const boton =
+          document.getElementById(
+            "botonGuardarProducto"
+          );
+
+
+        boton.disabled =
+          true;
+
+
+        boton.textContent =
+          "⏳ Guardando...";
+
+
+        try {
+
+          let fotoNueva =
+            null;
+
+
+          if (archivo) {
+
+            fotoNueva =
+              await subirFoto(
+                archivo
+              );
+
+          }
+
+
+          const datos = {
+
+            nombre,
+
+            precio,
+
+            categoria,
+
+            descripcion,
+
+            actualizadoEn:
+              serverTimestamp()
+
+          };
+
+
+          /* =====================================
+             NUEVO PRODUCTO
+             ===================================== */
+
+          if (
+            productoEditandoId === null
+          ) {
+
+            if (!fotoNueva) {
+
+              throw new Error(
+                "No se pudo subir la foto."
+              );
+
+            }
+
+
+            datos.imagen =
+              fotoNueva.url;
+
+
+            datos.storagePath =
+              fotoNueva.ruta;
+
+
+            datos.creadoPor =
+              auth.currentUser.email;
+
+
+            datos.creadoEn =
+              serverTimestamp();
+
+
+            await addDoc(
+              collection(
+                db,
+                "productos"
+              ),
+              datos
+            );
+
+
+            mostrarMensajeAdmin(
+              "✅ Producto agregado correctamente.",
+              "exito"
+            );
+
+          }
+
+
+          /* =====================================
+             EDITAR PRODUCTO
+             ===================================== */
+
+          else {
+
+            const producto =
+              productos.find(
+                (p) =>
+                  p.id ===
+                  productoEditandoId
+              );
+
+
+            if (!producto) {
+
+              throw new Error(
+                "Producto no encontrado."
+              );
+
+            }
+
+
+            if (
+              fotoNueva
+            ) {
+
+              datos.imagen =
+                fotoNueva.url;
+
+
+              datos.storagePath =
+                fotoNueva.ruta;
+
+
+              /*
+                Borrar foto anterior
+                de Storage si existe.
+              */
+
+              if (
+                producto.storagePath
+              ) {
+
+                try {
+
+                  await deleteObject(
+                    ref(
+                      storage,
+                      producto.storagePath
+                    )
+                  );
+
+                } catch (
+                  errorFotoAnterior
+                ) {
+
+                  console.warn(
+                    "No se pudo borrar la foto anterior:",
+                    errorFotoAnterior
+                  );
+
+                }
+
+              }
+
+            }
+
+
+            await updateDoc(
+              doc(
+                db,
+                "productos",
+                productoEditandoId
+              ),
+              datos
+            );
+
+
+            mostrarMensajeAdmin(
+              "✅ Producto actualizado correctamente.",
+              "exito"
+            );
+
+          }
+
+
+          await cargarProductosNuevamente();
+
+
+          limpiarFormularioAdmin();
+
+
+          cargarProductosAdmin();
+
+        } catch (error) {
+
+          console.error(
+            "Error guardando producto:",
+            error
+          );
+
+
+          mostrarMensajeAdmin(
+            "❌ No se pudo guardar. Revisa Firebase Storage y Firestore.",
+            "error"
+          );
+
+        } finally {
+
+          boton.disabled =
+            false;
+
+
+          boton.textContent =
+            productoEditandoId !== null
+              ? "💾 Guardar cambios"
+              : "💾 Guardar producto";
+
+        }
+
+      };
+
+
+    /* =========================================
+       RECARGAR PRODUCTOS
+       ========================================= */
+
+    async function cargarProductosNuevamente() {
+
+      productos =
+        productos.filter(
+          (producto) =>
+            producto.id &&
+            producto.id.startsWith(
+              "github-"
+            )
+        );
+
+
+      try {
+
+        const snapshot =
+          await getDocs(
+            collection(
+              db,
+              "productos"
+            )
+          );
+
+
+        snapshot.forEach(
+          (documento) => {
+
+            productos.push({
+
+              id:
+                documento.id,
+
+              ...documento.data()
+
+            });
+
+          }
+        );
+
+
+        renderizarTodos();
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+      }
+
+    }
+
+
+    /* =========================================
+       LISTA DE ADMINISTRACIÓN
+       ========================================= */
+
+    async function cargarProductosAdmin() {
+
+      const contenedor =
+        document.getElementById(
+          "listaAdminProductos"
+        );
+
+
+      contenedor.innerHTML = `
+
+        <div
+          style="
+            grid-column:1/-1;
+            text-align:center;
+            padding:20px;
+            color:#927a61;
+          "
+        >
+          ⏳ Cargando productos...
+        </div>
+
+      `;
+
+
+      try {
+
+        const snapshot =
+          await getDocs(
+            collection(
+              db,
+              "productos"
+            )
+          );
+
+
+        contenedor.innerHTML =
+          "";
+
+
+        if (
+          snapshot.empty
+        ) {
+
+          contenedor.innerHTML = `
+
+            <div
+              style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:30px;
+                color:#927a61;
+              "
+            >
+              🛍️ Todavía no tienes
+              productos agregados desde
+              la administración.
+            </div>
+
+          `;
+
+
+          return;
+
+        }
+
+
+        snapshot.forEach(
+          (documento) => {
+
+            const producto =
+              {
+                id:
+                  documento.id,
+
+                ...documento.data()
+
+              };
+
+
+            const tarjeta =
+              document.createElement(
+                "div"
+              );
+
+
+            tarjeta.className =
+              "admin-producto";
+
+
+            const imagen =
+              producto.imagen ||
+              producto.image ||
+              producto.foto ||
+              "";
+
+
+            const nombre =
+              producto.nombre ||
+              "Producto";
+
+
+            const precio =
+              Number(
+                producto.precio ||
+                0
+              );
+
+
+            tarjeta.innerHTML = `
+
+              ${
+                imagen
+                  ? `
+                    <img
+                      src="${imagen}"
+                      alt="${nombre}"
+                    >
+                  `
+                  : `
+                    <div
+                      style="
+                        height:160px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        background:#f1e5d7;
+                        font-size:45px;
+                      "
+                    >
+                      🛍️
+                    </div>
+                  `
+              }
+
+              <div
+                class="admin-producto-info"
+              >
+
+                <h4>
+                  ${nombre}
+                </h4>
+
+                <p>
+                  ${normalizarCategoria(
+                    producto.categoria
+                  )}
+                  ${
+                    precio > 0
+                      ? " · $" +
+                        precio.toLocaleString(
+                          "es-CO"
+                        )
+                      : ""
+                  }
+                </p>
+
+                <div
+                  class="admin-acciones"
+                >
+
+                  <button
+                    class="boton-admin-secundario"
+                    onclick="editarProducto('${documento.id}')"
+                  >
+                    ✏️ Editar
+                  </button>
+
+                  <button
+                    class="boton-admin-peligro"
+                    onclick="eliminarProducto('${documento.id}')"
+                  >
+                    🗑️
+                  </button>
+
+                </div>
+
+              </div>
+
+            `;
+
+
+            contenedor.appendChild(
+              tarjeta
+            );
+
+          }
+        );
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        contenedor.innerHTML = `
+
+          <div
+            style="
+              grid-column:1/-1;
+              padding:20px;
+              color:#743d2d;
+            "
+          >
+            ❌ No se pudieron cargar
+            los productos.
+          </div>
+
+        `;
+
+      }
+
+    }
+
+
+    /* =========================================
+       EDITAR PRODUCTO
+       ========================================= */
+
+    window.editarProducto =
+      async function(id) {
+
+        if (
+          !auth.currentUser
+        ) {
+
+          return;
+
+        }
+
+
+        try {
+
+          const snapshot =
+            await getDocs(
+              collection(
+                db,
+                "productos"
+              )
+            );
+
+
+          let producto =
+            null;
+
+
+          snapshot.forEach(
+            (documento) => {
+
+              if (
+                documento.id === id
+              ) {
+
+                producto = {
+
+                  id:
+                    documento.id,
+
+                  ...documento.data()
+
+                };
+
+              }
+
+            }
+          );
+
+
+          if (!producto) {
+
+            alert(
+              "No se encontró el producto."
+            );
+
+
+            return;
+
+          }
+
+
+          productoEditandoId =
+            id;
+
+
+          document.getElementById(
+            "tituloFormulario"
+          ).textContent =
+            "✏️ Editar producto";
+
+
+          document.getElementById(
+            "nombreProducto"
+          ).value =
+            producto.nombre ||
+            "";
+
+
+          document.getElementById(
+            "precioProducto"
+          ).value =
+            producto.precio ||
+            "";
+
+
+          document.getElementById(
+            "categoriaProducto"
+          ).value =
+            normalizarCategoria(
+              producto.categoria
+            );
+
+
+          document.getElementById(
+            "descripcionProducto"
+          ).value =
+            producto.descripcion ||
+            "";
+
+
+          document.getElementById(
+            "botonGuardarProducto"
+          ).textContent =
+            "💾 Guardar cambios";
+
+
+          document.getElementById(
+            "botonCancelarEdicion"
+          ).style.display =
+            "block";
+
+
+          const preview =
+            document.getElementById(
+              "vistaPreviaFoto"
+            );
+
+
+          if (
+            producto.imagen
+          ) {
+
+            preview.src =
+              producto.imagen;
+
+
+            preview.style.display =
+              "block";
+
+          }
+
+
+          document
+            .getElementById(
+              "tituloFormulario"
+            )
+            .scrollIntoView({
+              behavior:
+                "smooth"
+            });
+
+
+        } catch (error) {
+
+          console.error(
+            error
+          );
+
+        }
+
+      };
+
+
+    /* =========================================
+       ELIMINAR PRODUCTO
+       ========================================= */
+
+    window.eliminarProducto =
+      async function(id) {
+
+        if (
+          !auth.currentUser
+        ) {
+
+          return;
+
+        }
+
+
+        const confirmar =
+          confirm(
+            "¿Seguro que quieres eliminar este producto y su foto?"
+          );
+
+
+        if (!confirmar) {
+
+          return;
+
+        }
+
+
+        try {
+
+          const snapshot =
+            await getDocs(
+              collection(
+                db,
+                "productos"
+              )
+            );
+
+
+          let producto =
+            null;
+
+
+          snapshot.forEach(
+            (documento) => {
+
+              if (
+                documento.id === id
+              ) {
+
+                producto = {
+
+                  id:
+                    documento.id,
+
+                  ...documento.data()
+
+                };
+
+              }
+
+            }
+          );
+
+
+          if (!producto) {
+
+            throw new Error(
+              "Producto no encontrado."
+            );
+
+          }
+
+
+          /*
+            Primero intentamos borrar
+            la foto de Firebase Storage.
+          */
+
+          if (
+            producto.storagePath
+          ) {
+
+            try {
+
+              await deleteObject(
+                ref(
+                  storage,
+                  producto.storagePath
+                )
+              );
+
+            } catch (
+              errorStorage
+            ) {
+
+              console.warn(
+                "No se pudo borrar la foto de Storage:",
+                errorStorage
+              );
+
+            }
+
+          }
+
+
+          /*
+            Después borramos el producto
+            de Firestore.
+          */
+
+          await deleteDoc(
+            doc(
+              db,
+              "productos",
+              id
+            )
+          );
+
+
+          mostrarMensajeAdmin(
+            "✅ Producto eliminado correctamente.",
+            "exito"
+          );
+
+
+          await cargarProductosNuevamente();
+
+
+          cargarProductosAdmin();
+
+
+        } catch (error) {
+
+          console.error(
+            error
+          );
+
+
+          mostrarMensajeAdmin(
+            "❌ No se pudo eliminar el producto.",
+            "error"
+          );
+
+        }
+
+      };
+
+
+    /* =========================================
+       CANCELAR EDICIÓN
+       ========================================= */
+
+    window.cancelarEdicion =
+      function() {
+
+        productoEditandoId =
+          null;
+
+
+        limpiarFormularioAdmin();
+
+      };
+
+
+    function limpiarFormularioAdmin() {
+
+      productoEditandoId =
+        null;
+
+
+      document.getElementById(
+        "tituloFormulario"
+      ).textContent =
+        "➕ Agregar producto";
+
+
+      document.getElementById(
+        "nombreProducto"
+      ).value =
+        "";
+
+
+      document.getElementById(
+        "precioProducto"
+      ).value =
+        "";
+
+
+      document.getElementById(
+        "categoriaProducto"
+      ).value =
+        "ropa";
+
+
+      document.getElementById(
+        "descripcionProducto"
+      ).value =
+        "";
+
+
+      document.getElementById(
+        "fotoProducto"
+      ).value =
+        "";
+
+
+      const preview =
+        document.getElementById(
+          "vistaPreviaFoto"
+        );
+
+
+      preview.src =
+        "";
+
+
+      preview.style.display =
+        "none";
+
+
+      document.getElementById(
+        "botonCancelarEdicion"
+      ).style.display =
+        "none";
+
+
+      document.getElementById(
+        "botonGuardarProducto"
+      ).textContent =
+        "💾 Guardar producto";
+
+    }
+
+
+    /* =========================================
+       MENSAJES
+       ========================================= */
+
+    function mostrarMensajeAdmin(
+      texto,
+      tipo
+    ) {
+
+      const elemento =
+        document.getElementById(
+          "mensajeAdmin"
+        );
+
+
+      elemento.className =
+        "estado-admin " +
+        tipo;
+
+
+      elemento.textContent =
+        texto;
+
+
+      setTimeout(
+        () => {
+
+          elemento.className =
+            "estado-admin";
+
+
+          elemento.textContent =
+            "";
+
+        },
+        5000
+      );
+
+    }
+
+
+    /* =========================================
+       ESTADO DE AUTENTICACIÓN
+       ========================================= */
+
+    onAuthStateChanged(
+      auth,
+      (usuario) => {
+
+        const boton =
+          document.getElementById(
+            "botonAdmin"
+          );
+
+
+        if (usuario) {
+
+          boton.style.display =
+            "block";
+
+        } else {
+
+          boton.style.display =
+            "none";
+
+        }
+
+
+        if (
+          modalAdmin.classList.contains(
+            "abierto"
+          )
+        ) {
+
+          revisarSesionAdmin();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       INICIO
+       ========================================= */
 
     cargarFirebase();
 
