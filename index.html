@@ -6,7 +6,6 @@
 
 <title>ANDREX 🩵Store</title>
 
-<!-- FUENTES -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -37,7 +36,6 @@ body{
   position:sticky;
   top:0;
   z-index:1000;
-
   width:100%;
   min-height:68px;
 
@@ -58,20 +56,18 @@ body{
 }
 
 /* =========================
-   LOGO ANDREX STORE
+   LOGO
 ========================= */
 
 .logo{
   display:flex;
   align-items:center;
   gap:9px;
-
   flex-shrink:0;
 
   font-family:"Playfair Display",serif;
   font-size:31px;
   font-weight:800;
-
   letter-spacing:2px;
   line-height:1;
 
@@ -79,11 +75,10 @@ body{
 
   text-shadow:
     0 0 3px #ffffff,
-    0 0 8px rgba(120,221,255,.45),
-    0 0 15px rgba(21,158,208,.22);
+    0 0 8px rgba(120,221,255,.35),
+    0 0 15px rgba(21,158,208,.15);
 
   white-space:nowrap;
-
   cursor:pointer;
   user-select:none;
   -webkit-user-select:none;
@@ -100,15 +95,13 @@ body{
   font-family:"Playfair Display",serif;
   font-size:26px;
   font-weight:800;
-
   letter-spacing:1.5px;
 
   color:#55bfdc;
 
   text-shadow:
     0 0 3px #ffffff,
-    0 0 7px rgba(110,216,245,.40),
-    0 0 14px rgba(110,216,245,.20);
+    0 0 7px rgba(110,216,245,.30);
 }
 
 /* =========================
@@ -126,14 +119,11 @@ body{
 
   border:none;
   padding:9px 13px;
-
   border-radius:12px;
 
   background:#159ed0;
   color:white;
-
   font-weight:bold;
-
   cursor:pointer;
 
   box-shadow:
@@ -142,20 +132,15 @@ body{
 
 .btn-carrito{
   border:none;
-
   width:44px;
   height:44px;
-
   border-radius:50%;
 
   background:#e9faff;
-
   color:#159ed0;
-
   font-size:21px;
 
   cursor:pointer;
-
   border:1px solid #bfeaf5;
 
   box-shadow:
@@ -175,25 +160,19 @@ body{
 .contenedor-buscador{
   width:100%;
   max-width:850px;
-
   margin:18px auto 0;
-
   padding:0 15px;
 }
 
 .buscador{
   width:100%;
-
   padding:14px 20px;
 
   border-radius:30px;
-
   border:1px solid #bde5f1;
-
   outline:none;
 
   font-size:15px;
-
   background:white;
 
   box-shadow:
@@ -214,21 +193,15 @@ body{
 .hero{
   width:100%;
   max-width:1200px;
-
   margin:20px auto;
-
   padding:0 15px;
 }
 
 .hero video{
   width:100%;
-
   max-height:450px;
-
   object-fit:cover;
-
   border-radius:25px;
-
   display:block;
 
   box-shadow:
@@ -237,66 +210,38 @@ body{
 
 /* =========================
    TITULO BIENVENIDO
-   CLARO Y ELEGANTE
+   MAS CLARO Y SIN BRILLO
 ========================= */
 
 .titulo-principal{
   display:table;
 
   margin:32px auto 18px;
-
   padding:10px 24px;
 
   text-align:center;
 
   font-family:"Playfair Display",serif;
-
   font-size:35px;
-
   font-weight:800;
-
   letter-spacing:1px;
 
-  color:#167c9f;
+  color:#3c7b8b;
 
   background:linear-gradient(
     135deg,
     #ffffff 0%,
-    #f7fdff 50%,
-    #edfaff 100%
+    #fcfeff 55%,
+    #f3fbfd 100%
   );
 
-  border:1px solid #b5e3ef;
-
+  border:1px solid #d0edf3;
   border-radius:20px;
 
   box-shadow:
-    0 4px 12px rgba(52,171,202,.10),
-    0 0 10px rgba(92,218,246,.12),
-    inset 0 0 10px rgba(255,255,255,.85);
+    0 4px 14px rgba(56,164,201,.06);
 
-  text-shadow:
-    0 0 2px rgba(255,255,255,.95),
-    0 0 4px rgba(92,218,246,.18);
-
-  animation:neonPulse 3.5s ease-in-out infinite alternate;
-}
-
-@keyframes neonPulse{
-
-  from{
-    box-shadow:
-      0 4px 12px rgba(52,171,202,.08),
-      0 0 7px rgba(92,218,246,.08),
-      inset 0 0 8px rgba(255,255,255,.80);
-  }
-
-  to{
-    box-shadow:
-      0 4px 14px rgba(52,171,202,.12),
-      0 0 11px rgba(92,218,246,.14),
-      inset 0 0 12px rgba(255,255,255,.90);
-  }
+  text-shadow:none;
 }
 
 /* =========================
@@ -305,17 +250,13 @@ body{
 
 .subtitulo{
   width:calc(100% - 30px);
-
   max-width:950px;
-
   margin:0 auto 30px;
 
   text-align:center;
 
   color:#477386;
-
   font-size:15px;
-
   line-height:1.7;
 
   background:linear-gradient(
@@ -325,29 +266,26 @@ body{
   );
 
   border:1px solid #bce7f5;
-
   border-radius:18px;
 
   padding:18px 22px;
 
   box-shadow:
-    0 7px 20px rgba(56,164,201,.10),
-    0 0 18px rgba(92,218,246,.12);
+    0 7px 20px rgba(56,164,201,.08);
 
   font-weight:600;
 }
 
 /* =========================
    CATEGORIAS
+   CUADROS MAS GRANDES
 ========================= */
 
 .categorias{
   width:100%;
-
   max-width:1100px;
 
-  margin:25px auto;
-
+  margin:25px auto 30px;
   padding:0 15px;
 
   display:grid;
@@ -355,37 +293,75 @@ body{
   grid-template-columns:
     repeat(4,1fr);
 
-  gap:15px;
+  gap:18px;
 }
 
 .categoria{
-  padding:18px 10px;
+  min-height:78px;
 
-  border-radius:18px;
+  padding:20px 12px;
 
-  border:1px solid #c7eaf4;
+  border-radius:20px;
 
-  background:white;
+  border:1px solid #c2e7f1;
+
+  background:linear-gradient(
+    145deg,
+    #ffffff,
+    #f2fbfe
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
   text-align:center;
 
-  font-weight:bold;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:17px;
+  font-weight:800;
 
   color:#278aa9;
 
   cursor:pointer;
 
   box-shadow:
-    0 7px 18px rgba(50,160,194,.08);
+    0 8px 20px rgba(50,160,194,.10);
 
-  transition:.25s;
+  transition:
+    transform .25s,
+    box-shadow .25s,
+    background .25s,
+    border-color .25s;
+
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .categoria:hover{
   transform:translateY(-4px);
 
   box-shadow:
-    0 12px 25px rgba(50,160,194,.15);
+    0 13px 27px rgba(50,160,194,.16);
+}
+
+.categoria:active{
+  transform:scale(.97);
+}
+
+.categoria.activa{
+  background:linear-gradient(
+    145deg,
+    #eafaff,
+    #ffffff
+  );
+
+  border-color:#8ed5e8;
+
+  color:#168caf;
+
+  box-shadow:
+    0 9px 23px rgba(50,160,194,.15);
 }
 
 /* =========================
@@ -394,13 +370,10 @@ body{
 
 .info-cards{
   max-width:1100px;
-
   margin:25px auto;
-
   padding:0 15px;
 
   display:grid;
-
   grid-template-columns:
     repeat(3,1fr);
 
@@ -409,11 +382,8 @@ body{
 
 .info-card{
   background:white;
-
   border:1px solid #ccebf4;
-
   border-radius:18px;
-
   padding:20px;
 
   text-align:center;
@@ -424,30 +394,56 @@ body{
 
 .info-card h3{
   color:#159ed0;
-
   margin-bottom:8px;
 }
 
 .info-card p{
   color:#668894;
-
   line-height:1.5;
-
   font-size:14px;
 }
 
 /* =========================
-   SECCIONES
+   RESULTADOS BUSQUEDA
+========================= */
+
+#resultadosBusqueda{
+  display:none;
+
+  width:100%;
+  max-width:1200px;
+
+  margin:30px auto;
+  padding:0 15px;
+}
+
+/* =========================
+   SECCIONES DE CATEGORIAS
+   ESTAN CERRADAS AL INICIO
 ========================= */
 
 .seccion{
   width:100%;
-
   max-width:1200px;
 
-  margin:40px auto;
+  margin:35px auto;
+  padding:22px 15px 30px;
 
-  padding:0 15px;
+  display:none;
+
+  background:white;
+
+  border:1px solid #d2edf4;
+  border-radius:24px;
+
+  box-shadow:
+    0 8px 25px rgba(43,153,185,.07);
+
+  scroll-margin-top:90px;
+}
+
+.seccion.activa{
+  display:block;
 }
 
 .titulo-seccion{
@@ -455,11 +451,15 @@ body{
 
   text-align:center;
 
-  font-size:28px;
+  font-size:30px;
 
   color:#168caf;
 
-  margin-bottom:20px;
+  margin-bottom:25px;
+
+  padding-bottom:14px;
+
+  border-bottom:1px solid #d9eff5;
 }
 
 /* =========================
@@ -501,11 +501,9 @@ body{
 
 .producto img{
   width:100%;
-
   height:245px;
 
   object-fit:cover;
-
   display:block;
 }
 
@@ -515,32 +513,13 @@ body{
 
 .producto-info h3{
   color:#226f86;
-
   margin-bottom:7px;
 }
 
 .precio{
   font-size:18px;
-
   font-weight:bold;
-
   color:#159ed0;
-}
-
-/* =========================
-   RESULTADOS BUSQUEDA
-========================= */
-
-#resultadosBusqueda{
-  display:none;
-
-  width:100%;
-
-  max-width:1200px;
-
-  margin:30px auto;
-
-  padding:0 15px;
 }
 
 /* =========================
@@ -557,11 +536,9 @@ body{
   height:48px;
 
   border:none;
-
   border-radius:50%;
 
   background:#159ed0;
-
   color:white;
 
   font-size:20px;
@@ -582,7 +559,6 @@ body{
   display:none;
 
   position:fixed;
-
   inset:0;
 
   z-index:2000;
@@ -590,7 +566,6 @@ body{
   background:rgba(0,30,40,.65);
 
   align-items:center;
-
   justify-content:center;
 
   padding:20px;
@@ -598,9 +573,7 @@ body{
 
 .modal-producto-contenido{
   width:100%;
-
   max-width:500px;
-
   max-height:90vh;
 
   overflow:auto;
@@ -619,7 +592,6 @@ body{
 
 .modal-producto-contenido img{
   width:100%;
-
   max-height:450px;
 
   object-fit:contain;
@@ -637,17 +609,14 @@ body{
   height:38px;
 
   border:none;
-
   border-radius:50%;
 
   background:white;
-
   color:#168caf;
 
   font-size:22px;
 
   cursor:pointer;
-
   z-index:2;
 
   box-shadow:
@@ -689,9 +658,7 @@ body{
 
 .carrito-header{
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   margin-bottom:20px;
@@ -699,7 +666,6 @@ body{
 
 .carrito-header h2{
   font-family:"Playfair Display",serif;
-
   color:#168caf;
 }
 
@@ -707,7 +673,6 @@ body{
   border:none;
 
   background:#eafaff;
-
   color:#168caf;
 
   width:38px;
@@ -722,7 +687,6 @@ body{
 
 .carrito-item{
   display:flex;
-
   align-items:center;
 
   gap:10px;
@@ -761,7 +725,6 @@ body{
   color:#168caf;
 
   font-size:19px;
-
   font-weight:bold;
 }
 
@@ -773,15 +736,12 @@ body{
   padding:14px;
 
   border:none;
-
   border-radius:14px;
 
   background:#20b95a;
-
   color:white;
 
   font-weight:bold;
-
   font-size:16px;
 
   cursor:pointer;
@@ -795,7 +755,6 @@ body{
   display:none;
 
   position:fixed;
-
   inset:0;
 
   z-index:4000;
@@ -803,7 +762,6 @@ body{
   background:rgba(0,30,40,.65);
 
   align-items:center;
-
   justify-content:center;
 
   padding:20px;
@@ -811,7 +769,6 @@ body{
 
 .admin-contenido{
   width:100%;
-
   max-width:600px;
 
   max-height:90vh;
@@ -879,11 +836,9 @@ body{
   height:48px;
 
   border:none;
-
   border-radius:50%;
 
   background:white;
-
   color:#159ed0;
 
   font-size:20px;
@@ -907,6 +862,14 @@ body{
   .categorias{
     grid-template-columns:
       repeat(2,1fr);
+
+    gap:14px;
+  }
+
+  .categoria{
+    min-height:75px;
+    padding:18px 10px;
+    font-size:16px;
   }
 
   .info-cards{
@@ -923,15 +886,12 @@ body{
 
   .logo{
     font-size:23px;
-
     letter-spacing:1.2px;
-
     gap:6px;
   }
 
   .logo-store{
     font-size:19px;
-
     letter-spacing:1px;
   }
 
@@ -949,10 +909,48 @@ body{
 
   .subtitulo{
     font-size:14px;
-
     padding:15px 16px;
-
     line-height:1.6;
+  }
+
+  /* CATEGORIAS GRANDES EN CELULAR */
+
+  .categorias{
+    padding:0 15px;
+
+    gap:12px;
+
+    margin-top:25px;
+    margin-bottom:30px;
+  }
+
+  .categoria{
+    min-height:82px;
+
+    padding:18px 8px;
+
+    border-radius:18px;
+
+    font-size:15px;
+  }
+
+  /* SECCION ABIERTA */
+
+  .seccion{
+    margin:25px auto;
+
+    padding:
+      20px 12px
+      25px;
+
+    border-radius:20px;
+
+    scroll-margin-top:82px;
+  }
+
+  .titulo-seccion{
+    font-size:26px;
+    margin-bottom:20px;
   }
 
   .productos{
@@ -984,7 +982,6 @@ body{
 
   .logo{
     font-size:21px;
-
     gap:5px;
   }
 
@@ -999,6 +996,11 @@ body{
 
   .titulo-principal{
     font-size:22px;
+  }
+
+  .categoria{
+    min-height:78px;
+    font-size:14px;
   }
 
 }
@@ -1023,8 +1025,15 @@ body{
 <header class="barra-superior">
 
   <div class="logo" id="logoAdmin">
-    <span class="logo-andrex">ANDREX</span>
-    <span class="logo-store">STORE 🩵</span>
+
+    <span class="logo-andrex">
+      ANDREX
+    </span>
+
+    <span class="logo-store">
+      STORE 🩵
+    </span>
+
   </div>
 
   <div class="botones-superiores">
@@ -1033,13 +1042,17 @@ body{
       class="btn-admin"
       id="btnAdmin"
       onclick="abrirAdmin()">
+
       ⚙️ Admin
+
     </button>
 
     <button
       class="btn-carrito"
       onclick="abrirCarrito()">
+
       🛒
+
     </button>
 
   </div>
@@ -1090,10 +1103,13 @@ body{
 </h1>
 
 <p class="subtitulo">
+
   ✨🩵 Más que una tienda, somos el lugar donde encuentras tu estilo. 🛍️
+
   Descubre prendas que combinan contigo, tendencias que te inspiran y ese
   detalle que transforma cualquier look. 💎 Porque vestir bien no es seguir
   a los demás, es llevar tu propia esencia. 🩵✨
+
 </p>
 
 <!-- =========================
@@ -1104,26 +1120,38 @@ body{
 
   <div
     class="categoria"
+    data-categoria="ropa"
     onclick="irCategoria('ropa')">
+
     👕 ROPA
+
   </div>
 
   <div
     class="categoria"
+    data-categoria="zapatos"
     onclick="irCategoria('zapatos')">
+
     👟 ZAPATOS
+
   </div>
 
   <div
     class="categoria"
+    data-categoria="lociones"
     onclick="irCategoria('lociones')">
+
     🧴 LOCIONES
+
   </div>
 
   <div
     class="categoria"
+    data-categoria="streaming"
     onclick="irCategoria('streaming')">
+
     📺 STREAMING
+
   </div>
 
 </section>
@@ -1135,30 +1163,45 @@ body{
 <section class="info-cards">
 
   <div class="info-card">
-    <h3>🩵 Calidad</h3>
+
+    <h3>
+      🩵 Calidad
+    </h3>
+
     <p>
       Productos seleccionados pensando en tu estilo y en la mejor experiencia.
     </p>
+
   </div>
 
   <div class="info-card">
-    <h3>✨ Estilo</h3>
+
+    <h3>
+      ✨ Estilo
+    </h3>
+
     <p>
       Encuentra opciones modernas para expresar tu propia esencia.
     </p>
+
   </div>
 
   <div class="info-card">
-    <h3>📦 Pedidos</h3>
+
+    <h3>
+      📦 Pedidos
+    </h3>
+
     <p>
       Realiza tu pedido de manera fácil y rápida directamente por WhatsApp.
     </p>
+
   </div>
 
 </section>
 
 <!-- =========================
-     RESULTADOS
+     RESULTADOS BUSQUEDA
 ========================= -->
 
 <section id="resultadosBusqueda">
@@ -1257,7 +1300,9 @@ body{
 <button
   class="btn-inicio"
   onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
   🏠
+
 </button>
 
 <!-- =========================
@@ -1268,7 +1313,9 @@ body{
   class="music-control"
   id="musicControl"
   onclick="toggleMusic()">
+
   🎵
+
 </button>
 
 <audio
@@ -1294,7 +1341,9 @@ body{
     <button
       class="cerrar-modal"
       onclick="cerrarProducto()">
+
       ✕
+
     </button>
 
     <img
@@ -1315,7 +1364,9 @@ body{
     <button
       class="btn-whatsapp"
       id="btnComprar">
+
       💬 Comprar por WhatsApp
+
     </button>
 
   </div>
@@ -1332,12 +1383,16 @@ body{
 
   <div class="carrito-header">
 
-    <h2>🛒 Mi carrito</h2>
+    <h2>
+      🛒 Mi carrito
+    </h2>
 
     <button
       class="cerrar-carrito"
       onclick="cerrarCarrito()">
+
       ✕
+
     </button>
 
   </div>
@@ -1347,13 +1402,17 @@ body{
   <div
     class="carrito-total"
     id="carritoTotal">
+
     Total: $0
+
   </div>
 
   <button
     class="btn-whatsapp"
     onclick="enviarPedido()">
+
     💬 Pedir por WhatsApp
+
   </button>
 
 </aside>
@@ -1368,7 +1427,9 @@ body{
 
   <div class="admin-contenido">
 
-    <h2>⚙️ Administración</h2>
+    <h2>
+      ⚙️ Administración
+    </h2>
 
     <input
       class="admin-input"
@@ -1412,13 +1473,17 @@ body{
     <button
       class="admin-btn"
       onclick="guardarProducto()">
+
       💾 Guardar producto
+
     </button>
 
     <button
       class="admin-btn"
       onclick="cerrarAdmin()">
+
       ❌ Cerrar
+
     </button>
 
     <div id="listaAdmin"></div>
@@ -1468,17 +1533,29 @@ const firebaseConfig = {
 
 };
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db =
+  getFirestore(app);
 
-window.db = db;
+window.db =
+  db;
 
-window.firebaseCollection = collection;
-window.firebaseAddDoc = addDoc;
-window.firebaseGetDocs = getDocs;
-window.firebaseDeleteDoc = deleteDoc;
-window.firebaseDoc = doc;
+window.firebaseCollection =
+  collection;
+
+window.firebaseAddDoc =
+  addDoc;
+
+window.firebaseGetDocs =
+  getDocs;
+
+window.firebaseDeleteDoc =
+  deleteDoc;
+
+window.firebaseDoc =
+  doc;
 
 </script>
 
@@ -1490,9 +1567,10 @@ window.firebaseDoc = doc;
 
 let productos = [];
 
-let carrito = JSON.parse(
-  localStorage.getItem("andrexCarrito") || "[]"
-);
+let carrito =
+  JSON.parse(
+    localStorage.getItem("andrexCarrito") || "[]"
+  );
 
 let contadorLogo = 0;
 
@@ -1506,29 +1584,38 @@ const PIN_ADMIN = "2580";
 
 document
   .getElementById("logoAdmin")
-  .addEventListener("click",function(){
+  .addEventListener(
+    "click",
+    function(){
 
-    const ahora = Date.now();
+      const ahora =
+        Date.now();
 
-    if(
-      ahora - ultimoClickLogo > 1500
-    ){
-      contadorLogo = 0;
+      if(
+        ahora - ultimoClickLogo > 1500
+      ){
+
+        contadorLogo = 0;
+
+      }
+
+      ultimoClickLogo =
+        ahora;
+
+      contadorLogo++;
+
+      if(
+        contadorLogo >= 5
+      ){
+
+        contadorLogo = 0;
+
+        abrirAdmin();
+
+      }
+
     }
-
-    ultimoClickLogo = ahora;
-
-    contadorLogo++;
-
-    if(contadorLogo >= 5){
-
-      contadorLogo = 0;
-
-      abrirAdmin();
-
-    }
-
-  });
+  );
 
 /* =========================
    ADMIN
@@ -1536,11 +1623,14 @@ document
 
 function abrirAdmin(){
 
-  const pin = prompt(
-    "🔐 Ingresa el PIN de administrador:"
-  );
+  const pin =
+    prompt(
+      "🔐 Ingresa el PIN de administrador:"
+    );
 
-  if(pin === PIN_ADMIN){
+  if(
+    pin === PIN_ADMIN
+  ){
 
     document.body.classList.add(
       "admin-activo"
@@ -1548,13 +1638,16 @@ function abrirAdmin(){
 
     document.getElementById(
       "modalAdmin"
-    ).style.display = "flex";
+    ).style.display =
+      "flex";
 
     cargarListaAdmin();
 
   }else{
 
-    if(pin !== null){
+    if(
+      pin !== null
+    ){
 
       alert(
         "❌ PIN incorrecto"
@@ -1566,17 +1659,20 @@ function abrirAdmin(){
 
 }
 
-window.abrirAdmin = abrirAdmin;
+window.abrirAdmin =
+  abrirAdmin;
 
 function cerrarAdmin(){
 
   document.getElementById(
     "modalAdmin"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 }
 
-window.cerrarAdmin = cerrarAdmin;
+window.cerrarAdmin =
+  cerrarAdmin;
 
 /* =========================
    IMAGEN BASE64
@@ -1594,68 +1690,82 @@ function comprimirImagen(
       const reader =
         new FileReader();
 
-      reader.onload = function(e){
+      reader.onload =
+        function(e){
 
-        const img =
-          new Image();
+          const img =
+            new Image();
 
-        img.onload = function(){
+          img.onload =
+            function(){
 
-          let width =
-            img.width;
+              let width =
+                img.width;
 
-          let height =
-            img.height;
+              let height =
+                img.height;
 
-          if(width > maxWidth){
+              if(
+                width > maxWidth
+              ){
 
-            height =
-              height * maxWidth / width;
+                height =
+                  height *
+                  maxWidth /
+                  width;
 
-            width =
-              maxWidth;
+                width =
+                  maxWidth;
 
-          }
+              }
 
-          const canvas =
-            document.createElement("canvas");
+              const canvas =
+                document.createElement(
+                  "canvas"
+                );
 
-          canvas.width =
-            width;
+              canvas.width =
+                width;
 
-          canvas.height =
-            height;
+              canvas.height =
+                height;
 
-          const ctx =
-            canvas.getContext("2d");
+              const ctx =
+                canvas.getContext(
+                  "2d"
+                );
 
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            width,
-            height
-          );
+              ctx.drawImage(
+                img,
+                0,
+                0,
+                width,
+                height
+              );
 
-          resolve(
-            canvas.toDataURL(
-              "image/jpeg",
-              calidad
-            )
-          );
+              resolve(
+                canvas.toDataURL(
+                  "image/jpeg",
+                  calidad
+                )
+              );
+
+            };
+
+          img.onerror =
+            reject;
+
+          img.src =
+            e.target.result;
 
         };
 
-        img.onerror = reject;
+      reader.onerror =
+        reject;
 
-        img.src =
-          e.target.result;
-
-      };
-
-      reader.onerror = reject;
-
-      reader.readAsDataURL(archivo);
+      reader.readAsDataURL(
+        archivo
+      );
 
     }
   );
@@ -1690,7 +1800,11 @@ async function guardarProducto(){
       "imagenProducto"
     ).files[0];
 
-  if(!nombre || !precio || !archivo){
+  if(
+    !nombre ||
+    !precio ||
+    !archivo
+  ){
 
     alert(
       "⚠️ Completa todos los campos."
@@ -1774,6 +1888,20 @@ async function cargarFirebase(){
         )
       );
 
+    /*
+      Limpiamos solamente los productos
+      que vienen de Firebase para evitar
+      duplicados al volver a cargar.
+    */
+
+    productos =
+      productos.filter(
+        p =>
+          String(p.id).startsWith(
+            "github-"
+          )
+      );
+
     snapshot.forEach(
       documento => {
 
@@ -1786,16 +1914,21 @@ async function cargarFirebase(){
             documento.id,
 
           nombre:
-            data.nombre || "Producto",
+            data.nombre ||
+            "Producto",
 
           precio:
-            Number(data.precio || 0),
+            Number(
+              data.precio || 0
+            ),
 
           categoria:
-            data.categoria || "ropa",
+            data.categoria ||
+            "ropa",
 
           imagen:
-            data.imagen || ""
+            data.imagen ||
+            ""
 
         });
 
@@ -1831,7 +1964,9 @@ async function cargarRopaGitHub(){
     const respuesta =
       await fetch(url);
 
-    if(!respuesta.ok){
+    if(
+      !respuesta.ok
+    ){
 
       throw new Error(
         "No se pudo cargar GitHub"
@@ -1861,7 +1996,9 @@ async function cargarRopaGitHub(){
                 archivo.name
             );
 
-          if(!existe){
+          if(
+            !existe
+          ){
 
             productos.push({
 
@@ -1871,12 +2008,19 @@ async function cargarRopaGitHub(){
 
               nombre:
                 archivo.name
-                  .replace(/\.[^/.]+$/,"")
-                  .replace(/[-_]/g," "),
+                  .replace(
+                    /\.[^/.]+$/,
+                    ""
+                  )
+                  .replace(
+                    /[-_]/g,
+                    " "
+                  ),
 
               precio:0,
 
-              categoria:"ropa",
+              categoria:
+                "ropa",
 
               imagen:
                 archivo.download_url
@@ -1917,14 +2061,23 @@ function renderizarProductos(){
   categorias.forEach(
     categoria => {
 
+      const nombreContenedor =
+        "productos" +
+        categoria.charAt(0).toUpperCase() +
+        categoria.slice(1);
+
       const contenedor =
         document.getElementById(
-          "productos" +
-          categoria.charAt(0).toUpperCase() +
-          categoria.slice(1)
+          nombreContenedor
         );
 
-      if(!contenedor) return;
+      if(
+        !contenedor
+      ){
+
+        return;
+
+      }
 
       contenedor.innerHTML = "";
 
@@ -1951,18 +2104,27 @@ function renderizarProductos(){
 
 }
 
+/* =========================
+   CREAR TARJETA
+========================= */
+
 function crearTarjetaProducto(
   producto
 ){
 
   const div =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   div.className =
     "producto";
 
-  div.onclick = () =>
-    mostrarProducto(producto);
+  div.onclick =
+    () =>
+      mostrarProducto(
+        producto
+      );
 
   const precioTexto =
     producto.precio > 0
@@ -2032,9 +2194,10 @@ function mostrarProducto(
   document.getElementById(
     "btnComprar"
   ).onclick =
-    () => agregarAlCarrito(
-      producto
-    );
+    () =>
+      agregarAlCarrito(
+        producto
+      );
 
   document.getElementById(
     "modalProducto"
@@ -2072,7 +2235,9 @@ function agregarAlCarrito(
 
   localStorage.setItem(
     "andrexCarrito",
-    JSON.stringify(carrito)
+    JSON.stringify(
+      carrito
+    )
   );
 
   actualizarCarrito();
@@ -2095,7 +2260,8 @@ function actualizarCarrito(){
       "carritoItems"
     );
 
-  contenedor.innerHTML = "";
+  contenedor.innerHTML =
+    "";
 
   let total = 0;
 
@@ -2108,7 +2274,9 @@ function actualizarCarrito(){
         );
 
       const item =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
       item.className =
         "carrito-item";
@@ -2126,6 +2294,7 @@ function actualizarCarrito(){
           </strong>
 
           <div>
+
             ${
               producto.precio > 0
                 ? "$" +
@@ -2136,6 +2305,7 @@ function actualizarCarrito(){
                   )
                 : "Consultar"
             }
+
           </div>
 
         </div>
@@ -2150,7 +2320,9 @@ function actualizarCarrito(){
             padding:7px;
             cursor:pointer;
           ">
+
           🗑️
+
         </button>
 
       `;
@@ -2186,7 +2358,9 @@ function eliminarCarrito(
 
   localStorage.setItem(
     "andrexCarrito",
-    JSON.stringify(carrito)
+    JSON.stringify(
+      carrito
+    )
   );
 
   actualizarCarrito();
@@ -2228,7 +2402,9 @@ window.cerrarCarrito =
 
 function enviarPedido(){
 
-  if(carrito.length === 0){
+  if(
+    carrito.length === 0
+  ){
 
     alert(
       "🛒 Tu carrito está vacío."
@@ -2299,7 +2475,9 @@ window.enviarPedido =
 ========================= */
 
 document
-  .getElementById("buscador")
+  .getElementById(
+    "buscador"
+  )
   .addEventListener(
     "input",
     function(){
@@ -2319,7 +2497,9 @@ document
           "productosBusqueda"
         );
 
-      if(!texto){
+      if(
+        !texto
+      ){
 
         resultados.style.display =
           "none";
@@ -2333,10 +2513,13 @@ document
           producto =>
             producto.nombre
               .toLowerCase()
-              .includes(texto)
+              .includes(
+                texto
+              )
         );
 
-      contenedor.innerHTML = "";
+      contenedor.innerHTML =
+        "";
 
       encontrados.forEach(
         producto => {
@@ -2357,24 +2540,128 @@ document
   );
 
 /* =========================
-   IR A CATEGORIA
+   ABRIR CATEGORIA
+   COMO CARPETA
 ========================= */
 
 function irCategoria(
   categoria
 ){
 
+  const categorias =
+    [
+      "ropa",
+      "zapatos",
+      "lociones",
+      "streaming"
+    ];
+
+  /*
+    Cerramos todas las categorías.
+  */
+
+  categorias.forEach(
+    nombre => {
+
+      const seccion =
+        document.getElementById(
+          nombre
+        );
+
+      if(
+        seccion
+      ){
+
+        seccion.classList.remove(
+          "activa"
+        );
+
+      }
+
+    }
+  );
+
+  /*
+    Quitamos el estado activo
+    de todos los botones.
+  */
+
+  document
+    .querySelectorAll(
+      ".categoria"
+    )
+    .forEach(
+      boton => {
+
+        boton.classList.remove(
+          "activa"
+        );
+
+      }
+    );
+
+  /*
+    Abrimos solamente
+    la categoría seleccionada.
+  */
+
   const elemento =
     document.getElementById(
       categoria
     );
 
-  if(elemento){
+  const boton =
+    document.querySelector(
+      '.categoria[data-categoria="' +
+      categoria +
+      '"]'
+    );
 
-    elemento.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
+  if(
+    elemento
+  ){
+
+    elemento.classList.add(
+      "activa"
+    );
+
+  }
+
+  if(
+    boton
+  ){
+
+    boton.classList.add(
+      "activa"
+    );
+
+  }
+
+  /*
+    Primero mostramos la categoría
+    y después hacemos scroll hasta ella.
+  */
+
+  if(
+    elemento
+  ){
+
+    setTimeout(
+      () => {
+
+        const posicion =
+          elemento.getBoundingClientRect().top +
+          window.pageYOffset -
+          82;
+
+        window.scrollTo({
+          top:posicion,
+          behavior:"smooth"
+        });
+
+      },
+      50
+    );
 
   }
 
@@ -2394,7 +2681,13 @@ async function cargarListaAdmin(){
       "listaAdmin"
     );
 
-  if(!contenedor) return;
+  if(
+    !contenedor
+  ){
+
+    return;
+
+  }
 
   contenedor.innerHTML = `
 
@@ -2410,7 +2703,9 @@ async function cargarListaAdmin(){
         color:#168caf;
         margin-bottom:12px;
       ">
+
       📦 Productos guardados
+
     </h3>
 
   `;
@@ -2454,7 +2749,9 @@ async function cargarListaAdmin(){
           <button
             class="admin-btn"
             onclick="eliminarProducto('${documento.id}')">
+
             🗑️
+
           </button>
 
         `;
@@ -2468,7 +2765,9 @@ async function cargarListaAdmin(){
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
 
   }
 
@@ -2514,7 +2813,9 @@ async function eliminarProducto(
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
 
     alert(
       "❌ No se pudo eliminar."
@@ -2592,7 +2893,9 @@ document
     "click",
     function(e){
 
-      if(e.target === this){
+      if(
+        e.target === this
+      ){
 
         cerrarProducto();
 
@@ -2609,7 +2912,9 @@ document
     "click",
     function(e){
 
-      if(e.target === this){
+      if(
+        e.target === this
+      ){
 
         cerrarAdmin();
 
