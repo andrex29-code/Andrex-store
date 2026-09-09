@@ -8,132 +8,190 @@
 
 <style>
 
+:root{
+  --morado:#7b2cff;
+  --morado2:#b66cff;
+  --azul:#00d9ff;
+  --azul2:#008cff;
+  --blanco:#ffffff;
+  --fondo:#070414;
+  --card:#110a24;
+  --texto:#eeeeff;
+}
+
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
 body{
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:#080014;
-  color:white;
-  min-height:100vh;
+  background:
+    radial-gradient(circle at top,#1b0840 0%,#070414 45%,#030208 100%);
+  color:var(--blanco);
 }
 
+/* HEADER */
+
 header{
+  padding:20px 15px 35px;
   text-align:center;
-  padding:20px 10px 10px;
+  border-bottom:1px solid rgba(0,217,255,.25);
+  box-shadow:0 0 30px rgba(123,44,255,.25);
+}
+
+.logo{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .logo img{
-  width:90px;
-  max-width:90px;
+  width:88px;
   height:auto;
   display:block;
-  margin:auto;
-}
-
-.container{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  padding:15px;
+  border-radius:12px;
 }
 
 /* VIDEO */
 
 .video-box{
   width:100%;
-  margin:15px auto 25px;
-  border-radius:18px;
-  overflow:hidden;
-  border:2px solid #7b00ff;
+  max-width:900px;
+  margin:25px auto 10px;
+  padding:3px;
+  border-radius:20px;
+
+  background:linear-gradient(
+    135deg,
+    var(--morado),
+    var(--azul),
+    var(--morado)
+  );
+
   box-shadow:
-    0 0 10px #7b00ff,
-    0 0 25px #0066ff;
-  background:#000;
+    0 0 20px rgba(123,44,255,.55),
+    0 0 35px rgba(0,217,255,.25);
 }
 
 .video-box video{
-  display:block;
   width:100%;
+  display:block;
+  border-radius:17px;
+  background:#000;
   max-height:500px;
-  object-fit:cover;
 }
 
-/* TITULO */
+/* TITULOS */
 
-.title{
+h1{
+  margin:18px 0 5px;
+  font-size:32px;
+  letter-spacing:3px;
+
+  background:linear-gradient(
+    90deg,
+    var(--morado2),
+    var(--azul)
+  );
+
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitulo{
+  color:#cfcfff;
+  font-size:14px;
+}
+
+/* CONTENEDOR */
+
+.container{
+  width:92%;
+  max-width:900px;
+  margin:auto;
+}
+
+/* SECCIONES */
+
+section{
+  padding:30px 0;
+}
+
+.titulo-seccion{
   text-align:center;
-  margin:20px 0;
-}
+  font-size:25px;
+  margin-bottom:22px;
 
-.title h1{
-  font-size:30px;
   color:white;
-  text-shadow:
-    0 0 8px #8a2be2,
-    0 0 15px #0066ff;
-}
 
-.title p{
-  margin-top:8px;
-  color:#ccc;
+  text-shadow:
+    0 0 10px rgba(123,44,255,.8);
 }
 
 /* CATEGORIAS */
 
 .categories{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin:20px 0;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
 
 .category{
-  min-height:110px;
+  min-height:190px;
+
+  border-radius:22px;
+
+  padding:25px 15px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(123,44,255,.20),
+      rgba(0,217,255,.08)
+    );
+
+  border:1px solid rgba(123,44,255,.55);
+
+  box-shadow:
+    0 0 20px rgba(123,44,255,.20);
+
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
-  padding:15px 8px;
-  border-radius:18px;
-  background:linear-gradient(145deg,#16002d,#09001c);
-  border:2px solid #7200ff;
-  box-shadow:
-    0 0 8px #7200ff,
-    inset 0 0 15px rgba(0,102,255,.15);
-  cursor:pointer;
+
   transition:.25s;
 }
 
 .category:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
+
+  border-color:var(--azul);
+
   box-shadow:
-    0 0 15px #8a2be2,
-    0 0 30px #0066ff;
+    0 0 25px rgba(0,217,255,.35);
 }
 
-.category .icon{
-  font-size:35px;
-  margin-bottom:8px;
+.category-icon{
+  font-size:58px;
+  margin-bottom:12px;
 }
 
-.category span{
-  font-size:15px;
-  font-weight:bold;
+.category h3{
+  margin:5px 0;
+  font-size:22px;
+}
+
+.category p{
+  margin:5px 0;
+  color:#bfc2e8;
+  font-size:13px;
 }
 
 /* PRODUCTOS */
-
-.section-title{
-  text-align:center;
-  margin:25px 0 15px;
-  font-size:24px;
-  text-shadow:0 0 10px #7200ff;
-}
 
 .products{
   display:grid;
@@ -142,187 +200,217 @@ header{
 }
 
 .product{
-  background:#10001f;
-  border:1px solid #7300ff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 0 10px rgba(115,0,255,.5);
+  background:rgba(17,10,36,.92);
+
+  border:1px solid rgba(123,44,255,.45);
+
+  border-radius:18px;
+
+  padding:15px;
+
+  text-align:center;
+
+  box-shadow:
+    0 0 15px rgba(123,44,255,.15);
 }
 
-.product img{
+.product-image{
   width:100%;
-  height:210px;
+  height:160px;
+
   object-fit:cover;
-  display:block;
-  background:#050008;
+
+  border-radius:13px;
+
+  background:#080510;
 }
 
-.product-info{
-  padding:12px;
+.product h3{
+  margin:12px 0 7px;
 }
 
-.product-name{
+.price{
+  color:var(--azul);
   font-weight:bold;
-  font-size:16px;
-  margin-bottom:7px;
-}
-
-.product-price{
-  color:#53a7ff;
   font-size:18px;
-  font-weight:bold;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
-.product button{
-  width:100%;
-  padding:10px;
+.btn{
   border:0;
-  border-radius:10px;
-  color:white;
-  font-weight:bold;
-  background:linear-gradient(90deg,#6500ff,#006cff);
   cursor:pointer;
+
+  width:100%;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  font-weight:bold;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--morado),
+      var(--azul2)
+    );
+
+  box-shadow:
+    0 0 12px rgba(123,44,255,.35);
 }
 
 /* CARRITO */
 
 .cart{
-  margin-top:30px;
-  padding:18px;
-  background:#10001f;
-  border:2px solid #006cff;
-  border-radius:18px;
-  box-shadow:0 0 15px rgba(0,102,255,.5);
+  margin-top:25px;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(123,44,255,.15),
+      rgba(0,217,255,.08)
+    );
+
+  border:1px solid rgba(0,217,255,.35);
 }
 
 .cart h2{
-  text-align:center;
-  margin-bottom:15px;
+  margin-top:0;
+  color:var(--azul);
 }
 
 .cart-item{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:10px;
-  padding:10px 0;
-  border-bottom:1px solid #332044;
-}
 
-.cart-item button{
-  border:0;
-  background:#ff1744;
-  color:white;
-  padding:6px 9px;
-  border-radius:7px;
-  cursor:pointer;
+  padding:10px 0;
+
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .total{
-  text-align:right;
+  margin-top:15px;
   font-size:20px;
   font-weight:bold;
-  margin:15px 0;
+  text-align:right;
 }
 
 .whatsapp{
   display:block;
-  width:100%;
-  text-align:center;
+
+  margin-top:18px;
+
   padding:14px;
-  background:#25D366;
-  color:white;
+
+  text-align:center;
+
   text-decoration:none;
-  border-radius:12px;
+
+  border-radius:13px;
+
+  color:white;
+
   font-weight:bold;
-  font-size:17px;
-  cursor:pointer;
+
+  background:#18b957;
+
+  box-shadow:0 0 15px rgba(24,185,87,.25);
 }
 
-/* INFORMACION DE PAGO */
+/* INFORMACION */
 
-.payment{
-  margin-top:25px;
-  padding:18px;
-  border-radius:18px;
-  background:linear-gradient(145deg,#130022,#08001a);
-  border:1px solid #7200ff;
-}
-
-.payment h2{
-  margin-bottom:12px;
-  text-align:center;
-}
-
-.payment p{
-  margin:8px 0;
-  line-height:1.5;
-  color:#ddd;
-}
-
-/* MENSAJES */
-
-.message{
-  text-align:center;
+.info{
   padding:20px;
+
+  border-radius:18px;
+
+  background:#0e0820;
+
+  border:1px solid rgba(123,44,255,.35);
+
+  margin-top:20px;
+}
+
+.info p{
+  color:#c9c9df;
+  line-height:1.5;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+
+  padding:30px 15px;
+
+  margin-top:30px;
+
+  border-top:1px solid rgba(0,217,255,.2);
+
   color:#aaa;
 }
 
-.hidden{
-  display:none;
+.footer-brand{
+  color:var(--azul);
+  font-weight:bold;
 }
 
-/* CELULAR */
+/* MOVIL */
 
 @media(max-width:600px){
 
-  .container{
-    max-width:100%;
-    padding:12px;
-  }
-
-  header{
-    padding-top:15px;
-  }
-
   .logo img{
     width:85px;
-    max-width:85px;
   }
 
-  .title h1{
-    font-size:25px;
+  h1{
+    font-size:27px;
   }
 
   .categories{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
     gap:12px;
   }
 
   .category{
-    min-height:125px;
+    min-height:170px;
+    padding:15px 8px;
   }
 
-  .category .icon{
-    font-size:38px;
+  .category-icon{
+    font-size:48px;
+  }
+
+  .category h3{
+    font-size:18px;
+  }
+
+  .category p{
+    font-size:11px;
   }
 
   .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+    grid-template-columns:1fr 1fr;
   }
 
-  .product img{
-    height:170px;
+  .product-image{
+    height:140px;
   }
 
-  .product-name{
-    font-size:14px;
-  }
+}
 
-  .product-price{
-    font-size:16px;
+@media(max-width:380px){
+
+  .categories,
+  .products{
+    grid-template-columns:1fr;
   }
 
 }
@@ -335,23 +423,21 @@ header{
 <header>
 
   <div class="logo">
+
     <img
       src="https://github.com/andrex29-code/Andrex-store/raw/refs/heads/main/61015DF9-C980-4CE4-AF75-6EA36FB447CD.png"
       alt="ANDREX Store"
     >
+
   </div>
 
-</header>
+  <h1>ANDREX STORE</h1>
 
+  <div class="subtitulo">
+    Ropa · Zapatos · Lociones · Streaming
+  </div>
 
-<div class="container">
-
-  <!-- ==================================================
-       PRIMER VIDEO ❤️💙
-       
-       AQUÍ VA EL ENLACE DEL PRIMER VIDEO.
-       NO BORRES ESTE BLOQUE.
-       ================================================== -->
+  <!-- VIDEO DE ANDREX STORE -->
 
   <div class="video-box">
 
@@ -361,14 +447,19 @@ header{
       muted
       loop
       playsinline
-      preload="metadata"
     >
 
-      <!-- CAMBIAR SOLAMENTE ESTA URL CUANDO
-           TENGAMOS EL ENLACE DEL PRIMER VIDEO -->
+      <!--
+      AQUÍ VA EL PRIMER VIDEO.
+
+      Cuando tengamos el nombre exacto del archivo,
+      reemplaza solamente esta línea:
+
+      <source src="AQUI_EL_VIDEO.mp4" type="video/mp4">
+      -->
 
       <source
-        src="AQUI_VA_EL_ENLACE_DEL_PRIMER_VIDEO.mp4"
+        src="AQUI_EL_VIDEO.mp4"
         type="video/mp4"
       >
 
@@ -378,55 +469,94 @@ header{
 
   </div>
 
-
-  <div class="title">
-
-    <h1>ANDREX Store</h1>
-
-    <p>
-      Tu tienda online 💜💙
-    </p>
-
-  </div>
+</header>
 
 
-  <!-- CATEGORIAS -->
+<main class="container">
+
+
+<!-- CATEGORIAS -->
+
+<section>
+
+  <h2 class="titulo-seccion">
+    🛍️ ELIGE TU CATEGORÍA
+  </h2>
 
   <div class="categories">
 
-    <div class="category" onclick="mostrarCategoria('Ropa')">
-      <div class="icon">👕</div>
-      <span>Ropa</span>
+    <div class="category">
+
+      <div class="category-icon">👕</div>
+
+      <h3>Ropa</h3>
+
+      <p>
+        Encuentra prendas para tu estilo.
+      </p>
+
     </div>
 
-    <div class="category" onclick="mostrarCategoria('Zapatos')">
-      <div class="icon">👟</div>
-      <span>Zapatos</span>
+
+    <div class="category">
+
+      <div class="category-icon">👟</div>
+
+      <h3>Zapatos</h3>
+
+      <p>
+        Calzado para cada ocasión.
+      </p>
+
     </div>
 
-    <div class="category" onclick="mostrarCategoria('Lociones')">
-      <div class="icon">🌸</div>
-      <span>Lociones</span>
+
+    <div class="category">
+
+      <div class="category-icon">🧴</div>
+
+      <h3>Lociones</h3>
+
+      <p>
+        Fragancias que dejan huella.
+      </p>
+
     </div>
 
-    <div class="category" onclick="mostrarCategoria('Streaming')">
-      <div class="icon">📺</div>
-      <span>Cuentas Streaming</span>
+
+    <div class="category">
+
+      <div class="category-icon">📺</div>
+
+      <h3>Cuentas Streaming</h3>
+
+      <p>
+        Entretenimiento para disfrutar.
+      </p>
+
     </div>
 
   </div>
 
+</section>
 
-  <h2 class="section-title" id="tituloProductos">
-    Productos
+
+<!-- PRODUCTOS -->
+
+<section>
+
+  <h2 class="titulo-seccion">
+    🔥 PRODUCTOS
   </h2>
 
+  <div
+    id="productos"
+    class="products"
+  >
 
-  <div id="productos" class="products">
-
-    <div class="message">
+    <p>
       Cargando productos...
-    </div>
+    </p>
 
   </div>
 
@@ -437,36 +567,44 @@ header{
 
     <h2>🛒 Mi carrito</h2>
 
-    <div id="carritoItems">
+    <div id="carrito">
 
-      <div class="message">
+      <p>
         Tu carrito está vacío.
-      </div>
+      </p>
 
     </div>
 
-    <div class="total">
-      Total:
-      <span id="total">$0</span>
+    <div
+      id="total"
+      class="total"
+    >
+      Total: $0
     </div>
 
     <a
-      id="whatsappButton"
+      id="whatsapp"
       class="whatsapp"
       href="#"
       target="_blank"
     >
-      📲 Pedir por WhatsApp
+      📲 PEDIR POR WHATSAPP
     </a>
 
   </div>
 
+</section>
 
-  <!-- INFORMACION DE PAGO -->
 
-  <div class="payment">
+<!-- INFORMACION -->
 
-    <h2>💳 Información de pago</h2>
+<section>
+
+  <div class="info">
+
+    <h2 class="titulo-seccion">
+      💳 FORMAS DE PAGO
+    </h2>
 
     <p>
       👕 <strong>Ropa:</strong>
@@ -479,300 +617,226 @@ header{
     </p>
 
     <p>
-      📺 <strong>Cuentas Streaming:</strong>
+      📺 <strong>Streaming:</strong>
       pago anticipado.
     </p>
 
     <p>
-      🌸 <strong>Lociones originales:</strong>
-      puedes pagar contra entrega cuando esté disponible.
+      🧴 <strong>Lociones:</strong>
+      algunas pueden manejar pago contra entrega.
     </p>
 
   </div>
 
-</div>
+</section>
+
+</main>
+
+
+<footer>
+
+  <span class="footer-brand">
+    ANDREX Store
+  </span>
+
+  <br><br>
+
+  Estilo · Aroma · Entretenimiento
+
+  <br><br>
+
+  Pedidos por WhatsApp:
+  318 157 9324
+
+</footer>
 
 
 <!-- FIREBASE -->
 
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getFirestore,
   collection,
   getDocs
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* CONFIGURACION FIREBASE */
+/* CONFIGURACIÓN FIREBASE */
 
 const firebaseConfig = {
 
   apiKey:
-  "AIzaSyBGb7jgkOKWeNnJed6QPDMW-4-933gG59I",
+    "AIzaSyBGb7jgkOKWeNnJed6QPWM-D4-933gG59I",
 
   authDomain:
-  "andrex-store.firebaseapp.com",
+    "andrex-store.firebaseapp.com",
 
   projectId:
-  "andrex-store",
+    "andrex-store",
 
   storageBucket:
-  "andrex-store.firebasestorage.app",
+    "andrex-store.firebasestorage.app",
 
   messagingSenderId:
-  "607192665861",
+    "607192665861",
 
   appId:
-  "1:607192665861:web:a4fb90f3a2009d6491716c"
+    "1:607192665861:web:a4fb90f3a2009d6491716c"
 
 };
 
 
 /* INICIAR FIREBASE */
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db =
+  getFirestore(app);
 
 
-/* VARIABLES */
-
-let productos = [];
+/* CARRITO */
 
 let carrito =
-JSON.parse(
-  localStorage.getItem("andrexCarrito") || "[]"
-);
+  JSON.parse(
+    localStorage.getItem("andrexCarrito")
+  ) || [];
 
 
-/* CARGAR PRODUCTOS DE FIREBASE */
+/* ELEMENTOS */
+
+const productosDiv =
+  document.getElementById("productos");
+
+const carritoDiv =
+  document.getElementById("carrito");
+
+const totalDiv =
+  document.getElementById("total");
+
+const whatsapp =
+  document.getElementById("whatsapp");
+
+
+/* CARGAR PRODUCTOS */
 
 async function cargarProductos(){
-
-  const contenedor =
-  document.getElementById("productos");
 
   try{
 
     const snapshot =
-    await getDocs(
-      collection(db,"productos")
-    );
+      await getDocs(
+        collection(db,"productos")
+      );
 
-    productos = [];
+    productosDiv.innerHTML = "";
 
-    snapshot.forEach((doc)=>{
+    if(snapshot.empty){
 
-      const data = doc.data();
+      productosDiv.innerHTML =
+        "<p>No hay productos publicados todavía.</p>";
 
-      productos.push({
+      return;
 
-        id:doc.id,
+    }
 
-        ...data
 
-      });
+    snapshot.forEach(doc=>{
+
+      const producto =
+        doc.data();
+
+      const nombre =
+        producto.nombre ||
+        "Producto";
+
+      const precio =
+        Number(producto.precio) || 0;
+
+      const imagen =
+        producto.imagen ||
+        producto.foto ||
+        "";
+
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "product";
+
+
+      card.innerHTML = `
+
+        ${
+          imagen
+          ?
+          `<img
+            class="product-image"
+            src="${imagen}"
+            alt="${nombre}"
+          >`
+          :
+          `<div class="product-image"></div>`
+        }
+
+        <h3>${nombre}</h3>
+
+        <div class="price">
+          $${precio.toLocaleString("es-CO")}
+        </div>
+
+        <button class="btn">
+          🛒 Agregar al carrito
+        </button>
+
+      `;
+
+
+      card
+        .querySelector("button")
+        .addEventListener(
+          "click",
+          ()=>{
+
+            carrito.push({
+
+              nombre:nombre,
+
+              precio:precio
+
+            });
+
+            guardarCarrito();
+
+            mostrarCarrito();
+
+          }
+        );
+
+
+      productosDiv.appendChild(card);
 
     });
-
-
-    mostrarProductos(productos);
 
   }catch(error){
 
     console.error(error);
 
-    contenedor.innerHTML = `
-
-      <div class="message">
-
-        No se pudieron cargar los productos.
-
-      </div>
-
-    `;
+    productosDiv.innerHTML =
+      "<p>No se pudieron cargar los productos.</p>";
 
   }
 
 }
 
 
-/* MOSTRAR PRODUCTOS */
-
-function mostrarProductos(lista){
-
-  const contenedor =
-  document.getElementById("productos");
-
-  if(!lista.length){
-
-    contenedor.innerHTML = `
-
-      <div class="message">
-
-        No hay productos disponibles.
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  contenedor.innerHTML = "";
-
-
-  lista.forEach(producto=>{
-
-    const nombre =
-    producto.nombre ||
-    producto.name ||
-    "Producto";
-
-
-    const precio =
-    Number(
-      producto.precio ||
-      producto.price ||
-      0
-    );
-
-
-    const imagen =
-    producto.imagen ||
-    producto.image ||
-    producto.url ||
-    "";
-
-
-    const tarjeta =
-    document.createElement("div");
-
-    tarjeta.className =
-    "product";
-
-
-    tarjeta.innerHTML = `
-
-      <img
-        src="${imagen}"
-        alt="${nombre}"
-        onerror="this.style.display='none'"
-      >
-
-      <div class="product-info">
-
-        <div class="product-name">
-          ${nombre}
-        </div>
-
-        <div class="product-price">
-          $${precio.toLocaleString("es-CO")}
-        </div>
-
-        <button>
-          🛒 Agregar al carrito
-        </button>
-
-      </div>
-
-    `;
-
-
-    tarjeta
-    .querySelector("button")
-    .addEventListener(
-      "click",
-      ()=>agregarAlCarrito(producto)
-    );
-
-
-    contenedor.appendChild(tarjeta);
-
-  });
-
-}
-
-
-/* CATEGORIAS */
-
-window.mostrarCategoria =
-function(categoria){
-
-  let lista = productos;
-
-
-  if(categoria !== "Todos"){
-
-    lista =
-    productos.filter(producto=>{
-
-      const cat =
-      String(
-        producto.categoria ||
-        producto.category ||
-        ""
-      ).toLowerCase();
-
-
-      return cat.includes(
-        categoria.toLowerCase()
-      );
-
-    });
-
-  }
-
-
-  document.getElementById(
-    "tituloProductos"
-  ).textContent =
-  categoria;
-
-
-  mostrarProductos(lista);
-
-};
-
-
-/* AGREGAR AL CARRITO */
-
-function agregarAlCarrito(producto){
-
-  carrito.push({
-
-    id:producto.id,
-
-    nombre:
-    producto.nombre ||
-    producto.name ||
-    "Producto",
-
-    precio:
-    Number(
-      producto.precio ||
-      producto.price ||
-      0
-    )
-
-  });
-
-
-  guardarCarrito();
-
-  mostrarCarrito();
-
-}
-
-
-/* GUARDAR CARRITO */
+/* GUARDAR */
 
 function guardarCarrito(){
 
@@ -788,108 +852,90 @@ function guardarCarrito(){
 
 function mostrarCarrito(){
 
-  const contenedor =
-  document.getElementById(
-    "carritoItems"
-  );
+  carritoDiv.innerHTML = "";
 
+  if(carrito.length === 0){
 
-  if(!carrito.length){
+    carritoDiv.innerHTML =
+      "<p>Tu carrito está vacío.</p>";
 
-    contenedor.innerHTML = `
+    totalDiv.textContent =
+      "Total: $0";
 
-      <div class="message">
-
-        Tu carrito está vacío.
-
-      </div>
-
-    `;
-
-    actualizarTotal();
+    actualizarWhatsApp();
 
     return;
 
   }
 
 
-  contenedor.innerHTML = "";
+  let total = 0;
 
 
-  carrito.forEach((producto,index)=>{
+  carrito.forEach(
+    (producto,index)=>{
 
-    const item =
-    document.createElement("div");
-
-    item.className =
-    "cart-item";
+      total +=
+        Number(producto.precio) || 0;
 
 
-    item.innerHTML = `
+      const item =
+        document.createElement("div");
 
-      <span>
+      item.className =
+        "cart-item";
 
-        ${producto.nombre}
 
-        <br>
+      item.innerHTML = `
 
-        <strong>
+        <span>
+          ${producto.nombre}
+        </span>
+
+        <span>
           $${Number(producto.precio)
-          .toLocaleString("es-CO")}
-        </strong>
+            .toLocaleString("es-CO")}
+        </span>
 
-      </span>
+        <button
+          style="
+            border:0;
+            background:none;
+            color:#ff4d6d;
+            cursor:pointer;
+          "
+        >
+          ❌
+        </button>
 
-      <button>
-        ❌
-      </button>
-
-    `;
-
-
-    item
-    .querySelector("button")
-    .addEventListener(
-      "click",
-      ()=>{
-
-        carrito.splice(index,1);
-
-        guardarCarrito();
-
-        mostrarCarrito();
-
-      }
-    );
+      `;
 
 
-    contenedor.appendChild(item);
+      item
+        .querySelector("button")
+        .addEventListener(
+          "click",
+          ()=>{
 
-  });
+            carrito.splice(index,1);
+
+            guardarCarrito();
+
+            mostrarCarrito();
+
+          }
+        );
 
 
-  actualizarTotal();
+      carritoDiv.appendChild(item);
 
-}
-
-
-/* TOTAL */
-
-function actualizarTotal(){
-
-  const total =
-  carrito.reduce(
-    (suma,producto)=>
-    suma + Number(producto.precio || 0),
-    0
+    }
   );
 
 
-  document.getElementById(
-    "total"
-  ).textContent =
-  "$" +
-  total.toLocaleString("es-CO");
+  totalDiv.textContent =
+    "Total: $" +
+    total.toLocaleString("es-CO");
 
 
   actualizarWhatsApp();
@@ -901,52 +947,54 @@ function actualizarTotal(){
 
 function actualizarWhatsApp(){
 
-  const numero =
-  "573181579324";
+  let mensaje =
+    "Hola ANDREX Store 👋%0A%0A";
+
+  if(carrito.length === 0){
+
+    mensaje +=
+      "Quiero consultar los productos disponibles.";
+
+  }else{
+
+    mensaje +=
+      "Quiero realizar este pedido:%0A%0A";
 
 
-  if(!carrito.length){
+    carrito.forEach(
+      producto=>{
 
-    document.getElementById(
-      "whatsappButton"
-    ).href = "#";
+        mensaje +=
+          "• " +
+          producto.nombre +
+          " - $" +
+          Number(producto.precio)
+            .toLocaleString("es-CO") +
+          "%0A";
 
-    return;
+      }
+    );
+
+
+    const total =
+      carrito.reduce(
+        (sum,producto)=>
+          sum +
+          (Number(producto.precio) || 0),
+        0
+      );
+
+
+    mensaje +=
+      "%0ATotal: $" +
+      total.toLocaleString("es-CO");
 
   }
 
 
-  let mensaje =
-  "Hola, soy cliente de ANDREX Store.%0A%0A";
-
-  mensaje +=
-  "Quiero realizar este pedido:%0A";
-
-
-  carrito.forEach((producto,index)=>{
-
-    mensaje +=
-    `${index+1}. ${producto.nombre} - $${Number(producto.precio).toLocaleString("es-CO")}%0A`;
-
-  });
-
-
-  const total =
-  carrito.reduce(
-    (suma,producto)=>
-    suma + Number(producto.precio || 0),
-    0
-  );
-
-
-  mensaje +=
-  `%0ATotal: $${total.toLocaleString("es-CO")}`;
-
-
-  document.getElementById(
-    "whatsappButton"
-  ).href =
-  `https://wa.me/${numero}?text=${mensaje}`;
+  whatsapp.href =
+    "https://wa.me/573181579324?text=" +
+    mensaje;
 
 }
 
@@ -956,7 +1004,6 @@ function actualizarWhatsApp(){
 cargarProductos();
 
 mostrarCarrito();
-
 
 </script>
 
