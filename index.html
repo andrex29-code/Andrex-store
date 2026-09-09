@@ -19,219 +19,243 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5ffff;
-  color:#17343a;
+  background:#f6fcfd;
+  color:#29484d;
+  min-height:100vh;
 }
 
 /* =========================
-   HEADER
+   ENCABEZADO
 ========================= */
 
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(12px);
-  box-shadow:0 2px 15px rgba(0,0,0,.08);
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 18px;
+  min-height:78px;
+  padding:12px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
+  gap:15px;
+
+  background:linear-gradient(
+    135deg,
+    #79dce3,
+    #8ee8ed,
+    #65cbd5
+  );
+
+  box-shadow:0 5px 22px rgba(32,120,130,.20);
 }
 
+/* Nombre de la tienda */
+
 .logo{
-  border:0;
-  background:none;
-  color:#42bfc7;
-  font-size:24px;
-  font-weight:900;
   cursor:pointer;
   user-select:none;
-  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  line-height:1;
+  animation:logoGlow 3s ease-in-out infinite;
+}
+
+.logo-main{
+  font-size:31px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:white;
+  text-shadow:
+    0 0 7px rgba(255,255,255,.9),
+    0 4px 13px rgba(30,100,110,.30);
+}
+
+.logo-heart{
+  font-size:27px;
+  filter:drop-shadow(0 0 8px rgba(255,255,255,.7));
+}
+
+.logo-store{
+  font-size:17px;
+  font-weight:900;
+  letter-spacing:4px;
+  color:#eaffff;
+  text-shadow:0 2px 8px rgba(30,100,110,.25);
+}
+
+@keyframes logoGlow{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.025);
+  }
 }
 
 .header-buttons{
   display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
+  align-items:center;
+  gap:9px;
 }
 
 .header-buttons button{
-  border:0;
-  border-radius:20px;
-  padding:9px 13px;
-  background:#e7fbfc;
-  color:#197b83;
+  border:none;
+  border-radius:14px;
+  padding:11px 15px;
+  background:rgba(255,255,255,.94);
+  color:#28737b;
+  font-weight:800;
   cursor:pointer;
-  font-weight:700;
+  box-shadow:0 4px 12px rgba(30,100,110,.12);
+  transition:.2s;
 }
 
 .header-buttons button:hover{
-  background:#c9f3f5;
+  transform:translateY(-2px);
+  background:white;
 }
 
 /* =========================
-   HERO
+   VIDEO
 ========================= */
-
-.hero{
-  max-width:1200px;
-  margin:22px auto;
-  padding:0 18px;
-}
-
-.hero-box{
-  min-height:310px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  background:#dffbfc;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
 
 .hero-video{
   width:100%;
-  height:310px;
-  object-fit:cover;
-  display:block;
+  background:#000;
+  overflow:hidden;
 }
 
-/* SIN TEXTO ENCIMA DEL VIDEO */
+.hero-video video{
+  width:100%;
+  display:block;
+  max-height:560px;
+  object-fit:cover;
+}
 
 /* =========================
-   GENERAL
+   LEMA
 ========================= */
 
-.contenedor{
-  max-width:1200px;
+.lema-tienda{
+  max-width:1050px;
+  margin:25px auto 10px;
+  padding:24px 28px;
+  border-radius:26px;
+
+  background:linear-gradient(
+    135deg,
+    #ffffff,
+    #edfdff,
+    #d9f8fb
+  );
+
+  border:1px solid rgba(76,190,199,.20);
+  box-shadow:0 10px 30px rgba(35,110,120,.10);
+  text-align:center;
+}
+
+.lema-tienda p{
+  font-size:18px;
+  line-height:1.65;
+  font-weight:600;
+  color:#376f75;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+  width:min(1200px,94%);
   margin:auto;
-  padding:0 18px 35px;
 }
 
-.titulo-seccion{
+h2{
   text-align:center;
-  font-size:30px;
   margin:30px 0 18px;
-  color:#277f87;
-}
-
-.subtitulo{
-  text-align:center;
-  color:#67858a;
-  margin-bottom:25px;
+  color:#28737b;
 }
 
 /* =========================
    CATEGORÍAS
 ========================= */
 
-.categorias{
+.categorias-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:16px;
+  margin-top:20px;
 }
 
-.categoria{
-  border:0;
-  min-height:150px;
+.categoria-card{
+  border:none;
+  min-height:145px;
   border-radius:25px;
-  background:white;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
   cursor:pointer;
+
+  background:linear-gradient(
+    145deg,
+    #ffffff,
+    #e5fafc
+  );
+
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
   transition:.25s;
-  padding:20px;
 }
 
-.categoria:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(0,0,0,.13);
+.categoria-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 13px 30px rgba(0,0,0,.13);
 }
 
-.categoria .emoji{
-  font-size:50px;
-  display:block;
-  margin-bottom:12px;
+.categoria-card .emoji{
+  font-size:48px;
+  margin-bottom:10px;
 }
 
-.categoria strong{
-  font-size:20px;
-  color:#246f76;
-}
-
-/* =========================
-   VISTA CATEGORÍA
-========================= */
-
-.vista-categoria{
-  display:none;
-}
-
-.vista-categoria.activa{
-  display:block;
-}
-
-.cabecera-categoria{
-  background:white;
-  border-radius:25px;
-  padding:22px;
-  margin:20px 0;
-  box-shadow:0 8px 25px rgba(0,0,0,.07);
-  text-align:center;
-}
-
-.cabecera-categoria h2{
-  color:#277f87;
-  margin-bottom:7px;
-}
-
-.btn-volver{
-  border:0;
-  border-radius:20px;
-  padding:10px 16px;
-  background:#42bfc7;
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-  margin-bottom:15px;
+.categoria-card strong{
+  font-size:19px;
+  color:#286f76;
 }
 
 /* =========================
    PRODUCTOS
 ========================= */
 
-.productos{
+.productos-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
   gap:18px;
+  margin-top:20px;
 }
 
 .producto{
   background:white;
-  border-radius:23px;
+  border-radius:22px;
   overflow:hidden;
-  box-shadow:0 7px 25px rgba(0,0,0,.08);
+  box-shadow:0 7px 22px rgba(0,0,0,.08);
   position:relative;
-  display:flex;
-  flex-direction:column;
+  transition:.25s;
 }
 
-.producto-imagen{
+.producto:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+.producto-img{
   width:100%;
-  aspect-ratio:1/1;
+  height:245px;
   object-fit:cover;
-  background:#edfafa;
   cursor:pointer;
+  display:block;
 }
 
 .producto-info{
@@ -239,60 +263,102 @@ header{
 }
 
 .producto-info h3{
-  color:#246f76;
+  color:#285e64;
   font-size:18px;
   margin-bottom:8px;
-  text-transform:capitalize;
 }
 
 .precio{
-  font-size:19px;
-  font-weight:800;
-  color:#15939c;
-  margin-bottom:12px;
+  color:#15909a;
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:10px;
 }
 
-.precio.consultar{
-  font-size:15px;
-  color:#777;
+.descripcion{
+  color:#789296;
+  font-size:14px;
+  line-height:1.45;
+  margin-bottom:12px;
 }
 
 .producto-botones{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:7px;
+  gap:8px;
 }
 
 .producto-botones button{
-  border:0;
+  border:none;
+  border-radius:12px;
   padding:10px 7px;
-  border-radius:14px;
+  font-weight:800;
   cursor:pointer;
-  font-weight:700;
+  transition:.2s;
 }
 
 .btn-consultar{
-  background:#e4f9fa;
-  color:#14757c;
+  background:#e7fafd;
+  color:#26737a;
 }
 
 .btn-carrito{
-  background:#42bfc7;
+  background:#70d5dd;
   color:white;
 }
 
-.favorito{
+.producto-botones button:hover{
+  transform:translateY(-2px);
+}
+
+.favorito-btn{
   position:absolute;
   top:10px;
   right:10px;
-  width:40px;
-  height:40px;
-  border:0;
+  width:42px;
+  height:42px;
+  border:none;
   border-radius:50%;
-  background:white;
-  box-shadow:0 3px 10px rgba(0,0,0,.15);
+  background:rgba(255,255,255,.95);
   cursor:pointer;
   font-size:21px;
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
+
+/* =========================
+   VISTA CATEGORÍA
+========================= */
+
+#vistaCategoria{
+  display:none;
+  margin-top:25px;
+}
+
+.categoria-header{
+  background:white;
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 7px 22px rgba(0,0,0,.07);
+  text-align:center;
+}
+
+.categoria-header h2{
+  margin:0 0 8px;
+}
+
+.categoria-header p{
+  color:#789296;
+}
+
+.btn-volver{
+  margin-top:15px;
+  border:none;
+  padding:11px 17px;
+  border-radius:13px;
+  background:#e3f9fb;
+  color:#28737b;
+  font-weight:800;
+  cursor:pointer;
 }
 
 /* =========================
@@ -300,201 +366,111 @@ header{
 ========================= */
 
 .destacados{
-  margin-top:30px;
+  margin-top:38px;
+}
+
+.destacados h2{
+  font-size:27px;
 }
 
 /* =========================
-   INFORMACIÓN
+   INFO
 ========================= */
 
 .info-tienda{
-  margin-top:38px;
+  margin:38px 0 50px;
 }
 
 .info-tienda-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:16px;
 }
 
 .info-card{
-  border:0;
-  background:white;
+  border:none;
+  min-height:155px;
   border-radius:24px;
-  min-height:150px;
-  padding:25px 18px;
+
+  background:linear-gradient(
+    145deg,
+    #ffffff,
+    #eafcff
+  );
+
   box-shadow:0 8px 25px rgba(0,0,0,.08);
-  text-align:center;
+
   cursor:pointer;
+  padding:22px;
+  text-align:center;
   transition:.25s;
-  border:1px solid #e5f5f6;
 }
 
 .info-card:hover{
   transform:translateY(-5px);
-  box-shadow:0 13px 30px rgba(0,0,0,.12);
+  box-shadow:0 12px 30px rgba(0,0,0,.13);
 }
 
-.info-card .icono{
+.info-card .emoji{
+  font-size:42px;
   display:block;
-  font-size:43px;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
-.info-card h3{
-  color:#277f87;
-  font-size:20px;
-  margin-bottom:7px;
+.info-card strong{
+  display:block;
+  color:#246f76;
+  font-size:19px;
 }
 
 .info-card p{
-  color:#71888c;
-  line-height:1.4;
+  margin-top:8px;
+  color:#789296;
   font-size:14px;
+  line-height:1.4;
 }
 
 /* =========================
-   BUSCADOR
+   BOTONES FLOTANTES
 ========================= */
 
-.busqueda{
-  max-width:650px;
-  margin:25px auto;
+.flotantes{
+  position:fixed;
+  right:16px;
+  bottom:18px;
+  z-index:900;
+
   display:flex;
-  gap:8px;
+  flex-direction:column;
+  gap:9px;
 }
 
-.busqueda input{
-  flex:1;
-  padding:14px 17px;
-  border:2px solid #d3f2f3;
-  border-radius:20px;
-  outline:none;
-}
+.flotante{
+  border:none;
+  padding:12px 17px;
+  border-radius:30px;
 
-.busqueda button{
-  border:0;
-  padding:0 18px;
-  border-radius:20px;
-  background:#42bfc7;
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-}
-
-/* =========================
-   ADMIN
-========================= */
-
-.admin-panel{
-  display:none;
   background:white;
-  border-radius:25px;
-  padding:22px;
-  margin-top:30px;
-  box-shadow:0 8px 30px rgba(0,0,0,.09);
-}
+  color:#28737b;
 
-.admin-panel.activo{
-  display:block;
-}
-
-.admin-panel h2{
-  color:#277f87;
-  margin-bottom:20px;
-}
-
-.formulario{
-  display:grid;
-  gap:12px;
-}
-
-.formulario input,
-.formulario select,
-.formulario textarea{
-  width:100%;
-  padding:13px;
-  border:2px solid #d9f3f4;
-  border-radius:14px;
-  outline:none;
-  font-size:15px;
-}
-
-.formulario textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.formulario button,
-.admin-btn{
-  border:0;
-  border-radius:15px;
-  padding:12px;
-  background:#42bfc7;
-  color:white;
-  font-weight:800;
+  font-weight:900;
   cursor:pointer;
+
+  box-shadow:0 7px 22px rgba(0,0,0,.16);
 }
 
-.admin-btn.rojo{
-  background:#e55;
-}
+.flotante-pedido{
+  border:none;
+  padding:12px 17px;
+  border-radius:30px;
 
-.admin-btn.secundario{
-  background:#eafafa;
-  color:#19747b;
-}
+  background:#69d2da;
+  color:white;
 
-.admin-lista{
-  margin-top:25px;
-  display:grid;
-  gap:10px;
-}
+  font-weight:900;
+  cursor:pointer;
 
-.admin-item{
-  border:1px solid #dff0f1;
-  border-radius:16px;
-  padding:13px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.admin-item-info{
-  flex:1;
-}
-
-.admin-item-botones{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-/* =========================
-   PEDIDOS ADMIN
-========================= */
-
-.pedido-admin{
-  margin-top:30px;
-  border-top:2px solid #e5f5f6;
-  padding-top:25px;
-}
-
-.codigo-generado{
-  background:#e9fbfc;
-  border-radius:18px;
-  padding:15px;
-  margin-top:12px;
-  text-align:center;
-  display:none;
-}
-
-.codigo-generado strong{
-  display:block;
-  font-size:30px;
-  color:#15939c;
-  margin-top:5px;
+  box-shadow:0 7px 22px rgba(0,0,0,.18);
 }
 
 /* =========================
@@ -505,142 +481,110 @@ header{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:9998;
+  z-index:2000;
+  background:rgba(0,0,0,.60);
+
   align-items:center;
   justify-content:center;
-  padding:18px;
+
+  padding:20px;
 }
 
-.modal.activo{
-  display:flex !important;
-}
-
-.modal-caja{
-  background:white;
-  width:min(600px,100%);
+.modal-box{
+  width:min(500px,100%);
   max-height:90vh;
   overflow:auto;
+
+  background:white;
   border-radius:25px;
   padding:22px;
-  position:relative;
+
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-.modal-caja h2{
-  color:#277f87;
-  margin-bottom:15px;
+.modal-box h2{
+  margin-top:0;
 }
 
 .cerrar{
-  position:absolute;
-  right:15px;
-  top:12px;
-  border:0;
-  background:#eefafa;
-  border-radius:50%;
+  float:right;
+  border:none;
+  background:#edfafa;
+  color:#28737b;
   width:38px;
   height:38px;
+  border-radius:50%;
   cursor:pointer;
-  font-size:18px;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.modal-imagen-box{
+  width:min(900px,100%);
+  text-align:center;
+  background:transparent;
+}
+
+.modal-imagen-box img{
+  max-width:100%;
+  max-height:80vh;
+  object-fit:contain;
+  border-radius:18px;
 }
 
 /* =========================
-   MODAL PEDIDO
+   FORMULARIOS
 ========================= */
 
-.modal-pedido{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.62);
-  z-index:9999;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
+.form-group{
+  margin-bottom:13px;
 }
 
-.modal-pedido.activo{
-  display:flex !important;
-}
-
-.pedido-caja{
-  width:min(500px,100%);
-  background:white;
-  border-radius:27px;
-  padding:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-  position:relative;
-}
-
-.pedido-caja h2{
-  color:#277f87;
-  margin-bottom:10px;
-}
-
-.pedido-caja p{
-  color:#71888c;
-  margin-bottom:18px;
-  line-height:1.4;
-}
-
-.pedido-caja input{
-  width:100%;
-  padding:15px;
-  border:2px solid #d4f1f2;
-  border-radius:15px;
-  outline:none;
-  font-size:18px;
-  text-align:center;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
-
-.boton-consultar-pedido{
-  width:100%;
-  border:0;
-  padding:14px;
-  border-radius:15px;
-  background:#42bfc7;
-  color:white;
+.form-group label{
+  display:block;
+  margin-bottom:6px;
   font-weight:800;
-  cursor:pointer;
+  color:#3d656a;
 }
 
-.boton-cerrar-modal{
+.form-group input,
+.form-group select,
+.form-group textarea{
   width:100%;
-  border:0;
+  border:1px solid #cce9ec;
+  border-radius:13px;
   padding:12px;
-  border-radius:15px;
-  background:#edf8f9;
-  color:#27747b;
-  font-weight:700;
-  cursor:pointer;
-  margin-top:10px;
+  outline:none;
+  font-size:15px;
 }
 
-.resultado-pedido{
-  margin-top:18px;
+.form-group textarea{
+  min-height:90px;
+  resize:vertical;
 }
 
-.estado-card{
-  background:#f2fcfc;
-  border-radius:20px;
-  padding:18px;
-}
-
-.estado{
-  display:inline-block;
-  padding:8px 13px;
-  border-radius:20px;
-  background:#42bfc7;
+.btn-principal{
+  width:100%;
+  border:none;
+  padding:13px;
+  border-radius:14px;
+  background:#69d2da;
   color:white;
-  font-weight:800;
-  margin:8px 0 14px;
+  font-weight:900;
+  cursor:pointer;
+  margin-top:6px;
 }
 
-.estado-detalle{
-  line-height:1.6;
-  color:#4c686c;
+.btn-secundario{
+  width:100%;
+  border:none;
+  padding:12px;
+  border-radius:14px;
+  background:#e9fafd;
+  color:#28737b;
+  font-weight:900;
+  cursor:pointer;
+  margin-top:8px;
 }
 
 /* =========================
@@ -649,106 +593,120 @@ header{
 
 .carrito-item{
   display:flex;
-  gap:12px;
   align-items:center;
-  border-bottom:1px solid #e5eeee;
+  justify-content:space-between;
+  gap:10px;
   padding:12px 0;
+  border-bottom:1px solid #e5f0f1;
 }
 
-.carrito-item img{
-  width:70px;
-  height:70px;
-  object-fit:cover;
-  border-radius:12px;
-}
-
-.carrito-info{
+.carrito-item-info{
   flex:1;
 }
 
-.carrito-total{
-  margin-top:20px;
-  font-size:22px;
-  font-weight:900;
-  color:#15939c;
+.carrito-item-info strong{
+  color:#315e63;
 }
 
-.btn-whatsapp{
-  width:100%;
-  margin-top:12px;
-  border:0;
-  border-radius:15px;
-  padding:14px;
-  background:#25d366;
-  color:white;
-  font-weight:900;
+.carrito-item-info small{
+  display:block;
+  color:#789296;
+  margin-top:3px;
+}
+
+.carrito-item button{
+  border:none;
+  background:#ffe9e9;
+  color:#d25d5d;
+  border-radius:10px;
+  padding:8px;
   cursor:pointer;
 }
 
+.total-carrito{
+  margin-top:18px;
+  font-size:21px;
+  font-weight:900;
+  text-align:right;
+  color:#168b95;
+}
+
 /* =========================
-   BOTONES FLOTANTES
+   PEDIDOS
 ========================= */
 
-.flotantes{
-  position:fixed;
-  right:15px;
-  bottom:15px;
-  z-index:9000;
+.estado-pedido{
+  margin-top:15px;
+}
+
+.estado{
+  padding:15px;
+  border-radius:17px;
+  background:#effcfd;
+  margin-top:12px;
+}
+
+.estado strong{
+  color:#27727a;
+}
+
+.codigo{
+  font-size:25px;
+  font-weight:900;
+  color:#15909a;
+  letter-spacing:2px;
+  text-align:center;
+  margin:10px 0;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+#adminPanel{
+  display:none;
+  margin:30px auto;
+  width:min(1100px,94%);
+}
+
+.admin-box{
+  background:white;
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 8px 25px rgba(0,0,0,.09);
+}
+
+.admin-box h2{
+  margin-top:0;
+}
+
+.admin-producto{
+  border:1px solid #e1f1f2;
+  border-radius:17px;
+  padding:13px;
+  margin-top:10px;
   display:flex;
-  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
   gap:10px;
 }
 
-.flotante{
-  border:0;
-  border-radius:50px;
-  padding:13px 18px;
-  background:white;
-  color:#27747b;
-  box-shadow:0 7px 24px rgba(0,0,0,.20);
+.admin-producto button{
+  border:none;
+  border-radius:10px;
+  padding:8px 11px;
   cursor:pointer;
   font-weight:800;
-  transition:.25s;
 }
 
-.flotante:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 28px rgba(0,0,0,.24);
+.btn-destacado{
+  background:#fff5cf;
+  color:#9a7615;
 }
 
-.flotante-pedido{
-  border:0;
-  border-radius:50px;
-  padding:13px 18px;
-  background:#42bfc7;
-  color:white;
-  box-shadow:0 7px 24px rgba(0,0,0,.20);
-  cursor:pointer;
-  font-weight:800;
-  transition:.25s;
-}
-
-.flotante-pedido:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 28px rgba(0,0,0,.24);
-}
-
-/* =========================
-   MENSAJES
-========================= */
-
-.vacio{
-  text-align:center;
-  padding:40px 15px;
-  color:#789296;
-  background:white;
-  border-radius:20px;
-}
-
-.cargando{
-  text-align:center;
-  padding:25px;
-  color:#5f8186;
+.btn-eliminar{
+  background:#ffe7e7;
+  color:#c14c4c;
 }
 
 /* =========================
@@ -756,59 +714,125 @@ header{
 ========================= */
 
 footer{
-  margin-top:45px;
-  background:#183c42;
-  color:white;
+  margin-top:40px;
+  padding:28px 20px;
+  background:#dff8fa;
   text-align:center;
-  padding:30px 18px;
+  color:#528087;
 }
 
 footer strong{
-  color:#78e2e7;
+  color:#28737b;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:900px){
+@media(max-width:800px){
 
-  .productos{
-    grid-template-columns:repeat(3,1fr);
+  header{
+    padding:11px 13px;
   }
 
-  .categorias{
+  .logo-main{
+    font-size:24px;
+  }
+
+  .logo-store{
+    font-size:13px;
+    letter-spacing:2px;
+  }
+
+  .logo-heart{
+    font-size:22px;
+  }
+
+  .header-buttons button{
+    padding:9px 10px;
+    font-size:13px;
+  }
+
+  .categorias-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
   .info-tienda-grid{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:1fr;
   }
-
 }
 
-@media(max-width:650px){
+@media(max-width:520px){
 
-  .header-inner{
-    align-items:center;
+  header{
+    min-height:68px;
   }
 
   .logo{
-    font-size:19px;
+    gap:3px;
+  }
+
+  .logo-main{
+    font-size:20px;
+    letter-spacing:1px;
+  }
+
+  .logo-heart{
+    font-size:18px;
+  }
+
+  .logo-store{
+    font-size:10px;
+    letter-spacing:1px;
   }
 
   .header-buttons{
-    max-width:180px;
+    gap:5px;
   }
 
   .header-buttons button{
+    padding:8px 8px;
     font-size:12px;
-    padding:8px 10px;
   }
 
-  .productos{
+  .hero-video video{
+    min-height:220px;
+    object-fit:cover;
+  }
+
+  .lema-tienda{
+    margin:18px 10px;
+    padding:19px 16px;
+  }
+
+  .lema-tienda p{
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .categorias-grid{
+    gap:10px;
+  }
+
+  .categoria-card{
+    min-height:125px;
+  }
+
+  .categoria-card .emoji{
+    font-size:38px;
+  }
+
+  .categoria-card strong{
+    font-size:16px;
+  }
+
+  .productos-grid{
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
+    gap:10px;
+  }
+
+  .producto-img{
+    height:190px;
   }
 
   .producto-info{
@@ -819,73 +843,24 @@ footer strong{
     font-size:15px;
   }
 
+  .precio{
+    font-size:17px;
+  }
+
   .producto-botones{
     grid-template-columns:1fr;
   }
 
-  .hero-box,
-  .hero-video{
-    height:260px;
-    min-height:260px;
-  }
-
-  .info-tienda-grid{
-    grid-template-columns:1fr;
-  }
-
-  .info-card{
-    min-height:125px;
-  }
-
-  .admin-item{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .admin-item-botones{
-    width:100%;
-  }
-
   .flotantes{
-    right:10px;
+    right:9px;
     bottom:10px;
   }
 
   .flotante,
   .flotante-pedido{
-    padding:11px 14px;
     font-size:12px;
+    padding:10px 13px;
   }
-
-}
-
-@media(max-width:400px){
-
-  .productos{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .categoria{
-    min-height:125px;
-  }
-
-  .categoria .emoji{
-    font-size:40px;
-  }
-
-  .logo{
-    font-size:17px;
-  }
-
-  .header-buttons{
-    gap:5px;
-  }
-
-  .header-buttons button{
-    padding:7px 8px;
-    font-size:11px;
-  }
-
 }
 </style>
 </head>
@@ -893,197 +868,151 @@ footer strong{
 <body>
 
 <!-- =========================
-     HEADER
+     ENCABEZADO
 ========================= -->
 
 <header>
 
-  <div class="header-inner">
+  <div class="logo" onclick="activarAdmin()">
+    <span class="logo-main">ANDREX</span>
+    <span class="logo-heart">🩵</span>
+    <span class="logo-store">STORE</span>
+  </div>
 
-    <button
-      class="logo"
-      id="logoAdmin"
-      onclick="clicLogo()">
-
-      ANDREX 🩵 STORE
-
-    </button>
-
-    <div class="header-buttons">
-
-      <button onclick="abrirBusqueda()">
-        🔎 Buscar
-      </button>
-
-      <button onclick="abrirCarrito()">
-        🛒 Carrito
-      </button>
-
-    </div>
-
+  <div class="header-buttons">
+    <button onclick="abrirBusqueda()">🔎 Buscar</button>
+    <button onclick="abrirCarrito()">🛒 Carrito</button>
   </div>
 
 </header>
 
 
 <!-- =========================
-     HERO
+     VIDEO
 ========================= -->
 
-<section class="hero">
+<section class="hero-video">
 
-  <div class="hero-box">
-
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline>
-
-      <source
-        src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
-        type="video/mp4">
-
-    </video>
-
-  </div>
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    controls>
+    <source
+      src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
+      type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
 
 </section>
 
 
 <!-- =========================
-     CONTENIDO PRINCIPAL
+     LEMA
 ========================= -->
 
-<main class="contenedor">
+<section class="lema-tienda">
 
-  <div id="contenidoInicio">
+  <p>
+    ✨ Encuentra eso que va contigo, descubre nuevos estilos y disfruta una
+    experiencia de compra pensada para ti. 👕🧴👟📺 Productos seleccionados
+    con cariño, opciones para diferentes gustos y detalles que hacen especial
+    cada elección. 🛍️💙 Desde prendas para renovar tu estilo, lociones para
+    dejar una esencia inolvidable, zapatos para complementar cada look y
+    opciones de entretenimiento para disfrutar tus momentos favoritos. ✨
+    Porque tu estilo habla de ti y queremos ayudarte a encontrar algo que
+    realmente te encante. 💫🩵
+  </p>
 
-    <h2 class="titulo-seccion">
-      🛍️ Explora nuestras categorías
-    </h2>
-
-    <p class="subtitulo">
-      Elige una categoría para ver todos sus productos.
-    </p>
+</section>
 
 
-    <!-- =========================
-         CATEGORÍAS
-    ========================= -->
+<main class="container">
 
-    <section
-      id="seccionCategorias"
-      class="categorias">
+  <!-- =========================
+       INICIO
+  ========================= -->
+
+  <section id="contenidoInicio">
+
+    <h2>✨ Explora nuestras categorías ✨</h2>
+
+    <div class="categorias-grid" id="seccionCategorias">
 
       <button
-        class="categoria"
+        class="categoria-card"
         onclick="abrirCategoria('ropa')">
 
         <span class="emoji">👕</span>
-
-        <strong>
-          ROPA
-        </strong>
+        <strong>ROPA</strong>
 
       </button>
 
-
       <button
-        class="categoria"
+        class="categoria-card"
         onclick="abrirCategoria('lociones')">
 
         <span class="emoji">🧴</span>
-
-        <strong>
-          LOCIONES
-        </strong>
+        <strong>LOCIONES</strong>
 
       </button>
 
-
       <button
-        class="categoria"
+        class="categoria-card"
         onclick="abrirCategoria('zapatos')">
 
         <span class="emoji">👟</span>
-
-        <strong>
-          ZAPATOS
-        </strong>
+        <strong>ZAPATOS</strong>
 
       </button>
 
-
       <button
-        class="categoria"
+        class="categoria-card"
         onclick="abrirCategoria('streaming')">
 
         <span class="emoji">📺</span>
-
-        <strong>
-          STREAMING
-        </strong>
+        <strong>STREAMING</strong>
 
       </button>
 
-    </section>
+    </div>
 
 
     <!-- =========================
-         PRODUCTOS DESTACADOS
+         DESTACADOS
     ========================= -->
 
     <section class="destacados">
 
-      <h2 class="titulo-seccion">
-        ⭐ Productos destacados
-      </h2>
-
-      <p class="subtitulo">
-        Algunos de nuestros productos recomendados.
-      </p>
+      <h2>⭐ Productos destacados</h2>
 
       <div
         id="productosDestacados"
-        class="productos">
-
-        <div class="cargando">
-          Cargando productos...
-        </div>
-
+        class="productos-grid">
       </div>
 
     </section>
 
 
     <!-- =========================
-         DOMICILIO / PAGOS / AYUDA
+         INFORMACIÓN
     ========================= -->
 
     <section class="info-tienda">
-
-      <h2 class="titulo-seccion">
-        💙 Información
-      </h2>
 
       <div class="info-tienda-grid">
 
         <button
           class="info-card"
-          onclick="abrirInfo('domicilio')">
+          onclick="contactarWhatsApp('Hola, quiero consultar sobre el servicio de domicilio 🚚')">
 
-          <span class="icono">
-            🚚
-          </span>
+          <span class="emoji">🚚</span>
 
-          <h3>
-            Domicilio
-          </h3>
+          <strong>Domicilio</strong>
 
           <p>
-            Consulta información sobre nuestros domicilios.
+            Consulta disponibilidad y costo de domicilio.
           </p>
 
         </button>
@@ -1091,15 +1020,11 @@ footer strong{
 
         <button
           class="info-card"
-          onclick="abrirInfo('pagos')">
+          onclick="contactarWhatsApp('Hola, quiero consultar cuáles son los medios de pago disponibles 💳')">
 
-          <span class="icono">
-            💳
-          </span>
+          <span class="emoji">💳</span>
 
-          <h3>
-            Medios de pago
-          </h3>
+          <strong>Medios de pago</strong>
 
           <p>
             Consulta los medios de pago disponibles.
@@ -1110,18 +1035,14 @@ footer strong{
 
         <button
           class="info-card"
-          onclick="abrirInfo('ayuda')">
+          onclick="contactarWhatsApp('Hola, necesito ayuda con una compra 🆘')">
 
-          <span class="icono">
-            🆘
-          </span>
+          <span class="emoji">🆘</span>
 
-          <h3>
-            Ayuda
-          </h3>
+          <strong>Ayuda</strong>
 
           <p>
-            ¿Necesitas ayuda? Estamos para atenderte.
+            Estamos aquí para ayudarte con tu compra.
           </p>
 
         </button>
@@ -1130,330 +1051,32 @@ footer strong{
 
     </section>
 
-
-    <!-- =========================
-         ADMIN
-    ========================= -->
-
-    <section
-      id="adminPanel"
-      class="admin-panel">
-
-      <h2>
-        🔐 Panel de administrador
-      </h2>
-
-      <div class="formulario">
-
-        <input
-          id="productoNombre"
-          type="text"
-          placeholder="Nombre del producto">
-
-
-        <input
-          id="productoPrecio"
-          type="number"
-          min="0"
-          placeholder="Precio">
-
-
-        <select id="productoCategoria">
-
-          <option value="ropa">
-            👕 ROPA
-          </option>
-
-          <option value="lociones">
-            🧴 LOCIONES
-          </option>
-
-          <option value="zapatos">
-            👟 ZAPATOS
-          </option>
-
-          <option value="streaming">
-            📺 STREAMING
-          </option>
-
-        </select>
-
-
-        <textarea
-          id="productoDescripcion"
-          placeholder="Descripción del producto"></textarea>
-
-
-        <input
-          id="productoImagen"
-          type="file"
-          accept="image/*">
-
-
-        <label>
-
-          <input
-            id="productoDestacado"
-            type="checkbox">
-
-          ⭐ Mostrar como producto destacado
-
-        </label>
-
-
-        <button onclick="guardarProducto()">
-          💾 Guardar producto
-        </button>
-
-      </div>
-
-
-      <h3 style="margin-top:30px;">
-        Productos administrados
-      </h3>
-
-
-      <div
-        id="listaAdmin"
-        class="admin-lista">
-
-      </div>
-
-
-      <!-- =========================
-           PEDIDOS ADMIN
-      ========================= -->
-
-      <div class="pedido-admin">
-
-        <h2>
-          📦 Crear / administrar pedido
-        </h2>
-
-        <div class="formulario">
-
-          <input
-            id="pedidoCodigo"
-            type="text"
-            placeholder="Código"
-            readonly>
-
-
-          <input
-            id="pedidoCliente"
-            type="text"
-            placeholder="Nombre del cliente">
-
-
-          <select id="pedidoEstado">
-
-            <option value="Recibido">
-              Recibido
-            </option>
-
-            <option value="Preparando">
-              Preparando
-            </option>
-
-            <option value="En camino">
-              En camino
-            </option>
-
-            <option value="Entregado">
-              Entregado
-            </option>
-
-            <option value="Cancelado">
-              Cancelado
-            </option>
-
-          </select>
-
-
-          <textarea
-            id="pedidoDetalle"
-            placeholder="Detalle del pedido"></textarea>
-
-
-          <button onclick="generarYCrearPedido()">
-            📦 Generar y crear pedido
-          </button>
-
-
-          <button
-            class="admin-btn secundario"
-            onclick="actualizarPedidoExistente()">
-
-            🔄 Actualizar pedido
-
-          </button>
-
-
-          <button
-            class="admin-btn secundario"
-            onclick="enviarCodigoPedidoWhatsApp()">
-
-            💬 Enviar código por WhatsApp
-
-          </button>
-
-        </div>
-
-
-        <div
-          id="codigoGenerado"
-          class="codigo-generado">
-
-          Código del pedido:
-
-          <strong id="codigoMostrado">
-            —
-          </strong>
-
-        </div>
-
-
-        <h3 style="margin-top:25px;">
-          Pedidos recientes
-        </h3>
-
-
-        <div
-          id="listaPedidosAdmin"
-          class="admin-lista">
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </div>
+  </section>
 
 
   <!-- =========================
        VISTA CATEGORÍA
   ========================= -->
 
-  <section
-    id="vistaCategoria"
-    class="vista-categoria">
+  <section id="vistaCategoria">
 
-    <button
-      class="btn-volver"
-      onclick="volverCategorias()">
+    <div class="categoria-header">
 
-      ← Volver a categorías
+      <h2 id="tituloCategoria"></h2>
 
-    </button>
+      <p id="descripcionCategoria"></p>
 
-
-    <div class="cabecera-categoria">
-
-      <h2 id="tituloCategoria">
-        Categoría
-      </h2>
-
-      <p id="descripcionCategoria">
-        Productos
-      </p>
+      <button
+        class="btn-volver"
+        onclick="volverCategorias()">
+        ← Volver a categorías
+      </button>
 
     </div>
-
 
     <div
       id="productosCategoria"
-      class="productos">
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       VISTA BÚSQUEDA
-  ========================= -->
-
-  <section
-    id="vistaBusqueda"
-    class="vista-categoria">
-
-    <button
-      class="btn-volver"
-      onclick="volverInicio()">
-
-      ← Volver
-
-    </button>
-
-
-    <div class="cabecera-categoria">
-
-      <h2>
-        🔎 Buscar productos
-      </h2>
-
-
-      <div class="busqueda">
-
-        <input
-          id="inputBusqueda"
-          type="search"
-          placeholder="Busca ropa, lociones, zapatos...">
-
-
-        <button onclick="buscarProductos()">
-          Buscar
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div
-      id="resultadosBusqueda"
-      class="productos">
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       VISTA FAVORITOS
-  ========================= -->
-
-  <section
-    id="vistaFavoritos"
-    class="vista-categoria">
-
-    <button
-      class="btn-volver"
-      onclick="volverInicio()">
-
-      ← Volver
-
-    </button>
-
-
-    <div class="cabecera-categoria">
-
-      <h2>
-        ❤️ Mis favoritos
-      </h2>
-
-      <p>
-        Tus productos guardados.
-      </p>
-
-    </div>
-
-
-    <div
-      id="productosFavoritos"
-      class="productos">
-
+      class="productos-grid">
     </div>
 
   </section>
@@ -1462,47 +1085,22 @@ footer strong{
 
 
 <!-- =========================
-     MODAL INFORMACIÓN
+     BOTONES FLOTANTES
 ========================= -->
 
-<div
-  id="modalInfo"
-  class="modal">
+<div class="flotantes">
 
-  <div class="modal-caja">
+  <button
+    class="flotante"
+    onclick="abrirFavoritos()">
+    ❤️ Favoritos
+  </button>
 
-    <button
-      class="cerrar"
-      onclick="cerrarInfo()">
-
-      ✕
-
-    </button>
-
-    <h2 id="tituloInfo">
-      Información
-    </h2>
-
-    <p
-      id="textoInfo"
-      style="
-        color:#607d82;
-        line-height:1.6;
-        margin-top:10px;
-      ">
-
-    </p>
-
-    <button
-      id="botonInfoWhatsApp"
-      class="btn-whatsapp"
-      onclick="contactarInfo()">
-
-      💬 Consultar por WhatsApp
-
-    </button>
-
-  </div>
+  <button
+    class="flotante-pedido"
+    onclick="abrirEstadoPedido()">
+    📦 Estado de mi pedido
+  </button>
 
 </div>
 
@@ -1514,29 +1112,22 @@ footer strong{
 <div
   id="modalImagen"
   class="modal"
-  onclick="cerrarImagen()">
+  onclick="cerrarModal('modalImagen')">
 
   <div
-    class="modal-caja"
+    class="modal-imagen-box"
     onclick="event.stopPropagation()">
 
     <button
       class="cerrar"
-      onclick="cerrarImagen()">
-
-      ✕
-
+      onclick="cerrarModal('modalImagen')">
+      ×
     </button>
-
 
     <img
       id="imagenGrande"
-      style="
-        width:100%;
-        border-radius:18px;
-        object-fit:contain;
-        max-height:75vh;
-      ">
+      src=""
+      alt="Producto">
 
   </div>
 
@@ -1544,65 +1135,65 @@ footer strong{
 
 
 <!-- =========================
-     MODAL PEDIDO
+     MODAL BÚSQUEDA
 ========================= -->
 
 <div
-  id="modalPedido"
-  class="modal-pedido">
+  id="modalBusqueda"
+  class="modal">
 
-  <div class="pedido-caja">
+  <div class="modal-box">
 
     <button
       class="cerrar"
-      onclick="cerrarEstadoPedido()">
-
-      ✕
-
+      onclick="cerrarModal('modalBusqueda')">
+      ×
     </button>
 
+    <h2>🔎 Buscar productos</h2>
 
-    <h2>
-      📦 Estado de mi pedido
-    </h2>
+    <div class="form-group">
 
-
-    <p>
-      Escribe el código que te entregamos al realizar tu pedido.
-    </p>
-
-
-    <input
-      id="buscarPedido"
-      type="text"
-      placeholder="Ej: AX-5831"
-      maxlength="7"
-      autocomplete="off">
-
-
-    <button
-      class="boton-consultar-pedido"
-      onclick="consultarEstadoPedido()">
-
-      🔎 Consultar pedido
-
-    </button>
-
-
-    <div
-      id="resultadoPedido"
-      class="resultado-pedido">
+      <input
+        id="inputBusqueda"
+        type="text"
+        placeholder="Busca ropa, lociones, zapatos..."
+        oninput="buscarProductos()">
 
     </div>
 
+    <div
+      id="resultadosBusqueda"
+      class="productos-grid">
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MODAL FAVORITOS
+========================= -->
+
+<div
+  id="modalFavoritos"
+  class="modal">
+
+  <div class="modal-box">
 
     <button
-      class="boton-cerrar-modal"
-      onclick="cerrarEstadoPedido()">
-
-      Cerrar
-
+      class="cerrar"
+      onclick="cerrarModal('modalFavoritos')">
+      ×
     </button>
+
+    <h2>❤️ Mis favoritos</h2>
+
+    <div
+      id="listaFavoritos"
+      class="productos-grid">
+    </div>
 
   </div>
 
@@ -1617,43 +1208,28 @@ footer strong{
   id="modalCarrito"
   class="modal">
 
-  <div class="modal-caja">
+  <div class="modal-box">
 
     <button
       class="cerrar"
-      onclick="cerrarCarrito()">
-
-      ✕
-
+      onclick="cerrarModal('modalCarrito')">
+      ×
     </button>
 
+    <h2>🛒 Mi carrito</h2>
 
-    <h2>
-      🛒 Mi carrito
-    </h2>
-
-
-    <div
-      id="listaCarrito">
-
-    </div>
-
+    <div id="listaCarrito"></div>
 
     <div
       id="totalCarrito"
-      class="carrito-total">
-
+      class="total-carrito">
       Total: $0
-
     </div>
 
-
     <button
-      class="btn-whatsapp"
+      class="btn-principal"
       onclick="enviarCarritoWhatsApp()">
-
-      💬 Pedir por WhatsApp
-
+      💬 Comprar por WhatsApp
     </button>
 
   </div>
@@ -1662,43 +1238,285 @@ footer strong{
 
 
 <!-- =========================
-     BOTONES FLOTANTES
+     MODAL ESTADO PEDIDO
 ========================= -->
 
-<div class="flotantes">
+<div
+  id="modalPedido"
+  class="modal">
 
-  <button
-    class="flotante"
-    onclick="abrirFavoritos()">
+  <div class="modal-box">
 
-    ❤️ Favoritos
+    <button
+      class="cerrar"
+      onclick="cerrarModal('modalPedido')">
+      ×
+    </button>
 
-  </button>
+    <h2>📦 Estado de mi pedido</h2>
 
+    <div class="form-group">
 
-  <button
-    class="flotante-pedido"
-    onclick="abrirEstadoPedido()">
+      <label>Código de pedido</label>
 
-    📦 Estado de mi pedido
+      <input
+        id="buscarPedido"
+        type="text"
+        placeholder="Ejemplo: AX-1234">
 
-  </button>
+    </div>
+
+    <button
+      class="btn-principal"
+      onclick="consultarPedido()">
+      🔎 Consultar pedido
+    </button>
+
+    <div
+      id="resultadoPedido"
+      class="estado-pedido">
+    </div>
+
+  </div>
 
 </div>
 
 
 <!-- =========================
-     FOOTER
+     ADMIN
 ========================= -->
+
+<section id="adminPanel">
+
+  <div class="admin-box">
+
+    <h2>👑 Panel de administrador</h2>
+
+    <p style="color:#789296;margin-bottom:20px;">
+      Administración de productos y pedidos.
+    </p>
+
+
+    <!-- AGREGAR PRODUCTO -->
+
+    <h3 style="color:#28737b;margin-bottom:15px;">
+      ➕ Agregar producto
+    </h3>
+
+    <div class="form-group">
+
+      <label>Nombre</label>
+
+      <input
+        id="productoNombre"
+        type="text"
+        placeholder="Nombre del producto">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Precio</label>
+
+      <input
+        id="productoPrecio"
+        type="number"
+        placeholder="Precio">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Categoría</label>
+
+      <select id="productoCategoria">
+
+        <option value="ropa">👕 Ropa</option>
+
+        <option value="lociones">🧴 Lociones</option>
+
+        <option value="zapatos">👟 Zapatos</option>
+
+        <option value="streaming">📺 Streaming</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Descripción</label>
+
+      <textarea
+        id="productoDescripcion"
+        placeholder="Descripción del producto">
+      </textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Imagen</label>
+
+      <input
+        id="productoImagen"
+        type="file"
+        accept="image/*">
+
+    </div>
+
+
+    <label
+      style="display:flex;align-items:center;gap:8px;margin:12px 0;font-weight:bold;">
+
+      <input
+        id="productoDestacado"
+        type="checkbox">
+
+      ⭐ Marcar como destacado
+
+    </label>
+
+
+    <button
+      class="btn-principal"
+      onclick="guardarProducto()">
+      💾 Guardar producto
+    </button>
+
+
+    <hr
+      style="margin:28px 0;border:none;border-top:1px solid #e3f0f1;">
+
+
+    <!-- LISTA PRODUCTOS -->
+
+    <h3 style="color:#28737b;">
+      📋 Productos
+    </h3>
+
+    <div id="listaAdmin"></div>
+
+
+    <hr
+      style="margin:28px 0;border:none;border-top:1px solid #e3f0f1;">
+
+
+    <!-- PEDIDOS -->
+
+    <h3 style="color:#28737b;margin-bottom:15px;">
+      📦 Crear / administrar pedidos
+    </h3>
+
+
+    <div class="form-group">
+
+      <label>Código</label>
+
+      <input
+        id="pedidoCodigo"
+        type="text"
+        readonly>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Cliente</label>
+
+      <input
+        id="pedidoCliente"
+        type="text"
+        placeholder="Nombre del cliente">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Estado</label>
+
+      <select id="pedidoEstado">
+
+        <option>Recibido</option>
+        <option>Preparando</option>
+        <option>En camino</option>
+        <option>Entregado</option>
+        <option>Cancelado</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Detalle</label>
+
+      <textarea
+        id="pedidoDetalle"
+        placeholder="Productos, dirección, observaciones...">
+      </textarea>
+
+    </div>
+
+
+    <button
+      class="btn-principal"
+      onclick="generarCodigoPedido()">
+      🔢 Generar código
+    </button>
+
+    <button
+      class="btn-secundario"
+      onclick="crearPedido()">
+      📦 Crear pedido
+    </button>
+
+    <button
+      class="btn-secundario"
+      onclick="actualizarPedido()">
+      ✏️ Actualizar pedido
+    </button>
+
+    <button
+      class="btn-secundario"
+      onclick="enviarCodigoWhatsApp()">
+      💬 Enviar código por WhatsApp
+    </button>
+
+
+    <div
+      id="codigoGenerado"
+      style="margin-top:15px;text-align:center;">
+    </div>
+
+
+    <h3
+      style="color:#28737b;margin-top:25px;">
+      🧾 Pedidos recientes
+    </h3>
+
+    <div id="listaPedidosAdmin"></div>
+
+  </div>
+
+</section>
+
 
 <footer>
 
-  <strong>
-    ANDREX 🩵 STORE
-  </strong>
+  <p>
+    🩵 <strong>Tu estilo, tus elecciones, tu momento.</strong> ✨
+  </p>
 
-  <p style="margin-top:8px;">
-    Tu estilo, tu esencia, tu tienda.
+  <p style="margin-top:7px;font-size:13px;">
+    Gracias por visitar nuestra tienda 🛍️
   </p>
 
 </footer>
@@ -1719,19 +1537,18 @@ import {
   collection,
   addDoc,
   getDocs,
-  getDoc,
   doc,
+  deleteDoc,
+  updateDoc,
   query,
   where,
-  limit,
-  updateDoc,
-  deleteDoc,
-  serverTimestamp
+  getDoc,
+  setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =========================
-   CONFIG FIREBASE
+   CONFIGURACIÓN FIREBASE
 ========================= */
 
 const firebaseConfig = {
@@ -1757,11 +1574,9 @@ const firebaseConfig = {
 };
 
 
-const app =
-  initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db =
-  getFirestore(app);
+const db = getFirestore(app);
 
 
 /* =========================
@@ -1770,72 +1585,82 @@ const db =
 
 let productos = [];
 
-let carrito =
-  JSON.parse(
-    localStorage.getItem("andrex_carrito") || "[]"
-  );
-
 let favoritos =
-  JSON.parse(
-    localStorage.getItem("andrex_favoritos") || "[]"
-  );
+  JSON.parse(localStorage.getItem("andrexFavoritos") || "[]");
 
-let categoriaActual = "";
+let carrito =
+  JSON.parse(localStorage.getItem("andrexCarrito") || "[]");
 
-let contadorLogo = 0;
 
-let ultimoClickLogo = 0;
-
-let tipoInfoActual = "";
+const WHATSAPP =
+  "573181579324";
 
 
 /* =========================
-   NORMALIZAR
+   CATEGORÍAS
 ========================= */
 
-function normalizarCategoria(categoria){
+function obtenerCategoriaProducto(producto){
 
-  return String(categoria || "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
+  return String(
+    producto.categoria ??
+    producto.category ??
+    producto.tipo ??
+    producto.tipoProducto ??
+    ""
+  )
+  .toLowerCase()
+  .trim();
 
 }
 
 
-/* =========================
-   FORMATO PRECIO
-========================= */
+function perteneceCategoria(producto,categoria){
 
-function formatoPrecio(precio){
+  const cat =
+    obtenerCategoriaProducto(producto);
 
-  if(!precio || Number(precio) <= 0){
+  const mapa = {
 
-    return "Precio por consultar";
+    ropa:[
+      "ropa",
+      "ropas",
+      "clothing"
+    ],
 
-  }
+    lociones:[
+      "locion",
+      "lociones",
+      "perfume",
+      "perfumes",
+      "fragancia",
+      "fragancias"
+    ],
 
-  return "$" +
-    Number(precio).toLocaleString("es-CO");
+    zapatos:[
+      "zapato",
+      "zapatos",
+      "calzado",
+      "tenis",
+      "sneakers"
+    ],
 
-}
+    streaming:[
+      "streaming",
+      "suscripcion",
+      "suscripción",
+      "servicio"
+    ]
 
+  };
 
-/* =========================
-   GUARDAR LOCAL
-========================= */
-
-function guardarLocal(){
-
-  localStorage.setItem(
-    "andrex_carrito",
-    JSON.stringify(carrito)
-  );
-
-  localStorage.setItem(
-    "andrex_favoritos",
-    JSON.stringify(favoritos)
+  return (
+    mapa[categoria] || [categoria]
+  )
+  .some(
+    x =>
+      cat === x ||
+      cat.includes(x)
   );
 
 }
@@ -1851,201 +1676,129 @@ async function cargarProductos(){
 
   try{
 
-    const snapshot =
+    const snap =
       await getDocs(
         collection(db,"productos")
       );
 
-
-    snapshot.forEach(item => {
-
-      const data =
-        item.data();
-
+    snap.forEach(item => {
 
       productos.push({
 
         id:item.id,
 
-        ...data,
-
-        categoria:
-          normalizarCategoria(
-            data.categoria
-          )
+        ...item.data()
 
       });
 
     });
 
-
   }catch(error){
 
-    console.warn(
-      "Firebase no pudo cargar productos:",
+    console.error(
+      "Error cargando productos de Firebase:",
       error
     );
 
   }
 
 
-  await cargarRopaGitHub();
+  /* =========================
+     ROPA DESDE GITHUB
+  ========================= */
+
+  try{
+
+    const respuesta =
+      await fetch(
+        "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva"
+      );
+
+    if(respuesta.ok){
+
+      const archivos =
+        await respuesta.json();
+
+
+      archivos
+      .filter(
+        archivo =>
+          archivo.type === "file" &&
+          /\.(jpg|jpeg|png|webp|gif)$/i.test(
+            archivo.name
+          ) &&
+          !archivo.name.includes("3285")
+      )
+      .forEach(
+        archivo => {
+
+          const yaExiste =
+            productos.some(
+              p =>
+                p.nombre ===
+                archivo.name
+            );
+
+          if(!yaExiste){
+
+            productos.push({
+
+              id:
+                "gh_" +
+                btoa(
+                  archivo.name
+                )
+                .replace(
+                  /[^a-zA-Z0-9]/g,
+                  ""
+                ),
+
+              nombre:
+                archivo.name
+                .replace(
+                  /\.(jpg|jpeg|png|webp|gif)$/i,
+                  ""
+                ),
+
+              precio:0,
+
+              categoria:"ropa",
+
+              descripcion:
+                "Producto disponible.",
+
+              imagen:
+                "https://raw.githubusercontent.com/andrex29-code/Andrex-store/main/ropa/nueva/" +
+                encodeURIComponent(
+                  archivo.name
+                ),
+
+              destacado:false,
+
+              github:true
+
+            });
+
+          }
+
+        }
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "No se pudieron cargar las imágenes de GitHub:",
+      error
+    );
+
+  }
 
 
   renderizarDestacados();
 
   renderizarAdmin();
-
-  cargarPedidosAdmin();
-
-}
-
-
-/* =========================
-   CARGAR ROPA GITHUB
-========================= */
-
-async function cargarRopaGitHub(){
-
-  try{
-
-    const url =
-      "https://api.github.com/repos/" +
-      "andrex29-code/Andrex-store/" +
-      "contents/ropa/nueva";
-
-
-    const respuesta =
-      await fetch(
-        url,
-        {
-          cache:"no-store"
-        }
-      );
-
-
-    if(!respuesta.ok){
-
-      throw new Error(
-        "GitHub respondió " +
-        respuesta.status
-      );
-
-    }
-
-
-    const archivos =
-      await respuesta.json();
-
-
-    if(!Array.isArray(archivos)){
-
-      return;
-
-    }
-
-
-    const imagenes =
-      archivos.filter(archivo => {
-
-        const nombre =
-          String(
-            archivo.name || ""
-          ).toLowerCase();
-
-
-        const extension =
-          /\.(jpg|jpeg|png|webp|gif|avif)$/i
-            .test(nombre);
-
-
-        const excluir =
-          nombre.includes("3285");
-
-
-        return (
-          archivo.type === "file" &&
-          extension &&
-          !excluir
-        );
-
-      });
-
-
-    for(const archivo of imagenes){
-
-      const id =
-        "github-" +
-        archivo.name;
-
-
-      const existe =
-        productos.some(
-          producto =>
-            producto.id === id
-        );
-
-
-      if(existe){
-
-        continue;
-
-      }
-
-
-      const imagen =
-        archivo.download_url ||
-        (
-          "https://raw.githubusercontent.com/" +
-          "andrex29-code/Andrex-store/main/" +
-          "ropa/nueva/" +
-          encodeURIComponent(
-            archivo.name
-          )
-        );
-
-
-      productos.push({
-
-        id:id,
-
-        nombre:
-          archivo.name
-            .replace(
-              /\.[^/.]+$/,
-              ""
-            )
-            .replace(
-              /[-_]/g,
-              " "
-            ),
-
-        precio:0,
-
-        categoria:"ropa",
-
-        imagen:imagen,
-
-        descripcion:
-          "Producto disponible en nuestra colección de ropa.",
-
-        destacado:false,
-
-        github:true
-
-      });
-
-    }
-
-
-  }catch(error){
-
-    console.warn(
-      "No se pudo cargar la ropa de GitHub:",
-      error
-    );
-
-  }
 
 }
 
@@ -2056,471 +1809,98 @@ async function cargarRopaGitHub(){
 
 function crearTarjeta(producto){
 
-  const esFavorito =
-    favoritos.includes(
-      producto.id
-    );
+  const id =
+    String(producto.id);
 
+  const esFavorito =
+    favoritos.includes(id);
 
   const precio =
-    formatoPrecio(
-      producto.precio
-    );
+    Number(producto.precio || 0);
+
+  const precioTexto =
+    precio > 0
+      ? "$" + precio.toLocaleString("es-CO")
+      : "Consultar";
 
 
-  const tarjeta =
-    document.createElement(
-      "article"
-    );
+  const div =
+    document.createElement("article");
 
-
-  tarjeta.className =
+  div.className =
     "producto";
 
 
-  const imagen =
-    document.createElement(
-      "img"
-    );
+  div.innerHTML = `
 
+    <button
+      class="favorito-btn"
+      onclick="toggleFavorito('${escapeHtml(id)}')">
+      ${esFavorito ? "❤️" : "🤍"}
+    </button>
 
-  imagen.className =
-    "producto-imagen";
 
+    <img
+      class="producto-img"
+      src="${escapeHtml(producto.imagen || '')}"
+      alt="${escapeHtml(producto.nombre || 'Producto')}"
+      onclick="abrirImagen('${escapeHtml(producto.imagen || '')}')"
+      onerror="this.src='https://via.placeholder.com/500x500?text=Sin+imagen'">
 
-  imagen.src =
-    producto.imagen ||
-    "https://via.placeholder.com/600x600?text=ANDREX+STORE";
 
+    <div class="producto-info">
 
-  imagen.alt =
-    producto.nombre ||
-    "Producto";
+      <h3>
+        ${escapeHtml(producto.nombre || "Producto")}
+      </h3>
 
+      <div class="precio">
+        ${precioTexto}
+      </div>
 
-  imagen.loading =
-    "lazy";
+      <div class="descripcion">
+        ${escapeHtml(producto.descripcion || "")}
+      </div>
 
 
-  imagen.onclick =
-    () => abrirImagen(
-      imagen.src
-    );
+      <div class="producto-botones">
 
+        <button
+          class="btn-consultar"
+          onclick="consultarWhatsApp('${escapeHtml(producto.nombre || '')}')">
+          💬 Consultar
+        </button>
 
-  const botonFavorito =
-    document.createElement(
-      "button"
-    );
-
-
-  botonFavorito.className =
-    "favorito";
-
-
-  botonFavorito.textContent =
-    esFavorito
-      ? "❤️"
-      : "🤍";
-
-
-  botonFavorito.onclick =
-    () => cambiarFavorito(
-      producto.id
-    );
-
-
-  const info =
-    document.createElement(
-      "div"
-    );
-
-
-  info.className =
-    "producto-info";
-
-
-  const nombre =
-    document.createElement(
-      "h3"
-    );
-
-
-  nombre.textContent =
-    producto.nombre ||
-    "Producto";
-
-
-  const precioElemento =
-    document.createElement(
-      "div"
-    );
-
-
-  precioElemento.className =
-    "precio";
-
-
-  if(!producto.precio){
-
-    precioElemento.classList.add(
-      "consultar"
-    );
-
-  }
-
-
-  precioElemento.textContent =
-    precio;
-
-
-  const botones =
-    document.createElement(
-      "div"
-    );
-
-
-  botones.className =
-    "producto-botones";
-
-
-  const consultar =
-    document.createElement(
-      "button"
-    );
-
-
-  consultar.className =
-    "btn-consultar";
-
-
-  consultar.textContent =
-    "💬 Consultar";
-
-
-  consultar.onclick =
-    () =>
-      consultarWhatsApp(
-        producto
-      );
-
-
-  const agregar =
-    document.createElement(
-      "button"
-    );
-
-
-  agregar.className =
-    "btn-carrito";
-
-
-  agregar.textContent =
-    "🛒 Agregar";
-
-
-  agregar.onclick =
-    () =>
-      agregarCarrito(
-        producto
-      );
-
-
-  botones.appendChild(
-    consultar
-  );
-
-  botones.appendChild(
-    agregar
-  );
-
-
-  info.appendChild(
-    nombre
-  );
-
-  info.appendChild(
-    precioElemento
-  );
-
-  info.appendChild(
-    botones
-  );
-
-
-  tarjeta.appendChild(
-    imagen
-  );
-
-  tarjeta.appendChild(
-    botonFavorito
-  );
-
-  tarjeta.appendChild(
-    info
-  );
-
-
-  return tarjeta;
-
-}
-
-
-/* =========================
-   RENDER CATEGORÍA
-========================= */
-
-function renderizarCategoria(categoria){
-
-  const contenedor =
-    document.getElementById(
-      "productosCategoria"
-    );
-
-
-  contenedor.innerHTML = "";
-
-
-  const categoriaNormalizada =
-    normalizarCategoria(
-      categoria
-    );
-
-
-  const lista =
-    productos.filter(
-      producto =>
-        normalizarCategoria(
-          producto.categoria
-        ) === categoriaNormalizada
-    );
-
-
-  if(!lista.length){
-
-    contenedor.innerHTML =
-      `
-      <div
-        class="vacio"
-        style="grid-column:1/-1;">
-
-        <h3>
-          No hay productos todavía.
-        </h3>
-
-        <p style="margin-top:8px;">
-          Pronto tendremos novedades.
-        </p>
+        <button
+          class="btn-carrito"
+          onclick="agregarCarrito('${escapeHtml(id)}')">
+          🛒 Agregar
+        </button>
 
       </div>
-      `;
 
-    return;
+    </div>
 
-  }
+  `;
 
 
-  lista.forEach(
-    producto => {
-
-      contenedor.appendChild(
-        crearTarjeta(
-          producto
-        )
-      );
-
-    }
-  );
+  return div;
 
 }
 
 
 /* =========================
-   ABRIR CATEGORÍA
+   ESCAPE HTML
 ========================= */
 
-function abrirCategoria(categoria){
+function escapeHtml(text){
 
-  categoriaActual =
-    normalizarCategoria(
-      categoria
-    );
-
-
-  document.getElementById(
-    "contenidoInicio"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "vistaBusqueda"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "vistaFavoritos"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  const vista =
-    document.getElementById(
-      "vistaCategoria"
-    );
-
-
-  vista.classList.add(
-    "activa"
-  );
-
-
-  const nombres = {
-
-    ropa:
-      "👕 ROPA",
-
-    lociones:
-      "🧴 LOCIONES",
-
-    zapatos:
-      "👟 ZAPATOS",
-
-    streaming:
-      "📺 STREAMING"
-
-  };
-
-
-  const descripciones = {
-
-    ropa:
-      "Descubre toda nuestra colección de ropa.",
-
-    lociones:
-      "Encuentra tus fragancias favoritas.",
-
-    zapatos:
-      "Calzado para todos los estilos.",
-
-    streaming:
-      "Servicios de entretenimiento y streaming."
-
-  };
-
-
-  document.getElementById(
-    "tituloCategoria"
-  ).textContent =
-    nombres[categoriaActual] ||
-    "Productos";
-
-
-  document.getElementById(
-    "descripcionCategoria"
-  ).textContent =
-    descripciones[categoriaActual] ||
-    "Productos disponibles.";
-
-
-  renderizarCategoria(
-    categoriaActual
-  );
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================
-   VOLVER CATEGORÍAS
-========================= */
-
-function volverCategorias(){
-
-  document.getElementById(
-    "vistaCategoria"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "vistaBusqueda"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "vistaFavoritos"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "contenidoInicio"
-  ).style.display =
-    "block";
-
-
-  const categorias =
-    document.getElementById(
-      "seccionCategorias"
-    );
-
-
-  if(categorias){
-
-    categorias.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
-  }
-
-}
-
-
-/* =========================
-   VOLVER INICIO
-========================= */
-
-function volverInicio(){
-
-  document.getElementById(
-    "vistaCategoria"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "vistaBusqueda"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "vistaFavoritos"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "contenidoInicio"
-  ).style.display =
-    "block";
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -2536,42 +1916,33 @@ function renderizarDestacados(){
       "productosDestacados"
     );
 
-
-  if(!contenedor){
-
-    return;
-
-  }
-
-
   contenedor.innerHTML = "";
 
 
   const destacados =
     productos.filter(
-      producto =>
-        producto.destacado === true
+      p =>
+        p.destacado === true
     );
 
 
   if(!destacados.length){
 
-    contenedor.innerHTML =
-      `
-      <div
-        class="vacio"
-        style="grid-column:1/-1;">
+    contenedor.innerHTML = `
 
-        <h3>
-          ⭐ Próximamente
-        </h3>
-
-        <p style="margin-top:8px;">
-          Aquí aparecerán nuestros productos destacados.
-        </p>
-
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:25px;
+        color:#789296;
+        background:white;
+        border-radius:20px;
+      ">
+        Próximamente encontrarás aquí
+        nuestros productos destacados. ✨
       </div>
-      `;
+
+    `;
 
     return;
 
@@ -2582,9 +1953,7 @@ function renderizarDestacados(){
     producto => {
 
       contenedor.appendChild(
-        crearTarjeta(
-          producto
-        )
+        crearTarjeta(producto)
       );
 
     }
@@ -2594,17 +1963,199 @@ function renderizarDestacados(){
 
 
 /* =========================
+   ABRIR CATEGORÍA
+========================= */
+
+window.abrirCategoria =
+function(categoria){
+
+  document.getElementById(
+    "contenidoInicio"
+  ).style.display = "none";
+
+
+  const vista =
+    document.getElementById(
+      "vistaCategoria"
+    );
+
+  vista.style.display = "block";
+
+
+  const nombres = {
+
+    ropa:"👕 ROPA",
+
+    lociones:"🧴 LOCIONES",
+
+    zapatos:"👟 ZAPATOS",
+
+    streaming:"📺 STREAMING"
+
+  };
+
+
+  const descripciones = {
+
+    ropa:
+      "Descubre todas las prendas disponibles.",
+
+    lociones:
+      "Encuentra lociones y fragancias disponibles.",
+
+    zapatos:
+      "Explora todos los zapatos disponibles.",
+
+    streaming:
+      "Disfruta nuestras opciones de entretenimiento."
+
+  };
+
+
+  document.getElementById(
+    "tituloCategoria"
+  ).textContent =
+    nombres[categoria] || categoria;
+
+
+  document.getElementById(
+    "descripcionCategoria"
+  ).textContent =
+    descripciones[categoria] || "";
+
+
+  const contenedor =
+    document.getElementById(
+      "productosCategoria"
+    );
+
+  contenedor.innerHTML = "";
+
+
+  const encontrados =
+    productos.filter(
+      p =>
+        perteneceCategoria(
+          p,
+          categoria
+        )
+    );
+
+
+  if(!encontrados.length){
+
+    contenedor.innerHTML = `
+
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:30px;
+        background:white;
+        border-radius:20px;
+        color:#789296;
+      ">
+
+        😔 No encontramos productos
+        en esta categoría.
+
+      </div>
+
+    `;
+
+  }else{
+
+    encontrados.forEach(
+      producto => {
+
+        contenedor.appendChild(
+          crearTarjeta(producto)
+        );
+
+      }
+    );
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+};
+
+
+/* =========================
+   VOLVER CATEGORÍAS
+========================= */
+
+window.volverCategorias =
+function(){
+
+  document.getElementById(
+    "vistaCategoria"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "contenidoInicio"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "seccionCategorias"
+  ).scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+};
+
+
+/* =========================
+   IMAGEN
+========================= */
+
+window.abrirImagen =
+function(url){
+
+  document.getElementById(
+    "imagenGrande"
+  ).src = url;
+
+  document.getElementById(
+    "modalImagen"
+  ).style.display = "flex";
+
+};
+
+
+window.cerrarModal =
+function(id){
+
+  document.getElementById(
+    id
+  ).style.display = "none";
+
+};
+
+
+/* =========================
    FAVORITOS
 ========================= */
 
-function cambiarFavorito(id){
+window.toggleFavorito =
+function(id){
 
-  if(favoritos.includes(id)){
+  id = String(id);
+
+  if(
+    favoritos.includes(id)
+  ){
 
     favoritos =
       favoritos.filter(
-        favorito =>
-          favorito !== id
+        x => x !== id
       );
 
   }else{
@@ -2614,172 +2165,164 @@ function cambiarFavorito(id){
   }
 
 
-  guardarLocal();
-
-
-  if(categoriaActual){
-
-    renderizarCategoria(
-      categoriaActual
-    );
-
-  }
+  localStorage.setItem(
+    "andrexFavoritos",
+    JSON.stringify(favoritos)
+  );
 
 
   renderizarDestacados();
 
-}
-
-
-function abrirFavoritos(){
-
-  document.getElementById(
-    "contenidoInicio"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "vistaCategoria"
-  ).classList.remove(
-    "activa"
-  );
-
-
-  document.getElementById(
-    "vistaBusqueda"
-  ).classList.remove(
-    "activa"
-  );
-
 
   const vista =
     document.getElementById(
-      "vistaFavoritos"
+      "vistaCategoria"
     );
 
+  if(
+    vista.style.display === "block"
+  ){
 
-  vista.classList.add(
-    "activa"
-  );
+    const titulo =
+      document.getElementById(
+        "tituloCategoria"
+      ).textContent;
 
 
-  const contenedor =
+    let categoria = "";
+
+
+    if(titulo.includes("ROPA"))
+      categoria="ropa";
+
+    if(titulo.includes("LOCIONES"))
+      categoria="lociones";
+
+    if(titulo.includes("ZAPATOS"))
+      categoria="zapatos";
+
+    if(titulo.includes("STREAMING"))
+      categoria="streaming";
+
+
+    if(categoria)
+      abrirCategoria(categoria);
+
+  }
+
+};
+
+
+window.abrirFavoritos =
+function(){
+
+  const modal =
     document.getElementById(
-      "productosFavoritos"
+      "modalFavoritos"
     );
 
-
-  contenedor.innerHTML = "";
+  modal.style.display = "flex";
 
 
   const lista =
+    document.getElementById(
+      "listaFavoritos"
+    );
+
+  lista.innerHTML = "";
+
+
+  const listaProductos =
     productos.filter(
-      producto =>
+      p =>
         favoritos.includes(
-          producto.id
+          String(p.id)
         )
     );
 
 
-  if(!lista.length){
+  if(!listaProductos.length){
 
-    contenedor.innerHTML =
-      `
-      <div
-        class="vacio"
-        style="grid-column:1/-1;">
+    lista.innerHTML = `
+
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:25px;
+        color:#789296;
+      ">
 
         ❤️ Todavía no tienes favoritos.
 
       </div>
-      `;
+
+    `;
 
     return;
 
   }
 
 
-  lista.forEach(
-    producto => {
-
-      contenedor.appendChild(
-        crearTarjeta(
-          producto
-        )
-      );
-
-    }
+  listaProductos.forEach(
+    p =>
+      lista.appendChild(
+        crearTarjeta(p)
+      )
   );
 
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
+};
 
 
 /* =========================
    CARRITO
 ========================= */
 
-function agregarCarrito(producto){
+window.agregarCarrito =
+function(id){
 
-  carrito.push(producto);
-
-  guardarLocal();
-
-
-  alert(
-    "🛒 " +
-    producto.nombre +
-    " fue agregado al carrito."
-  );
-
-}
-
-
-function abrirCarrito(){
-
-  const modal =
-    document.getElementById(
-      "modalCarrito"
+  const producto =
+    productos.find(
+      p =>
+        String(p.id) ===
+        String(id)
     );
 
 
-  modal.style.display =
-    "flex";
+  if(!producto)
+    return;
 
 
-  modal.classList.add(
-    "activo"
+  carrito.push({
+    id:String(producto.id),
+    nombre:producto.nombre,
+    precio:Number(producto.precio || 0)
+  });
+
+
+  localStorage.setItem(
+    "andrexCarrito",
+    JSON.stringify(carrito)
   );
+
+
+  alert(
+    "🛒 Producto agregado al carrito."
+  );
+
+};
+
+
+window.abrirCarrito =
+function(){
+
+  document.getElementById(
+    "modalCarrito"
+  ).style.display = "flex";
 
 
   renderizarCarrito();
 
-}
-
-
-function cerrarCarrito(){
-
-  const modal =
-    document.getElementById(
-      "modalCarrito"
-    );
-
-
-  modal.classList.remove(
-    "activo"
-  );
-
-
-  modal.style.display =
-    "none";
-
-}
+};
 
 
 function renderizarCarrito(){
@@ -2789,131 +2332,120 @@ function renderizarCarrito(){
       "listaCarrito"
     );
 
-
-  const total =
-    document.getElementById(
-      "totalCarrito"
-    );
-
-
   lista.innerHTML = "";
 
 
   if(!carrito.length){
 
-    lista.innerHTML =
-      `
-      <div class="vacio">
+    lista.innerHTML = `
+
+      <p style="
+        text-align:center;
+        padding:20px;
+        color:#789296;
+      ">
         🛒 Tu carrito está vacío.
-      </div>
-      `;
+      </p>
 
+    `;
 
-    total.textContent =
+    document.getElementById(
+      "totalCarrito"
+    ).textContent =
       "Total: $0";
-
 
     return;
 
   }
 
 
-  let suma = 0;
+  let total = 0;
 
 
   carrito.forEach(
-    (producto,index) => {
+    (item,index) => {
 
-      suma +=
-        Number(
-          producto.precio || 0
-        );
+      total +=
+        Number(item.precio || 0);
 
 
-      const item =
+      const div =
         document.createElement(
           "div"
         );
 
-
-      item.className =
+      div.className =
         "carrito-item";
 
 
-      item.innerHTML =
-        `
-        <img
-          src="${producto.imagen || ""}"
-          alt="">
+      div.innerHTML = `
 
-
-        <div class="carrito-info">
+        <div class="carrito-item-info">
 
           <strong>
-            ${escapeHtml(
-              producto.nombre
-            )}
+            ${escapeHtml(item.nombre)}
           </strong>
 
-          <div>
+          <small>
             ${
-              producto.precio
-              ? formatoPrecio(
-                  producto.precio
-                )
-              : "Precio por consultar"
+              Number(item.precio || 0)
+              ? "$" +
+                Number(item.precio)
+                .toLocaleString("es-CO")
+              : "Consultar"
             }
-          </div>
+          </small>
 
         </div>
 
 
         <button
-          class="admin-btn rojo"
-          onclick="eliminarDelCarrito(${index})">
-
+          onclick="eliminarCarrito(${index})">
           🗑️
-
         </button>
-        `;
+
+      `;
 
 
-      lista.appendChild(
-        item
-      );
+      lista.appendChild(div);
 
     }
   );
 
 
-  total.textContent =
-    "Total: " +
-    formatoPrecio(suma);
+  document.getElementById(
+    "totalCarrito"
+  ).textContent =
+    "Total: $" +
+    total.toLocaleString("es-CO");
 
 }
 
 
-function eliminarDelCarrito(index){
+window.eliminarCarrito =
+function(index){
 
-  carrito.splice(
-    index,
-    1
+  carrito.splice(index,1);
+
+
+  localStorage.setItem(
+    "andrexCarrito",
+    JSON.stringify(carrito)
   );
 
 
-  guardarLocal();
-
   renderizarCarrito();
 
-}
+};
 
 
-function enviarCarritoWhatsApp(){
+window.enviarCarritoWhatsApp =
+function(){
 
   if(!carrito.length){
 
     alert(
-      "Tu carrito está vacío."
+      "El carrito está vacío."
     );
 
     return;
@@ -2922,313 +2454,114 @@ function enviarCarritoWhatsApp(){
 
 
   let mensaje =
-    "Hola ANDREX 🩵 STORE, quiero consultar por estos productos:%0A%0A";
+    "Hola 👋, quiero comprar estos productos:%0A%0A";
 
 
   carrito.forEach(
-    (producto,index) => {
+    item => {
 
       mensaje +=
-        `${index + 1}. ${producto.nombre}`;
-
-
-      if(producto.precio){
-
-        mensaje +=
-          ` - ${formatoPrecio(
-            producto.precio
-          )}`;
-
-      }
-
-
-      mensaje +=
+        "🛍️ " +
+        item.nombre +
+        " - " +
+        (
+          Number(item.precio || 0)
+            ? "$" +
+              Number(item.precio)
+              .toLocaleString("es-CO")
+            : "Consultar"
+        ) +
         "%0A";
 
     }
   );
 
 
-  const url =
-    "https://wa.me/573181579324?text=" +
-    mensaje;
-
-
   window.open(
-    url,
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    mensaje,
     "_blank"
   );
 
-}
+};
 
 
 /* =========================
-   WHATSAPP PRODUCTO
+   WHATSAPP
 ========================= */
 
-function consultarWhatsApp(producto){
+window.consultarWhatsApp =
+function(nombre){
 
   const mensaje =
-    "Hola ANDREX 🩵 STORE, estoy interesado en: " +
-    producto.nombre;
+    "Hola 👋, quiero consultar por el producto: " +
+    nombre;
 
 
   window.open(
-    "https://wa.me/573181579324?text=" +
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
     encodeURIComponent(
       mensaje
     ),
     "_blank"
   );
 
-}
+};
 
 
-/* =========================
-   MODAL INFORMACIÓN
-========================= */
-
-function abrirInfo(tipo){
-
-  tipoInfoActual =
-    tipo;
-
-
-  const modal =
-    document.getElementById(
-      "modalInfo"
-    );
-
-
-  const titulo =
-    document.getElementById(
-      "tituloInfo"
-    );
-
-
-  const texto =
-    document.getElementById(
-      "textoInfo"
-    );
-
-
-  if(tipo === "domicilio"){
-
-    titulo.textContent =
-      "🚚 Domicilio";
-
-
-    texto.textContent =
-      "Consulta con nosotros la disponibilidad, cobertura y costo del domicilio para tu pedido.";
-
-  }
-
-
-  if(tipo === "pagos"){
-
-    titulo.textContent =
-      "💳 Medios de pago";
-
-
-    texto.textContent =
-      "Escríbenos para consultar los medios de pago disponibles al momento de realizar tu compra.";
-
-  }
-
-
-  if(tipo === "ayuda"){
-
-    titulo.textContent =
-      "🆘 Ayuda";
-
-
-    texto.textContent =
-      "Si tienes alguna pregunta sobre productos, pedidos, domicilios o compras, podemos ayudarte por WhatsApp.";
-
-  }
-
-
-  modal.style.display =
-    "flex";
-
-
-  modal.classList.add(
-    "activo"
-  );
-
-}
-
-
-function cerrarInfo(){
-
-  const modal =
-    document.getElementById(
-      "modalInfo"
-    );
-
-
-  modal.classList.remove(
-    "activo"
-  );
-
-
-  modal.style.display =
-    "none";
-
-}
-
-
-function contactarInfo(){
-
-  let mensaje =
-    "";
-
-
-  if(tipoInfoActual === "domicilio"){
-
-    mensaje =
-      "Hola ANDREX 🩵 STORE, quiero consultar sobre los domicilios.";
-
-  }
-
-
-  if(tipoInfoActual === "pagos"){
-
-    mensaje =
-      "Hola ANDREX 🩵 STORE, quiero consultar cuáles son los medios de pago disponibles.";
-
-  }
-
-
-  if(tipoInfoActual === "ayuda"){
-
-    mensaje =
-      "Hola ANDREX 🩵 STORE, necesito ayuda con la tienda.";
-
-  }
-
+window.contactarWhatsApp =
+function(mensaje){
 
   window.open(
-    "https://wa.me/573181579324?text=" +
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
     encodeURIComponent(
       mensaje
     ),
     "_blank"
   );
 
-}
+};
 
 
 /* =========================
-   IMAGEN
+   BÚSQUEDA
 ========================= */
 
-function abrirImagen(url){
-
-  const modal =
-    document.getElementById(
-      "modalImagen"
-    );
-
-
-  const imagen =
-    document.getElementById(
-      "imagenGrande"
-    );
-
-
-  imagen.src =
-    url;
-
-
-  modal.style.display =
-    "flex";
-
-
-  modal.classList.add(
-    "activo"
-  );
-
-}
-
-
-function cerrarImagen(){
-
-  const modal =
-    document.getElementById(
-      "modalImagen"
-    );
-
-
-  modal.classList.remove(
-    "activo"
-  );
-
-
-  modal.style.display =
-    "none";
-
-}
-
-
-/* =========================
-   BUSCAR
-========================= */
-
-function abrirBusqueda(){
+window.abrirBusqueda =
+function(){
 
   document.getElementById(
-    "contenidoInicio"
-  ).style.display =
-    "none";
+    "modalBusqueda"
+  ).style.display = "flex";
 
 
   document.getElementById(
-    "vistaCategoria"
-  ).classList.remove(
-    "activa"
-  );
+    "inputBusqueda"
+  ).value = "";
 
 
   document.getElementById(
-    "vistaFavoritos"
-  ).classList.remove(
-    "activa"
-  );
+    "resultadosBusqueda"
+  ).innerHTML = "";
+
+};
 
 
-  document.getElementById(
-    "vistaBusqueda"
-  ).classList.add(
-    "activa"
-  );
-
-
-  const input =
-    document.getElementById(
-      "inputBusqueda"
-    );
-
-
-  input.focus();
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-function buscarProductos(){
+window.buscarProductos =
+function(){
 
   const texto =
     document.getElementById(
       "inputBusqueda"
     ).value
-      .trim()
-      .toLowerCase();
+    .toLowerCase()
+    .trim();
 
 
   const contenedor =
@@ -3236,65 +2569,49 @@ function buscarProductos(){
       "resultadosBusqueda"
     );
 
-
   contenedor.innerHTML = "";
 
 
-  if(!texto){
-
-    contenedor.innerHTML =
-      `
-      <div
-        class="vacio"
-        style="grid-column:1/-1;">
-
-        Escribe algo para buscar.
-
-      </div>
-      `;
-
+  if(!texto)
     return;
-
-  }
 
 
   const resultados =
     productos.filter(
-      producto => {
-
-        const nombre =
-          String(
-            producto.nombre || ""
-          ).toLowerCase();
-
-
-        const categoria =
-          String(
-            producto.categoria || ""
-          ).toLowerCase();
-
-
-        return (
-          nombre.includes(texto) ||
-          categoria.includes(texto)
-        );
-
-      }
+      p =>
+        String(
+          p.nombre || ""
+        )
+        .toLowerCase()
+        .includes(texto)
+        ||
+        String(
+          p.descripcion || ""
+        )
+        .toLowerCase()
+        .includes(texto)
+        ||
+        obtenerCategoriaProducto(p)
+          .includes(texto)
     );
 
 
   if(!resultados.length){
 
-    contenedor.innerHTML =
-      `
-      <div
-        class="vacio"
-        style="grid-column:1/-1;">
+    contenedor.innerHTML = `
 
-        😔 No encontramos productos.
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:25px;
+        color:#789296;
+      ">
+
+        😔 No encontramos ese producto.
 
       </div>
-      `;
+
+    `;
 
     return;
 
@@ -3302,64 +2619,217 @@ function buscarProductos(){
 
 
   resultados.forEach(
-    producto => {
-
+    p =>
       contenedor.appendChild(
-        crearTarjeta(
-          producto
-        )
-      );
-
-    }
+        crearTarjeta(p)
+      )
   );
 
-}
+};
 
 
 /* =========================
-   ADMIN LOGO
+   ESTADO PEDIDO
 ========================= */
 
-function clicLogo(){
+window.abrirEstadoPedido =
+function(){
+
+  document.getElementById(
+    "modalPedido"
+  ).style.display = "flex";
+
+
+  document.getElementById(
+    "buscarPedido"
+  ).value = "";
+
+
+  document.getElementById(
+    "resultadoPedido"
+  ).innerHTML = "";
+
+};
+
+
+window.consultarPedido =
+async function(){
+
+  const codigo =
+    document.getElementById(
+      "buscarPedido"
+    ).value
+    .trim()
+    .toUpperCase();
+
+
+  const resultado =
+    document.getElementById(
+      "resultadoPedido"
+    );
+
+
+  if(!codigo){
+
+    resultado.innerHTML = `
+      <div class="estado">
+        Escribe el código de tu pedido.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  resultado.innerHTML = `
+    <div class="estado">
+      🔎 Consultando pedido...
+    </div>
+  `;
+
+
+  try{
+
+    const q =
+      query(
+        collection(db,"pedidos"),
+        where(
+          "codigo",
+          "==",
+          codigo
+        )
+      );
+
+
+    const snap =
+      await getDocs(q);
+
+
+    if(
+      snap.empty
+    ){
+
+      resultado.innerHTML = `
+        <div class="estado">
+          ❌ No encontramos un pedido
+          con ese código.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    const data =
+      snap.docs[0].data();
+
+
+    resultado.innerHTML = `
+
+      <div class="estado">
+
+        <div class="codigo">
+          ${escapeHtml(data.codigo)}
+        </div>
+
+        <p>
+          <strong>Cliente:</strong>
+          ${escapeHtml(data.cliente || "")}
+        </p>
+
+        <p style="margin-top:8px;">
+          <strong>Estado:</strong>
+          ${escapeHtml(data.estado || "")}
+        </p>
+
+        <p style="margin-top:8px;">
+          <strong>Detalle:</strong>
+          ${escapeHtml(data.detalle || "Sin detalles")}
+        </p>
+
+      </div>
+
+    `;
+
+  }catch(error){
+
+    console.error(error);
+
+    resultado.innerHTML = `
+      <div class="estado">
+        ❌ No se pudo consultar el pedido.
+        Revisa la conexión con Firebase.
+      </div>
+    `;
+
+  }
+
+};
+
+
+/* =========================
+   ADMIN
+========================= */
+
+let clicksAdmin = 0;
+let ultimoClick = 0;
+
+
+window.activarAdmin =
+function(){
 
   const ahora =
     Date.now();
 
 
   if(
-    ahora - ultimoClickLogo >
+    ahora - ultimoClick >
     1500
   ){
 
-    contadorLogo = 0;
+    clicksAdmin = 0;
 
   }
 
 
-  contadorLogo++;
+  clicksAdmin++;
 
-  ultimoClickLogo =
+  ultimoClick =
     ahora;
 
 
-  if(contadorLogo >= 5){
+  if(
+    clicksAdmin >= 5
+  ){
 
-    contadorLogo = 0;
+    clicksAdmin = 0;
 
 
     const pin =
       prompt(
-        "🔐 Introduce el PIN de administrador:"
+        "🔐 Ingresa el PIN de administrador:"
       );
 
 
     if(pin === "2580"){
 
-      abrirAdmin();
+      document.getElementById(
+        "adminPanel"
+      ).style.display = "block";
 
-    }else if(
-      pin !== null
-    ){
+
+      document.getElementById(
+        "adminPanel"
+      ).scrollIntoView({
+        behavior:"smooth"
+      });
+
+
+      cargarPedidosAdmin();
+
+    }else{
 
       alert(
         "❌ PIN incorrecto."
@@ -3369,42 +2839,15 @@ function clicLogo(){
 
   }
 
-}
-
-
-/* =========================
-   ABRIR ADMIN
-========================= */
-
-function abrirAdmin(){
-
-  const panel =
-    document.getElementById(
-      "adminPanel"
-    );
-
-
-  panel.classList.add(
-    "activo"
-  );
-
-
-  cargarPedidosAdmin();
-
-
-  panel.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-}
+};
 
 
 /* =========================
    GUARDAR PRODUCTO
 ========================= */
 
-async function guardarProducto(){
+window.guardarProducto =
+async function(){
 
   const nombre =
     document.getElementById(
@@ -3416,16 +2859,14 @@ async function guardarProducto(){
     Number(
       document.getElementById(
         "productoPrecio"
-      ).value || 0
+      ).value
     );
 
 
   const categoria =
-    normalizarCategoria(
-      document.getElementById(
-        "productoCategoria"
-      ).value
-    );
+    document.getElementById(
+      "productoCategoria"
+    ).value;
 
 
   const descripcion =
@@ -3434,16 +2875,16 @@ async function guardarProducto(){
     ).value.trim();
 
 
-  const destacado =
-    document.getElementById(
-      "productoDestacado"
-    ).checked;
-
-
   const archivo =
     document.getElementById(
       "productoImagen"
     ).files[0];
+
+
+  const destacado =
+    document.getElementById(
+      "productoDestacado"
+    ).checked;
 
 
   if(!nombre){
@@ -3457,58 +2898,46 @@ async function guardarProducto(){
   }
 
 
-  let imagen = "";
+  if(!archivo){
 
+    alert(
+      "Selecciona una imagen."
+    );
 
-  if(archivo){
-
-    try{
-
-      imagen =
-        await convertirImagenBase64(
-          archivo
-        );
-
-    }catch(error){
-
-      alert(
-        "No se pudo procesar la imagen."
-      );
-
-      return;
-
-    }
+    return;
 
   }
 
 
   try{
 
-    const referencia =
-      await addDoc(
-        collection(
-          db,
-          "productos"
-        ),
-        {
-
-          nombre:nombre,
-
-          precio:precio,
-
-          categoria:categoria,
-
-          descripcion:descripcion,
-
-          imagen:imagen,
-
-          destacado:destacado,
-
-          creado:
-            serverTimestamp()
-
-        }
+    const imagen =
+      await comprimirImagen(
+        archivo
       );
+
+
+    await addDoc(
+      collection(db,"productos"),
+      {
+
+        nombre,
+
+        precio,
+
+        categoria,
+
+        descripcion,
+
+        imagen,
+
+        destacado,
+
+        creado:
+          new Date().toISOString()
+
+      }
+    );
 
 
     alert(
@@ -3520,55 +2949,28 @@ async function guardarProducto(){
       "productoNombre"
     ).value = "";
 
-
     document.getElementById(
       "productoPrecio"
     ).value = "";
-
 
     document.getElementById(
       "productoDescripcion"
     ).value = "";
 
-
     document.getElementById(
       "productoImagen"
     ).value = "";
-
 
     document.getElementById(
       "productoDestacado"
     ).checked = false;
 
 
-    productos.push({
-
-      id:referencia.id,
-
-      nombre:nombre,
-
-      precio:precio,
-
-      categoria:categoria,
-
-      descripcion:descripcion,
-
-      imagen:imagen,
-
-      destacado:destacado
-
-    });
-
-
-    renderizarAdmin();
-
-    renderizarDestacados();
-
+    await cargarProductos();
 
   }catch(error){
 
     console.error(error);
-
 
     alert(
       "❌ No se pudo guardar el producto.\n\n" +
@@ -3577,111 +2979,126 @@ async function guardarProducto(){
 
   }
 
-}
+};
 
 
 /* =========================
-   BASE64
+   COMPRIMIR IMAGEN
 ========================= */
 
-function convertirImagenBase64(archivo){
+function comprimirImagen(archivo){
 
   return new Promise(
     (resolve,reject) => {
 
-      const lector =
+      const reader =
         new FileReader();
 
 
-      lector.onload =
-        () => {
+      reader.onload =
+      function(e){
 
-          const imagen =
-            new Image();
-
-
-          imagen.onload =
-            () => {
-
-              const maximo =
-                1000;
+        const img =
+          new Image();
 
 
-              let ancho =
-                imagen.width;
+        img.onload =
+        function(){
+
+          const max =
+            900;
 
 
-              let alto =
-                imagen.height;
+          let width =
+            img.width;
+
+          let height =
+            img.height;
 
 
-              if(ancho > maximo){
+          if(
+            width > max ||
+            height > max
+          ){
 
-                alto =
-                  alto *
-                  maximo /
-                  ancho;
+            if(width > height){
 
-                ancho =
-                  maximo;
+              height =
+                height *
+                max /
+                width;
 
-              }
+              width =
+                max;
 
+            }else{
 
-              const canvas =
-                document.createElement(
-                  "canvas"
-                );
+              width =
+                width *
+                max /
+                height;
 
+              height =
+                max;
 
-              canvas.width =
-                ancho;
+            }
 
-
-              canvas.height =
-                alto;
-
-
-              const ctx =
-                canvas.getContext(
-                  "2d"
-                );
+          }
 
 
-              ctx.drawImage(
-                imagen,
-                0,
-                0,
-                ancho,
-                alto
-              );
+          const canvas =
+            document.createElement(
+              "canvas"
+            );
 
 
-              resolve(
-                canvas.toDataURL(
-                  "image/jpeg",
-                  .75
-                )
-              );
+          canvas.width =
+            width;
 
-            };
+          canvas.height =
+            height;
 
 
-          imagen.onerror =
-            reject;
+          const ctx =
+            canvas.getContext(
+              "2d"
+            );
 
 
-          imagen.src =
-            lector.result;
+          ctx.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+          );
+
+
+          resolve(
+            canvas.toDataURL(
+              "image/jpeg",
+              .72
+            )
+          );
 
         };
 
 
-      lector.onerror =
+        img.onerror =
+          reject;
+
+
+        img.src =
+          e.target.result;
+
+      };
+
+
+      reader.onerror =
         reject;
 
 
-      lector.readAsDataURL(
+      reader.readAsDataURL(
         archivo
       );
 
@@ -3692,7 +3109,7 @@ function convertirImagenBase64(archivo){
 
 
 /* =========================
-   ADMIN LISTA
+   ADMIN PRODUCTOS
 ========================= */
 
 function renderizarAdmin(){
@@ -3703,94 +3120,74 @@ function renderizarAdmin(){
     );
 
 
-  if(!lista){
-
+  if(!lista)
     return;
-
-  }
 
 
   lista.innerHTML = "";
 
 
-  const administrables =
-    productos.filter(
-      producto =>
-        !producto.github
-    );
-
-
-  if(!administrables.length){
-
-    lista.innerHTML =
-      `
-      <div class="vacio">
-
-        No hay productos agregados manualmente.
-
-      </div>
-      `;
-
-    return;
-
-  }
-
-
-  administrables.forEach(
+  productos.forEach(
     producto => {
 
-      const item =
+      if(producto.github)
+        return;
+
+
+      const div =
         document.createElement(
           "div"
         );
 
 
-      item.className =
-        "admin-item";
+      div.className =
+        "admin-producto";
 
 
-      item.innerHTML =
-        `
-        <div class="admin-item-info">
+      div.innerHTML = `
+
+        <div>
 
           <strong>
-            ${escapeHtml(
-              producto.nombre
-            )}
+            ${escapeHtml(producto.nombre)}
           </strong>
 
-          <div>
+          <div style="
+            font-size:13px;
+            color:#789296;
+            margin-top:4px;
+          ">
+
             ${escapeHtml(
-              producto.categoria || ""
+              obtenerCategoriaProducto(
+                producto
+              )
             )}
-          </div>
 
-          <div>
-            ${formatoPrecio(
-              producto.precio
-            )}
-          </div>
-
-          <div>
             ${
               producto.destacado
-                ? "⭐ Destacado"
+                ? " ⭐"
                 : ""
             }
+
           </div>
 
         </div>
 
 
-        <div class="admin-item-botones">
+        <div style="
+          display:flex;
+          gap:6px;
+          flex-wrap:wrap;
+        ">
 
           <button
-            class="admin-btn secundario"
-            onclick="toggleDestacado('${producto.id}')">
+            class="btn-destacado"
+            onclick="toggleDestacado('${escapeHtml(String(producto.id))}')">
 
             ${
               producto.destacado
-                ? "Quitar ⭐"
+                ? "⭐ Quitar"
                 : "⭐ Destacar"
             }
 
@@ -3798,20 +3195,19 @@ function renderizarAdmin(){
 
 
           <button
-            class="admin-btn rojo"
-            onclick="eliminarProducto('${producto.id}')">
+            class="btn-eliminar"
+            onclick="eliminarProducto('${escapeHtml(String(producto.id))}')">
 
             🗑️ Eliminar
 
           </button>
 
         </div>
-        `;
+
+      `;
 
 
-      lista.appendChild(
-        item
-      );
+      lista.appendChild(div);
 
     }
   );
@@ -3819,28 +3215,19 @@ function renderizarAdmin(){
 }
 
 
-/* =========================
-   DESTACADO
-========================= */
-
-async function toggleDestacado(id){
+window.toggleDestacado =
+async function(id){
 
   const producto =
     productos.find(
-      item =>
-        item.id === id
+      p =>
+        String(p.id) ===
+        String(id)
     );
 
 
-  if(!producto){
-
+  if(!producto)
     return;
-
-  }
-
-
-  const nuevoValor =
-    !producto.destacado;
 
 
   try{
@@ -3852,73 +3239,36 @@ async function toggleDestacado(id){
         id
       ),
       {
-        destacado:nuevoValor
+        destacado:
+          !producto.destacado
       }
     );
 
 
-    producto.destacado =
-      nuevoValor;
-
-
-    renderizarAdmin();
-
-    renderizarDestacados();
-
-
-    alert(
-      nuevoValor
-        ? "⭐ Producto destacado."
-        : "Producto quitado de destacados."
-    );
-
+    await cargarProductos();
 
   }catch(error){
 
     console.error(error);
 
-
     alert(
-      "❌ No se pudo actualizar.\n\n" +
-      "Revisa Firestore."
+      "❌ No se pudo actualizar."
     );
 
   }
 
-}
+};
 
 
-/* =========================
-   ELIMINAR
-========================= */
-
-async function eliminarProducto(id){
-
-  const producto =
-    productos.find(
-      item =>
-        item.id === id
-    );
-
-
-  if(!producto){
-
-    return;
-
-  }
-
+window.eliminarProducto =
+async function(id){
 
   if(
     !confirm(
-      "¿Quieres eliminar " +
-      producto.nombre +
-      "?"
+      "¿Seguro que quieres eliminar este producto?"
     )
-  ){
-
+  )
     return;
-
-  }
 
 
   try{
@@ -3932,27 +3282,11 @@ async function eliminarProducto(id){
     );
 
 
-    productos =
-      productos.filter(
-        item =>
-          item.id !== id
-      );
-
-
-    renderizarAdmin();
-
-    renderizarDestacados();
-
-
-    alert(
-      "🗑️ Producto eliminado."
-    );
-
+    await cargarProductos();
 
   }catch(error){
 
     console.error(error);
-
 
     alert(
       "❌ No se pudo eliminar el producto."
@@ -3960,57 +3294,68 @@ async function eliminarProducto(id){
 
   }
 
-}
+};
 
 
 /* =========================
-   PEDIDOS
+   PEDIDOS ADMIN
 ========================= */
 
-function generarCodigoPedido(){
+function generarCodigo(){
 
-  return "AX-" +
+  return (
+    "AX-" +
     Math.floor(
       1000 +
       Math.random() * 9000
-    );
+    )
+  );
 
 }
 
 
-async function codigoExiste(codigo){
+window.generarCodigoPedido =
+function(){
 
-  const consulta =
-    query(
-      collection(
-        db,
-        "pedidos"
-      ),
-      where(
-        "codigo",
-        "==",
-        codigo
-      ),
-      limit(1)
-    );
+  const codigo =
+    generarCodigo();
 
 
-  const snapshot =
-    await getDocs(
-      consulta
-    );
+  document.getElementById(
+    "pedidoCodigo"
+  ).value =
+    codigo;
 
 
-  return !snapshot.empty;
+  document.getElementById(
+    "codigoGenerado"
+  ).innerHTML = `
 
-}
+    <div class="codigo">
+      ${codigo}
+    </div>
+
+    <p style="
+      color:#789296;
+      text-align:center;
+    ">
+      Este es el código que puedes
+      enviar al cliente.
+    </p>
+
+  `;
+
+};
 
 
-/* =========================
-   CREAR PEDIDO
-========================= */
+window.crearPedido =
+async function(){
 
-async function generarYCrearPedido(){
+  const codigo =
+    document.getElementById(
+      "pedidoCodigo"
+    ).value.trim();
+
 
   const cliente =
     document.getElementById(
@@ -4030,6 +3375,17 @@ async function generarYCrearPedido(){
     ).value.trim();
 
 
+  if(!codigo){
+
+    alert(
+      "Primero genera un código."
+    );
+
+    return;
+
+  }
+
+
   if(!cliente){
 
     alert(
@@ -4041,104 +3397,60 @@ async function generarYCrearPedido(){
   }
 
 
-  let codigo;
-
-
   try{
 
-    do{
-
-      codigo =
-        generarCodigoPedido();
-
-    }while(
-      await codigoExiste(
-        codigo
-      )
-    );
-
-
     await addDoc(
-      collection(
-        db,
-        "pedidos"
-      ),
+      collection(db,"pedidos"),
       {
 
-        codigo:codigo,
+        codigo,
 
-        cliente:cliente,
+        cliente,
 
-        estado:estado,
+        estado,
 
-        detalle:detalle,
+        detalle,
 
-        creado:
-          serverTimestamp()
+        fecha:
+          new Date().toISOString()
 
       }
     );
 
 
-    document.getElementById(
-      "pedidoCodigo"
-    ).value =
-      codigo;
-
-
-    document.getElementById(
-      "codigoMostrado"
-    ).textContent =
-      codigo;
-
-
-    document.getElementById(
-      "codigoGenerado"
-    ).style.display =
-      "block";
-
-
     alert(
-      "✅ Pedido creado.\n\nCódigo: " +
-      codigo
+      "✅ Pedido creado correctamente."
     );
 
 
     cargarPedidosAdmin();
 
-
   }catch(error){
 
     console.error(error);
 
-
     alert(
-      "❌ No se pudo crear el pedido.\n\n" +
-      "Revisa las reglas de Firestore."
+      "❌ No se pudo crear el pedido."
     );
 
   }
 
-}
+};
 
 
-/* =========================
-   ACTUALIZAR PEDIDO
-========================= */
-
-async function actualizarPedidoExistente(){
+window.actualizarPedido =
+async function(){
 
   const codigo =
     document.getElementById(
       "pedidoCodigo"
-    ).value.trim()
-      .toUpperCase();
+    ).value.trim();
 
 
   if(!codigo){
 
     alert(
-      "Primero crea o selecciona un pedido."
+      "Escribe o genera un código."
     );
 
     return;
@@ -4148,31 +3460,25 @@ async function actualizarPedidoExistente(){
 
   try{
 
-    const consulta =
+    const q =
       query(
-        collection(
-          db,
-          "pedidos"
-        ),
+        collection(db,"pedidos"),
         where(
           "codigo",
           "==",
           codigo
-        ),
-        limit(1)
+        )
       );
 
 
-    const snapshot =
-      await getDocs(
-        consulta
-      );
+    const snap =
+      await getDocs(q);
 
 
-    if(snapshot.empty){
+    if(snap.empty){
 
       alert(
-        "❌ No se encontró ese pedido."
+        "No existe un pedido con ese código."
       );
 
       return;
@@ -4180,12 +3486,12 @@ async function actualizarPedidoExistente(){
     }
 
 
-    const pedidoDoc =
-      snapshot.docs[0];
+    const ref =
+      snap.docs[0].ref;
 
 
     await updateDoc(
-      pedidoDoc.ref,
+      ref,
       {
 
         cliente:
@@ -4214,11 +3520,9 @@ async function actualizarPedidoExistente(){
 
     cargarPedidosAdmin();
 
-
   }catch(error){
 
     console.error(error);
-
 
     alert(
       "❌ No se pudo actualizar el pedido."
@@ -4226,62 +3530,8 @@ async function actualizarPedidoExistente(){
 
   }
 
-}
+};
 
-
-/* =========================
-   WHATSAPP PEDIDO
-========================= */
-
-function enviarCodigoPedidoWhatsApp(){
-
-  const codigo =
-    document.getElementById(
-      "pedidoCodigo"
-    ).value.trim();
-
-
-  if(!codigo){
-
-    alert(
-      "No hay ningún código de pedido."
-    );
-
-    return;
-
-  }
-
-
-  const cliente =
-    document.getElementById(
-      "pedidoCliente"
-    ).value.trim();
-
-
-  const mensaje =
-    `Hola ${cliente || ""} 👋
-
-Tu pedido de ANDREX 🩵 STORE fue registrado correctamente.
-
-📦 Código de seguimiento:
-${codigo}
-
-Puedes consultar el estado de tu pedido desde nuestra tienda.`;
-
-  window.open(
-    "https://wa.me/573181579324?text=" +
-    encodeURIComponent(
-      mensaje
-    ),
-    "_blank"
-  );
-
-}
-
-
-/* =========================
-   CARGAR PEDIDOS ADMIN
-========================= */
 
 async function cargarPedidosAdmin(){
 
@@ -4291,151 +3541,118 @@ async function cargarPedidosAdmin(){
     );
 
 
-  if(!lista){
-
+  if(!lista)
     return;
-
-  }
 
 
   lista.innerHTML =
-    `
-    <div class="cargando">
-      Cargando pedidos...
-    </div>
-    `;
+    "🔄 Cargando pedidos...";
 
 
   try{
 
-    const snapshot =
+    const snap =
       await getDocs(
-        collection(
-          db,
-          "pedidos"
-        )
+        collection(db,"pedidos")
       );
 
 
     lista.innerHTML = "";
 
 
-    if(snapshot.empty){
+    if(snap.empty){
 
-      lista.innerHTML =
-        `
-        <div class="vacio">
-
+      lista.innerHTML = `
+        <p style="
+          color:#789296;
+          margin-top:10px;
+        ">
           No hay pedidos todavía.
-
-        </div>
-        `;
+        </p>
+      `;
 
       return;
 
     }
 
 
-    snapshot.forEach(
-      pedidoDoc => {
+    snap.forEach(
+      pedido => {
 
-        const pedido =
-          pedidoDoc.data();
+        const data =
+          pedido.data();
 
 
-        const item =
+        const div =
           document.createElement(
             "div"
           );
 
 
-        item.className =
-          "admin-item";
+        div.className =
+          "admin-producto";
 
 
-        item.innerHTML =
-          `
-          <div class="admin-item-info">
+        div.innerHTML = `
+
+          <div>
 
             <strong>
-              📦 ${escapeHtml(
-                pedido.codigo || ""
-              )}
+              📦 ${escapeHtml(data.codigo || "")}
             </strong>
 
-            <div>
-              👤 ${escapeHtml(
-                pedido.cliente || ""
-              )}
-            </div>
+            <div style="
+              margin-top:4px;
+              color:#789296;
+              font-size:13px;
+            ">
 
-            <div>
-              📍 ${escapeHtml(
-                pedido.estado || ""
-              )}
+              ${escapeHtml(data.cliente || "")}
+              ·
+              ${escapeHtml(data.estado || "")}
+
             </div>
 
           </div>
 
 
-          <div class="admin-item-botones">
+          <button
+            class="btn-destacado"
+            onclick="cargarPedidoEnFormulario('${escapeHtml(pedido.id)}')">
 
-            <button
-              class="admin-btn secundario"
-              onclick="cargarPedidoEnFormulario('${pedidoDoc.id}')">
+            ✏️ Editar
 
-              ✏️ Editar
+          </button>
 
-            </button>
-
-          </div>
-          `;
+        `;
 
 
-        lista.appendChild(
-          item
-        );
+        lista.appendChild(div);
 
       }
     );
 
-
   }catch(error){
 
-    console.warn(
-      "No se pudieron cargar pedidos:",
-      error
-    );
+    console.error(error);
 
-
-    lista.innerHTML =
-      `
-      <div class="vacio">
-
-        ⚠️ No se pudieron cargar
-        los pedidos.
-
-        <br><br>
-
-        Revisa las reglas de Firestore.
-
-      </div>
-      `;
+    lista.innerHTML = `
+      <p style="color:#c14c4c;">
+        ❌ No se pudieron cargar los pedidos.
+      </p>
+    `;
 
   }
 
 }
 
 
-/* =========================
-   CARGAR PEDIDO
-========================= */
-
-async function cargarPedidoEnFormulario(id){
+window.cargarPedidoEnFormulario =
+async function(id){
 
   try{
 
-    const referencia =
+    const ref =
       doc(
         db,
         "pedidos",
@@ -4443,562 +3660,110 @@ async function cargarPedidoEnFormulario(id){
       );
 
 
-    const snapshot =
-      await getDoc(
-        referencia
-      );
+    const snap =
+      await getDoc(ref);
 
 
-    if(!snapshot.exists()){
-
+    if(!snap.exists())
       return;
 
-    }
 
-
-    const pedido =
-      snapshot.data();
+    const data =
+      snap.data();
 
 
     document.getElementById(
       "pedidoCodigo"
     ).value =
-      pedido.codigo || "";
+      data.codigo || "";
 
 
     document.getElementById(
       "pedidoCliente"
     ).value =
-      pedido.cliente || "";
+      data.cliente || "";
 
 
     document.getElementById(
       "pedidoEstado"
     ).value =
-      pedido.estado ||
-      "Recibido";
+      data.estado || "Recibido";
 
 
     document.getElementById(
       "pedidoDetalle"
     ).value =
-      pedido.detalle || "";
+      data.detalle || "";
 
 
     document.getElementById(
-      "codigoMostrado"
-    ).textContent =
-      pedido.codigo || "—";
-
-
-    document.getElementById(
-      "codigoGenerado"
-    ).style.display =
-      "block";
-
-
-    document.getElementById(
-      "adminPanel"
+      "pedidoCodigo"
     ).scrollIntoView({
-      behavior:"smooth"
+      behavior:"smooth",
+      block:"center"
     });
-
 
   }catch(error){
 
     console.error(error);
 
-
-    alert(
-      "No se pudo cargar el pedido."
-    );
-
   }
 
-}
+};
 
 
 /* =========================
-   ABRIR ESTADO PEDIDO
+   ENVIAR CÓDIGO
 ========================= */
 
-function abrirEstadoPedido(){
-
-  const modal =
-    document.getElementById(
-      "modalPedido"
-    );
-
-
-  if(!modal){
-
-    alert(
-      "No se encontró la ventana de seguimiento."
-    );
-
-    return;
-
-  }
-
-
-  modal.style.display =
-    "flex";
-
-
-  modal.classList.add(
-    "activo"
-  );
-
-
-  const input =
-    document.getElementById(
-      "buscarPedido"
-    );
-
-
-  if(input){
-
-    input.value = "";
-
-
-    setTimeout(
-      () =>
-        input.focus(),
-      200
-    );
-
-  }
-
-
-  const resultado =
-    document.getElementById(
-      "resultadoPedido"
-    );
-
-
-  if(resultado){
-
-    resultado.innerHTML = "";
-
-  }
-
-}
-
-
-/* =========================
-   CERRAR PEDIDO
-========================= */
-
-function cerrarEstadoPedido(){
-
-  const modal =
-    document.getElementById(
-      "modalPedido"
-    );
-
-
-  if(modal){
-
-    modal.classList.remove(
-      "activo"
-    );
-
-
-    modal.style.display =
-      "none";
-
-  }
-
-
-  const resultado =
-    document.getElementById(
-      "resultadoPedido"
-    );
-
-
-  if(resultado){
-
-    resultado.innerHTML = "";
-
-  }
-
-}
-
-
-/* =========================
-   CONSULTAR PEDIDO
-========================= */
-
-async function consultarEstadoPedido(){
-
-  const input =
-    document.getElementById(
-      "buscarPedido"
-    );
-
-
-  const resultado =
-    document.getElementById(
-      "resultadoPedido"
-    );
-
+window.enviarCodigoWhatsApp =
+function(){
 
   const codigo =
-    input.value
-      .trim()
-      .toUpperCase();
+    document.getElementById(
+      "pedidoCodigo"
+    ).value.trim();
+
+
+  const cliente =
+    document.getElementById(
+      "pedidoCliente"
+    ).value.trim();
 
 
   if(!codigo){
 
-    resultado.innerHTML =
-      `
-      <div class="vacio">
-
-        Escribe el código de tu pedido.
-
-      </div>
-      `;
+    alert(
+      "Primero genera o selecciona un pedido."
+    );
 
     return;
 
   }
 
 
-  resultado.innerHTML =
-    `
-    <div class="cargando">
-
-      🔎 Buscando tu pedido...
-
-    </div>
-    `;
-
-
-  try{
-
-    const consulta =
-      query(
-        collection(
-          db,
-          "pedidos"
-        ),
-        where(
-          "codigo",
-          "==",
-          codigo
-        ),
-        limit(1)
-      );
+  const mensaje =
+    "Hola " +
+    (cliente || "") +
+    " 👋%0A%0A" +
+    "Tu pedido ha sido registrado correctamente. 📦%0A%0A" +
+    "Tu código de seguimiento es:%0A" +
+    "🔐 " +
+    codigo +
+    "%0A%0A" +
+    "Puedes ingresar este código en la opción " +
+    "\"Estado de mi pedido\" para consultar su estado. 🩵";
 
 
-    const snapshot =
-      await getDocs(
-        consulta
-      );
-
-
-    if(snapshot.empty){
-
-      resultado.innerHTML =
-        `
-        <div class="vacio">
-
-          ❌ No encontramos el pedido
-          <strong>
-            ${escapeHtml(codigo)}
-          </strong>.
-
-          <br><br>
-
-          Verifica que el código esté escrito
-          correctamente.
-
-        </div>
-        `;
-
-      return;
-
-    }
-
-
-    const pedido =
-      snapshot.docs[0].data();
-
-
-    resultado.innerHTML =
-      `
-      <div class="estado-card">
-
-        <h3>
-          📦 Pedido ${escapeHtml(
-            pedido.codigo ||
-            codigo
-          )}
-        </h3>
-
-
-        <div class="estado">
-
-          ${escapeHtml(
-            pedido.estado ||
-            "Recibido"
-          )}
-
-        </div>
-
-
-        <div class="estado-detalle">
-
-          <strong>
-            👤 Cliente:
-          </strong>
-
-          ${escapeHtml(
-            pedido.cliente ||
-            ""
-          )}
-
-          <br>
-
-          <strong>
-            📝 Detalle:
-          </strong>
-
-          ${escapeHtml(
-            pedido.detalle ||
-            "Sin detalle"
-          )}
-
-        </div>
-
-      </div>
-      `;
-
-
-  }catch(error){
-
-    console.error(error);
-
-
-    resultado.innerHTML =
-      `
-      <div class="vacio">
-
-        ❌ No fue posible consultar
-        el pedido.
-
-        <br><br>
-
-        Es posible que Firestore
-        esté bloqueado por sus reglas.
-
-      </div>
-      `;
-
-  }
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
-
-function escapeHtml(text){
-
-  return String(text ?? "")
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
-}
-
-
-/* =========================
-   ENTER PEDIDO
-========================= */
-
-document
-  .getElementById(
-    "buscarPedido"
-  )
-  .addEventListener(
-    "keydown",
-    function(event){
-
-      if(
-        event.key === "Enter"
-      ){
-
-        consultarEstadoPedido();
-
-      }
-
-    }
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    mensaje,
+    "_blank"
   );
 
-
-/* =========================
-   ENTER BÚSQUEDA
-========================= */
-
-document
-  .getElementById(
-    "inputBusqueda"
-  )
-  .addEventListener(
-    "keydown",
-    function(event){
-
-      if(
-        event.key === "Enter"
-      ){
-
-        buscarProductos();
-
-      }
-
-    }
-  );
-
-
-/* =========================
-   CERRAR CARRITO AFUERA
-========================= */
-
-document
-  .getElementById(
-    "modalCarrito"
-  )
-  .addEventListener(
-    "click",
-    function(event){
-
-      if(
-        event.target === this
-      ){
-
-        cerrarCarrito();
-
-      }
-
-    }
-  );
-
-
-/* =========================
-   CERRAR INFO AFUERA
-========================= */
-
-document
-  .getElementById(
-    "modalInfo"
-  )
-  .addEventListener(
-    "click",
-    function(event){
-
-      if(
-        event.target === this
-      ){
-
-        cerrarInfo();
-
-      }
-
-    }
-  );
-
-
-/* =========================
-   EXPONER FUNCIONES
-========================= */
-
-Object.assign(
-  window,
-  {
-
-    clicLogo,
-
-    abrirCategoria,
-
-    volverCategorias,
-
-    volverInicio,
-
-    abrirFavoritos,
-
-    abrirCarrito,
-
-    cerrarCarrito,
-
-    abrirBusqueda,
-
-    buscarProductos,
-
-    agregarCarrito,
-
-    eliminarDelCarrito,
-
-    abrirImagen,
-
-    cerrarImagen,
-
-    consultarWhatsApp,
-
-    guardarProducto,
-
-    cargarProductos,
-
-    toggleDestacado,
-
-    eliminarProducto,
-
-    generarYCrearPedido,
-
-    actualizarPedidoExistente,
-
-    enviarCodigoPedidoWhatsApp,
-
-    cargarPedidosAdmin,
-
-    cargarPedidoEnFormulario,
-
-    abrirEstadoPedido,
-
-    cerrarEstadoPedido,
-
-    consultarEstadoPedido,
-
-    enviarCarritoWhatsApp,
-
-    abrirInfo,
-
-    cerrarInfo,
-
-    contactarInfo
-
-  }
-
-);
+};
 
 
 /* =========================
