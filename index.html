@@ -72,6 +72,7 @@ button{
   font-family:inherit;
 }
 
+.boton-subir,
 .boton-carrito,
 .boton-volver{
   border:1px solid #dfcdb7;
@@ -83,6 +84,7 @@ button{
   box-shadow:0 4px 12px rgba(103,75,46,.08);
 }
 
+.boton-subir:hover,
 .boton-carrito:hover,
 .boton-volver:hover{
   background:#f3e7d8;
@@ -329,6 +331,121 @@ button{
   grid-column:1/-1;
 }
 
+/* =========================
+   SUBIR PRODUCTO
+========================= */
+
+#panelSubir{
+  display:none;
+  max-width:700px;
+  margin:20px auto 40px;
+  padding:0 15px;
+}
+
+.caja-subir{
+  background:#fffaf3;
+  border:1px solid #e2cfb7;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(77,54,34,.12);
+}
+
+.caja-subir h2{
+  text-align:center;
+  color:#654a32;
+  margin-bottom:8px;
+}
+
+.texto-subir{
+  text-align:center;
+  color:#927a61;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.form-grupo{
+  margin-bottom:14px;
+}
+
+.form-grupo label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  color:#674b31;
+  margin-bottom:6px;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea{
+  width:100%;
+  border:1px solid #dfcdb7;
+  background:#fffdf9;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
+  color:#5b4632;
+  font-family:inherit;
+  font-size:14px;
+}
+
+.form-grupo textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+#imagenProducto{
+  padding:10px;
+}
+
+#previewProducto{
+  display:none;
+  width:100%;
+  max-height:300px;
+  object-fit:contain;
+  border-radius:14px;
+  margin-top:10px;
+  background:#f1e5d7;
+}
+
+.botones-subir{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+
+.btn-guardar{
+  flex:1;
+  border:0;
+  background:#8f6b48;
+  color:#fff;
+  padding:13px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-cancelar{
+  border:1px solid #dfcdb7;
+  background:#f5e9dc;
+  color:#674b31;
+  padding:13px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+#mensajeSubir{
+  text-align:center;
+  margin-top:15px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+/* =========================
+   CARRITO
+========================= */
+
 .carrito-panel{
   position:fixed;
   top:0;
@@ -469,6 +586,15 @@ button{
     font-size:8px;
   }
 
+  .botones-header{
+    gap:5px;
+  }
+
+  .boton-subir{
+    padding:9px 8px;
+    font-size:12px;
+  }
+
   .boton-carrito{
     padding:9px;
   }
@@ -519,6 +645,10 @@ button{
     padding:10px 5px;
   }
 
+  .botones-subir{
+    flex-direction:column;
+  }
+
 }
 
 </style>
@@ -536,6 +666,12 @@ ANDREX
 </div>
 
 <div class="botones-header">
+
+<button
+class="boton-subir"
+onclick="abrirSubirProducto()">
+📸 Subir producto
+</button>
 
 <button
 class="boton-carrito"
@@ -566,6 +702,152 @@ onclick="limpiarBusqueda()">
 </div>
 
 </header>
+
+
+<!-- =========================
+     PANEL PARA SUBIR PRODUCTO
+========================= -->
+
+<section id="panelSubir">
+
+<div class="caja-subir">
+
+<h2>📸 Subir producto</h2>
+
+<p class="texto-subir">
+Escoge la foto, completa los datos y pulsa guardar.
+</p>
+
+<form id="productoForm">
+
+<div class="form-grupo">
+
+<label>
+Foto del producto
+</label>
+
+<input
+id="imagenProducto"
+type="file"
+accept="image/*"
+required
+>
+
+<img
+id="previewProducto"
+alt="Vista previa"
+>
+
+</div>
+
+
+<div class="form-grupo">
+
+<label>
+Nombre del producto
+</label>
+
+<input
+id="nombreProducto"
+type="text"
+placeholder="Ejemplo: Camiseta Nike"
+required
+>
+
+</div>
+
+
+<div class="form-grupo">
+
+<label>
+Categoría
+</label>
+
+<select
+id="categoriaProducto"
+required>
+
+<option value="">
+Selecciona una categoría
+</option>
+
+<option value="ropa">
+👕 Ropa
+</option>
+
+<option value="zapatos">
+👟 Zapatos
+</option>
+
+<option value="lociones">
+🧴 Lociones
+</option>
+
+<option value="streaming">
+📺 Streaming
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-grupo">
+
+<label>
+Precio
+</label>
+
+<input
+id="precioProducto"
+type="number"
+min="0"
+placeholder="Ejemplo: 85000"
+required
+>
+
+</div>
+
+
+<div class="form-grupo">
+
+<label>
+Descripción
+</label>
+
+<textarea
+id="descripcionProducto"
+placeholder="Escribe una descripción del producto...">
+</textarea>
+
+</div>
+
+
+<div class="botones-subir">
+
+<button
+type="button"
+class="btn-cancelar"
+onclick="cerrarSubirProducto()">
+Cancelar
+</button>
+
+<button
+type="submit"
+class="btn-guardar"
+id="btnGuardarProducto">
+📤 Guardar producto
+</button>
+
+</div>
+
+<div id="mensajeSubir"></div>
+
+</form>
+
+</div>
+
+</section>
 
 
 <section class="hero">
@@ -891,7 +1173,8 @@ type="audio/mpeg">
 
 /* =========================
    FIREBASE
-   SOLO FIRESTORE
+   FIRESTORE + STORAGE
+   SIN CORREO NI CONTRASEÑA
 ========================= */
 
 import {
@@ -904,10 +1187,24 @@ from
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
 const firebaseConfig = {
@@ -938,6 +1235,9 @@ initializeApp(firebaseConfig);
 
 const db =
 getFirestore(app);
+
+const storage =
+getStorage(app);
 
 
 /* =========================
@@ -984,6 +1284,88 @@ c =>
 /[\u0300-\u036f]/g,
 ""
 );
+
+
+/* =========================
+   ABRIR / CERRAR SUBIDA
+========================= */
+
+window.abrirSubirProducto =
+() => {
+
+$("panelSubir")
+.style.display = "block";
+
+$("panelSubir")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+};
+
+
+window.cerrarSubirProducto =
+() => {
+
+$("panelSubir")
+.style.display = "none";
+
+$("productoForm")
+.reset();
+
+$("previewProducto")
+.style.display = "none";
+
+$("previewProducto")
+.src = "";
+
+$("mensajeSubir")
+.textContent = "";
+
+};
+
+
+/* =========================
+   PREVISUALIZAR FOTO
+========================= */
+
+$("imagenProducto")
+.addEventListener(
+"change",
+function(){
+
+const archivo =
+this.files[0];
+
+if(!archivo){
+
+$("previewProducto")
+.style.display = "none";
+
+return;
+
+}
+
+const lector =
+new FileReader();
+
+lector.onload =
+e => {
+
+$("previewProducto")
+.src =
+e.target.result;
+
+$("previewProducto")
+.style.display =
+"block";
+
+};
+
+lector.readAsDataURL(archivo);
+
+});
 
 
 /* =========================
@@ -1792,6 +2174,292 @@ window.open(
 
 
 /* =========================
+   SUBIR PRODUCTO A FIREBASE
+========================= */
+
+$("productoForm")
+.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+
+const archivo =
+$("imagenProducto").files[0];
+
+const nombre =
+$("nombreProducto")
+.value
+.trim();
+
+const categoria =
+$("categoriaProducto")
+.value;
+
+const precio =
+Number(
+$("precioProducto").value
+);
+
+const descripcion =
+$("descripcionProducto")
+.value
+.trim();
+
+
+if(!archivo){
+
+alert(
+"Primero selecciona una foto."
+);
+
+return;
+
+}
+
+
+if(!nombre){
+
+alert(
+"Escribe el nombre del producto."
+);
+
+return;
+
+}
+
+
+if(!categoria){
+
+alert(
+"Selecciona una categoría."
+);
+
+return;
+
+}
+
+
+const boton =
+$("btnGuardarProducto");
+
+const mensaje =
+$("mensajeSubir");
+
+
+boton.disabled = true;
+
+boton.textContent =
+"⏳ Subiendo foto...";
+
+mensaje.textContent =
+"";
+
+
+try{
+
+/*
+  Creamos un nombre único para
+  que no se reemplacen las fotos.
+*/
+
+const extension =
+archivo.name
+.split(".")
+.pop()
+.toLowerCase();
+
+const nombreSeguro =
+nombre
+.toLowerCase()
+.replace(
+/[^a-z0-9áéíóúñ]+/gi,
+"-"
+)
+.replace(
+/^-+|-+$/g,
+""
+);
+
+const nombreArchivo =
+Date.now() +
+"-" +
+nombreSeguro +
+"." +
+extension;
+
+
+/*
+  Guardamos la imagen en:
+  productos/
+*/
+
+const ruta =
+"productos/" +
+nombreArchivo;
+
+
+const referencia =
+ref(
+storage,
+ruta
+);
+
+
+boton.textContent =
+"⏳ Guardando imagen...";
+
+
+await uploadBytes(
+referencia,
+archivo
+);
+
+
+const urlImagen =
+await getDownloadURL(
+referencia
+);
+
+
+boton.textContent =
+"⏳ Guardando producto...";
+
+
+await addDoc(
+collection(
+db,
+"productos"
+),
+{
+
+nombre:
+nombre,
+
+categoria:
+categoria,
+
+precio:
+precio,
+
+descripcion:
+descripcion,
+
+imagen:
+urlImagen,
+
+storagePath:
+ruta,
+
+creadoEn:
+serverTimestamp()
+
+}
+);
+
+
+mensaje.style.color =
+"#4f7b50";
+
+mensaje.textContent =
+"✅ Producto guardado correctamente.";
+
+
+/*
+  Limpiamos formulario
+*/
+
+$("productoForm").reset();
+
+$("previewProducto")
+.style.display =
+"none";
+
+$("previewProducto")
+.src = "";
+
+
+/*
+  Recargamos los productos
+*/
+
+await recargarProductos();
+
+
+setTimeout(
+() => {
+
+cerrarSubirProducto();
+
+},
+1200
+);
+
+
+}catch(error){
+
+console.error(
+"Error subiendo producto:",
+error
+);
+
+mensaje.style.color =
+"#a44b3f";
+
+
+if(
+error.code ===
+"storage/unauthorized"
+){
+
+mensaje.textContent =
+"❌ Firebase está bloqueando la subida. Hay que cambiar las reglas de Storage.";
+
+}else if(
+error.code ===
+"permission-denied"
+){
+
+mensaje.textContent =
+"❌ Firebase está bloqueando el guardado. Hay que cambiar las reglas de Firestore.";
+
+}else{
+
+mensaje.textContent =
+"❌ No se pudo guardar el producto. Revisa la consola de Firebase.";
+
+}
+
+}finally{
+
+boton.disabled = false;
+
+boton.textContent =
+"📤 Guardar producto";
+
+}
+
+});
+
+
+/* =========================
+   RECARGAR PRODUCTOS
+========================= */
+
+async function recargarProductos(){
+
+productos = [];
+
+
+await cargarRopaGitHub();
+
+await cargarFirebase();
+
+}
+
+
+/* =========================
    MÚSICA
 ========================= */
 
@@ -1836,9 +2504,9 @@ $("botonMusica")
    INICIAR TIENDA
 ========================= */
 
-cargarFirebase();
-
 cargarRopaGitHub();
+
+cargarFirebase();
 
 actualizarCarrito();
 
