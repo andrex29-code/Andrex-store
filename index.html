@@ -24,10 +24,6 @@
       min-height: 100vh;
     }
 
-    /* =========================
-       ENCABEZADO
-    ========================== */
-
     header {
       position: sticky;
       top: 0;
@@ -90,10 +86,6 @@
       background: #f3e7d8;
     }
 
-    /* =========================
-       BUSCADOR
-    ========================== */
-
     .contenedor-buscador {
       max-width: 700px;
       margin: 12px auto 0;
@@ -127,10 +119,6 @@
       display: none;
     }
 
-    /* =========================
-       HERO VIDEO
-    ========================== */
-
     .hero {
       max-width: 1200px;
       margin: 18px auto;
@@ -146,10 +134,6 @@
       background: #eadcca;
       box-shadow: 0 10px 30px rgba(77, 54, 34, 0.12);
     }
-
-    /* =========================
-       PANTALLA PRINCIPAL
-    ========================== */
 
     .pagina-principal {
       max-width: 1200px;
@@ -170,10 +154,6 @@
       margin-bottom: 25px;
       font-size: 14px;
     }
-
-    /* =========================
-       CATEGORÍAS
-    ========================== */
 
     .categorias {
       display: grid;
@@ -218,10 +198,6 @@
       margin-top: 5px;
     }
 
-    /* =========================
-       INFORMACIÓN
-    ========================== */
-
     .informacion {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -253,10 +229,6 @@
       font-size: 13px;
       color: #8f7962;
     }
-
-    /* =========================
-       VISTA DE CATEGORÍA
-    ========================== */
 
     .vista-categoria {
       display: none;
@@ -305,10 +277,6 @@
       color: #927a61;
       font-size: 14px;
     }
-
-    /* =========================
-       PRODUCTOS
-    ========================== */
 
     .productos {
       display: grid;
@@ -387,10 +355,6 @@
       grid-column: 1 / -1;
     }
 
-    /* =========================
-       RESULTADOS DE BÚSQUEDA
-    ========================== */
-
     #resultadosBusqueda {
       display: none;
       max-width: 1200px;
@@ -403,10 +367,6 @@
       color: #654a32;
       margin-bottom: 20px;
     }
-
-    /* =========================
-       CARRITO
-    ========================== */
 
     .carrito-panel {
       position: fixed;
@@ -524,10 +484,6 @@
       color: #947d66;
     }
 
-    /* =========================
-       MÚSICA
-    ========================== */
-
     #botonMusica {
       position: fixed;
       right: 17px;
@@ -542,10 +498,6 @@
       box-shadow: 0 7px 20px rgba(77, 54, 34, 0.15);
       font-weight: bold;
     }
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
 
     @media (max-width: 900px) {
       .categorias {
@@ -636,10 +588,6 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
   <header>
     <div class="barra-superior">
 
@@ -675,10 +623,6 @@
   </header>
 
 
-  <!-- =========================
-       VIDEO PRINCIPAL
-  ========================== -->
-
   <section class="hero">
     <video autoplay muted loop playsinline>
       <source
@@ -690,12 +634,6 @@
   </section>
 
 
-  <!-- =========================
-       PÁGINA PRINCIPAL
-       AQUÍ SOLO APARECEN
-       LAS CUATRO CATEGORÍAS
-  ========================== -->
-
   <main id="paginaPrincipal" class="pagina-principal">
 
     <h1 class="titulo-principal">
@@ -705,7 +643,6 @@
     <p class="subtitulo">
       Elige una categoría para ver nuestros productos
     </p>
-
 
     <section class="categorias">
 
@@ -718,7 +655,6 @@
         <p>Ver toda la ropa</p>
       </div>
 
-
       <div
         class="categoria"
         onclick="entrarCategoria('zapatos')"
@@ -728,7 +664,6 @@
         <p>Ver todos los zapatos</p>
       </div>
 
-
       <div
         class="categoria"
         onclick="entrarCategoria('lociones')"
@@ -737,7 +672,6 @@
         <h2>LOCIONES</h2>
         <p>Ver todas las lociones</p>
       </div>
-
 
       <div
         class="categoria"
@@ -749,7 +683,6 @@
       </div>
 
     </section>
-
 
     <section class="informacion">
 
@@ -776,16 +709,7 @@
   </main>
 
 
-  <!-- =========================
-       VISTA ROPA
-       LOS PRODUCTOS APARECEN
-       DENTRO DE ESTA CATEGORÍA
-  ========================== -->
-
-  <section
-    id="vistaRopa"
-    class="vista-categoria"
-  >
+  <section id="vistaRopa" class="vista-categoria">
 
     <div class="encabezado-categoria">
 
@@ -814,14 +738,7 @@
   </section>
 
 
-  <!-- =========================
-       VISTA ZAPATOS
-  ========================== -->
-
-  <section
-    id="vistaZapatos"
-    class="vista-categoria"
-  >
+  <section id="vistaZapatos" class="vista-categoria">
 
     <div class="encabezado-categoria">
 
@@ -850,14 +767,7 @@
   </section>
 
 
-  <!-- =========================
-       VISTA LOCIONES
-  ========================== -->
-
-  <section
-    id="vistaLociones"
-    class="vista-categoria"
-  >
+  <section id="vistaLociones" class="vista-categoria">
 
     <div class="encabezado-categoria">
 
@@ -886,14 +796,7 @@
   </section>
 
 
-  <!-- =========================
-       VISTA STREAMING
-  ========================== -->
-
-  <section
-    id="vistaStreaming"
-    class="vista-categoria"
-  >
+  <section id="vistaStreaming" class="vista-categoria">
 
     <div class="encabezado-categoria">
 
@@ -922,10 +825,6 @@
   </section>
 
 
-  <!-- =========================
-       RESULTADOS DE BÚSQUEDA
-  ========================== -->
-
   <section id="resultadosBusqueda">
 
     <h2 class="titulo-busqueda">
@@ -940,14 +839,7 @@
   </section>
 
 
-  <!-- =========================
-       CARRITO
-  ========================== -->
-
-  <aside
-    id="carritoPanel"
-    class="carrito-panel"
-  >
+  <aside id="carritoPanel" class="carrito-panel">
 
     <div class="carrito-cabecera">
 
@@ -983,10 +875,6 @@
   </aside>
 
 
-  <!-- =========================
-       MÚSICA
-  ========================== -->
-
   <button
     id="botonMusica"
     onclick="alternarMusica()"
@@ -1005,10 +893,6 @@
     >
   </audio>
 
-
-  <!-- =========================
-       FIREBASE
-  ========================== -->
 
   <script type="module">
 
@@ -1046,14 +930,10 @@
     };
 
 
-    const app = initializeApp(firebaseConfig);
+    const app = initializeApp(appConfig = firebaseConfig);
 
     const db = getFirestore(app);
 
-
-    /* =========================
-       VARIABLES
-    ========================== */
 
     let productos = [];
 
@@ -1064,39 +944,23 @@
 
 
     const paginaPrincipal =
-      document.getElementById(
-        "paginaPrincipal"
-      );
+      document.getElementById("paginaPrincipal");
 
     const vistaRopa =
-      document.getElementById(
-        "vistaRopa"
-      );
+      document.getElementById("vistaRopa");
 
     const vistaZapatos =
-      document.getElementById(
-        "vistaZapatos"
-      );
+      document.getElementById("vistaZapatos");
 
     const vistaLociones =
-      document.getElementById(
-        "vistaLociones"
-      );
+      document.getElementById("vistaLociones");
 
     const vistaStreaming =
-      document.getElementById(
-        "vistaStreaming"
-      );
+      document.getElementById("vistaStreaming");
 
     const resultadosBusqueda =
-      document.getElementById(
-        "resultadosBusqueda"
-      );
+      document.getElementById("resultadosBusqueda");
 
-
-    /* =========================
-       NORMALIZAR CATEGORÍA
-    ========================== */
 
     function normalizarCategoria(categoria) {
 
@@ -1111,10 +975,6 @@
 
     }
 
-
-    /* =========================
-       CARGAR FIREBASE
-    ========================== */
 
     async function cargarFirebase() {
 
@@ -1155,10 +1015,6 @@
     }
 
 
-    /* =========================
-       CARGAR ROPA DESDE GITHUB
-    ========================== */
-
     async function cargarRopaGitHub() {
 
       try {
@@ -1185,6 +1041,15 @@
 
           const nombreArchivo =
             archivo.name.toLowerCase();
+
+
+          /* =====================================
+             EXCLUIR COMPLETAMENTE LA FOTO 3285
+             ===================================== */
+
+          if (nombreArchivo.includes("3285")) {
+            return;
+          }
 
 
           const esImagen =
@@ -1256,13 +1121,7 @@
     }
 
 
-    /* =========================
-       RENDERIZAR PRODUCTO
-    ========================== */
-
-    function crearTarjetaProducto(
-      producto
-    ) {
+    function crearTarjetaProducto(producto) {
 
       const imagen =
         producto.imagen ||
@@ -1392,11 +1251,6 @@
     }
 
 
-    /* =========================
-       MOSTRAR PRODUCTOS POR
-       CATEGORÍA
-    ========================== */
-
     function mostrarProductosCategoria(
       categoria,
       contenedor
@@ -1492,11 +1346,6 @@
     }
 
 
-    /* =========================
-       RENDERIZAR TODAS LAS
-       CATEGORÍAS
-    ========================== */
-
     function renderizarTodos() {
 
       mostrarProductosCategoria(
@@ -1535,10 +1384,6 @@
 
     }
 
-
-    /* =========================
-       ENTRAR A UNA CATEGORÍA
-    ========================== */
 
     window.entrarCategoria =
       function(categoria) {
@@ -1606,10 +1451,6 @@
       };
 
 
-    /* =========================
-       VOLVER AL INICIO
-    ========================== */
-
     window.volverInicio =
       function() {
 
@@ -1639,10 +1480,6 @@
 
       };
 
-
-    /* =========================
-       BÚSQUEDA
-    ========================== */
 
     window.buscarProductos =
       function() {
@@ -1799,10 +1636,6 @@
       };
 
 
-    /* =========================
-       LIMPIAR BÚSQUEDA
-    ========================== */
-
     window.limpiarBusqueda =
       function() {
 
@@ -1826,10 +1659,6 @@
 
       };
 
-
-    /* =========================
-       CARRITO
-    ========================== */
 
     function guardarCarrito() {
 
@@ -2058,10 +1887,6 @@
       };
 
 
-    /* =========================
-       WHATSAPP
-    ========================== */
-
     window.enviarPedidoWhatsApp =
       function() {
 
@@ -2153,10 +1978,6 @@
       };
 
 
-    /* =========================
-       MÚSICA
-    ========================== */
-
     const musica =
       document.getElementById(
         "musicaTienda"
@@ -2202,10 +2023,6 @@
 
       };
 
-
-    /* =========================
-       INICIAR
-    ========================== */
 
     cargarFirebase();
 
