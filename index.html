@@ -52,6 +52,12 @@ header{
     0 0 5px #d9b27c,
     0 0 12px rgba(217,178,124,.65);
   white-space:nowrap;
+
+  /* ACCESO OCULTO */
+  cursor:pointer;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:manipulation;
 }
 
 .logo span{
@@ -90,6 +96,11 @@ button{
 .boton-subir{
   font-size:13px;
   font-weight:bold;
+}
+
+/* BOTON OCULTO PARA CLIENTES */
+.boton-subir.oculto-cliente{
+  display:none !important;
 }
 
 .boton-carrito:hover,
@@ -728,7 +739,7 @@ button{
 
   <div class="barra-superior">
 
-    <div class="logo">
+    <div class="logo" id="logoAdmin">
       ANDREX
       <span>STORE🩵</span>
     </div>
@@ -736,8 +747,9 @@ button{
     <div class="botones-header">
 
       <button
-        class="boton-subir"
-        id="btnSubirProducto">
+        class="boton-subir oculto-cliente"
+        id="btnSubirProducto"
+        aria-hidden="true">
         📸 Subir producto
       </button>
 
@@ -1073,7 +1085,6 @@ button{
 
 </button>
 
-
 <!-- VENTANA PARA SUBIR PRODUCTOS -->
 
 <div
@@ -1237,7 +1248,6 @@ button{
 
 </div>
 
-
 <script type="module">
 
 import {
@@ -1254,7 +1264,6 @@ import {
   doc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 
 /* =========================
    FIREBASE
@@ -1282,7 +1291,6 @@ const firebaseConfig = {
 
 };
 
-
 const app =
   initializeApp(
     firebaseConfig
@@ -1290,7 +1298,6 @@ const app =
 
 const db =
   getFirestore(app);
-
 
 /* =========================
    VARIABLES
@@ -1305,6 +1312,108 @@ let carrito =
     ) || "[]"
   );
 
+/* =========================
+   ACCESO ADMIN OCULTO
+========================= */
+
+/*
+  PIN DEL ADMINISTRADOR
+
+  PUEDES CAMBIAR "2580"
+  POR EL PIN QUE QUIERAS.
+*/
+
+const PIN_ADMIN =
+  "2580";
+
+let toquesLogo = 0;
+
+let temporizadorLogo = null;
+
+let accesoAdmin = false;
+
+const logoAdmin =
+  document.getElementById(
+    "logoAdmin"
+  );
+
+const botonSubir =
+  document.getElementById(
+    "btnSubirProducto"
+  );
+
+/*
+  5 TOQUES RÁPIDOS SOBRE ANDREX
+*/
+
+logoAdmin.addEventListener(
+  "click",
+  function(){
+
+    toquesLogo++;
+
+    clearTimeout(
+      temporizadorLogo
+    );
+
+    temporizadorLogo =
+      setTimeout(
+        function(){
+
+          toquesLogo = 0;
+
+        },
+        1500
+      );
+
+    if(
+      toquesLogo >= 5
+    ){
+
+      toquesLogo = 0;
+
+      const pin =
+        prompt(
+          "🔐 Ingresa el PIN de administrador:"
+        );
+
+      if(
+        pin === PIN_ADMIN
+      ){
+
+        accesoAdmin = true;
+
+        botonSubir
+          .classList
+          .remove(
+            "oculto-cliente"
+          );
+
+        botonSubir
+          .setAttribute(
+            "aria-hidden",
+            "false"
+          );
+
+        alert(
+          "✅ Acceso de administrador activado."
+        );
+
+      }
+      else if(
+        pin !== null
+      ){
+
+        alert(
+          "❌ PIN incorrecto."
+        );
+
+      }
+
+    }
+
+  }
+);
 
 /* =========================
    AUXILIARES
@@ -1316,7 +1425,6 @@ function $(id){
 
 }
 
-
 function escapar(valor){
 
   return String(valor ?? "")
@@ -1327,7 +1435,6 @@ function escapar(valor){
     .replace(/'/g,"&#039;");
 
 }
-
 
 function mostrarMensaje(
   id,
@@ -1349,7 +1456,6 @@ function mostrarMensaje(
 
 }
 
-
 function ocultarMensaje(id){
 
   const elemento =
@@ -1363,7 +1469,6 @@ function ocultarMensaje(id){
   }
 
 }
-
 
 function normalizarCategoria(
   categoria
@@ -1387,7 +1492,6 @@ function normalizarCategoria(
   return c;
 
 }
-
 
 /* =========================
    FIRESTORE
@@ -1444,7 +1548,6 @@ async function cargarFirebase(){
 
 }
 
-
 /* =========================
    CARGAR ROPA DE GITHUB
    EXCLUYE 3285
@@ -1492,8 +1595,6 @@ async function cargarRopaGitHub(){
             return false;
 
           }
-
-          /* QUITAR 3285 */
 
           if(
             archivo.name
@@ -1570,7 +1671,6 @@ async function cargarRopaGitHub(){
   }
 
 }
-
 
 /* =========================
    TARJETA
@@ -1708,7 +1808,6 @@ function crearTarjetaProducto(
 
 }
 
-
 /* =========================
    CATEGORIAS
 ========================= */
@@ -1769,7 +1868,6 @@ function mostrarCategoria(
 
 }
 
-
 function renderizarTodos(){
 
   mostrarCategoria(
@@ -1795,7 +1893,6 @@ function renderizarTodos(){
   actualizarCarrito();
 
 }
-
 
 /* =========================
    NAVEGACION
@@ -1844,7 +1941,6 @@ function(categoria){
 
 };
 
-
 window.volverInicio =
 function(){
 
@@ -1877,7 +1973,6 @@ function(){
   });
 
 };
-
 
 /* =========================
    BUSCADOR
@@ -1988,7 +2083,6 @@ function(){
 
 };
 
-
 window.limpiarBusqueda =
 function(){
 
@@ -2002,7 +2096,6 @@ function(){
   volverInicio();
 
 };
-
 
 /* =========================
    CARRITO
@@ -2019,7 +2112,6 @@ function guardarCarrito(){
 
 }
 
-
 window.agregarAlCarrito =
 function(producto){
 
@@ -2034,7 +2126,6 @@ function(producto){
   abrirCarrito();
 
 };
-
 
 function actualizarCarrito(){
 
@@ -2209,7 +2300,6 @@ function actualizarCarrito(){
 
 }
 
-
 window.abrirCarrito =
 function(){
 
@@ -2221,7 +2311,6 @@ function(){
 
 };
 
-
 window.cerrarCarrito =
 function(){
 
@@ -2232,7 +2321,6 @@ function(){
     );
 
 };
-
 
 /* =========================
    WHATSAPP
@@ -2312,14 +2400,12 @@ function(){
 
 };
 
-
 /* =========================
    MUSICA
 ========================= */
 
 const musica =
   $("musicaTienda");
-
 
 window.alternarMusica =
 function(){
@@ -2362,7 +2448,6 @@ function(){
 
 };
 
-
 /* =========================
    MODAL
 ========================= */
@@ -2377,7 +2462,6 @@ function abrirModal(id){
 
 }
 
-
 window.cerrarModal =
 function(id){
 
@@ -2387,8 +2471,33 @@ function(id){
       "oculto"
     );
 
-};
+  /*
+    CUANDO SE CIERRA EL PANEL
+    SE OCULTA OTRA VEZ EL BOTON
+  */
 
+  if(
+    id === "modalProductos"
+  ){
+
+    accesoAdmin =
+      false;
+
+    botonSubir
+      .classList
+      .add(
+        "oculto-cliente"
+      );
+
+    botonSubir
+      .setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+  }
+
+};
 
 /* =========================
    SUBIR PRODUCTO
@@ -2412,7 +2521,6 @@ $("btnSubirProducto")
     listarProductos();
 
   };
-
 
 /* =========================
    PREVIEW
@@ -2452,7 +2560,6 @@ $("imagenProducto")
 
   };
 
-
 /* =========================
    LIMPIAR FORMULARIO
 ========================= */
@@ -2480,7 +2587,6 @@ function limpiarFormulario(){
     "➕ Guardar producto";
 
 }
-
 
 /* =========================
    COMPRIMIR IMAGEN
@@ -2638,7 +2744,6 @@ async function comprimirImagen(
 
 }
 
-
 /* =========================
    GUARDAR PRODUCTO
 ========================= */
@@ -2696,12 +2801,6 @@ $("productoForm")
       let imagen =
         "";
 
-      /*
-        SI ESTAMOS EDITANDO,
-        CONSERVAMOS LA FOTO ANTERIOR
-        SI NO SE SELECCIONÓ OTRA.
-      */
-
       if(id){
 
         const existente =
@@ -2747,7 +2846,6 @@ $("productoForm")
 
       };
 
-
       if(id){
 
         await updateDoc(
@@ -2785,7 +2883,6 @@ $("productoForm")
 
       }
 
-
       mostrarMensaje(
         "productoMensaje",
 
@@ -2796,7 +2893,6 @@ $("productoForm")
           "✅ Producto agregado correctamente."
 
       );
-
 
       limpiarFormulario();
 
@@ -2844,7 +2940,6 @@ $("productoForm")
 
   };
 
-
 /* =========================
    LISTAR PRODUCTOS
 ========================= */
@@ -2891,7 +2986,6 @@ async function listarProductos(){
       return;
 
     }
-
 
     snapshot.forEach(
       documento => {
@@ -3000,7 +3094,6 @@ async function listarProductos(){
 
         `;
 
-
         div
           .querySelector(
             "[data-editar]"
@@ -3014,7 +3107,6 @@ async function listarProductos(){
 
           };
 
-
         div
           .querySelector(
             "[data-eliminar]"
@@ -3027,7 +3119,6 @@ async function listarProductos(){
             );
 
           };
-
 
         salida.appendChild(
           div
@@ -3049,7 +3140,6 @@ async function listarProductos(){
   }
 
 }
-
 
 /* =========================
    EDITAR
@@ -3118,7 +3208,6 @@ function editarProducto(
 
 }
 
-
 /* =========================
    ELIMINAR
 ========================= */
@@ -3176,7 +3265,6 @@ async function eliminarProducto(
 
 }
 
-
 /* =========================
    BOTON LIMPIAR
 ========================= */
@@ -3192,7 +3280,6 @@ $("btnCancelarEdicion")
     );
 
   };
-
 
 /* =========================
    INICIAR
