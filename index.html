@@ -26,11 +26,12 @@ body{
   font-family:Arial,Helvetica,sans-serif;
   background:#f7fcfd;
   color:#254b56;
+  min-height:100vh;
 }
 
-/* =========================
+/* =====================================================
    ENCABEZADO
-========================= */
+===================================================== */
 
 header{
   width:100%;
@@ -56,9 +57,9 @@ header{
   display:inline-block;
 }
 
-/* =========================
+/* =====================================================
    BUSCADOR
-========================= */
+===================================================== */
 
 .buscador-contenedor{
   width:100%;
@@ -88,9 +89,21 @@ header{
   color:#8aaab2;
 }
 
-/* =========================
+/* =====================================================
+   INICIO
+===================================================== */
+
+#contenidoInicio{
+  display:block;
+}
+
+body.en-categoria #contenidoInicio{
+  display:none;
+}
+
+/* =====================================================
    BIENVENIDA
-========================= */
+===================================================== */
 
 .titulo-principal{
   display:table;
@@ -113,9 +126,9 @@ header{
   box-shadow:0 4px 14px rgba(56,164,201,.06);
 }
 
-/* =========================
+/* =====================================================
    LEMA
-========================= */
+===================================================== */
 
 .lema{
   width:100%;
@@ -130,9 +143,9 @@ header{
   color:#4d7079;
 }
 
-/* =========================
+/* =====================================================
    VIDEO
-========================= */
+===================================================== */
 
 .video-contenedor{
   width:100%;
@@ -151,9 +164,9 @@ header{
   box-shadow:0 10px 30px rgba(38,142,171,.13);
 }
 
-/* =========================
+/* =====================================================
    CATEGORÍAS
-========================= */
+===================================================== */
 
 .categorias-contenedor{
   width:100%;
@@ -203,12 +216,11 @@ header{
   background:linear-gradient(145deg,#e4f9fd,#ffffff);
   border-color:#73cde2;
   color:#1284a5;
-  box-shadow:0 10px 25px rgba(50,160,194,.17);
 }
 
-/* =========================
-   CARPETA
-========================= */
+/* =====================================================
+   CARPETA / PESTAÑA DE CATEGORÍA
+===================================================== */
 
 .carpeta{
   display:none;
@@ -219,6 +231,34 @@ header{
   border-radius:25px;
   overflow:hidden;
   box-shadow:0 8px 25px rgba(43,153,185,.08);
+}
+
+/*
+   Cuando estamos dentro de una categoría,
+   la carpeta ocupa prácticamente toda la pantalla.
+*/
+
+body.en-categoria .carpeta{
+  display:block;
+  margin:0 auto;
+  max-width:1200px;
+  min-height:65vh;
+  border-radius:25px;
+  animation:abrirCarpeta .3s ease;
+}
+
+@keyframes abrirCarpeta{
+
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
 .carpeta.abierta{
@@ -235,52 +275,14 @@ header{
 
 .carpeta-header h2{
   font-family:"Montserrat",Arial,sans-serif;
-  font-size:25px;
+  font-size:27px;
   font-weight:900;
   color:#2786a0;
 }
 
-/* =========================
-   BOTÓN VOLVER FLOTANTE
-========================= */
-
-.boton-volver-flotante{
-  position:fixed;
-  left:18px;
-  bottom:18px;
-  z-index:5001;
-  width:58px;
-  height:58px;
-  border:none;
-  border-radius:50%;
-  background:#219dbb;
-  color:#ffffff;
-  font-size:25px;
-  cursor:pointer;
-  box-shadow:0 8px 22px rgba(30,140,165,.28);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  transition:transform .2s,box-shadow .2s,background .2s;
-}
-
-.boton-volver-flotante.visible{
-  display:flex;
-}
-
-.boton-volver-flotante:hover{
-  background:#168da9;
-  transform:translateY(-3px);
-  box-shadow:0 12px 28px rgba(30,140,165,.35);
-}
-
-.boton-volver-flotante:active{
-  transform:scale(.94);
-}
-
-/* =========================
+/* =====================================================
    PRODUCTOS
-========================= */
+===================================================== */
 
 .productos{
   width:100%;
@@ -304,7 +306,9 @@ header{
   box-shadow:0 12px 27px rgba(47,145,172,.15);
 }
 
-/* LA FOTO ES CLICKEABLE */
+/* =====================================================
+   FOTO
+===================================================== */
 
 .producto-imagen{
   width:100%;
@@ -371,57 +375,59 @@ header{
 .sin-productos{
   grid-column:1/-1;
   text-align:center;
-  padding:35px 20px;
+  padding:60px 20px;
   color:#78959d;
   font-size:16px;
 }
 
-/* =========================
-   VISOR DE FOTO
-========================= */
-
-.modal-foto{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:10000;
-  background:rgba(0,0,0,.88);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+.sin-productos strong{
+  display:block;
+  color:#2786a0;
+  font-size:22px;
+  margin-bottom:8px;
 }
 
-.modal-foto.activo{
+/* =====================================================
+   BOTÓN VOLVER AL INICIO
+===================================================== */
+
+.boton-volver-flotante{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:5001;
+  width:58px;
+  height:58px;
+  border:none;
+  border-radius:50%;
+  background:#219dbb;
+  color:#ffffff;
+  font-size:25px;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(30,140,165,.28);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+
+.boton-volver-flotante.visible{
   display:flex;
 }
 
-.modal-foto img{
-  max-width:100%;
-  max-height:90vh;
-  object-fit:contain;
-  border-radius:15px;
-  box-shadow:0 15px 50px rgba(0,0,0,.4);
+.boton-volver-flotante:hover{
+  background:#168da9;
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(30,140,165,.35);
 }
 
-.cerrar-foto{
-  position:fixed;
-  top:15px;
-  right:15px;
-  width:45px;
-  height:45px;
-  border:none;
-  border-radius:50%;
-  background:rgba(255,255,255,.92);
-  color:#277f97;
-  font-size:29px;
-  line-height:1;
-  cursor:pointer;
-  z-index:10001;
+.boton-volver-flotante:active{
+  transform:scale(.94);
 }
 
-/* =========================
+/* =====================================================
    CUADROS FINALES
-========================= */
+===================================================== */
 
 .informacion-final{
   width:100%;
@@ -465,9 +471,52 @@ header{
   line-height:1.5;
 }
 
-/* =========================
+/* =====================================================
+   VISOR DE FOTO
+===================================================== */
+
+.modal-foto{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  background:rgba(0,0,0,.88);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-foto.activo{
+  display:flex;
+}
+
+.modal-foto img{
+  max-width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:15px;
+  box-shadow:0 15px 50px rgba(0,0,0,.4);
+}
+
+.cerrar-foto{
+  position:fixed;
+  top:15px;
+  right:15px;
+  width:45px;
+  height:45px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:#277f97;
+  font-size:29px;
+  line-height:1;
+  cursor:pointer;
+  z-index:10001;
+}
+
+/* =====================================================
    MODAL CONSULTA
-========================= */
+===================================================== */
 
 .modal{
   display:none;
@@ -547,9 +596,9 @@ header{
   font-weight:900;
 }
 
-/* =========================
+/* =====================================================
    ADMIN
-========================= */
+===================================================== */
 
 .admin-panel{
   display:none;
@@ -621,9 +670,9 @@ header{
   cursor:pointer;
 }
 
-/* =========================
+/* =====================================================
    CARRITO
-========================= */
+===================================================== */
 
 .carrito-flotante{
   position:fixed;
@@ -717,9 +766,9 @@ header{
   cursor:pointer;
 }
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
   margin-top:35px;
@@ -730,9 +779,9 @@ footer{
   font-size:14px;
 }
 
-/* =========================
+/* =====================================================
    MÓVIL
-========================= */
+===================================================== */
 
 @media(max-width:900px){
 
@@ -771,9 +820,10 @@ footer{
     font-size:17px;
   }
 
-  .carpeta{
-    margin-top:14px;
-    border-radius:20px;
+  body.en-categoria .carpeta{
+    width:94%;
+    margin:20px auto 0;
+    border-radius:21px;
   }
 
   .carpeta-header{
@@ -781,7 +831,7 @@ footer{
   }
 
   .carpeta-header h2{
-    font-size:21px;
+    font-size:22px;
   }
 
   .productos{
@@ -856,7 +906,9 @@ footer{
 
 <body>
 
-<!-- ENCABEZADO -->
+<!-- =====================================================
+     ENCABEZADO
+===================================================== -->
 
 <header>
 
@@ -871,9 +923,14 @@ footer{
 </header>
 
 
-<!-- BUSCADOR -->
+<!-- =====================================================
+     BUSCADOR
+===================================================== -->
 
-<div class="buscador-contenedor">
+<div
+  class="buscador-contenedor"
+  id="buscadorContenedor"
+>
 
   <input
     type="search"
@@ -886,117 +943,282 @@ footer{
 </div>
 
 
-<!-- BIENVENIDA -->
+<!-- =====================================================
+     TODO EL INICIO
+===================================================== -->
 
-<h1 class="titulo-principal">
-  Bienvenidos a mi tienda 🩵
-</h1>
+<div id="contenidoInicio">
 
-
-<!-- LEMA -->
-
-<div class="lema">
-
-  ✨🩵 Más que una tienda, somos el lugar donde encuentras tu estilo.
-  🛍️ Descubre prendas que combinan contigo, tendencias que te inspiran
-  y ese detalle que transforma cualquier look.
-  💎 Porque vestir bien no es seguir a los demás,
-  es llevar tu propia esencia. 🩵✨
-
-</div>
+  <h1 class="titulo-principal">
+    Bienvenidos a mi tienda 🩵
+  </h1>
 
 
-<!-- VIDEO -->
+  <div class="lema">
 
-<div class="video-contenedor">
-
-  <video
-    class="video-tienda"
-    controls
-    playsinline
-    preload="metadata"
-  >
-
-    <source
-      src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
-      type="video/mp4"
-    >
-
-    Tu navegador no puede reproducir este video.
-
-  </video>
-
-</div>
-
-
-<!-- CATEGORÍAS -->
-
-<section class="categorias-contenedor">
-
-  <div class="categorias">
-
-    <div
-      class="categoria"
-      data-categoria="ropa"
-      onclick="irCategoria('ropa')"
-    >
-      👕 ROPA
-    </div>
-
-    <div
-      class="categoria"
-      data-categoria="lociones"
-      onclick="irCategoria('lociones')"
-    >
-      🧴 LOCIONES
-    </div>
-
-    <div
-      class="categoria"
-      data-categoria="zapatos"
-      onclick="irCategoria('zapatos')"
-    >
-      👟 ZAPATOS
-    </div>
-
-    <div
-      class="categoria"
-      data-categoria="streaming"
-      onclick="irCategoria('streaming')"
-    >
-      📺 STREAMING
-    </div>
+    ✨🩵 Más que una tienda, somos el lugar donde encuentras tu estilo.
+    🛍️ Descubre prendas que combinan contigo, tendencias que te inspiran
+    y ese detalle que transforma cualquier look. 💎 Porque vestir bien
+    no es seguir a los demás, es llevar tu propia esencia. 🩵✨
 
   </div>
 
 
-  <!-- CARPETA ÚNICA -->
+  <!-- ===================================================
+       VIDEO AUTOMÁTICO
+  ==================================================== -->
 
-  <div
-    class="carpeta"
-    id="carpeta"
-  >
+  <div class="video-contenedor">
 
-    <div class="carpeta-header">
+    <video
+      class="video-tienda"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      controls
+    >
 
-      <h2 id="tituloCarpeta">
+      <source
+        src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4"
+        type="video/mp4"
+      >
+
+      Tu navegador no puede reproducir este video.
+
+    </video>
+
+  </div>
+
+
+  <!-- ===================================================
+       CATEGORÍAS
+  ==================================================== -->
+
+  <section class="categorias-contenedor">
+
+    <div class="categorias">
+
+      <div
+        class="categoria"
+        data-categoria="ropa"
+        onclick="irCategoria('ropa')"
+      >
         👕 ROPA
-      </h2>
+      </div>
+
+
+      <div
+        class="categoria"
+        data-categoria="lociones"
+        onclick="irCategoria('lociones')"
+      >
+        🧴 LOCIONES
+      </div>
+
+
+      <div
+        class="categoria"
+        data-categoria="zapatos"
+        onclick="irCategoria('zapatos')"
+      >
+        👟 ZAPATOS
+      </div>
+
+
+      <div
+        class="categoria"
+        data-categoria="streaming"
+        onclick="irCategoria('streaming')"
+      >
+        📺 STREAMING
+      </div>
 
     </div>
 
 
+    <!--
+      ESTA CARPETA SOLO SE UTILIZA PARA LA CATEGORÍA
+      CUANDO SE ABRE.
+    -->
+
     <div
-      class="productos"
-      id="productosCategoria"
+      class="carpeta"
+      id="carpeta"
+    >
+
+      <div class="carpeta-header">
+
+        <h2 id="tituloCarpeta">
+          👕 ROPA
+        </h2>
+
+      </div>
+
+
+      <div
+        class="productos"
+        id="productosCategoria"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       ADMIN
+  ==================================================== -->
+
+  <div
+    class="admin-panel"
+    id="adminPanel"
+  >
+
+    <h2>
+      ⚙️ Administrador
+    </h2>
+
+
+    <input
+      id="adminNombre"
+      class="admin-input"
+      type="text"
+      placeholder="Nombre del producto"
+    >
+
+
+    <input
+      id="adminPrecio"
+      class="admin-input"
+      type="number"
+      placeholder="Precio"
+    >
+
+
+    <select
+      id="adminCategoria"
+      class="admin-input"
+    >
+
+      <option value="ropa">
+        👕 Ropa
+      </option>
+
+      <option value="lociones">
+        🧴 Lociones
+      </option>
+
+      <option value="zapatos">
+        👟 Zapatos
+      </option>
+
+      <option value="streaming">
+        📺 Streaming
+      </option>
+
+    </select>
+
+
+    <input
+      id="adminImagen"
+      class="admin-input"
+      type="file"
+      accept="image/*"
+    >
+
+
+    <button
+      class="admin-boton"
+      onclick="agregarProducto()"
+    >
+      ➕ Agregar producto
+    </button>
+
+
+    <div
+      class="admin-lista"
+      id="adminLista"
     ></div>
 
   </div>
 
-</section>
+
+  <!-- ===================================================
+       CUADROS FINALES
+  ==================================================== -->
+
+  <section class="informacion-final">
+
+    <div class="cuadros-info">
+
+      <div class="cuadro-info">
+
+        <div class="icono">
+          🚚
+        </div>
+
+        <h3>
+          Domicilios
+        </h3>
+
+        <p>
+          Realizamos envíos y domicilios.
+          Consulta la disponibilidad y el valor
+          de tu domicilio.
+        </p>
+
+      </div>
 
 
-<!-- BOTÓN VOLVER AL INICIO FLOTANTE -->
+      <div class="cuadro-info">
+
+        <div class="icono">
+          💳
+        </div>
+
+        <h3>
+          Métodos de pago
+        </h3>
+
+        <p>
+          Pregunta por los métodos de pago
+          disponibles para realizar tu compra
+          de forma fácil y segura.
+        </p>
+
+      </div>
+
+
+      <div class="cuadro-info">
+
+        <div class="icono">
+          🆘
+        </div>
+
+        <h3>
+          ¿Necesitas ayuda?
+        </h3>
+
+        <p>
+          Estamos disponibles para ayudarte
+          con tus productos, pedidos y consultas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- =====================================================
+     BOTÓN VOLVER AL INICIO
+     SIEMPRE FLOTANTE
+===================================================== -->
 
 <button
   class="boton-volver-flotante"
@@ -1009,129 +1231,9 @@ footer{
 </button>
 
 
-<!-- PANEL ADMIN -->
-
-<div
-  class="admin-panel"
-  id="adminPanel"
->
-
-  <h2>⚙️ Administrador</h2>
-
-  <input
-    id="adminNombre"
-    class="admin-input"
-    type="text"
-    placeholder="Nombre del producto"
-  >
-
-  <input
-    id="adminPrecio"
-    class="admin-input"
-    type="number"
-    placeholder="Precio"
-  >
-
-  <select
-    id="adminCategoria"
-    class="admin-input"
-  >
-
-    <option value="ropa">
-      👕 Ropa
-    </option>
-
-    <option value="lociones">
-      🧴 Lociones
-    </option>
-
-    <option value="zapatos">
-      👟 Zapatos
-    </option>
-
-    <option value="streaming">
-      📺 Streaming
-    </option>
-
-  </select>
-
-  <input
-    id="adminImagen"
-    class="admin-input"
-    type="file"
-    accept="image/*"
-  >
-
-  <button
-    class="admin-boton"
-    onclick="agregarProducto()"
-  >
-    ➕ Agregar producto
-  </button>
-
-  <div
-    class="admin-lista"
-    id="adminLista"
-  ></div>
-
-</div>
-
-
-<!-- CUADROS FINALES -->
-
-<section class="informacion-final">
-
-  <div class="cuadros-info">
-
-    <div class="cuadro-info">
-
-      <div class="icono">🚚</div>
-
-      <h3>Domicilios</h3>
-
-      <p>
-        Realizamos envíos y domicilios.
-        Consulta la disponibilidad y el valor
-        de tu domicilio.
-      </p>
-
-    </div>
-
-
-    <div class="cuadro-info">
-
-      <div class="icono">💳</div>
-
-      <h3>Métodos de pago</h3>
-
-      <p>
-        Pregunta por los métodos de pago
-        disponibles para realizar tu compra
-        de forma fácil y segura.
-      </p>
-
-    </div>
-
-
-    <div class="cuadro-info">
-
-      <div class="icono">🆘</div>
-
-      <h3>¿Necesitas ayuda?</h3>
-
-      <p>
-        Estamos disponibles para ayudarte
-        con tus productos, pedidos y consultas.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CARRITO -->
+<!-- =====================================================
+     CARRITO
+===================================================== -->
 
 <button
   class="carrito-flotante"
@@ -1147,9 +1249,13 @@ footer{
   id="carritoPanel"
 >
 
-  <h2>🛒 Mi carrito</h2>
+  <h2>
+    🛒 Mi carrito
+  </h2>
+
 
   <div id="carritoItems"></div>
+
 
   <div
     class="carrito-total"
@@ -1157,6 +1263,7 @@ footer{
   >
     Total: $0
   </div>
+
 
   <button
     class="boton-pedir"
@@ -1168,7 +1275,9 @@ footer{
 </div>
 
 
-<!-- VISOR DE FOTO -->
+<!-- =====================================================
+     VISOR DE FOTO
+===================================================== -->
 
 <div
   class="modal-foto"
@@ -1183,6 +1292,7 @@ footer{
     ×
   </button>
 
+
   <img
     id="fotoGrande"
     src=""
@@ -1192,7 +1302,9 @@ footer{
 </div>
 
 
-<!-- MODAL CONSULTA -->
+<!-- =====================================================
+     MODAL CONSULTA
+===================================================== -->
 
 <div
   class="modal"
@@ -1209,6 +1321,7 @@ footer{
       ×
     </button>
 
+
     <img
       id="modalImagen"
       class="modal-imagen"
@@ -1216,15 +1329,18 @@ footer{
       alt="Producto"
     >
 
+
     <div
       id="modalNombre"
       class="modal-nombre"
     ></div>
 
+
     <div
       id="modalPrecio"
       class="modal-precio"
     ></div>
+
 
     <a
       id="modalWhatsApp"
@@ -1249,13 +1365,17 @@ footer{
 </footer>
 
 
-<!-- FIREBASE -->
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
 
 <script type="module">
 
 import {
   initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
   getFirestore,
@@ -1264,7 +1384,8 @@ import {
   getDocs,
   deleteDoc,
   doc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -1290,14 +1411,21 @@ const firebaseConfig = {
 };
 
 
+/*
+   IMPORTANTE:
+   Aquí estaba el error del código anterior.
+*/
+
 const app =
-  initializeApp(appConfig = firebaseConfig);
+  initializeApp(firebaseConfig);
+
 
 const db =
   getFirestore(app);
 
 
-window.db = db;
+window.db =
+  db;
 
 window.firebaseCollection =
   collection;
@@ -1319,7 +1447,13 @@ window.firebaseDoc =
 
 <script>
 
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 let productos = [];
+
+let categoriaActual = "";
 
 let carrito =
   JSON.parse(
@@ -1333,20 +1467,24 @@ const WHATSAPP =
   "573181579324";
 
 
-/* =========================
-   PRECIO
-========================= */
+/* =====================================================
+   FORMATEAR PRECIO
+===================================================== */
 
 function formatearPrecio(precio){
 
   const numero =
-    Number(precio || 0);
+    Number(
+      precio || 0
+    );
+
 
   if(numero <= 0){
 
     return "Consultar precio";
 
   }
+
 
   return "$" +
     numero.toLocaleString(
@@ -1356,11 +1494,13 @@ function formatearPrecio(precio){
 }
 
 
-/* =========================
-   TARJETA
-========================= */
+/* =====================================================
+   CREAR TARJETA
+===================================================== */
 
-function crearTarjetaProducto(producto){
+function crearTarjetaProducto(
+  producto
+){
 
   const tarjeta =
     document.createElement(
@@ -1387,8 +1527,8 @@ function crearTarjetaProducto(producto){
 
 
   /*
-    Si la imagen no existe o no carga,
-    se elimina TODA la tarjeta.
+     SI UNA FOTO ESTÁ DAÑADA,
+     SE QUITA ESA TARJETA.
   */
 
   img.onerror =
@@ -1409,11 +1549,6 @@ function crearTarjetaProducto(producto){
   img.loading =
     "lazy";
 
-
-  /*
-    AL TOCAR LA FOTO:
-    SE ABRE SOLAMENTE ESA FOTO
-  */
 
   imagen.onclick =
     function(){
@@ -1523,11 +1658,13 @@ function crearTarjetaProducto(producto){
 }
 
 
-/* =========================
-   CATEGORÍA
-========================= */
+/* =====================================================
+   ABRIR CATEGORÍA
+===================================================== */
 
-function irCategoria(categoria){
+function irCategoria(
+  categoria
+){
 
   const carpeta =
     document.getElementById(
@@ -1561,6 +1698,29 @@ function irCategoria(categoria){
   }
 
 
+  categoriaActual =
+    categoria;
+
+
+  /*
+     Marcamos el botón.
+  */
+
+  document
+    .querySelectorAll(
+      ".categoria"
+    )
+    .forEach(
+      elemento => {
+
+        elemento.classList.remove(
+          "activa"
+        );
+
+      }
+    );
+
+
   const boton =
     document.querySelector(
       '.categoria[data-categoria="' +
@@ -1569,39 +1729,183 @@ function irCategoria(categoria){
     );
 
 
-  const yaEstabaActiva =
-    boton &&
-    boton.classList.contains(
+  if(boton){
+
+    boton.classList.add(
       "activa"
+    );
+
+  }
+
+
+  const nombres = {
+
+    ropa:
+      "👕 ROPA",
+
+    lociones:
+      "🧴 LOCIONES",
+
+    zapatos:
+      "👟 ZAPATOS",
+
+    streaming:
+      "📺 STREAMING"
+
+  };
+
+
+  titulo.textContent =
+    nombres[categoria] ||
+    "🛍️ PRODUCTOS";
+
+
+  contenedor.innerHTML =
+    "";
+
+
+  /*
+     AQUÍ SE BUSCAN LOS PRODUCTOS
+     DE ESA CATEGORÍA.
+  */
+
+  const lista =
+    productos.filter(
+      producto => {
+
+        const categoriaProducto =
+          String(
+            producto.categoria ||
+            ""
+          )
+          .trim()
+          .toLowerCase();
+
+
+        return (
+          categoriaProducto ===
+          String(categoria)
+            .trim()
+            .toLowerCase()
+        );
+
+      }
     );
 
 
   if(
-    yaEstabaActiva &&
-    carpeta.classList.contains(
-      "abierta"
-    )
+    lista.length === 0
   ){
+
+    contenedor.innerHTML = `
+
+      <div class="sin-productos">
+
+        <strong>
+          🛍️ No hay productos todavía
+        </strong>
+
+        En esta categoría no encontramos
+        productos disponibles.
+
+      </div>
+
+    `;
+
+  }else{
+
+    lista.forEach(
+      producto => {
+
+        contenedor.appendChild(
+          crearTarjetaProducto(
+            producto
+          )
+        );
+
+      }
+    );
+
+  }
+
+
+  /*
+     ABRIMOS LA CARPETA.
+  */
+
+  carpeta.classList.add(
+    "abierta"
+  );
+
+
+  /*
+     CAMBIAMOS A MODO CATEGORÍA.
+     DESAPARECE EL INICIO Y QUEDA
+     LA VISTA DE PRODUCTOS.
+  */
+
+  document.body.classList.add(
+    "en-categoria"
+  );
+
+
+  /*
+     MOSTRAMOS BOTÓN FLOTANTE.
+  */
+
+  if(botonVolver){
+
+    botonVolver.classList.add(
+      "visible"
+    );
+
+  }
+
+
+  /*
+     SUBIMOS AL PRINCIPIO DE LA
+     PESTAÑA DE PRODUCTOS.
+  */
+
+  setTimeout(
+    function(){
+
+      window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+      });
+
+    },
+    50
+  );
+
+}
+
+
+/* =====================================================
+   VOLVER AL INICIO
+===================================================== */
+
+function volverInicio(){
+
+  categoriaActual =
+    "";
+
+
+  const carpeta =
+    document.getElementById(
+      "carpeta"
+    );
+
+
+  if(carpeta){
 
     carpeta.classList.remove(
       "abierta"
     );
-
-    boton.classList.remove(
-      "activa"
-    );
-
-
-    if(botonVolver){
-
-      botonVolver.classList.remove(
-        "visible"
-      );
-
-    }
-
-
-    return;
 
   }
 
@@ -1621,11 +1925,90 @@ function irCategoria(categoria){
     );
 
 
-  if(boton){
+  document.body.classList.remove(
+    "en-categoria"
+  );
 
-    boton.classList.add(
-      "activa"
+
+  const botonVolver =
+    document.getElementById(
+      "botonVolverFlotante"
     );
+
+
+  if(botonVolver){
+
+    botonVolver.classList.remove(
+      "visible"
+    );
+
+  }
+
+
+  const buscador =
+    document.getElementById(
+      "buscador"
+    );
+
+
+  if(buscador){
+
+    buscador.value = "";
+
+  }
+
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:"smooth"
+
+  });
+
+}
+
+
+/* =====================================================
+   MOSTRAR CATEGORÍA
+===================================================== */
+
+function mostrarCategoria(
+  categoria
+){
+
+  if(
+    !categoria
+  ){
+
+    return;
+
+  }
+
+
+  const carpeta =
+    document.getElementById(
+      "carpeta"
+    );
+
+  const titulo =
+    document.getElementById(
+      "tituloCarpeta"
+    );
+
+  const contenedor =
+    document.getElementById(
+      "productosCategoria"
+    );
+
+
+  if(
+    !carpeta ||
+    !titulo ||
+    !contenedor
+  ){
+
+    return;
 
   }
 
@@ -1674,329 +2057,52 @@ function irCategoria(categoria){
     );
 
 
-  if(lista.length === 0){
-
-    contenedor.innerHTML = `
-
-      <div class="sin-productos">
-
-        🛍️ No hay productos disponibles
-        en esta categoría.
-
-      </div>
-
-    `;
-
-  }else{
-
-    lista.forEach(
-      producto => {
-
-        contenedor.appendChild(
-          crearTarjetaProducto(
-            producto
-          )
-        );
-
-      }
-    );
-
-  }
-
-
-  carpeta.classList.add(
-    "abierta"
-  );
-
-
-  if(botonVolver){
-
-    botonVolver.classList.add(
-      "visible"
-    );
-
-  }
-
-}
-
-
-/* =========================
-   VOLVER AL INICIO
-========================= */
-
-function volverInicio(){
-
-  const carpeta =
-    document.getElementById(
-      "carpeta"
-    );
-
-
-  if(carpeta){
-
-    carpeta.classList.remove(
-      "abierta"
-    );
-
-  }
-
-
-  document
-    .querySelectorAll(
-      ".categoria"
-    )
-    .forEach(
-      elemento =>
-        elemento.classList.remove(
-          "activa"
-        )
-    );
-
-
-  const botonVolver =
-    document.getElementById(
-      "botonVolverFlotante"
-    );
-
-
-  if(botonVolver){
-
-    botonVolver.classList.remove(
-      "visible"
-    );
-
-  }
-
-
-  window.scrollTo({
-
-    top:0,
-
-    behavior:"smooth"
-
-  });
-
-}
-
-
-/* =========================
-   MOSTRAR CATEGORÍA
-========================= */
-
-function mostrarCategoria(
-  categoria
-){
-
-  const carpeta =
-    document.getElementById(
-      "carpeta"
-    );
-
-  const titulo =
-    document.getElementById(
-      "tituloCarpeta"
-    );
-
-  const contenedor =
-    document.getElementById(
-      "productosCategoria"
-    );
-
-  const botonVolver =
-    document.getElementById(
-      "botonVolverFlotante"
-    );
-
-
-  const boton =
-    document.querySelector(
-      '.categoria[data-categoria="' +
-      categoria +
-      '"]'
-    );
-
-
-  document
-    .querySelectorAll(
-      ".categoria"
-    )
-    .forEach(
-      elemento =>
-        elemento.classList.remove(
-          "activa"
-        )
-    );
-
-
-  if(boton){
-
-    boton.classList.add(
-      "activa"
-    );
-
-  }
-
-
-  const nombres = {
-
-    ropa:"👕 ROPA",
-
-    lociones:"🧴 LOCIONES",
-
-    zapatos:"👟 ZAPATOS",
-
-    streaming:"📺 STREAMING"
-
-  };
-
-
-  titulo.textContent =
-    nombres[categoria] ||
-    "🛍️ PRODUCTOS";
-
-
-  contenedor.innerHTML =
-    "";
-
-
-  const lista =
-    productos.filter(
-      producto =>
-        String(
-          producto.categoria || ""
-        )
-        .trim()
-        .toLowerCase() ===
-        String(categoria)
-        .trim()
-        .toLowerCase()
-    );
-
-
-  if(lista.length === 0){
-
-    contenedor.innerHTML = `
-
-      <div class="sin-productos">
-
-        🛍️ No hay productos disponibles
-        en esta categoría.
-
-      </div>
-
-    `;
-
-  }else{
-
-    lista.forEach(
-      producto => {
-
-        contenedor.appendChild(
-          crearTarjetaProducto(
-            producto
-          )
-        );
-
-      }
-    );
-
-  }
-
-
-  carpeta.classList.add(
-    "abierta"
-  );
-
-
-  if(botonVolver){
-
-    botonVolver.classList.add(
-      "visible"
-    );
-
-  }
-
-}
-
-
-/* =========================
-   FOTO GRANDE
-========================= */
-
-function abrirFoto(imagen){
-
-  if(!imagen){
-
-    return;
-
-  }
-
-
-  document.getElementById(
-    "fotoGrande"
-  ).src =
-    imagen;
-
-
-  document.getElementById(
-    "modalFoto"
-  ).classList.add(
-    "activo"
-  );
-
-}
-
-
-function cerrarFoto(){
-
-  document
-    .getElementById(
-      "modalFoto"
-    )
-    .classList.remove(
-      "activo"
-    );
-
-}
-
-
-function cerrarFotoFondo(event){
-
   if(
-    event.target.id ===
-    "modalFoto"
+    lista.length === 0
   ){
 
-    cerrarFoto();
+    contenedor.innerHTML = `
+
+      <div class="sin-productos">
+
+        <strong>
+          🛍️ No hay productos todavía
+        </strong>
+
+        En esta categoría no encontramos
+        productos disponibles.
+
+      </div>
+
+    `;
+
+  }else{
+
+    lista.forEach(
+      producto => {
+
+        contenedor.appendChild(
+          crearTarjetaProducto(
+            producto
+          )
+        );
+
+      }
+    );
 
   }
+
+
+  carpeta.classList.add(
+    "abierta"
+  );
 
 }
 
 
-/* ESC PARA CERRAR FOTO */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(
-      event.key === "Escape"
-    ){
-
-      cerrarFoto();
-
-      cerrarModal();
-
-    }
-
-  }
-);
-
-
-/* =========================
-   GITHUB
-========================= */
+/* =====================================================
+   CARGAR ROPA DE GITHUB
+===================================================== */
 
 async function cargarRopaGitHub(){
 
@@ -2009,10 +2115,19 @@ async function cargarRopaGitHub(){
 
 
     const respuesta =
-      await fetch(url);
+      await fetch(
+        url
+      );
 
 
-    if(!respuesta.ok){
+    if(
+      !respuesta.ok
+    ){
+
+      console.error(
+        "No se pudo cargar GitHub:",
+        respuesta.status
+      );
 
       return;
 
@@ -2023,19 +2138,29 @@ async function cargarRopaGitHub(){
       await respuesta.json();
 
 
-    if(!Array.isArray(archivos)){
+    if(
+      !Array.isArray(
+        archivos
+      )
+    ){
 
       return;
 
     }
 
 
+    /*
+       Quitamos únicamente los productos
+       que ya habíamos agregado desde GitHub.
+    */
+
     productos =
       productos.filter(
         producto =>
           !String(
             producto.id
-          ).startsWith(
+          )
+          .startsWith(
             "github-"
           )
       );
@@ -2061,6 +2186,25 @@ async function cargarRopaGitHub(){
 
       .forEach(
         archivo => {
+
+          /*
+             No duplicamos la imagen.
+          */
+
+          const existe =
+            productos.some(
+              producto =>
+                producto.imagen ===
+                archivo.download_url
+            );
+
+
+          if(existe){
+
+            return;
+
+          }
+
 
           productos.push({
 
@@ -2090,17 +2234,24 @@ async function cargarRopaGitHub(){
       );
 
 
-    const botonRopa =
-      document.querySelector(
-        '.categoria[data-categoria="ropa"]'
-      );
+    console.log(
+      "Ropa cargada:",
+      productos.filter(
+        producto =>
+          producto.categoria ===
+          "ropa"
+      ).length
+    );
 
+
+    /*
+       Si el cliente está mirando ropa,
+       actualizamos inmediatamente la vista.
+    */
 
     if(
-      botonRopa &&
-      botonRopa.classList.contains(
-        "activa"
-      )
+      categoriaActual ===
+      "ropa"
     ){
 
       mostrarCategoria(
@@ -2113,7 +2264,7 @@ async function cargarRopaGitHub(){
   }catch(error){
 
     console.error(
-      "Error GitHub:",
+      "Error cargando ropa de GitHub:",
       error
     );
 
@@ -2122,9 +2273,9 @@ async function cargarRopaGitHub(){
 }
 
 
-/* =========================
-   FIREBASE
-========================= */
+/* =====================================================
+   CARGAR FIRESTORE
+===================================================== */
 
 async function cargarFirebase(){
 
@@ -2132,19 +2283,26 @@ async function cargarFirebase(){
 
     const snapshot =
       await window.firebaseGetDocs(
+
         window.firebaseCollection(
           window.db,
           "productos"
         )
+
       );
 
+
+    /*
+       Conservamos los productos de GitHub.
+    */
 
     productos =
       productos.filter(
         producto =>
           String(
             producto.id
-          ).startsWith(
+          )
+          .startsWith(
             "github-"
           )
       );
@@ -2175,9 +2333,13 @@ async function cargarFirebase(){
             ),
 
           categoria:
-            data.categoria ||
-            data.category ||
-            "ropa",
+            String(
+              data.categoria ||
+              data.category ||
+              "ropa"
+            )
+            .trim()
+            .toLowerCase(),
 
           imagen:
             data.imagen ||
@@ -2191,16 +2353,23 @@ async function cargarFirebase(){
     );
 
 
-    const botonActivo =
-      document.querySelector(
-        ".categoria.activa"
-      );
+    console.log(
+      "Total de productos:",
+      productos.length
+    );
 
 
-    if(botonActivo){
+    /*
+       Si ya había una categoría abierta,
+       la actualizamos.
+    */
+
+    if(
+      categoriaActual
+    ){
 
       mostrarCategoria(
-        botonActivo.dataset.categoria
+        categoriaActual
       );
 
     }
@@ -2212,7 +2381,7 @@ async function cargarFirebase(){
   }catch(error){
 
     console.error(
-      "Error Firebase:",
+      "Error cargando Firestore:",
       error
     );
 
@@ -2221,9 +2390,9 @@ async function cargarFirebase(){
 }
 
 
-/* =========================
+/* =====================================================
    BUSCADOR
-========================= */
+===================================================== */
 
 document
   .getElementById(
@@ -2239,40 +2408,56 @@ document
           .toLowerCase();
 
 
-      if(texto === ""){
+      /*
+         Si borran la búsqueda
+         volvemos a la vista normal.
+      */
 
-        const activa =
-          document.querySelector(
-            ".categoria.activa"
-          );
+      if(
+        texto === ""
+      ){
 
-
-        if(activa){
+        if(
+          categoriaActual
+        ){
 
           mostrarCategoria(
-            activa.dataset.categoria
+            categoriaActual
           );
 
         }else{
 
-          const botonVolver =
-            document.getElementById(
-              "botonVolverFlotante"
-            );
-
-          if(botonVolver){
-
-            botonVolver.classList.remove(
-              "visible"
-            );
-
-          }
+          volverInicio();
 
         }
 
         return;
 
       }
+
+
+      /*
+         Búsqueda en TODOS los productos.
+      */
+
+      const resultados =
+        productos.filter(
+          producto => {
+
+            const nombre =
+              String(
+                producto.nombre ||
+                ""
+              )
+              .toLowerCase();
+
+
+            return nombre.includes(
+              texto
+            );
+
+          }
+        );
 
 
       const carpeta =
@@ -2290,23 +2475,6 @@ document
           "productosCategoria"
         );
 
-      const botonVolver =
-        document.getElementById(
-          "botonVolverFlotante"
-        );
-
-
-      document
-        .querySelectorAll(
-          ".categoria"
-        )
-        .forEach(
-          elemento =>
-            elemento.classList.remove(
-              "activa"
-            )
-        );
-
 
       titulo.textContent =
         "🔎 RESULTADOS DE BÚSQUEDA";
@@ -2314,19 +2482,6 @@ document
 
       contenedor.innerHTML =
         "";
-
-
-      const resultados =
-        productos.filter(
-          producto =>
-            String(
-              producto.nombre || ""
-            )
-            .toLowerCase()
-            .includes(
-              texto
-            )
-        );
 
 
       if(
@@ -2337,8 +2492,11 @@ document
 
           <div class="sin-productos">
 
-            🔎 No encontramos productos
-            con esa búsqueda.
+            <strong>
+              🔎 No encontramos productos
+            </strong>
+
+            Intenta buscar con otro nombre.
 
           </div>
 
@@ -2366,6 +2524,17 @@ document
       );
 
 
+      document.body.classList.add(
+        "en-categoria"
+      );
+
+
+      const botonVolver =
+        document.getElementById(
+          "botonVolverFlotante"
+        );
+
+
       if(botonVolver){
 
         botonVolver.classList.add(
@@ -2378,11 +2547,74 @@ document
   );
 
 
-/* =========================
-   MODAL CONSULTA
-========================= */
+/* =====================================================
+   MODAL FOTO
+===================================================== */
 
-function abrirModal(producto){
+function abrirFoto(
+  imagen
+){
+
+  if(!imagen){
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "fotoGrande"
+  ).src =
+    imagen;
+
+
+  document
+    .getElementById(
+      "modalFoto"
+    )
+    .classList.add(
+      "activo"
+    );
+
+}
+
+
+function cerrarFoto(){
+
+  document
+    .getElementById(
+      "modalFoto"
+    )
+    .classList.remove(
+      "activo"
+    );
+
+}
+
+
+function cerrarFotoFondo(
+  event
+){
+
+  if(
+    event.target.id ===
+    "modalFoto"
+  ){
+
+    cerrarFoto();
+
+  }
+
+}
+
+
+/* =====================================================
+   MODAL PRODUCTO
+===================================================== */
+
+function abrirModal(
+  producto
+){
 
   document.getElementById(
     "modalImagen"
@@ -2449,7 +2681,9 @@ function cerrarModal(){
 }
 
 
-function cerrarModalFondo(event){
+function cerrarModalFondo(
+  event
+){
 
   if(
     event.target.id ===
@@ -2463,9 +2697,9 @@ function cerrarModalFondo(event){
 }
 
 
-/* =========================
+/* =====================================================
    CARRITO
-========================= */
+===================================================== */
 
 function guardarCarrito(){
 
@@ -2489,6 +2723,7 @@ function toggleCarrito(){
       "abierto"
     );
 
+
   actualizarCarrito();
 
 }
@@ -2511,7 +2746,9 @@ function actualizarCarrito(){
     "";
 
 
-  if(carrito.length === 0){
+  if(
+    carrito.length === 0
+  ){
 
     contenedor.innerHTML = `
 
@@ -2527,6 +2764,7 @@ function actualizarCarrito(){
     total.textContent =
       "Total: $0";
 
+
     return;
 
   }
@@ -2536,11 +2774,15 @@ function actualizarCarrito(){
 
 
   carrito.forEach(
-    (producto,index) => {
+    (
+      producto,
+      index
+    ) => {
 
       suma +=
         Number(
-          producto.precio || 0
+          producto.precio ||
+          0
         );
 
 
@@ -2603,6 +2845,7 @@ function agregarAlCarrito(
     producto
   );
 
+
   guardarCarrito();
 
   actualizarCarrito();
@@ -2618,6 +2861,7 @@ function eliminarDelCarrito(
     index,
     1
   );
+
 
   guardarCarrito();
 
@@ -2642,7 +2886,7 @@ function pedirPorWhatsApp(){
 
 
   let mensaje =
-    "Hola 🩵, quiero realizar este pedido:%0A%0A";
+    "Hola 🩵, quiero realizar este pedido:\n\n";
 
 
   carrito.forEach(
@@ -2650,36 +2894,39 @@ function pedirPorWhatsApp(){
 
       mensaje +=
         "🛍️ " +
-        encodeURIComponent(
+        (
           producto.nombre ||
           "Producto"
         ) +
         " - " +
-        encodeURIComponent(
-          formatearPrecio(
-            producto.precio
-          )
+        formatearPrecio(
+          producto.precio
         ) +
-        "%0A";
+        "\n";
 
     }
   );
 
 
   window.open(
+
     "https://wa.me/" +
     WHATSAPP +
     "?text=" +
-    mensaje,
+    encodeURIComponent(
+      mensaje
+    ),
+
     "_blank"
+
   );
 
 }
 
 
-/* =========================
+/* =====================================================
    ADMIN
-========================= */
+===================================================== */
 
 let clicksLogo = 0;
 
@@ -2732,7 +2979,8 @@ function abrirAdmin(){
 
 
   if(
-    pin !== "2580"
+    pin !==
+    "2580"
   ){
 
     if(
@@ -2764,9 +3012,9 @@ function abrirAdmin(){
 }
 
 
-/* =========================
+/* =====================================================
    AGREGAR PRODUCTO
-========================= */
+===================================================== */
 
 async function agregarProducto(){
 
@@ -2853,23 +3101,32 @@ async function agregarProducto(){
 
     document.getElementById(
       "adminNombre"
-    ).value = "";
+    ).value =
+      "";
 
 
     document.getElementById(
       "adminPrecio"
-    ).value = "";
+    ).value =
+      "";
 
 
     document.getElementById(
       "adminImagen"
-    ).value = "";
+    ).value =
+      "";
 
 
     await cargarFirebase();
 
 
-    mostrarCategoria(
+    /*
+       Después de agregarlo,
+       abrimos automáticamente
+       la categoría donde fue guardado.
+    */
+
+    irCategoria(
       categoria
     );
 
@@ -2890,9 +3147,9 @@ async function agregarProducto(){
 }
 
 
-/* =========================
+/* =====================================================
    COMPRIMIR IMAGEN
-========================= */
+===================================================== */
 
 function comprimirImagen(
   archivo
@@ -2936,13 +3193,15 @@ function comprimirImagen(
 
 
               if(
-                ancho > MAX
+                ancho >
+                MAX
               ){
 
                 alto =
                   alto *
                   MAX /
                   ancho;
+
 
                 ancho =
                   MAX;
@@ -2964,19 +3223,30 @@ function comprimirImagen(
 
 
               ctx.drawImage(
+
                 img,
+
                 0,
+
                 0,
+
                 ancho,
+
                 alto
+
               );
 
 
               resolve(
+
                 canvas.toDataURL(
+
                   "image/jpeg",
+
                   0.78
+
                 )
+
               );
 
             };
@@ -3006,9 +3276,9 @@ function comprimirImagen(
 }
 
 
-/* =========================
+/* =====================================================
    LISTA ADMIN
-========================= */
+===================================================== */
 
 async function actualizarListaAdmin(){
 
@@ -3034,7 +3304,8 @@ async function actualizarListaAdmin(){
       producto =>
         !String(
           producto.id
-        ).startsWith(
+        )
+        .startsWith(
           "github-"
         )
     );
@@ -3091,6 +3362,7 @@ async function actualizarListaAdmin(){
         texto
       );
 
+
       fila.appendChild(
         boton
       );
@@ -3106,9 +3378,9 @@ async function actualizarListaAdmin(){
 }
 
 
-/* =========================
-   ELIMINAR
-========================= */
+/* =====================================================
+   ELIMINAR PRODUCTO
+===================================================== */
 
 async function eliminarProducto(
   id
@@ -3141,23 +3413,20 @@ async function eliminarProducto(
     productos =
       productos.filter(
         producto =>
-          producto.id !== id
+          producto.id !==
+          id
       );
 
 
     actualizarListaAdmin();
 
 
-    const activa =
-      document.querySelector(
-        ".categoria.activa"
-      );
-
-
-    if(activa){
+    if(
+      categoriaActual
+    ){
 
       mostrarCategoria(
-        activa.dataset.categoria
+        categoriaActual
       );
 
     }
@@ -3184,17 +3453,101 @@ async function eliminarProducto(
 }
 
 
-/* =========================
-   INICIAR
-========================= */
+/* =====================================================
+   VIDEO AUTOPLAY
+===================================================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const video =
+      document.querySelector(
+        ".video-tienda"
+      );
+
+
+    if(video){
+
+      video.muted =
+        true;
+
+
+      const intentarReproducir =
+        function(){
+
+          video.play()
+            .catch(
+              error => {
+
+                console.log(
+                  "El navegador bloqueó el autoplay:",
+                  error
+                );
+
+              }
+            );
+
+        };
+
+
+      intentarReproducir();
+
+
+      document.addEventListener(
+        "touchstart",
+        function(){
+
+          if(
+            video.paused
+          ){
+
+            intentarReproducir();
+
+          }
+
+        },
+        {
+          once:true
+        }
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   INICIAR TIENDA
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
   async function(){
 
+    /*
+       Primero cargamos las prendas
+       de GitHub.
+    */
+
     await cargarRopaGitHub();
 
+
+    /*
+       Después cargamos todos
+       los productos de Firestore.
+    */
+
     await cargarFirebase();
+
+
+    /*
+       El carrito se actualiza
+       al entrar.
+    */
+
+    actualizarCarrito();
 
   }
 );
@@ -3202,4 +3555,4 @@ document.addEventListener(
 </script>
 
 </body>
-</html>t
+</html>
