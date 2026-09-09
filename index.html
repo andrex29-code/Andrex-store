@@ -966,7 +966,10 @@ body.en-categoria #vistaCategoria{
     </div>
 
     <!-- CATEGORÍAS -->
-    <section class="categorias-contenedor">
+    <section
+      class="categorias-contenedor"
+      id="seccionCategorias"
+    >
 
       <div class="titulo-categorias">
         🛍️ Explora nuestras categorías
@@ -1076,6 +1079,7 @@ body.en-categoria #vistaCategoria{
         <h3>💳 Métodos de pago</h3>
         <p>
           nuestros metodos de pagos son nequi bancolombia daviplata 💸✨
+        </p>
       </div>
 
       <div class="info-card">
@@ -1119,14 +1123,14 @@ body.en-categoria #vistaCategoria{
 </main>
 
 <!-- =========================
-     BOTÓN VOLVER AL INICIO
+     BOTÓN VOLVER A CATEGORÍAS
 ========================= -->
 
 <button
   id="botonVolverFlotante"
   class="boton-volver-flotante"
   onclick="volverInicio()"
-  aria-label="Volver al inicio"
+  aria-label="Volver a categorías"
 >
   🏠
 </button>
@@ -1308,7 +1312,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey:"AIzaSyBGb7jgOKWeNJed6QPDMW-4-933gG59I",
+  apiKey:"AIzaSyBG7jgOKWeNJed6QPDMW-4-933gG59I",
   authDomain:"andrex-store.firebaseapp.com",
   projectId:"andrex-store",
   storageBucket:"andrex-store.firebasestorage.app",
@@ -1468,11 +1472,6 @@ function crearTarjetaProducto(producto){
 
   img.onclick =
     () => abrirFoto(producto.imagen);
-
-  /*
-    Si la imagen no carga,
-    se elimina toda la tarjeta.
-  */
 
   img.onerror =
     function(){
@@ -1665,7 +1664,7 @@ function irCategoria(categoria){
 
 
 /* =========================
-   VOLVER AL INICIO
+   VOLVER A CATEGORÍAS
 ========================= */
 
 function volverInicio(){
@@ -1712,10 +1711,30 @@ function volverInicio(){
   }
 
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  /*
+    Esperamos un momento para que
+    vuelva a aparecer el contenido
+    principal y después llevamos al
+    usuario directamente a categorías.
+  */
+
+  setTimeout(() => {
+
+    const categorias =
+      document.getElementById(
+        "seccionCategorias"
+      );
+
+    if(categorias){
+
+      categorias.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    }
+
+  },100);
 
 }
 
@@ -1882,12 +1901,6 @@ async function cargarRopaGitHub(){
     }
 
 
-    /*
-      Elimina únicamente los productos
-      que ya vienen de GitHub para evitar
-      duplicados.
-    */
-
     productos =
       productos.filter(
         producto =>
@@ -1998,11 +2011,6 @@ async function cargarFirebase(){
         )
       );
 
-
-    /*
-      Conservamos siempre los productos
-      de GitHub.
-    */
 
     const productosGitHub =
       productos.filter(
