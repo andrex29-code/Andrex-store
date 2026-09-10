@@ -8,6 +8,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.github.com">
+<link rel="preconnect" href="https://andrex29-code.github.io">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
@@ -38,18 +41,13 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
-
   background:rgba(255,255,255,.96);
   backdrop-filter:blur(15px);
-
   border-bottom:1px solid #ddd6fe;
-
   padding:13px 18px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:12px;
 }
 
@@ -61,9 +59,7 @@ header{
 
 .logo{
   position:relative;
-
   font-family:"Playfair Display",Georgia,serif;
-
   font-size:30px;
   font-weight:800;
 
@@ -77,11 +73,8 @@ header{
 
   -webkit-background-clip:text;
   background-clip:text;
-
   color:transparent;
-
   letter-spacing:1.2px;
-
   cursor:pointer;
   user-select:none;
 
@@ -105,7 +98,7 @@ header{
     text-shadow:
       0 1px 2px rgba(37,99,235,.18),
       0 0 7px rgba(99,102,241,.25),
-      0 0 13px rgba(124,58,violet,.18);
+      0 0 13px rgba(124,58,237,.18);
   }
 }
 
@@ -125,15 +118,10 @@ header{
     );
 
   color:#4338ca;
-
   padding:12px 15px;
-
   border-radius:14px;
-
   cursor:pointer;
-
   font-weight:900;
-
   font-size:14px;
 
   box-shadow:
@@ -186,31 +174,23 @@ header{
     );
 
   border-radius:20px;
-
   padding:17px 20px;
-
   margin:13px auto 10px;
-
   max-width:1000px;
-
   border:1px solid #ddd6fe;
 
   box-shadow:
     0 7px 22px rgba(79,70,229,.10);
 
   position:relative;
-
   overflow:hidden;
 }
 
 .bienvenida-box::before{
   content:"";
-
   position:absolute;
-
   top:0;
   left:15%;
-
   width:70%;
   height:2px;
 
@@ -226,15 +206,10 @@ header{
 
 .bienvenida-texto{
   font-family:"Playfair Display",Georgia,serif;
-
   font-size:24px;
-
   font-weight:800;
-
   color:#4338ca;
-
   letter-spacing:.3px;
-
   line-height:1.3;
 
   text-shadow:
@@ -247,36 +222,25 @@ header{
 
 .slogan{
   text-align:center;
-
   background:white;
-
   border-radius:18px;
-
   padding:13px 20px;
-
   margin:8px auto 12px;
-
   max-width:1000px;
 
   box-shadow:
     0 5px 18px rgba(79,70,229,.07);
 
   color:#5b6070;
-
   font-size:16px;
-
   line-height:1.5;
-
   border:1px solid #ede9fe;
 }
 
 .slogan strong{
   font-family:"Playfair Display",Georgia,serif;
-
   color:#4f46e5;
-
   font-weight:800;
-
   font-size:20px;
 
   text-shadow:
@@ -289,23 +253,16 @@ header{
 
 .hero{
   width:100%;
-
   display:flex;
-
   justify-content:center;
-
   padding:12px 12px 4px;
-
   background:#f5f3ff;
 }
 
 .hero-video{
   width:min(100%,760px);
-
   border-radius:20px;
-
   overflow:hidden;
-
   background:#000;
 
   box-shadow:
@@ -314,13 +271,9 @@ header{
 
 .hero-video video{
   display:block;
-
   width:100%;
-
   height:auto;
-
   max-height:390px;
-
   object-fit:cover;
 }
 
@@ -330,9 +283,7 @@ header{
 
 main{
   max-width:1200px;
-
   margin:auto;
-
   padding:8px 16px 110px;
 }
 
@@ -346,55 +297,38 @@ main{
 
 .categorias-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:15px;
 }
 
 .categoria{
   min-height:125px;
-
   border-radius:22px;
-
   background:white;
 
   box-shadow:
     0 7px 22px rgba(79,70,229,.08);
 
   cursor:pointer;
-
   font-size:18px;
-
   font-weight:800;
-
   color:#4f46e5;
-
   transition:.25s;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
-
   gap:9px;
 
   border:1px solid #ede9fe;
-
   position:relative;
-
   overflow:hidden;
 }
 
 .categoria::before{
   content:"";
-
   position:absolute;
-
   inset:0;
 
   background:
@@ -409,11 +343,8 @@ main{
 
 .categoria span{
   font-size:45px;
-
   line-height:1;
-
   display:block;
-
   position:relative;
 
   filter:
@@ -455,11 +386,8 @@ main{
 
 .categoria-vista-inline{
   width:100%;
-
   background:white;
-
   border-radius:22px;
-
   padding:18px;
 
   box-shadow:
@@ -470,41 +398,29 @@ main{
 
 .categoria-header-inline{
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   gap:12px;
-
   margin-bottom:8px;
 }
 
 .categoria-header-inline h2{
   color:#4f46e5;
-
   font-size:24px;
 }
 
 .categoria-subtitulo{
   color:#6b7280;
-
   margin-bottom:18px;
 }
 
 .btn-volver{
   border:0;
-
   background:#eef2ff;
-
   color:#4338ca;
-
   padding:10px 14px;
-
   border-radius:12px;
-
   cursor:pointer;
-
   font-weight:700;
 }
 
@@ -514,27 +430,20 @@ main{
 
 .productos-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:16px;
 }
 
 .producto{
   position:relative;
-
   background:white;
-
   border-radius:18px;
-
   overflow:hidden;
 
   box-shadow:
     0 6px 18px rgba(79,70,229,.08);
 
   transition:.25s;
-
   border:1px solid #f0edff;
 }
 
@@ -547,21 +456,18 @@ main{
 
 .producto-imagen{
   width:100%;
-
   height:230px;
-
   object-fit:cover;
-
   display:block;
-
   cursor:pointer;
-
   background:#f1efff;
+
+  /* importante para primera carga */
+  content-visibility:auto;
 }
 
 .btn-favorito{
   position:absolute;
-
   top:8px;
   right:8px;
 
@@ -569,24 +475,18 @@ main{
   height:29px;
 
   border:none;
-
   border-radius:50%;
-
   background:rgba(255,255,255,.95);
 
   box-shadow:
     0 3px 8px rgba(0,0,0,.15);
 
   cursor:pointer;
-
   z-index:5;
-
   font-size:13px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 }
 
@@ -596,61 +496,45 @@ main{
 
 .producto-nombre{
   font-size:16px;
-
   font-weight:800;
-
   margin-bottom:7px;
 }
 
 .producto-precio{
   font-size:19px;
-
   font-weight:900;
-
   color:#4f46e5;
-
   margin-bottom:10px;
 }
 
 .producto-desc{
   font-size:13px;
-
   color:#718096;
-
   margin-bottom:12px;
-
   min-height:34px;
 }
 
 .producto-botones{
   display:grid;
-
   grid-template-columns:1fr;
-
   gap:7px;
 }
 
 .btn-producto{
   border:0;
-
   padding:10px;
-
   border-radius:11px;
-
   cursor:pointer;
-
   font-weight:700;
 }
 
 .btn-whatsapp{
   background:#dcfce7;
-
   color:#168448;
 }
 
 .btn-carrito{
   background:#e0e7ff;
-
   color:#4338ca;
 }
 
@@ -660,22 +544,15 @@ main{
 
 .info-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(3,1fr);
   gap:15px;
-
   margin-top:25px;
 }
 
 .info-card{
   background:white;
-
   border-radius:20px;
-
   padding:22px;
-
   text-align:center;
 
   box-shadow:
@@ -686,11 +563,8 @@ main{
 
 .info-card .icono{
   font-size:38px;
-
   line-height:1;
-
   margin-bottom:10px;
-
   display:inline-block;
 
   filter:
@@ -700,15 +574,12 @@ main{
 
 .info-card h3{
   margin-bottom:7px;
-
   color:#4f46e5;
 }
 
 .info-card p{
   color:#708090;
-
   font-size:14px;
-
   line-height:1.5;
 }
 
@@ -718,41 +589,27 @@ main{
 
 .flotantes{
   position:fixed !important;
-
   inset:0;
-
   width:100%;
   height:100%;
-
   z-index:2147483647 !important;
-
   pointer-events:none;
-
   display:block !important;
 }
 
 .flotante-favoritos{
   position:fixed;
-
   left:15px;
   bottom:15px;
-
   pointer-events:auto;
 
   border:0;
-
   border-radius:18px;
-
   padding:11px 13px;
-
   background:white;
-
   color:#db2777;
-
   font-weight:800;
-
   font-size:13px;
-
   cursor:pointer;
 
   box-shadow:
@@ -763,16 +620,12 @@ main{
 
 .flotante-pedido{
   position:fixed;
-
   right:15px;
   bottom:15px;
-
   pointer-events:auto;
 
   border:0;
-
   border-radius:18px;
-
   padding:11px 13px;
 
   background:
@@ -784,11 +637,8 @@ main{
     );
 
   color:white;
-
   font-weight:800;
-
   font-size:13px;
-
   cursor:pointer;
 
   box-shadow:
@@ -803,19 +653,12 @@ main{
 
 .modal{
   display:none;
-
   position:fixed;
-
   inset:0;
-
   background:rgba(30,20,60,.6);
-
   z-index:9999;
-
   align-items:center;
-
   justify-content:center;
-
   padding:15px;
 }
 
@@ -825,27 +668,18 @@ main{
 
 .modal-contenido{
   width:100%;
-
   max-width:600px;
-
   max-height:90vh;
-
   overflow:auto;
-
   background:white;
-
   border-radius:22px;
-
   padding:20px;
-
   position:relative;
-
   border:1px solid #ede9fe;
 }
 
 .cerrar{
   position:absolute;
-
   top:10px;
   right:12px;
 
@@ -853,35 +687,24 @@ main{
   height:35px;
 
   border:0;
-
   border-radius:50%;
-
   background:#eef2ff;
-
   color:#4338ca;
-
   cursor:pointer;
-
   font-size:20px;
 }
 
 .modal h2{
   color:#4f46e5;
-
   margin-bottom:16px;
 }
 
 .input{
   width:100%;
-
   padding:12px;
-
   border:1px solid #ddd6fe;
-
   border-radius:11px;
-
   margin-bottom:10px;
-
   outline:none;
 }
 
@@ -891,13 +714,9 @@ main{
 
 .btn{
   border:0;
-
   padding:11px 15px;
-
   border-radius:11px;
-
   cursor:pointer;
-
   font-weight:800;
 }
 
@@ -915,17 +734,13 @@ main{
 
 .btn-secundario{
   background:#eef2ff;
-
   color:#4338ca;
 }
 
 .modal-imagen{
   max-width:100%;
-
   max-height:75vh;
-
   object-fit:contain;
-
   border-radius:15px;
 }
 
@@ -935,23 +750,16 @@ main{
 
 .carrito-item{
   display:flex;
-
   gap:10px;
-
   align-items:center;
-
   border-bottom:1px solid #ede9fe;
-
   padding:12px 0;
 }
 
 .carrito-item img{
   width:65px;
-
   height:65px;
-
   object-fit:cover;
-
   border-radius:10px;
 }
 
@@ -961,13 +769,9 @@ main{
 
 .carrito-total{
   text-align:right;
-
   font-size:20px;
-
   font-weight:900;
-
   color:#4f46e5;
-
   margin:15px 0;
 }
 
@@ -977,13 +781,9 @@ main{
 
 .admin-panel{
   display:none;
-
   margin-top:30px;
-
   background:white;
-
   border-radius:22px;
-
   padding:20px;
 
   box-shadow:
@@ -998,16 +798,12 @@ main{
 
 .admin-panel h2{
   color:#4f46e5;
-
   margin-bottom:15px;
 }
 
 .admin-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(2,1fr);
   gap:10px;
 }
 
@@ -1017,33 +813,23 @@ main{
 
 .admin-producto{
   padding:12px;
-
   border:1px solid #e5e1ff;
-
   border-radius:12px;
-
   margin-bottom:9px;
 }
 
 .admin-producto strong{
   display:block;
-
   margin-bottom:7px;
 }
 
 .estado{
   display:inline-block;
-
   padding:6px 9px;
-
   border-radius:8px;
-
   background:#eef2ff;
-
   color:#4338ca;
-
   font-size:12px;
-
   font-weight:700;
 }
 
@@ -1053,25 +839,17 @@ main{
 
 .resultado-busqueda{
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   padding:10px 0;
-
   border-bottom:1px solid #ede9fe;
-
   cursor:pointer;
 }
 
 .resultado-busqueda img{
   width:60px;
-
   height:60px;
-
   border-radius:10px;
-
   object-fit:cover;
 }
 
@@ -1081,21 +859,15 @@ main{
 
 .vacio{
   text-align:center;
-
   padding:30px 10px;
-
   color:#718096;
-
   background:#f7f5ff;
-
   border-radius:15px;
 }
 
 .cargando{
   text-align:center;
-
   padding:25px;
-
   color:#4f46e5;
 }
 
@@ -1106,13 +878,11 @@ main{
 @media(max-width:900px){
 
   .productos-grid{
-    grid-template-columns:
-      repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 
   .categorias-grid{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
@@ -1133,23 +903,18 @@ main{
 
   .header-btn{
     padding:10px 11px;
-
     font-size:12px;
-
     border-radius:12px;
   }
 
   .bienvenida-box{
     margin:10px 10px 8px;
-
     padding:14px 12px;
-
     border-radius:16px;
   }
 
   .bienvenida-texto{
     font-size:17px;
-
     line-height:1.35;
   }
 
@@ -1159,11 +924,8 @@ main{
 
   .slogan{
     font-size:14px;
-
     padding:12px;
-
     margin:7px 10px 10px;
-
     line-height:1.5;
   }
 
@@ -1177,7 +939,6 @@ main{
 
   .hero-video{
     width:100%;
-
     border-radius:14px;
   }
 
@@ -1186,9 +947,7 @@ main{
   }
 
   .productos-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
 
@@ -1230,7 +989,6 @@ main{
 
   .btn-volver{
     font-size:12px;
-
     padding:8px 10px;
   }
 
@@ -1245,29 +1003,22 @@ main{
   .flotante-favoritos{
     left:10px;
     bottom:10px;
-
     font-size:11px;
-
     padding:9px 10px;
-
     border-radius:13px;
   }
 
   .flotante-pedido{
     right:10px;
     bottom:10px;
-
     font-size:11px;
-
     padding:9px 10px;
-
     border-radius:13px;
   }
 
   .btn-favorito{
     width:28px;
     height:28px;
-
     font-size:13px;
   }
 
@@ -1285,7 +1036,6 @@ main{
 
   .header-btn{
     padding:9px 9px;
-
     font-size:11px;
   }
 
@@ -1302,8 +1052,7 @@ main{
   }
 
   .productos-grid{
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .producto-imagen{
@@ -1898,20 +1647,99 @@ let favoritos =
 
 let categoriaActual = null;
 
+/* =====================================================
+   SISTEMA DE CACHÉ
+===================================================== */
+
+const CACHE_FIREBASE =
+  "andrex_cache_firebase_productos_v5";
+
+const CACHE_GITHUB =
+  "andrex_cache_github_ropa_v5";
+
+const CACHE_TIEMPO =
+  1000 * 60 * 60 * 24;
+
 /*
-=========================================================
-   NUEVA OPTIMIZACIÓN DE CARGA
-=========================================================
-
-   La tienda comienza a preparar los productos
-   apenas abre.
-
-   Firebase + GitHub trabajan simultáneamente.
-
-   Además precargamos las imágenes con Image()
-   para que cuando el cliente abra una categoría
-   las fotos ya estén descargadas o en proceso.
+   Estos datos permiten que un visitante que
+   ya entró anteriormente vea el catálogo
+   prácticamente de inmediato.
 */
+
+function guardarCache(clave, datos){
+
+  try{
+
+    localStorage.setItem(
+      clave,
+      JSON.stringify({
+
+        timestamp:Date.now(),
+
+        productos:datos
+
+      })
+    );
+
+  }catch(error){
+
+    console.warn(
+      "No se pudo guardar caché:",
+      error
+    );
+
+  }
+
+}
+
+function leerCache(clave){
+
+  try{
+
+    const guardado =
+      localStorage.getItem(clave);
+
+    if(!guardado)
+      return [];
+
+    const datos =
+      JSON.parse(guardado);
+
+    if(
+      !datos ||
+      !Array.isArray(
+        datos.productos
+      )
+    ){
+
+      return [];
+
+    }
+
+    /*
+       Aunque tenga más de 24 horas,
+       lo mostramos primero y luego
+       la red lo actualiza.
+    */
+
+    return datos.productos;
+
+  }catch(error){
+
+    console.warn(
+      "Error leyendo caché:",
+      error
+    );
+
+    return [];
+
+  }
+
+}
+
+/* =====================================================
+   ESTADOS DE CARGA
+===================================================== */
 
 let productosCargados = false;
 
@@ -1923,7 +1751,8 @@ let githubPendiente = false;
 
 let githubYaCargado = false;
 
-let precargasImagenes = new Set();
+let precargasImagenes =
+  new Set();
 
 const categoriasGrid =
   document.getElementById(
@@ -2076,41 +1905,6 @@ function perteneceCategoria(
 }
 
 /* =====================================================
-   SABER SI UNA CATEGORÍA TODAVÍA ESTÁ CARGANDO
-===================================================== */
-
-function categoriaAunCargando(categoria){
-
-  /*
-     Firebase contiene productos de todas
-     las categorías.
-
-     GitHub solamente contiene Ropa.
-
-     Por eso GitHub no debe hacer esperar
-     Lociones, Zapatos ni Streaming.
-  */
-
-  if(firebasePendiente){
-
-    return true;
-
-  }
-
-  if(
-    categoria === "ropa" &&
-    githubPendiente
-  ){
-
-    return true;
-
-  }
-
-  return false;
-
-}
-
-/* =====================================================
    PRECARGAR IMAGEN
 ===================================================== */
 
@@ -2132,9 +1926,19 @@ function precargarImagen(url){
   const imagen =
     new Image();
 
-  imagen.decoding = "async";
+  imagen.decoding =
+    "async";
 
-  imagen.src = url;
+  /*
+     Las imágenes comienzan a solicitarse
+     inmediatamente.
+  */
+
+  imagen.fetchPriority =
+    "high";
+
+  imagen.src =
+    url;
 
 }
 
@@ -2143,11 +1947,6 @@ function precargarImagen(url){
 ===================================================== */
 
 function precargarImagenesProductos(){
-
-  /*
-     Eliminamos duplicados para no descargar
-     la misma imagen varias veces.
-  */
 
   const urls =
     [
@@ -2167,14 +1966,82 @@ function precargarImagenesProductos(){
     ];
 
   urls.forEach(
-    url =>
-      precargarImagen(url)
+    precargarImagen
   );
 
 }
 
 /* =====================================================
-   RENDERIZAR CATEGORÍA
+   CARGAR CACHÉ ANTES DE LA RED
+===================================================== */
+
+function cargarCacheInicial(){
+
+  const cacheFirebase =
+    leerCache(
+      CACHE_FIREBASE
+    );
+
+  const cacheGitHub =
+    leerCache(
+      CACHE_GITHUB
+    );
+
+  /*
+     Primero ponemos Firebase.
+  */
+
+  cacheFirebase.forEach(
+    producto => {
+
+      productos.push({
+        ...producto,
+        origen:"firebase"
+      });
+
+    }
+  );
+
+  /*
+     Luego ponemos Ropa de GitHub.
+  */
+
+  cacheGitHub.forEach(
+    producto => {
+
+      if(
+        !productos.some(
+          p =>
+            String(p.id) ===
+            String(producto.id)
+        )
+      ){
+
+        productos.push(
+          producto
+        );
+
+      }
+
+    }
+  );
+
+  /*
+     Las imágenes empiezan a calentarse
+     inmediatamente.
+  */
+
+  precargarImagenesProductos();
+
+  return (
+    cacheFirebase.length +
+    cacheGitHub.length
+  ) > 0;
+
+}
+
+/* =====================================================
+   CATEGORÍA ABIERTA
 ===================================================== */
 
 function renderCategoria(categoria){
@@ -2200,63 +2067,23 @@ function renderCategoria(categoria){
         )
     );
 
+  const esperandoFirebase =
+    firebasePendiente;
+
+  const esperandoGitHub =
+    categoria === "ropa" &&
+    githubPendiente;
+
   const esperando =
-    categoriaAunCargando(
-      categoria
-    );
+    esperandoFirebase ||
+    esperandoGitHub;
 
   /*
-     IMPORTANTE:
+     SI YA HAY PRODUCTOS:
 
-     Si ya tenemos productos de la categoría,
-     los mostramos aunque otra fuente todavía
-     esté terminando.
-
-     Así el cliente no ve "Cargando..." encima
-     de productos que ya están disponibles.
+     Los mostramos inmediatamente.
+     No mostramos "Cargando".
   */
-
-  if(
-    esperando &&
-    encontrados.length === 0
-  ){
-
-    categoriasGrid.innerHTML = `
-
-      <div class="categoria-vista-inline">
-
-        <div class="categoria-header-inline">
-
-          <h2>
-            ${
-              nombres[categoria] ||
-              categoria
-            }
-          </h2>
-
-          <button
-            class="btn-volver"
-            onclick="volverCategorias()">
-
-            ← Categorías
-
-          </button>
-
-        </div>
-
-        <div class="cargando">
-
-          ⏳ Preparando productos...
-
-        </div>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
 
   categoriasGrid.innerHTML = `
 
@@ -2304,10 +2131,32 @@ function renderCategoria(categoria){
 
           encontrados
             .map(
-              producto =>
-                tarjetaProducto(producto)
+              tarjetaProducto
             )
             .join("")
+
+          :
+
+          esperando
+
+          ?
+
+          `
+            <div
+              class="vacio"
+              style="grid-column:1/-1;">
+
+              ✨ Preparando esta categoría...
+
+              <br><br>
+
+              <small>
+                Los productos aparecerán
+                automáticamente.
+              </small>
+
+            </div>
+          `
 
           :
 
@@ -2316,14 +2165,12 @@ function renderCategoria(categoria){
               class="vacio"
               style="grid-column:1/-1;">
 
-              ${
-                esperando
-                ? "⏳ Preparando productos..."
-                : "😔 Todavía no hay productos en esta categoría."
-              }
+              😔 Todavía no hay productos
+              en esta categoría.
 
             </div>
           `
+
         }
 
       </div>
@@ -2333,18 +2180,20 @@ function renderCategoria(categoria){
   `;
 
   /*
-     Cuando las tarjetas ya están en el DOM,
-     también nos aseguramos de precargar sus imágenes.
+     Precalentamos específicamente las imágenes
+     de la categoría que el cliente acaba de abrir.
   */
 
   encontrados.forEach(
     producto => {
 
       precargarImagen(
+
         producto.imagen ||
         producto.image ||
         producto.url ||
         ""
+
       );
 
     }
@@ -2363,16 +2212,17 @@ function(categoria){
     categoria;
 
   /*
-     MUY IMPORTANTE:
+     NO iniciamos una segunda descarga.
 
-     La carga ya empezó cuando la página abrió.
-
-     Si por alguna razón el usuario toca
-     extremadamente rápido, reutilizamos
-     la misma carga en curso.
+     La descarga ya comenzó al abrir la tienda.
   */
 
   cargarProductos();
+
+  /*
+     Renderizamos INMEDIATAMENTE
+     lo que ya esté disponible.
+  */
 
   renderCategoria(
     categoria
@@ -2381,13 +2231,14 @@ function(categoria){
 };
 
 /* =====================================================
-   VOLVER A CATEGORÍAS
+   VOLVER
 ===================================================== */
 
 window.volverCategorias =
 function(){
 
-  categoriaActual = null;
+  categoriaActual =
+    null;
 
   categoriasGrid.innerHTML =
     categoriasOriginales;
@@ -2395,7 +2246,7 @@ function(){
 };
 
 /* =====================================================
-   TARJETA PRODUCTO
+   TARJETA
 ===================================================== */
 
 function tarjetaProducto(
@@ -2434,11 +2285,6 @@ function tarjetaProducto(
   const esFavorito =
     favoritos.includes(id);
 
-  /*
-     Si la imagen existe, la precargamos
-     inmediatamente.
-  */
-
   if(imagen){
 
     precargarImagen(
@@ -2469,6 +2315,7 @@ function tarjetaProducto(
         alt="${escapeHtml(nombre)}"
         loading="eager"
         decoding="async"
+        fetchpriority="high"
         onclick="verImagen('${escapeHtml(imagen)}')"
         onerror="this.src='https://via.placeholder.com/600x600?text=ANDREX'">
 
@@ -2521,7 +2368,7 @@ function tarjetaProducto(
 }
 
 /* =====================================================
-   ACTUALIZAR CATEGORÍA ABIERTA
+   ACTUALIZAR CATEGORÍA
 ===================================================== */
 
 function actualizarCategoriaAbierta(){
@@ -2542,21 +2389,11 @@ function actualizarCategoriaAbierta(){
 
 async function cargarProductos(){
 
-  /*
-     Si ya está todo cargado, no hacemos
-     ninguna petición nuevamente.
-  */
-
   if(productosCargados){
 
     return;
 
   }
-
-  /*
-     Si ya hay una carga en curso,
-     reutilizamos esa carga.
-  */
 
   if(cargaProductosEnCurso){
 
@@ -2564,20 +2401,11 @@ async function cargarProductos(){
 
   }
 
-  /*
-     Empezamos inmediatamente.
-
-     Esto ocurre al abrir la página,
-     no cuando el cliente toca una categoría.
-  */
-
-  firebasePendiente = true;
+  firebasePendiente =
+    true;
 
   githubPendiente =
     !githubYaCargado;
-
-  productosCargados =
-    false;
 
   cargaProductosEnCurso =
     cargarProductosInterno();
@@ -2596,13 +2424,14 @@ async function cargarProductos(){
 }
 
 /* =====================================================
-   CARGA INTERNA
+   CARGA PARALELA
 ===================================================== */
 
 async function cargarProductosInterno(){
 
   /*
-     Las dos fuentes comienzan al mismo tiempo.
+     FIREBASE Y GITHUB ARRANCAN EXACTAMENTE
+     AL MISMO TIEMPO.
   */
 
   const firebasePromise =
@@ -2612,11 +2441,8 @@ async function cargarProductosInterno(){
     cargarProductosGitHub();
 
   /*
-     Esperamos ambas para marcar
-     la carga general como completada.
-
-     Pero cada una actualiza la pantalla
-     por separado cuando termina.
+     No esperamos a que una termine
+     para comenzar la otra.
   */
 
   await Promise.allSettled([
@@ -2627,16 +2453,14 @@ async function cargarProductosInterno(){
 
   ]);
 
-  firebasePendiente = false;
+  firebasePendiente =
+    false;
 
-  githubPendiente = false;
+  githubPendiente =
+    false;
 
-  productosCargados = true;
-
-  /*
-     Precargamos nuevamente todas las imágenes
-     después de tener el conjunto completo.
-  */
+  productosCargados =
+    true;
 
   precargarImagenesProductos();
 
@@ -2649,7 +2473,7 @@ async function cargarProductosInterno(){
 }
 
 /* =====================================================
-   FIREBASE PRODUCTOS
+   FIREBASE
 ===================================================== */
 
 async function cargarProductosFirebase(){
@@ -2665,10 +2489,10 @@ async function cargarProductosFirebase(){
       );
 
     /*
-       Quitamos productos Firebase anteriores
-       por seguridad.
+       Quitamos solamente los productos Firebase
+       anteriores.
 
-       Conservamos GitHub.
+       Los de GitHub se mantienen.
     */
 
     productos =
@@ -2677,33 +2501,62 @@ async function cargarProductosFirebase(){
           p.origen === "github"
       );
 
+    const productosFirebase =
+      [];
+
     snapshot.forEach(
       docSnap => {
 
-        productos.push({
+        const producto = {
 
-          id:docSnap.id,
+          id:
+            docSnap.id,
 
           ...docSnap.data(),
 
-          origen:"firebase"
+          origen:
+            "firebase"
 
-        });
+        };
+
+        productos.push(
+          producto
+        );
+
+        productosFirebase.push(
+          producto
+        );
 
       }
     );
 
     /*
-       Firebase acaba de responder.
+       GUARDAMOS EL CATÁLOGO.
 
-       Los productos disponibles se muestran
-       inmediatamente y sus imágenes comienzan
-       a descargarse.
+       La próxima vez que entre este navegador,
+       podrá mostrar estos productos sin esperar
+       primero a Firebase.
     */
 
-    firebasePendiente = false;
+    guardarCache(
+      CACHE_FIREBASE,
+      productosFirebase
+    );
+
+    firebasePendiente =
+      false;
+
+    /*
+       Las imágenes empiezan a cargarse
+       apenas Firebase responde.
+    */
 
     precargarImagenesProductos();
+
+    /*
+       Si el cliente ya abrió una categoría,
+       la actualizamos inmediatamente.
+    */
 
     actualizarCategoriaAbierta();
 
@@ -2718,12 +2571,8 @@ async function cargarProductosFirebase(){
 
   }finally{
 
-    /*
-       Aunque haya error, dejamos de indicar
-       que Firebase está cargando.
-    */
-
-    firebasePendiente = false;
+    firebasePendiente =
+      false;
 
     actualizarCategoriaAbierta();
 
@@ -2732,19 +2581,15 @@ async function cargarProductosFirebase(){
 }
 
 /* =====================================================
-   GITHUB PRODUCTOS
+   GITHUB
 ===================================================== */
 
 async function cargarProductosGitHub(){
 
-  /*
-     Si GitHub ya fue cargado durante esta sesión,
-     no hacemos otra petición.
-  */
-
   if(githubYaCargado){
 
-    githubPendiente = false;
+    githubPendiente =
+      false;
 
     return;
 
@@ -2754,10 +2599,17 @@ async function cargarProductosGitHub(){
 
     const respuesta =
       await fetch(
+
         "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva",
+
         {
-          cache:"default"
+          cache:"force-cache",
+          headers:{
+            "Accept":
+              "application/vnd.github+json"
+          }
         }
+
       );
 
     if(!respuesta.ok){
@@ -2772,15 +2624,8 @@ async function cargarProductosGitHub(){
     const archivos =
       await respuesta.json();
 
-    /*
-       Quitamos productos GitHub anteriores.
-    */
-
-    productos =
-      productos.filter(
-        p =>
-          p.origen !== "github"
-      );
+    const productosGitHub =
+      [];
 
     archivos
       .filter(
@@ -2811,7 +2656,7 @@ async function cargarProductosGitHub(){
       .forEach(
         archivo => {
 
-          productos.push({
+          const producto = {
 
             id:
               "github_" +
@@ -2844,21 +2689,64 @@ async function cargarProductosGitHub(){
 
             origen:"github"
 
-          });
+          };
+
+          productosGitHub.push(
+            producto
+          );
 
         }
       );
 
-    githubYaCargado = true;
-
-    githubPendiente = false;
-
     /*
-       En cuanto GitHub responde,
-       comenzamos a precargar las fotos.
+       Quitamos la ropa antigua de GitHub
+       antes de poner la nueva.
     */
 
-    precargarImagenesProductos();
+    productos =
+      productos.filter(
+        p =>
+          p.origen !==
+          "github"
+      );
+
+    productos.push(
+      ...productosGitHub
+    );
+
+    /*
+       GUARDAMOS ROPA.
+
+       Esto hace una diferencia enorme para
+       visitantes que ya hayan entrado anteriormente.
+    */
+
+    guardarCache(
+      CACHE_GITHUB,
+      productosGitHub
+    );
+
+    githubYaCargado =
+      true;
+
+    githubPendiente =
+      false;
+
+    /*
+       PRE-CARGA INMEDIATA DE TODAS LAS FOTOS.
+    */
+
+    productosGitHub.forEach(
+      producto =>
+        precargarImagen(
+          producto.imagen
+        )
+    );
+
+    /*
+       Si Ropa está abierta,
+       aparece inmediatamente.
+    */
 
     actualizarCategoriaAbierta();
 
@@ -2869,9 +2757,16 @@ async function cargarProductosGitHub(){
       error
     );
 
+    /*
+       Si GitHub falla pero ya teníamos
+       caché, el cliente sigue viendo los
+       productos guardados anteriormente.
+    */
+
   }finally{
 
-    githubPendiente = false;
+    githubPendiente =
+      false;
 
     actualizarCategoriaAbierta();
 
@@ -2886,7 +2781,8 @@ async function cargarProductosGitHub(){
 window.toggleFavorito =
 function(id){
 
-  id = String(id);
+  id =
+    String(id);
 
   if(
     favoritos.includes(id)
@@ -2962,7 +2858,9 @@ function(){
 
         ${
           productosFavoritos
-            .map(tarjetaProducto)
+            .map(
+              tarjetaProducto
+            )
             .join("")
         }
 
@@ -2987,7 +2885,8 @@ function(imagen){
 
   document.getElementById(
     "imagenGrande"
-  ).src = imagen;
+  ).src =
+    imagen;
 
   abrirModal(
     "modalImagen"
@@ -3045,9 +2944,10 @@ function(id){
 
   carrito.push({
 
-    id:String(
-      producto.id
-    ),
+    id:
+      String(
+        producto.id
+      ),
 
     nombre:
       producto.nombre ||
@@ -3279,11 +3179,6 @@ function(){
     "modalBusqueda"
   );
 
-  /*
-     La carga ya comenzó desde que abrió
-     la tienda, pero la garantizamos aquí.
-  */
-
   cargarProductos();
 
   setTimeout(
@@ -3322,11 +3217,6 @@ function(){
     return;
 
   }
-
-  /*
-     Aunque Firebase todavía esté terminando,
-     buscamos en lo que ya tenemos disponible.
-  */
 
   const encontrados =
     productos.filter(
@@ -3378,7 +3268,7 @@ function(){
 
         <div class="cargando">
 
-          ⏳ Preparando productos...
+          ✨ Preparando productos...
 
         </div>
 
@@ -3425,7 +3315,8 @@ function(){
               )}"
               alt=""
               loading="eager"
-              decoding="async">
+              decoding="async"
+              fetchpriority="high">
 
             <div>
 
@@ -4025,7 +3916,8 @@ async function cargarPedidos(){
 
         pedidos.push({
 
-          id:docSnap.id,
+          id:
+            docSnap.id,
 
           ...docSnap.data()
 
@@ -4296,20 +4188,37 @@ async function(){
 
       );
 
-    productos.push({
+    const productoNuevo = {
 
-      id:nuevoProducto.id,
+      id:
+        nuevoProducto.id,
 
       ...datosProducto,
 
-      origen:"firebase"
+      origen:
+        "firebase"
 
-    });
+    };
+
+    productos.push(
+      productoNuevo
+    );
 
     /*
-       Precargamos inmediatamente la imagen
-       del nuevo producto.
+       Actualizamos el caché inmediatamente.
     */
+
+    const productosFirebase =
+      productos.filter(
+        p =>
+          p.origen ===
+          "firebase"
+      );
+
+    guardarCache(
+      CACHE_FIREBASE,
+      productosFirebase
+    );
 
     if(imagen){
 
@@ -4598,6 +4507,22 @@ async function(id){
           String(id)
       );
 
+    /*
+       Actualizar caché después de eliminar.
+    */
+
+    guardarCache(
+
+      CACHE_FIREBASE,
+
+      productos.filter(
+        p =>
+          p.origen ===
+          "firebase"
+      )
+
+    );
+
     alert(
       "✅ Producto eliminado."
     );
@@ -4677,11 +4602,6 @@ document.getElementById(
           "✅ Panel de administrador activado."
         );
 
-        /*
-           Los pedidos solamente se cargan
-           cuando se abre el administrador.
-        */
-
         cargarPedidos();
 
         renderAdmin();
@@ -4714,65 +4634,77 @@ document.getElementById(
 );
 
 /* =====================================================
-   INICIO ULTRA OPTIMIZADO
+   🚀 ARRANQUE ULTRA RÁPIDO
 ===================================================== */
 
 /*
-   El punto más importante:
+   PASO 1
+   Mostramos caché INMEDIATAMENTE.
 
-   Apenas el visitante abre la tienda,
-   comenzamos a descargar:
+   Esto ocurre antes de esperar a Firebase
+   o GitHub.
+*/
 
-   1. Productos Firebase
-   2. Productos GitHub
-   3. Imágenes de los productos
+const habiaCache =
+  cargarCacheInicial();
 
-   El visitante NO tiene que tocar una categoría
-   para iniciar esas descargas.
+/*
+   PASO 2
+   Contador del carrito.
 */
 
 actualizarContadorCarrito();
 
 /*
-   Arranca inmediatamente.
+   PASO 3
+   Firebase + GitHub arrancan inmediatamente.
+
+   NO esperamos a que el usuario toque
+   ninguna categoría.
 */
 
 cargarProductos();
 
 /*
-   En cuanto el navegador tenga oportunidad,
-   seguimos calentando las imágenes.
-
-   Esto no bloquea la página.
+   PASO 4
+   Seguimos calentando las imágenes
+   inmediatamente después.
 */
 
-if(
-  "requestIdleCallback" in window
-){
+setTimeout(
+  () => {
 
-  requestIdleCallback(
-    () => {
+    precargarImagenesProductos();
 
-      precargarImagenesProductos();
+  },
+  0
+);
 
-    },
-    {
-      timeout:1500
-    }
-  );
+/*
+   Segundo calentamiento muy corto.
+*/
 
-}else{
+setTimeout(
+  () => {
 
-  setTimeout(
-    () => {
+    precargarImagenesProductos();
 
-      precargarImagenesProductos();
+  },
+  150
+);
 
-    },
-    500
-  );
+/*
+   Tercer calentamiento.
+*/
 
-}
+setTimeout(
+  () => {
+
+    precargarImagenesProductos();
+
+  },
+  500
+);
 
 /* =====================================================
    ASEGURAR BOTONES FLOTANTES
