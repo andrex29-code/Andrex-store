@@ -6,6 +6,15 @@
 
 <title>ANDREX 🩵 STORE</title>
 
+<!-- =====================================================
+     TIPOGRAFÍA ELEGANTE
+===================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 
 /* =====================================================
@@ -63,14 +72,20 @@ header{
 }
 
 /* =====================================================
-   NOMBRE NEÓN SUAVE AZUL + MORADO
+   NOMBRE DE LA TIENDA
+   TIPOGRAFÍA ELEGANTE
 ===================================================== */
 
 .logo{
   position:relative;
 
-  font-size:27px;
-  font-weight:1000;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:30px;
+  font-weight:800;
 
   background:
     linear-gradient(
@@ -85,7 +100,7 @@ header{
 
   color:transparent;
 
-  letter-spacing:1px;
+  letter-spacing:1.2px;
 
   cursor:pointer;
   user-select:none;
@@ -118,34 +133,81 @@ header{
 
 /* =====================================================
    BOTONES HEADER
+   MÁS GRANDES + 3D
 ===================================================== */
 
 .header-actions{
   display:flex;
-  gap:8px;
+  gap:10px;
 }
 
 .header-btn{
+
   border:0;
 
-  background:#eef2ff;
+  background:
+    linear-gradient(
+      145deg,
+      #f8f9ff,
+      #e5e9ff
+    );
+
   color:#4338ca;
 
-  padding:10px 13px;
+  padding:12px 15px;
 
-  border-radius:12px;
+  border-radius:14px;
 
   cursor:pointer;
 
-  font-weight:800;
+  font-weight:900;
 
-  transition:.2s;
+  font-size:14px;
+
+  box-shadow:
+    0 5px 0 #c7cff5,
+    0 8px 15px rgba(79,70,229,.18),
+    inset 0 1px 2px rgba(255,255,255,.95);
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.9);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+
 }
 
 .header-btn:hover{
-  transform:translateY(-2px);
 
-  background:#e0e7ff;
+  transform:
+    translateY(-3px);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e0e7ff
+    );
+
+  box-shadow:
+    0 7px 0 #c7cff5,
+    0 11px 20px rgba(79,70,229,.22),
+    inset 0 1px 2px rgba(255,255,255,1);
+
+}
+
+.header-btn:active{
+
+  transform:
+    translateY(2px);
+
+  box-shadow:
+    0 2px 0 #c7cff5,
+    0 4px 8px rgba(79,70,229,.15),
+    inset 0 2px 3px rgba(79,70,229,.08);
+
 }
 
 /* =====================================================
@@ -207,19 +269,30 @@ header{
   opacity:.65;
 }
 
+/* =====================================================
+   BIENVENIDA
+   LETRA BONITA + MÁS GRANDE
+===================================================== */
+
 .bienvenida-texto{
 
-  /* UN POQUITO MÁS GRANDE */
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
 
-  font-size:22px;
+  font-size:24px;
 
-  font-weight:900;
+  font-weight:800;
 
   color:#4338ca;
 
-  letter-spacing:.2px;
+  letter-spacing:.3px;
 
   line-height:1.3;
+
+  text-shadow:
+    0 2px 3px rgba(79,70,229,.12);
 }
 
 /* =====================================================
@@ -245,18 +318,35 @@ header{
 
   color:#5b6070;
 
-  font-size:15px;
+  font-size:16px;
 
   line-height:1.5;
 
   border:1px solid #ede9fe;
+
 }
+
+/* =====================================================
+   LETRA BONITA DEL LEMA
+===================================================== */
 
 .slogan strong{
 
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
   color:#4f46e5;
 
-  font-weight:900;
+  font-weight:800;
+
+  font-size:20px;
+
+  letter-spacing:.2px;
+
+  text-shadow:
+    0 2px 3px rgba(79,70,229,.12);
 }
 
 /* =====================================================
@@ -1197,13 +1287,29 @@ main{
   }
 
   .logo{
-    font-size:19px;
+    font-size:21px;
+  }
+
+  /* =================================================
+     BOTONES HEADER 3D EN CELULAR
+  ================================================= */
+
+  .header-actions{
+    gap:7px;
   }
 
   .header-btn{
-    padding:8px 9px;
 
-    font-size:11px;
+    padding:10px 11px;
+
+    font-size:12px;
+
+    border-radius:12px;
+
+    box-shadow:
+      0 4px 0 #c7cff5,
+      0 7px 12px rgba(79,70,229,.17),
+      inset 0 1px 2px rgba(255,255,255,.95);
   }
 
   .bienvenida-box{
@@ -1217,11 +1323,15 @@ main{
     border-radius:16px;
   }
 
+  /* =================================================
+     BIENVENIDA MÁS GRANDE
+  ================================================= */
+
   .bienvenida-texto{
 
-    /* UN POQUITO MÁS GRANDE EN CELULAR */
+    font-size:17px;
 
-    font-size:16px;
+    line-height:1.35;
   }
 
   main{
@@ -1230,12 +1340,20 @@ main{
   }
 
   .slogan{
-    font-size:13px;
+
+    font-size:14px;
 
     padding:12px;
 
     margin:
       7px 10px 10px;
+
+    line-height:1.5;
+  }
+
+  .slogan strong{
+
+    font-size:17px;
   }
 
   .hero{
@@ -1356,14 +1474,29 @@ main{
 @media(max-width:400px){
 
   .logo{
-    font-size:17px;
+    font-size:19px;
+  }
+
+  .header-btn{
+
+    padding:9px 9px;
+
+    font-size:11px;
   }
 
   .bienvenida-texto{
 
-    /* UN POQUITO MÁS GRANDE */
+    font-size:16px;
+  }
 
-    font-size:15px;
+  .slogan{
+
+    font-size:13px;
+  }
+
+  .slogan strong{
+
+    font-size:16px;
   }
 
   .productos-grid{
@@ -1466,6 +1599,7 @@ main{
 
 <!-- =====================================================
      VIDEO
+     AUTOPLAY + MUTED
 ===================================================== -->
 
 <section class="hero">
@@ -1474,8 +1608,10 @@ main{
 
     <video
       controls
+      autoplay
+      muted
       playsinline
-      preload="metadata"
+      preload="auto"
       src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4">
     </video>
 
@@ -2045,7 +2181,7 @@ const firebaseConfig = {
 };
 
 const app =
-  initializeApp(firebaseConfig);
+  initializeApp(appConfig = firebaseConfig);
 
 const db =
   getFirestore(app);
@@ -2194,7 +2330,6 @@ function perteneceCategoria(
 
 /* =====================================================
    ABRIR CATEGORÍA
-   MISMO LUGAR
 ===================================================== */
 
 window.abrirCategoria =
@@ -4314,16 +4449,13 @@ document.getElementById(
 ===================================================== */
 
 /*
-  Ya no tienen movimiento automático.
-
   ❤️ Favoritos:
   abajo a la izquierda.
 
   📦 Seguir pedido:
   abajo a la derecha.
 
-  La posición se controla
-  directamente desde CSS.
+  Sin movimiento automático.
 */
 
 </script>
