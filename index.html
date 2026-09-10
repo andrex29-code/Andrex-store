@@ -105,7 +105,7 @@ header{
     text-shadow:
       0 1px 2px rgba(37,99,235,.18),
       0 0 7px rgba(99,102,241,.25),
-      0 0 13px rgba(124,58,237,.18);
+      0 0 13px rgba(124,58,violet,.18);
   }
 }
 
@@ -1849,7 +1849,7 @@ import {
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyBG7jgOKWeNJed6QPDMW-4-933gG59I",
+    "AIzaSyBG7jgOKWeNjed6QPDMW-4-933gG59I",
 
   authDomain:
     "andrex-store.firebaseapp.com",
@@ -1899,18 +1899,31 @@ let favoritos =
 let categoriaActual = null;
 
 /*
-   OPTIMIZACIÓN:
-   Controlamos una sola carga de productos
-   para evitar peticiones duplicadas.
+=========================================================
+   NUEVA OPTIMIZACIÓN DE CARGA
+=========================================================
+
+   La tienda comienza a preparar los productos
+   apenas abre.
+
+   Firebase + GitHub trabajan simultáneamente.
+
+   Además precargamos las imágenes con Image()
+   para que cuando el cliente abra una categoría
+   las fotos ya estén descargadas o en proceso.
 */
 
 let productosCargados = false;
 
 let cargaProductosEnCurso = null;
 
-let fuentesPendientes = 0;
+let firebasePendiente = false;
+
+let githubPendiente = false;
 
 let githubYaCargado = false;
+
+let precargasImagenes = new Set();
 
 const categoriasGrid =
   document.getElementById(
@@ -2063,6 +2076,104 @@ function perteneceCategoria(
 }
 
 /* =====================================================
+   SABER SI UNA CATEGORÍA TODAVÍA ESTÁ CARGANDO
+===================================================== */
+
+function categoriaAunCargando(categoria){
+
+  /*
+     Firebase contiene productos de todas
+     las categorías.
+
+     GitHub solamente contiene Ropa.
+
+     Por eso GitHub no debe hacer esperar
+     Lociones, Zapatos ni Streaming.
+  */
+
+  if(firebasePendiente){
+
+    return true;
+
+  }
+
+  if(
+    categoria === "ropa" &&
+    githubPendiente
+  ){
+
+    return true;
+
+  }
+
+  return false;
+
+}
+
+/* =====================================================
+   PRECARGAR IMAGEN
+===================================================== */
+
+function precargarImagen(url){
+
+  if(!url)
+    return;
+
+  if(
+    precargasImagenes.has(url)
+  ){
+
+    return;
+
+  }
+
+  precargasImagenes.add(url);
+
+  const imagen =
+    new Image();
+
+  imagen.decoding = "async";
+
+  imagen.src = url;
+
+}
+
+/* =====================================================
+   PRECARGAR TODAS LAS IMÁGENES
+===================================================== */
+
+function precargarImagenesProductos(){
+
+  /*
+     Eliminamos duplicados para no descargar
+     la misma imagen varias veces.
+  */
+
+  const urls =
+    [
+      ...new Set(
+
+        productos
+          .map(
+            producto =>
+              producto.imagen ||
+              producto.image ||
+              producto.url ||
+              ""
+          )
+          .filter(Boolean)
+
+      )
+    ];
+
+  urls.forEach(
+    url =>
+      precargarImagen(url)
+  );
+
+}
+
+/* =====================================================
    RENDERIZAR CATEGORÍA
 ===================================================== */
 
@@ -2089,13 +2200,24 @@ function renderCategoria(categoria){
         )
     );
 
+  const esperando =
+    categoriaAunCargando(
+      categoria
+    );
+
   /*
-     Si todavía hay fuentes cargando y no tenemos
-     productos para mostrar, enseñamos cargando.
+     IMPORTANTE:
+
+     Si ya tenemos productos de la categoría,
+     los mostramos aunque otra fuente todavía
+     esté terminando.
+
+     Así el cliente no ve "Cargando..." encima
+     de productos que ya están disponibles.
   */
 
   if(
-    fuentesPendientes > 0 &&
+    esperando &&
     encontrados.length === 0
   ){
 
@@ -2124,13 +2246,7 @@ function renderCategoria(categoria){
 
         <div class="cargando">
 
-          ⏳ Cargando productos...
-
-          <br>
-
-          <small>
-            Un momento, estamos preparando esta categoría.
-          </small>
+          ⏳ Preparando productos...
 
         </div>
 
@@ -2200,8 +2316,11 @@ function renderCategoria(categoria){
               class="vacio"
               style="grid-column:1/-1;">
 
-              😔 Todavía no hay productos
-              en esta categoría.
+              ${
+                esperando
+                ? "⏳ Preparando productos..."
+                : "😔 Todavía no hay productos en esta categoría."
+              }
 
             </div>
           `
@@ -2212,6 +2331,24 @@ function renderCategoria(categoria){
     </div>
 
   `;
+
+  /*
+     Cuando las tarjetas ya están en el DOM,
+     también nos aseguramos de precargar sus imágenes.
+  */
+
+  encontrados.forEach(
+    producto => {
+
+      precargarImagen(
+        producto.imagen ||
+        producto.image ||
+        producto.url ||
+        ""
+      );
+
+    }
+  );
 
 }
 
@@ -2226,21 +2363,20 @@ function(categoria){
     categoria;
 
   /*
-     Si los productos todavía están cargando,
-     mostramos inmediatamente la pantalla de la categoría.
+     MUY IMPORTANTE:
+
+     La carga ya empezó cuando la página abrió.
+
+     Si por alguna razón el usuario toca
+     extremadamente rápido, reutilizamos
+     la misma carga en curso.
   */
 
-  if(!productosCargados){
+  cargarProductos();
 
-    renderCategoria(categoria);
-
-    cargarProductos();
-
-    return;
-
-  }
-
-  renderCategoria(categoria);
+  renderCategoria(
+    categoria
+  );
 
 };
 
@@ -2298,6 +2434,19 @@ function tarjetaProducto(
   const esFavorito =
     favoritos.includes(id);
 
+  /*
+     Si la imagen existe, la precargamos
+     inmediatamente.
+  */
+
+  if(imagen){
+
+    precargarImagen(
+      imagen
+    );
+
+  }
+
   return `
 
     <article class="producto">
@@ -2318,7 +2467,7 @@ function tarjetaProducto(
         class="producto-imagen"
         src="${escapeHtml(imagen)}"
         alt="${escapeHtml(nombre)}"
-        loading="lazy"
+        loading="eager"
         decoding="async"
         onclick="verImagen('${escapeHtml(imagen)}')"
         onerror="this.src='https://via.placeholder.com/600x600?text=ANDREX'">
@@ -2388,14 +2537,25 @@ function actualizarCategoriaAbierta(){
 }
 
 /* =====================================================
-   CARGAR PRODUCTOS OPTIMIZADO
+   CARGAR PRODUCTOS
 ===================================================== */
 
 async function cargarProductos(){
 
   /*
-     Si ya existe una carga en curso,
-     reutilizamos esa misma promesa.
+     Si ya está todo cargado, no hacemos
+     ninguna petición nuevamente.
+  */
+
+  if(productosCargados){
+
+    return;
+
+  }
+
+  /*
+     Si ya hay una carga en curso,
+     reutilizamos esa carga.
   */
 
   if(cargaProductosEnCurso){
@@ -2405,14 +2565,19 @@ async function cargarProductos(){
   }
 
   /*
-     Si ya se cargaron, no hacemos otra petición.
+     Empezamos inmediatamente.
+
+     Esto ocurre al abrir la página,
+     no cuando el cliente toca una categoría.
   */
 
-  if(productosCargados){
+  firebasePendiente = true;
 
-    return;
+  githubPendiente =
+    !githubYaCargado;
 
-  }
+  productosCargados =
+    false;
 
   cargaProductosEnCurso =
     cargarProductosInterno();
@@ -2423,7 +2588,8 @@ async function cargarProductos(){
 
   }finally{
 
-    cargaProductosEnCurso = null;
+    cargaProductosEnCurso =
+      null;
 
   }
 
@@ -2436,15 +2602,8 @@ async function cargarProductos(){
 async function cargarProductosInterno(){
 
   /*
-     Firebase y GitHub empiezan AL MISMO TIEMPO.
-     Antes se esperaba Firebase y después GitHub.
+     Las dos fuentes comienzan al mismo tiempo.
   */
-
-  fuentesPendientes = 2;
-
-  productosCargados = false;
-
-  actualizarCategoriaAbierta();
 
   const firebasePromise =
     cargarProductosFirebase();
@@ -2453,8 +2612,11 @@ async function cargarProductosInterno(){
     cargarProductosGitHub();
 
   /*
-     Cada fuente actualiza la pantalla
-     apenas termina.
+     Esperamos ambas para marcar
+     la carga general como completada.
+
+     Pero cada una actualiza la pantalla
+     por separado cuando termina.
   */
 
   await Promise.allSettled([
@@ -2465,9 +2627,18 @@ async function cargarProductosInterno(){
 
   ]);
 
-  fuentesPendientes = 0;
+  firebasePendiente = false;
+
+  githubPendiente = false;
 
   productosCargados = true;
+
+  /*
+     Precargamos nuevamente todas las imágenes
+     después de tener el conjunto completo.
+  */
+
+  precargarImagenesProductos();
 
   actualizarContadorCarrito();
 
@@ -2494,8 +2665,10 @@ async function cargarProductosFirebase(){
       );
 
     /*
-       No borramos la información anterior.
-       Solo reemplazamos los productos Firebase.
+       Quitamos productos Firebase anteriores
+       por seguridad.
+
+       Conservamos GitHub.
     */
 
     productos =
@@ -2521,9 +2694,16 @@ async function cargarProductosFirebase(){
     );
 
     /*
-       Si el usuario está viendo una categoría,
-       aparece inmediatamente lo que Firebase encontró.
+       Firebase acaba de responder.
+
+       Los productos disponibles se muestran
+       inmediatamente y sus imágenes comienzan
+       a descargarse.
     */
+
+    firebasePendiente = false;
+
+    precargarImagenesProductos();
 
     actualizarCategoriaAbierta();
 
@@ -2538,7 +2718,12 @@ async function cargarProductosFirebase(){
 
   }finally{
 
-    fuentesPendientes--;
+    /*
+       Aunque haya error, dejamos de indicar
+       que Firebase está cargando.
+    */
+
+    firebasePendiente = false;
 
     actualizarCategoriaAbierta();
 
@@ -2553,13 +2738,13 @@ async function cargarProductosFirebase(){
 async function cargarProductosGitHub(){
 
   /*
-     Evita volver a consultar GitHub durante
-     la misma sesión.
+     Si GitHub ya fue cargado durante esta sesión,
+     no hacemos otra petición.
   */
 
   if(githubYaCargado){
 
-    fuentesPendientes--;
+    githubPendiente = false;
 
     return;
 
@@ -2571,103 +2756,111 @@ async function cargarProductosGitHub(){
       await fetch(
         "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva",
         {
-          cache:"no-cache"
+          cache:"default"
         }
       );
 
-    if(respuesta.ok){
+    if(!respuesta.ok){
 
-      const archivos =
-        await respuesta.json();
-
-      /*
-         Quitamos solamente los productos GitHub
-         anteriores por seguridad.
-      */
-
-      productos =
-        productos.filter(
-          p =>
-            p.origen !== "github"
-        );
-
-      archivos
-        .filter(
-          archivo => {
-
-            const nombre =
-              String(
-                archivo.name
-              ).toLowerCase();
-
-            return (
-
-              archivo.type === "file"
-
-              &&
-
-              /\.(jpg|jpeg|png|webp|gif)$/i
-                .test(nombre)
-
-              &&
-
-              !nombre.includes("3285")
-
-            );
-
-          }
-        )
-        .forEach(
-          archivo => {
-
-            productos.push({
-
-              id:
-                "github_" +
-                archivo.name,
-
-              nombre:
-                archivo.name
-                  .replace(
-                    /\.[^/.]+$/,
-                    ""
-                  )
-                  .replaceAll(
-                    "_",
-                    " "
-                  )
-                  .replaceAll(
-                    "-",
-                    " "
-                  ),
-
-              precio:0,
-
-              categoria:"ropa",
-
-              descripcion:
-                "Producto disponible.",
-
-              imagen:
-                archivo.download_url,
-
-              origen:"github"
-
-            });
-
-          }
-        );
-
-      githubYaCargado = true;
-
-      /*
-         Los productos de Ropa de GitHub aparecen
-         apenas termina esa petición.
-      */
-
-      actualizarCategoriaAbierta();
+      throw new Error(
+        "GitHub respondió " +
+        respuesta.status
+      );
 
     }
+
+    const archivos =
+      await respuesta.json();
+
+    /*
+       Quitamos productos GitHub anteriores.
+    */
+
+    productos =
+      productos.filter(
+        p =>
+          p.origen !== "github"
+      );
+
+    archivos
+      .filter(
+        archivo => {
+
+          const nombre =
+            String(
+              archivo.name
+            ).toLowerCase();
+
+          return (
+
+            archivo.type === "file"
+
+            &&
+
+            /\.(jpg|jpeg|png|webp|gif)$/i
+              .test(nombre)
+
+            &&
+
+            !nombre.includes("3285")
+
+          );
+
+        }
+      )
+      .forEach(
+        archivo => {
+
+          productos.push({
+
+            id:
+              "github_" +
+              archivo.name,
+
+            nombre:
+              archivo.name
+                .replace(
+                  /\.[^/.]+$/,
+                  ""
+                )
+                .replaceAll(
+                  "_",
+                  " "
+                )
+                .replaceAll(
+                  "-",
+                  " "
+                ),
+
+            precio:0,
+
+            categoria:"ropa",
+
+            descripcion:
+              "Producto disponible.",
+
+            imagen:
+              archivo.download_url,
+
+            origen:"github"
+
+          });
+
+        }
+      );
+
+    githubYaCargado = true;
+
+    githubPendiente = false;
+
+    /*
+       En cuanto GitHub responde,
+       comenzamos a precargar las fotos.
+    */
+
+    precargarImagenesProductos();
+
+    actualizarCategoriaAbierta();
 
   }catch(error){
 
@@ -2678,7 +2871,7 @@ async function cargarProductosGitHub(){
 
   }finally{
 
-    fuentesPendientes--;
+    githubPendiente = false;
 
     actualizarCategoriaAbierta();
 
@@ -3086,6 +3279,13 @@ function(){
     "modalBusqueda"
   );
 
+  /*
+     La carga ya comenzó desde que abrió
+     la tienda, pero la garantizamos aquí.
+  */
+
+  cargarProductos();
+
   setTimeout(
     () => {
 
@@ -3123,23 +3323,10 @@ function(){
 
   }
 
-  if(!productosCargados){
-
-    contenedor.innerHTML = `
-
-      <div class="cargando">
-
-        ⏳ Cargando productos...
-
-      </div>
-
-    `;
-
-    cargarProductos();
-
-    return;
-
-  }
+  /*
+     Aunque Firebase todavía esté terminando,
+     buscamos en lo que ya tenemos disponible.
+  */
 
   const encontrados =
     productos.filter(
@@ -3182,6 +3369,25 @@ function(){
 
   if(!encontrados.length){
 
+    if(
+      firebasePendiente ||
+      githubPendiente
+    ){
+
+      contenedor.innerHTML = `
+
+        <div class="cargando">
+
+          ⏳ Preparando productos...
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
     contenedor.innerHTML = `
 
       <div class="vacio">
@@ -3218,7 +3424,8 @@ function(){
                 ''
               )}"
               alt=""
-              loading="lazy">
+              loading="eager"
+              decoding="async">
 
             <div>
 
@@ -3616,11 +3823,6 @@ async function(){
 
     `;
 
-    /*
-       Solo actualizamos la lista de pedidos.
-       No tocamos los productos.
-    */
-
     await cargarPedidos();
 
   }catch(error){
@@ -3802,7 +4004,6 @@ function(){
 
 /* =====================================================
    CARGAR PEDIDOS
-   SOLO SE LLAMA CUANDO ES NECESARIO
 ===================================================== */
 
 async function cargarPedidos(){
@@ -3983,7 +4184,7 @@ function(id){
 };
 
 /* =====================================================
-   GUARDAR PRODUCTO OPTIMIZADO
+   GUARDAR PRODUCTO
 ===================================================== */
 
 window.guardarProducto =
@@ -4083,10 +4284,6 @@ async function(){
 
   try{
 
-    /*
-       Guardamos y obtenemos el ID del documento.
-    */
-
     const nuevoProducto =
       await addDoc(
 
@@ -4099,15 +4296,6 @@ async function(){
 
       );
 
-    /*
-       OPTIMIZACIÓN IMPORTANTE:
-       Agregamos el producto directamente al array local.
-
-       Ya NO volvemos a descargar:
-       - todos los productos Firebase
-       - todos los productos GitHub
-    */
-
     productos.push({
 
       id:nuevoProducto.id,
@@ -4117,6 +4305,19 @@ async function(){
       origen:"firebase"
 
     });
+
+    /*
+       Precargamos inmediatamente la imagen
+       del nuevo producto.
+    */
+
+    if(imagen){
+
+      precargarImagen(
+        imagen
+      );
+
+    }
 
     alert(
       "✅ Producto guardado correctamente."
@@ -4145,11 +4346,6 @@ async function(){
     document.getElementById(
       "productoDestacado"
     ).checked = false;
-
-    /*
-       La categoría abierta se actualiza
-       inmediatamente sin recargar Firebase.
-    */
 
     actualizarCategoriaAbierta();
 
@@ -4369,7 +4565,7 @@ function renderAdmin(){
 }
 
 /* =====================================================
-   ELIMINAR PRODUCTO OPTIMIZADO
+   ELIMINAR PRODUCTO
 ===================================================== */
 
 window.eliminarProducto =
@@ -4394,13 +4590,6 @@ async function(id){
         id
       )
     );
-
-    /*
-       Quitamos solamente ese producto
-       del array local.
-
-       No volvemos a descargar toda la tienda.
-    */
 
     productos =
       productos.filter(
@@ -4490,7 +4679,7 @@ document.getElementById(
 
         /*
            Los pedidos solamente se cargan
-           cuando realmente se abre el admin.
+           cuando se abre el administrador.
         */
 
         cargarPedidos();
@@ -4525,18 +4714,65 @@ document.getElementById(
 );
 
 /* =====================================================
-   INICIO OPTIMIZADO
+   INICIO ULTRA OPTIMIZADO
 ===================================================== */
+
+/*
+   El punto más importante:
+
+   Apenas el visitante abre la tienda,
+   comenzamos a descargar:
+
+   1. Productos Firebase
+   2. Productos GitHub
+   3. Imágenes de los productos
+
+   El visitante NO tiene que tocar una categoría
+   para iniciar esas descargas.
+*/
 
 actualizarContadorCarrito();
 
 /*
-   IMPORTANTE:
-   Solo cargamos productos.
-   Ya NO cargamos pedidos al entrar a la tienda.
+   Arranca inmediatamente.
 */
 
 cargarProductos();
+
+/*
+   En cuanto el navegador tenga oportunidad,
+   seguimos calentando las imágenes.
+
+   Esto no bloquea la página.
+*/
+
+if(
+  "requestIdleCallback" in window
+){
+
+  requestIdleCallback(
+    () => {
+
+      precargarImagenesProductos();
+
+    },
+    {
+      timeout:1500
+    }
+  );
+
+}else{
+
+  setTimeout(
+    () => {
+
+      precargarImagenesProductos();
+
+    },
+    500
+  );
+
+}
 
 /* =====================================================
    ASEGURAR BOTONES FLOTANTES
