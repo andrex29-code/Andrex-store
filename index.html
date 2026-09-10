@@ -8,7 +8,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.github.com">
 <link rel="preconnect" href="https://andrex29-code.github.io">
 
@@ -348,6 +347,9 @@ main{
   box-shadow:0 6px 18px rgba(79,70,229,.08);
   transition:.25s;
   border:1px solid #f0edff;
+
+  /* IMPORTANTE PARA ENCONTRAR LA TARJETA */
+  scroll-margin-top:110px;
 }
 
 .producto:hover{
@@ -362,6 +364,51 @@ main{
   display:block;
   cursor:pointer;
   background:#f1efff;
+}
+
+/* =====================================================
+   RESALTAR PRODUCTO ENCONTRADO
+===================================================== */
+
+.producto.resaltado-busqueda{
+  animation:
+    resaltarProductoBusqueda
+    2.4s ease;
+
+  box-shadow:
+    0 0 0 4px rgba(99,102,241,.35),
+    0 15px 35px rgba(79,70,229,.25);
+
+  position:relative;
+  z-index:20;
+}
+
+@keyframes resaltarProductoBusqueda{
+
+  0%{
+    transform:scale(1);
+  }
+
+  20%{
+    transform:scale(1.025);
+  }
+
+  40%{
+    transform:scale(1);
+  }
+
+  60%{
+    transform:scale(1.02);
+  }
+
+  80%{
+    transform:scale(1);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+
 }
 
 .btn-favorito{
@@ -469,7 +516,7 @@ main{
 }
 
 /* =====================================================
-   ⭐ RESEÑAS
+   RESEÑAS
 ===================================================== */
 
 .resenas-seccion{
@@ -858,9 +905,20 @@ main{
   display:flex;
   align-items:center;
   gap:12px;
-  padding:10px 0;
+  padding:12px 8px;
   border-bottom:1px solid #ede9fe;
   cursor:pointer;
+  border-radius:12px;
+  transition:.18s ease;
+}
+
+.resultado-busqueda:hover{
+  background:#f7f5ff;
+  transform:translateX(3px);
+}
+
+.resultado-busqueda:active{
+  transform:scale(.98);
 }
 
 .resultado-busqueda img{
@@ -868,6 +926,28 @@ main{
   height:60px;
   border-radius:10px;
   object-fit:cover;
+  background:#f1efff;
+}
+
+.resultado-busqueda-info{
+  flex:1;
+  min-width:0;
+}
+
+.resultado-busqueda-nombre{
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.resultado-busqueda-precio{
+  color:#4f46e5;
+  font-weight:800;
+}
+
+.resultado-busqueda-flecha{
+  color:#6366f1;
+  font-size:20px;
+  font-weight:900;
 }
 
 /* =====================================================
@@ -1195,42 +1275,30 @@ main{
 <section class="info-grid">
 
   <div class="info-card">
-
     <div class="icono">🚚</div>
-
     <h3>Domicilio</h3>
-
     <p>
       Recibe tus productos de forma cómoda y segura.
       Recuerda que hacemos envíos a nivel nacional 🇨🇴✨
       y tú como cliente te encargas de pagar el envío a tu ciudad.
       También solo hay pago contra entrega para las lociones originales 🔥
     </p>
-
   </div>
 
   <div class="info-card">
-
     <div class="icono">💳</div>
-
     <h3>Medios de pago</h3>
-
     <p>
       Manejamos pagos por Nequi, Bancolombia y Daviplata ✨👌🏻
     </p>
-
   </div>
 
   <div class="info-card">
-
     <div class="icono">💬</div>
-
     <h3>Ayuda</h3>
-
     <p>
       Si necesitas ayuda, escríbenos directamente por WhatsApp.
     </p>
-
   </div>
 
 </section>
@@ -1252,23 +1320,19 @@ main{
   <div class="resumen-resenas">
 
     <div>
-      <div
-        id="promedioResenas"
-        class="promedio-numero">
+
+      <div id="promedioResenas" class="promedio-numero">
         5.0
       </div>
 
-      <div
-        id="estrellasPromedio"
-        class="estrellas-grandes">
+      <div id="estrellasPromedio" class="estrellas-grandes">
         ★★★★★
       </div>
 
-      <div
-        id="totalResenas"
-        class="total-resenas">
+      <div id="totalResenas" class="total-resenas">
         Sé el primero en calificarnos
       </div>
+
     </div>
 
   </div>
@@ -1285,48 +1349,21 @@ main{
       maxlength="60"
       placeholder="Tu nombre">
 
-    <div
-      class="selector-estrellas"
-      aria-label="Calificación">
+    <div class="selector-estrellas" aria-label="Calificación">
 
-      <input
-        type="radio"
-        id="estrella5"
-        name="calificacion"
-        value="5">
-
+      <input type="radio" id="estrella5" name="calificacion" value="5">
       <label for="estrella5">★</label>
 
-      <input
-        type="radio"
-        id="estrella4"
-        name="calificacion"
-        value="4">
-
+      <input type="radio" id="estrella4" name="calificacion" value="4">
       <label for="estrella4">★</label>
 
-      <input
-        type="radio"
-        id="estrella3"
-        name="calificacion"
-        value="3">
-
+      <input type="radio" id="estrella3" name="calificacion" value="3">
       <label for="estrella3">★</label>
 
-      <input
-        type="radio"
-        id="estrella2"
-        name="calificacion"
-        value="2">
-
+      <input type="radio" id="estrella2" name="calificacion" value="2">
       <label for="estrella2">★</label>
 
-      <input
-        type="radio"
-        id="estrella1"
-        name="calificacion"
-        value="1">
-
+      <input type="radio" id="estrella1" name="calificacion" value="1">
       <label for="estrella1">★</label>
 
     </div>
@@ -1335,8 +1372,7 @@ main{
       id="resenaTexto"
       class="textarea-resena"
       maxlength="500"
-      placeholder="Cuéntanos cómo fue tu experiencia comprando en ANDREX 🩵 STORE...">
-    </textarea>
+      placeholder="Cuéntanos cómo fue tu experiencia comprando en ANDREX 🩵 STORE..."></textarea>
 
     <button
       class="btn btn-principal"
@@ -1348,10 +1384,7 @@ main{
 
     <div
       id="mensajeResena"
-      style="
-        margin-top:10px;
-        font-size:13px;
-      ">
+      style="margin-top:10px;font-size:13px;">
     </div>
 
   </div>
@@ -1378,116 +1411,63 @@ main{
 
   <div class="admin-grid">
 
-    <input
-      id="productoNombre"
-      class="input"
-      placeholder="Nombre del producto">
+    <input id="productoNombre" class="input" placeholder="Nombre del producto">
 
-    <input
-      id="productoPrecio"
-      class="input"
-      type="number"
-      placeholder="Precio">
+    <input id="productoPrecio" class="input" type="number" placeholder="Precio">
 
-    <input
-      id="productoCategoria"
-      class="input"
-      placeholder="Categoría: ropa, lociones, zapatos o streaming">
+    <input id="productoCategoria" class="input" placeholder="Categoría: ropa, lociones, zapatos o streaming">
 
-    <input
-      id="productoDescripcion"
-      class="input"
-      placeholder="Descripción">
+    <input id="productoDescripcion" class="input" placeholder="Descripción">
 
-    <input
-      id="productoImagen"
-      class="input"
-      type="file"
-      accept="image/*">
+    <input id="productoImagen" class="input" type="file" accept="image/*">
 
   </div>
 
   <label style="display:block;margin:10px 0;">
 
-    <input
-      id="productoDestacado"
-      type="checkbox">
+    <input id="productoDestacado" type="checkbox">
 
     Marcar como destacado
 
   </label>
 
-  <button
-    class="btn btn-principal"
-    onclick="guardarProducto()">
-
+  <button class="btn btn-principal" onclick="guardarProducto()">
     💾 Guardar producto
-
   </button>
 
-  <hr
-    style="
-      margin:25px 0;
-      border:0;
-      border-top:1px solid #ede9fe;
-    ">
+  <hr style="margin:25px 0;border:0;border-top:1px solid #ede9fe;">
 
   <h3>📦 Crear / actualizar pedido</h3>
 
   <div class="admin-grid">
 
-    <input
-      id="pedidoCodigo"
-      class="input"
-      placeholder="Código del pedido"
-      readonly>
+    <input id="pedidoCodigo" class="input" placeholder="Código del pedido" readonly>
 
-    <input
-      id="pedidoCliente"
-      class="input"
-      placeholder="Nombre del cliente">
+    <input id="pedidoCliente" class="input" placeholder="Nombre del cliente">
 
-    <select
-      id="pedidoEstado"
-      class="input">
-
+    <select id="pedidoEstado" class="input">
       <option>Recibido</option>
       <option>Preparando</option>
       <option>En camino</option>
       <option>Entregado</option>
       <option>Cancelado</option>
-
     </select>
 
-    <input
-      id="pedidoDetalle"
-      class="input"
-      placeholder="Detalle del pedido">
+    <input id="pedidoDetalle" class="input" placeholder="Detalle del pedido">
 
   </div>
 
-  <div
-    style="
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    ">
+  <div style="display:flex;flex-wrap:wrap;gap:8px;">
 
-    <button
-      class="btn btn-principal"
-      onclick="crearPedido()">
+    <button class="btn btn-principal" onclick="crearPedido()">
       ➕ Crear pedido
     </button>
 
-    <button
-      class="btn btn-secundario"
-      onclick="actualizarPedido()">
+    <button class="btn btn-secundario" onclick="actualizarPedido()">
       🔄 Actualizar pedido
     </button>
 
-    <button
-      class="btn btn-secundario"
-      onclick="enviarCodigoWhatsApp()">
+    <button class="btn btn-secundario" onclick="enviarCodigoWhatsApp()">
       📲 Enviar código
     </button>
 
@@ -1541,9 +1521,7 @@ main{
 
 <div id="modalImagen" class="modal">
 
-  <div
-    class="modal-contenido"
-    style="text-align:center;">
+  <div class="modal-contenido" style="text-align:center;">
 
     <button
       class="cerrar"
@@ -1588,10 +1566,7 @@ main{
       🔎 Consultar
     </button>
 
-    <div
-      id="resultadoPedido"
-      style="margin-top:18px;">
-    </div>
+    <div id="resultadoPedido" style="margin-top:18px;"></div>
 
   </div>
 
@@ -1615,9 +1590,7 @@ main{
 
     <div id="listaCarrito"></div>
 
-    <div
-      id="totalCarrito"
-      class="carrito-total">
+    <div id="totalCarrito" class="carrito-total">
       Total: $0
     </div>
 
@@ -1700,7 +1673,6 @@ import {
   deleteDoc,
   query,
   where,
-  orderBy,
   limit
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -2063,11 +2035,6 @@ function cargarCacheInicial(){
       CACHE_GITHUB
     );
 
-  /*
-     LOS PRODUCTOS APARECEN DESDE EL
-     CACHÉ ANTES DE ESPERAR LA RED.
-  */
-
   productos =
     [
       ...cacheFirebase.map(
@@ -2241,16 +2208,6 @@ function(categoria){
   categoriaActual =
     categoria;
 
-  /*
-     IMPORTANTE:
-
-     La carga YA empezó desde que abrió
-     la página.
-
-     Aquí solamente mostramos lo que
-     ya esté disponible.
-  */
-
   cargarProductos();
 
   renderCategoria(
@@ -2324,7 +2281,9 @@ function tarjetaProducto(
 
   return `
 
-    <article class="producto">
+    <article
+      class="producto"
+      data-producto-id="${escapeHtml(id)}">
 
       <button
         class="btn-favorito"
@@ -2430,11 +2389,6 @@ async function cargarProductos(){
   githubPendiente =
     !githubYaCargado;
 
-  /*
-     LAS DOS PETICIONES SE LANZAN
-     SIN ESPERAR UNA A LA OTRA.
-  */
-
   const firebasePromise =
     cargarProductosFirebase();
 
@@ -2495,11 +2449,6 @@ async function cargarProductosFirebase(){
         )
       );
 
-    /*
-       Eliminamos la copia Firebase
-       anterior pero dejamos GitHub.
-    */
-
     productos =
       productos.filter(
         p =>
@@ -2541,13 +2490,6 @@ async function cargarProductosFirebase(){
 
     firebasePendiente =
       false;
-
-    /*
-       MOSTRAMOS LOS PRODUCTOS APENAS
-       FIREBASE TERMINA.
-
-       No esperamos a GitHub.
-    */
 
     precargarImagenesProductos();
 
@@ -2687,10 +2629,6 @@ async function cargarProductosGitHub(){
         }
       );
 
-    /*
-       Reemplazamos solamente Ropa.
-    */
-
     productos =
       productos.filter(
         p =>
@@ -2711,11 +2649,6 @@ async function cargarProductosGitHub(){
 
     githubPendiente =
       false;
-
-    /*
-       LAS IMÁGENES DE ROPA COMIENZAN
-       A CARGARSE INMEDIATAMENTE.
-    */
 
     productosGitHub.forEach(
       producto =>
@@ -3123,7 +3056,7 @@ function(){
 };
 
 /* =====================================================
-   BÚSQUEDA
+   🔎 BÚSQUEDA
 ===================================================== */
 
 window.abrirBusqueda =
@@ -3148,19 +3081,29 @@ function(){
 
 };
 
+/* =====================================================
+   BUSCAR PRODUCTOS
+===================================================== */
+
 window.buscarProductos =
 function(){
 
-  const texto =
-    normalizar(
-      document.getElementById(
-        "inputBusqueda"
-      ).value
+  const input =
+    document.getElementById(
+      "inputBusqueda"
     );
 
   const contenedor =
     document.getElementById(
       "resultadosBusqueda"
+    );
+
+  if(!input || !contenedor)
+    return;
+
+  const texto =
+    normalizar(
+      input.value
     );
 
   if(!texto){
@@ -3245,61 +3188,289 @@ function(){
   contenedor.innerHTML =
     encontrados
       .map(
-        p => `
+        p => {
 
-          <div
-            class="resultado-busqueda"
-            onclick="verImagen('${escapeHtml(
-              p.imagen ||
-              p.image ||
-              p.url ||
-              ''
-            )}')">
+          const id =
+            String(
+              p.id ??
+              p._id ??
+              p.nombre ??
+              ""
+            );
 
-            <img
-              src="${escapeHtml(
-                p.imagen ||
-                p.image ||
-                p.url ||
-                ''
-              )}"
-              alt=""
-              loading="eager"
-              decoding="async">
+          const imagen =
+            p.imagen ||
+            p.image ||
+            p.url ||
+            "";
 
-            <div>
+          const nombre =
+            p.nombre ||
+            p.name ||
+            "Producto";
 
-              <strong>
-                ${escapeHtml(
-                  p.nombre ||
-                  p.name ||
-                  "Producto"
-                )}
-              </strong>
+          const precio =
+            p.precio ??
+            p.price ??
+            0;
 
-              <div
-                style="
-                  color:#4f46e5;
-                  font-weight:800;
-                ">
+          return `
 
-                ${dinero(
-                  p.precio ??
-                  p.price ??
-                  0
-                )}
+            <div
+              class="resultado-busqueda"
+              onclick="irAlProductoDesdeBusqueda('${escapeHtml(id)}')">
+
+              <img
+                src="${escapeHtml(imagen)}"
+                alt="${escapeHtml(nombre)}"
+                loading="eager"
+                decoding="async">
+
+              <div class="resultado-busqueda-info">
+
+                <div class="resultado-busqueda-nombre">
+
+                  ${escapeHtml(nombre)}
+
+                </div>
+
+                <div class="resultado-busqueda-precio">
+
+                  ${dinero(precio)}
+
+                </div>
+
+              </div>
+
+              <div class="resultado-busqueda-flecha">
+
+                →
 
               </div>
 
             </div>
 
-          </div>
+          `;
 
-        `
+        }
       )
       .join("");
 
 };
+
+/* =====================================================
+   IR DIRECTAMENTE A LA TARJETA
+===================================================== */
+
+window.irAlProductoDesdeBusqueda =
+function(id){
+
+  id =
+    String(id);
+
+  const producto =
+    productos.find(
+      p =>
+        String(
+          p.id ??
+          p._id ??
+          p.nombre ??
+          ""
+        ) === id
+    );
+
+  if(!producto){
+
+    alert(
+      "No se pudo encontrar el producto."
+    );
+
+    return;
+
+  }
+
+  /*
+     Detectamos automáticamente
+     en qué categoría está.
+  */
+
+  const categorias = [
+    "ropa",
+    "lociones",
+    "zapatos",
+    "streaming"
+  ];
+
+  const categoria =
+    categorias.find(
+      nombreCategoria =>
+        perteneceCategoria(
+          producto,
+          nombreCategoria
+        )
+    );
+
+  if(!categoria){
+
+    cerrarModal(
+      "modalBusqueda"
+    );
+
+    alert(
+      "No se pudo identificar la categoría del producto."
+    );
+
+    return;
+
+  }
+
+  /*
+     Cerramos la búsqueda.
+  */
+
+  cerrarModal(
+    "modalBusqueda"
+  );
+
+  /*
+     Abrimos directamente la categoría.
+  */
+
+  categoriaActual =
+    categoria;
+
+  renderCategoria(
+    categoria
+  );
+
+  /*
+     Buscamos la tarjeta recién creada.
+     Se hacen varios intentos porque la tienda
+     puede estar terminando de actualizar productos.
+  */
+
+  buscarTarjetaProducto(
+    id,
+    0
+  );
+
+};
+
+/* =====================================================
+   ENCONTRAR TARJETA
+===================================================== */
+
+function buscarTarjetaProducto(
+  id,
+  intento
+){
+
+  const tarjetas =
+    document.querySelectorAll(
+      ".producto[data-producto-id]"
+    );
+
+  let tarjetaEncontrada =
+    null;
+
+  tarjetas.forEach(
+    tarjeta => {
+
+      if(
+        String(
+          tarjeta.dataset.productoId
+        ) === String(id)
+      ){
+
+        tarjetaEncontrada =
+          tarjeta;
+
+      }
+
+    }
+  );
+
+  if(tarjetaEncontrada){
+
+    /*
+       Primero llevamos al usuario
+       exactamente hasta la tarjeta.
+    */
+
+    tarjetaEncontrada.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+    /*
+       Quitamos cualquier resaltado anterior.
+    */
+
+    document
+      .querySelectorAll(
+        ".producto.resaltado-busqueda"
+      )
+      .forEach(
+        elemento =>
+          elemento.classList.remove(
+            "resaltado-busqueda"
+          )
+      );
+
+    /*
+       Resaltamos el producto encontrado.
+    */
+
+    tarjetaEncontrada.classList.add(
+      "resaltado-busqueda"
+    );
+
+    /*
+       Quitamos el resaltado después
+       de unos segundos.
+    */
+
+    setTimeout(
+      () => {
+
+        tarjetaEncontrada.classList.remove(
+          "resaltado-busqueda"
+        );
+
+      },
+      2600
+    );
+
+    return;
+
+  }
+
+  /*
+     Si todavía no apareció la tarjeta,
+     esperamos un poquito y volvemos a intentar.
+
+     Máximo 20 intentos.
+  */
+
+  if(
+    intento < 20
+  ){
+
+    setTimeout(
+      () => {
+
+        buscarTarjetaProducto(
+          id,
+          intento + 1
+        );
+
+      },
+      150
+    );
+
+  }
+
+}
 
 /* =====================================================
    MODALES
@@ -3543,7 +3714,6 @@ async function(){
 function generarCodigoPedido(){
 
   return "AX-" +
-
     Math.floor(
       1000 +
       Math.random() *
@@ -3593,16 +3763,13 @@ async function(){
       ),
 
       {
-
         codigo,
         cliente,
         estado,
         detalle,
-
         fecha:
           new Date()
             .toISOString()
-
       }
 
     );
@@ -3733,16 +3900,13 @@ async function(){
       ),
 
       {
-
         codigo,
         cliente,
         estado,
         detalle,
-
         fechaActualizacion:
           new Date()
             .toISOString()
-
       },
 
       {
@@ -4452,10 +4616,6 @@ function estrellasTexto(numero){
 
 }
 
-/* =====================================================
-   CARGAR RESEÑAS
-===================================================== */
-
 async function cargarResenas(){
 
   const lista =
@@ -4464,14 +4624,6 @@ async function cargarResenas(){
     );
 
   try{
-
-    /*
-       Solo mostramos reseñas aprobadas.
-
-       Si no tienes todavía el campo "aprobada",
-       las reseñas nuevas creadas por este código
-       lo tendrán automáticamente.
-    */
 
     const q =
       query(
@@ -4511,11 +4663,6 @@ async function cargarResenas(){
       }
     );
 
-    /*
-       Ordenamos en el navegador para evitar
-       depender de un índice compuesto de Firebase.
-    */
-
     resenas.sort(
       (a,b) =>
         String(
@@ -4537,12 +4684,6 @@ async function cargarResenas(){
       error
     );
 
-    /*
-       Si todavía no existe la colección
-       o Firestore está bloqueado, mostramos
-       un mensaje amigable.
-    */
-
     lista.innerHTML = `
 
       <div class="resenas-vacias">
@@ -4557,10 +4698,6 @@ async function cargarResenas(){
   }
 
 }
-
-/* =====================================================
-   RENDER RESEÑAS
-===================================================== */
 
 function renderResenas(){
 
@@ -4698,10 +4835,6 @@ function renderResenas(){
 
 }
 
-/* =====================================================
-   FORMATEAR FECHA
-===================================================== */
-
 function formatearFecha(fecha){
 
   if(!fecha)
@@ -4738,10 +4871,6 @@ function formatearFecha(fecha){
   }
 
 }
-
-/* =====================================================
-   ENVIAR RESEÑA
-===================================================== */
 
 window.enviarResena =
 async function(){
@@ -4813,15 +4942,6 @@ async function(){
       seleccion.value
     );
 
-  if(
-    calificacion < 1 ||
-    calificacion > 5
-  ){
-
-    return;
-
-  }
-
   const boton =
     document.querySelector(
       ".form-resena .btn-principal"
@@ -4861,8 +4981,7 @@ async function(){
             500
           ),
 
-        aprobada:
-          true,
+        aprobada:true,
 
         fecha:
           new Date()
@@ -5078,9 +5197,7 @@ async function cargarResenasAdmin(){
 
               ${
                 !resena.aprobada
-
                 ?
-
                 `
                   <button
                     class="btn btn-principal"
@@ -5090,9 +5207,7 @@ async function cargarResenasAdmin(){
 
                   </button>
                 `
-
                 :
-
                 ""
               }
 
@@ -5306,73 +5421,34 @@ document.getElementById(
 );
 
 /* =====================================================
-   🚀 ARRANQUE ULTRA RÁPIDO
+   ARRANQUE
 ===================================================== */
-
-/*
-   1. PRIMERO:
-
-   Mostramos inmediatamente cualquier
-   catálogo que ya exista en el teléfono.
-*/
 
 cargarCacheInicial();
 
-/*
-   2. Actualizamos carrito inmediatamente.
-*/
-
 actualizarContadorCarrito();
-
-/*
-   3. CARGAMOS RESEÑAS EN PARALELO.
-
-   Esto NO bloquea los productos.
-*/
 
 cargarResenas();
 
-/*
-   4. PRODUCTOS:
-
-   Firebase + GitHub empiezan AHORA MISMO.
-
-   El cliente no tiene que tocar ninguna
-   categoría para iniciar la carga.
-*/
-
 cargarProductos();
-
-/*
-   5. Precarga adicional de imágenes.
-
-   Se ejecuta después de que la página
-   ya comenzó a pintar.
-*/
 
 setTimeout(
   () => {
-
     precargarImagenesProductos();
-
   },
   0
 );
 
 setTimeout(
   () => {
-
     precargarImagenesProductos();
-
   },
   200
 );
 
 setTimeout(
   () => {
-
     precargarImagenesProductos();
-
   },
   500
 );
