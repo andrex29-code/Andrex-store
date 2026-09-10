@@ -451,7 +451,6 @@ main{
 
 /* =====================================================
    CATEGORÍA ABIERTA
-   LOS PRODUCTOS APARECEN EN EL MISMO CONTENEDOR
 ===================================================== */
 
 .categoria-vista-inline{
@@ -1326,10 +1325,6 @@ main{
 
 <body>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
   <div class="brand-block">
@@ -1367,10 +1362,6 @@ main{
 
 </header>
 
-<!-- =====================================================
-     BIENVENIDA
-===================================================== -->
-
 <section class="bienvenida-box">
 
   <div class="bienvenida-texto">
@@ -1380,10 +1371,6 @@ main{
   </div>
 
 </section>
-
-<!-- =====================================================
-     LEMA
-===================================================== -->
 
 <div class="slogan">
 
@@ -1398,10 +1385,6 @@ main{
 
 </div>
 
-<!-- =====================================================
-     VIDEO
-===================================================== -->
-
 <section class="hero">
 
   <div class="hero-video">
@@ -1411,7 +1394,7 @@ main{
       autoplay
       muted
       playsinline
-      preload="auto"
+      preload="metadata"
       src="https://andrex29-code.github.io/Andrex-store/92e7585e-d3cc-c157-9e2d-e7869ccf8943.mp4">
     </video>
 
@@ -1420,10 +1403,6 @@ main{
 </section>
 
 <main>
-
-<!-- =====================================================
-     CATEGORÍAS / PRODUCTOS
-===================================================== -->
 
 <div id="categoriasGrid">
 
@@ -1473,10 +1452,6 @@ main{
 
 </div>
 
-<!-- =====================================================
-     INFORMACIÓN
-===================================================== -->
-
 <section class="info-grid">
 
   <div class="info-card">
@@ -1519,10 +1494,6 @@ main{
   </div>
 
 </section>
-
-<!-- =====================================================
-     ADMIN
-===================================================== -->
 
 <section
   id="adminPanel"
@@ -1680,10 +1651,6 @@ main{
 
 </main>
 
-<!-- =====================================================
-     BOTONES FLOTANTES
-===================================================== -->
-
 <div
   id="flotantes"
   class="flotantes">
@@ -1705,10 +1672,6 @@ main{
   </button>
 
 </div>
-
-<!-- =====================================================
-     MODAL IMAGEN
-===================================================== -->
 
 <div
   id="modalImagen"
@@ -1735,10 +1698,6 @@ main{
   </div>
 
 </div>
-
-<!-- =====================================================
-     MODAL PEDIDO
-===================================================== -->
 
 <div
   id="modalPedido"
@@ -1778,10 +1737,6 @@ main{
 
 </div>
 
-<!-- =====================================================
-     MODAL CARRITO
-===================================================== -->
-
 <div
   id="modalCarrito"
   class="modal">
@@ -1820,10 +1775,6 @@ main{
 
 </div>
 
-<!-- =====================================================
-     MODAL BÚSQUEDA
-===================================================== -->
-
 <div
   id="modalBusqueda"
   class="modal">
@@ -1850,10 +1801,6 @@ main{
   </div>
 
 </div>
-
-<!-- =====================================================
-     MODAL FAVORITOS
-===================================================== -->
 
 <div
   id="modalFavoritos"
@@ -1921,10 +1868,6 @@ const firebaseConfig = {
 
 };
 
-/* =====================================================
-   CORRECCIÓN IMPORTANTE DE FIREBASE
-===================================================== */
-
 const app =
   initializeApp(firebaseConfig);
 
@@ -1954,6 +1897,20 @@ let favoritos =
   );
 
 let categoriaActual = null;
+
+/*
+   OPTIMIZACIÓN:
+   Controlamos una sola carga de productos
+   para evitar peticiones duplicadas.
+*/
+
+let productosCargados = false;
+
+let cargaProductosEnCurso = null;
+
+let fuentesPendientes = 0;
+
+let githubYaCargado = false;
 
 const categoriasGrid =
   document.getElementById(
@@ -2106,15 +2063,10 @@ function perteneceCategoria(
 }
 
 /* =====================================================
-   ABRIR CATEGORÍA
-   LOS PRODUCTOS REEMPLAZAN LOS CUADROS
+   RENDERIZAR CATEGORÍA
 ===================================================== */
 
-window.abrirCategoria =
-function(categoria){
-
-  categoriaActual =
-    categoria;
+function renderCategoria(categoria){
 
   const nombres = {
 
@@ -2136,6 +2088,59 @@ function(categoria){
           categoria
         )
     );
+
+  /*
+     Si todavía hay fuentes cargando y no tenemos
+     productos para mostrar, enseñamos cargando.
+  */
+
+  if(
+    fuentesPendientes > 0 &&
+    encontrados.length === 0
+  ){
+
+    categoriasGrid.innerHTML = `
+
+      <div class="categoria-vista-inline">
+
+        <div class="categoria-header-inline">
+
+          <h2>
+            ${
+              nombres[categoria] ||
+              categoria
+            }
+          </h2>
+
+          <button
+            class="btn-volver"
+            onclick="volverCategorias()">
+
+            ← Categorías
+
+          </button>
+
+        </div>
+
+        <div class="cargando">
+
+          ⏳ Cargando productos...
+
+          <br>
+
+          <small>
+            Un momento, estamos preparando esta categoría.
+          </small>
+
+        </div>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
 
   categoriasGrid.innerHTML = `
 
@@ -2207,6 +2212,35 @@ function(categoria){
     </div>
 
   `;
+
+}
+
+/* =====================================================
+   ABRIR CATEGORÍA
+===================================================== */
+
+window.abrirCategoria =
+function(categoria){
+
+  categoriaActual =
+    categoria;
+
+  /*
+     Si los productos todavía están cargando,
+     mostramos inmediatamente la pantalla de la categoría.
+  */
+
+  if(!productosCargados){
+
+    renderCategoria(categoria);
+
+    cargarProductos();
+
+    return;
+
+  }
+
+  renderCategoria(categoria);
 
 };
 
@@ -2284,6 +2318,8 @@ function tarjetaProducto(
         class="producto-imagen"
         src="${escapeHtml(imagen)}"
         alt="${escapeHtml(nombre)}"
+        loading="lazy"
+        decoding="async"
         onclick="verImagen('${escapeHtml(imagen)}')"
         onerror="this.src='https://via.placeholder.com/600x600?text=ANDREX'">
 
@@ -2336,16 +2372,116 @@ function tarjetaProducto(
 }
 
 /* =====================================================
-   CARGAR PRODUCTOS
+   ACTUALIZAR CATEGORÍA ABIERTA
+===================================================== */
+
+function actualizarCategoriaAbierta(){
+
+  if(categoriaActual){
+
+    renderCategoria(
+      categoriaActual
+    );
+
+  }
+
+}
+
+/* =====================================================
+   CARGAR PRODUCTOS OPTIMIZADO
 ===================================================== */
 
 async function cargarProductos(){
 
-  productos = [];
+  /*
+     Si ya existe una carga en curso,
+     reutilizamos esa misma promesa.
+  */
 
-  /* ===================================================
-     FIREBASE
-  =================================================== */
+  if(cargaProductosEnCurso){
+
+    return cargaProductosEnCurso;
+
+  }
+
+  /*
+     Si ya se cargaron, no hacemos otra petición.
+  */
+
+  if(productosCargados){
+
+    return;
+
+  }
+
+  cargaProductosEnCurso =
+    cargarProductosInterno();
+
+  try{
+
+    await cargaProductosEnCurso;
+
+  }finally{
+
+    cargaProductosEnCurso = null;
+
+  }
+
+}
+
+/* =====================================================
+   CARGA INTERNA
+===================================================== */
+
+async function cargarProductosInterno(){
+
+  /*
+     Firebase y GitHub empiezan AL MISMO TIEMPO.
+     Antes se esperaba Firebase y después GitHub.
+  */
+
+  fuentesPendientes = 2;
+
+  productosCargados = false;
+
+  actualizarCategoriaAbierta();
+
+  const firebasePromise =
+    cargarProductosFirebase();
+
+  const githubPromise =
+    cargarProductosGitHub();
+
+  /*
+     Cada fuente actualiza la pantalla
+     apenas termina.
+  */
+
+  await Promise.allSettled([
+
+    firebasePromise,
+
+    githubPromise
+
+  ]);
+
+  fuentesPendientes = 0;
+
+  productosCargados = true;
+
+  actualizarContadorCarrito();
+
+  actualizarCategoriaAbierta();
+
+  renderAdmin();
+
+}
+
+/* =====================================================
+   FIREBASE PRODUCTOS
+===================================================== */
+
+async function cargarProductosFirebase(){
 
   try{
 
@@ -2357,6 +2493,17 @@ async function cargarProductos(){
         )
       );
 
+    /*
+       No borramos la información anterior.
+       Solo reemplazamos los productos Firebase.
+    */
+
+    productos =
+      productos.filter(
+        p =>
+          p.origen === "github"
+      );
+
     snapshot.forEach(
       docSnap => {
 
@@ -2364,12 +2511,23 @@ async function cargarProductos(){
 
           id:docSnap.id,
 
-          ...docSnap.data()
+          ...docSnap.data(),
+
+          origen:"firebase"
 
         });
 
       }
     );
+
+    /*
+       Si el usuario está viendo una categoría,
+       aparece inmediatamente lo que Firebase encontró.
+    */
+
+    actualizarCategoriaAbierta();
+
+    renderAdmin();
 
   }catch(error){
 
@@ -2378,23 +2536,60 @@ async function cargarProductos(){
       error
     );
 
+  }finally{
+
+    fuentesPendientes--;
+
+    actualizarCategoriaAbierta();
+
   }
 
-  /* ===================================================
-     GITHUB - ROPA
-  =================================================== */
+}
+
+/* =====================================================
+   GITHUB PRODUCTOS
+===================================================== */
+
+async function cargarProductosGitHub(){
+
+  /*
+     Evita volver a consultar GitHub durante
+     la misma sesión.
+  */
+
+  if(githubYaCargado){
+
+    fuentesPendientes--;
+
+    return;
+
+  }
 
   try{
 
     const respuesta =
       await fetch(
-        "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva"
+        "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva",
+        {
+          cache:"no-cache"
+        }
       );
 
     if(respuesta.ok){
 
       const archivos =
         await respuesta.json();
+
+      /*
+         Quitamos solamente los productos GitHub
+         anteriores por seguridad.
+      */
+
+      productos =
+        productos.filter(
+          p =>
+            p.origen !== "github"
+        );
 
       archivos
         .filter(
@@ -2463,6 +2658,15 @@ async function cargarProductos(){
           }
         );
 
+      githubYaCargado = true;
+
+      /*
+         Los productos de Ropa de GitHub aparecen
+         apenas termina esa petición.
+      */
+
+      actualizarCategoriaAbierta();
+
     }
 
   }catch(error){
@@ -2472,24 +2676,13 @@ async function cargarProductos(){
       error
     );
 
-  }
+  }finally{
 
-  actualizarContadorCarrito();
+    fuentesPendientes--;
 
-  /*
-    Si el usuario ya estaba viendo una categoría,
-    la actualizamos sin moverlo de lugar.
-  */
-
-  if(categoriaActual){
-
-    abrirCategoria(
-      categoriaActual
-    );
+    actualizarCategoriaAbierta();
 
   }
-
-  renderAdmin();
 
 }
 
@@ -2527,7 +2720,7 @@ function(id){
 
   if(categoriaActual){
 
-    abrirCategoria(
+    renderCategoria(
       categoriaActual
     );
 
@@ -2765,7 +2958,8 @@ function renderCarrito(){
 
               <img
                 src="${escapeHtml(p.imagen)}"
-                alt="">
+                alt=""
+                loading="lazy">
 
               <div
                 class="carrito-item-info">
@@ -2929,6 +3123,24 @@ function(){
 
   }
 
+  if(!productosCargados){
+
+    contenedor.innerHTML = `
+
+      <div class="cargando">
+
+        ⏳ Cargando productos...
+
+      </div>
+
+    `;
+
+    cargarProductos();
+
+    return;
+
+  }
+
   const encontrados =
     productos.filter(
       p => {
@@ -3005,7 +3217,8 @@ function(){
                 p.url ||
                 ''
               )}"
-              alt="">
+              alt=""
+              loading="lazy">
 
             <div>
 
@@ -3403,7 +3616,12 @@ async function(){
 
     `;
 
-    cargarPedidos();
+    /*
+       Solo actualizamos la lista de pedidos.
+       No tocamos los productos.
+    */
+
+    await cargarPedidos();
 
   }catch(error){
 
@@ -3524,7 +3742,7 @@ async function(){
       "✅ Pedido actualizado."
     );
 
-    cargarPedidos();
+    await cargarPedidos();
 
   }catch(error){
 
@@ -3584,6 +3802,7 @@ function(){
 
 /* =====================================================
    CARGAR PEDIDOS
+   SOLO SE LLAMA CUANDO ES NECESARIO
 ===================================================== */
 
 async function cargarPedidos(){
@@ -3764,7 +3983,7 @@ function(id){
 };
 
 /* =====================================================
-   GUARDAR PRODUCTO
+   GUARDAR PRODUCTO OPTIMIZADO
 ===================================================== */
 
 window.guardarProducto =
@@ -3842,36 +4061,62 @@ async function(){
 
   }
 
+  const datosProducto = {
+
+    nombre,
+
+    precio,
+
+    categoria,
+
+    descripcion,
+
+    imagen,
+
+    destacado,
+
+    fecha:
+      new Date()
+        .toISOString()
+
+  };
+
   try{
 
-    await addDoc(
+    /*
+       Guardamos y obtenemos el ID del documento.
+    */
 
-      collection(
-        db,
-        "productos"
-      ),
+    const nuevoProducto =
+      await addDoc(
 
-      {
+        collection(
+          db,
+          "productos"
+        ),
 
-        nombre,
+        datosProducto
 
-        precio,
+      );
 
-        categoria,
+    /*
+       OPTIMIZACIÓN IMPORTANTE:
+       Agregamos el producto directamente al array local.
 
-        descripcion,
+       Ya NO volvemos a descargar:
+       - todos los productos Firebase
+       - todos los productos GitHub
+    */
 
-        imagen,
+    productos.push({
 
-        destacado,
+      id:nuevoProducto.id,
 
-        fecha:
-          new Date()
-            .toISOString()
+      ...datosProducto,
 
-      }
+      origen:"firebase"
 
-    );
+    });
 
     alert(
       "✅ Producto guardado correctamente."
@@ -3901,7 +4146,14 @@ async function(){
       "productoDestacado"
     ).checked = false;
 
-    await cargarProductos();
+    /*
+       La categoría abierta se actualiza
+       inmediatamente sin recargar Firebase.
+    */
+
+    actualizarCategoriaAbierta();
+
+    renderAdmin();
 
   }catch(error){
 
@@ -4117,7 +4369,7 @@ function renderAdmin(){
 }
 
 /* =====================================================
-   ELIMINAR PRODUCTO
+   ELIMINAR PRODUCTO OPTIMIZADO
 ===================================================== */
 
 window.eliminarProducto =
@@ -4143,11 +4395,27 @@ async function(id){
       )
     );
 
+    /*
+       Quitamos solamente ese producto
+       del array local.
+
+       No volvemos a descargar toda la tienda.
+    */
+
+    productos =
+      productos.filter(
+        p =>
+          String(p.id) !==
+          String(id)
+      );
+
     alert(
       "✅ Producto eliminado."
     );
 
-    await cargarProductos();
+    actualizarCategoriaAbierta();
+
+    renderAdmin();
 
   }catch(error){
 
@@ -4220,6 +4488,11 @@ document.getElementById(
           "✅ Panel de administrador activado."
         );
 
+        /*
+           Los pedidos solamente se cargan
+           cuando realmente se abre el admin.
+        */
+
         cargarPedidos();
 
         renderAdmin();
@@ -4252,14 +4525,18 @@ document.getElementById(
 );
 
 /* =====================================================
-   INICIO
+   INICIO OPTIMIZADO
 ===================================================== */
 
-cargarProductos();
-
-cargarPedidos();
-
 actualizarContadorCarrito();
+
+/*
+   IMPORTANTE:
+   Solo cargamos productos.
+   Ya NO cargamos pedidos al entrar a la tienda.
+*/
+
+cargarProductos();
 
 /* =====================================================
    ASEGURAR BOTONES FLOTANTES
