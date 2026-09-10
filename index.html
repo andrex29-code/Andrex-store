@@ -29,7 +29,6 @@ body{
   min-height:100vh;
 }
 
-
 /* =====================================================
    HEADER
 ===================================================== */
@@ -53,7 +52,6 @@ header{
   gap:12px;
 }
 
-
 /* =====================================================
    BLOQUE DEL NOMBRE
 ===================================================== */
@@ -63,7 +61,6 @@ header{
   flex-direction:column;
   align-items:flex-start;
 }
-
 
 /* =====================================================
    NOMBRE NEÓN SUAVE AZUL + MORADO
@@ -119,7 +116,6 @@ header{
 
 }
 
-
 /* =====================================================
    BOTONES HEADER
 ===================================================== */
@@ -151,7 +147,6 @@ header{
 
   background:#e0e7ff;
 }
-
 
 /* =====================================================
    CUADRO DE BIENVENIDA
@@ -193,9 +188,11 @@ header{
   position:absolute;
 
   top:0;
+
   left:15%;
 
   width:70%;
+
   height:2px;
 
   background:
@@ -212,7 +209,9 @@ header{
 
 .bienvenida-texto{
 
-  font-size:20px;
+  /* UN POQUITO MÁS GRANDE */
+
+  font-size:22px;
 
   font-weight:900;
 
@@ -222,7 +221,6 @@ header{
 
   line-height:1.3;
 }
-
 
 /* =====================================================
    LEMA ELEGANTE
@@ -260,7 +258,6 @@ header{
 
   font-weight:900;
 }
-
 
 /* =====================================================
    HERO / VIDEO
@@ -303,7 +300,6 @@ header{
   object-fit:cover;
 }
 
-
 /* =====================================================
    CONTENIDO
 ===================================================== */
@@ -316,7 +312,6 @@ main{
   padding:8px 16px 110px;
 }
 
-
 /* =====================================================
    CONTENEDOR DE CATEGORÍAS
 ===================================================== */
@@ -324,7 +319,6 @@ main{
 #categoriasGrid{
   width:100%;
 }
-
 
 /* =====================================================
    CUADRITOS DE CATEGORÍAS
@@ -396,7 +390,6 @@ main{
   pointer-events:none;
 }
 
-
 /* =====================================================
    EMOJIS 3D DE CATEGORÍAS
 ===================================================== */
@@ -448,7 +441,6 @@ main{
   box-shadow:
     0 12px 28px rgba(79,70,229,.14);
 }
-
 
 /* =====================================================
    CATEGORÍA ABIERTA
@@ -509,7 +501,6 @@ main{
   font-weight:700;
 }
 
-
 /* =====================================================
    PRODUCTOS
 ===================================================== */
@@ -561,7 +552,6 @@ main{
   background:#f1efff;
 }
 
-
 /* =====================================================
    ❤️ CORAZÓN PEQUEÑO
 ===================================================== */
@@ -607,7 +597,6 @@ main{
 .btn-favorito:hover{
   transform:scale(1.1);
 }
-
 
 /* =====================================================
    INFORMACIÓN PRODUCTO
@@ -677,7 +666,6 @@ main{
   color:#4338ca;
 }
 
-
 /* =====================================================
    TRES CUADRITOS INFERIORES
 ===================================================== */
@@ -711,7 +699,6 @@ main{
 
   overflow:hidden;
 }
-
 
 /* =====================================================
    EMOJIS 3D INFERIORES
@@ -772,10 +759,9 @@ main{
   line-height:1.5;
 }
 
-
 /* =====================================================
    BOTONES FLOTANTES
-   MOVIMIENTO INDEPENDIENTE POR TODA LA PANTALLA
+   FIJOS EN LA PANTALLA
 ===================================================== */
 
 .flotantes{
@@ -793,17 +779,17 @@ main{
   display:block !important;
 }
 
-
 /* =====================================================
-   FAVORITOS
+   ❤️ FAVORITOS
+   FIJO ABAJO A LA IZQUIERDA
 ===================================================== */
 
 .flotante-favoritos{
 
   position:fixed;
 
-  left:0;
-  top:0;
+  left:15px;
+  bottom:15px;
 
   pointer-events:auto;
 
@@ -826,10 +812,7 @@ main{
   box-shadow:
     0 6px 22px rgba(79,70,229,.20);
 
-  transition:
-    left 1.2s ease,
-    top 1.2s ease,
-    transform .2s ease;
+  transition:transform .2s ease;
 
   white-space:nowrap;
 }
@@ -838,17 +821,17 @@ main{
   transform:scale(1.05);
 }
 
-
 /* =====================================================
-   SEGUIR PEDIDO
+   📦 SEGUIR PEDIDO
+   FIJO ABAJO A LA DERECHA
 ===================================================== */
 
 .flotante-pedido{
 
   position:fixed;
 
-  left:0;
-  top:0;
+  right:15px;
+  bottom:15px;
 
   pointer-events:auto;
 
@@ -877,10 +860,7 @@ main{
   box-shadow:
     0 6px 22px rgba(79,70,229,.25);
 
-  transition:
-    left 1.4s ease,
-    top 1.4s ease,
-    transform .2s ease;
+  transition:transform .2s ease;
 
   white-space:nowrap;
 }
@@ -888,7 +868,6 @@ main{
 .flotante-pedido:hover{
   transform:scale(1.05);
 }
-
 
 /* =====================================================
    MODALES
@@ -1023,7 +1002,6 @@ main{
   border-radius:15px;
 }
 
-
 /* =====================================================
    CARRITO
 ===================================================== */
@@ -1065,7 +1043,6 @@ main{
 
   margin:15px 0;
 }
-
 
 /* =====================================================
    ADMIN
@@ -1143,7 +1120,6 @@ main{
   font-weight:700;
 }
 
-
 /* =====================================================
    BÚSQUEDA
 ===================================================== */
@@ -1172,7 +1148,6 @@ main{
   object-fit:cover;
 }
 
-
 /* =====================================================
    MENSAJES
 ===================================================== */
@@ -1197,7 +1172,6 @@ main{
   color:#4f46e5;
 }
 
-
 /* =====================================================
    CELULAR
 ===================================================== */
@@ -1216,7 +1190,6 @@ main{
 
 }
 
-
 @media(max-width:650px){
 
   header{
@@ -1233,7 +1206,6 @@ main{
     font-size:11px;
   }
 
-
   .bienvenida-box{
 
     margin:
@@ -1245,18 +1217,17 @@ main{
     border-radius:16px;
   }
 
-
   .bienvenida-texto{
 
-    font-size:15px;
-  }
+    /* UN POQUITO MÁS GRANDE EN CELULAR */
 
+    font-size:16px;
+  }
 
   main{
     padding:
       7px 10px 100px;
   }
-
 
   .slogan{
     font-size:13px;
@@ -1267,12 +1238,10 @@ main{
       7px 10px 10px;
   }
 
-
   .hero{
     padding:
       8px 8px 3px;
   }
-
 
   .hero-video{
     width:100%;
@@ -1280,11 +1249,9 @@ main{
     border-radius:14px;
   }
 
-
   .hero-video video{
     max-height:230px;
   }
-
 
   .productos-grid{
     grid-template-columns:
@@ -1293,51 +1260,41 @@ main{
     gap:10px;
   }
 
-
   .producto-imagen{
     height:185px;
   }
-
 
   .producto-info{
     padding:10px;
   }
 
-
   .producto-nombre{
     font-size:14px;
   }
-
 
   .producto-precio{
     font-size:16px;
   }
 
-
   .producto-desc{
     font-size:12px;
   }
-
 
   .info-grid{
     grid-template-columns:1fr;
   }
 
-
   .categoria-vista-inline{
     padding:12px;
   }
-
 
   .categoria-header-inline{
     align-items:flex-start;
   }
 
-
   .categoria-header-inline h2{
     font-size:19px;
   }
-
 
   .btn-volver{
     font-size:12px;
@@ -1345,38 +1302,41 @@ main{
     padding:8px 10px;
   }
 
-
   .categoria span{
 
     font-size:38px;
   }
-
 
   .info-card .icono{
 
     font-size:35px;
   }
 
-
-  /* BOTONES FLOTANTES */
+  /* BOTONES FLOTANTES FIJOS */
 
   .flotante-favoritos{
+
+    left:10px;
+    bottom:10px;
+
     font-size:11px;
 
     padding:9px 10px;
 
     border-radius:13px;
   }
-
 
   .flotante-pedido{
+
+    right:10px;
+    bottom:10px;
+
     font-size:11px;
 
     padding:9px 10px;
 
     border-radius:13px;
   }
-
 
   .btn-favorito{
     width:28px;
@@ -1387,13 +1347,11 @@ main{
     line-height:28px;
   }
 
-
   .admin-grid{
     grid-template-columns:1fr;
   }
 
 }
-
 
 @media(max-width:400px){
 
@@ -1401,28 +1359,25 @@ main{
     font-size:17px;
   }
 
-
   .bienvenida-texto{
 
-    font-size:14px;
-  }
+    /* UN POQUITO MÁS GRANDE */
 
+    font-size:15px;
+  }
 
   .productos-grid{
     grid-template-columns:
       1fr 1fr;
   }
 
-
   .producto-imagen{
     height:165px;
   }
 
-
   .categoria{
     min-height:105px;
   }
-
 
   .categoria span{
     font-size:34px;
@@ -1433,9 +1388,7 @@ main{
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      HEADER
@@ -1455,7 +1408,6 @@ main{
 
   </div>
 
-
   <div class="header-actions">
 
     <button
@@ -1465,7 +1417,6 @@ main{
       🔎 Buscar
 
     </button>
-
 
     <button
       class="header-btn"
@@ -1482,7 +1433,6 @@ main{
 
 </header>
 
-
 <!-- =====================================================
      BIENVENIDA
 ===================================================== -->
@@ -1496,7 +1446,6 @@ main{
   </div>
 
 </section>
-
 
 <!-- =====================================================
      LEMA
@@ -1514,7 +1463,6 @@ main{
   convertir cada elección en una expresión única de tu esencia. 🛍️💙💜
 
 </div>
-
 
 <!-- =====================================================
      VIDEO
@@ -1535,9 +1483,7 @@ main{
 
 </section>
 
-
 <main>
-
 
 <!-- =====================================================
      CATEGORÍAS
@@ -1546,7 +1492,6 @@ main{
 <div id="categoriasGrid">
 
   <div class="categorias-grid">
-
 
     <button
       class="categoria"
@@ -1558,7 +1503,6 @@ main{
 
     </button>
 
-
     <button
       class="categoria"
       onclick="abrirCategoria('lociones')">
@@ -1568,7 +1512,6 @@ main{
       Lociones
 
     </button>
-
 
     <button
       class="categoria"
@@ -1580,7 +1523,6 @@ main{
 
     </button>
 
-
     <button
       class="categoria"
       onclick="abrirCategoria('streaming')">
@@ -1591,18 +1533,15 @@ main{
 
     </button>
 
-
   </div>
 
 </div>
-
 
 <!-- =====================================================
      TRES CUADROS INFERIORES
 ===================================================== -->
 
 <section class="info-grid">
-
 
   <div class="info-card">
 
@@ -1621,7 +1560,6 @@ main{
 
   </div>
 
-
   <div class="info-card">
 
     <div class="icono">
@@ -1637,7 +1575,6 @@ main{
     </p>
 
   </div>
-
 
   <div class="info-card">
 
@@ -1656,9 +1593,7 @@ main{
 
   </div>
 
-
 </section>
-
 
 <!-- =====================================================
      ADMIN
@@ -1672,20 +1607,16 @@ main{
     ⚙️ Panel de administración
   </h2>
 
-
   <h3>
     ➕ Agregar producto
   </h3>
 
-
   <div class="admin-grid">
-
 
     <input
       id="productoNombre"
       class="input"
       placeholder="Nombre del producto">
-
 
     <input
       id="productoPrecio"
@@ -1693,18 +1624,15 @@ main{
       type="number"
       placeholder="Precio">
 
-
     <input
       id="productoCategoria"
       class="input"
       placeholder="Categoría: ropa, lociones, zapatos o streaming">
 
-
     <input
       id="productoDescripcion"
       class="input"
       placeholder="Descripción">
-
 
     <input
       id="productoImagen"
@@ -1712,9 +1640,7 @@ main{
       type="file"
       accept="image/*">
 
-
   </div>
-
 
   <label
     style="display:block;margin:10px 0;">
@@ -1727,7 +1653,6 @@ main{
 
   </label>
 
-
   <button
     class="btn btn-principal"
     onclick="guardarProducto()">
@@ -1736,7 +1661,6 @@ main{
 
   </button>
 
-
   <hr
     style="
       margin:25px 0;
@@ -1744,14 +1668,11 @@ main{
       border-top:1px solid #ede9fe;
     ">
 
-
   <h3>
     📦 Crear / actualizar pedido
   </h3>
 
-
   <div class="admin-grid">
-
 
     <input
       id="pedidoCodigo"
@@ -1759,12 +1680,10 @@ main{
       placeholder="Código del pedido"
       readonly>
 
-
     <input
       id="pedidoCliente"
       class="input"
       placeholder="Nombre del cliente">
-
 
     <select
       id="pedidoEstado"
@@ -1792,15 +1711,12 @@ main{
 
     </select>
 
-
     <input
       id="pedidoDetalle"
       class="input"
       placeholder="Detalle del pedido">
 
-
   </div>
-
 
   <div
     style="
@@ -1808,7 +1724,6 @@ main{
       flex-wrap:wrap;
       gap:8px;
     ">
-
 
     <button
       class="btn btn-principal"
@@ -1818,7 +1733,6 @@ main{
 
     </button>
 
-
     <button
       class="btn btn-secundario"
       onclick="actualizarPedido()">
@@ -1826,7 +1740,6 @@ main{
       🔄 Actualizar pedido
 
     </button>
-
 
     <button
       class="btn btn-secundario"
@@ -1836,15 +1749,12 @@ main{
 
     </button>
 
-
   </div>
-
 
   <div
     id="codigoGenerado"
     style="margin-top:15px;">
   </div>
-
 
   <div class="admin-lista">
 
@@ -1858,7 +1768,6 @@ main{
 
   </div>
 
-
   <div class="admin-lista">
 
     <h3>
@@ -1871,12 +1780,9 @@ main{
 
   </div>
 
-
 </section>
 
-
 </main>
-
 
 <!-- =====================================================
      BOTONES FLOTANTES
@@ -1886,7 +1792,6 @@ main{
   id="flotantes"
   class="flotantes">
 
-
   <button
     class="flotante-favoritos"
     onclick="abrirFavoritos()">
@@ -1894,7 +1799,6 @@ main{
     ❤️ Favoritos
 
   </button>
-
 
   <button
     class="flotante-pedido"
@@ -1904,9 +1808,7 @@ main{
 
   </button>
 
-
 </div>
-
 
 <!-- =====================================================
      MODAL IMAGEN
@@ -1928,7 +1830,6 @@ main{
 
     </button>
 
-
     <img
       id="imagenGrande"
       class="modal-imagen"
@@ -1938,7 +1839,6 @@ main{
   </div>
 
 </div>
-
 
 <!-- =====================================================
      MODAL PEDIDO
@@ -1959,17 +1859,14 @@ main{
 
     </button>
 
-
     <h2>
       📦 Estado de mi pedido
     </h2>
-
 
     <input
       id="buscarPedido"
       class="input"
       placeholder="Ejemplo: AX-1234">
-
 
     <button
       class="btn btn-principal"
@@ -1979,7 +1876,6 @@ main{
 
     </button>
 
-
     <div
       id="resultadoPedido"
       style="margin-top:18px;">
@@ -1988,7 +1884,6 @@ main{
   </div>
 
 </div>
-
 
 <!-- =====================================================
      MODAL CARRITO
@@ -2009,16 +1904,13 @@ main{
 
     </button>
 
-
     <h2>
       🛒 Mi carrito
     </h2>
 
-
     <div
       id="listaCarrito">
     </div>
-
 
     <div
       id="totalCarrito"
@@ -2027,7 +1919,6 @@ main{
       Total: $0
 
     </div>
-
 
     <button
       class="btn btn-principal"
@@ -2040,7 +1931,6 @@ main{
   </div>
 
 </div>
-
 
 <!-- =====================================================
      MODAL BÚSQUEDA
@@ -2061,18 +1951,15 @@ main{
 
     </button>
 
-
     <h2>
       🔎 Buscar productos
     </h2>
-
 
     <input
       id="inputBusqueda"
       class="input"
       placeholder="Busca ropa, lociones, zapatos..."
       oninput="buscarProductos">
-
 
     <div
       id="resultadosBusqueda">
@@ -2081,7 +1968,6 @@ main{
   </div>
 
 </div>
-
 
 <!-- =====================================================
      MODAL FAVORITOS
@@ -2102,11 +1988,9 @@ main{
 
     </button>
 
-
     <h2>
       ❤️ Mis favoritos
     </h2>
-
 
     <div
       id="listaFavoritos">
@@ -2115,7 +1999,6 @@ main{
   </div>
 
 </div>
-
 
 <script type="module">
 
@@ -2126,7 +2009,6 @@ main{
 import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 
 import {
   getFirestore,
@@ -2139,7 +2021,6 @@ import {
   query,
   where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 
 const firebaseConfig = {
 
@@ -2163,14 +2044,11 @@ const firebaseConfig = {
 
 };
 
-
 const app =
   initializeApp(firebaseConfig);
 
-
 const db =
   getFirestore(app);
-
 
 /* =====================================================
    VARIABLES
@@ -2187,7 +2065,6 @@ let carrito =
     ) || "[]"
   );
 
-
 let favoritos =
   JSON.parse(
     localStorage.getItem(
@@ -2195,19 +2072,15 @@ let favoritos =
     ) || "[]"
   );
 
-
 let categoriaActual = null;
-
 
 const categoriasGrid =
   document.getElementById(
     "categoriasGrid"
   );
 
-
 const categoriasOriginales =
   categoriasGrid.innerHTML;
-
 
 /* =====================================================
    UTILIDADES
@@ -2227,7 +2100,6 @@ function dinero(valor){
 
 }
 
-
 function escapeHtml(text){
 
   return String(text ?? "")
@@ -2239,7 +2111,6 @@ function escapeHtml(text){
 
 }
 
-
 function normalizar(texto){
 
   return String(texto ?? "")
@@ -2247,7 +2118,6 @@ function normalizar(texto){
     .trim();
 
 }
-
 
 /* =====================================================
    CATEGORÍAS
@@ -2267,7 +2137,6 @@ function obtenerCategoriaProducto(producto){
 
 }
 
-
 function perteneceCategoria(
   producto,
   categoria
@@ -2277,7 +2146,6 @@ function perteneceCategoria(
     obtenerCategoriaProducto(
       producto
     );
-
 
   const mapa = {
 
@@ -2313,7 +2181,6 @@ function perteneceCategoria(
 
   };
 
-
   return (
     mapa[categoria] ||
     [categoria]
@@ -2325,7 +2192,6 @@ function perteneceCategoria(
 
 }
 
-
 /* =====================================================
    ABRIR CATEGORÍA
    MISMO LUGAR
@@ -2336,7 +2202,6 @@ function(categoria){
 
   categoriaActual =
     categoria;
-
 
   const nombres = {
 
@@ -2350,7 +2215,6 @@ function(categoria){
 
   };
 
-
   const encontrados =
     productos.filter(
       p =>
@@ -2359,7 +2223,6 @@ function(categoria){
           categoria
         )
     );
-
 
   categoriasGrid.innerHTML = `
 
@@ -2384,7 +2247,6 @@ function(categoria){
 
       </div>
 
-
       <p class="categoria-subtitulo">
 
         ${encontrados.length}
@@ -2403,7 +2265,6 @@ function(categoria){
         }
 
       </p>
-
 
       <div class="productos-grid">
 
@@ -2438,7 +2299,6 @@ function(categoria){
 
 };
 
-
 /* =====================================================
    VOLVER A CATEGORÍAS
 ===================================================== */
@@ -2452,7 +2312,6 @@ function(){
     categoriasOriginales;
 
 };
-
 
 /* =====================================================
    TARJETA PRODUCTO
@@ -2469,24 +2328,20 @@ function tarjetaProducto(
       producto.nombre
     );
 
-
   const nombre =
     producto.nombre ||
     producto.name ||
     "Producto";
-
 
   const precio =
     producto.precio ??
     producto.price ??
     0;
 
-
   const descripcion =
     producto.descripcion ||
     producto.description ||
     "";
-
 
   const imagen =
     producto.imagen ||
@@ -2494,10 +2349,8 @@ function tarjetaProducto(
     producto.url ||
     "";
 
-
   const esFavorito =
     favoritos.includes(id);
-
 
   return `
 
@@ -2515,14 +2368,12 @@ function tarjetaProducto(
 
       </button>
 
-
       <img
         class="producto-imagen"
         src="${escapeHtml(imagen)}"
         alt="${escapeHtml(nombre)}"
         onclick="verImagen('${escapeHtml(imagen)}')"
         onerror="this.src='https://via.placeholder.com/600x600?text=ANDREX'">
-
 
       <div class="producto-info">
 
@@ -2532,20 +2383,17 @@ function tarjetaProducto(
 
         </div>
 
-
         <div class="producto-precio">
 
           ${dinero(precio)}
 
         </div>
 
-
         <div class="producto-desc">
 
           ${escapeHtml(descripcion)}
 
         </div>
-
 
         <div class="producto-botones">
 
@@ -2556,7 +2404,6 @@ function tarjetaProducto(
             💬 Consultar
 
           </button>
-
 
           <button
             class="btn-producto btn-carrito"
@@ -2576,7 +2423,6 @@ function tarjetaProducto(
 
 }
 
-
 /* =====================================================
    CARGAR PRODUCTOS
 ===================================================== */
@@ -2584,7 +2430,6 @@ function tarjetaProducto(
 async function cargarProductos(){
 
   productos = [];
-
 
   try{
 
@@ -2595,7 +2440,6 @@ async function cargarProductos(){
           "productos"
         )
       );
-
 
     snapshot.forEach(
       docSnap => {
@@ -2611,7 +2455,6 @@ async function cargarProductos(){
       }
     );
 
-
   }catch(error){
 
     console.error(
@@ -2620,7 +2463,6 @@ async function cargarProductos(){
     );
 
   }
-
 
   /* GITHUB */
 
@@ -2631,12 +2473,10 @@ async function cargarProductos(){
         "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva"
       );
 
-
     if(respuesta.ok){
 
       const archivos =
         await respuesta.json();
-
 
       archivos
         .filter(
@@ -2647,11 +2487,9 @@ async function cargarProductos(){
                 archivo.name
               ).toLowerCase();
 
-
             const esImagen =
               /\.(jpg|jpeg|png|webp|gif)$/i
                 .test(nombre);
-
 
             return (
 
@@ -2715,7 +2553,6 @@ async function cargarProductos(){
 
     }
 
-
   }catch(error){
 
     console.error(
@@ -2725,9 +2562,7 @@ async function cargarProductos(){
 
   }
 
-
   actualizarContadorCarrito();
-
 
   if(categoriaActual){
 
@@ -2737,11 +2572,9 @@ async function cargarProductos(){
 
   }
 
-
   renderAdmin();
 
 }
-
 
 /* =====================================================
    FAVORITOS
@@ -2751,7 +2584,6 @@ window.toggleFavorito =
 function(id){
 
   id = String(id);
-
 
   if(
     favoritos.includes(id)
@@ -2768,12 +2600,10 @@ function(id){
 
   }
 
-
   localStorage.setItem(
     "andrex_favoritos",
     JSON.stringify(favoritos)
   );
-
 
   if(categoriaActual){
 
@@ -2785,7 +2615,6 @@ function(id){
 
 };
 
-
 window.abrirFavoritos =
 function(){
 
@@ -2794,7 +2623,6 @@ function(){
       "listaFavoritos"
     );
 
-
   const productosFavoritos =
     productos.filter(
       p =>
@@ -2802,7 +2630,6 @@ function(){
           String(p.id)
         )
     );
-
 
   if(!productosFavoritos.length){
 
@@ -2835,13 +2662,11 @@ function(){
 
   }
 
-
   abrirModal(
     "modalFavoritos"
   );
 
 };
-
 
 /* =====================================================
    IMAGEN
@@ -2854,13 +2679,11 @@ function(imagen){
     "imagenGrande"
   ).src = imagen;
 
-
   abrirModal(
     "modalImagen"
   );
 
 };
-
 
 /* =====================================================
    WHATSAPP
@@ -2871,7 +2694,6 @@ function(nombre){
 
   const texto =
     `Hola 👋 estoy interesado en el producto "${nombre}" de ANDREX 🩵 STORE. ¿Me pueden dar más información?`;
-
 
   window.open(
 
@@ -2884,7 +2706,6 @@ function(nombre){
   );
 
 };
-
 
 /* =====================================================
    CARRITO
@@ -2900,10 +2721,8 @@ function(id){
         String(id)
     );
 
-
   if(!producto)
     return;
-
 
   carrito.push({
 
@@ -2931,22 +2750,18 @@ function(id){
 
   });
 
-
   localStorage.setItem(
     "andrex_carrito",
     JSON.stringify(carrito)
   );
 
-
   actualizarContadorCarrito();
-
 
   alert(
     "🛒 Producto agregado al carrito."
   );
 
 };
-
 
 function actualizarContadorCarrito(){
 
@@ -2956,7 +2771,6 @@ function actualizarContadorCarrito(){
     carrito.length;
 
 }
-
 
 window.abrirCarrito =
 function(){
@@ -2969,14 +2783,12 @@ function(){
 
 };
 
-
 function renderCarrito(){
 
   const lista =
     document.getElementById(
       "listaCarrito"
     );
-
 
   const total =
     carrito.reduce(
@@ -2987,7 +2799,6 @@ function renderCarrito(){
         ),
       0
     );
-
 
   if(!carrito.length){
 
@@ -3014,7 +2825,6 @@ function renderCarrito(){
                 src="${escapeHtml(p.imagen)}"
                 alt="">
 
-
               <div
                 class="carrito-item-info">
 
@@ -3026,7 +2836,6 @@ function renderCarrito(){
 
                 </strong>
 
-
                 <div>
 
                   ${dinero(
@@ -3036,7 +2845,6 @@ function renderCarrito(){
                 </div>
 
               </div>
-
 
               <button
                 class="btn btn-secundario"
@@ -3054,7 +2862,6 @@ function renderCarrito(){
 
   }
 
-
   document.getElementById(
     "totalCarrito"
   ).textContent =
@@ -3062,7 +2869,6 @@ function renderCarrito(){
     dinero(total);
 
 }
-
 
 window.eliminarCarrito =
 function(index){
@@ -3072,19 +2878,16 @@ function(index){
     1
   );
 
-
   localStorage.setItem(
     "andrex_carrito",
     JSON.stringify(carrito)
   );
-
 
   actualizarContadorCarrito();
 
   renderCarrito();
 
 };
-
 
 window.comprarCarrito =
 function(){
@@ -3099,7 +2902,6 @@ function(){
 
   }
 
-
   const total =
     carrito.reduce(
       (s,p) =>
@@ -3110,7 +2912,6 @@ function(){
       0
     );
 
-
   const productosTexto =
     carrito
       .map(
@@ -3119,10 +2920,8 @@ function(){
       )
       .join("\n");
 
-
   const mensaje =
     `Hola 👋 quiero realizar una compra en ANDREX 🩵 STORE.\n\n${productosTexto}\n\nTotal: ${dinero(total)}`;
-
 
   window.open(
 
@@ -3138,7 +2937,6 @@ function(){
 
 };
 
-
 /* =====================================================
    BÚSQUEDA
 ===================================================== */
@@ -3149,7 +2947,6 @@ function(){
   abrirModal(
     "modalBusqueda"
   );
-
 
   setTimeout(
     () => {
@@ -3164,7 +2961,6 @@ function(){
 
 };
 
-
 window.buscarProductos =
 function(){
 
@@ -3175,12 +2971,10 @@ function(){
       ).value
     );
 
-
   const contenedor =
     document.getElementById(
       "resultadosBusqueda"
     );
-
 
   if(!texto){
 
@@ -3190,7 +2984,6 @@ function(){
     return;
 
   }
-
 
   const encontrados =
     productos.filter(
@@ -3202,13 +2995,11 @@ function(){
             p.name
           );
 
-
         const categoria =
           normalizar(
             p.categoria ||
             p.category
           );
-
 
         return (
 
@@ -3227,7 +3018,6 @@ function(){
       }
     );
 
-
   if(!encontrados.length){
 
     contenedor.innerHTML = `
@@ -3244,7 +3034,6 @@ function(){
 
   }
 
-
   contenedor.innerHTML =
     encontrados
       .map(
@@ -3259,7 +3048,6 @@ function(){
               ''
             )}')">
 
-
             <img
               src="${escapeHtml(
                 p.imagen ||
@@ -3268,7 +3056,6 @@ function(){
                 ''
               )}"
               alt="">
-
 
             <div>
 
@@ -3281,7 +3068,6 @@ function(){
                 )}
 
               </strong>
-
 
               <div
                 style="
@@ -3307,7 +3093,6 @@ function(){
 
 };
 
-
 /* =====================================================
    MODALES
 ===================================================== */
@@ -3322,7 +3107,6 @@ function abrirModal(id){
 
 }
 
-
 window.cerrarModal =
 function(id){
 
@@ -3333,7 +3117,6 @@ function(id){
   );
 
 };
-
 
 document
   .querySelectorAll(".modal")
@@ -3360,7 +3143,6 @@ document
     }
   );
 
-
 /* =====================================================
    PEDIDO
 ===================================================== */
@@ -3372,18 +3154,15 @@ function(){
     "buscarPedido"
   ).value = "";
 
-
   document.getElementById(
     "resultadoPedido"
   ).innerHTML = "";
-
 
   abrirModal(
     "modalPedido"
   );
 
 };
-
 
 window.consultarPedido =
 async function(){
@@ -3395,12 +3174,10 @@ async function(){
     .trim()
     .toUpperCase();
 
-
   const resultado =
     document.getElementById(
       "resultadoPedido"
     );
-
 
   if(!codigo){
 
@@ -3419,7 +3196,6 @@ async function(){
 
   }
 
-
   resultado.innerHTML = `
 
     <div class="cargando">
@@ -3429,7 +3205,6 @@ async function(){
     </div>
 
   `;
-
 
   try{
 
@@ -3449,10 +3224,8 @@ async function(){
 
       );
 
-
     const snapshot =
       await getDocs(q);
-
 
     if(snapshot.empty){
 
@@ -3471,11 +3244,9 @@ async function(){
 
     }
 
-
     const data =
       snapshot.docs[0]
         .data();
-
 
     resultado.innerHTML = `
 
@@ -3485,7 +3256,6 @@ async function(){
           border-radius:15px;
           padding:18px;
         ">
-
 
         <h3
           style="
@@ -3500,7 +3270,6 @@ async function(){
 
         </h3>
 
-
         <p>
 
           <strong>
@@ -3512,7 +3281,6 @@ async function(){
           )}
 
         </p>
-
 
         <p
           style="margin-top:8px;">
@@ -3526,7 +3294,6 @@ async function(){
           )}
 
         </p>
-
 
         <p
           style="margin-top:12px;">
@@ -3546,16 +3313,13 @@ async function(){
 
         </p>
 
-
       </div>
 
     `;
 
-
   }catch(error){
 
     console.error(error);
-
 
     resultado.innerHTML = `
 
@@ -3577,7 +3341,6 @@ async function(){
 
 };
 
-
 /* =====================================================
    PEDIDOS ADMIN
 ===================================================== */
@@ -3594,7 +3357,6 @@ function generarCodigoPedido(){
 
 }
 
-
 window.crearPedido =
 async function(){
 
@@ -3603,18 +3365,15 @@ async function(){
       "pedidoCliente"
     ).value.trim();
 
-
   const estado =
     document.getElementById(
       "pedidoEstado"
     ).value;
 
-
   const detalle =
     document.getElementById(
       "pedidoDetalle"
     ).value.trim();
-
 
   if(!cliente){
 
@@ -3626,10 +3385,8 @@ async function(){
 
   }
 
-
   const codigo =
     generarCodigoPedido();
-
 
   try{
 
@@ -3658,12 +3415,10 @@ async function(){
 
     );
 
-
     document.getElementById(
       "pedidoCodigo"
     ).value =
       codigo;
-
 
     document.getElementById(
       "codigoGenerado"
@@ -3690,14 +3445,11 @@ async function(){
 
     `;
 
-
     cargarPedidos();
-
 
   }catch(error){
 
     console.error(error);
-
 
     alert(
       "❌ No se pudo crear el pedido."
@@ -3706,7 +3458,6 @@ async function(){
   }
 
 };
-
 
 window.actualizarPedido =
 async function(){
@@ -3718,7 +3469,6 @@ async function(){
     .trim()
     .toUpperCase();
 
-
   if(!codigo){
 
     alert(
@@ -3729,24 +3479,20 @@ async function(){
 
   }
 
-
   const cliente =
     document.getElementById(
       "pedidoCliente"
     ).value.trim();
-
 
   const estado =
     document.getElementById(
       "pedidoEstado"
     ).value;
 
-
   const detalle =
     document.getElementById(
       "pedidoDetalle"
     ).value.trim();
-
 
   try{
 
@@ -3766,10 +3512,8 @@ async function(){
 
       );
 
-
     const snapshot =
       await getDocs(q);
-
 
     if(snapshot.empty){
 
@@ -3781,10 +3525,8 @@ async function(){
 
     }
 
-
     const pedidoDoc =
       snapshot.docs[0];
-
 
     await setDoc(
 
@@ -3816,14 +3558,11 @@ async function(){
 
     );
 
-
     alert(
       "✅ Pedido actualizado."
     );
 
-
     cargarPedidos();
-
 
   }catch(error){
 
@@ -3837,7 +3576,6 @@ async function(){
 
 };
 
-
 window.enviarCodigoWhatsApp =
 function(){
 
@@ -3846,12 +3584,10 @@ function(){
       "pedidoCodigo"
     ).value.trim();
 
-
   const cliente =
     document.getElementById(
       "pedidoCliente"
     ).value.trim();
-
 
   if(!codigo){
 
@@ -3863,10 +3599,8 @@ function(){
 
   }
 
-
   const mensaje =
     `Hola ${cliente || ""} 👋\n\nTu pedido en ANDREX 🩵 STORE fue registrado correctamente.\n\n📦 Código de seguimiento: ${codigo}\n\nPuedes ingresar este código en nuestra tienda para consultar el estado de tu pedido. 🩵`;
-
 
   window.open(
 
@@ -3881,7 +3615,6 @@ function(){
   );
 
 };
-
 
 /* =====================================================
    CARGAR PEDIDOS
@@ -3899,9 +3632,7 @@ async function cargarPedidos(){
         )
       );
 
-
     pedidos = [];
-
 
     snapshot.forEach(
       docSnap => {
@@ -3917,9 +3648,7 @@ async function cargarPedidos(){
       }
     );
 
-
     renderPedidosAdmin();
-
 
   }catch(error){
 
@@ -3929,7 +3658,6 @@ async function cargarPedidos(){
 
 }
 
-
 function renderPedidosAdmin(){
 
   const lista =
@@ -3937,10 +3665,8 @@ function renderPedidosAdmin(){
       "listaPedidosAdmin"
     );
 
-
   if(!lista)
     return;
-
 
   if(!pedidos.length){
 
@@ -3958,7 +3684,6 @@ function renderPedidosAdmin(){
 
   }
 
-
   lista.innerHTML =
     pedidos
       .slice()
@@ -3969,7 +3694,6 @@ function renderPedidosAdmin(){
           <div
             class="admin-producto">
 
-
             <strong>
 
               📦
@@ -3979,7 +3703,6 @@ function renderPedidosAdmin(){
 
             </strong>
 
-
             <div>
 
               👤
@@ -3988,7 +3711,6 @@ function renderPedidosAdmin(){
               )}
 
             </div>
-
 
             <div
               style="margin:6px 0;">
@@ -4004,7 +3726,6 @@ function renderPedidosAdmin(){
 
             </div>
 
-
             <div
               style="
                 font-size:13px;
@@ -4017,7 +3738,6 @@ function renderPedidosAdmin(){
 
             </div>
 
-
             <button
               class="btn btn-secundario"
               style="margin-top:8px;"
@@ -4027,7 +3747,6 @@ function renderPedidosAdmin(){
 
             </button>
 
-
           </div>
 
         `
@@ -4035,7 +3754,6 @@ function renderPedidosAdmin(){
       .join("");
 
 }
-
 
 window.seleccionarPedido =
 function(id){
@@ -4047,22 +3765,18 @@ function(id){
         String(id)
     );
 
-
   if(!pedido)
     return;
-
 
   document.getElementById(
     "pedidoCodigo"
   ).value =
     pedido.codigo || "";
 
-
   document.getElementById(
     "pedidoCliente"
   ).value =
     pedido.cliente || "";
-
 
   document.getElementById(
     "pedidoEstado"
@@ -4070,12 +3784,10 @@ function(id){
     pedido.estado ||
     "Recibido";
 
-
   document.getElementById(
     "pedidoDetalle"
   ).value =
     pedido.detalle || "";
-
 
   document.getElementById(
     "adminPanel"
@@ -4084,7 +3796,6 @@ function(id){
   });
 
 };
-
 
 /* =====================================================
    GUARDAR PRODUCTO
@@ -4098,7 +3809,6 @@ async function(){
       "productoNombre"
     ).value.trim();
 
-
   const precio =
     Number(
       document.getElementById(
@@ -4106,30 +3816,25 @@ async function(){
       ).value
     );
 
-
   const categoria =
     document.getElementById(
       "productoCategoria"
     ).value.trim();
-
 
   const descripcion =
     document.getElementById(
       "productoDescripcion"
     ).value.trim();
 
-
   const archivo =
     document.getElementById(
       "productoImagen"
     ).files[0];
 
-
   const destacado =
     document.getElementById(
       "productoDestacado"
     ).checked;
-
 
   if(
     !nombre ||
@@ -4144,9 +3849,7 @@ async function(){
 
   }
 
-
   let imagen = "";
-
 
   if(archivo){
 
@@ -4172,7 +3875,6 @@ async function(){
     }
 
   }
-
 
   try{
 
@@ -4205,49 +3907,39 @@ async function(){
 
     );
 
-
     alert(
       "✅ Producto guardado correctamente."
     );
-
 
     document.getElementById(
       "productoNombre"
     ).value = "";
 
-
     document.getElementById(
       "productoPrecio"
     ).value = "";
-
 
     document.getElementById(
       "productoCategoria"
     ).value = "";
 
-
     document.getElementById(
       "productoDescripcion"
     ).value = "";
-
 
     document.getElementById(
       "productoImagen"
     ).value = "";
 
-
     document.getElementById(
       "productoDestacado"
     ).checked = false;
 
-
     await cargarProductos();
-
 
   }catch(error){
 
     console.error(error);
-
 
     alert(
       "❌ No se pudo guardar el producto.\n\nRevisa las reglas de Firestore."
@@ -4256,7 +3948,6 @@ async function(){
   }
 
 };
-
 
 /* =====================================================
    COMPRIMIR IMAGEN
@@ -4274,13 +3965,11 @@ function comprimirImagen(
       const lector =
         new FileReader();
 
-
       lector.onload =
         e => {
 
           const imagen =
             new Image();
-
 
           imagen.onload =
             () => {
@@ -4288,10 +3977,8 @@ function comprimirImagen(
               let ancho =
                 imagen.width;
 
-
               let alto =
                 imagen.height;
-
 
               if(
                 ancho >
@@ -4305,32 +3992,26 @@ function comprimirImagen(
                     ancho
                   );
 
-
                 ancho =
                   maximo;
 
               }
-
 
               const canvas =
                 document.createElement(
                   "canvas"
                 );
 
-
               canvas.width =
                 ancho;
 
-
               canvas.height =
                 alto;
-
 
               const ctx =
                 canvas.getContext(
                   "2d"
                 );
-
 
               ctx.drawImage(
                 imagen,
@@ -4339,7 +4020,6 @@ function comprimirImagen(
                 ancho,
                 alto
               );
-
 
               resolve(
 
@@ -4352,20 +4032,16 @@ function comprimirImagen(
 
             };
 
-
           imagen.onerror =
             reject;
-
 
           imagen.src =
             e.target.result;
 
         };
 
-
       lector.onerror =
         reject;
-
 
       lector.readAsDataURL(
         archivo
@@ -4375,7 +4051,6 @@ function comprimirImagen(
   );
 
 }
-
 
 /* =====================================================
    ADMIN
@@ -4388,10 +4063,8 @@ function renderAdmin(){
       "listaAdmin"
     );
 
-
   if(!lista)
     return;
-
 
   const productosFirebase =
     productos.filter(
@@ -4399,7 +4072,6 @@ function renderAdmin(){
         p.origen !==
         "github"
     );
-
 
   if(!productosFirebase.length){
 
@@ -4418,7 +4090,6 @@ function renderAdmin(){
 
   }
 
-
   lista.innerHTML =
     productosFirebase
       .map(
@@ -4426,7 +4097,6 @@ function renderAdmin(){
 
           <div
             class="admin-producto">
-
 
             <strong>
 
@@ -4438,7 +4108,6 @@ function renderAdmin(){
 
             </strong>
 
-
             <div>
 
               ${dinero(
@@ -4448,7 +4117,6 @@ function renderAdmin(){
               )}
 
             </div>
-
 
             <div
               style="
@@ -4467,7 +4135,6 @@ function renderAdmin(){
 
             </div>
 
-
             <button
               class="btn btn-secundario"
               onclick="eliminarProducto('${escapeHtml(p.id)}')">
@@ -4476,7 +4143,6 @@ function renderAdmin(){
 
             </button>
 
-
           </div>
 
         `
@@ -4484,7 +4150,6 @@ function renderAdmin(){
       .join("");
 
 }
-
 
 window.eliminarProducto =
 async function(id){
@@ -4499,7 +4164,6 @@ async function(id){
 
   }
 
-
   try{
 
     await deleteDoc(
@@ -4510,19 +4174,15 @@ async function(id){
       )
     );
 
-
     alert(
       "✅ Producto eliminado."
     );
 
-
     await cargarProductos();
-
 
   }catch(error){
 
     console.error(error);
-
 
     alert(
       "❌ No se pudo eliminar."
@@ -4532,7 +4192,6 @@ async function(id){
 
 };
 
-
 /* =====================================================
    ACTIVAR ADMIN
 ===================================================== */
@@ -4540,7 +4199,6 @@ async function(id){
 let contadorLogo = 0;
 
 let ultimoClick = 0;
-
 
 document.getElementById(
   "logoAdmin"
@@ -4552,7 +4210,6 @@ document.getElementById(
     const ahora =
       Date.now();
 
-
     if(
       ahora -
       ultimoClick >
@@ -4563,13 +4220,10 @@ document.getElementById(
 
     }
 
-
     ultimoClick =
       ahora;
 
-
     contadorLogo++;
-
 
     if(
       contadorLogo >= 5
@@ -4577,12 +4231,10 @@ document.getElementById(
 
       contadorLogo = 0;
 
-
       const pin =
         prompt(
           "🔐 Ingresa el PIN de administrador:"
         );
-
 
       if(
         pin === "2580"
@@ -4595,11 +4247,9 @@ document.getElementById(
           "activo"
         );
 
-
         alert(
           "✅ Panel de administrador activado."
         );
-
 
         cargarPedidos();
 
@@ -4620,7 +4270,6 @@ document.getElementById(
   }
 );
 
-
 /* =====================================================
    INICIO
 ===================================================== */
@@ -4631,7 +4280,6 @@ cargarPedidos();
 
 actualizarContadorCarrito();
 
-
 /* =====================================================
    ASEGURAR BOTONES FLOTANTES EN BODY
 ===================================================== */
@@ -4641,7 +4289,6 @@ const flotantes =
     "flotantes"
   );
 
-
 if(flotantes){
 
   document.body.appendChild(
@@ -4649,7 +4296,6 @@ if(flotantes){
   );
 
 }
-
 
 /* =====================================================
    BÚSQUEDA CORRECTA
@@ -4663,215 +4309,24 @@ document.getElementById(
   window.buscarProductos
 );
 
-
 /* =====================================================
-   MOVIMIENTO INDEPENDIENTE DE BOTONES
-   CADA BOTÓN TIENE SU PROPIA RUTA
+   BOTONES FLOTANTES FIJOS
 ===================================================== */
 
-const botonFavoritos =
-  document.querySelector(
-    ".flotante-favoritos"
-  );
+/*
+  Ya no tienen movimiento automático.
 
-const botonPedido =
-  document.querySelector(
-    ".flotante-pedido"
-  );
+  ❤️ Favoritos:
+  abajo a la izquierda.
 
+  📦 Seguir pedido:
+  abajo a la derecha.
 
-const rutaFavoritos = [
-
-  {x:82,y:17},
-  {x:15,y:31},
-  {x:76,y:45},
-  {x:20,y:62},
-  {x:84,y:77},
-  {x:43,y:88},
-  {x:8,y:69},
-  {x:55,y:28}
-
-];
-
-
-const rutaPedido = [
-
-  {x:18,y:19},
-  {x:65,y:34},
-  {x:12,y:52},
-  {x:70,y:64},
-  {x:30,y:82},
-  {x:88,y:55},
-  {x:50,y:73},
-  {x:25,y:39}
-
-];
-
-
-let indiceFavoritos = 0;
-
-let indicePedido = 0;
-
-
-function moverBoton(
-  boton,
-  posicion
-){
-
-  if(!boton)
-    return;
-
-
-  const ancho =
-    boton.offsetWidth || 100;
-
-  const alto =
-    boton.offsetHeight || 40;
-
-
-  const maxX =
-    window.innerWidth -
-    ancho -
-    5;
-
-
-  const maxY =
-    window.innerHeight -
-    alto -
-    5;
-
-
-  const x =
-    Math.max(
-      5,
-      Math.min(
-        maxX,
-        window.innerWidth *
-        posicion.x /
-        100
-      )
-    );
-
-
-  const y =
-    Math.max(
-      5,
-      Math.min(
-        maxY,
-        window.innerHeight *
-        posicion.y /
-        100
-      )
-    );
-
-
-  boton.style.left =
-    x + "px";
-
-
-  boton.style.top =
-    y + "px";
-
-}
-
-
-/* POSICIONES INICIALES */
-
-setTimeout(
-  () => {
-
-    moverBoton(
-      botonFavoritos,
-      rutaFavoritos[0]
-    );
-
-
-    moverBoton(
-      botonPedido,
-      rutaPedido[0]
-    );
-
-  },
-  100
-);
-
-
-/* FAVORITOS: RUTA PROPIA */
-
-setInterval(
-  () => {
-
-    indiceFavoritos =
-      (
-        indiceFavoritos + 1
-      ) %
-      rutaFavoritos.length;
-
-
-    moverBoton(
-      botonFavoritos,
-      rutaFavoritos[
-        indiceFavoritos
-      ]
-    );
-
-  },
-  3600
-);
-
-
-/* PEDIDO: RUTA PROPIA */
-
-setInterval(
-  () => {
-
-    indicePedido =
-      (
-        indicePedido + 1
-      ) %
-      rutaPedido.length;
-
-
-    moverBoton(
-      botonPedido,
-      rutaPedido[
-        indicePedido
-      ]
-    );
-
-  },
-  4300
-);
-
-
-/* RECALCULAR SI CAMBIA EL TAMAÑO */
-
-window.addEventListener(
-  "resize",
-  () => {
-
-    moverBoton(
-      botonFavoritos,
-      rutaFavoritos[
-        indiceFavoritos
-      ]
-    );
-
-
-    moverBoton(
-      botonPedido,
-      rutaPedido[
-        indicePedido
-      ]
-    );
-
-  }
-);
+  La posición se controla
+  directamente desde CSS.
+*/
 
 </script>
 
 </body>
 </html>
-
-
-  
