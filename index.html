@@ -6,20 +6,12 @@
 
 <title>ANDREX 🩵 STORE</title>
 
-<!-- =====================================================
-     TIPOGRAFÍA ELEGANTE
-===================================================== -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* =====================================================
-   GENERAL
-===================================================== */
 
 *{
   box-sizing:border-box;
@@ -61,28 +53,16 @@ header{
   gap:12px;
 }
 
-/* =====================================================
-   BLOQUE DEL NOMBRE
-===================================================== */
-
 .brand-block{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
 }
 
-/* =====================================================
-   NOMBRE DE LA TIENDA
-   TIPOGRAFÍA ELEGANTE
-===================================================== */
-
 .logo{
   position:relative;
 
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
+  font-family:"Playfair Display",Georgia,serif;
 
   font-size:30px;
   font-weight:800;
@@ -114,7 +94,6 @@ header{
 }
 
 @keyframes neonSuave{
-
   from{
     text-shadow:
       0 1px 2px rgba(37,99,235,.12),
@@ -128,13 +107,7 @@ header{
       0 0 7px rgba(99,102,241,.25),
       0 0 13px rgba(124,58,237,.18);
   }
-
 }
-
-/* =====================================================
-   BOTONES HEADER
-   MÁS GRANDES + 3D
-===================================================== */
 
 .header-actions{
   display:flex;
@@ -142,7 +115,6 @@ header{
 }
 
 .header-btn{
-
   border:0;
 
   background:
@@ -169,20 +141,14 @@ header{
     0 8px 15px rgba(79,70,229,.18),
     inset 0 1px 2px rgba(255,255,255,.95);
 
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.9);
-
   transition:
     transform .18s ease,
     box-shadow .18s ease,
     background .18s ease;
-
 }
 
 .header-btn:hover{
-
-  transform:
-    translateY(-3px);
+  transform:translateY(-3px);
 
   background:
     linear-gradient(
@@ -195,27 +161,21 @@ header{
     0 7px 0 #c7cff5,
     0 11px 20px rgba(79,70,229,.22),
     inset 0 1px 2px rgba(255,255,255,1);
-
 }
 
 .header-btn:active{
-
-  transform:
-    translateY(2px);
+  transform:translateY(2px);
 
   box-shadow:
     0 2px 0 #c7cff5,
-    0 4px 8px rgba(79,70,229,.15),
-    inset 0 2px 3px rgba(79,70,229,.08);
-
+    0 4px 8px rgba(79,70,229,.15);
 }
 
 /* =====================================================
-   CUADRO DE BIENVENIDA
+   BIENVENIDA
 ===================================================== */
 
 .bienvenida-box{
-
   text-align:center;
 
   background:
@@ -244,17 +204,14 @@ header{
 }
 
 .bienvenida-box::before{
-
   content:"";
 
   position:absolute;
 
   top:0;
-
   left:15%;
 
   width:70%;
-
   height:2px;
 
   background:
@@ -265,21 +222,10 @@ header{
       #7c3aed,
       transparent
     );
-
-  opacity:.65;
 }
 
-/* =====================================================
-   BIENVENIDA
-   LETRA BONITA + MÁS GRANDE
-===================================================== */
-
 .bienvenida-texto{
-
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
+  font-family:"Playfair Display",Georgia,serif;
 
   font-size:24px;
 
@@ -296,11 +242,10 @@ header{
 }
 
 /* =====================================================
-   LEMA ELEGANTE
+   SLOGAN
 ===================================================== */
 
 .slogan{
-
   text-align:center;
 
   background:white;
@@ -323,19 +268,10 @@ header{
   line-height:1.5;
 
   border:1px solid #ede9fe;
-
 }
 
-/* =====================================================
-   LETRA BONITA DEL LEMA
-===================================================== */
-
 .slogan strong{
-
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
+  font-family:"Playfair Display",Georgia,serif;
 
   color:#4f46e5;
 
@@ -343,14 +279,12 @@ header{
 
   font-size:20px;
 
-  letter-spacing:.2px;
-
   text-shadow:
     0 2px 3px rgba(79,70,229,.12);
 }
 
 /* =====================================================
-   HERO / VIDEO
+   VIDEO
 ===================================================== */
 
 .hero{
@@ -391,7 +325,7 @@ header{
 }
 
 /* =====================================================
-   CONTENIDO
+   MAIN
 ===================================================== */
 
 main{
@@ -403,16 +337,12 @@ main{
 }
 
 /* =====================================================
-   CONTENEDOR DE CATEGORÍAS
+   CATEGORÍAS
 ===================================================== */
 
 #categoriasGrid{
   width:100%;
 }
-
-/* =====================================================
-   CUADRITOS DE CATEGORÍAS
-===================================================== */
 
 .categorias-grid{
   display:grid;
@@ -425,8 +355,6 @@ main{
 
 .categoria{
   min-height:125px;
-
-  border:0;
 
   border-radius:22px;
 
@@ -463,7 +391,6 @@ main{
 }
 
 .categoria::before{
-
   content:"";
 
   position:absolute;
@@ -480,12 +407,7 @@ main{
   pointer-events:none;
 }
 
-/* =====================================================
-   EMOJIS 3D DE CATEGORÍAS
-===================================================== */
-
 .categoria span{
-
   font-size:45px;
 
   line-height:1;
@@ -513,16 +435,11 @@ main{
 }
 
 .categoria:hover span{
-
   transform:
     perspective(300px)
     translateZ(15px)
     scale(1.10)
     rotate(-2deg);
-
-  filter:
-    drop-shadow(0 5px 2px rgba(0,0,0,.20))
-    drop-shadow(0 9px 12px rgba(79,70,229,.28));
 }
 
 .categoria:hover{
@@ -534,6 +451,7 @@ main{
 
 /* =====================================================
    CATEGORÍA ABIERTA
+   LOS PRODUCTOS APARECEN EN EL MISMO CONTENEDOR
 ===================================================== */
 
 .categoria-vista-inline{
@@ -642,12 +560,7 @@ main{
   background:#f1efff;
 }
 
-/* =====================================================
-   ❤️ CORAZÓN PEQUEÑO
-===================================================== */
-
 .btn-favorito{
-
   position:absolute;
 
   top:8px;
@@ -671,26 +584,12 @@ main{
 
   font-size:13px;
 
-  line-height:29px;
-
-  padding:0;
-
   display:flex;
 
   align-items:center;
 
   justify-content:center;
-
-  transition:.2s;
 }
-
-.btn-favorito:hover{
-  transform:scale(1.1);
-}
-
-/* =====================================================
-   INFORMACIÓN PRODUCTO
-===================================================== */
 
 .producto-info{
   padding:14px;
@@ -757,7 +656,7 @@ main{
 }
 
 /* =====================================================
-   TRES CUADRITOS INFERIORES
+   INFORMACIÓN
 ===================================================== */
 
 .info-grid{
@@ -784,18 +683,9 @@ main{
     0 6px 18px rgba(79,70,229,.06);
 
   border:1px solid #ede9fe;
-
-  position:relative;
-
-  overflow:hidden;
 }
 
-/* =====================================================
-   EMOJIS 3D INFERIORES
-===================================================== */
-
 .info-card .icono{
-
   font-size:38px;
 
   line-height:1;
@@ -807,32 +697,6 @@ main{
   filter:
     drop-shadow(0 4px 2px rgba(0,0,0,.18))
     drop-shadow(0 7px 9px rgba(79,70,229,.20));
-
-  text-shadow:
-    2px 2px 0 rgba(255,255,255,.85),
-    4px 5px 0 rgba(79,70,229,.12),
-    0 0 13px rgba(99,102,241,.22);
-
-  transform:
-    perspective(300px)
-    translateZ(8px);
-
-  transition:
-    transform .25s,
-    filter .25s;
-}
-
-.info-card:hover .icono{
-
-  transform:
-    perspective(300px)
-    translateZ(15px)
-    scale(1.10)
-    rotate(-2deg);
-
-  filter:
-    drop-shadow(0 5px 2px rgba(0,0,0,.20))
-    drop-shadow(0 9px 13px rgba(79,70,229,.28));
 }
 
 .info-card h3{
@@ -851,7 +715,6 @@ main{
 
 /* =====================================================
    BOTONES FLOTANTES
-   FIJOS EN LA PANTALLA
 ===================================================== */
 
 .flotantes{
@@ -869,13 +732,7 @@ main{
   display:block !important;
 }
 
-/* =====================================================
-   ❤️ FAVORITOS
-   FIJO ABAJO A LA IZQUIERDA
-===================================================== */
-
 .flotante-favoritos{
-
   position:fixed;
 
   left:15px;
@@ -902,22 +759,10 @@ main{
   box-shadow:
     0 6px 22px rgba(79,70,229,.20);
 
-  transition:transform .2s ease;
-
   white-space:nowrap;
 }
 
-.flotante-favoritos:hover{
-  transform:scale(1.05);
-}
-
-/* =====================================================
-   📦 SEGUIR PEDIDO
-   FIJO ABAJO A LA DERECHA
-===================================================== */
-
 .flotante-pedido{
-
   position:fixed;
 
   right:15px;
@@ -950,13 +795,7 @@ main{
   box-shadow:
     0 6px 22px rgba(79,70,229,.25);
 
-  transition:transform .2s ease;
-
   white-space:nowrap;
-}
-
-.flotante-pedido:hover{
-  transform:scale(1.05);
 }
 
 /* =====================================================
@@ -1009,7 +848,6 @@ main{
   position:absolute;
 
   top:10px;
-
   right:12px;
 
   width:35px;
@@ -1290,75 +1128,52 @@ main{
     font-size:21px;
   }
 
-  /* =================================================
-     BOTONES HEADER 3D EN CELULAR
-  ================================================= */
-
   .header-actions{
     gap:7px;
   }
 
   .header-btn{
-
     padding:10px 11px;
 
     font-size:12px;
 
     border-radius:12px;
-
-    box-shadow:
-      0 4px 0 #c7cff5,
-      0 7px 12px rgba(79,70,229,.17),
-      inset 0 1px 2px rgba(255,255,255,.95);
   }
 
   .bienvenida-box{
+    margin:10px 10px 8px;
 
-    margin:
-      10px 10px 8px;
-
-    padding:
-      14px 12px;
+    padding:14px 12px;
 
     border-radius:16px;
   }
 
-  /* =================================================
-     BIENVENIDA MÁS GRANDE
-  ================================================= */
-
   .bienvenida-texto{
-
     font-size:17px;
 
     line-height:1.35;
   }
 
   main{
-    padding:
-      7px 10px 100px;
+    padding:7px 10px 100px;
   }
 
   .slogan{
-
     font-size:14px;
 
     padding:12px;
 
-    margin:
-      7px 10px 10px;
+    margin:7px 10px 10px;
 
     line-height:1.5;
   }
 
   .slogan strong{
-
     font-size:17px;
   }
 
   .hero{
-    padding:
-      8px 8px 3px;
+    padding:8px 8px 3px;
   }
 
   .hero-video{
@@ -1421,19 +1236,14 @@ main{
   }
 
   .categoria span{
-
     font-size:38px;
   }
 
   .info-card .icono{
-
     font-size:35px;
   }
 
-  /* BOTONES FLOTANTES FIJOS */
-
   .flotante-favoritos{
-
     left:10px;
     bottom:10px;
 
@@ -1445,7 +1255,6 @@ main{
   }
 
   .flotante-pedido{
-
     right:10px;
     bottom:10px;
 
@@ -1461,8 +1270,6 @@ main{
     height:28px;
 
     font-size:13px;
-
-    line-height:28px;
   }
 
   .admin-grid{
@@ -1478,24 +1285,20 @@ main{
   }
 
   .header-btn{
-
     padding:9px 9px;
 
     font-size:11px;
   }
 
   .bienvenida-texto{
-
     font-size:16px;
   }
 
   .slogan{
-
     font-size:13px;
   }
 
   .slogan strong{
-
     font-size:16px;
   }
 
@@ -1556,9 +1359,7 @@ main{
       onclick="abrirCarrito()">
 
       🛒 Carrito
-      <span id="contadorCarrito">
-        0
-      </span>
+      <span id="contadorCarrito">0</span>
 
     </button>
 
@@ -1599,7 +1400,6 @@ main{
 
 <!-- =====================================================
      VIDEO
-     AUTOPLAY + MUTED
 ===================================================== -->
 
 <section class="hero">
@@ -1622,7 +1422,7 @@ main{
 <main>
 
 <!-- =====================================================
-     CATEGORÍAS
+     CATEGORÍAS / PRODUCTOS
 ===================================================== -->
 
 <div id="categoriasGrid">
@@ -1674,57 +1474,46 @@ main{
 </div>
 
 <!-- =====================================================
-     TRES CUADROS INFERIORES
+     INFORMACIÓN
 ===================================================== -->
 
 <section class="info-grid">
 
   <div class="info-card">
 
-    <div class="icono">
-      🚚
-    </div>
+    <div class="icono">🚚</div>
 
-    <h3>
-      Domicilio
-    </h3>
+    <h3>Domicilio</h3>
 
     <p>
-      Recibe tus productos de forma
-      cómoda y segura recuerda que hacemos envios a nivel nacional 🇨🇴✨ y recuerda que tu como cliente te encargas de pagar el envio a tu ciudad ✅tambien solo hay pago contra entrega para las lociones originales🔥
+      Recibe tus productos de forma cómoda y segura.
+      Recuerda que hacemos envíos a nivel nacional 🇨🇴✨
+      y tú como cliente te encargas de pagar el envío a tu ciudad.
+      También solo hay pago contra entrega para las lociones originales 🔥
     </p>
 
   </div>
 
   <div class="info-card">
 
-    <div class="icono">
-      💳
-    </div>
+    <div class="icono">💳</div>
 
-    <h3>
-      Medios de pago
-    </h3>
+    <h3>Medios de pago</h3>
 
     <p>
-      manejamos pagos por nequi bancolombia y daviplata ✨👌🏻
+      Manejamos pagos por Nequi, Bancolombia y Daviplata ✨👌🏻
     </p>
 
   </div>
 
   <div class="info-card">
 
-    <div class="icono">
-      💬
-    </div>
+    <div class="icono">💬</div>
 
-    <h3>
-      Ayuda
-    </h3>
+    <h3>Ayuda</h3>
 
     <p>
-      Si necesitas ayuda, escríbenos
-      directamente por WhatsApp.
+      Si necesitas ayuda, escríbenos directamente por WhatsApp.
     </p>
 
   </div>
@@ -1739,13 +1528,9 @@ main{
   id="adminPanel"
   class="admin-panel">
 
-  <h2>
-    ⚙️ Panel de administración
-  </h2>
+  <h2>⚙️ Panel de administración</h2>
 
-  <h3>
-    ➕ Agregar producto
-  </h3>
+  <h3>➕ Agregar producto</h3>
 
   <div class="admin-grid">
 
@@ -1778,8 +1563,7 @@ main{
 
   </div>
 
-  <label
-    style="display:block;margin:10px 0;">
+  <label style="display:block;margin:10px 0;">
 
     <input
       id="productoDestacado"
@@ -1804,9 +1588,7 @@ main{
       border-top:1px solid #ede9fe;
     ">
 
-  <h3>
-    📦 Crear / actualizar pedido
-  </h3>
+  <h3>📦 Crear / actualizar pedido</h3>
 
   <div class="admin-grid">
 
@@ -1825,25 +1607,11 @@ main{
       id="pedidoEstado"
       class="input">
 
-      <option>
-        Recibido
-      </option>
-
-      <option>
-        Preparando
-      </option>
-
-      <option>
-        En camino
-      </option>
-
-      <option>
-        Entregado
-      </option>
-
-      <option>
-        Cancelado
-      </option>
+      <option>Recibido</option>
+      <option>Preparando</option>
+      <option>En camino</option>
+      <option>Entregado</option>
+      <option>Cancelado</option>
 
     </select>
 
@@ -1894,25 +1662,17 @@ main{
 
   <div class="admin-lista">
 
-    <h3>
-      📋 Pedidos recientes
-    </h3>
+    <h3>📋 Pedidos recientes</h3>
 
-    <div
-      id="listaPedidosAdmin">
-    </div>
+    <div id="listaPedidosAdmin"></div>
 
   </div>
 
   <div class="admin-lista">
 
-    <h3>
-      🛍️ Productos
-    </h3>
+    <h3>🛍️ Productos</h3>
 
-    <div
-      id="listaAdmin">
-    </div>
+    <div id="listaAdmin"></div>
 
   </div>
 
@@ -1984,8 +1744,7 @@ main{
   id="modalPedido"
   class="modal">
 
-  <div
-    class="modal-contenido">
+  <div class="modal-contenido">
 
     <button
       class="cerrar"
@@ -1995,9 +1754,7 @@ main{
 
     </button>
 
-    <h2>
-      📦 Estado de mi pedido
-    </h2>
+    <h2>📦 Estado de mi pedido</h2>
 
     <input
       id="buscarPedido"
@@ -2029,8 +1786,7 @@ main{
   id="modalCarrito"
   class="modal">
 
-  <div
-    class="modal-contenido">
+  <div class="modal-contenido">
 
     <button
       class="cerrar"
@@ -2040,13 +1796,9 @@ main{
 
     </button>
 
-    <h2>
-      🛒 Mi carrito
-    </h2>
+    <h2>🛒 Mi carrito</h2>
 
-    <div
-      id="listaCarrito">
-    </div>
+    <div id="listaCarrito"></div>
 
     <div
       id="totalCarrito"
@@ -2076,8 +1828,7 @@ main{
   id="modalBusqueda"
   class="modal">
 
-  <div
-    class="modal-contenido">
+  <div class="modal-contenido">
 
     <button
       class="cerrar"
@@ -2087,19 +1838,14 @@ main{
 
     </button>
 
-    <h2>
-      🔎 Buscar productos
-    </h2>
+    <h2>🔎 Buscar productos</h2>
 
     <input
       id="inputBusqueda"
       class="input"
-      placeholder="Busca ropa, lociones, zapatos..."
-      oninput="buscarProductos">
+      placeholder="Busca ropa, lociones, zapatos, streaming...">
 
-    <div
-      id="resultadosBusqueda">
-    </div>
+    <div id="resultadosBusqueda"></div>
 
   </div>
 
@@ -2113,8 +1859,7 @@ main{
   id="modalFavoritos"
   class="modal">
 
-  <div
-    class="modal-contenido">
+  <div class="modal-contenido">
 
     <button
       class="cerrar"
@@ -2124,13 +1869,9 @@ main{
 
     </button>
 
-    <h2>
-      ❤️ Mis favoritos
-    </h2>
+    <h2>❤️ Mis favoritos</h2>
 
-    <div
-      id="listaFavoritos">
-    </div>
+    <div id="listaFavoritos"></div>
 
   </div>
 
@@ -2180,8 +1921,12 @@ const firebaseConfig = {
 
 };
 
+/* =====================================================
+   CORRECCIÓN IMPORTANTE DE FIREBASE
+===================================================== */
+
 const app =
-  initializeApp(appConfig = firebaseConfig);
+  initializeApp(firebaseConfig);
 
 const db =
   getFirestore(app);
@@ -2251,12 +1996,14 @@ function normalizar(texto){
 
   return String(texto ?? "")
     .toLowerCase()
-    .trim();
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
 
 }
 
 /* =====================================================
-   CATEGORÍAS
+   OBTENER CATEGORÍA
 ===================================================== */
 
 function obtenerCategoriaProducto(producto){
@@ -2273,6 +2020,10 @@ function obtenerCategoriaProducto(producto){
 
 }
 
+/* =====================================================
+   FILTRO DE CATEGORÍAS
+===================================================== */
+
 function perteneceCategoria(
   producto,
   categoria
@@ -2288,7 +2039,21 @@ function perteneceCategoria(
     ropa:[
       "ropa",
       "ropas",
-      "clothing"
+      "clothing",
+      "camisa",
+      "camisas",
+      "pantalon",
+      "pantalones",
+      "jean",
+      "jeans",
+      "short",
+      "shorts",
+      "buso",
+      "busos",
+      "sudadera",
+      "sudaderas",
+      "chaqueta",
+      "chaquetas"
     ],
 
     lociones:[
@@ -2297,7 +2062,9 @@ function perteneceCategoria(
       "perfume",
       "perfumes",
       "fragancia",
-      "fragancias"
+      "fragancias",
+      "colonia",
+      "colonias"
     ],
 
     zapatos:[
@@ -2305,31 +2072,42 @@ function perteneceCategoria(
       "zapatos",
       "calzado",
       "tenis",
-      "sneakers"
+      "sneaker",
+      "sneakers",
+      "zapatilla",
+      "zapatillas"
     ],
 
     streaming:[
       "streaming",
       "suscripcion",
-      "suscripción",
-      "servicio"
+      "suscripciones",
+      "servicio",
+      "servicios",
+      "netflix",
+      "prime",
+      "disney",
+      "max",
+      "spotify"
     ]
 
   };
 
-  return (
+  const opciones =
     mapa[categoria] ||
-    [categoria]
-  ).some(
-    x =>
-      cat === x ||
-      cat.includes(x)
+    [categoria];
+
+  return opciones.some(
+    opcion =>
+      cat === opcion ||
+      cat.includes(opcion)
   );
 
 }
 
 /* =====================================================
    ABRIR CATEGORÍA
+   LOS PRODUCTOS REEMPLAZAN LOS CUADROS
 ===================================================== */
 
 window.abrirCategoria =
@@ -2352,9 +2130,9 @@ function(categoria){
 
   const encontrados =
     productos.filter(
-      p =>
+      producto =>
         perteneceCategoria(
-          p,
+          producto,
           categoria
         )
     );
@@ -2384,19 +2162,14 @@ function(categoria){
 
       <p class="categoria-subtitulo">
 
-        ${encontrados.length}
-        producto
         ${
-          encontrados.length === 1
-          ? ""
-          : "s"
+          encontrados.length
         }
 
-        disponible
         ${
           encontrados.length === 1
-          ? ""
-          : "s"
+          ? "producto disponible"
+          : "productos disponibles"
         }
 
       </p>
@@ -2404,12 +2177,15 @@ function(categoria){
       <div class="productos-grid">
 
         ${
-          encontrados.length
+          encontrados.length > 0
 
           ?
 
           encontrados
-            .map(tarjetaProducto)
+            .map(
+              producto =>
+                tarjetaProducto(producto)
+            )
             .join("")
 
           :
@@ -2460,7 +2236,8 @@ function tarjetaProducto(
     String(
       producto.id ??
       producto._id ??
-      producto.nombre
+      producto.nombre ??
+      Math.random()
     );
 
   const nombre =
@@ -2566,6 +2343,10 @@ async function cargarProductos(){
 
   productos = [];
 
+  /* ===================================================
+     FIREBASE
+  =================================================== */
+
   try{
 
     const snapshot =
@@ -2593,13 +2374,15 @@ async function cargarProductos(){
   }catch(error){
 
     console.error(
-      "Firebase:",
+      "Error Firebase:",
       error
     );
 
   }
 
-  /* GITHUB */
+  /* ===================================================
+     GITHUB - ROPA
+  =================================================== */
 
   try{
 
@@ -2622,24 +2405,18 @@ async function cargarProductos(){
                 archivo.name
               ).toLowerCase();
 
-            const esImagen =
-              /\.(jpg|jpeg|png|webp|gif)$/i
-                .test(nombre);
-
             return (
 
-              archivo.type ===
-              "file"
+              archivo.type === "file"
 
               &&
 
-              esImagen
+              /\.(jpg|jpeg|png|webp|gif)$/i
+                .test(nombre)
 
               &&
 
-              !nombre.includes(
-                "3285"
-              )
+              !nombre.includes("3285")
 
             );
 
@@ -2691,13 +2468,18 @@ async function cargarProductos(){
   }catch(error){
 
     console.error(
-      "GitHub:",
+      "Error GitHub:",
       error
     );
 
   }
 
   actualizarContadorCarrito();
+
+  /*
+    Si el usuario ya estaba viendo una categoría,
+    la actualizamos sin moverlo de lugar.
+  */
 
   if(categoriaActual){
 
@@ -2726,7 +2508,8 @@ function(id){
 
     favoritos =
       favoritos.filter(
-        x => x !== id
+        x =>
+          x !== id
       );
 
   }else{
@@ -2737,7 +2520,9 @@ function(id){
 
   localStorage.setItem(
     "andrex_favoritos",
-    JSON.stringify(favoritos)
+    JSON.stringify(
+      favoritos
+    )
   );
 
   if(categoriaActual){
@@ -2760,13 +2545,17 @@ function(){
 
   const productosFavoritos =
     productos.filter(
-      p =>
+      producto =>
         favoritos.includes(
-          String(p.id)
+          String(
+            producto.id
+          )
         )
     );
 
-  if(!productosFavoritos.length){
+  if(
+    !productosFavoritos.length
+  ){
 
     lista.innerHTML = `
 
@@ -2834,7 +2623,9 @@ function(nombre){
 
     "https://wa.me/573181579324?text=" +
 
-    encodeURIComponent(texto),
+    encodeURIComponent(
+      texto
+    ),
 
     "_blank"
 
@@ -2856,8 +2647,15 @@ function(id){
         String(id)
     );
 
-  if(!producto)
+  if(!producto){
+
+    alert(
+      "No se encontró el producto."
+    );
+
     return;
+
+  }
 
   carrito.push({
 
@@ -2887,7 +2685,9 @@ function(id){
 
   localStorage.setItem(
     "andrex_carrito",
-    JSON.stringify(carrito)
+    JSON.stringify(
+      carrito
+    )
   );
 
   actualizarContadorCarrito();
@@ -2900,10 +2700,17 @@ function(id){
 
 function actualizarContadorCarrito(){
 
-  document.getElementById(
-    "contadorCarrito"
-  ).textContent =
-    carrito.length;
+  const contador =
+    document.getElementById(
+      "contadorCarrito"
+    );
+
+  if(contador){
+
+    contador.textContent =
+      carrito.length;
+
+  }
 
 }
 
@@ -3015,7 +2822,9 @@ function(index){
 
   localStorage.setItem(
     "andrex_carrito",
-    JSON.stringify(carrito)
+    JSON.stringify(
+      carrito
+    )
   );
 
   actualizarContadorCarrito();
@@ -3136,17 +2945,23 @@ function(){
             p.category
           );
 
+        const descripcion =
+          normalizar(
+            p.descripcion ||
+            p.description
+          );
+
         return (
 
-          nombre.includes(
-            texto
-          )
+          nombre.includes(texto)
 
           ||
 
-          categoria.includes(
-            texto
-          )
+          categoria.includes(texto)
+
+          ||
+
+          descripcion.includes(texto)
 
         );
 
@@ -3234,22 +3049,32 @@ function(){
 
 function abrirModal(id){
 
-  document.getElementById(
-    id
-  ).classList.add(
-    "activo"
-  );
+  const modal =
+    document.getElementById(id);
+
+  if(modal){
+
+    modal.classList.add(
+      "activo"
+    );
+
+  }
 
 }
 
 window.cerrarModal =
 function(id){
 
-  document.getElementById(
-    id
-  ).classList.remove(
-    "activo"
-  );
+  const modal =
+    document.getElementById(id);
+
+  if(modal){
+
+    modal.classList.remove(
+      "activo"
+    );
+
+  }
 
 };
 
@@ -3279,7 +3104,7 @@ document
   );
 
 /* =====================================================
-   PEDIDO
+   PEDIDOS
 ===================================================== */
 
 window.abrirEstadoPedido =
@@ -3417,8 +3242,7 @@ async function(){
 
         </p>
 
-        <p
-          style="margin-top:8px;">
+        <p style="margin-top:8px;">
 
           <strong>
             Detalle:
@@ -3430,8 +3254,7 @@ async function(){
 
         </p>
 
-        <p
-          style="margin-top:12px;">
+        <p style="margin-top:12px;">
 
           <strong>
             Estado:
@@ -3477,7 +3300,7 @@ async function(){
 };
 
 /* =====================================================
-   PEDIDOS ADMIN
+   CREAR PEDIDO
 ===================================================== */
 
 function generarCodigoPedido(){
@@ -3593,6 +3416,10 @@ async function(){
   }
 
 };
+
+/* =====================================================
+   ACTUALIZAR PEDIDO
+===================================================== */
 
 window.actualizarPedido =
 async function(){
@@ -3711,6 +3538,10 @@ async function(){
 
 };
 
+/* =====================================================
+   WHATSAPP PEDIDO
+===================================================== */
+
 window.enviarCodigoWhatsApp =
 function(){
 
@@ -3787,7 +3618,9 @@ async function cargarPedidos(){
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
 
   }
 
@@ -3826,8 +3659,7 @@ function renderPedidosAdmin(){
       .map(
         p => `
 
-          <div
-            class="admin-producto">
+          <div class="admin-producto">
 
             <strong>
 
@@ -3850,8 +3682,7 @@ function renderPedidosAdmin(){
             <div
               style="margin:6px 0;">
 
-              <span
-                class="estado">
+              <span class="estado">
 
                 ${escapeHtml(
                   p.estado || ""
@@ -4188,7 +4019,7 @@ function comprimirImagen(
 }
 
 /* =====================================================
-   ADMIN
+   ADMIN LISTA
 ===================================================== */
 
 function renderAdmin(){
@@ -4230,8 +4061,7 @@ function renderAdmin(){
       .map(
         p => `
 
-          <div
-            class="admin-producto">
+          <div class="admin-producto">
 
             <strong>
 
@@ -4285,6 +4115,10 @@ function renderAdmin(){
       .join("");
 
 }
+
+/* =====================================================
+   ELIMINAR PRODUCTO
+===================================================== */
 
 window.eliminarProducto =
 async function(id){
@@ -4406,6 +4240,18 @@ document.getElementById(
 );
 
 /* =====================================================
+   BÚSQUEDA EN TIEMPO REAL
+===================================================== */
+
+document.getElementById(
+  "inputBusqueda"
+)
+.addEventListener(
+  "input",
+  window.buscarProductos
+);
+
+/* =====================================================
    INICIO
 ===================================================== */
 
@@ -4416,7 +4262,7 @@ cargarPedidos();
 actualizarContadorCarrito();
 
 /* =====================================================
-   ASEGURAR BOTONES FLOTANTES EN BODY
+   ASEGURAR BOTONES FLOTANTES
 ===================================================== */
 
 const flotantes =
@@ -4431,32 +4277,6 @@ if(flotantes){
   );
 
 }
-
-/* =====================================================
-   BÚSQUEDA CORRECTA
-===================================================== */
-
-document.getElementById(
-  "inputBusqueda"
-)
-.addEventListener(
-  "input",
-  window.buscarProductos
-);
-
-/* =====================================================
-   BOTONES FLOTANTES FIJOS
-===================================================== */
-
-/*
-  ❤️ Favoritos:
-  abajo a la izquierda.
-
-  📦 Seguir pedido:
-  abajo a la derecha.
-
-  Sin movimiento automático.
-*/
 
 </script>
 
