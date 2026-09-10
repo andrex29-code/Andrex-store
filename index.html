@@ -62,27 +62,17 @@ header{
   font-family:"Playfair Display",Georgia,serif;
   font-size:30px;
   font-weight:800;
-
-  background:
-    linear-gradient(
-      90deg,
-      #2563eb,
-      #6366f1,
-      #7c3aed
-    );
-
+  background:linear-gradient(90deg,#2563eb,#6366f1,#7c3aed);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
   letter-spacing:1.2px;
   cursor:pointer;
   user-select:none;
-
   text-shadow:
     0 1px 2px rgba(37,99,235,.15),
     0 0 5px rgba(99,102,241,.22),
     0 0 10px rgba(124,58,237,.16);
-
   animation:neonSuave 3s ease-in-out infinite alternate;
 }
 
@@ -93,7 +83,6 @@ header{
       0 0 4px rgba(99,102,241,.18),
       0 0 8px rgba(124,58,237,.12);
   }
-
   to{
     text-shadow:
       0 1px 2px rgba(37,99,235,.18),
@@ -109,54 +98,26 @@ header{
 
 .header-btn{
   border:0;
-
-  background:
-    linear-gradient(
-      145deg,
-      #f8f9ff,
-      #e5e9ff
-    );
-
+  background:linear-gradient(145deg,#f8f9ff,#e5e9ff);
   color:#4338ca;
   padding:12px 15px;
   border-radius:14px;
   cursor:pointer;
   font-weight:900;
   font-size:14px;
-
   box-shadow:
     0 5px 0 #c7cff5,
     0 8px 15px rgba(79,70,229,.18),
     inset 0 1px 2px rgba(255,255,255,.95);
-
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    background .18s ease;
+  transition:.18s ease;
 }
 
 .header-btn:hover{
   transform:translateY(-3px);
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffffff,
-      #e0e7ff
-    );
-
-  box-shadow:
-    0 7px 0 #c7cff5,
-    0 11px 20px rgba(79,70,229,.22),
-    inset 0 1px 2px rgba(255,255,255,1);
 }
 
 .header-btn:active{
   transform:translateY(2px);
-
-  box-shadow:
-    0 2px 0 #c7cff5,
-    0 4px 8px rgba(79,70,229,.15);
 }
 
 /* =====================================================
@@ -165,23 +126,13 @@ header{
 
 .bienvenida-box{
   text-align:center;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #f5f3ff
-    );
-
+  background:linear-gradient(135deg,#ffffff,#f5f3ff);
   border-radius:20px;
   padding:17px 20px;
   margin:13px auto 10px;
   max-width:1000px;
   border:1px solid #ddd6fe;
-
-  box-shadow:
-    0 7px 22px rgba(79,70,229,.10);
-
+  box-shadow:0 7px 22px rgba(79,70,229,.10);
   position:relative;
   overflow:hidden;
 }
@@ -193,15 +144,13 @@ header{
   left:15%;
   width:70%;
   height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #6366f1,
-      #7c3aed,
-      transparent
-    );
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #6366f1,
+    #7c3aed,
+    transparent
+  );
 }
 
 .bienvenida-texto{
@@ -209,11 +158,7 @@ header{
   font-size:24px;
   font-weight:800;
   color:#4338ca;
-  letter-spacing:.3px;
   line-height:1.3;
-
-  text-shadow:
-    0 2px 3px rgba(79,70,229,.12);
 }
 
 /* =====================================================
@@ -227,10 +172,7 @@ header{
   padding:13px 20px;
   margin:8px auto 12px;
   max-width:1000px;
-
-  box-shadow:
-    0 5px 18px rgba(79,70,229,.07);
-
+  box-shadow:0 5px 18px rgba(79,70,229,.07);
   color:#5b6070;
   font-size:16px;
   line-height:1.5;
@@ -242,9 +184,6 @@ header{
   color:#4f46e5;
   font-weight:800;
   font-size:20px;
-
-  text-shadow:
-    0 2px 3px rgba(79,70,229,.12);
 }
 
 /* =====================================================
@@ -264,9 +203,7 @@ header{
   border-radius:20px;
   overflow:hidden;
   background:#000;
-
-  box-shadow:
-    0 8px 25px rgba(79,70,229,.13);
+  box-shadow:0 8px 25px rgba(79,70,229,.13);
 }
 
 .hero-video video{
@@ -284,7 +221,7 @@ header{
 main{
   max-width:1200px;
   margin:auto;
-  padding:8px 16px 110px;
+  padding:8px 16px 130px;
 }
 
 /* =====================================================
@@ -305,22 +242,17 @@ main{
   min-height:125px;
   border-radius:22px;
   background:white;
-
-  box-shadow:
-    0 7px 22px rgba(79,70,229,.08);
-
+  box-shadow:0 7px 22px rgba(79,70,229,.08);
   cursor:pointer;
   font-size:18px;
   font-weight:800;
   color:#4f46e5;
   transition:.25s;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:9px;
-
   border:1px solid #ede9fe;
   position:relative;
   overflow:hidden;
@@ -330,54 +262,31 @@ main{
   content:"";
   position:absolute;
   inset:0;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(99,102,241,.08),
-      transparent 65%
-    );
-
+  background:radial-gradient(
+    circle at center,
+    rgba(99,102,241,.08),
+    transparent 65%
+  );
   pointer-events:none;
 }
 
 .categoria span{
   font-size:45px;
   line-height:1;
-  display:block;
   position:relative;
-
   filter:
     drop-shadow(0 4px 2px rgba(0,0,0,.18))
     drop-shadow(0 7px 8px rgba(79,70,229,.18));
-
-  text-shadow:
-    2px 2px 0 rgba(255,255,255,.8),
-    4px 5px 0 rgba(79,70,229,.12),
-    0 0 12px rgba(99,102,241,.20);
-
-  transform:
-    perspective(300px)
-    translateZ(8px);
-
-  transition:
-    transform .25s,
-    filter .25s;
-}
-
-.categoria:hover span{
-  transform:
-    perspective(300px)
-    translateZ(15px)
-    scale(1.10)
-    rotate(-2deg);
+  transition:.25s;
 }
 
 .categoria:hover{
   transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(79,70,229,.14);
+}
 
-  box-shadow:
-    0 12px 28px rgba(79,70,229,.14);
+.categoria:hover span{
+  transform:scale(1.1) rotate(-2deg);
 }
 
 /* =====================================================
@@ -389,10 +298,7 @@ main{
   background:white;
   border-radius:22px;
   padding:18px;
-
-  box-shadow:
-    0 7px 22px rgba(79,70,229,.08);
-
+  box-shadow:0 7px 22px rgba(79,70,229,.08);
   border:1px solid #ede9fe;
 }
 
@@ -439,19 +345,14 @@ main{
   background:white;
   border-radius:18px;
   overflow:hidden;
-
-  box-shadow:
-    0 6px 18px rgba(79,70,229,.08);
-
+  box-shadow:0 6px 18px rgba(79,70,229,.08);
   transition:.25s;
   border:1px solid #f0edff;
 }
 
 .producto:hover{
   transform:translateY(-4px);
-
-  box-shadow:
-    0 12px 28px rgba(79,70,229,.13);
+  box-shadow:0 12px 28px rgba(79,70,229,.13);
 }
 
 .producto-imagen{
@@ -461,30 +362,21 @@ main{
   display:block;
   cursor:pointer;
   background:#f1efff;
-
-  /* importante para primera carga */
-  content-visibility:auto;
 }
 
 .btn-favorito{
   position:absolute;
   top:8px;
   right:8px;
-
   width:29px;
   height:29px;
-
   border:none;
   border-radius:50%;
   background:rgba(255,255,255,.95);
-
-  box-shadow:
-    0 3px 8px rgba(0,0,0,.15);
-
+  box-shadow:0 3px 8px rgba(0,0,0,.15);
   cursor:pointer;
   z-index:5;
   font-size:13px;
-
   display:flex;
   align-items:center;
   justify-content:center;
@@ -554,10 +446,7 @@ main{
   border-radius:20px;
   padding:22px;
   text-align:center;
-
-  box-shadow:
-    0 6px 18px rgba(79,70,229,.06);
-
+  box-shadow:0 6px 18px rgba(79,70,229,.06);
   border:1px solid #ede9fe;
 }
 
@@ -566,10 +455,6 @@ main{
   line-height:1;
   margin-bottom:10px;
   display:inline-block;
-
-  filter:
-    drop-shadow(0 4px 2px rgba(0,0,0,.18))
-    drop-shadow(0 7px 9px rgba(79,70,229,.20));
 }
 
 .info-card h3{
@@ -581,6 +466,168 @@ main{
   color:#708090;
   font-size:14px;
   line-height:1.5;
+}
+
+/* =====================================================
+   ⭐ RESEÑAS
+===================================================== */
+
+.resenas-seccion{
+  margin-top:28px;
+  background:white;
+  border-radius:22px;
+  padding:22px;
+  border:1px solid #ede9fe;
+  box-shadow:0 7px 22px rgba(79,70,229,.08);
+}
+
+.resenas-titulo{
+  text-align:center;
+  color:#4f46e5;
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:27px;
+  margin-bottom:6px;
+}
+
+.resenas-subtitulo{
+  text-align:center;
+  color:#718096;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.resumen-resenas{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  background:#f7f5ff;
+  border-radius:18px;
+  padding:17px;
+  margin-bottom:20px;
+}
+
+.promedio-numero{
+  font-size:35px;
+  font-weight:900;
+  color:#4f46e5;
+}
+
+.estrellas-grandes{
+  color:#f59e0b;
+  font-size:25px;
+  letter-spacing:2px;
+}
+
+.total-resenas{
+  color:#718096;
+  font-size:13px;
+}
+
+.form-resena{
+  background:#faf9ff;
+  border:1px solid #ede9fe;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:20px;
+}
+
+.form-resena h3{
+  color:#4338ca;
+  margin-bottom:12px;
+}
+
+.selector-estrellas{
+  display:flex;
+  flex-direction:row-reverse;
+  justify-content:flex-end;
+  gap:3px;
+  margin:7px 0 14px;
+}
+
+.selector-estrellas input{
+  display:none;
+}
+
+.selector-estrellas label{
+  font-size:32px;
+  color:#d1d5db;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.selector-estrellas label:hover,
+.selector-estrellas label:hover ~ label,
+.selector-estrellas input:checked ~ label{
+  color:#f59e0b;
+}
+
+.textarea-resena{
+  width:100%;
+  min-height:100px;
+  resize:vertical;
+  padding:12px;
+  border:1px solid #ddd6fe;
+  border-radius:12px;
+  outline:none;
+  font-family:Arial,Helvetica,sans-serif;
+  margin-bottom:10px;
+}
+
+.textarea-resena:focus{
+  border-color:#6366f1;
+}
+
+.resenas-lista{
+  display:grid;
+  gap:12px;
+}
+
+.resena-card{
+  background:#faf9ff;
+  border:1px solid #ede9fe;
+  border-radius:16px;
+  padding:15px;
+}
+
+.resena-cabecera{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.resena-nombre{
+  font-weight:900;
+  color:#273444;
+}
+
+.resena-estrellas{
+  color:#f59e0b;
+  letter-spacing:1px;
+  font-size:16px;
+}
+
+.resena-texto{
+  margin-top:8px;
+  color:#5f6b7a;
+  line-height:1.5;
+  font-size:14px;
+}
+
+.resena-fecha{
+  margin-top:8px;
+  font-size:11px;
+  color:#9ca3af;
+}
+
+.resenas-vacias{
+  text-align:center;
+  color:#718096;
+  padding:20px;
+  background:#f7f5ff;
+  border-radius:15px;
 }
 
 /* =====================================================
@@ -602,7 +649,6 @@ main{
   left:15px;
   bottom:15px;
   pointer-events:auto;
-
   border:0;
   border-radius:18px;
   padding:11px 13px;
@@ -611,11 +657,7 @@ main{
   font-weight:800;
   font-size:13px;
   cursor:pointer;
-
-  box-shadow:
-    0 6px 22px rgba(79,70,229,.20);
-
-  white-space:nowrap;
+  box-shadow:0 6px 22px rgba(79,70,229,.20);
 }
 
 .flotante-pedido{
@@ -623,28 +665,15 @@ main{
   right:15px;
   bottom:15px;
   pointer-events:auto;
-
   border:0;
   border-radius:18px;
   padding:11px 13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #6366f1,
-      #7c3aed
-    );
-
+  background:linear-gradient(135deg,#2563eb,#6366f1,#7c3aed);
   color:white;
   font-weight:800;
   font-size:13px;
   cursor:pointer;
-
-  box-shadow:
-    0 6px 22px rgba(79,70,229,.25);
-
-  white-space:nowrap;
+  box-shadow:0 6px 22px rgba(79,70,229,.25);
 }
 
 /* =====================================================
@@ -682,10 +711,8 @@ main{
   position:absolute;
   top:10px;
   right:12px;
-
   width:35px;
   height:35px;
-
   border:0;
   border-radius:50%;
   background:#eef2ff;
@@ -721,14 +748,7 @@ main{
 }
 
 .btn-principal{
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #6366f1,
-      #7c3aed
-    );
-
+  background:linear-gradient(135deg,#2563eb,#6366f1,#7c3aed);
   color:white;
 }
 
@@ -785,10 +805,7 @@ main{
   background:white;
   border-radius:22px;
   padding:20px;
-
-  box-shadow:
-    0 7px 22px rgba(79,70,229,.08);
-
+  box-shadow:0 7px 22px rgba(79,70,229,.08);
   border:1px solid #ede9fe;
 }
 
@@ -915,7 +932,6 @@ main{
 
   .bienvenida-texto{
     font-size:17px;
-    line-height:1.35;
   }
 
   main{
@@ -926,7 +942,6 @@ main{
     font-size:14px;
     padding:12px;
     margin:7px 10px 10px;
-    line-height:1.5;
   }
 
   .slogan strong{
@@ -1016,14 +1031,24 @@ main{
     border-radius:13px;
   }
 
-  .btn-favorito{
-    width:28px;
-    height:28px;
-    font-size:13px;
-  }
-
   .admin-grid{
     grid-template-columns:1fr;
+  }
+
+  .resenas-seccion{
+    padding:15px;
+  }
+
+  .resenas-titulo{
+    font-size:23px;
+  }
+
+  .promedio-numero{
+    font-size:30px;
+  }
+
+  .estrellas-grandes{
+    font-size:21px;
   }
 
 }
@@ -1035,7 +1060,7 @@ main{
   }
 
   .header-btn{
-    padding:9px 9px;
+    padding:9px;
     font-size:11px;
   }
 
@@ -1078,33 +1103,21 @@ main{
 
   <div class="brand-block">
 
-    <div
-      class="logo"
-      id="logoAdmin">
-
+    <div class="logo" id="logoAdmin">
       ANDREX 🩵 STORE
-
     </div>
 
   </div>
 
   <div class="header-actions">
 
-    <button
-      class="header-btn"
-      onclick="abrirBusqueda()">
-
+    <button class="header-btn" onclick="abrirBusqueda()">
       🔎 Buscar
-
     </button>
 
-    <button
-      class="header-btn"
-      onclick="abrirCarrito()">
-
+    <button class="header-btn" onclick="abrirCarrito()">
       🛒 Carrito
       <span id="contadorCarrito">0</span>
-
     </button>
 
   </div>
@@ -1114,9 +1127,7 @@ main{
 <section class="bienvenida-box">
 
   <div class="bienvenida-texto">
-
     🛍️✨ Bienvenido a mi tienda, disfruta de todos nuestros productos ✨🛍️
-
   </div>
 
 </section>
@@ -1157,44 +1168,24 @@ main{
 
   <div class="categorias-grid">
 
-    <button
-      class="categoria"
-      onclick="abrirCategoria('ropa')">
-
+    <button class="categoria" onclick="abrirCategoria('ropa')">
       <span>👕</span>
-
       Ropa
-
     </button>
 
-    <button
-      class="categoria"
-      onclick="abrirCategoria('lociones')">
-
+    <button class="categoria" onclick="abrirCategoria('lociones')">
       <span>🧴</span>
-
       Lociones
-
     </button>
 
-    <button
-      class="categoria"
-      onclick="abrirCategoria('zapatos')">
-
+    <button class="categoria" onclick="abrirCategoria('zapatos')">
       <span>👟</span>
-
       Zapatos
-
     </button>
 
-    <button
-      class="categoria"
-      onclick="abrirCategoria('streaming')">
-
+    <button class="categoria" onclick="abrirCategoria('streaming')">
       <span>📺</span>
-
       Streaming
-
     </button>
 
   </div>
@@ -1244,9 +1235,142 @@ main{
 
 </section>
 
-<section
-  id="adminPanel"
-  class="admin-panel">
+<!-- =====================================================
+     ⭐ SISTEMA DE RESEÑAS
+===================================================== -->
+
+<section class="resenas-seccion">
+
+  <h2 class="resenas-titulo">
+    ⭐ Opiniones de nuestros clientes
+  </h2>
+
+  <p class="resenas-subtitulo">
+    Tu opinión nos ayuda a seguir mejorando 🩵
+  </p>
+
+  <div class="resumen-resenas">
+
+    <div>
+      <div
+        id="promedioResenas"
+        class="promedio-numero">
+        5.0
+      </div>
+
+      <div
+        id="estrellasPromedio"
+        class="estrellas-grandes">
+        ★★★★★
+      </div>
+
+      <div
+        id="totalResenas"
+        class="total-resenas">
+        Sé el primero en calificarnos
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-resena">
+
+    <h3>
+      ✍️ Déjanos tu opinión
+    </h3>
+
+    <input
+      id="resenaNombre"
+      class="input"
+      maxlength="60"
+      placeholder="Tu nombre">
+
+    <div
+      class="selector-estrellas"
+      aria-label="Calificación">
+
+      <input
+        type="radio"
+        id="estrella5"
+        name="calificacion"
+        value="5">
+
+      <label for="estrella5">★</label>
+
+      <input
+        type="radio"
+        id="estrella4"
+        name="calificacion"
+        value="4">
+
+      <label for="estrella4">★</label>
+
+      <input
+        type="radio"
+        id="estrella3"
+        name="calificacion"
+        value="3">
+
+      <label for="estrella3">★</label>
+
+      <input
+        type="radio"
+        id="estrella2"
+        name="calificacion"
+        value="2">
+
+      <label for="estrella2">★</label>
+
+      <input
+        type="radio"
+        id="estrella1"
+        name="calificacion"
+        value="1">
+
+      <label for="estrella1">★</label>
+
+    </div>
+
+    <textarea
+      id="resenaTexto"
+      class="textarea-resena"
+      maxlength="500"
+      placeholder="Cuéntanos cómo fue tu experiencia comprando en ANDREX 🩵 STORE...">
+    </textarea>
+
+    <button
+      class="btn btn-principal"
+      onclick="enviarResena()">
+
+      ⭐ Publicar mi reseña
+
+    </button>
+
+    <div
+      id="mensajeResena"
+      style="
+        margin-top:10px;
+        font-size:13px;
+      ">
+    </div>
+
+  </div>
+
+  <div id="listaResenas" class="resenas-lista">
+
+    <div class="cargando">
+      ⭐ Cargando opiniones...
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     ADMIN
+===================================================== -->
+
+<section id="adminPanel" class="admin-panel">
 
   <h2>⚙️ Panel de administración</h2>
 
@@ -1352,33 +1476,24 @@ main{
     <button
       class="btn btn-principal"
       onclick="crearPedido()">
-
       ➕ Crear pedido
-
     </button>
 
     <button
       class="btn btn-secundario"
       onclick="actualizarPedido()">
-
       🔄 Actualizar pedido
-
     </button>
 
     <button
       class="btn btn-secundario"
       onclick="enviarCodigoWhatsApp()">
-
       📲 Enviar código
-
     </button>
 
   </div>
 
-  <div
-    id="codigoGenerado"
-    style="margin-top:15px;">
-  </div>
+  <div id="codigoGenerado" style="margin-top:15px;"></div>
 
   <div class="admin-lista">
 
@@ -1400,9 +1515,7 @@ main{
 
 </main>
 
-<div
-  id="flotantes"
-  class="flotantes">
+<div id="flotantes" class="flotantes">
 
   <button
     class="flotante-favoritos"
@@ -1422,9 +1535,11 @@ main{
 
 </div>
 
-<div
-  id="modalImagen"
-  class="modal">
+<!-- =====================================================
+     MODAL IMAGEN
+===================================================== -->
+
+<div id="modalImagen" class="modal">
 
   <div
     class="modal-contenido"
@@ -1433,9 +1548,7 @@ main{
     <button
       class="cerrar"
       onclick="cerrarModal('modalImagen')">
-
       ×
-
     </button>
 
     <img
@@ -1448,18 +1561,18 @@ main{
 
 </div>
 
-<div
-  id="modalPedido"
-  class="modal">
+<!-- =====================================================
+     MODAL PEDIDO
+===================================================== -->
+
+<div id="modalPedido" class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalPedido')">
-
       ×
-
     </button>
 
     <h2>📦 Estado de mi pedido</h2>
@@ -1472,9 +1585,7 @@ main{
     <button
       class="btn btn-principal"
       onclick="consultarPedido()">
-
       🔎 Consultar
-
     </button>
 
     <div
@@ -1486,18 +1597,18 @@ main{
 
 </div>
 
-<div
-  id="modalCarrito"
-  class="modal">
+<!-- =====================================================
+     MODAL CARRITO
+===================================================== -->
+
+<div id="modalCarrito" class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalCarrito')">
-
       ×
-
     </button>
 
     <h2>🛒 Mi carrito</h2>
@@ -1507,35 +1618,31 @@ main{
     <div
       id="totalCarrito"
       class="carrito-total">
-
       Total: $0
-
     </div>
 
     <button
       class="btn btn-principal"
       onclick="comprarCarrito()">
-
       📲 Comprar por WhatsApp
-
     </button>
 
   </div>
 
 </div>
 
-<div
-  id="modalBusqueda"
-  class="modal">
+<!-- =====================================================
+     MODAL BÚSQUEDA
+===================================================== -->
+
+<div id="modalBusqueda" class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalBusqueda')">
-
       ×
-
     </button>
 
     <h2>🔎 Buscar productos</h2>
@@ -1551,18 +1658,18 @@ main{
 
 </div>
 
-<div
-  id="modalFavoritos"
-  class="modal">
+<!-- =====================================================
+     MODAL FAVORITOS
+===================================================== -->
+
+<div id="modalFavoritos" class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalFavoritos')">
-
       ×
-
     </button>
 
     <h2>❤️ Mis favoritos</h2>
@@ -1592,7 +1699,9 @@ import {
   setDoc,
   deleteDoc,
   query,
-  where
+  where,
+  orderBy,
+  limit
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -1628,8 +1737,8 @@ const db =
 ===================================================== */
 
 let productos = [];
-
 let pedidos = [];
+let resenas = [];
 
 let carrito =
   JSON.parse(
@@ -1648,23 +1757,17 @@ let favoritos =
 let categoriaActual = null;
 
 /* =====================================================
-   SISTEMA DE CACHÉ
+   CACHÉ
 ===================================================== */
 
 const CACHE_FIREBASE =
-  "andrex_cache_firebase_productos_v5";
+  "andrex_cache_firebase_productos_v6";
 
 const CACHE_GITHUB =
-  "andrex_cache_github_ropa_v5";
+  "andrex_cache_github_ropa_v6";
 
 const CACHE_TIEMPO =
   1000 * 60 * 60 * 24;
-
-/*
-   Estos datos permiten que un visitante que
-   ya entró anteriormente vea el catálogo
-   prácticamente de inmediato.
-*/
 
 function guardarCache(clave, datos){
 
@@ -1716,20 +1819,9 @@ function leerCache(clave){
 
     }
 
-    /*
-       Aunque tenga más de 24 horas,
-       lo mostramos primero y luego
-       la red lo actualiza.
-    */
-
     return datos.productos;
 
   }catch(error){
-
-    console.warn(
-      "Error leyendo caché:",
-      error
-    );
 
     return [];
 
@@ -1738,17 +1830,14 @@ function leerCache(clave){
 }
 
 /* =====================================================
-   ESTADOS DE CARGA
+   ESTADOS
 ===================================================== */
 
 let productosCargados = false;
-
 let cargaProductosEnCurso = null;
 
 let firebasePendiente = false;
-
 let githubPendiente = false;
-
 let githubYaCargado = false;
 
 let precargasImagenes =
@@ -1802,7 +1891,7 @@ function normalizar(texto){
 }
 
 /* =====================================================
-   OBTENER CATEGORÍA
+   CATEGORÍAS
 ===================================================== */
 
 function obtenerCategoriaProducto(producto){
@@ -1818,10 +1907,6 @@ function obtenerCategoriaProducto(producto){
   );
 
 }
-
-/* =====================================================
-   FILTRO DE CATEGORÍAS
-===================================================== */
 
 function perteneceCategoria(
   producto,
@@ -1905,7 +1990,7 @@ function perteneceCategoria(
 }
 
 /* =====================================================
-   PRECARGAR IMAGEN
+   PRECARGA DE IMÁGENES
 ===================================================== */
 
 function precargarImagen(url){
@@ -1929,11 +2014,6 @@ function precargarImagen(url){
   imagen.decoding =
     "async";
 
-  /*
-     Las imágenes comienzan a solicitarse
-     inmediatamente.
-  */
-
   imagen.fetchPriority =
     "high";
 
@@ -1941,10 +2021,6 @@ function precargarImagen(url){
     url;
 
 }
-
-/* =====================================================
-   PRECARGAR TODAS LAS IMÁGENES
-===================================================== */
 
 function precargarImagenesProductos(){
 
@@ -1972,7 +2048,7 @@ function precargarImagenesProductos(){
 }
 
 /* =====================================================
-   CARGAR CACHÉ ANTES DE LA RED
+   CACHÉ INICIAL
 ===================================================== */
 
 function cargarCacheInicial(){
@@ -1988,60 +2064,35 @@ function cargarCacheInicial(){
     );
 
   /*
-     Primero ponemos Firebase.
+     LOS PRODUCTOS APARECEN DESDE EL
+     CACHÉ ANTES DE ESPERAR LA RED.
   */
 
-  cacheFirebase.forEach(
-    producto => {
+  productos =
+    [
+      ...cacheFirebase.map(
+        p => ({
+          ...p,
+          origen:"firebase"
+        })
+      ),
 
-      productos.push({
-        ...producto,
-        origen:"firebase"
-      });
-
-    }
-  );
-
-  /*
-     Luego ponemos Ropa de GitHub.
-  */
-
-  cacheGitHub.forEach(
-    producto => {
-
-      if(
-        !productos.some(
-          p =>
-            String(p.id) ===
-            String(producto.id)
-        )
-      ){
-
-        productos.push(
-          producto
-        );
-
-      }
-
-    }
-  );
-
-  /*
-     Las imágenes empiezan a calentarse
-     inmediatamente.
-  */
+      ...cacheGitHub.map(
+        p => ({
+          ...p,
+          origen:"github"
+        })
+      )
+    ];
 
   precargarImagenesProductos();
 
-  return (
-    cacheFirebase.length +
-    cacheGitHub.length
-  ) > 0;
+  return productos.length > 0;
 
 }
 
 /* =====================================================
-   CATEGORÍA ABIERTA
+   RENDER CATEGORÍA
 ===================================================== */
 
 function renderCategoria(categoria){
@@ -2049,11 +2100,8 @@ function renderCategoria(categoria){
   const nombres = {
 
     ropa:"👕 Ropa",
-
     lociones:"🧴 Lociones",
-
     zapatos:"👟 Zapatos",
-
     streaming:"📺 Streaming"
 
   };
@@ -2067,23 +2115,12 @@ function renderCategoria(categoria){
         )
     );
 
-  const esperandoFirebase =
-    firebasePendiente;
-
-  const esperandoGitHub =
-    categoria === "ropa" &&
-    githubPendiente;
-
   const esperando =
-    esperandoFirebase ||
-    esperandoGitHub;
-
-  /*
-     SI YA HAY PRODUCTOS:
-
-     Los mostramos inmediatamente.
-     No mostramos "Cargando".
-  */
+    firebasePendiente ||
+    (
+      categoria === "ropa" &&
+      githubPendiente
+    );
 
   categoriasGrid.innerHTML = `
 
@@ -2125,7 +2162,7 @@ function renderCategoria(categoria){
       <div class="productos-grid">
 
         ${
-          encontrados.length > 0
+          encontrados.length
 
           ?
 
@@ -2146,12 +2183,12 @@ function renderCategoria(categoria){
               class="vacio"
               style="grid-column:1/-1;">
 
-              ✨ Preparando esta categoría...
+              ⚡ Preparando productos...
 
               <br><br>
 
               <small>
-                Los productos aparecerán
+                La tienda ya está cargándolos
                 automáticamente.
               </small>
 
@@ -2179,21 +2216,14 @@ function renderCategoria(categoria){
 
   `;
 
-  /*
-     Precalentamos específicamente las imágenes
-     de la categoría que el cliente acaba de abrir.
-  */
-
   encontrados.forEach(
     producto => {
 
       precargarImagen(
-
         producto.imagen ||
         producto.image ||
         producto.url ||
         ""
-
       );
 
     }
@@ -2212,17 +2242,16 @@ function(categoria){
     categoria;
 
   /*
-     NO iniciamos una segunda descarga.
+     IMPORTANTE:
 
-     La descarga ya comenzó al abrir la tienda.
+     La carga YA empezó desde que abrió
+     la página.
+
+     Aquí solamente mostramos lo que
+     ya esté disponible.
   */
 
   cargarProductos();
-
-  /*
-     Renderizamos INMEDIATAMENTE
-     lo que ya esté disponible.
-  */
 
   renderCategoria(
     categoria
@@ -2246,7 +2275,7 @@ function(){
 };
 
 /* =====================================================
-   TARJETA
+   TARJETA PRODUCTO
 ===================================================== */
 
 function tarjetaProducto(
@@ -2322,21 +2351,15 @@ function tarjetaProducto(
       <div class="producto-info">
 
         <div class="producto-nombre">
-
           ${escapeHtml(nombre)}
-
         </div>
 
         <div class="producto-precio">
-
           ${dinero(precio)}
-
         </div>
 
         <div class="producto-desc">
-
           ${escapeHtml(descripcion)}
-
         </div>
 
         <div class="producto-botones">
@@ -2368,7 +2391,7 @@ function tarjetaProducto(
 }
 
 /* =====================================================
-   ACTUALIZAR CATEGORÍA
+   ACTUALIZAR CATEGORÍA ABIERTA
 ===================================================== */
 
 function actualizarCategoriaAbierta(){
@@ -2384,7 +2407,7 @@ function actualizarCategoriaAbierta(){
 }
 
 /* =====================================================
-   CARGAR PRODUCTOS
+   CARGA PRINCIPAL
 ===================================================== */
 
 async function cargarProductos(){
@@ -2407,31 +2430,9 @@ async function cargarProductos(){
   githubPendiente =
     !githubYaCargado;
 
-  cargaProductosEnCurso =
-    cargarProductosInterno();
-
-  try{
-
-    await cargaProductosEnCurso;
-
-  }finally{
-
-    cargaProductosEnCurso =
-      null;
-
-  }
-
-}
-
-/* =====================================================
-   CARGA PARALELA
-===================================================== */
-
-async function cargarProductosInterno(){
-
   /*
-     FIREBASE Y GITHUB ARRANCAN EXACTAMENTE
-     AL MISMO TIEMPO.
+     LAS DOS PETICIONES SE LANZAN
+     SIN ESPERAR UNA A LA OTRA.
   */
 
   const firebasePromise =
@@ -2440,40 +2441,46 @@ async function cargarProductosInterno(){
   const githubPromise =
     cargarProductosGitHub();
 
-  /*
-     No esperamos a que una termine
-     para comenzar la otra.
-  */
+  cargaProductosEnCurso =
+    Promise.allSettled([
 
-  await Promise.allSettled([
+      firebasePromise,
+      githubPromise
 
-    firebasePromise,
+    ]);
 
-    githubPromise
+  try{
 
-  ]);
+    await cargaProductosEnCurso;
 
-  firebasePendiente =
-    false;
+  }finally{
 
-  githubPendiente =
-    false;
+    firebasePendiente =
+      false;
 
-  productosCargados =
-    true;
+    githubPendiente =
+      false;
 
-  precargarImagenesProductos();
+    productosCargados =
+      true;
 
-  actualizarContadorCarrito();
+    cargaProductosEnCurso =
+      null;
 
-  actualizarCategoriaAbierta();
+    precargarImagenesProductos();
 
-  renderAdmin();
+    actualizarCategoriaAbierta();
+
+    actualizarContadorCarrito();
+
+    renderAdmin();
+
+  }
 
 }
 
 /* =====================================================
-   FIREBASE
+   FIREBASE PRODUCTOS
 ===================================================== */
 
 async function cargarProductosFirebase(){
@@ -2489,10 +2496,8 @@ async function cargarProductosFirebase(){
       );
 
     /*
-       Quitamos solamente los productos Firebase
-       anteriores.
-
-       Los de GitHub se mantienen.
+       Eliminamos la copia Firebase
+       anterior pero dejamos GitHub.
     */
 
     productos =
@@ -2514,8 +2519,7 @@ async function cargarProductosFirebase(){
 
           ...docSnap.data(),
 
-          origen:
-            "firebase"
+          origen:"firebase"
 
         };
 
@@ -2530,14 +2534,6 @@ async function cargarProductosFirebase(){
       }
     );
 
-    /*
-       GUARDAMOS EL CATÁLOGO.
-
-       La próxima vez que entre este navegador,
-       podrá mostrar estos productos sin esperar
-       primero a Firebase.
-    */
-
     guardarCache(
       CACHE_FIREBASE,
       productosFirebase
@@ -2547,16 +2543,13 @@ async function cargarProductosFirebase(){
       false;
 
     /*
-       Las imágenes empiezan a cargarse
-       apenas Firebase responde.
+       MOSTRAMOS LOS PRODUCTOS APENAS
+       FIREBASE TERMINA.
+
+       No esperamos a GitHub.
     */
 
     precargarImagenesProductos();
-
-    /*
-       Si el cliente ya abrió una categoría,
-       la actualizamos inmediatamente.
-    */
 
     actualizarCategoriaAbierta();
 
@@ -2581,7 +2574,7 @@ async function cargarProductosFirebase(){
 }
 
 /* =====================================================
-   GITHUB
+   GITHUB ROPA
 ===================================================== */
 
 async function cargarProductosGitHub(){
@@ -2603,7 +2596,7 @@ async function cargarProductosGitHub(){
         "https://api.github.com/repos/andrex29-code/Andrex-store/contents/ropa/nueva",
 
         {
-          cache:"force-cache",
+          cache:"no-store",
           headers:{
             "Accept":
               "application/vnd.github+json"
@@ -2656,7 +2649,7 @@ async function cargarProductosGitHub(){
       .forEach(
         archivo => {
 
-          const producto = {
+          productosGitHub.push({
 
             id:
               "github_" +
@@ -2689,37 +2682,24 @@ async function cargarProductosGitHub(){
 
             origen:"github"
 
-          };
-
-          productosGitHub.push(
-            producto
-          );
+          });
 
         }
       );
 
     /*
-       Quitamos la ropa antigua de GitHub
-       antes de poner la nueva.
+       Reemplazamos solamente Ropa.
     */
 
     productos =
       productos.filter(
         p =>
-          p.origen !==
-          "github"
+          p.origen !== "github"
       );
 
     productos.push(
       ...productosGitHub
     );
-
-    /*
-       GUARDAMOS ROPA.
-
-       Esto hace una diferencia enorme para
-       visitantes que ya hayan entrado anteriormente.
-    */
 
     guardarCache(
       CACHE_GITHUB,
@@ -2733,7 +2713,8 @@ async function cargarProductosGitHub(){
       false;
 
     /*
-       PRE-CARGA INMEDIATA DE TODAS LAS FOTOS.
+       LAS IMÁGENES DE ROPA COMIENZAN
+       A CARGARSE INMEDIATAMENTE.
     */
 
     productosGitHub.forEach(
@@ -2743,11 +2724,6 @@ async function cargarProductosGitHub(){
         )
     );
 
-    /*
-       Si Ropa está abierta,
-       aparece inmediatamente.
-    */
-
     actualizarCategoriaAbierta();
 
   }catch(error){
@@ -2756,12 +2732,6 @@ async function cargarProductosGitHub(){
       "Error GitHub:",
       error
     );
-
-    /*
-       Si GitHub falla pero ya teníamos
-       caché, el cliente sigue viendo los
-       productos guardados anteriormente.
-    */
 
   }finally{
 
@@ -2835,17 +2805,12 @@ function(){
         )
     );
 
-  if(
-    !productosFavoritos.length
-  ){
+  if(!productosFavoritos.length){
 
     lista.innerHTML = `
 
       <div class="vacio">
-
-        ❤️ Todavía no tienes
-        productos favoritos.
-
+        ❤️ Todavía no tienes productos favoritos.
       </div>
 
     `;
@@ -3033,9 +2998,7 @@ function renderCarrito(){
     lista.innerHTML = `
 
       <div class="vacio">
-
         🛒 Tu carrito está vacío.
-
       </div>
 
     `;
@@ -3054,23 +3017,14 @@ function renderCarrito(){
                 alt=""
                 loading="lazy">
 
-              <div
-                class="carrito-item-info">
+              <div class="carrito-item-info">
 
                 <strong>
-
-                  ${escapeHtml(
-                    p.nombre
-                  )}
-
+                  ${escapeHtml(p.nombre)}
                 </strong>
 
                 <div>
-
-                  ${dinero(
-                    p.precio
-                  )}
-
+                  ${dinero(p.precio)}
                 </div>
 
               </div>
@@ -3267,9 +3221,7 @@ function(){
       contenedor.innerHTML = `
 
         <div class="cargando">
-
-          ✨ Preparando productos...
-
+          ⚡ Preparando productos...
         </div>
 
       `;
@@ -3281,9 +3233,7 @@ function(){
     contenedor.innerHTML = `
 
       <div class="vacio">
-
         😔 No encontramos productos.
-
       </div>
 
     `;
@@ -3315,19 +3265,16 @@ function(){
               )}"
               alt=""
               loading="eager"
-              decoding="async"
-              fetchpriority="high">
+              decoding="async">
 
             <div>
 
               <strong>
-
                 ${escapeHtml(
                   p.nombre ||
                   p.name ||
                   "Producto"
                 )}
-
               </strong>
 
               <div
@@ -3455,10 +3402,7 @@ async function(){
     resultado.innerHTML = `
 
       <div class="vacio">
-
-        Escribe el código
-        de tu pedido.
-
+        Escribe el código de tu pedido.
       </div>
 
     `;
@@ -3470,9 +3414,7 @@ async function(){
   resultado.innerHTML = `
 
     <div class="cargando">
-
       🔎 Consultando pedido...
-
     </div>
 
   `;
@@ -3503,10 +3445,7 @@ async function(){
       resultado.innerHTML = `
 
         <div class="vacio">
-
-          ❌ No encontramos
-          ese pedido.
-
+          ❌ No encontramos ese pedido.
         </div>
 
       `;
@@ -3542,22 +3481,13 @@ async function(){
         </h3>
 
         <p>
-
-          <strong>
-            Cliente:
-          </strong>
-
-          ${escapeHtml(
-            data.cliente || ""
-          )}
-
+          <strong>Cliente:</strong>
+          ${escapeHtml(data.cliente || "")}
         </p>
 
         <p style="margin-top:8px;">
 
-          <strong>
-            Detalle:
-          </strong>
+          <strong>Detalle:</strong>
 
           ${escapeHtml(
             data.detalle || ""
@@ -3567,9 +3497,7 @@ async function(){
 
         <p style="margin-top:12px;">
 
-          <strong>
-            Estado:
-          </strong>
+          <strong>Estado:</strong>
 
           <span class="estado">
 
@@ -3594,13 +3522,11 @@ async function(){
 
       <div class="vacio">
 
-        ⚠️ No se pudo consultar
-        el pedido.
+        ⚠️ No se pudo consultar el pedido.
 
         <br><br>
 
-        Revisa las reglas
-        de Firestore.
+        Revisa las reglas de Firestore.
 
       </div>
 
@@ -3669,11 +3595,8 @@ async function(){
       {
 
         codigo,
-
         cliente,
-
         estado,
-
         detalle,
 
         fecha:
@@ -3812,11 +3735,8 @@ async function(){
       {
 
         codigo,
-
         cliente,
-
         estado,
-
         detalle,
 
         fechaActualizacion:
@@ -3953,9 +3873,7 @@ function renderPedidosAdmin(){
     lista.innerHTML = `
 
       <div class="vacio">
-
         No hay pedidos registrados.
-
       </div>
 
     `;
@@ -3974,25 +3892,14 @@ function renderPedidosAdmin(){
           <div class="admin-producto">
 
             <strong>
-
-              📦
-              ${escapeHtml(
-                p.codigo || ""
-              )}
-
+              📦 ${escapeHtml(p.codigo || "")}
             </strong>
 
             <div>
-
-              👤
-              ${escapeHtml(
-                p.cliente || ""
-              )}
-
+              👤 ${escapeHtml(p.cliente || "")}
             </div>
 
-            <div
-              style="margin:6px 0;">
+            <div style="margin:6px 0;">
 
               <span class="estado">
 
@@ -4157,15 +4064,10 @@ async function(){
   const datosProducto = {
 
     nombre,
-
     precio,
-
     categoria,
-
     descripcion,
-
     imagen,
-
     destacado,
 
     fecha:
@@ -4195,8 +4097,7 @@ async function(){
 
       ...datosProducto,
 
-      origen:
-        "firebase"
+      origen:"firebase"
 
     };
 
@@ -4204,20 +4105,15 @@ async function(){
       productoNuevo
     );
 
-    /*
-       Actualizamos el caché inmediatamente.
-    */
+    guardarCache(
 
-    const productosFirebase =
+      CACHE_FIREBASE,
+
       productos.filter(
         p =>
-          p.origen ===
-          "firebase"
-      );
+          p.origen === "firebase"
+      )
 
-    guardarCache(
-      CACHE_FIREBASE,
-      productosFirebase
     );
 
     if(imagen){
@@ -4376,7 +4272,7 @@ function comprimirImagen(
 }
 
 /* =====================================================
-   ADMIN LISTA
+   ADMIN PRODUCTOS
 ===================================================== */
 
 function renderAdmin(){
@@ -4392,8 +4288,7 @@ function renderAdmin(){
   const productosFirebase =
     productos.filter(
       p =>
-        p.origen !==
-        "github"
+        p.origen !== "github"
     );
 
   if(!productosFirebase.length){
@@ -4401,10 +4296,7 @@ function renderAdmin(){
     lista.innerHTML = `
 
       <div class="vacio">
-
-        No hay productos agregados
-        desde el panel.
-
+        No hay productos agregados desde el panel.
       </div>
 
     `;
@@ -4507,18 +4399,13 @@ async function(id){
           String(id)
       );
 
-    /*
-       Actualizar caché después de eliminar.
-    */
-
     guardarCache(
 
       CACHE_FIREBASE,
 
       productos.filter(
         p =>
-          p.origen ===
-          "firebase"
+          p.origen === "firebase"
       )
 
     );
@@ -4544,11 +4431,794 @@ async function(id){
 };
 
 /* =====================================================
-   ACTIVAR ADMIN
+   ⭐ RESEÑAS
+===================================================== */
+
+function estrellasTexto(numero){
+
+  const n =
+    Math.max(
+      0,
+      Math.min(
+        5,
+        Number(numero || 0)
+      )
+    );
+
+  return (
+    "★".repeat(n) +
+    "☆".repeat(5 - n)
+  );
+
+}
+
+/* =====================================================
+   CARGAR RESEÑAS
+===================================================== */
+
+async function cargarResenas(){
+
+  const lista =
+    document.getElementById(
+      "listaResenas"
+    );
+
+  try{
+
+    /*
+       Solo mostramos reseñas aprobadas.
+
+       Si no tienes todavía el campo "aprobada",
+       las reseñas nuevas creadas por este código
+       lo tendrán automáticamente.
+    */
+
+    const q =
+      query(
+
+        collection(
+          db,
+          "resenas"
+        ),
+
+        where(
+          "aprobada",
+          "==",
+          true
+        ),
+
+        limit(50)
+
+      );
+
+    const snapshot =
+      await getDocs(q);
+
+    resenas = [];
+
+    snapshot.forEach(
+      docSnap => {
+
+        resenas.push({
+
+          id:
+            docSnap.id,
+
+          ...docSnap.data()
+
+        });
+
+      }
+    );
+
+    /*
+       Ordenamos en el navegador para evitar
+       depender de un índice compuesto de Firebase.
+    */
+
+    resenas.sort(
+      (a,b) =>
+        String(
+          b.fecha || ""
+        )
+        .localeCompare(
+          String(
+            a.fecha || ""
+          )
+        )
+    );
+
+    renderResenas();
+
+  }catch(error){
+
+    console.error(
+      "Error cargando reseñas:",
+      error
+    );
+
+    /*
+       Si todavía no existe la colección
+       o Firestore está bloqueado, mostramos
+       un mensaje amigable.
+    */
+
+    lista.innerHTML = `
+
+      <div class="resenas-vacias">
+
+        ⭐ Sé uno de los primeros
+        en dejar una opinión.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+/* =====================================================
+   RENDER RESEÑAS
+===================================================== */
+
+function renderResenas(){
+
+  const lista =
+    document.getElementById(
+      "listaResenas"
+    );
+
+  const promedioElemento =
+    document.getElementById(
+      "promedioResenas"
+    );
+
+  const estrellasElemento =
+    document.getElementById(
+      "estrellasPromedio"
+    );
+
+  const totalElemento =
+    document.getElementById(
+      "totalResenas"
+    );
+
+  if(!resenas.length){
+
+    promedioElemento.textContent =
+      "5.0";
+
+    estrellasElemento.textContent =
+      "★★★★★";
+
+    totalElemento.textContent =
+      "Sé el primero en calificarnos";
+
+    lista.innerHTML = `
+
+      <div class="resenas-vacias">
+
+        💙 Todavía no hay reseñas.
+
+        <br>
+
+        ¡Sé el primero en contarnos
+        cómo fue tu experiencia!
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  const suma =
+    resenas.reduce(
+      (
+        total,
+        resena
+      ) =>
+        total +
+        Number(
+          resena.calificacion || 0
+        ),
+      0
+    );
+
+  const promedio =
+    suma /
+    resenas.length;
+
+  promedioElemento.textContent =
+    promedio.toFixed(1);
+
+  estrellasElemento.textContent =
+    estrellasTexto(
+      Math.round(promedio)
+    );
+
+  totalElemento.textContent =
+    resenas.length === 1
+    ? "1 reseña"
+    : `${resenas.length} reseñas`;
+
+  lista.innerHTML =
+    resenas
+      .map(
+        resena => `
+
+          <div class="resena-card">
+
+            <div class="resena-cabecera">
+
+              <div class="resena-nombre">
+
+                👤
+                ${escapeHtml(
+                  resena.nombre ||
+                  "Cliente"
+                )}
+
+              </div>
+
+              <div class="resena-estrellas">
+
+                ${estrellasTexto(
+                  resena.calificacion
+                )}
+
+              </div>
+
+            </div>
+
+            <div class="resena-texto">
+
+              ${escapeHtml(
+                resena.texto ||
+                ""
+              )}
+
+            </div>
+
+            <div class="resena-fecha">
+
+              ${formatearFecha(
+                resena.fecha
+              )}
+
+            </div>
+
+          </div>
+
+        `
+      )
+      .join("");
+
+}
+
+/* =====================================================
+   FORMATEAR FECHA
+===================================================== */
+
+function formatearFecha(fecha){
+
+  if(!fecha)
+    return "";
+
+  try{
+
+    const fechaObj =
+      new Date(fecha);
+
+    if(
+      Number.isNaN(
+        fechaObj.getTime()
+      )
+    ){
+
+      return "";
+
+    }
+
+    return fechaObj.toLocaleDateString(
+      "es-CO",
+      {
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+      }
+    );
+
+  }catch(error){
+
+    return "";
+
+  }
+
+}
+
+/* =====================================================
+   ENVIAR RESEÑA
+===================================================== */
+
+window.enviarResena =
+async function(){
+
+  const nombre =
+    document.getElementById(
+      "resenaNombre"
+    ).value.trim();
+
+  const texto =
+    document.getElementById(
+      "resenaTexto"
+    ).value.trim();
+
+  const seleccion =
+    document.querySelector(
+      'input[name="calificacion"]:checked'
+    );
+
+  const mensaje =
+    document.getElementById(
+      "mensajeResena"
+    );
+
+  if(!nombre){
+
+    mensaje.innerHTML = `
+
+      <span style="color:#dc2626;">
+        ⚠️ Escribe tu nombre.
+      </span>
+
+    `;
+
+    return;
+
+  }
+
+  if(!seleccion){
+
+    mensaje.innerHTML = `
+
+      <span style="color:#dc2626;">
+        ⚠️ Selecciona una calificación.
+      </span>
+
+    `;
+
+    return;
+
+  }
+
+  if(!texto){
+
+    mensaje.innerHTML = `
+
+      <span style="color:#dc2626;">
+        ⚠️ Escribe tu opinión.
+      </span>
+
+    `;
+
+    return;
+
+  }
+
+  const calificacion =
+    Number(
+      seleccion.value
+    );
+
+  if(
+    calificacion < 1 ||
+    calificacion > 5
+  ){
+
+    return;
+
+  }
+
+  const boton =
+    document.querySelector(
+      ".form-resena .btn-principal"
+    );
+
+  boton.disabled =
+    true;
+
+  boton.textContent =
+    "⏳ Enviando...";
+
+  mensaje.innerHTML =
+    "";
+
+  try{
+
+    await addDoc(
+
+      collection(
+        db,
+        "resenas"
+      ),
+
+      {
+
+        nombre:
+          nombre.substring(
+            0,
+            60
+          ),
+
+        calificacion,
+
+        texto:
+          texto.substring(
+            0,
+            500
+          ),
+
+        aprobada:
+          true,
+
+        fecha:
+          new Date()
+            .toISOString()
+
+      }
+
+    );
+
+    document.getElementById(
+      "resenaNombre"
+    ).value =
+      "";
+
+    document.getElementById(
+      "resenaTexto"
+    ).value =
+      "";
+
+    document
+      .querySelectorAll(
+        'input[name="calificacion"]'
+      )
+      .forEach(
+        radio =>
+          radio.checked =
+            false
+      );
+
+    mensaje.innerHTML = `
+
+      <span
+        style="
+          color:#168448;
+          font-weight:700;
+        ">
+
+        ✅ ¡Gracias por tu reseña!
+        Ya aparece en nuestra tienda. 🩵
+
+      </span>
+
+    `;
+
+    await cargarResenas();
+
+  }catch(error){
+
+    console.error(
+      "Error enviando reseña:",
+      error
+    );
+
+    mensaje.innerHTML = `
+
+      <span
+        style="
+          color:#dc2626;
+          font-weight:700;
+        ">
+
+        ❌ No se pudo enviar la reseña.
+
+        <br>
+
+        Revisa las reglas de Firestore.
+
+      </span>
+
+    `;
+
+  }finally{
+
+    boton.disabled =
+      false;
+
+    boton.textContent =
+      "⭐ Publicar mi reseña";
+
+  }
+
+};
+
+/* =====================================================
+   ADMIN RESEÑAS
+===================================================== */
+
+async function cargarResenasAdmin(){
+
+  const lista =
+    document.getElementById(
+      "listaResenasAdmin"
+    );
+
+  if(!lista)
+    return;
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "resenas"
+        )
+      );
+
+    const todas = [];
+
+    snapshot.forEach(
+      docSnap => {
+
+        todas.push({
+
+          id:
+            docSnap.id,
+
+          ...docSnap.data()
+
+        });
+
+      }
+    );
+
+    todas.sort(
+      (a,b) =>
+        String(
+          b.fecha || ""
+        )
+        .localeCompare(
+          String(
+            a.fecha || ""
+          )
+        )
+    );
+
+    if(!todas.length){
+
+      lista.innerHTML = `
+
+        <div class="vacio">
+          No hay reseñas todavía.
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+    lista.innerHTML =
+      todas
+        .map(
+          resena => `
+
+            <div class="admin-producto">
+
+              <strong>
+
+                ${escapeHtml(
+                  resena.nombre ||
+                  "Cliente"
+                )}
+
+              </strong>
+
+              <div
+                style="
+                  color:#f59e0b;
+                  font-size:18px;
+                  margin:5px 0;
+                ">
+
+                ${estrellasTexto(
+                  resena.calificacion
+                )}
+
+              </div>
+
+              <div
+                style="
+                  color:#718096;
+                  font-size:13px;
+                  margin-bottom:8px;
+                ">
+
+                ${escapeHtml(
+                  resena.texto ||
+                  ""
+                )}
+
+              </div>
+
+              <div
+                style="
+                  margin-bottom:8px;
+                  font-size:12px;
+                ">
+
+                Estado:
+
+                <strong>
+
+                  ${
+                    resena.aprobada
+                    ? "✅ Publicada"
+                    : "⏳ Pendiente"
+                  }
+
+                </strong>
+
+              </div>
+
+              ${
+                !resena.aprobada
+
+                ?
+
+                `
+                  <button
+                    class="btn btn-principal"
+                    onclick="aprobarResena('${escapeHtml(resena.id)}')">
+
+                    ✅ Publicar
+
+                  </button>
+                `
+
+                :
+
+                ""
+              }
+
+              <button
+                class="btn btn-secundario"
+                onclick="eliminarResena('${escapeHtml(resena.id)}')">
+
+                🗑️ Eliminar
+
+              </button>
+
+            </div>
+
+          `
+        )
+        .join("");
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+    lista.innerHTML = `
+
+      <div class="vacio">
+        No se pudieron cargar las reseñas.
+      </div>
+
+    `;
+
+  }
+
+}
+
+window.aprobarResena =
+async function(id){
+
+  try{
+
+    await setDoc(
+
+      doc(
+        db,
+        "resenas",
+        id
+      ),
+
+      {
+        aprobada:true
+      },
+
+      {
+        merge:true
+      }
+
+    );
+
+    alert(
+      "✅ Reseña publicada."
+    );
+
+    await cargarResenasAdmin();
+
+    await cargarResenas();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ No se pudo publicar la reseña."
+    );
+
+  }
+
+};
+
+window.eliminarResena =
+async function(id){
+
+  if(
+    !confirm(
+      "¿Seguro que quieres eliminar esta reseña?"
+    )
+  ){
+
+    return;
+
+  }
+
+  try{
+
+    await deleteDoc(
+      doc(
+        db,
+        "resenas",
+        id
+      )
+    );
+
+    alert(
+      "✅ Reseña eliminada."
+    );
+
+    await cargarResenasAdmin();
+
+    await cargarResenas();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ No se pudo eliminar la reseña."
+    );
+
+  }
+
+};
+
+/* =====================================================
+   ADMIN
 ===================================================== */
 
 let contadorLogo = 0;
-
 let ultimoClick = 0;
 
 document.getElementById(
@@ -4606,6 +5276,8 @@ document.getElementById(
 
         renderAdmin();
 
+        cargarResenasAdmin();
+
       }else if(
         pin !== null
       ){
@@ -4638,37 +5310,44 @@ document.getElementById(
 ===================================================== */
 
 /*
-   PASO 1
-   Mostramos caché INMEDIATAMENTE.
+   1. PRIMERO:
 
-   Esto ocurre antes de esperar a Firebase
-   o GitHub.
+   Mostramos inmediatamente cualquier
+   catálogo que ya exista en el teléfono.
 */
 
-const habiaCache =
-  cargarCacheInicial();
+cargarCacheInicial();
 
 /*
-   PASO 2
-   Contador del carrito.
+   2. Actualizamos carrito inmediatamente.
 */
 
 actualizarContadorCarrito();
 
 /*
-   PASO 3
-   Firebase + GitHub arrancan inmediatamente.
+   3. CARGAMOS RESEÑAS EN PARALELO.
 
-   NO esperamos a que el usuario toque
-   ninguna categoría.
+   Esto NO bloquea los productos.
+*/
+
+cargarResenas();
+
+/*
+   4. PRODUCTOS:
+
+   Firebase + GitHub empiezan AHORA MISMO.
+
+   El cliente no tiene que tocar ninguna
+   categoría para iniciar la carga.
 */
 
 cargarProductos();
 
 /*
-   PASO 4
-   Seguimos calentando las imágenes
-   inmediatamente después.
+   5. Precarga adicional de imágenes.
+
+   Se ejecuta después de que la página
+   ya comenzó a pintar.
 */
 
 setTimeout(
@@ -4680,22 +5359,14 @@ setTimeout(
   0
 );
 
-/*
-   Segundo calentamiento muy corto.
-*/
-
 setTimeout(
   () => {
 
     precargarImagenesProductos();
 
   },
-  150
+  200
 );
-
-/*
-   Tercer calentamiento.
-*/
 
 setTimeout(
   () => {
