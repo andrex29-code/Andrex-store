@@ -84,14 +84,19 @@ header{
   }
   to{
     text-shadow:
-      0 1px 2px rgba(37,99,235,.18),
+      0 1px 2px rgba(37,99,blue,.18),
       0 0 7px rgba(99,102,241,.25),
       0 0 13px rgba(124,58,237,.18);
   }
 }
 
+/* =====================================================
+   ACCIONES HEADER
+===================================================== */
+
 .header-actions{
   display:flex;
+  align-items:center;
   gap:10px;
 }
 
@@ -117,6 +122,219 @@ header{
 
 .header-btn:active{
   transform:translateY(2px);
+}
+
+/* =====================================================
+   🍔 BOTÓN MENÚ HAMBURGUESA
+===================================================== */
+
+.menu-hamburguesa{
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(145deg,#eef2ff,#e0e7ff);
+  color:#4338ca;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  box-shadow:
+    0 5px 0 #c7cff5,
+    0 8px 15px rgba(79,70,229,.16);
+  transition:.2s ease;
+  flex-shrink:0;
+}
+
+.menu-hamburguesa:hover{
+  transform:translateY(-2px);
+}
+
+.menu-hamburguesa:active{
+  transform:translateY(2px);
+}
+
+.menu-hamburguesa span{
+  display:block;
+  width:22px;
+  height:3px;
+  border-radius:5px;
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
+  transition:.25s ease;
+}
+
+.menu-hamburguesa.activo span:nth-child(1){
+  transform:translateY(8px) rotate(45deg);
+}
+
+.menu-hamburguesa.activo span:nth-child(2){
+  opacity:0;
+}
+
+.menu-hamburguesa.activo span:nth-child(3){
+  transform:translateY(-8px) rotate(-45deg);
+}
+
+/* =====================================================
+   🍔 PANEL DEL MENÚ
+===================================================== */
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(22,18,50,.48);
+  backdrop-filter:blur(3px);
+  z-index:10000;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s ease;
+}
+
+.menu-overlay.activo{
+  opacity:1;
+  visibility:visible;
+}
+
+.menu-lateral{
+  position:absolute;
+  top:0;
+  right:0;
+  width:min(360px,88vw);
+  height:100%;
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8f7ff 55%,
+      #f1efff 100%
+    );
+  box-shadow:-10px 0 35px rgba(42,31,95,.22);
+  transform:translateX(100%);
+  transition:.3s ease;
+  overflow-y:auto;
+  padding:22px 18px 30px;
+}
+
+.menu-overlay.activo .menu-lateral{
+  transform:translateX(0);
+}
+
+.menu-cabecera{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding-bottom:18px;
+  margin-bottom:10px;
+  border-bottom:1px solid #e5e1ff;
+}
+
+.menu-titulo{
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:24px;
+  font-weight:800;
+  color:#4338ca;
+}
+
+.menu-cerrar{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#eef2ff;
+  color:#4338ca;
+  font-size:24px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.menu-bienvenida{
+  background:linear-gradient(135deg,#eef2ff,#f5f3ff);
+  border:1px solid #ddd6fe;
+  border-radius:17px;
+  padding:15px;
+  margin:12px 0 17px;
+  color:#4f46e5;
+  font-weight:800;
+  line-height:1.4;
+}
+
+.menu-lista{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.menu-item{
+  width:100%;
+  border:1px solid #e7e3ff;
+  background:white;
+  border-radius:15px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  text-align:left;
+  color:#303b67;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 4px 13px rgba(79,70,229,.06);
+  transition:.18s ease;
+}
+
+.menu-item:hover{
+  transform:translateX(-3px);
+  background:#f7f5ff;
+  border-color:#c7c9ff;
+  color:#4338ca;
+}
+
+.menu-item-icono{
+  width:39px;
+  height:39px;
+  border-radius:12px;
+  background:#eef2ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  flex-shrink:0;
+}
+
+.menu-item-texto{
+  flex:1;
+}
+
+.menu-item-flecha{
+  color:#8b82d8;
+  font-size:18px;
+}
+
+.menu-separador{
+  height:1px;
+  background:#e5e1ff;
+  margin:8px 0;
+}
+
+.menu-whatsapp{
+  background:#dcfce7;
+  border-color:#bbf7d0;
+  color:#168448;
+}
+
+.menu-whatsapp .menu-item-icono{
+  background:#bbf7d0;
+}
+
+.menu-footer{
+  margin-top:22px;
+  text-align:center;
+  color:#8a8ca0;
+  font-size:11px;
+  line-height:1.5;
 }
 
 /* =====================================================
@@ -347,8 +565,6 @@ main{
   box-shadow:0 6px 18px rgba(79,70,229,.08);
   transition:.25s;
   border:1px solid #f0edff;
-
-  /* IMPORTANTE PARA ENCONTRAR LA TARJETA */
   scroll-margin-top:110px;
 }
 
@@ -366,49 +582,22 @@ main{
   background:#f1efff;
 }
 
-/* =====================================================
-   RESALTAR PRODUCTO ENCONTRADO
-===================================================== */
-
 .producto.resaltado-busqueda{
-  animation:
-    resaltarProductoBusqueda
-    2.4s ease;
-
+  animation:resaltarProductoBusqueda 2.4s ease;
   box-shadow:
     0 0 0 4px rgba(99,102,241,.35),
     0 15px 35px rgba(79,70,229,.25);
-
   position:relative;
   z-index:20;
 }
 
 @keyframes resaltarProductoBusqueda{
-
-  0%{
-    transform:scale(1);
-  }
-
-  20%{
-    transform:scale(1.025);
-  }
-
-  40%{
-    transform:scale(1);
-  }
-
-  60%{
-    transform:scale(1.02);
-  }
-
-  80%{
-    transform:scale(1);
-  }
-
-  100%{
-    transform:scale(1);
-  }
-
+  0%{transform:scale(1)}
+  20%{transform:scale(1.025)}
+  40%{transform:scale(1)}
+  60%{transform:scale(1.02)}
+  80%{transform:scale(1)}
+  100%{transform:scale(1)}
 }
 
 .btn-favorito{
@@ -987,7 +1176,7 @@ main{
 @media(max-width:650px){
 
   header{
-    padding:11px;
+    padding:10px;
   }
 
   .logo{
@@ -1002,6 +1191,17 @@ main{
     padding:10px 11px;
     font-size:12px;
     border-radius:12px;
+  }
+
+  .menu-hamburguesa{
+    width:41px;
+    height:41px;
+    border-radius:12px;
+  }
+
+  .menu-hamburguesa span{
+    width:20px;
+    height:2.5px;
   }
 
   .bienvenida-box{
@@ -1131,17 +1331,27 @@ main{
     font-size:21px;
   }
 
+  .menu-lateral{
+    width:min(340px,90vw);
+    padding:18px 14px 25px;
+  }
+
 }
 
 @media(max-width:400px){
 
   .logo{
-    font-size:19px;
+    font-size:18px;
   }
 
   .header-btn{
     padding:9px;
     font-size:11px;
+  }
+
+  .menu-hamburguesa{
+    width:39px;
+    height:39px;
   }
 
   .bienvenida-texto{
@@ -1179,6 +1389,10 @@ main{
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
   <div class="brand-block">
@@ -1191,39 +1405,268 @@ main{
 
   <div class="header-actions">
 
-    <button class="header-btn" onclick="abrirBusqueda()">
-      🔎 Buscar
+    <!-- 🍔 MENÚ -->
+    <button
+      class="menu-hamburguesa"
+      id="botonMenu"
+      onclick="toggleMenu()"
+      aria-label="Abrir menú"
+      aria-expanded="false">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
     </button>
 
-    <button class="header-btn" onclick="abrirCarrito()">
+    <button
+      class="header-btn"
+      onclick="abrirBusqueda()">
+
+      🔎 Buscar
+
+    </button>
+
+    <button
+      class="header-btn"
+      onclick="abrirCarrito()">
+
       🛒 Carrito
       <span id="contadorCarrito">0</span>
+
     </button>
 
   </div>
 
 </header>
 
+<!-- =====================================================
+     🍔 MENÚ LATERAL
+===================================================== -->
+
+<div
+  id="menuOverlay"
+  class="menu-overlay"
+  onclick="cerrarMenuDesdeFondo(event)">
+
+  <aside class="menu-lateral">
+
+    <div class="menu-cabecera">
+
+      <div class="menu-titulo">
+        🩵 Menú
+      </div>
+
+      <button
+        class="menu-cerrar"
+        onclick="cerrarMenu()">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="menu-bienvenida">
+
+      ✨ Explora ANDREX 🩵 STORE
+
+      <br>
+
+      <small>
+        Encuentra todo lo que buscas en un solo lugar.
+      </small>
+
+    </div>
+
+    <div class="menu-lista">
+
+      <button
+        class="menu-item"
+        onclick="menuInicio()">
+
+        <span class="menu-item-icono">🏠</span>
+
+        <span class="menu-item-texto">
+          Inicio
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="menuCategorias()">
+
+        <span class="menu-item-icono">🛍️</span>
+
+        <span class="menu-item-texto">
+          Categorías
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="menuBuscar()">
+
+        <span class="menu-item-icono">🔎</span>
+
+        <span class="menu-item-texto">
+          Buscar productos
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="menuFavoritos()">
+
+        <span class="menu-item-icono">❤️</span>
+
+        <span class="menu-item-texto">
+          Mis favoritos
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="menuCarrito()">
+
+        <span class="menu-item-icono">🛒</span>
+
+        <span class="menu-item-texto">
+          Mi carrito
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="menuPedido()">
+
+        <span class="menu-item-icono">📦</span>
+
+        <span class="menu-item-texto">
+          Seguir mi pedido
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <div class="menu-separador"></div>
+
+      <button
+        class="menu-item"
+        onclick="menuResenas()">
+
+        <span class="menu-item-icono">⭐</span>
+
+        <span class="menu-item-texto">
+          Opiniones de clientes
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+      <button
+        class="menu-item menu-whatsapp"
+        onclick="menuWhatsApp()">
+
+        <span class="menu-item-icono">💬</span>
+
+        <span class="menu-item-texto">
+          Hablar por WhatsApp
+        </span>
+
+        <span class="menu-item-flecha">
+          →
+        </span>
+
+      </button>
+
+    </div>
+
+    <div class="menu-footer">
+
+      ANDREX 🩵 STORE
+
+      <br>
+
+      ✨ Estilo • Elegancia • Personalidad ✨
+
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- =====================================================
+     BIENVENIDA
+===================================================== -->
+
 <section class="bienvenida-box">
 
   <div class="bienvenida-texto">
-    🛍️✨ Bienvenido a mi tienda, disfruta de todos nuestros productos ✨🛍️
+
+    🛍️✨ Bienvenido a mi tienda,
+    disfruta de todos nuestros productos ✨🛍️
+
   </div>
 
 </section>
 
+<!-- =====================================================
+     SLOGAN
+===================================================== -->
+
 <div class="slogan">
 
-  ✨ <strong>Elegancia que te representa, estilo que deja huella.</strong> ✨
+  ✨
+  <strong>
+    Elegancia que te representa, estilo que deja huella.
+  </strong>
+  ✨
 
   <br>
 
   Descubre una selección pensada para quienes buscan destacar
   con personalidad y buen gusto. Ropa, fragancias, zapatos y
   mucho más, elegidos para acompañarte en cada momento y
-  convertir cada elección en una expresión única de tu esencia. 🛍️💙💜
+  convertir cada elección en una expresión única de tu esencia.
+  🛍️💙💜
 
 </div>
+
+<!-- =====================================================
+     VIDEO
+===================================================== -->
 
 <section class="hero">
 
@@ -1244,93 +1687,154 @@ main{
 
 <main>
 
+<!-- =====================================================
+     CATEGORÍAS
+===================================================== -->
+
 <div id="categoriasGrid">
 
   <div class="categorias-grid">
 
-    <button class="categoria" onclick="abrirCategoria('ropa')">
+    <button
+      class="categoria"
+      onclick="abrirCategoria('ropa')">
+
       <span>👕</span>
       Ropa
+
     </button>
 
-    <button class="categoria" onclick="abrirCategoria('lociones')">
+    <button
+      class="categoria"
+      onclick="abrirCategoria('lociones')">
+
       <span>🧴</span>
       Lociones
+
     </button>
 
-    <button class="categoria" onclick="abrirCategoria('zapatos')">
+    <button
+      class="categoria"
+      onclick="abrirCategoria('zapatos')">
+
       <span>👟</span>
       Zapatos
+
     </button>
 
-    <button class="categoria" onclick="abrirCategoria('streaming')">
+    <button
+      class="categoria"
+      onclick="abrirCategoria('streaming')">
+
       <span>📺</span>
       Streaming
+
     </button>
 
   </div>
 
 </div>
 
+<!-- =====================================================
+     INFORMACIÓN
+===================================================== -->
+
 <section class="info-grid">
 
   <div class="info-card">
+
     <div class="icono">🚚</div>
+
     <h3>Domicilio</h3>
+
     <p>
+
       Recibe tus productos de forma cómoda y segura.
       Recuerda que hacemos envíos a nivel nacional 🇨🇴✨
       y tú como cliente te encargas de pagar el envío a tu ciudad.
-      También solo hay pago contra entrega para las lociones originales 🔥
+      También solo hay pago contra entrega para las lociones
+      originales 🔥
+
     </p>
+
   </div>
 
   <div class="info-card">
+
     <div class="icono">💳</div>
+
     <h3>Medios de pago</h3>
+
     <p>
+
       Manejamos pagos por Nequi, Bancolombia y Daviplata ✨👌🏻
+
     </p>
+
   </div>
 
   <div class="info-card">
+
     <div class="icono">💬</div>
+
     <h3>Ayuda</h3>
+
     <p>
+
       Si necesitas ayuda, escríbenos directamente por WhatsApp.
+
     </p>
+
   </div>
 
 </section>
 
 <!-- =====================================================
-     ⭐ SISTEMA DE RESEÑAS
+     RESEÑAS
 ===================================================== -->
 
-<section class="resenas-seccion">
+<section
+  id="seccionResenas"
+  class="resenas-seccion">
 
   <h2 class="resenas-titulo">
+
     ⭐ Opiniones de nuestros clientes
+
   </h2>
 
   <p class="resenas-subtitulo">
+
     Tu opinión nos ayuda a seguir mejorando 🩵
+
   </p>
 
   <div class="resumen-resenas">
 
     <div>
 
-      <div id="promedioResenas" class="promedio-numero">
+      <div
+        id="promedioResenas"
+        class="promedio-numero">
+
         5.0
+
       </div>
 
-      <div id="estrellasPromedio" class="estrellas-grandes">
+      <div
+        id="estrellasPromedio"
+        class="estrellas-grandes">
+
         ★★★★★
+
       </div>
 
-      <div id="totalResenas" class="total-resenas">
+      <div
+        id="totalResenas"
+        class="total-resenas">
+
         Sé el primero en calificarnos
+
       </div>
 
     </div>
@@ -1349,21 +1853,48 @@ main{
       maxlength="60"
       placeholder="Tu nombre">
 
-    <div class="selector-estrellas" aria-label="Calificación">
+    <div
+      class="selector-estrellas"
+      aria-label="Calificación">
 
-      <input type="radio" id="estrella5" name="calificacion" value="5">
+      <input
+        type="radio"
+        id="estrella5"
+        name="calificacion"
+        value="5">
+
       <label for="estrella5">★</label>
 
-      <input type="radio" id="estrella4" name="calificacion" value="4">
+      <input
+        type="radio"
+        id="estrella4"
+        name="calificacion"
+        value="4">
+
       <label for="estrella4">★</label>
 
-      <input type="radio" id="estrella3" name="calificacion" value="3">
+      <input
+        type="radio"
+        id="estrella3"
+        name="calificacion"
+        value="3">
+
       <label for="estrella3">★</label>
 
-      <input type="radio" id="estrella2" name="calificacion" value="2">
+      <input
+        type="radio"
+        id="estrella2"
+        name="calificacion"
+        value="2">
+
       <label for="estrella2">★</label>
 
-      <input type="radio" id="estrella1" name="calificacion" value="1">
+      <input
+        type="radio"
+        id="estrella1"
+        name="calificacion"
+        value="1">
+
       <label for="estrella1">★</label>
 
     </div>
@@ -1389,7 +1920,9 @@ main{
 
   </div>
 
-  <div id="listaResenas" class="resenas-lista">
+  <div
+    id="listaResenas"
+    class="resenas-lista">
 
     <div class="cargando">
       ⭐ Cargando opiniones...
@@ -1403,7 +1936,9 @@ main{
      ADMIN
 ===================================================== -->
 
-<section id="adminPanel" class="admin-panel">
+<section
+  id="adminPanel"
+  class="admin-panel">
 
   <h2>⚙️ Panel de administración</h2>
 
@@ -1411,69 +1946,131 @@ main{
 
   <div class="admin-grid">
 
-    <input id="productoNombre" class="input" placeholder="Nombre del producto">
+    <input
+      id="productoNombre"
+      class="input"
+      placeholder="Nombre del producto">
 
-    <input id="productoPrecio" class="input" type="number" placeholder="Precio">
+    <input
+      id="productoPrecio"
+      class="input"
+      type="number"
+      placeholder="Precio">
 
-    <input id="productoCategoria" class="input" placeholder="Categoría: ropa, lociones, zapatos o streaming">
+    <input
+      id="productoCategoria"
+      class="input"
+      placeholder="Categoría: ropa, lociones, zapatos o streaming">
 
-    <input id="productoDescripcion" class="input" placeholder="Descripción">
+    <input
+      id="productoDescripcion"
+      class="input"
+      placeholder="Descripción">
 
-    <input id="productoImagen" class="input" type="file" accept="image/*">
+    <input
+      id="productoImagen"
+      class="input"
+      type="file"
+      accept="image/*">
 
   </div>
 
   <label style="display:block;margin:10px 0;">
 
-    <input id="productoDestacado" type="checkbox">
+    <input
+      id="productoDestacado"
+      type="checkbox">
 
     Marcar como destacado
 
   </label>
 
-  <button class="btn btn-principal" onclick="guardarProducto()">
+  <button
+    class="btn btn-principal"
+    onclick="guardarProducto()">
+
     💾 Guardar producto
+
   </button>
 
-  <hr style="margin:25px 0;border:0;border-top:1px solid #ede9fe;">
+  <hr
+    style="
+      margin:25px 0;
+      border:0;
+      border-top:1px solid #ede9fe;
+    ">
 
   <h3>📦 Crear / actualizar pedido</h3>
 
   <div class="admin-grid">
 
-    <input id="pedidoCodigo" class="input" placeholder="Código del pedido" readonly>
+    <input
+      id="pedidoCodigo"
+      class="input"
+      placeholder="Código del pedido"
+      readonly>
 
-    <input id="pedidoCliente" class="input" placeholder="Nombre del cliente">
+    <input
+      id="pedidoCliente"
+      class="input"
+      placeholder="Nombre del cliente">
 
-    <select id="pedidoEstado" class="input">
+    <select
+      id="pedidoEstado"
+      class="input">
+
       <option>Recibido</option>
       <option>Preparando</option>
       <option>En camino</option>
       <option>Entregado</option>
       <option>Cancelado</option>
+
     </select>
 
-    <input id="pedidoDetalle" class="input" placeholder="Detalle del pedido">
+    <input
+      id="pedidoDetalle"
+      class="input"
+      placeholder="Detalle del pedido">
 
   </div>
 
-  <div style="display:flex;flex-wrap:wrap;gap:8px;">
+  <div
+    style="
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    ">
 
-    <button class="btn btn-principal" onclick="crearPedido()">
+    <button
+      class="btn btn-principal"
+      onclick="crearPedido()">
+
       ➕ Crear pedido
+
     </button>
 
-    <button class="btn btn-secundario" onclick="actualizarPedido()">
+    <button
+      class="btn btn-secundario"
+      onclick="actualizarPedido()">
+
       🔄 Actualizar pedido
+
     </button>
 
-    <button class="btn btn-secundario" onclick="enviarCodigoWhatsApp()">
+    <button
+      class="btn btn-secundario"
+      onclick="enviarCodigoWhatsApp()">
+
       📲 Enviar código
+
     </button>
 
   </div>
 
-  <div id="codigoGenerado" style="margin-top:15px;"></div>
+  <div
+    id="codigoGenerado"
+    style="margin-top:15px;">
+  </div>
 
   <div class="admin-lista">
 
@@ -1495,7 +2092,13 @@ main{
 
 </main>
 
-<div id="flotantes" class="flotantes">
+<!-- =====================================================
+     BOTONES FLOTANTES
+===================================================== -->
+
+<div
+  id="flotantes"
+  class="flotantes">
 
   <button
     class="flotante-favoritos"
@@ -1519,14 +2122,20 @@ main{
      MODAL IMAGEN
 ===================================================== -->
 
-<div id="modalImagen" class="modal">
+<div
+  id="modalImagen"
+  class="modal">
 
-  <div class="modal-contenido" style="text-align:center;">
+  <div
+    class="modal-contenido"
+    style="text-align:center;">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalImagen')">
+
       ×
+
     </button>
 
     <img
@@ -1543,14 +2152,18 @@ main{
      MODAL PEDIDO
 ===================================================== -->
 
-<div id="modalPedido" class="modal">
+<div
+  id="modalPedido"
+  class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalPedido')">
+
       ×
+
     </button>
 
     <h2>📦 Estado de mi pedido</h2>
@@ -1563,10 +2176,15 @@ main{
     <button
       class="btn btn-principal"
       onclick="consultarPedido()">
+
       🔎 Consultar
+
     </button>
 
-    <div id="resultadoPedido" style="margin-top:18px;"></div>
+    <div
+      id="resultadoPedido"
+      style="margin-top:18px;">
+    </div>
 
   </div>
 
@@ -1576,28 +2194,38 @@ main{
      MODAL CARRITO
 ===================================================== -->
 
-<div id="modalCarrito" class="modal">
+<div
+  id="modalCarrito"
+  class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalCarrito')">
+
       ×
+
     </button>
 
     <h2>🛒 Mi carrito</h2>
 
     <div id="listaCarrito"></div>
 
-    <div id="totalCarrito" class="carrito-total">
+    <div
+      id="totalCarrito"
+      class="carrito-total">
+
       Total: $0
+
     </div>
 
     <button
       class="btn btn-principal"
       onclick="comprarCarrito()">
+
       📲 Comprar por WhatsApp
+
     </button>
 
   </div>
@@ -1608,14 +2236,18 @@ main{
      MODAL BÚSQUEDA
 ===================================================== -->
 
-<div id="modalBusqueda" class="modal">
+<div
+  id="modalBusqueda"
+  class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalBusqueda')">
+
       ×
+
     </button>
 
     <h2>🔎 Buscar productos</h2>
@@ -1635,14 +2267,18 @@ main{
      MODAL FAVORITOS
 ===================================================== -->
 
-<div id="modalFavoritos" class="modal">
+<div
+  id="modalFavoritos"
+  class="modal">
 
   <div class="modal-contenido">
 
     <button
       class="cerrar"
       onclick="cerrarModal('modalFavoritos')">
+
       ×
+
     </button>
 
     <h2>❤️ Mis favoritos</h2>
@@ -1748,11 +2384,8 @@ function guardarCache(clave, datos){
     localStorage.setItem(
       clave,
       JSON.stringify({
-
         timestamp:Date.now(),
-
         productos:datos
-
       })
     );
 
@@ -1822,6 +2455,241 @@ const categoriasGrid =
 
 const categoriasOriginales =
   categoriasGrid.innerHTML;
+
+/* =====================================================
+   🍔 MENÚ HAMBURGUESA
+===================================================== */
+
+window.toggleMenu =
+function(){
+
+  const overlay =
+    document.getElementById(
+      "menuOverlay"
+    );
+
+  const boton =
+    document.getElementById(
+      "botonMenu"
+    );
+
+  if(!overlay)
+    return;
+
+  const activo =
+    overlay.classList.contains(
+      "activo"
+    );
+
+  if(activo){
+
+    cerrarMenu();
+
+  }else{
+
+    overlay.classList.add(
+      "activo"
+    );
+
+    boton.classList.add(
+      "activo"
+    );
+
+    boton.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+};
+
+window.cerrarMenu =
+function(){
+
+  const overlay =
+    document.getElementById(
+      "menuOverlay"
+    );
+
+  const boton =
+    document.getElementById(
+      "botonMenu"
+    );
+
+  if(overlay){
+
+    overlay.classList.remove(
+      "activo"
+    );
+
+  }
+
+  if(boton){
+
+    boton.classList.remove(
+      "activo"
+    );
+
+    boton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  }
+
+  document.body.style.overflow =
+    "";
+
+};
+
+window.cerrarMenuDesdeFondo =
+function(event){
+
+  if(
+    event.target.id ===
+    "menuOverlay"
+  ){
+
+    cerrarMenu();
+
+  }
+
+};
+
+window.menuInicio =
+function(){
+
+  cerrarMenu();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+};
+
+window.menuCategorias =
+function(){
+
+  cerrarMenu();
+
+  categoriaActual =
+    null;
+
+  categoriasGrid.innerHTML =
+    categoriasOriginales;
+
+  setTimeout(
+    () => {
+
+      categoriasGrid.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+    },
+    100
+  );
+
+};
+
+window.menuBuscar =
+function(){
+
+  cerrarMenu();
+
+  setTimeout(
+    () => {
+      abrirBusqueda();
+    },
+    250
+  );
+
+};
+
+window.menuFavoritos =
+function(){
+
+  cerrarMenu();
+
+  setTimeout(
+    () => {
+      abrirFavoritos();
+    },
+    250
+  );
+
+};
+
+window.menuCarrito =
+function(){
+
+  cerrarMenu();
+
+  setTimeout(
+    () => {
+      abrirCarrito();
+    },
+    250
+  );
+
+};
+
+window.menuPedido =
+function(){
+
+  cerrarMenu();
+
+  setTimeout(
+    () => {
+      abrirEstadoPedido();
+    },
+    250
+  );
+
+};
+
+window.menuResenas =
+function(){
+
+  cerrarMenu();
+
+  setTimeout(
+    () => {
+
+      document
+        .getElementById(
+          "seccionResenas"
+        )
+        .scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+    },
+    150
+  );
+
+};
+
+window.menuWhatsApp =
+function(){
+
+  cerrarMenu();
+
+  window.open(
+    "https://wa.me/573181579324?text=" +
+    encodeURIComponent(
+      "Hola 👋 estoy interesado en los productos de ANDREX 🩵 STORE. Quiero recibir información."
+    ),
+    "_blank"
+  );
+
+};
 
 /* =====================================================
    UTILIDADES
@@ -1962,7 +2830,7 @@ function perteneceCategoria(
 }
 
 /* =====================================================
-   PRECARGA DE IMÁGENES
+   PRECARGA IMÁGENES
 ===================================================== */
 
 function precargarImagen(url){
@@ -2205,6 +3073,8 @@ function renderCategoria(categoria){
 window.abrirCategoria =
 function(categoria){
 
+  cerrarMenu();
+
   categoriaActual =
     categoria;
 
@@ -2350,7 +3220,7 @@ function tarjetaProducto(
 }
 
 /* =====================================================
-   ACTUALIZAR CATEGORÍA ABIERTA
+   ACTUALIZAR CATEGORÍA
 ===================================================== */
 
 function actualizarCategoriaAbierta(){
@@ -2743,7 +3613,10 @@ function(){
     lista.innerHTML = `
 
       <div class="vacio">
-        ❤️ Todavía no tienes productos favoritos.
+
+        ❤️ Todavía no tienes
+        productos favoritos.
+
       </div>
 
     `;
@@ -3056,7 +3929,7 @@ function(){
 };
 
 /* =====================================================
-   🔎 BÚSQUEDA
+   BÚSQUEDA
 ===================================================== */
 
 window.abrirBusqueda =
@@ -3080,10 +3953,6 @@ function(){
   );
 
 };
-
-/* =====================================================
-   BUSCAR PRODUCTOS
-===================================================== */
 
 window.buscarProductos =
 function(){
@@ -3258,10 +4127,6 @@ function(){
 
 };
 
-/* =====================================================
-   IR DIRECTAMENTE A LA TARJETA
-===================================================== */
-
 window.irAlProductoDesdeBusqueda =
 function(id){
 
@@ -3288,11 +4153,6 @@ function(id){
     return;
 
   }
-
-  /*
-     Detectamos automáticamente
-     en qué categoría está.
-  */
 
   const categorias = [
     "ropa",
@@ -3324,17 +4184,9 @@ function(id){
 
   }
 
-  /*
-     Cerramos la búsqueda.
-  */
-
   cerrarModal(
     "modalBusqueda"
   );
-
-  /*
-     Abrimos directamente la categoría.
-  */
 
   categoriaActual =
     categoria;
@@ -3343,22 +4195,12 @@ function(id){
     categoria
   );
 
-  /*
-     Buscamos la tarjeta recién creada.
-     Se hacen varios intentos porque la tienda
-     puede estar terminando de actualizar productos.
-  */
-
   buscarTarjetaProducto(
     id,
     0
   );
 
 };
-
-/* =====================================================
-   ENCONTRAR TARJETA
-===================================================== */
 
 function buscarTarjetaProducto(
   id,
@@ -3392,19 +4234,10 @@ function buscarTarjetaProducto(
 
   if(tarjetaEncontrada){
 
-    /*
-       Primero llevamos al usuario
-       exactamente hasta la tarjeta.
-    */
-
     tarjetaEncontrada.scrollIntoView({
       behavior:"smooth",
       block:"center"
     });
-
-    /*
-       Quitamos cualquier resaltado anterior.
-    */
 
     document
       .querySelectorAll(
@@ -3417,18 +4250,9 @@ function buscarTarjetaProducto(
           )
       );
 
-    /*
-       Resaltamos el producto encontrado.
-    */
-
     tarjetaEncontrada.classList.add(
       "resaltado-busqueda"
     );
-
-    /*
-       Quitamos el resaltado después
-       de unos segundos.
-    */
 
     setTimeout(
       () => {
@@ -3444,13 +4268,6 @@ function buscarTarjetaProducto(
     return;
 
   }
-
-  /*
-     Si todavía no apareció la tarjeta,
-     esperamos un poquito y volvemos a intentar.
-
-     Máximo 20 intentos.
-  */
 
   if(
     intento < 20
@@ -4595,7 +5412,7 @@ async function(id){
 };
 
 /* =====================================================
-   ⭐ RESEÑAS
+   RESEÑAS
 ===================================================== */
 
 function estrellasTexto(numero){
@@ -5469,6 +6286,25 @@ if(flotantes){
   );
 
 }
+
+/* =====================================================
+   ESCAPE PARA CERRAR EL MENÚ
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key === "Escape"
+    ){
+
+      cerrarMenu();
+
+    }
+
+  }
+);
 
 </script>
 
