@@ -31,8 +31,7 @@ max-width:1200px;
 margin:auto;
 display:flex;
 align-items:center;
-justify-content:space-between;
-gap:10px
+gap:12px
 }
 
 /* ===== LOGO NEÓN ===== */
@@ -48,7 +47,9 @@ white-space:nowrap;
 text-shadow:
 0 0 8px rgba(0,153,255,.8),
 0 0 18px rgba(0,92,255,.6),
-0 0 35px rgba(0,153,255,.35)
+0 0 35px rgba(0,153,255,.35);
+flex:1;
+text-align:center
 }
 
 .logo span{
@@ -67,11 +68,8 @@ text-shadow:0 0 8px rgba(0,153,255,.5)
 .botones-header{
 display:flex;
 align-items:center;
-gap:7px
-}
-
-button{
-font-family:inherit
+gap:8px;
+margin-left:auto
 }
 
 .boton-carrito,
@@ -79,10 +77,12 @@ font-family:inherit
 border:1px solid #174b7d;
 background:#08111d;
 color:#dff3ff;
-border-radius:12px;
-padding:10px 13px;
+border-radius:14px;
+padding:10px 14px;
 cursor:pointer;
-box-shadow:0 4px 14px rgba(0,0,0,.35)
+box-shadow:0 4px 14px rgba(0,0,0,.35);
+font-size:19px;
+font-weight:bold
 }
 
 .boton-carrito:hover,
@@ -91,18 +91,27 @@ background:#0b1d31;
 border-color:#1597ff
 }
 
-/* ===== MENÚ ===== */
+/* ===== MENÚ HAMBURGUESA ===== */
 
 .menu-hamburguesa{
 border:1px solid #174b7d;
 background:#08111d;
 color:#63bfff;
-border-radius:12px;
-padding:9px 12px;
-font-size:22px;
+border-radius:14px;
+padding:9px 13px;
+font-size:24px;
 cursor:pointer;
-box-shadow:0 4px 14px rgba(0,0,0,.35)
+box-shadow:0 4px 14px rgba(0,0,0,.35);
+line-height:1
 }
+
+.menu-hamburguesa:hover{
+background:#0b1d31;
+border-color:#1597ff;
+transform:translateY(-1px)
+}
+
+/* ===== MENÚ ===== */
 
 .menu-overlay{
 position:fixed;
@@ -127,7 +136,8 @@ border-right:1px solid #1765a1;
 z-index:6999;
 padding:22px 18px;
 box-shadow:15px 0 40px rgba(0,0,0,.65);
-transition:left .3s ease
+transition:left .3s ease;
+overflow-y:auto
 }
 
 .menu-lateral.abierto{
@@ -162,7 +172,8 @@ background:#081827;
 color:#eaf5ff;
 text-align:left;
 cursor:pointer;
-font-weight:700
+font-weight:700;
+transition:.2s
 }
 
 .menu-lateral>button:not(.menu-cerrar):hover{
@@ -235,9 +246,7 @@ box-shadow:0 10px 30px rgba(0,89,180,.18)
 
 /* ===== PRINCIPAL ===== */
 
-.pagina-principal,
-.vista-categoria,
-#resultadosBusqueda{
+.pagina-principal{
 max-width:1200px;
 margin:auto;
 padding:10px 15px 50px
@@ -274,7 +283,7 @@ margin:0 auto 25px
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:16px;
-margin-bottom:35px
+margin-bottom:25px
 }
 
 .categoria{
@@ -351,10 +360,27 @@ font-size:13px;
 color:#8fb0c8
 }
 
-/* ===== CATEGORÍA ABIERTA ===== */
+/* =====================================================
+   CONTENEDOR DE CATEGORÍA
+   AHORA APARECE DENTRO DE LA MISMA ZONA
+   ===================================================== */
+
+#contenedorCategoriasInline{
+display:none;
+margin-top:5px;
+margin-bottom:25px
+}
+
+#contenedorCategoriasInline.abierto{
+display:block
+}
 
 .vista-categoria{
 display:none
+}
+
+.vista-categoria.activa{
+display:block
 }
 
 .encabezado-categoria{
@@ -380,6 +406,25 @@ color:#42b4ff
 margin-top:5px;
 color:#927a61;
 font-size:14px
+}
+
+.boton-volver-categoria{
+display:inline-flex;
+align-items:center;
+gap:7px;
+margin-top:15px;
+border:1px solid #1765a1;
+background:#081827;
+color:#bfe7ff;
+border-radius:11px;
+padding:9px 14px;
+cursor:pointer;
+font-weight:bold
+}
+
+.boton-volver-categoria:hover{
+background:#0b2740;
+border-color:#159cff
 }
 
 /* ===== PRODUCTOS ===== */
@@ -912,10 +957,7 @@ cursor:pointer;
 font-weight:bold
 }
 
-/* =====================================================
-   BOTÓN FLOTANTE DEL ASISTENTE
-   MÁS PEQUEÑO Y MOVIBLE
-   ===================================================== */
+/* ===== BOTÓN FLOTANTE ASISTENTE ===== */
 
 .boton-asistente-flotante{
 position:fixed;
@@ -923,52 +965,30 @@ left:50%;
 top:auto;
 right:auto;
 bottom:24px;
-
 transform:translateX(-50%);
-
 z-index:5900;
-
 display:flex;
 align-items:center;
 justify-content:center;
 gap:7px;
-
 width:auto;
 min-width:150px;
 height:44px;
-
 padding:0 15px;
-
 border:1px solid #159cff;
 border-radius:25px;
-
-background:linear-gradient(
-135deg,
-#087fd1,
-#174b7d,
-#6c2bd9
-);
-
+background:linear-gradient(135deg,#087fd1,#174b7d,#6c2bd9);
 color:#fff;
-
 font-size:13px;
 font-weight:800;
-
 letter-spacing:.2px;
-
 cursor:grab;
-
 box-shadow:
 0 8px 22px rgba(0,0,0,.45),
 0 0 15px rgba(0,140,255,.35);
-
 touch-action:none;
-
 user-select:none;
-
-transition:
-box-shadow .2s ease,
-transform .2s ease
+transition:box-shadow .2s ease,transform .2s ease
 }
 
 .boton-asistente-flotante:hover{
@@ -1076,6 +1096,7 @@ line-height:1.45
 /* ===== RESPONSIVE ===== */
 
 @media(max-width:900px){
+
 .categorias{
 grid-template-columns:repeat(2,1fr)
 }
@@ -1083,20 +1104,41 @@ grid-template-columns:repeat(2,1fr)
 .productos{
 grid-template-columns:repeat(3,1fr)
 }
+
 }
 
 @media(max-width:650px){
 
+.barra-superior{
+gap:7px
+}
+
 .logo{
-font-size:24px
+font-size:22px;
+letter-spacing:2px
 }
 
 .logo span{
-font-size:9px
+font-size:8px;
+letter-spacing:3px
+}
+
+.botones-header{
+gap:5px
+}
+
+.boton-carrito,
+.menu-hamburguesa{
+padding:9px 10px;
+font-size:20px
 }
 
 .menu-hamburguesa{
-padding:8px 10px
+order:2
+}
+
+.boton-carrito{
+order:1
 }
 
 .hero video{
@@ -1162,8 +1204,6 @@ padding:0 8px
 padding:18px
 }
 
-/* BOTÓN ASISTENTE EN CELULAR */
-
 .boton-asistente-flotante{
 min-width:135px;
 height:40px;
@@ -1182,6 +1222,7 @@ bottom:10px;
 width:calc(100vw - 20px);
 height:calc(100vh - 20px)
 }
+
 }
 </style>
 </head>
@@ -1190,18 +1231,12 @@ height:calc(100vh - 20px)
 
 <!-- =====================================================
      HEADER
+     CARRITO + MENÚ JUNTOS A LA DERECHA
      ===================================================== -->
 
 <header>
 
 <div class="barra-superior">
-
-<button
-class="menu-hamburguesa"
-onclick="abrirMenu()"
-aria-label="Abrir menú">
-☰
-</button>
 
 <div
 class="logo"
@@ -1214,8 +1249,16 @@ ANDREX
 
 <button
 class="boton-carrito"
-onclick="abrirCarrito()">
+onclick="abrirCarrito()"
+aria-label="Abrir carrito">
 🛒 <span id="cantidadCarrito">0</span>
+</button>
+
+<button
+class="menu-hamburguesa"
+onclick="abrirMenu()"
+aria-label="Abrir menú">
+☰
 </button>
 
 </div>
@@ -1249,7 +1292,7 @@ onclick="limpiarBusqueda()">
 </header>
 
 <!-- =====================================================
-     MENÚ
+     MENÚ HAMBURGUESA
      ===================================================== -->
 
 <div
@@ -1290,12 +1333,24 @@ onclick="cerrarMenu()">
 📺 Streaming
 </button>
 
+<button onclick="cerrarMenu();abrirFavoritos()">
+❤️ Mis favoritos
+</button>
+
+<button onclick="cerrarMenu();abrirRastreo()">
+📦 Rastrear pedido
+</button>
+
 <button onclick="cerrarMenu();abrirAsistente()">
 🤖 Asistente de compra
 </button>
 
 <button onclick="cerrarMenu();abrirCarrito()">
 🛒 Mi carrito
+</button>
+
+<button onclick="cerrarMenu();abrirAyuda()">
+❓ ¿Necesitas ayuda?
 </button>
 
 </aside>
@@ -1389,6 +1444,131 @@ onclick="entrarCategoria('streaming')">
 
 </section>
 
+<!-- =====================================================
+     AQUÍ SE ABREN LAS CATEGORÍAS
+     EN EL MISMO LUGAR DE LAS CARPETAS
+     ===================================================== -->
+
+<div id="contenedorCategoriasInline">
+
+<section
+id="vistaRopa"
+class="vista-categoria">
+
+<div class="encabezado-categoria">
+
+<span class="emoji">👕</span>
+
+<h2>ROPA</h2>
+
+<p>Encuentra tu estilo</p>
+
+<button
+class="boton-volver-categoria"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
+
+</div>
+
+<div
+id="productosRopa"
+class="productos">
+</div>
+
+</section>
+
+
+<section
+id="vistaZapatos"
+class="vista-categoria">
+
+<div class="encabezado-categoria">
+
+<span class="emoji">👟</span>
+
+<h2>ZAPATOS</h2>
+
+<p>Camina con tu estilo</p>
+
+<button
+class="boton-volver-categoria"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
+
+</div>
+
+<div
+id="productosZapatos"
+class="productos">
+</div>
+
+</section>
+
+
+<section
+id="vistaLociones"
+class="vista-categoria">
+
+<div class="encabezado-categoria">
+
+<span class="emoji">🧴</span>
+
+<h2>LOCIONES</h2>
+
+<p>Encuentra tu esencia</p>
+
+<button
+class="boton-volver-categoria"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
+
+</div>
+
+<div
+id="productosLociones"
+class="productos">
+</div>
+
+</section>
+
+
+<section
+id="vistaStreaming"
+class="vista-categoria">
+
+<div class="encabezado-categoria">
+
+<span class="emoji">📺</span>
+
+<h2>STREAMING</h2>
+
+<p>Entretenimiento para ti</p>
+
+<button
+class="boton-volver-categoria"
+onclick="volverInicio()">
+← Volver a categorías
+</button>
+
+</div>
+
+<div
+id="productosStreaming"
+class="productos">
+</div>
+
+</section>
+
+</div>
+
+<!-- =====================================================
+     INFORMACIÓN
+     DOMICILIOS + PAGOS + PEDIDOS
+     ===================================================== -->
+
 <section class="informacion">
 
 <div class="info-card">
@@ -1435,103 +1615,16 @@ Realiza tu pedido directamente por WhatsApp.
 </main>
 
 <!-- =====================================================
-     CATEGORÍAS
-     ===================================================== -->
-
-<section
-id="vistaRopa"
-class="vista-categoria">
-
-<div class="encabezado-categoria">
-
-<span class="emoji">👕</span>
-
-<h2>ROPA</h2>
-
-<p>Encuentra tu estilo</p>
-
-</div>
-
-<div
-id="productosRopa"
-class="productos">
-</div>
-
-</section>
-
-
-<section
-id="vistaZapatos"
-class="vista-categoria">
-
-<div class="encabezado-categoria">
-
-<span class="emoji">👟</span>
-
-<h2>ZAPATOS</h2>
-
-<p>Camina con tu estilo</p>
-
-</div>
-
-<div
-id="productosZapatos"
-class="productos">
-</div>
-
-</section>
-
-
-<section
-id="vistaLociones"
-class="vista-categoria">
-
-<div class="encabezado-categoria">
-
-<span class="emoji">🧴</span>
-
-<h2>LOCIONES</h2>
-
-<p>Encuentra tu esencia</p>
-
-</div>
-
-<div
-id="productosLociones"
-class="productos">
-</div>
-
-</section>
-
-
-<section
-id="vistaStreaming"
-class="vista-categoria">
-
-<div class="encabezado-categoria">
-
-<span class="emoji">📺</span>
-
-<h2>STREAMING</h2>
-
-<p>Entretenimiento para ti</p>
-
-</div>
-
-<div
-id="productosStreaming"
-class="productos">
-</div>
-
-</section>
-
-<!-- =====================================================
      RESULTADOS DE BÚSQUEDA
      ===================================================== -->
 
 <section
 id="resultadosBusqueda"
-style="display:none">
+style="
+display:none;
+max-width:1200px;
+margin:auto;
+padding:10px 15px 50px">
 
 <h2
 style="color:#42b4ff;text-align:center;margin:20px 0">
@@ -1635,7 +1728,7 @@ onkeydown="if(event.key==='Enter')enviarAsistente()">
 </div>
 
 <!-- =====================================================
-     BOTÓN FLOTANTE MOVIBLE
+     BOTÓN FLOTANTE DEL ASISTENTE
      ===================================================== -->
 
 <button
@@ -1698,6 +1791,176 @@ onclick="enviarPedidoWhatsApp()">
 </div>
 
 </aside>
+
+<!-- =====================================================
+     MODAL FAVORITOS
+     ===================================================== -->
+
+<div
+id="modalFavoritos"
+class="modal oculto">
+
+<div
+class="modal-box"
+style="max-width:650px">
+
+<div class="modal-head">
+
+<h2>❤️ Mis favoritos</h2>
+
+<button
+class="cerrar-modal"
+onclick="cerrarModal('modalFavoritos')">
+×
+</button>
+
+</div>
+
+<div id="listaFavoritos">
+
+<p
+style="
+text-align:center;
+color:#8fb0c8;
+padding:25px">
+Aún no tienes productos favoritos.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     MODAL RASTREAR PEDIDO
+     ===================================================== -->
+
+<div
+id="modalRastreo"
+class="modal oculto">
+
+<div
+class="modal-box"
+style="max-width:500px">
+
+<div class="modal-head">
+
+<h2>📦 Rastrear pedido</h2>
+
+<button
+class="cerrar-modal"
+onclick="cerrarModal('modalRastreo')">
+×
+</button>
+
+</div>
+
+<p
+style="
+color:#8fb0c8;
+font-size:13px;
+line-height:1.5;
+margin-bottom:15px">
+
+Ingresa el número o código de tu pedido
+para solicitar información sobre su estado.
+
+</p>
+
+<div class="campo">
+
+<label>
+Número de pedido
+</label>
+
+<input
+id="numeroPedidoRastreo"
+placeholder="Ej: 12345">
+
+</div>
+
+<div class="acciones">
+
+<button
+class="btn-principal"
+onclick="rastrearPedido()">
+
+📦 Consultar pedido
+
+</button>
+
+</div>
+
+<div
+id="resultadoRastreo"
+style="
+margin-top:15px;
+color:#bfe5ff;
+font-size:13px;
+line-height:1.5">
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     MODAL AYUDA
+     ===================================================== -->
+
+<div
+id="modalAyuda"
+class="modal oculto">
+
+<div
+class="modal-box"
+style="max-width:500px">
+
+<div class="modal-head">
+
+<h2>❓ ¿Necesitas ayuda?</h2>
+
+<button
+class="cerrar-modal"
+onclick="cerrarModal('modalAyuda')">
+×
+</button>
+
+</div>
+
+<p
+style="
+color:#c7dceb;
+line-height:1.6;
+font-size:14px">
+
+Estamos para ayudarte 💙.
+
+<br><br>
+
+Si tienes dudas sobre productos,
+tallas, precios, pagos, domicilios,
+pedidos o cualquier otra cosa,
+puedes escribirnos directamente por WhatsApp.
+
+</p>
+
+<div class="acciones">
+
+<button
+class="btn-principal"
+onclick="abrirWhatsAppAyuda()">
+
+📲 Hablar por WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 <!-- =====================================================
      AUDIO
@@ -2066,7 +2329,8 @@ id="listaAdminProductos">
 
 import {
 initializeApp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
@@ -2074,7 +2338,8 @@ getAuth,
 signInWithEmailAndPassword,
 signOut,
 onAuthStateChanged
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
@@ -2086,7 +2351,8 @@ updateDoc,
 deleteDoc,
 doc,
 serverTimestamp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
@@ -2095,7 +2361,8 @@ ref,
 uploadBytes,
 getDownloadURL,
 deleteObject
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
@@ -2139,6 +2406,11 @@ let productos=[];
 let carrito=
 JSON.parse(
 localStorage.getItem("andrexCarrito")||"[]"
+);
+
+let favoritos=
+JSON.parse(
+localStorage.getItem("andrexFavoritos")||"[]"
 );
 
 let usuarioAdmin=null;
@@ -2301,6 +2573,11 @@ p.descripcion||
 p.description||
 "";
 
+const esFavorito=
+favoritos.some(
+f=>String(f.id)===String(p.id)
+);
+
 const card=
 document.createElement("article");
 
@@ -2308,7 +2585,8 @@ card.className="producto";
 
 card.innerHTML=`
 
-${imagen
+${
+imagen
 ?`
 <img
 src="${esc(imagen)}"
@@ -2333,9 +2611,34 @@ font-size:50px">
 
 <div class="producto-contenido">
 
-<h3>
+<div
+style="
+display:flex;
+align-items:flex-start;
+justify-content:space-between;
+gap:8px">
+
+<h3 style="flex:1">
 ${esc(nombre)}
 </h3>
+
+<button
+class="boton-favorito"
+style="
+border:1px solid #174b7d;
+background:#091827;
+color:${esFavorito?"#ff5b8d":"#8fb0c8"};
+border-radius:10px;
+padding:6px 8px;
+cursor:pointer;
+font-size:16px"
+title="Favorito">
+
+${esFavorito?"❤️":"♡"}
+
+</button>
+
+</div>
 
 ${desc
 ?`
@@ -2368,6 +2671,10 @@ precio>0
 card
 .querySelector(".boton-agregar")
 .onclick=()=>agregarAlCarrito(p);
+
+card
+.querySelector(".boton-favorito")
+.onclick=()=>toggleFavorito(p);
 
 return card;
 
@@ -2466,13 +2773,16 @@ actualizarCarrito();
 
 /* =====================================================
    NAVEGACIÓN
+   AHORA LAS CATEGORÍAS SE ABREN EN EL MISMO LUGAR
    ===================================================== */
 
 window.entrarCategoria=c=>{
 
-$("paginaPrincipal").style.display="none";
-
 $("resultadosBusqueda").style.display="none";
+
+$("contenedorCategoriasInline")
+.classList
+.add("abierto");
 
 [
 "Ropa",
@@ -2482,16 +2792,45 @@ $("resultadosBusqueda").style.display="none";
 ]
 .forEach(x=>{
 
-$("vista"+x).style.display="none";
+$("vista"+x)
+.classList
+.remove("activa");
 
 });
 
-$("vista"+
+const nombre=
 c.charAt(0).toUpperCase()+
-c.slice(1)
-).style.display="block";
+c.slice(1);
 
-scrollTo(0,0);
+$("vista"+nombre)
+.classList
+.add("activa");
+
+/*
+   Ocultamos las tarjetas de categorías,
+   pero NO toda la página.
+   Por eso el contenido aparece exactamente
+   dentro de esa zona.
+*/
+
+$("paginaPrincipal")
+.querySelector(".categorias")
+.style.display="none";
+
+/*
+   También ocultamos la información inferior
+   mientras se está navegando por una categoría.
+*/
+
+$("paginaPrincipal")
+.querySelector(".informacion")
+.style.display="none";
+
+$("contenedorCategoriasInline")
+scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
 };
 
@@ -2506,15 +2845,30 @@ window.volverInicio=()=>{
 ]
 .forEach(x=>{
 
-$("vista"+x).style.display="none";
+$("vista"+x)
+.classList
+.remove("activa");
 
 });
 
+$("contenedorCategoriasInline")
+.classList
+.remove("abierto");
+
+$("paginaPrincipal")
+.querySelector(".categorias")
+.style.display="grid";
+
+$("paginaPrincipal")
+.querySelector(".informacion")
+.style.display="grid";
+
 $("resultadosBusqueda").style.display="none";
 
-$("paginaPrincipal").style.display="block";
-
-scrollTo(0,0);
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 };
 
@@ -2545,18 +2899,6 @@ return;
 }
 
 $("paginaPrincipal").style.display="none";
-
-[
-"Ropa",
-"Zapatos",
-"Lociones",
-"Streaming"
-]
-.forEach(x=>{
-
-$("vista"+x).style.display="none";
-
-});
 
 $("resultadosBusqueda").style.display="block";
 
@@ -2612,6 +2954,8 @@ window.limpiarBusqueda=()=>{
 $("buscador").value="";
 
 $("botonLimpiar").style.display="none";
+
+$("paginaPrincipal").style.display="block";
 
 volverInicio();
 
@@ -2832,6 +3176,240 @@ m+=
 
 window.open(
 "https://wa.me/573181579324?text="+m,
+"_blank"
+);
+
+};
+
+
+/* =====================================================
+   FAVORITOS
+   ===================================================== */
+
+function guardarFavoritos(){
+
+localStorage.setItem(
+"andrexFavoritos",
+JSON.stringify(favoritos)
+);
+
+}
+
+
+window.toggleFavorito=p=>{
+
+const existe=
+favoritos.findIndex(
+f=>String(f.id)===String(p.id)
+);
+
+if(existe>=0){
+
+favoritos.splice(existe,1);
+
+}else{
+
+favoritos.push(p);
+
+}
+
+guardarFavoritos();
+
+renderizarTodos();
+
+if(
+$("modalFavoritos") &&
+!$("modalFavoritos")
+.classList
+.contains("oculto")
+){
+
+mostrarFavoritos();
+
+}
+
+};
+
+
+function mostrarFavoritos(){
+
+const out=
+$("listaFavoritos");
+
+out.innerHTML="";
+
+if(!favoritos.length){
+
+out.innerHTML=`
+
+<p
+style="
+text-align:center;
+color:#8fb0c8;
+padding:25px">
+
+❤️ Aún no tienes productos favoritos.
+
+</p>
+
+`;
+
+return;
+
+}
+
+favoritos.forEach(p=>{
+
+const div=
+document.createElement("div");
+
+div.className="admin-producto";
+
+div.innerHTML=`
+
+${
+p.imagen
+?`
+<img
+src="${esc(p.imagen)}"
+alt="">
+`
+:""
+}
+
+<div class="admin-info">
+
+<strong>
+${esc(p.nombre||"Producto")}
+</strong>
+
+<small>
+${precioTexto(p)}
+</small>
+
+</div>
+
+<div class="acciones">
+
+<button
+class="btn-principal">
+
+🛒
+
+</button>
+
+<button
+class="btn-peligro">
+
+✕
+</button>
+
+</div>
+
+`;
+
+div
+.querySelector(".btn-principal")
+.onclick=()=>agregarAlCarrito(p);
+
+div
+.querySelector(".btn-peligro")
+.onclick=()=>{
+
+toggleFavorito(p);
+
+};
+
+out.appendChild(div);
+
+});
+
+}
+
+
+window.abrirFavoritos=()=>{
+
+mostrarFavoritos();
+
+abrirModal("modalFavoritos");
+
+};
+
+
+/* =====================================================
+   RASTREAR PEDIDO
+   ===================================================== */
+
+window.abrirRastreo=()=>{
+
+$("numeroPedidoRastreo").value="";
+
+$("resultadoRastreo").innerHTML="";
+
+abrirModal("modalRastreo");
+
+};
+
+
+window.rastrearPedido=()=>{
+
+const numero=
+$("numeroPedidoRastreo")
+.value
+.trim();
+
+if(!numero){
+
+$("resultadoRastreo").innerHTML=
+"⚠️ Escribe primero el número de tu pedido.";
+
+return;
+
+}
+
+$("resultadoRastreo").innerHTML=`
+
+📦 Pedido <strong>${esc(numero)}</strong>.
+
+<br><br>
+
+Para consultar el estado actualizado de tu pedido,
+comunícate directamente con nosotros por WhatsApp.
+
+<br><br>
+
+<button
+class="btn-principal"
+onclick="abrirWhatsAppAyuda()">
+
+📲 Consultar por WhatsApp
+
+</button>
+
+`;
+
+};
+
+
+/* =====================================================
+   AYUDA
+   ===================================================== */
+
+window.abrirAyuda=()=>{
+
+abrirModal("modalAyuda");
+
+};
+
+
+window.abrirWhatsAppAyuda=()=>{
+
+const mensaje=
+"Hola, necesito ayuda con mi pedido/producto en ANDREX Store.";
+
+window.open(
+"https://wa.me/573181579324?text="+
+encodeURIComponent(mensaje),
 "_blank"
 );
 
